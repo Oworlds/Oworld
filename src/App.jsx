@@ -1568,12 +1568,12 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, darkMode,
         </button>
       </div>
 
-        {/* Lab values panel — in-flow split view, not an overlay, so the question stays visible */}
-        {labOpen && (
-          <div style={{
-            width: 400, flexShrink: 0, background: T.card, borderLeft: `1px solid ${T.border}`,
-            padding: 18, overflowY: "auto",
-          }}>
+      {/* Lab values panel */}
+      {labOpen && (
+        <div style={{
+          position: "fixed", right: 0, top: 0, bottom: 0, width: 400, background: T.card, borderLeft: `1px solid ${T.border}`,
+          padding: 18, overflowY: "auto", zIndex: 55, boxShadow: "-6px 0 24px rgba(0,0,0,0.25)",
+        }}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 12 }}>
             <span style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: 14, color: T.ink }}>Lab Values</span>
             <button onClick={() => setLabOpen(false)} style={{ background: "transparent", border: "none", cursor: "pointer", color: T.muted }}>
