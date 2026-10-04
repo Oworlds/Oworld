@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useMemo } from "react";
+import React, { useState, useEffect, useRef, useMemo, createContext, useContext } from "react";
 import {
   Flag, Clock, ChevronLeft, ChevronRight, Upload, Copy, RotateCcw,
   Play, CheckCircle2, XCircle, AlertTriangle, ClipboardList, Activity,
@@ -218,6 +218,221 @@ const LAB_DATA = {
 const LAB_TABS = ["Serum", "Cerebrospinal", "Blood", "Urine and BMI"];
 
 // ---------------------------------------------------------------------------
+// Internationalization (English default / Spanish)
+// ---------------------------------------------------------------------------
+const STR = {
+  en: {
+    settings: "Settings", dark: "Dark mode", lang: "Language",
+    title: "Timed exam, built from your own vignettes.",
+    intro: "Import a block of questions generated in NotebookLM or Gemini as JSON, then take it in an interface modeled on the real NBME/USMLE testing software — item navigator, lab values, notes, calculator, and a full performance breakdown when you're done.",
+    pasteJson: "Paste or upload exam JSON", upload: "Upload file",
+    pastePh: "Paste the JSON block Gemini generated here…",
+    load: "Load exam", demo: "Try a 3-question demo", hide: "Hide", recipe: "Question Recipe",
+    recipeIntro: "Configure a block below, then copy the generated recipe into Gemini (or drop it into NotebookLM alongside your source material). It returns questions in the exact shape this app expects.",
+    blockSize: "Block size", focus: "Focus",
+    "focus.standard": "Standard USMLE mix", "focus.systems": "Single organ system", "focus.discipline": "Single discipline",
+    phSystems: "e.g. Cardiovascular, Renal, Neuro…", phDisc: "e.g. Pharmacology, Biochemistry, Microbiology…",
+    recipeTitle: "Question Recipe — Gemini / NotebookLM prompt", copied: "Copied", copy: "Copy", schema: "JSON schema",
+    createdBy: "OWORLD is created by", role: "Medical student | Founder of Verde+",
+    notAffil: "Not affiliated with NBME or USMLE®", tmTitle: "Trademark disclaimer",
+    tm1: "OWORLD is an independent, unofficial study tool for running practice question blocks you generate yourself with third-party AI tools. It is not produced, endorsed, licensed, or affiliated with the National Board of Medical Examiners (NBME) or the Federation of State Medical Boards (FSMB).",
+    tm2: "USMLE® is a registered trademark of the NBME and FSMB. Any resemblance to their exam interface or terminology is used for descriptive and educational purposes only.",
+    close: "Close",
+    practiceExam: "Practice Exam", fullSummary: "Full exam summary", importNew: "Import new exam",
+    notice: "Answer choices were shuffled on import because the correct answers were heavily concentrated on one letter.",
+    notStarted: "Not started", inProgress: "In progress · {a}/{n} answered", qCount: "{n} questions",
+    minLimit: "{m} min limit", untimed: "Untimed", timed: "Timed", review: "Review",
+    retestMissed: "Retest missed ({n})", retestAll: "Retest entire block ({n})",
+    resume: "Resume block", start: "Start block",
+    timingNote: "Timing starts the moment you click \"Start block\" — the countdown runs even if you navigate away.",
+    item: "Item: {n} of {total}", blockOf: "Block: 1 of 1",
+    retestMode: "Retest Mode: {type} ({n} {items})", "rt.missed": "Missed Questions", "rt.full": "Full Block",
+    item1: "Item", itemN: "Items", prev: "Previous", next: "Next",
+    labValues: "Lab Values", notes: "Notes", calc: "Calculator",
+    timedBlock: "Timed block", hints: "Hints", shortcuts: "Keyboard shortcuts",
+    "sc.next": "Next question", "sc.prev": "Previous question", "sc.mark": "Mark question",
+    "sc.select": "Select answer", "sc.hl": "Highlight selection",
+    qStatus: "Question Status", mark: "Mark Question", hideHint: "Hide Hint", showHint: "Show Hint",
+    hlTip: "Select text, then click Highlight — or press Alt+H (Option+H on Mac).",
+    noHint: "No hint was provided for this question.", strike: "Strike out this option",
+    proceedNext: "Proceed to Next Item", proceedSummary: "Proceed to Block Summary",
+    timeLeft: "Block Time Remaining", untimedLower: "untimed",
+    answered: "Answered: {a}/{n}", flagged: " · Flagged: {f}", lock: "Lock", endBlock: "End Block",
+    notesItem: "Notes — Item {n}", delNote: "Delete note", saveClose: "Save and close", highlight: "Highlight",
+    paused: "Exam paused — timer is stopped.", endQ: "End this block?",
+    endConfirm: "You've answered {a} of {n} questions. Once you end the block you can't change your answers, but you can review explanations right away.",
+    keepWorking: "Keep working", endBlockBtn: "End block", timesUp: "Time's up",
+    timesUpBody: "The allotted time for this block has lapsed. You answered {a} of {n} questions. The block will now be submitted automatically and you can review your results.",
+    viewResults: "View results",
+    siIntervals: "SI Reference Intervals", siHdr: "SI Reference Interval", refRange: "Reference Range",
+    search: "Search…", noMatches: "No matches in {tab}.",
+    "tab.Serum": "Serum", "tab.Cerebrospinal": "Cerebrospinal", "tab.Blood": "Blood", "tab.Urine and BMI": "Urine and BMI",
+    back: "Back to blocks", results: "{name} — results",
+    scoreLine: "{c} correct out of {t} · {u} unanswered",
+    rtMissed: "Retest Missed Questions ({n})", perfect: "Retest Missed Questions — perfect score!",
+    rtAll: "Retest Entire Block ({n})", loadNew: "Load New Exam",
+    perfSubject: "Performance by subject", qReview: "Question review",
+    correct: "Correct", yours: "Your answer", explanation: "Explanation", eduObj: "Educational Objective",
+    sources: "Source References", page: "p.", general: "General", score: "Score",
+    fullSummaryTitle: "{name} — full summary",
+    across: "{c} correct across {q} questions in {b} {blocks}", block1: "block", blockN: "blocks",
+    perfAll: "Performance by subject (all blocks)", focusAreas: "Focus areas",
+    lowest: "Lowest scoring: {list}. Consider generating a fresh Gemini block focused on these systems.",
+    sufMissed: "Retest Missed", sufAll: "Retest All",
+    "err.json": "That isn't valid JSON. Check for trailing commas or missing quotes.",
+    "err.root": "Root must be a JSON object.",
+    "err.blocks": "Missing a non-empty \"blocks\" array.",
+    "err.blockName": "Block {n} is missing \"blockName\".",
+    "err.timeLimit": "Block \"{name}\" has a \"timeLimitMinutes\" that isn't a number. Omit it entirely for an untimed block.",
+    "err.questions": "Block \"{name}\" needs a non-empty \"questions\" array.",
+    "err.qId": "Question {n} in \"{name}\" is missing \"id\".",
+    "err.vignette": "Question \"{id}\" is missing \"vignette\".",
+    "err.stem": "Question \"{id}\" is missing \"stem\".",
+    "err.options": "Question \"{id}\" needs an \"options\" array with at least 2 choices.",
+    "err.correct": "Question \"{id}\" is missing \"correctAnswer\".",
+    "err.match": "Question \"{id}\": correctAnswer \"{ans}\" doesn't match any option key.",
+  },
+  es: {
+    settings: "Ajustes", dark: "Modo oscuro", lang: "Idioma",
+    title: "Examen cronometrado, creado con tus propias viñetas.",
+    intro: "Importa un bloque de preguntas generado en NotebookLM o Gemini como JSON y resuélvelo en una interfaz inspirada en el software real de NBME/USMLE: navegador de ítems, valores de laboratorio, notas, calculadora y un desglose completo de tu desempeño al terminar.",
+    pasteJson: "Pega o sube el JSON del examen", upload: "Subir archivo",
+    pastePh: "Pega aquí el bloque JSON que generó Gemini…",
+    load: "Cargar examen", demo: "Probar una demo de 3 preguntas", hide: "Ocultar", recipe: "Receta de preguntas",
+    recipeIntro: "Configura un bloque abajo y luego copia la receta generada en Gemini (o súbela a NotebookLM junto con tu material de estudio). Devuelve las preguntas en el formato exacto que esta app espera.",
+    blockSize: "Tamaño del bloque", focus: "Enfoque",
+    "focus.standard": "Mezcla USMLE estándar", "focus.systems": "Un solo sistema", "focus.discipline": "Una sola disciplina",
+    phSystems: "p. ej. Cardiovascular, Renal, Neuro…", phDisc: "p. ej. Farmacología, Bioquímica, Microbiología…",
+    recipeTitle: "Receta de preguntas — prompt para Gemini / NotebookLM", copied: "Copiado", copy: "Copiar", schema: "Esquema JSON",
+    createdBy: "OWORLD fue creado por", role: "Estudiante de medicina | Fundador de Verde+",
+    notAffil: "Sin afiliación con NBME ni USMLE®", tmTitle: "Aviso de marcas registradas",
+    tm1: "OWORLD es una herramienta de estudio independiente y no oficial para resolver bloques de preguntas de práctica que tú mismo generas con herramientas de IA de terceros. No es producida, respaldada, licenciada ni afiliada al National Board of Medical Examiners (NBME) ni a la Federation of State Medical Boards (FSMB).",
+    tm2: "USMLE® es una marca registrada de la NBME y la FSMB. Cualquier parecido con su interfaz o terminología de examen se usa únicamente con fines descriptivos y educativos.",
+    close: "Cerrar",
+    practiceExam: "Examen de práctica", fullSummary: "Resumen completo del examen", importNew: "Importar nuevo examen",
+    notice: "Se mezclaron las opciones al importar porque las respuestas correctas estaban muy concentradas en una sola letra.",
+    notStarted: "Sin iniciar", inProgress: "En curso · {a}/{n} respondidas", qCount: "{n} preguntas",
+    minLimit: "límite de {m} min", untimed: "Sin límite de tiempo", timed: "Cronometrado", review: "Revisar",
+    retestMissed: "Repetir falladas ({n})", retestAll: "Repetir bloque completo ({n})",
+    resume: "Reanudar bloque", start: "Iniciar bloque",
+    timingNote: "El tiempo empieza en cuanto haces clic en \"Iniciar bloque\"; la cuenta regresiva continúa aunque cambies de pantalla.",
+    item: "Ítem: {n} de {total}", blockOf: "Bloque: 1 de 1",
+    retestMode: "Modo repaso: {type} ({n} {items})", "rt.missed": "Preguntas falladas", "rt.full": "Bloque completo",
+    item1: "ítem", itemN: "ítems", prev: "Anterior", next: "Siguiente",
+    labValues: "Valores de laboratorio", notes: "Notas", calc: "Calculadora",
+    timedBlock: "Bloque cronometrado", hints: "Pistas", shortcuts: "Atajos de teclado",
+    "sc.next": "Siguiente pregunta", "sc.prev": "Pregunta anterior", "sc.mark": "Marcar pregunta",
+    "sc.select": "Seleccionar respuesta", "sc.hl": "Resaltar selección",
+    qStatus: "Estado de preguntas", mark: "Marcar pregunta", hideHint: "Ocultar pista", showHint: "Mostrar pista",
+    hlTip: "Selecciona texto y haz clic en Resaltar, o presiona Alt+H (Option+H en Mac).",
+    noHint: "No se proporcionó una pista para esta pregunta.", strike: "Tachar esta opción",
+    proceedNext: "Pasar al siguiente ítem", proceedSummary: "Pasar al resumen del bloque",
+    timeLeft: "Tiempo restante del bloque", untimedLower: "sin límite",
+    answered: "Respondidas: {a}/{n}", flagged: " · Marcadas: {f}", lock: "Bloquear", endBlock: "Terminar bloque",
+    notesItem: "Notas — Ítem {n}", delNote: "Borrar nota", saveClose: "Guardar y cerrar", highlight: "Resaltar",
+    paused: "Examen en pausa: el cronómetro está detenido.", endQ: "¿Terminar este bloque?",
+    endConfirm: "Has respondido {a} de {n} preguntas. Una vez que termines el bloque no podrás cambiar tus respuestas, pero podrás revisar las explicaciones de inmediato.",
+    keepWorking: "Seguir trabajando", endBlockBtn: "Terminar bloque", timesUp: "Se acabó el tiempo",
+    timesUpBody: "El tiempo asignado para este bloque ha terminado. Respondiste {a} de {n} preguntas. El bloque se enviará automáticamente y podrás revisar tus resultados.",
+    viewResults: "Ver resultados",
+    siIntervals: "Intervalos de referencia SI", siHdr: "Intervalo de referencia SI", refRange: "Rango de referencia",
+    search: "Buscar…", noMatches: "Sin coincidencias en {tab}.",
+    "tab.Serum": "Suero", "tab.Cerebrospinal": "Líquido cefalorraquídeo", "tab.Blood": "Sangre", "tab.Urine and BMI": "Orina e IMC",
+    back: "Volver a los bloques", results: "{name} — resultados",
+    scoreLine: "{c} correctas de {t} · {u} sin responder",
+    rtMissed: "Repetir preguntas falladas ({n})", perfect: "Repetir preguntas falladas — ¡puntaje perfecto!",
+    rtAll: "Repetir bloque completo ({n})", loadNew: "Cargar nuevo examen",
+    perfSubject: "Desempeño por materia", qReview: "Revisión de preguntas",
+    correct: "Correcta", yours: "Tu respuesta", explanation: "Explicación", eduObj: "Objetivo educativo",
+    sources: "Referencias", page: "p.", general: "General", score: "Puntaje",
+    fullSummaryTitle: "{name} — resumen completo",
+    across: "{c} correctas de {q} preguntas en {b} {blocks}", block1: "bloque", blockN: "bloques",
+    perfAll: "Desempeño por materia (todos los bloques)", focusAreas: "Áreas de enfoque",
+    lowest: "Menor puntaje: {list}. Considera generar un nuevo bloque en Gemini enfocado en estos sistemas.",
+    sufMissed: "Repetir falladas", sufAll: "Repetir todo",
+    "err.json": "Ese JSON no es válido. Revisa si hay comas finales o comillas faltantes.",
+    "err.root": "La raíz debe ser un objeto JSON.",
+    "err.blocks": "Falta un arreglo \"blocks\" que no esté vacío.",
+    "err.blockName": "Al bloque {n} le falta \"blockName\".",
+    "err.timeLimit": "El bloque \"{name}\" tiene un \"timeLimitMinutes\" que no es un número. Omítelo por completo para un bloque sin límite de tiempo.",
+    "err.questions": "El bloque \"{name}\" necesita un arreglo \"questions\" que no esté vacío.",
+    "err.qId": "A la pregunta {n} de \"{name}\" le falta \"id\".",
+    "err.vignette": "A la pregunta \"{id}\" le falta \"vignette\".",
+    "err.stem": "A la pregunta \"{id}\" le falta \"stem\".",
+    "err.options": "La pregunta \"{id}\" necesita un arreglo \"options\" con al menos 2 opciones.",
+    "err.correct": "A la pregunta \"{id}\" le falta \"correctAnswer\".",
+    "err.match": "Pregunta \"{id}\": correctAnswer \"{ans}\" no coincide con ninguna clave de opción.",
+  },
+};
+
+const LangContext = createContext({ lang: "en", setLang: () => {} });
+
+function useI18n() {
+  const { lang, setLang } = useContext(LangContext);
+  const t = (key, vars) => {
+    let s = STR[lang]?.[key] ?? STR.en[key] ?? key;
+    if (vars) for (const k in vars) s = s.split(`{${k}}`).join(String(vars[k]));
+    return s;
+  };
+  return { t, lang, setLang };
+}
+
+// Retest blocks store only the base name; the suffix is localized at display time.
+function blockLabel(block, t) {
+  if (!block.isRetest) return block.blockName;
+  return `${baseBlockName(block.blockName)} — ${t(block.retestType === "missed" ? "sufMissed" : "sufAll")}`;
+}
+
+// Lab-table section headers and unit words (test names keep their standard English/abbreviated form).
+const LAB_HDR_ES = {
+  "General Chemistry — Electrolytes": "Química general — Electrolitos", "Hepatic": "Hepático",
+  "Other, serum": "Otros, suero", "Lipids": "Lípidos", "Iron Studies": "Estudios de hierro",
+  "Endocrine": "Endocrino", "Immunoglobulins": "Inmunoglobulinas",
+  "Gases, Arterial (Room Air)": "Gases arteriales (aire ambiente)", "Complete Blood Count": "Hemograma completo",
+  "Coagulation": "Coagulación", "Other, Hematologic": "Otros, hematológicos",
+};
+function labVal(s, lang) {
+  if (lang !== "es" || typeof s !== "string") return s;
+  return s.replace(/seconds/g, "segundos").replace(/million\//g, "millones/").replace("total proteins", "proteínas totales")
+    .replace("of dose", "de la dosis").replace("fraction", "fracción").replace(" of 0800 h", " de 0800 h");
+}
+
+// Front-page language switch (always visible on the import screen)
+function LangToggle({ T }) {
+  const { lang, setLang } = useI18n();
+  return (
+    <div role="group" aria-label="Language" style={{ display: "inline-flex", border: `1px solid ${T.border}`, borderRadius: 6, overflow: "hidden", flexShrink: 0 }}>
+      {["en", "es"].map((l) => (
+        <button key={l} onClick={() => setLang(l)} aria-pressed={lang === l} style={{
+          fontFamily: FONT_UI, fontWeight: 700, fontSize: 12.5, padding: "9px 12px", border: "none", cursor: "pointer",
+          background: lang === l ? T.blue : "transparent", color: lang === l ? T.onBlue : T.ink,
+        }}>{l.toUpperCase()}</button>
+      ))}
+    </div>
+  );
+}
+
+// Language picker used inside the Settings menus
+function LangSelect({ T }) {
+  const { t, lang, setLang } = useI18n();
+  return (
+    <div style={{ margin: "10px 0 12px" }}>
+      <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: 11, color: T.muted, textTransform: "uppercase", letterSpacing: "0.04em", marginBottom: 6 }}>
+        {t("lang")}
+      </div>
+      <select value={lang} onChange={(e) => setLang(e.target.value)} style={{
+        width: "100%", fontFamily: FONT_UI, fontSize: 13, padding: "6px 8px", borderRadius: 6,
+        border: `1px solid ${T.border}`, background: T.paper, color: T.ink,
+      }}>
+        <option value="en">English</option>
+        <option value="es">Español</option>
+      </select>
+    </div>
+  );
+}
+
+
+// ---------------------------------------------------------------------------
 // Sample schema + demo data + Gemini prompt template
 // ---------------------------------------------------------------------------
 const SCHEMA_TEXT = `{
@@ -369,7 +584,8 @@ const BLOCK_SIZES = [5, 15, 25, 40];
 // prompt as short as possible while still fully specifying the shape.
 const PROMPT_SCHEMA_TEXT = `{"examTitle":"string","blocks":[{"blockName":"string","timeLimitMinutes":number,"questions":[{"id":"unique string","subject":"organ system/discipline","vignette":"string","stem":"string","options":[{"key":"A","text":"string"}],"correctAnswer":"matching key","explanation":"string","distractorAnalysis":{"key":"string"},"hint":"string (optional)","educationalObjective":"string","sourceReferences":[{"sourceTitle":"string","chapterSection":"string","pageNumber":"string (optional)","relevance":"string"}]}]}]}`;
 
-function buildQuestionRecipe({ size, focusMode, focusValue }) {
+function buildQuestionRecipe({ size, focusMode, focusValue, lang }) {
+  if (lang === "es") return buildQuestionRecipeEs({ size, focusMode, focusValue });
   const blockName =
     focusMode === "systems" && focusValue ? `${focusValue} System Block`
     : focusMode === "discipline" && focusValue ? `${focusValue} Block`
@@ -400,42 +616,55 @@ Focus: ${focusLine}`;
 // ---------------------------------------------------------------------------
 // Helpers
 // ---------------------------------------------------------------------------
-function validateExamData(raw) {
+function validateExamData(raw, t) {
+  const bad = (k, v) => ({ valid: false, error: t(k, v) });
   let data;
   try {
     data = typeof raw === "string" ? JSON.parse(raw) : raw;
   } catch (e) {
-    return { valid: false, error: "That isn't valid JSON. Check for trailing commas or missing quotes." };
+    return bad("err.json");
   }
-  if (!data || typeof data !== "object") return { valid: false, error: "Root must be a JSON object." };
-  if (!Array.isArray(data.blocks) || data.blocks.length === 0) {
-    return { valid: false, error: 'Missing a non-empty "blocks" array.' };
-  }
+  if (!data || typeof data !== "object") return bad("err.root");
+  if (!Array.isArray(data.blocks) || data.blocks.length === 0) return bad("err.blocks");
   for (let bi = 0; bi < data.blocks.length; bi++) {
     const b = data.blocks[bi];
-    if (!b.blockName) return { valid: false, error: `Block ${bi + 1} is missing "blockName".` };
-    if (b.timeLimitMinutes != null && typeof b.timeLimitMinutes !== "number") {
-      return { valid: false, error: `Block "${b.blockName || bi + 1}" has a "timeLimitMinutes" that isn't a number. Omit it entirely for an untimed block.` };
-    }
-    if (!Array.isArray(b.questions) || b.questions.length === 0) {
-      return { valid: false, error: `Block "${b.blockName}" needs a non-empty "questions" array.` };
-    }
+    if (!b.blockName) return bad("err.blockName", { n: bi + 1 });
+    if (b.timeLimitMinutes != null && typeof b.timeLimitMinutes !== "number") return bad("err.timeLimit", { name: b.blockName || bi + 1 });
+    if (!Array.isArray(b.questions) || b.questions.length === 0) return bad("err.questions", { name: b.blockName });
     for (let qi = 0; qi < b.questions.length; qi++) {
       const q = b.questions[qi];
-      if (!q.id) return { valid: false, error: `Question ${qi + 1} in "${b.blockName}" is missing "id".` };
-      if (!q.vignette) return { valid: false, error: `Question "${q.id}" is missing "vignette".` };
-      if (!q.stem) return { valid: false, error: `Question "${q.id}" is missing "stem".` };
-      if (!Array.isArray(q.options) || q.options.length < 2) {
-        return { valid: false, error: `Question "${q.id}" needs an "options" array with at least 2 choices.` };
-      }
-      if (!q.correctAnswer) return { valid: false, error: `Question "${q.id}" is missing "correctAnswer".` };
+      if (!q.id) return bad("err.qId", { n: qi + 1, name: b.blockName });
+      if (!q.vignette) return bad("err.vignette", { id: q.id });
+      if (!q.stem) return bad("err.stem", { id: q.id });
+      if (!Array.isArray(q.options) || q.options.length < 2) return bad("err.options", { id: q.id });
+      if (!q.correctAnswer) return bad("err.correct", { id: q.id });
       const keys = q.options.map((o) => o.key);
-      if (!keys.includes(q.correctAnswer)) {
-        return { valid: false, error: `Question "${q.id}": correctAnswer "${q.correctAnswer}" doesn't match any option key.` };
-      }
+      if (!keys.includes(q.correctAnswer)) return bad("err.match", { id: q.id, ans: q.correctAnswer });
     }
   }
   return { valid: true, data };
+}
+
+function buildQuestionRecipeEs({ size, focusMode, focusValue }) {
+  const blockName =
+    focusMode === "systems" && focusValue ? `Bloque de sistema ${focusValue}`
+    : focusMode === "discipline" && focusValue ? `Bloque de ${focusValue}`
+    : "Bloque mixto";
+  const focusLine =
+    focusMode === "systems" ? `Todas las preguntas de un solo sistema — ${focusValue || "[SISTEMA]"}. Varía la disciplina evaluada (anatomía/fisiología/patología/farmacología/microbiología).`
+    : focusMode === "discipline" ? `Todas las preguntas de una sola disciplina — ${focusValue || "[DISCIPLINA]"}. Varía el sistema evaluado.`
+    : "Mezcla sistemas/disciplinas como un bloque real de USMLE: cobertura amplia, sin repetir el mismo sistema en preguntas consecutivas, con énfasis proporcional en los sistemas de alto rendimiento.";
+  return `Genera ${size} preguntas de práctica estilo USMLE como ÚNICAMENTE JSON válido (sin markdown ni comentarios), con este esquema (los nombres de los campos van en inglés, exactamente como se muestran):
+${PROMPT_SCHEMA_TEXT}
+
+Escribe TODO el contenido (viñetas, opciones, explicaciones, pistas, etc.) en español.
+Bloque: "${blockName}", timeLimitMinutes ${Math.round(size * 1.5)}.
+Viñeta de 4-8 oraciones (edad/sexo, motivo de consulta, antecedentes, examen, laboratorios/imágenes). 5 opciones (A-E), 1 correcta.
+explanation: 3-5 oraciones sobre el discriminador clave. distractorAnalysis: 1 oración por opción incorrecta, mismas claves.
+hint: 1 oración corta, sin revelar la respuesta. educationalObjective: 1-2 oraciones.
+sourceReferences: 1-3 fuentes reales (First Aid, BRS, Pathoma, etc.) — sourceTitle, chapterSection, pageNumber (omítelo si no estás seguro), relevance.
+subject: sistema/disciplina específica. Cada id único. Distribuye correctAnswer de forma uniforme entre A-E (nunca la misma letra más de dos veces seguidas).
+Enfoque: ${focusLine}`;
 }
 
 function fmtTime(totalSeconds) {
@@ -728,6 +957,7 @@ function GhostButton({ children, onClick, icon: Icon, style, disabled, T = LIGHT
 }
 
 function SettingsMenu({ darkMode, setDarkMode, T }) {
+  const { t } = useI18n();
   const [open, setOpen] = useState(false);
   return (
     <div style={{ position: "relative", flexShrink: 0 }}>
@@ -739,17 +969,18 @@ function SettingsMenu({ darkMode, setDarkMode, T }) {
           fontFamily: FONT_UI, fontWeight: 600, fontSize: 13, color: T.ink,
         }}
       >
-        <SettingsIcon size={15} /> Settings
+        <SettingsIcon size={15} /> {t("settings")}
       </button>
       {open && (
         <div style={{
           position: "absolute", top: 42, right: 0, background: T.card, border: `1px solid ${T.border}`,
-          borderRadius: 8, padding: 14, width: 170, zIndex: 70, boxShadow: "0 8px 24px rgba(0,0,0,0.3)",
+          borderRadius: 8, padding: 14, width: 190, zIndex: 70, boxShadow: "0 8px 24px rgba(0,0,0,0.3)",
         }}>
           <label style={{ display: "flex", alignItems: "center", gap: 8, fontFamily: FONT_UI, fontSize: 13, cursor: "pointer", color: T.ink }}>
             <input type="checkbox" checked={darkMode} onChange={() => setDarkMode((v) => !v)} />
-            Dark mode
+            {t("dark")}
           </label>
+          <LangSelect T={T} />
         </div>
       )}
     </div>
@@ -760,6 +991,7 @@ function SettingsMenu({ darkMode, setDarkMode, T }) {
 // Import screen
 // ---------------------------------------------------------------------------
 function ImportScreen({ onImport, T, darkMode, setDarkMode }) {
+  const { t, lang } = useI18n();
   const [text, setText] = useState("");
   const [error, setError] = useState("");
   const [showSchema, setShowSchema] = useState(false);
@@ -770,10 +1002,10 @@ function ImportScreen({ onImport, T, darkMode, setDarkMode }) {
   const [showDisclaimer, setShowDisclaimer] = useState(false);
   const fileRef = useRef(null);
 
-  const recipeText = buildQuestionRecipe({ size: recipeSize, focusMode: recipeFocusMode, focusValue: recipeFocusValue.trim() });
+  const recipeText = buildQuestionRecipe({ size: recipeSize, focusMode: recipeFocusMode, focusValue: recipeFocusValue.trim(), lang });
 
   function handleSubmit() {
-    const result = validateExamData(text);
+    const result = validateExamData(text, t);
     if (!result.valid) { setError(result.error); return; }
     setError("");
     onImport(result.data);
@@ -785,7 +1017,7 @@ function ImportScreen({ onImport, T, darkMode, setDarkMode }) {
     const reader = new FileReader();
     reader.onload = (ev) => {
       setText(ev.target.result);
-      const result = validateExamData(ev.target.result);
+      const result = validateExamData(ev.target.result, t);
       setError(result.valid ? "" : result.error);
     };
     reader.readAsText(file);
@@ -802,7 +1034,8 @@ function ImportScreen({ onImport, T, darkMode, setDarkMode }) {
     <div style={{ maxWidth: 880, margin: "0 auto", padding: "48px 20px 80px", position: "relative" }}>
       <style>{`@import url('${FONT_IMPORT_URL}');`}</style>
 
-      <div style={{ position: "absolute", top: 48, right: 20 }}>
+      <div style={{ position: "absolute", top: 48, right: 20, display: "flex", gap: 10, alignItems: "flex-start" }}>
+        <LangToggle T={T} />
         <SettingsMenu darkMode={darkMode} setDarkMode={setDarkMode} T={T} />
       </div>
 
@@ -816,12 +1049,10 @@ function ImportScreen({ onImport, T, darkMode, setDarkMode }) {
       </div>
 
       <h1 style={{ fontFamily: FONT_DISPLAY, fontSize: 38, fontWeight: 600, color: T.ink, margin: "0 0 10px" }}>
-        Timed exam, built from your own vignettes.
+        {t("title")}
       </h1>
       <p style={{ fontFamily: FONT_UI, fontSize: 15, color: T.muted, lineHeight: 1.6, maxWidth: 620, marginBottom: 32 }}>
-        Import a block of questions generated in NotebookLM or Gemini as JSON, then take it in an interface
-        modeled on the real NBME/USMLE testing software — item navigator, lab values, notes, calculator,
-        and a full performance breakdown when you're done.
+        {t("intro")}
       </p>
 
       <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, padding: 24, marginBottom: 20 }}>
@@ -829,7 +1060,7 @@ function ImportScreen({ onImport, T, darkMode, setDarkMode }) {
           <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
             <FileJson size={17} color={T.ink} />
             <span style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: 14, color: T.ink }}>
-              Paste or upload exam JSON
+              {t("pasteJson")}
             </span>
           </div>
           <button
@@ -839,7 +1070,7 @@ function ImportScreen({ onImport, T, darkMode, setDarkMode }) {
               border: "none", cursor: "pointer", display: "flex", alignItems: "center", gap: 6,
             }}
           >
-            <Upload size={14} /> Upload file
+            <Upload size={14} /> {t("upload")}
           </button>
           <input ref={fileRef} type="file" accept=".json,application/json" onChange={handleFile} style={{ display: "none" }} />
         </div>
@@ -847,7 +1078,7 @@ function ImportScreen({ onImport, T, darkMode, setDarkMode }) {
         <textarea
           value={text}
           onChange={(e) => setText(e.target.value)}
-          placeholder="Paste the JSON block Gemini generated here…"
+          placeholder={t("pastePh")}
           style={{
             width: "100%", minHeight: 220, fontFamily: FONT_MONO, fontSize: 12.5, color: T.ink,
             background: T.paper, border: `1px solid ${T.border}`, borderRadius: 8, padding: 14,
@@ -866,10 +1097,10 @@ function ImportScreen({ onImport, T, darkMode, setDarkMode }) {
         )}
 
         <div style={{ display: "flex", gap: 10, marginTop: 16, flexWrap: "wrap" }}>
-          <PrimaryButton T={T} onClick={handleSubmit} icon={Play} disabled={!text.trim()}>Load exam</PrimaryButton>
-          <GhostButton T={T} onClick={() => onImport(DEMO_EXAM)} icon={ClipboardList}>Try a 3-question demo</GhostButton>
+          <PrimaryButton T={T} onClick={handleSubmit} icon={Play} disabled={!text.trim()}>{t("load")}</PrimaryButton>
+          <GhostButton T={T} onClick={() => onImport(DEMO_EXAM)} icon={ClipboardList}>{t("demo")}</GhostButton>
           <GhostButton T={T} onClick={() => setShowSchema((s) => !s)} icon={showSchema ? ChevronUp : ChevronDown}>
-            {showSchema ? "Hide" : ""} Question Recipe
+            {showSchema ? t("hide") + " " : ""}{t("recipe")}
           </GhostButton>
         </div>
       </div>
@@ -877,14 +1108,13 @@ function ImportScreen({ onImport, T, darkMode, setDarkMode }) {
       {showSchema && (
         <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, padding: 24 }}>
           <p style={{ fontFamily: FONT_UI, fontSize: 13.5, color: T.muted, lineHeight: 1.6, marginTop: 0 }}>
-            Configure a block below, then copy the generated recipe into Gemini (or drop it into NotebookLM
-            alongside your source material). It returns questions in the exact shape this app expects.
+            {t("recipeIntro")}
           </p>
 
           <div style={{ display: "flex", flexWrap: "wrap", gap: 24, marginBottom: 18 }}>
             <div>
               <div style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: 12, color: T.ink, textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: 8 }}>
-                Block size
+                {t("blockSize")}
               </div>
               <div style={{ display: "flex", gap: 6 }}>
                 {BLOCK_SIZES.map((n) => (
@@ -906,7 +1136,7 @@ function ImportScreen({ onImport, T, darkMode, setDarkMode }) {
 
             <div>
               <div style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: 12, color: T.ink, textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: 8 }}>
-                Focus
+                {t("focus")}
               </div>
               <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
                 {FOCUS_MODES.map((m) => (
@@ -920,7 +1150,7 @@ function ImportScreen({ onImport, T, darkMode, setDarkMode }) {
                       color: recipeFocusMode === m.id ? T.blueDeep : T.ink, cursor: "pointer",
                     }}
                   >
-                    {m.label}
+                    {t("focus." + m.id)}
                   </button>
                 ))}
               </div>
@@ -931,7 +1161,7 @@ function ImportScreen({ onImport, T, darkMode, setDarkMode }) {
             <input
               value={recipeFocusValue}
               onChange={(e) => setRecipeFocusValue(e.target.value)}
-              placeholder={recipeFocusMode === "systems" ? "e.g. Cardiovascular, Renal, Neuro…" : "e.g. Pharmacology, Biochemistry, Microbiology…"}
+              placeholder={recipeFocusMode === "systems" ? t("phSystems") : t("phDisc")}
               style={{
                 width: "100%", boxSizing: "border-box", fontFamily: FONT_UI, fontSize: 13.5, color: T.ink,
                 border: `1px solid ${T.border}`, borderRadius: 6, padding: "9px 12px", marginBottom: 18,
@@ -941,7 +1171,7 @@ function ImportScreen({ onImport, T, darkMode, setDarkMode }) {
 
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 8 }}>
             <span style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: 12.5, color: T.ink, textTransform: "uppercase", letterSpacing: "0.05em" }}>
-              Question Recipe — Gemini / NotebookLM prompt
+              {t("recipeTitle")}
             </span>
             <button
               onClick={copyPrompt}
@@ -950,7 +1180,7 @@ function ImportScreen({ onImport, T, darkMode, setDarkMode }) {
                 background: "transparent", border: "none", cursor: "pointer", display: "flex", alignItems: "center", gap: 5,
               }}
             >
-              {copied ? <Check size={14} /> : <Copy size={14} />} {copied ? "Copied" : "Copy"}
+              {copied ? <Check size={14} /> : <Copy size={14} />} {copied ? t("copied") : t("copy")}
             </button>
           </div>
           <pre style={{
@@ -961,7 +1191,7 @@ function ImportScreen({ onImport, T, darkMode, setDarkMode }) {
             {recipeText}
           </pre>
           <div style={{ marginTop: 18, fontFamily: FONT_UI, fontWeight: 600, fontSize: 12.5, color: T.ink, textTransform: "uppercase", letterSpacing: "0.05em" }}>
-            JSON schema
+            {t("schema")}
           </div>
           <pre style={{
             fontFamily: FONT_MONO, fontSize: 11.5, color: T.ink, background: T.paper,
@@ -975,7 +1205,7 @@ function ImportScreen({ onImport, T, darkMode, setDarkMode }) {
 
       <div style={{ marginTop: 48, paddingTop: 20, borderTop: `1px solid ${T.border}`, textAlign: "center" }}>
         <p style={{ fontFamily: FONT_UI, fontSize: 12, color: T.muted, margin: "0 0 6px" }}>
-          OWORLD is created by <strong style={{ color: T.ink }}>Oscar Perez</strong> — Medical student | Founder of Verde+
+          {t("createdBy")} <strong style={{ color: T.ink }}>Oscar Perez</strong> — {t("role")}
         </p>
         <button
           onClick={() => setShowDisclaimer(true)}
@@ -984,7 +1214,7 @@ function ImportScreen({ onImport, T, darkMode, setDarkMode }) {
             cursor: "pointer", textDecoration: "underline", padding: 0,
           }}
         >
-          Not affiliated with NBME or USMLE®
+          {t("notAffil")}
         </button>
       </div>
 
@@ -995,20 +1225,16 @@ function ImportScreen({ onImport, T, darkMode, setDarkMode }) {
         }}>
           <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, padding: 26, maxWidth: 440 }}>
             <h3 style={{ fontFamily: FONT_UI, fontSize: 16, fontWeight: 700, color: T.ink, margin: "0 0 10px" }}>
-              Trademark disclaimer
+              {t("tmTitle")}
             </h3>
             <p style={{ fontFamily: FONT_UI, fontSize: 13.5, color: T.muted, lineHeight: 1.6, margin: "0 0 12px" }}>
-              OWORLD is an independent, unofficial study tool for running practice question blocks you
-              generate yourself with third-party AI tools. It is not produced, endorsed, licensed, or
-              affiliated with the National Board of Medical Examiners (NBME) or the Federation of State
-              Medical Boards (FSMB).
+              {t("tm1")}
             </p>
             <p style={{ fontFamily: FONT_UI, fontSize: 13.5, color: T.muted, lineHeight: 1.6, margin: "0 0 20px" }}>
-              USMLE® is a registered trademark of the NBME and FSMB. Any resemblance to their exam
-              interface or terminology is used for descriptive and educational purposes only.
+              {t("tm2")}
             </p>
             <div style={{ display: "flex", justifyContent: "flex-end" }}>
-              <PrimaryButton T={T} onClick={() => setShowDisclaimer(false)}>Close</PrimaryButton>
+              <PrimaryButton T={T} onClick={() => setShowDisclaimer(false)}>{t("close")}</PrimaryButton>
             </div>
           </div>
         </div>
@@ -1021,6 +1247,7 @@ function ImportScreen({ onImport, T, darkMode, setDarkMode }) {
 // Lobby / block select
 // ---------------------------------------------------------------------------
 function Lobby({ examData, blockStates, onStart, onReview, onReset, onFinalSummary, onToggleTimed, onRetestMissed, onRetestAll, T, darkMode, setDarkMode }) {
+  const { t } = useI18n();
   const allDone = blockStates.every((b) => b.status === "done");
   const anyDone = blockStates.some((b) => b.status === "done");
 
@@ -1036,22 +1263,22 @@ function Lobby({ examData, blockStates, onStart, onReview, onReset, onFinalSumma
             </span>
           </div>
           <h1 style={{ fontFamily: FONT_DISPLAY, fontSize: 30, fontWeight: 600, color: T.ink, margin: 0 }}>
-            {examData.examTitle || "Practice Exam"}
+            {examData.examTitle || t("practiceExam")}
           </h1>
         </div>
         <div style={{ display: "flex", gap: 10 }}>
-          {allDone && <PrimaryButton T={T} onClick={onFinalSummary} icon={ClipboardList}>Full exam summary</PrimaryButton>}
-          <GhostButton T={T} onClick={onReset} icon={RotateCcw}>Import new exam</GhostButton>
+          {allDone && <PrimaryButton T={T} onClick={onFinalSummary} icon={ClipboardList}>{t("fullSummary")}</PrimaryButton>}
+          <GhostButton T={T} onClick={onReset} icon={RotateCcw}>{t("importNew")}</GhostButton>
           <SettingsMenu darkMode={darkMode} setDarkMode={setDarkMode} T={T} />
         </div>
       </div>
 
-      {examData.notice && (
+      {(examData.notice || examData.shuffled) && (
         <div style={{
           marginBottom: 16, padding: "10px 14px", borderRadius: 6, background: T.amberLight, color: T.amber,
           border: `1px solid ${T.amber}`, fontFamily: FONT_UI, fontSize: 12.5,
         }}>
-          {examData.notice}
+          {examData.notice || t("notice")}
         </div>
       )}
 
@@ -1069,10 +1296,10 @@ function Lobby({ examData, blockStates, onStart, onReview, onReset, onFinalSumma
               <div>
                 <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 6 }}>
                   <span style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: 16, color: T.ink }}>
-                    {block.blockName}
+                    {blockLabel(block, t)}
                   </span>
-                  {bs.status === "pending" && <Pill T={T} tone="muted">Not started</Pill>}
-                  {bs.status === "in-progress" && <Pill T={T} tone="blue">In progress · {answered}/{total} answered</Pill>}
+                  {bs.status === "pending" && <Pill T={T} tone="muted">{t("notStarted")}</Pill>}
+                  {bs.status === "in-progress" && <Pill T={T} tone="blue">{t("inProgress", { a: answered, n: total })}</Pill>}
                   {bs.status === "done" && (
                     <Pill T={T} tone={bs.score.pct >= 70 ? "green" : "red"}>
                       {bs.score.correct}/{bs.score.total} · {bs.score.pct}%
@@ -1080,31 +1307,31 @@ function Lobby({ examData, blockStates, onStart, onReview, onReset, onFinalSumma
                   )}
                 </div>
                 <span style={{ fontFamily: FONT_MONO, fontSize: 12.5, color: T.muted }}>
-                  {total} questions &nbsp;·&nbsp; {bs.timed ? `${Math.round(bs.timeLeft / 60)} min limit` : "Untimed"}
+                  {t("qCount", { n: total })} &nbsp;·&nbsp; {bs.timed ? t("minLimit", { m: Math.round(bs.timeLeft / 60) }) : t("untimed")}
                 </span>
               </div>
               <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
                 {bs.status !== "done" && (
                   <label style={{ display: "flex", alignItems: "center", gap: 6, fontFamily: FONT_UI, fontSize: 12.5, color: T.muted, cursor: "pointer" }}>
                     <input type="checkbox" checked={bs.timed} onChange={() => onToggleTimed(idx)} />
-                    Timed
+                    {t("timed")}
                   </label>
                 )}
                 {bs.status === "done" ? (
                   <>
-                    <GhostButton T={T} onClick={() => onReview(idx)} icon={ChevronRight}>Review</GhostButton>
+                    <GhostButton T={T} onClick={() => onReview(idx)} icon={ChevronRight}>{t("review")}</GhostButton>
                     {bs.score.correct < bs.score.total && (
                       <GhostButton T={T} onClick={() => onRetestMissed(idx)} icon={RotateCcw}>
-                        Retest missed ({bs.score.total - bs.score.correct})
+                        {t("retestMissed", { n: bs.score.total - bs.score.correct })}
                       </GhostButton>
                     )}
                     <GhostButton T={T} onClick={() => onRetestAll(idx)} icon={RotateCcw}>
-                      Retest entire block ({total})
+                      {t("retestAll", { n: total })}
                     </GhostButton>
                   </>
                 ) : (
                   <PrimaryButton T={T} onClick={() => onStart(idx)} icon={Play}>
-                    {bs.status === "in-progress" ? "Resume block" : "Start block"}
+                    {bs.status === "in-progress" ? t("resume") : t("start")}
                   </PrimaryButton>
                 )}
               </div>
@@ -1114,7 +1341,7 @@ function Lobby({ examData, blockStates, onStart, onReview, onReset, onFinalSumma
       </div>
       {!anyDone && (
         <p style={{ fontFamily: FONT_UI, fontSize: 12.5, color: T.muted, marginTop: 20 }}>
-          Timing starts the moment you click "Start block" — the countdown runs even if you navigate away.
+          {t("timingNote")}
         </p>
       )}
     </div>
@@ -1252,6 +1479,9 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, darkMode,
   const { highlightsMap, pending, handleSelectionInContainer, commitPending, handleGlobalKeyDown, removeHighlight, clearPending } = useHighlighter();
 
   const T = darkMode ? DARK : LIGHT;
+  const { t, lang } = useI18n();
+  const lh = (h) => (lang === "es" ? LAB_HDR_ES[h] || h : h);
+  const lv = (v) => labVal(v, lang);
   const questions = block.questions;
   const q = questions[qIdx];
   const qState = blockState.answers[q.id] || { selected: null, struck: [], flagged: false };
@@ -1393,7 +1623,7 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, darkMode,
         <div style={{
           border: `1.5px solid #fff`, borderRadius: 4, padding: "6px 14px", fontFamily: FONT_UI, fontSize: 13, lineHeight: 1.5,
         }}>
-          Item: {qIdx + 1} of {questions.length}<br />Block: 1 of 1
+          {t("item", { n: qIdx + 1, total: questions.length })}<br />{t("blockOf")}
         </div>
 
         {block.isRetest && (
@@ -1403,35 +1633,35 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, darkMode,
             fontFamily: FONT_UI, fontSize: 12, fontWeight: 700,
           }}>
             <RotateCcw size={13} />
-            Retest Mode: {block.retestType === "missed" ? "Missed Questions" : "Full Block"} ({block.retestCount} Item{block.retestCount === 1 ? "" : "s"})
+            {t("retestMode", { type: t(block.retestType === "missed" ? "rt.missed" : "rt.full"), n: block.retestCount, items: t(block.retestCount === 1 ? "item1" : "itemN") })}
           </div>
         )}
 
         <div style={{ display: "flex", alignItems: "center", gap: 18 }}>
           <button onClick={goPrev} disabled={qIdx === 0} style={toolBtnStyle(false)}>
             <ChevronLeft size={26} style={{ opacity: qIdx === 0 ? 0.35 : 1 }} />
-            Previous
+            {t("prev")}
           </button>
           <span style={{ fontFamily: FONT_UI, fontSize: 13 }}>{qIdx + 1} / {questions.length}</span>
           <button onClick={goNext} style={toolBtnStyle(false)}>
             <ChevronRight size={26} />
-            Next
+            {t("next")}
           </button>
         </div>
 
         <div style={{ display: "flex", alignItems: "center", gap: 22 }}>
           <button onClick={() => setLabOpen((v) => !v)} style={toolBtnStyle(labOpen)}>
-            <FlaskConical size={20} /> Lab Values
+            <FlaskConical size={20} /> {t("labValues")}
           </button>
           <button onClick={() => setNotesOpen((v) => !v)} style={toolBtnStyle(notesOpen)}>
-            <PencilLine size={20} /> Notes
+            <PencilLine size={20} /> {t("notes")}
           </button>
           <button onClick={() => setCalcOpen((v) => !v)} style={toolBtnStyle(calcOpen)}>
-            <CalcIcon size={20} /> Calculator
+            <CalcIcon size={20} /> {t("calc")}
           </button>
           <div style={{ position: "relative" }}>
             <button onClick={() => setSettingsOpen((v) => !v)} style={toolBtnStyle(settingsOpen)}>
-              <SettingsIcon size={20} /> Settings
+              <SettingsIcon size={20} /> {t("settings")}
             </button>
             {settingsOpen && (
               <div style={{
@@ -1440,26 +1670,27 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, darkMode,
               }}>
                 <label style={{ display: "flex", alignItems: "center", gap: 8, fontFamily: FONT_UI, fontSize: 13, cursor: "pointer", marginBottom: 10 }}>
                   <input type="checkbox" checked={darkMode} onChange={() => setDarkMode((v) => !v)} />
-                  Dark mode
+                  {t("dark")}
                 </label>
                 <label style={{ display: "flex", alignItems: "center", gap: 8, fontFamily: FONT_UI, fontSize: 13, cursor: "pointer", marginBottom: 10 }}>
                   <input type="checkbox" checked={timed} onChange={() => setBlockState((prev) => ({ ...prev, timed: !prev.timed }))} />
-                  Timed block
+                  {t("timedBlock")}
                 </label>
                 <label style={{ display: "flex", alignItems: "center", gap: 8, fontFamily: FONT_UI, fontSize: 13, cursor: "pointer", marginBottom: 12 }}>
                   <input type="checkbox" checked={hintsEnabled} onChange={() => setHintsEnabled((v) => !v)} />
-                  Hints
+                  {t("hints")}
                 </label>
+                <LangSelect T={T} />
                 <div style={{ borderTop: `1px solid ${T.border}`, paddingTop: 10 }}>
                   <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: 11, color: T.muted, textTransform: "uppercase", letterSpacing: "0.04em", marginBottom: 6 }}>
-                    Keyboard shortcuts
+                    {t("shortcuts")}
                   </div>
                   <div style={{ display: "grid", gap: 4, fontFamily: FONT_UI, fontSize: 12, color: T.muted }}>
-                    <div><strong style={{ color: T.ink }}>Alt+N</strong> — Next question</div>
-                    <div><strong style={{ color: T.ink }}>Alt+P</strong> — Previous question</div>
-                    <div><strong style={{ color: T.ink }}>Alt+J</strong> — Mark question</div>
-                    <div><strong style={{ color: T.ink }}>1–5 / A–E</strong> — Select answer</div>
-                    <div><strong style={{ color: T.ink }}>Alt+H</strong> — Highlight selection</div>
+                    <div><strong style={{ color: T.ink }}>Alt+N</strong> — {t("sc.next")}</div>
+                    <div><strong style={{ color: T.ink }}>Alt+P</strong> — {t("sc.prev")}</div>
+                    <div><strong style={{ color: T.ink }}>Alt+J</strong> — {t("sc.mark")}</div>
+                    <div><strong style={{ color: T.ink }}>1–5 / A–E</strong> — {t("sc.select")}</div>
+                    <div><strong style={{ color: T.ink }}>Alt+H</strong> — {t("sc.hl")}</div>
                   </div>
                 </div>
               </div>
@@ -1477,7 +1708,7 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, darkMode,
           <div style={{
             fontFamily: FONT_UI, fontWeight: 700, fontSize: 13, color: T.ink, textAlign: "center", marginBottom: 10,
           }}>
-            Question Status
+            {t("qStatus")}
           </div>
           <div style={{ flex: 1, overflowY: "auto" }}>
             {questions.map((qq, i) => {
@@ -1508,7 +1739,7 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, darkMode,
             <label style={{ display: "flex", alignItems: "center", gap: 8, cursor: "pointer" }}>
               <input type="checkbox" checked={qState.flagged} onChange={toggleFlag} />
               <Flag size={16} color={T.flagRed} fill={T.flagRed} />
-              <span style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: 14, color: T.ink }}>Mark Question</span>
+              <span style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: 14, color: T.ink }}>{t("mark")}</span>
             </label>
 
             {hintsEnabled && (
@@ -1521,13 +1752,13 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, darkMode,
                 }}
               >
                 <Lightbulb size={15} />
-                {showHint ? "Hide Hint" : "Show Hint"}
+                {showHint ? t("hideHint") : t("showHint")}
               </button>
             )}
           </div>
 
           <p style={{ fontFamily: FONT_UI, fontSize: 11.5, color: T.muted, margin: "0 0 14px", display: "flex", alignItems: "center", gap: 5 }}>
-            <Highlighter size={12} /> Select text, then click Highlight — or press Alt+H (Option+H on Mac).
+            <Highlighter size={12} /> {t("hlTip")}
           </p>
 
           {hintsEnabled && showHint && (
@@ -1537,7 +1768,7 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, darkMode,
               fontFamily: FONT_UI, fontSize: 13.5, lineHeight: 1.5,
             }}>
               <Lightbulb size={16} color={T.blue} style={{ flexShrink: 0, marginTop: 1 }} />
-              <span>{q.hint || "No hint was provided for this question."}</span>
+              <span>{q.hint || t("noHint")}</span>
             </div>
           )}
 
@@ -1591,7 +1822,7 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, darkMode,
                   </span>
                   <button
                     onClick={(e) => toggleStrike(e, opt.key)}
-                    title="Strike out this option"
+                    title={t("strike")}
                     style={{
                       background: "transparent", border: "none", cursor: "pointer", fontFamily: FONT_DISPLAY,
                       fontSize: 13, color: T.muted, textDecoration: "line-through", padding: "0 4px",
@@ -1606,7 +1837,7 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, darkMode,
 
           <div style={{ marginTop: 22 }}>
             <PrimaryButton T={T} onClick={goNext} style={{ background: T.blue }}>
-              {qIdx < questions.length - 1 ? "Proceed to Next Item" : "Proceed to Block Summary"}
+              {qIdx < questions.length - 1 ? t("proceedNext") : t("proceedSummary")}
             </PrimaryButton>
           </div>
         </div>
@@ -1620,7 +1851,7 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, darkMode,
             {/* Fixed header: title/close, search, and tabs all stay put no matter how far the list below is scrolled */}
             <div style={{ flexShrink: 0, padding: "18px 18px 12px", borderBottom: `1px solid ${T.border}` }}>
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 12 }}>
-                <span style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: 14, color: T.ink }}>Lab Values</span>
+                <span style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: 14, color: T.ink }}>{t("labValues")}</span>
                 <button onClick={() => setLabOpen(false)} style={{ background: "transparent", border: "none", cursor: "pointer", color: T.muted }}>
                   <X size={16} />
                 </button>
@@ -1631,7 +1862,7 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, darkMode,
                 <input
                   value={labSearch}
                   onChange={(e) => setLabSearch(e.target.value)}
-                  placeholder="Search…"
+                  placeholder={t("search")}
                   style={{ border: "none", outline: "none", fontFamily: FONT_UI, fontSize: 13, flex: 1, background: "transparent", color: T.ink }}
                 />
               </div>
@@ -1648,7 +1879,7 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, darkMode,
                       color: labTab === tab ? T.blue : T.muted, cursor: "pointer",
                     }}
                   >
-                    {tab}
+                    {t("tab." + tab)}
                   </button>
                 ))}
               </div>
@@ -1657,15 +1888,15 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, darkMode,
             <div style={{ flex: 1, overflowY: "auto", padding: 18 }}>
               <label style={{ display: "flex", alignItems: "center", gap: 8, fontFamily: FONT_UI, fontSize: 12.5, color: T.ink, marginBottom: 14, cursor: "pointer" }}>
                 <input type="checkbox" checked={siUnits} onChange={() => setSiUnits((v) => !v)} />
-                SI Reference Intervals
+                {t("siIntervals")}
               </label>
 
               <div style={{
                 display: "flex", justifyContent: "space-between", padding: "4px 4px 8px", borderBottom: `1.5px solid ${T.border}`,
                 fontFamily: FONT_UI, fontSize: 11.5, fontWeight: 700, color: T.muted, textTransform: "uppercase", letterSpacing: "0.04em",
               }}>
-                <span>{labTab}</span>
-                <span>{siUnits ? "SI Reference Interval" : "Reference Range"}</span>
+                <span>{t("tab." + labTab)}</span>
+                <span>{siUnits ? t("siHdr") : t("refRange")}</span>
               </div>
 
               <table style={{ width: "100%", borderCollapse: "collapse", fontFamily: FONT_UI, fontSize: 12.5 }}>
@@ -1674,20 +1905,20 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, darkMode,
                     row.h ? (
                       <tr key={`h-${i}`}>
                         <td colSpan={2} style={{ padding: "12px 4px 4px", fontWeight: 700, color: T.blue, fontSize: 12.5 }}>
-                          {row.h}
+                          {lh(row.h)}
                         </td>
                       </tr>
                     ) : (
                       <tr key={row.name} style={{ borderBottom: `1px solid ${T.border}` }}>
                         <td style={{ padding: "6px 4px 6px", paddingLeft: row.sub ? 16 : 4, color: T.ink }}>{row.name}</td>
                         <td style={{ padding: "6px 4px", color: T.muted, textAlign: "right", whiteSpace: "nowrap" }}>
-                          {siUnits ? row.si : row.value}
+                          {lv(siUnits ? row.si : row.value)}
                         </td>
                       </tr>
                     )
                   )}
                   {filteredLabRows.length === 0 && (
-                    <tr><td colSpan={2} style={{ padding: "16px 4px", color: T.muted, fontStyle: "italic" }}>No matches in {labTab}.</td></tr>
+                    <tr><td colSpan={2} style={{ padding: "16px 4px", color: T.muted, fontStyle: "italic" }}>{t("noMatches", { tab: t("tab." + labTab) })}</td></tr>
                   )}
                 </tbody>
               </table>
@@ -1702,14 +1933,14 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, darkMode,
         justifyContent: "space-between", borderTop: `1px solid ${T.border}`, flexShrink: 0,
       }}>
         <div style={{ fontFamily: FONT_UI, fontSize: 13, lineHeight: 1.5 }}>
-          <div>Block Time Remaining: <span style={{ fontFamily: FONT_MONO }}>{timed ? fmtTime(blockState.timeLeft) : "untimed"}</span></div>
-          <div style={{ opacity: 0.75 }}>Answered: {answeredCount}/{questions.length}{flaggedCount > 0 ? ` · Flagged: ${flaggedCount}` : ""}</div>
+          <div>{t("timeLeft")}: <span style={{ fontFamily: FONT_MONO }}>{timed ? fmtTime(blockState.timeLeft) : t("untimedLower")}</span></div>
+          <div style={{ opacity: 0.75 }}>{t("answered", { a: answeredCount, n: questions.length })}{flaggedCount > 0 ? t("flagged", { f: flaggedCount }) : ""}</div>
         </div>
         <button onClick={() => setLocked(true)} style={{ ...toolBtnStyle(false), flexDirection: "row", gap: 6 }}>
-          <Lock size={18} /> Lock
+          <Lock size={18} /> {t("lock")}
         </button>
         <button onClick={() => setConfirmSubmit(true)} style={{ ...toolBtnStyle(false), flexDirection: "row", gap: 6 }}>
-          <XOctagon size={18} /> End Block
+          <XOctagon size={18} /> {t("endBlock")}
         </button>
       </div>
 
@@ -1720,7 +1951,7 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, darkMode,
           border: `1px solid ${T.border}`, borderRadius: 10, padding: 14, zIndex: 55, boxShadow: "0 8px 28px rgba(0,0,0,0.3)",
         }}>
           <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 8 }}>
-            <span style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: 13, color: T.ink }}>Notes — Item {qIdx + 1}</span>
+            <span style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: 13, color: T.ink }}>{t("notesItem", { n: qIdx + 1 })}</span>
             <button onClick={() => setNotesOpen(false)} style={{ background: "transparent", border: "none", cursor: "pointer", color: T.muted }}>
               <X size={16} />
             </button>
@@ -1734,8 +1965,8 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, darkMode,
             }}
           />
           <div style={{ display: "flex", justifyContent: "space-between", marginTop: 10 }}>
-            <GhostButton T={T} icon={Trash2} onClick={() => setNote("")}>Delete note</GhostButton>
-            <PrimaryButton T={T} onClick={() => setNotesOpen(false)}>Save and close</PrimaryButton>
+            <GhostButton T={T} icon={Trash2} onClick={() => setNote("")}>{t("delNote")}</GhostButton>
+            <PrimaryButton T={T} onClick={() => setNotesOpen(false)}>{t("saveClose")}</PrimaryButton>
           </div>
         </div>
       )}
@@ -1757,7 +1988,7 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, darkMode,
           }}
         >
           <Highlighter size={13} />
-          Highlight
+          {t("highlight")}
         </button>
       )}
 
@@ -1768,8 +1999,8 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, darkMode,
           alignItems: "center", justifyContent: "center", zIndex: 90, gap: 18,
         }}>
           <Lock size={36} color="#fff" />
-          <p style={{ fontFamily: FONT_UI, fontSize: 15, color: "#fff" }}>Exam paused — timer is stopped.</p>
-          <PrimaryButton T={T} icon={Unlock} onClick={() => setLocked(false)}>Resume block</PrimaryButton>
+          <p style={{ fontFamily: FONT_UI, fontSize: 15, color: "#fff" }}>{t("paused")}</p>
+          <PrimaryButton T={T} icon={Unlock} onClick={() => setLocked(false)}>{t("resume")}</PrimaryButton>
         </div>
       )}
 
@@ -1781,15 +2012,14 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, darkMode,
         }}>
           <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, padding: 28, maxWidth: 400 }}>
             <h3 style={{ fontFamily: FONT_UI, fontSize: 17, fontWeight: 700, color: T.ink, margin: "0 0 10px" }}>
-              End this block?
+              {t("endQ")}
             </h3>
             <p style={{ fontFamily: FONT_UI, fontSize: 14, color: T.muted, lineHeight: 1.55, margin: "0 0 20px" }}>
-              You've answered {answeredCount} of {questions.length} questions. Once you end the block you
-              can't change your answers, but you can review explanations right away.
+              {t("endConfirm", { a: answeredCount, n: questions.length })}
             </p>
             <div style={{ display: "flex", gap: 10, justifyContent: "flex-end" }}>
-              <GhostButton T={T} onClick={() => setConfirmSubmit(false)}>Keep working</GhostButton>
-              <PrimaryButton T={T} onClick={() => { setConfirmSubmit(false); onSubmitBlock(); }}>End block</PrimaryButton>
+              <GhostButton T={T} onClick={() => setConfirmSubmit(false)}>{t("keepWorking")}</GhostButton>
+              <PrimaryButton T={T} onClick={() => { setConfirmSubmit(false); onSubmitBlock(); }}>{t("endBlockBtn")}</PrimaryButton>
             </div>
           </div>
         </div>
@@ -1805,15 +2035,14 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, darkMode,
             <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 10 }}>
               <Clock size={20} color={T.red} />
               <h3 style={{ fontFamily: FONT_UI, fontSize: 17, fontWeight: 700, color: T.ink, margin: 0 }}>
-                Time's up
+                {t("timesUp")}
               </h3>
             </div>
             <p style={{ fontFamily: FONT_UI, fontSize: 14, color: T.muted, lineHeight: 1.55, margin: "0 0 20px" }}>
-              The allotted time for this block has lapsed. You answered {answeredCount} of {questions.length}
-              questions. The block will now be submitted automatically and you can review your results.
+              {t("timesUpBody", { a: answeredCount, n: questions.length })}
             </p>
             <div style={{ display: "flex", justifyContent: "flex-end" }}>
-              <PrimaryButton T={T} onClick={() => { setTimeUp(false); onSubmitBlock(); }}>View results</PrimaryButton>
+              <PrimaryButton T={T} onClick={() => { setTimeUp(false); onSubmitBlock(); }}>{t("viewResults")}</PrimaryButton>
             </div>
           </div>
         </div>
@@ -1826,13 +2055,14 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, darkMode,
 // Results / review screen (single block)
 // ---------------------------------------------------------------------------
 function BlockResults({ block, blockState, onBackToLobby, onRetestMissed, onRetestAll, onLoadNewExam, T, darkMode, setDarkMode }) {
+  const { t, lang } = useI18n();
   const [expanded, setExpanded] = useState(null);
   const { score } = blockState;
 
   const subjectRows = useMemo(() => {
     const map = {};
     block.questions.forEach((q) => {
-      const subj = q.subject || "General";
+      const subj = q.subject || t("general");
       const a = blockState.answers[q.id];
       const correct = a?.selected === q.correctAnswer;
       if (!map[subj]) map[subj] = { subject: subj, correct: 0, total: 0 };
@@ -1840,50 +2070,50 @@ function BlockResults({ block, blockState, onBackToLobby, onRetestMissed, onRete
       if (correct) map[subj].correct += 1;
     });
     return Object.values(map).map((r) => ({ ...r, pct: Math.round((r.correct / r.total) * 100) }));
-  }, [block, blockState]);
+  }, [block, blockState, lang]);
 
   return (
     <div style={{ maxWidth: 880, margin: "0 auto", padding: "44px 20px 80px" }}>
       <style>{`@import url('${FONT_IMPORT_URL}');`}</style>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 22 }}>
-        <GhostButton T={T} icon={ChevronLeft} onClick={onBackToLobby}>Back to blocks</GhostButton>
+        <GhostButton T={T} icon={ChevronLeft} onClick={onBackToLobby}>{t("back")}</GhostButton>
         <SettingsMenu darkMode={darkMode} setDarkMode={setDarkMode} T={T} />
       </div>
 
       <h1 style={{ fontFamily: FONT_DISPLAY, fontSize: 28, fontWeight: 600, color: T.ink, margin: "0 0 4px" }}>
-        {block.blockName} — results
+        {t("results", { name: blockLabel(block, t) })}
       </h1>
       <div style={{ display: "flex", alignItems: "baseline", gap: 12, marginBottom: 20 }}>
         <span style={{ fontFamily: FONT_MONO, fontSize: 32, fontWeight: 600, color: score.pct >= 70 ? T.green : T.red }}>
           {score.pct}%
         </span>
         <span style={{ fontFamily: FONT_UI, fontSize: 14, color: T.muted }}>
-          {score.correct} correct out of {score.total} · {score.total - score.answered} unanswered
+          {t("scoreLine", { c: score.correct, t: score.total, u: score.total - score.answered })}
         </span>
       </div>
 
       <div style={{ display: "flex", flexWrap: "wrap", gap: 10, marginBottom: 28 }}>
         {score.correct < score.total ? (
           <PrimaryButton T={T} onClick={onRetestMissed} icon={RotateCcw}>
-            Retest Missed Questions ({score.total - score.correct})
+            {t("rtMissed", { n: score.total - score.correct })}
           </PrimaryButton>
         ) : (
           <PrimaryButton T={T} disabled icon={CheckCircle2}>
-            Retest Missed Questions — perfect score!
+            {t("perfect")}
           </PrimaryButton>
         )}
         <GhostButton T={T} onClick={onRetestAll} icon={RotateCcw}>
-          Retest Entire Block ({score.total})
+          {t("rtAll", { n: score.total })}
         </GhostButton>
         <GhostButton T={T} onClick={onLoadNewExam} icon={Upload}>
-          Load New Exam
+          {t("loadNew")}
         </GhostButton>
       </div>
 
       {subjectRows.length > 1 && (
         <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, padding: "20px 22px 8px", marginBottom: 22 }}>
           <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: 13, color: T.ink, marginBottom: 12, textTransform: "uppercase", letterSpacing: "0.04em" }}>
-            Performance by subject
+            {t("perfSubject")}
           </div>
           <ResponsiveContainer width="100%" height={Math.max(140, subjectRows.length * 42)}>
             <BarChart data={subjectRows} layout="vertical" margin={{ left: 8, right: 24, top: 4, bottom: 4 }}>
@@ -1891,7 +2121,7 @@ function BlockResults({ block, blockState, onBackToLobby, onRetestMissed, onRete
               <XAxis type="number" domain={[0, 100]} tick={{ fontFamily: FONT_MONO, fontSize: 11, fill: T.muted }} unit="%" />
               <YAxis type="category" dataKey="subject" width={130} tick={{ fontFamily: FONT_UI, fontSize: 12.5, fill: T.ink }} />
               <Tooltip
-                formatter={(v, n, p) => [`${p.payload.correct}/${p.payload.total} (${v}%)`, "Score"]}
+                formatter={(v, n, p) => [`${p.payload.correct}/${p.payload.total} (${v}%)`, t("score")]}
                 contentStyle={{ fontFamily: FONT_UI, fontSize: 12.5, borderRadius: 8, border: `1px solid ${T.border}`, background: T.card, color: T.ink }}
               />
               <Bar dataKey="pct" radius={[0, 6, 6, 0]} barSize={18}>
@@ -1905,7 +2135,7 @@ function BlockResults({ block, blockState, onBackToLobby, onRetestMissed, onRete
       )}
 
       <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: 13, color: T.ink, marginBottom: 10, textTransform: "uppercase", letterSpacing: "0.04em" }}>
-        Question review
+        {t("qReview")}
       </div>
       <div style={{ display: "grid", gap: 10 }}>
         {block.questions.map((q, i) => {
@@ -1919,7 +2149,7 @@ function BlockResults({ block, blockState, onBackToLobby, onRetestMissed, onRete
                 {!answered ? <AlertTriangle size={17} color={T.amber} /> : correct ? <CheckCircle2 size={17} color={T.green} /> : <XCircle size={17} color={T.red} />}
                 <span style={{ fontFamily: FONT_MONO, fontSize: 12.5, color: T.muted, width: 24 }}>{i + 1}</span>
                 <span style={{ fontFamily: FONT_UI, fontSize: 14, color: T.ink, flex: 1 }}>{q.stem}</span>
-                <Pill T={T} tone="muted">{q.subject || "General"}</Pill>
+                <Pill T={T} tone="muted">{q.subject || t("general")}</Pill>
                 {isOpen ? <ChevronUp size={16} color={T.muted} /> : <ChevronDown size={16} color={T.muted} />}
               </div>
               {isOpen && (
@@ -1939,8 +2169,8 @@ function BlockResults({ block, blockState, onBackToLobby, onRetestMissed, onRete
                           <div style={{ display: "flex", gap: 10, alignItems: "center" }}>
                             <span style={{ fontFamily: FONT_MONO, fontWeight: 700, fontSize: 12, width: 18 }}>{opt.key}</span>
                             <span style={{ flex: 1 }}>{opt.text}</span>
-                            {isCorrectOpt && <Pill T={T} tone="green">Correct</Pill>}
-                            {isYourPick && !isCorrectOpt && <Pill T={T} tone="red">Your answer</Pill>}
+                            {isCorrectOpt && <Pill T={T} tone="green">{t("correct")}</Pill>}
+                            {isYourPick && !isCorrectOpt && <Pill T={T} tone="red">{t("yours")}</Pill>}
                           </div>
                           {reason && (
                             <div style={{ fontFamily: FONT_UI, fontSize: 12.5, color: T.muted, marginTop: 4, paddingLeft: 28, lineHeight: 1.5 }}>
@@ -1953,7 +2183,7 @@ function BlockResults({ block, blockState, onBackToLobby, onRetestMissed, onRete
                   </div>
                   <div style={{ background: T.paper, borderRadius: 8, padding: "12px 14px" }}>
                     <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: 12, color: T.blue, marginBottom: 4, textTransform: "uppercase", letterSpacing: "0.05em" }}>
-                      Explanation
+                      {t("explanation")}
                     </div>
                     <p style={{ fontFamily: FONT_UI, fontSize: 13.5, color: T.ink, lineHeight: 1.6, margin: 0 }}>{q.explanation}</p>
                   </div>
@@ -1961,7 +2191,7 @@ function BlockResults({ block, blockState, onBackToLobby, onRetestMissed, onRete
                   {q.educationalObjective && (
                     <div style={{ background: T.blueLight, borderRadius: 8, padding: "12px 14px", marginTop: 10 }}>
                       <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: 12, color: T.blueDeep, marginBottom: 4, textTransform: "uppercase", letterSpacing: "0.05em" }}>
-                        Educational Objective
+                        {t("eduObj")}
                       </div>
                       <p style={{ fontFamily: FONT_UI, fontSize: 13.5, color: T.ink, lineHeight: 1.6, margin: 0 }}>{q.educationalObjective}</p>
                     </div>
@@ -1970,7 +2200,7 @@ function BlockResults({ block, blockState, onBackToLobby, onRetestMissed, onRete
                   {Array.isArray(q.sourceReferences) && q.sourceReferences.length > 0 && (
                     <div style={{ marginTop: 10 }}>
                       <div style={{ display: "flex", alignItems: "center", gap: 6, fontFamily: FONT_UI, fontWeight: 700, fontSize: 12, color: T.muted, marginBottom: 6, textTransform: "uppercase", letterSpacing: "0.05em" }}>
-                        <BookOpen size={13} /> Source References
+                        <BookOpen size={13} /> {t("sources")}
                       </div>
                       <div style={{ display: "grid", gap: 8 }}>
                         {q.sourceReferences.map((ref, ri) => (
@@ -1978,7 +2208,7 @@ function BlockResults({ block, blockState, onBackToLobby, onRetestMissed, onRete
                             <div style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: 13, color: T.ink }}>
                               {ref.sourceTitle}
                               {ref.pageNumber && (
-                                <span style={{ fontFamily: FONT_MONO, fontWeight: 400, fontSize: 11.5, color: T.muted }}> · p. {ref.pageNumber}</span>
+                                <span style={{ fontFamily: FONT_MONO, fontWeight: 400, fontSize: 11.5, color: T.muted }}> · {t("page")} {ref.pageNumber}</span>
                               )}
                             </div>
                             {ref.chapterSection && (
@@ -2006,11 +2236,12 @@ function BlockResults({ block, blockState, onBackToLobby, onRetestMissed, onRete
 // Final exam summary (across all blocks)
 // ---------------------------------------------------------------------------
 function FinalSummary({ examData, blockStates, onBackToLobby, T, darkMode, setDarkMode }) {
+  const { t, lang } = useI18n();
   const subjectRows = useMemo(() => {
     const map = {};
     examData.blocks.forEach((block, bi) => {
       block.questions.forEach((q) => {
-        const subj = q.subject || "General";
+        const subj = q.subject || t("general");
         const a = blockStates[bi].answers[q.id];
         const correct = a?.selected === q.correctAnswer;
         if (!map[subj]) map[subj] = { subject: subj, correct: 0, total: 0 };
@@ -2019,7 +2250,7 @@ function FinalSummary({ examData, blockStates, onBackToLobby, T, darkMode, setDa
       });
     });
     return Object.values(map).map((r) => ({ ...r, pct: Math.round((r.correct / r.total) * 100) })).sort((a, b) => a.pct - b.pct);
-  }, [examData, blockStates]);
+  }, [examData, blockStates, lang]);
 
   const totalCorrect = blockStates.reduce((s, b) => s + (b.score?.correct || 0), 0);
   const totalQ = blockStates.reduce((s, b) => s + (b.score?.total || 0), 0);
@@ -2030,25 +2261,25 @@ function FinalSummary({ examData, blockStates, onBackToLobby, T, darkMode, setDa
     <div style={{ maxWidth: 880, margin: "0 auto", padding: "44px 20px 80px" }}>
       <style>{`@import url('${FONT_IMPORT_URL}');`}</style>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 22 }}>
-        <GhostButton T={T} icon={ChevronLeft} onClick={onBackToLobby}>Back to blocks</GhostButton>
+        <GhostButton T={T} icon={ChevronLeft} onClick={onBackToLobby}>{t("back")}</GhostButton>
         <SettingsMenu darkMode={darkMode} setDarkMode={setDarkMode} T={T} />
       </div>
 
       <h1 style={{ fontFamily: FONT_DISPLAY, fontSize: 28, fontWeight: 600, color: T.ink, margin: "0 0 4px" }}>
-        {examData.examTitle} — full summary
+        {t("fullSummaryTitle", { name: examData.examTitle })}
       </h1>
       <div style={{ display: "flex", alignItems: "baseline", gap: 12, marginBottom: 28 }}>
         <span style={{ fontFamily: FONT_MONO, fontSize: 32, fontWeight: 600, color: overallPct >= 70 ? T.green : T.red }}>
           {overallPct}%
         </span>
         <span style={{ fontFamily: FONT_UI, fontSize: 14, color: T.muted }}>
-          {totalCorrect} correct across {totalQ} questions in {examData.blocks.length} block{examData.blocks.length > 1 ? "s" : ""}
+          {t("across", { c: totalCorrect, q: totalQ, b: examData.blocks.length, blocks: t(examData.blocks.length > 1 ? "blockN" : "block1") })}
         </span>
       </div>
 
       <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, padding: "20px 22px 8px", marginBottom: 22 }}>
         <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: 13, color: T.ink, marginBottom: 12, textTransform: "uppercase", letterSpacing: "0.04em" }}>
-          Performance by subject (all blocks)
+          {t("perfAll")}
         </div>
         <ResponsiveContainer width="100%" height={Math.max(160, subjectRows.length * 40)}>
           <BarChart data={subjectRows} layout="vertical" margin={{ left: 8, right: 24, top: 4, bottom: 4 }}>
@@ -2056,7 +2287,7 @@ function FinalSummary({ examData, blockStates, onBackToLobby, T, darkMode, setDa
             <XAxis type="number" domain={[0, 100]} tick={{ fontFamily: FONT_MONO, fontSize: 11, fill: T.muted }} unit="%" />
             <YAxis type="category" dataKey="subject" width={130} tick={{ fontFamily: FONT_UI, fontSize: 12.5, fill: T.ink }} />
             <Tooltip
-              formatter={(v, n, p) => [`${p.payload.correct}/${p.payload.total} (${v}%)`, "Score"]}
+              formatter={(v, n, p) => [`${p.payload.correct}/${p.payload.total} (${v}%)`, t("score")]}
               contentStyle={{ fontFamily: FONT_UI, fontSize: 12.5, borderRadius: 8, border: `1px solid ${T.border}`, background: T.card, color: T.ink }}
             />
             <Bar dataKey="pct" radius={[0, 6, 6, 0]} barSize={18}>
@@ -2070,10 +2301,9 @@ function FinalSummary({ examData, blockStates, onBackToLobby, T, darkMode, setDa
 
       {weakest.length > 0 && (
         <div style={{ background: T.blueLight, borderRadius: 10, padding: "16px 20px", marginBottom: 22 }}>
-          <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: 13, color: T.blueDeep, marginBottom: 6 }}>Focus areas</div>
+          <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: 13, color: T.blueDeep, marginBottom: 6 }}>{t("focusAreas")}</div>
           <p style={{ fontFamily: FONT_UI, fontSize: 13.5, color: T.blueDeep, margin: 0, lineHeight: 1.6 }}>
-            Lowest scoring: {weakest.map((w) => `${w.subject} (${w.pct}%)`).join(", ")}. Consider generating
-            a fresh Gemini block focused on these systems.
+            {t("lowest", { list: weakest.map((w) => `${w.subject} (${w.pct}%)`).join(", ") })}
           </p>
         </div>
       )}
@@ -2081,7 +2311,7 @@ function FinalSummary({ examData, blockStates, onBackToLobby, T, darkMode, setDa
       <div style={{ display: "grid", gap: 10 }}>
         {examData.blocks.map((block, i) => (
           <div key={i} style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 8, padding: "14px 18px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-            <span style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: 14, color: T.ink }}>{block.blockName}</span>
+            <span style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: 14, color: T.ink }}>{blockLabel(block, t)}</span>
             <Pill T={T} tone={blockStates[i].score.pct >= 70 ? "green" : "red"}>
               {blockStates[i].score.correct}/{blockStates[i].score.total} · {blockStates[i].score.pct}%
             </Pill>
@@ -2101,6 +2331,7 @@ export default function App() {
   const [view, setView] = useState("import"); // import | lobby | exam | results | final
   const [activeBlockIdx, setActiveBlockIdx] = useState(null);
   const [darkMode, setDarkMode] = useState(true);
+  const [lang, setLang] = useState("en"); // English is the default
   const T = darkMode ? DARK : LIGHT;
 
   function handleImport(data) {
@@ -2121,7 +2352,7 @@ export default function App() {
     const next = {
       ...data,
       blocks,
-      ...(reshuffled ? { notice: "Answer choices were shuffled on import because the correct answers were heavily concentrated on one letter." } : {}),
+      ...(reshuffled ? { shuffled: true } : {}),
     };
     setExamData(next);
     setBlockStates(next.blocks.map(makeInitialBlockState));
@@ -2184,7 +2415,7 @@ export default function App() {
 
     const shuffled = missed.map(shuffleQuestionOptions);
     const newBlock = {
-      blockName: `${baseBlockName(block.blockName)} — Retest Missed`,
+      blockName: baseBlockName(block.blockName), // suffix is localized in blockLabel()
       questions: shuffled,
       timeLimitMinutes: Math.max(5, Math.round(shuffled.length * 1.5)), // N * 1.5 min, always timed
       isRetest: true,
@@ -2198,7 +2429,7 @@ export default function App() {
     const block = examData.blocks[idx];
     const shuffled = block.questions.map(shuffleQuestionOptions);
     const newBlock = {
-      blockName: `${baseBlockName(block.blockName)} — Retest All`,
+      blockName: baseBlockName(block.blockName),
       questions: shuffled,
       // Original block timer carries over as-is (including "untimed" if it had none)
       ...(typeof block.timeLimitMinutes === "number" ? { timeLimitMinutes: block.timeLimitMinutes } : {}),
@@ -2218,6 +2449,7 @@ export default function App() {
   }
 
   return (
+    <LangContext.Provider value={{ lang, setLang }}>
     <div style={{ minHeight: "100vh", background: T.paper, fontFamily: FONT_UI }}>
       {view === "import" && <ImportScreen onImport={handleImport} T={T} darkMode={darkMode} setDarkMode={setDarkMode} />}
 
@@ -2255,5 +2487,6 @@ export default function App() {
         <FinalSummary examData={examData} blockStates={blockStates} onBackToLobby={() => setView("lobby")} T={T} darkMode={darkMode} setDarkMode={setDarkMode} />
       )}
     </div>
+    </LangContext.Provider>
   );
 }
