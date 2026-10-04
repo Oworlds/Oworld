@@ -9,6 +9,7 @@ import {
 import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell
 } from "recharts";
+import { Analytics } from "@vercel/analytics/react";
 
 // ---------------------------------------------------------------------------
 // Design tokens — light chrome matches the NBME/USMLE interface; DARK is the
@@ -2486,6 +2487,7 @@ export default function App() {
       {view === "final" && examData && (
         <FinalSummary examData={examData} blockStates={blockStates} onBackToLobby={() => setView("lobby")} T={T} darkMode={darkMode} setDarkMode={setDarkMode} />
       )}
+      <Analytics />
     </div>
     </LangContext.Provider>
   );
