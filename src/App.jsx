@@ -393,7 +393,7 @@ Vignette 4-8 sentences (age/sex, complaint, history, exam, labs/imaging). 5 opti
 explanation: 3-5 sentences on the key discriminator. distractorAnalysis: 1 sentence per wrong option, same keys.
 hint: 1 short sentence, no answer giveaway. educationalObjective: 1-2 sentence takeaway.
 sourceReferences: 1-3 real sources (First Aid, BRS, Pathoma, etc.) — sourceTitle, chapterSection, pageNumber (omit if unsure), relevance.
-subject: specific system/discipline. Every id unique.
+subject: specific system/discipline. Every id unique. Spread correctAnswer evenly across A-E (never the same letter more than twice in a row).
 Focus: ${focusLine}`;
 }
 
@@ -1046,6 +1046,15 @@ function Lobby({ examData, blockStates, onStart, onReview, onReset, onFinalSumma
         </div>
       </div>
 
+      {examData.notice && (
+        <div style={{
+          marginBottom: 16, padding: "10px 14px", borderRadius: 6, background: T.amberLight, color: T.amber,
+          border: `1px solid ${T.amber}`, fontFamily: FONT_UI, fontSize: 12.5,
+        }}>
+          {examData.notice}
+        </div>
+      )}
+
       <div style={{ display: "grid", gap: 14 }}>
         {examData.blocks.map((block, idx) => {
           const bs = blockStates[idx];
@@ -1228,6 +1237,7 @@ function CalculatorPanel({ T, onClose }) {
 function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, darkMode, setDarkMode }) {
   const [qIdx, setQIdx] = useState(0);
   const [confirmSubmit, setConfirmSubmit] = useState(false);
+  const [timeUp, setTimeUp] = useState(false);
   const [settingsOpen, setSettingsOpen] = useState(false);
   const [labOpen, setLabOpen] = useState(false);
   const [notesOpen, setNotesOpen] = useState(false);
@@ -1257,6 +1267,42 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, darkMode,
     return () => document.removeEventListener("keydown", handler);
   }, [q.id, handleGlobalKeyDown]);
 
+  // NBME-style navigation/answer shortcuts. Alt+N / Alt+P / Alt+J work from
+  // anywhere; bare 1-5 / A-E only fire when the user isn't typing into an
+  // input, textarea, or the Notes/Lab-search/Focus fields — otherwise typing
+  // "a" in a note would select answer A.
+  useEffect(() => {
+    function handler(e) {
+      const tag = document.activeElement?.tagName;
+      const isTyping = tag === "INPUT" || tag === "TEXTAREA";
+      if (locked || confirmSubmit || timeUp) return;
+
+      if (e.altKey) {
+        const k = e.key.toLowerCase();
+        if (k === "n") { e.preventDefault(); goNext(); return; }
+        if (k === "p") { e.preventDefault(); goPrev(); return; }
+        if (k === "j") { e.preventDefault(); toggleFlag(); return; }
+        return;
+      }
+
+      if (isTyping || e.ctrlKey || e.metaKey || e.shiftKey) return;
+
+      const digitIdx = ["1", "2", "3", "4", "5"].indexOf(e.key);
+      if (digitIdx !== -1 && digitIdx < q.options.length) {
+        e.preventDefault();
+        selectOption(q.options[digitIdx].key);
+        return;
+      }
+      const letterOpt = q.options.find((o) => o.key.toLowerCase() === e.key.toLowerCase());
+      if (letterOpt && /^[a-eA-E]$/.test(e.key)) {
+        e.preventDefault();
+        selectOption(letterOpt.key);
+      }
+    }
+    document.addEventListener("keydown", handler);
+    return () => document.removeEventListener("keydown", handler);
+  }, [q, qState, locked, confirmSubmit, timeUp]);
+
   const highlightBtnRef = useRef(null);
   useEffect(() => {
     if (!pending) return;
@@ -1284,8 +1330,8 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, darkMode,
   }, [blockState.status, setBlockState, locked, timed]);
 
   useEffect(() => {
-    if (blockState.status === "in-progress" && timed && blockState.timeLeft === 0) onSubmitBlock();
-  }, [blockState.timeLeft, blockState.status, timed, onSubmitBlock]);
+    if (blockState.status === "in-progress" && timed && blockState.timeLeft === 0) setTimeUp(true);
+  }, [blockState.timeLeft, blockState.status, timed]);
 
   function updateQState(patch) {
     setBlockState((prev) => ({ ...prev, answers: { ...prev.answers, [q.id]: { ...qState, ...patch } } }));
@@ -1307,6 +1353,9 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, darkMode,
   function goNext() {
     if (qIdx < questions.length - 1) setQIdx((i) => i + 1);
     else setConfirmSubmit(true);
+  }
+  function goPrev() {
+    setQIdx((i) => Math.max(0, i - 1));
   }
 
   const flaggedCount = Object.values(blockState.answers).filter((a) => a.flagged).length;
@@ -1359,7 +1408,7 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, darkMode,
         )}
 
         <div style={{ display: "flex", alignItems: "center", gap: 18 }}>
-          <button onClick={() => setQIdx((i) => Math.max(0, i - 1))} disabled={qIdx === 0} style={toolBtnStyle(false)}>
+          <button onClick={goPrev} disabled={qIdx === 0} style={toolBtnStyle(false)}>
             <ChevronLeft size={26} style={{ opacity: qIdx === 0 ? 0.35 : 1 }} />
             Previous
           </button>
@@ -1387,7 +1436,7 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, darkMode,
             {settingsOpen && (
               <div style={{
                 position: "absolute", top: 44, right: 0, background: T.card, color: T.ink, border: `1px solid ${T.border}`,
-                borderRadius: 8, padding: 14, width: 190, zIndex: 70, boxShadow: "0 8px 24px rgba(0,0,0,0.3)",
+                borderRadius: 8, padding: 14, width: 230, zIndex: 70, boxShadow: "0 8px 24px rgba(0,0,0,0.3)",
               }}>
                 <label style={{ display: "flex", alignItems: "center", gap: 8, fontFamily: FONT_UI, fontSize: 13, cursor: "pointer", marginBottom: 10 }}>
                   <input type="checkbox" checked={darkMode} onChange={() => setDarkMode((v) => !v)} />
@@ -1397,10 +1446,22 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, darkMode,
                   <input type="checkbox" checked={timed} onChange={() => setBlockState((prev) => ({ ...prev, timed: !prev.timed }))} />
                   Timed block
                 </label>
-                <label style={{ display: "flex", alignItems: "center", gap: 8, fontFamily: FONT_UI, fontSize: 13, cursor: "pointer" }}>
+                <label style={{ display: "flex", alignItems: "center", gap: 8, fontFamily: FONT_UI, fontSize: 13, cursor: "pointer", marginBottom: 12 }}>
                   <input type="checkbox" checked={hintsEnabled} onChange={() => setHintsEnabled((v) => !v)} />
                   Hints
                 </label>
+                <div style={{ borderTop: `1px solid ${T.border}`, paddingTop: 10 }}>
+                  <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: 11, color: T.muted, textTransform: "uppercase", letterSpacing: "0.04em", marginBottom: 6 }}>
+                    Keyboard shortcuts
+                  </div>
+                  <div style={{ display: "grid", gap: 4, fontFamily: FONT_UI, fontSize: 12, color: T.muted }}>
+                    <div><strong style={{ color: T.ink }}>Alt+N</strong> — Next question</div>
+                    <div><strong style={{ color: T.ink }}>Alt+P</strong> — Previous question</div>
+                    <div><strong style={{ color: T.ink }}>Alt+J</strong> — Mark question</div>
+                    <div><strong style={{ color: T.ink }}>1–5 / A–E</strong> — Select answer</div>
+                    <div><strong style={{ color: T.ink }}>Alt+H</strong> — Highlight selection</div>
+                  </div>
+                </div>
               </div>
             )}
           </div>
@@ -1549,6 +1610,90 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, darkMode,
             </PrimaryButton>
           </div>
         </div>
+
+        {/* Lab values panel — in-flow split view, not an overlay, so the question stays visible */}
+        {labOpen && (
+          <div style={{
+            width: 400, flexShrink: 0, background: T.card, borderLeft: `1px solid ${T.border}`,
+            display: "flex", flexDirection: "column", minHeight: 0, overflow: "hidden",
+          }}>
+            {/* Fixed header: title/close, search, and tabs all stay put no matter how far the list below is scrolled */}
+            <div style={{ flexShrink: 0, padding: "18px 18px 12px", borderBottom: `1px solid ${T.border}` }}>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 12 }}>
+                <span style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: 14, color: T.ink }}>Lab Values</span>
+                <button onClick={() => setLabOpen(false)} style={{ background: "transparent", border: "none", cursor: "pointer", color: T.muted }}>
+                  <X size={16} />
+                </button>
+              </div>
+
+              <div style={{ display: "flex", alignItems: "center", gap: 6, border: `1px solid ${T.border}`, borderRadius: 6, padding: "6px 10px", marginBottom: 12 }}>
+                <Search size={14} color={T.muted} />
+                <input
+                  value={labSearch}
+                  onChange={(e) => setLabSearch(e.target.value)}
+                  placeholder="Search…"
+                  style={{ border: "none", outline: "none", fontFamily: FONT_UI, fontSize: 13, flex: 1, background: "transparent", color: T.ink }}
+                />
+              </div>
+
+              <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
+                {LAB_TABS.map((tab) => (
+                  <button
+                    key={tab}
+                    onClick={() => setLabTab(tab)}
+                    style={{
+                      fontFamily: FONT_UI, fontSize: 12, fontWeight: 600, padding: "6px 10px", borderRadius: 999,
+                      border: `1px solid ${labTab === tab ? T.blue : T.border}`,
+                      background: labTab === tab ? T.blueLight : "transparent",
+                      color: labTab === tab ? T.blue : T.muted, cursor: "pointer",
+                    }}
+                  >
+                    {tab}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <div style={{ flex: 1, overflowY: "auto", padding: 18 }}>
+              <label style={{ display: "flex", alignItems: "center", gap: 8, fontFamily: FONT_UI, fontSize: 12.5, color: T.ink, marginBottom: 14, cursor: "pointer" }}>
+                <input type="checkbox" checked={siUnits} onChange={() => setSiUnits((v) => !v)} />
+                SI Reference Intervals
+              </label>
+
+              <div style={{
+                display: "flex", justifyContent: "space-between", padding: "4px 4px 8px", borderBottom: `1.5px solid ${T.border}`,
+                fontFamily: FONT_UI, fontSize: 11.5, fontWeight: 700, color: T.muted, textTransform: "uppercase", letterSpacing: "0.04em",
+              }}>
+                <span>{labTab}</span>
+                <span>{siUnits ? "SI Reference Interval" : "Reference Range"}</span>
+              </div>
+
+              <table style={{ width: "100%", borderCollapse: "collapse", fontFamily: FONT_UI, fontSize: 12.5 }}>
+                <tbody>
+                  {filteredLabRows.map((row, i) =>
+                    row.h ? (
+                      <tr key={`h-${i}`}>
+                        <td colSpan={2} style={{ padding: "12px 4px 4px", fontWeight: 700, color: T.blue, fontSize: 12.5 }}>
+                          {row.h}
+                        </td>
+                      </tr>
+                    ) : (
+                      <tr key={row.name} style={{ borderBottom: `1px solid ${T.border}` }}>
+                        <td style={{ padding: "6px 4px 6px", paddingLeft: row.sub ? 16 : 4, color: T.ink }}>{row.name}</td>
+                        <td style={{ padding: "6px 4px", color: T.muted, textAlign: "right", whiteSpace: "nowrap" }}>
+                          {siUnits ? row.si : row.value}
+                        </td>
+                      </tr>
+                    )
+                  )}
+                  {filteredLabRows.length === 0 && (
+                    <tr><td colSpan={2} style={{ padding: "16px 4px", color: T.muted, fontStyle: "italic" }}>No matches in {labTab}.</td></tr>
+                  )}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        )}
       </div>
 
       {/* Bottom bar */}
@@ -1567,85 +1712,6 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, darkMode,
           <XOctagon size={18} /> End Block
         </button>
       </div>
-
-      {/* Lab values panel */}
-      {labOpen && (
-        <div style={{
-          position: "fixed", right: 0, top: 0, bottom: 0, width: 400, background: T.card, borderLeft: `1px solid ${T.border}`,
-          padding: 18, overflowY: "auto", zIndex: 55, boxShadow: "-6px 0 24px rgba(0,0,0,0.25)",
-        }}>
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 12 }}>
-            <span style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: 14, color: T.ink }}>Lab Values</span>
-            <button onClick={() => setLabOpen(false)} style={{ background: "transparent", border: "none", cursor: "pointer", color: T.muted }}>
-              <X size={16} />
-            </button>
-          </div>
-
-          <div style={{ display: "flex", alignItems: "center", gap: 6, border: `1px solid ${T.border}`, borderRadius: 6, padding: "6px 10px", marginBottom: 12 }}>
-            <Search size={14} color={T.muted} />
-            <input
-              value={labSearch}
-              onChange={(e) => setLabSearch(e.target.value)}
-              placeholder="Search…"
-              style={{ border: "none", outline: "none", fontFamily: FONT_UI, fontSize: 13, flex: 1, background: "transparent", color: T.ink }}
-            />
-          </div>
-
-          <label style={{ display: "flex", alignItems: "center", gap: 8, fontFamily: FONT_UI, fontSize: 12.5, color: T.ink, marginBottom: 12, cursor: "pointer" }}>
-            <input type="checkbox" checked={siUnits} onChange={() => setSiUnits((v) => !v)} />
-            SI Reference Intervals
-          </label>
-
-          <div style={{ display: "flex", gap: 6, marginBottom: 14, flexWrap: "wrap" }}>
-            {LAB_TABS.map((tab) => (
-              <button
-                key={tab}
-                onClick={() => setLabTab(tab)}
-                style={{
-                  fontFamily: FONT_UI, fontSize: 12, fontWeight: 600, padding: "6px 10px", borderRadius: 999,
-                  border: `1px solid ${labTab === tab ? T.blue : T.border}`,
-                  background: labTab === tab ? T.blueLight : "transparent",
-                  color: labTab === tab ? T.blue : T.muted, cursor: "pointer",
-                }}
-              >
-                {tab}
-              </button>
-            ))}
-          </div>
-
-          <div style={{
-            display: "flex", justifyContent: "space-between", padding: "4px 4px 8px", borderBottom: `1.5px solid ${T.border}`,
-            fontFamily: FONT_UI, fontSize: 11.5, fontWeight: 700, color: T.muted, textTransform: "uppercase", letterSpacing: "0.04em",
-          }}>
-            <span>{labTab}</span>
-            <span>{siUnits ? "SI Reference Interval" : "Reference Range"}</span>
-          </div>
-
-          <table style={{ width: "100%", borderCollapse: "collapse", fontFamily: FONT_UI, fontSize: 12.5 }}>
-            <tbody>
-              {filteredLabRows.map((row, i) =>
-                row.h ? (
-                  <tr key={`h-${i}`}>
-                    <td colSpan={2} style={{ padding: "12px 4px 4px", fontWeight: 700, color: T.blue, fontSize: 12.5 }}>
-                      {row.h}
-                    </td>
-                  </tr>
-                ) : (
-                  <tr key={row.name} style={{ borderBottom: `1px solid ${T.border}` }}>
-                    <td style={{ padding: "6px 4px 6px", paddingLeft: row.sub ? 16 : 4, color: T.ink }}>{row.name}</td>
-                    <td style={{ padding: "6px 4px", color: T.muted, textAlign: "right", whiteSpace: "nowrap" }}>
-                      {siUnits ? row.si : row.value}
-                    </td>
-                  </tr>
-                )
-              )}
-              {filteredLabRows.length === 0 && (
-                <tr><td colSpan={2} style={{ padding: "16px 4px", color: T.muted, fontStyle: "italic" }}>No matches in {labTab}.</td></tr>
-              )}
-            </tbody>
-          </table>
-        </div>
-      )}
 
       {/* Notes panel */}
       {notesOpen && (
@@ -1713,17 +1779,41 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, darkMode,
           position: "fixed", inset: 0, background: "rgba(10,15,20,0.6)", display: "flex", alignItems: "center",
           justifyContent: "center", zIndex: 95, padding: 20,
         }}>
-          <div style={{ background: "#fff", borderRadius: 10, padding: 28, maxWidth: 400 }}>
-            <h3 style={{ fontFamily: FONT_UI, fontSize: 17, fontWeight: 700, color: LIGHT.ink, margin: "0 0 10px" }}>
+          <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, padding: 28, maxWidth: 400 }}>
+            <h3 style={{ fontFamily: FONT_UI, fontSize: 17, fontWeight: 700, color: T.ink, margin: "0 0 10px" }}>
               End this block?
             </h3>
-            <p style={{ fontFamily: FONT_UI, fontSize: 14, color: LIGHT.muted, lineHeight: 1.55, margin: "0 0 20px" }}>
+            <p style={{ fontFamily: FONT_UI, fontSize: 14, color: T.muted, lineHeight: 1.55, margin: "0 0 20px" }}>
               You've answered {answeredCount} of {questions.length} questions. Once you end the block you
               can't change your answers, but you can review explanations right away.
             </p>
             <div style={{ display: "flex", gap: 10, justifyContent: "flex-end" }}>
-              <GhostButton onClick={() => setConfirmSubmit(false)}>Keep working</GhostButton>
-              <PrimaryButton onClick={() => { setConfirmSubmit(false); onSubmitBlock(); }}>End block</PrimaryButton>
+              <GhostButton T={T} onClick={() => setConfirmSubmit(false)}>Keep working</GhostButton>
+              <PrimaryButton T={T} onClick={() => { setConfirmSubmit(false); onSubmitBlock(); }}>End block</PrimaryButton>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Time's up notice — shown instead of silently auto-submitting when the countdown hits zero */}
+      {timeUp && (
+        <div style={{
+          position: "fixed", inset: 0, background: "rgba(10,15,20,0.6)", display: "flex", alignItems: "center",
+          justifyContent: "center", zIndex: 95, padding: 20,
+        }}>
+          <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, padding: 28, maxWidth: 400 }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 10 }}>
+              <Clock size={20} color={T.red} />
+              <h3 style={{ fontFamily: FONT_UI, fontSize: 17, fontWeight: 700, color: T.ink, margin: 0 }}>
+                Time's up
+              </h3>
+            </div>
+            <p style={{ fontFamily: FONT_UI, fontSize: 14, color: T.muted, lineHeight: 1.55, margin: "0 0 20px" }}>
+              The allotted time for this block has lapsed. You answered {answeredCount} of {questions.length}
+              questions. The block will now be submitted automatically and you can review your results.
+            </p>
+            <div style={{ display: "flex", justifyContent: "flex-end" }}>
+              <PrimaryButton T={T} onClick={() => { setTimeUp(false); onSubmitBlock(); }}>View results</PrimaryButton>
             </div>
           </div>
         </div>
@@ -2014,8 +2104,27 @@ export default function App() {
   const T = darkMode ? DARK : LIGHT;
 
   function handleImport(data) {
-    setExamData(data);
-    setBlockStates(data.blocks.map(makeInitialBlockState));
+    // Guard against answer-position bias (e.g. LLM output where every key is "A"):
+    // if any single letter is the correct answer for >50% of a block's questions
+    // (5+ questions), shuffle that block's options so students can't pattern-match.
+    let reshuffled = 0;
+    const blocks = data.blocks.map((b) => {
+      const counts = {};
+      b.questions.forEach((q) => { counts[q.correctAnswer] = (counts[q.correctAnswer] || 0) + 1; });
+      const maxShare = Math.max(...Object.values(counts)) / b.questions.length;
+      if (b.questions.length >= 5 && maxShare > 0.5) {
+        reshuffled += 1;
+        return { ...b, questions: b.questions.map(shuffleQuestionOptions) };
+      }
+      return b;
+    });
+    const next = {
+      ...data,
+      blocks,
+      ...(reshuffled ? { notice: "Answer choices were shuffled on import because the correct answers were heavily concentrated on one letter." } : {}),
+    };
+    setExamData(next);
+    setBlockStates(next.blocks.map(makeInitialBlockState));
     setView("lobby");
   }
 
