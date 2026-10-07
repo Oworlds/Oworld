@@ -1,10 +1,10 @@
-import React, { useState, useEffect, useRef, useMemo, createContext, useContext } from "react";
+import React, { useState, useEffect, useRef, useMemo, useCallback, createContext, useContext } from "react";
 import {
   Flag, Clock, ChevronLeft, ChevronRight, Upload, Copy, RotateCcw,
   Play, CheckCircle2, XCircle, AlertTriangle, ClipboardList, Activity,
   Check, ChevronDown, ChevronUp, FileJson, FlaskConical, PencilLine,
   Calculator as CalcIcon, Settings as SettingsIcon, Lock, Unlock,
-  Search, Trash2, X, XOctagon, Lightbulb, Sun, Moon, Highlighter, BookOpen
+  Search, Trash2, X, XOctagon, Lightbulb, Sun, Moon, Highlighter, BookOpen, Stethoscope, Target, Save, Shuffle
 } from "lucide-react";
 import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell
@@ -29,8 +29,12 @@ const LIGHT = {
   onBlue: "#FFFFFF",
   green: "#2E7D4F",
   greenLight: "#E1F0E5",
+  greenStrong: "#C2E2CD",
+  greenSoft: "#E8F4EC",
   red: "#B23B35",
   redLight: "#F5DEDC",
+  redStrong: "#EBBDB9",
+  redSoft: "#F8E8E6",
   amber: "#9C6510",
   amberLight: "#F5E7CE",
   flagRed: "#C0392B",
@@ -51,8 +55,12 @@ const DARK = {
   onBlue: "#001217",
   green: "#5FD38A",
   greenLight: "#123A2A",
+  greenStrong: "#1D5B3E",
+  greenSoft: "#143D2C",
   red: "#FF7A70",
   redLight: "#3A1414",
+  redStrong: "#5C2222",
+  redSoft: "#431A1A",
   amber: "#F5B84D",
   amberLight: "#3A2B0E",
   flagRed: "#FF6B5B",
@@ -222,24 +230,38 @@ const LAB_TABS = ["Serum", "Cerebrospinal", "Blood", "Urine and BMI"];
 // ---------------------------------------------------------------------------
 const STR = {
   en: {
+    saveToLibrary: "Save to Library", libSaved: "Saved {n} new block(s) to your library.", libDup: "{d} already in your library.", libNothing: "Already in your library — nothing new to save.",
+    libTitle: "Qbank Library", libCount: "{n} saved", libEmpty: "Nothing saved yet. Paste or upload a question bank and choose \u201cSave to Library\u201d to keep it on this device.",
+    libMeta: "{q} questions · imported {d}", libLastScore: "Last score {pct}% ({c}/{t})", libNoScore: "Not attempted yet",
+    libStart: "Start", libStartQueue: "Start queued blocks ({n})", libQueueHint: "Tick two or more blocks to run them back-to-back as one continuous session.", libMixTitle: "Mix selected banks", libMixHint: "Merges the ticked banks into one shuffled block, with systems and disciplines spread evenly.", libMixPool: "{q} questions · {s} subjects", libMixDupes: "{d} duplicate(s) removed", libMixSize: "Questions", libMixAll: "All ({n})", libMix: "Mix selected ({n})", mixedName: "Mixed Qbank ({n} banks)",
+    libDeleteQ: "Delete this block?", libDelete: "Delete", libLocalNote: "Stored only in this browser. Clearing site data removes it.",
+    resetData: "Reset All Local Data", resetDataWarn: "This permanently deletes your Qbank library, saved exam progress and preferences from this browser. It can't be undone.", resetDataConfirm: "Yes, delete everything",
+    resumed: "Session restored — you're back where you left off.", storageFull: "Couldn't write to browser storage (it may be full or disabled). Your progress is not being backed up right now.",
+    leaveConfirm: "You have a block in progress. Leaving now discards it. Continue?",
     settings: "Settings", dark: "Dark mode", lang: "Language",
-    title: "Timed exam, built from your own vignettes.",
-    intro: "Import a block of questions generated in NotebookLM or Gemini as JSON, then take it in an interface modeled on the real NBME/USMLE testing software — item navigator, lab values, notes, calculator, and a full performance breakdown when you're done.",
-    pasteJson: "Paste or upload exam JSON", upload: "Upload file",
-    pastePh: "Paste the JSON block Gemini generated here…",
-    load: "Load exam", demo: "Try a 3-question demo", hide: "Hide", recipe: "Question Recipe",
-    recipeIntro: "Configure a block below, then copy the generated recipe into Gemini (or drop it into NotebookLM alongside your source material). It returns questions in the exact shape this app expects.",
+    tutorShort: "Tutor", modeLabel: "Test mode", modeLocked: "Locked once the block starts", modeTimedHint: "Countdown timer. You can turn it off during the exam, but not back on.", timerLabel: "Timer", timerOnHint: "You can turn the timer off, but you can't turn it back on.", timerOffNote: "Timer is off for this block and can't be turned back on.", timerOffTitle: "Turn off the timer?", timerOffBody: "The countdown will stop and this block will become untimed. This can't be undone: you won't be able to turn the timer back on for this block. Your answers and progress are kept.", keepTimer: "Keep timer on", turnOffTimer: "Turn off timer", timerOffSuffix: "timer off", modeTutorHint: "No timer. Instant feedback after each answer.", tutor: "Tutor mode", tutorHint: "Instant right/wrong feedback and explanations after each answer, plus question reset.",
+    tutorCorrect: "Correct", tutorIncorrect: "Incorrect — the correct answer is {a}", tutorIncorrectHidden: "Incorrect", showCorrectBtn: "Show Correct Answer",
+    resetQ: "Reset question", "sc.reset": "Reset question (Tutor mode)",
+    attendingTip: "Tutor's Tip", keyClues: "Key Clues", keyLearningPoint: "Key Learning Point",
+    keyInfoBtn: "Key Info", tipBtn: "Tutor's Tip", distractorBtn: "Why this is incorrect", noKeyInfo: "No key info available for this question.", noTipAvail: "No tip available for this question.", hintUsedBadge: "Hint used", hintsUsedN: "Hints used: {n}",
+    difficulty: "Difficulty", diffTitle: "Difficulty: {n} of 5",
+    timerLocked: "The timer can't be turned on once a block has started.",
+    title: "Turn questions from any AI model into a realistic practice exam",
+    intro: "Paste or upload custom question banks created with your favorite AI tools like ChatGPT, Claude, Gemini, or NotebookLM. Experience an exam-like environment complete with lab reference panels, answer strikethroughs, a built-in calculator, and detailed score analytics.",
+    pasteJson: "Paste or upload question bank", upload: "Upload file",
+    pastePh: "Paste your generated question bank here…",
+    load: "Load exam", demo: "Try a 3-question demo", hide: "Hide", recipe: "Question Recipe Prompt",
+    recipeIntro: "Configure a block below, then copy the generated recipe into the AI tool of your choice (add your source material if it supports it). It returns questions in the exact shape this app expects.",
     blockSize: "Block size", focus: "Focus",
     "focus.standard": "Standard USMLE mix", "focus.systems": "Single organ system", "focus.discipline": "Single discipline",
     phSystems: "e.g. Cardiovascular, Renal, Neuro…", phDisc: "e.g. Pharmacology, Biochemistry, Microbiology…",
-    recipeTitle: "Question Recipe — Gemini / NotebookLM prompt", copied: "Copied", copy: "Copy", schema: "JSON schema",
+    recipeTitle: "Question Recipe — AI prompt", copied: "Copied", copy: "Copy", schema: "JSON schema", viewSchema: "View Developer JSON Schema", hideSchema: "Hide Developer JSON Schema",
     createdBy: "OWORLD is created by", role: "Medical student | Founder of Verde+",
     notAffil: "Not affiliated with NBME or USMLE®", tmTitle: "Trademark disclaimer",
     tm1: "OWORLD is an independent, unofficial study tool for running practice question blocks you generate yourself with third-party AI tools. It is not produced, endorsed, licensed, or affiliated with the National Board of Medical Examiners (NBME) or the Federation of State Medical Boards (FSMB).",
     tm2: "USMLE® is a registered trademark of the NBME and FSMB. Any resemblance to their exam interface or terminology is used for descriptive and educational purposes only.",
     close: "Close",
     practiceExam: "Practice Exam", fullSummary: "Full exam summary", importNew: "Import new exam",
-    notice: "Answer choices were shuffled on import because the correct answers were heavily concentrated on one letter.",
     notStarted: "Not started", inProgress: "In progress · {a}/{n} answered", qCount: "{n} questions",
     minLimit: "{m} min limit", untimed: "Untimed", timed: "Timed", review: "Review",
     retestMissed: "Retest missed ({n})", retestAll: "Retest entire block ({n})",
@@ -253,7 +275,7 @@ const STR = {
     "sc.next": "Next question", "sc.prev": "Previous question", "sc.mark": "Mark question",
     "sc.select": "Select answer", "sc.hl": "Highlight selection",
     qStatus: "Question Status", mark: "Mark Question", hideHint: "Hide Hint", showHint: "Show Hint",
-    hlTip: "Select text, then click Highlight — or press Alt+H (Option+H on Mac).",
+    hlTip: "Select text, then click Highlight.",
     noHint: "No hint was provided for this question.", strike: "Strike out this option",
     proceedNext: "Proceed to Next Item", proceedSummary: "Proceed to Block Summary",
     timeLeft: "Block Time Remaining", untimedLower: "untimed",
@@ -269,6 +291,13 @@ const STR = {
     "tab.Serum": "Serum", "tab.Cerebrospinal": "Cerebrospinal", "tab.Blood": "Blood", "tab.Urine and BMI": "Urine and BMI",
     back: "Back to blocks", results: "{name} — results",
     scoreLine: "{c} correct out of {t} · {u} unanswered",
+    retestIncBtn: "Retest Incorrects (Tutor Mode)", retestFullBtn: "Retest Full Block", retestTitle: "Configure retest",
+    poolLabel: "Question pool", poolIncorrect: "Incorrect only", poolFlagged: "Flagged only", poolAll: "All questions",
+    modeSel: "Test mode", modeTutorOpt: "Tutor Mode", modeTimedOpt: "Timed Mode", poolEmpty: "No questions in this pool.",
+    retestSaveNote: "Your first-attempt score and timing are saved and will not be changed by this retest.",
+    startRetest: "Start retest", cancel: "Cancel", attemptHistory: "Attempt history", firstAttempt: "First attempt (baseline)",
+    retestN: "Retest {n}", timerOffTag: "timer turned off", elapsed: "Time", retestsExcluded: "{n} retest attempt(s) are not counted in these totals; first-attempt scores are kept as the baseline.",
+    "rt.flagged": "Flagged Questions", sufFlagged: "Retest Flagged",
     rtMissed: "Retest Missed Questions ({n})", perfect: "Retest Missed Questions — perfect score!",
     rtAll: "Retest Entire Block ({n})", loadNew: "Load New Exam",
     perfSubject: "Performance by subject", qReview: "Question review",
@@ -277,7 +306,7 @@ const STR = {
     fullSummaryTitle: "{name} — full summary",
     across: "{c} correct across {q} questions in {b} {blocks}", block1: "block", blockN: "blocks",
     perfAll: "Performance by subject (all blocks)", focusAreas: "Focus areas",
-    lowest: "Lowest scoring: {list}. Consider generating a fresh Gemini block focused on these systems.",
+    lowest: "Lowest scoring: {list}. Consider generating a fresh block with your AI tool focused on these systems.",
     sufMissed: "Retest Missed", sufAll: "Retest All",
     "err.json": "That isn't valid JSON. Check for trailing commas or missing quotes.",
     "err.root": "Root must be a JSON object.",
@@ -293,24 +322,38 @@ const STR = {
     "err.match": "Question \"{id}\": correctAnswer \"{ans}\" doesn't match any option key.",
   },
   es: {
+    saveToLibrary: "Guardar en la biblioteca", libSaved: "Se guardaron {n} bloque(s) nuevo(s) en tu biblioteca.", libDup: "{d} ya estaba(n) en tu biblioteca.", libNothing: "Ya está en tu biblioteca; no hay nada nuevo que guardar.",
+    libTitle: "Biblioteca de preguntas", libCount: "{n} guardados", libEmpty: "Aún no hay nada guardado. Pega o sube un banco de preguntas y elige \u201cGuardar en la biblioteca\u201d para conservarlo en este dispositivo.",
+    libMeta: "{q} preguntas · importado {d}", libLastScore: "Último puntaje {pct}% ({c}/{t})", libNoScore: "Sin intentos aún",
+    libStart: "Iniciar", libStartQueue: "Iniciar bloques en cola ({n})", libQueueHint: "Marca dos o más bloques para resolverlos seguidos en una sola sesión continua.", libMixTitle: "Mezclar bancos seleccionados", libMixHint: "Une los bancos marcados en un solo bloque mezclado, con sistemas y disciplinas repartidos de forma pareja.", libMixPool: "{q} preguntas · {s} materias", libMixDupes: "{d} duplicada(s) eliminada(s)", libMixSize: "Preguntas", libMixAll: "Todas ({n})", libMix: "Mezclar selección ({n})", mixedName: "Qbank mezclado ({n} bancos)",
+    libDeleteQ: "¿Eliminar este bloque?", libDelete: "Eliminar", libLocalNote: "Se guarda solo en este navegador. Borrar los datos del sitio lo elimina.",
+    resetData: "Restablecer todos los datos locales", resetDataWarn: "Esto elimina de forma permanente tu biblioteca, el progreso guardado y tus preferencias en este navegador. No se puede deshacer.", resetDataConfirm: "Sí, eliminar todo",
+    resumed: "Sesión restaurada: continúas donde la dejaste.", storageFull: "No se pudo escribir en el almacenamiento del navegador (puede estar lleno o desactivado). Tu progreso no se está respaldando.",
+    leaveConfirm: "Tienes un bloque en curso. Si sales ahora se descartará. ¿Continuar?",
     settings: "Ajustes", dark: "Modo oscuro", lang: "Idioma",
-    title: "Examen cronometrado, creado con tus propias viñetas.",
-    intro: "Importa un bloque de preguntas generado en NotebookLM o Gemini como JSON y resuélvelo en una interfaz inspirada en el software real de NBME/USMLE: navegador de ítems, valores de laboratorio, notas, calculadora y un desglose completo de tu desempeño al terminar.",
-    pasteJson: "Pega o sube el JSON del examen", upload: "Subir archivo",
-    pastePh: "Pega aquí el bloque JSON que generó Gemini…",
-    load: "Cargar examen", demo: "Probar una demo de 3 preguntas", hide: "Ocultar", recipe: "Receta de preguntas",
-    recipeIntro: "Configura un bloque abajo y luego copia la receta generada en Gemini (o súbela a NotebookLM junto con tu material de estudio). Devuelve las preguntas en el formato exacto que esta app espera.",
+    tutorShort: "Tutor", modeLabel: "Modo del examen", modeLocked: "Se bloquea al iniciar el bloque", modeTimedHint: "Cuenta regresiva. Puedes desactivarla durante el examen, pero no volver a activarla.", timerLabel: "Cronómetro", timerOnHint: "Puedes desactivar el cronómetro, pero no volver a activarlo.", timerOffNote: "El cronómetro está desactivado en este bloque y no se puede volver a activar.", timerOffTitle: "¿Desactivar el cronómetro?", timerOffBody: "La cuenta regresiva se detendrá y este bloque quedará sin límite de tiempo. No se puede deshacer: no podrás volver a activar el cronómetro en este bloque. Tus respuestas y tu progreso se conservan.", keepTimer: "Mantener cronómetro", turnOffTimer: "Desactivar cronómetro", timerOffSuffix: "cronómetro desactivado", modeTutorHint: "Sin cronómetro. Retroalimentación instantánea tras cada respuesta.", tutor: "Modo tutor", tutorHint: "Retroalimentación instantánea de correcto/incorrecto y explicaciones tras cada respuesta, más reinicio de pregunta.",
+    tutorCorrect: "Correcto", tutorIncorrect: "Incorrecto — la respuesta correcta es {a}", tutorIncorrectHidden: "Incorrecto", showCorrectBtn: "Mostrar respuesta correcta",
+    resetQ: "Reiniciar pregunta", "sc.reset": "Reiniciar pregunta (modo tutor)",
+    attendingTip: "Consejo del tutor", keyClues: "Pistas clave", keyLearningPoint: "Punto clave de aprendizaje",
+    keyInfoBtn: "Datos clave", tipBtn: "Consejo del tutor", distractorBtn: "Por qué es incorrecta", noKeyInfo: "No hay datos clave para esta pregunta.", noTipAvail: "No hay consejo para esta pregunta.", hintUsedBadge: "Pista usada", hintsUsedN: "Pistas usadas: {n}",
+    difficulty: "Dificultad", diffTitle: "Dificultad: {n} de 5",
+    timerLocked: "El temporizador no se puede activar una vez iniciado el bloque.",
+    title: "Convierte preguntas de cualquier modelo de IA en un examen de práctica realista",
+    intro: "Pega o sube bancos de preguntas personalizados creados con tus herramientas de IA favoritas, como ChatGPT, Claude, Gemini o NotebookLM. Vive un entorno similar al examen real, con paneles de referencia de laboratorio, tachado de respuestas, calculadora integrada y analíticas detalladas de tu puntaje.",
+    pasteJson: "Pega o sube un banco de preguntas", upload: "Subir archivo",
+    pastePh: "Pega aquí tu banco de preguntas generado…",
+    load: "Cargar examen", demo: "Probar una demo de 3 preguntas", hide: "Ocultar", recipe: "Prompt de receta de preguntas",
+    recipeIntro: "Configura un bloque abajo y luego copia la receta generada en la herramienta de IA que prefieras (agrega tu material de estudio si lo permite). Devuelve las preguntas en el formato exacto que esta app espera.",
     blockSize: "Tamaño del bloque", focus: "Enfoque",
     "focus.standard": "Mezcla USMLE estándar", "focus.systems": "Un solo sistema", "focus.discipline": "Una sola disciplina",
     phSystems: "p. ej. Cardiovascular, Renal, Neuro…", phDisc: "p. ej. Farmacología, Bioquímica, Microbiología…",
-    recipeTitle: "Receta de preguntas — prompt para Gemini / NotebookLM", copied: "Copiado", copy: "Copiar", schema: "Esquema JSON",
+    recipeTitle: "Receta de preguntas — prompt para IA", copied: "Copiado", copy: "Copiar", schema: "Esquema JSON", viewSchema: "Ver esquema JSON para desarrolladores", hideSchema: "Ocultar esquema JSON para desarrolladores",
     createdBy: "OWORLD fue creado por", role: "Estudiante de medicina | Fundador de Verde+",
     notAffil: "Sin afiliación con NBME ni USMLE®", tmTitle: "Aviso de marcas registradas",
     tm1: "OWORLD es una herramienta de estudio independiente y no oficial para resolver bloques de preguntas de práctica que tú mismo generas con herramientas de IA de terceros. No es producida, respaldada, licenciada ni afiliada al National Board of Medical Examiners (NBME) ni a la Federation of State Medical Boards (FSMB).",
     tm2: "USMLE® es una marca registrada de la NBME y la FSMB. Cualquier parecido con su interfaz o terminología de examen se usa únicamente con fines descriptivos y educativos.",
     close: "Cerrar",
     practiceExam: "Examen de práctica", fullSummary: "Resumen completo del examen", importNew: "Importar nuevo examen",
-    notice: "Se mezclaron las opciones al importar porque las respuestas correctas estaban muy concentradas en una sola letra.",
     notStarted: "Sin iniciar", inProgress: "En curso · {a}/{n} respondidas", qCount: "{n} preguntas",
     minLimit: "límite de {m} min", untimed: "Sin límite de tiempo", timed: "Cronometrado", review: "Revisar",
     retestMissed: "Repetir falladas ({n})", retestAll: "Repetir bloque completo ({n})",
@@ -324,7 +367,7 @@ const STR = {
     "sc.next": "Siguiente pregunta", "sc.prev": "Pregunta anterior", "sc.mark": "Marcar pregunta",
     "sc.select": "Seleccionar respuesta", "sc.hl": "Resaltar selección",
     qStatus: "Estado de preguntas", mark: "Marcar pregunta", hideHint: "Ocultar pista", showHint: "Mostrar pista",
-    hlTip: "Selecciona texto y haz clic en Resaltar, o presiona Alt+H (Option+H en Mac).",
+    hlTip: "Selecciona texto y haz clic en Resaltar.",
     noHint: "No se proporcionó una pista para esta pregunta.", strike: "Tachar esta opción",
     proceedNext: "Pasar al siguiente ítem", proceedSummary: "Pasar al resumen del bloque",
     timeLeft: "Tiempo restante del bloque", untimedLower: "sin límite",
@@ -340,6 +383,13 @@ const STR = {
     "tab.Serum": "Suero", "tab.Cerebrospinal": "Líquido cefalorraquídeo", "tab.Blood": "Sangre", "tab.Urine and BMI": "Orina e IMC",
     back: "Volver a los bloques", results: "{name} — resultados",
     scoreLine: "{c} correctas de {t} · {u} sin responder",
+    retestIncBtn: "Repetir falladas (modo tutor)", retestFullBtn: "Repetir bloque completo", retestTitle: "Configurar repaso",
+    poolLabel: "Grupo de preguntas", poolIncorrect: "Solo falladas", poolFlagged: "Solo marcadas", poolAll: "Todas las preguntas",
+    modeSel: "Modo del examen", modeTutorOpt: "Modo tutor", modeTimedOpt: "Modo cronometrado", poolEmpty: "No hay preguntas en este grupo.",
+    retestSaveNote: "Tu puntaje y tiempo del primer intento se guardan y este repaso no los modificará.",
+    startRetest: "Iniciar repaso", cancel: "Cancelar", attemptHistory: "Historial de intentos", firstAttempt: "Primer intento (línea base)",
+    retestN: "Repaso {n}", timerOffTag: "cronómetro desactivado", elapsed: "Tiempo", retestsExcluded: "{n} intento(s) de repaso no se cuentan en estos totales; los puntajes del primer intento se conservan como línea base.",
+    "rt.flagged": "Preguntas marcadas", sufFlagged: "Repaso de marcadas",
     rtMissed: "Repetir preguntas falladas ({n})", perfect: "Repetir preguntas falladas — ¡puntaje perfecto!",
     rtAll: "Repetir bloque completo ({n})", loadNew: "Cargar nuevo examen",
     perfSubject: "Desempeño por materia", qReview: "Revisión de preguntas",
@@ -348,7 +398,7 @@ const STR = {
     fullSummaryTitle: "{name} — resumen completo",
     across: "{c} correctas de {q} preguntas en {b} {blocks}", block1: "bloque", blockN: "bloques",
     perfAll: "Desempeño por materia (todos los bloques)", focusAreas: "Áreas de enfoque",
-    lowest: "Menor puntaje: {list}. Considera generar un nuevo bloque en Gemini enfocado en estos sistemas.",
+    lowest: "Menor puntaje: {list}. Considera generar un nuevo bloque con tu herramienta de IA enfocado en estos sistemas.",
     sufMissed: "Repetir falladas", sufAll: "Repetir todo",
     "err.json": "Ese JSON no es válido. Revisa si hay comas finales o comillas faltantes.",
     "err.root": "La raíz debe ser un objeto JSON.",
@@ -367,6 +417,9 @@ const STR = {
 
 const LangContext = createContext({ lang: "en", setLang: () => {} });
 
+// Tutor mode (AMBOSS-style): instant correct/incorrect feedback after each answer,
+// plus per-question reset. Global setting, off by default, toggled from any Settings menu.
+
 function useI18n() {
   const { lang, setLang } = useContext(LangContext);
   const t = (key, vars) => {
@@ -379,8 +432,8 @@ function useI18n() {
 
 // Retest blocks store only the base name; the suffix is localized at display time.
 function blockLabel(block, t) {
-  if (!block.isRetest) return block.blockName;
-  return `${baseBlockName(block.blockName)} — ${t(block.retestType === "missed" ? "sufMissed" : "sufAll")}`;
+  if (!block.isRetest) return block.isMixed ? t("mixedName", { n: block.mixCount }) : block.blockName;
+  return `${baseBlockName(block.blockName)} — ${t(block.retestType === "missed" ? "sufMissed" : block.retestType === "flagged" ? "sufFlagged" : "sufAll")}`;
 }
 
 // Lab-table section headers and unit words (test names keep their standard English/abbreviated form).
@@ -433,7 +486,7 @@ function LangSelect({ T }) {
 
 
 // ---------------------------------------------------------------------------
-// Sample schema + demo data + Gemini prompt template
+// Sample schema + demo data + AI prompt template
 // ---------------------------------------------------------------------------
 const SCHEMA_TEXT = `{
   "examTitle": "Custom Practice Exam",
@@ -445,17 +498,41 @@ const SCHEMA_TEXT = `{
         {
           "id": "b1q1",
           "subject": "Cardiovascular",
+          "difficultyRating": 2,
           "vignette": "A 58-year-old man comes to the physician because of substernal chest pressure that began 2 hours ago while shoveling snow. He has a history of hypertension and type 2 diabetes mellitus. His pulse is 98/min and blood pressure is 148/92 mm Hg. An ECG shows ST-segment elevation in leads II, III, and aVF.",
+          "keyInfoPhrases": [
+            "substernal chest pressure",
+            "while shoveling snow",
+            "hypertension and type 2 diabetes mellitus",
+            "ST-segment elevation in leads II, III, and aVF"
+          ],
           "stem": "Which of the following is the most likely diagnosis?",
           "options": [
-            { "key": "A", "text": "Acute pericarditis" },
-            { "key": "B", "text": "Inferior wall myocardial infarction" },
-            { "key": "C", "text": "Aortic dissection" },
-            { "key": "D", "text": "Pulmonary embolism" },
-            { "key": "E", "text": "Costochondritis" }
+            {
+              "key": "A",
+              "text": "Acute pericarditis"
+            },
+            {
+              "key": "B",
+              "text": "Inferior wall myocardial infarction"
+            },
+            {
+              "key": "C",
+              "text": "Aortic dissection"
+            },
+            {
+              "key": "D",
+              "text": "Pulmonary embolism"
+            },
+            {
+              "key": "E",
+              "text": "Costochondritis"
+            }
           ],
           "correctAnswer": "B",
+          "attendingTip": "Start with the ECG: ST elevation in a contiguous group of leads means transmural ischemia, so ask which wall those leads look at. Then match the territory to its artery; II, III, and aVF all face the inferior wall, which the RCA usually supplies.",
           "explanation": "ST elevation in the inferior leads (II, III, aVF) with typical exertional chest pain and cardiac risk factors is classic for an inferior wall MI, usually from RCA occlusion.",
+          "keyLearningPoint": "ST elevation in II, III, and aVF localizes to the inferior wall, most often from RCA occlusion; check for right ventricular involvement before giving nitrates.",
           "distractorAnalysis": {
             "A": "Acute pericarditis causes diffuse ST elevation with PR depression, not localized to the inferior leads.",
             "C": "Aortic dissection classically presents with tearing pain radiating to the back, not focal ST elevation.",
@@ -485,89 +562,191 @@ const SCHEMA_TEXT = `{
 }`;
 
 const DEMO_EXAM = {
-  examTitle: "Demo Practice Exam",
-  blocks: [
+  "examTitle": "Demo Practice Exam",
+  "blocks": [
     {
-      blockName: "Block 1 (Demo)",
-      timeLimitMinutes: 3,
-      questions: [
+      "blockName": "Block 1 (Demo)",
+      "timeLimitMinutes": 3,
+      "questions": [
         {
-          id: "d1",
-          subject: "Cardiovascular",
-          vignette:
-            "A 58-year-old man comes to the physician because of substernal chest pressure that began 2 hours ago while shoveling snow. He has a history of hypertension and type 2 diabetes mellitus. His pulse is 98/min and blood pressure is 148/92 mm Hg. An ECG shows ST-segment elevation in leads II, III, and aVF.",
-          stem: "Which of the following is the most likely diagnosis?",
-          options: [
-            { key: "A", text: "Acute pericarditis" },
-            { key: "B", text: "Inferior wall myocardial infarction" },
-            { key: "C", text: "Aortic dissection" },
-            { key: "D", text: "Pulmonary embolism" },
-            { key: "E", text: "Costochondritis" },
+          "id": "d1",
+          "subject": "Cardiovascular",
+          "difficultyRating": 2,
+          "vignette": "A 58-year-old man comes to the physician because of substernal chest pressure that began 2 hours ago while shoveling snow. He has a history of hypertension and type 2 diabetes mellitus. His pulse is 98/min and blood pressure is 148/92 mm Hg. An ECG shows ST-segment elevation in leads II, III, and aVF.",
+          "keyInfoPhrases": [
+            "substernal chest pressure",
+            "while shoveling snow",
+            "hypertension and type 2 diabetes mellitus",
+            "ST-segment elevation in leads II, III, and aVF"
           ],
-          correctAnswer: "B",
-          explanation:
-            "ST elevation in II, III, and aVF with exertional chest pain and cardiac risk factors points to an inferior wall MI, typically from RCA occlusion.",
-          distractorAnalysis: {
-            A: "Pericarditis causes diffuse ST elevation with PR depression, not a focal territorial pattern.",
-            C: "Aortic dissection classically causes tearing pain radiating to the back, not focal ST elevation.",
-            D: "PE causes sinus tachycardia and possible right heart strain, not inferior lead ST elevation.",
-            E: "Costochondritis is reproducible on palpation and produces no ECG changes.",
+          "stem": "Which of the following is the most likely diagnosis?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Acute pericarditis"
+            },
+            {
+              "key": "B",
+              "text": "Inferior wall myocardial infarction"
+            },
+            {
+              "key": "C",
+              "text": "Aortic dissection"
+            },
+            {
+              "key": "D",
+              "text": "Pulmonary embolism"
+            },
+            {
+              "key": "E",
+              "text": "Costochondritis"
+            }
+          ],
+          "correctAnswer": "B",
+          "attendingTip": "Start with the ECG: ST elevation in a contiguous group of leads means transmural ischemia, so ask which wall those leads look at. Then match the territory to its artery; II, III, and aVF all face the inferior wall, which the RCA usually supplies.",
+          "explanation": "ST elevation in the inferior leads (II, III, aVF) with typical exertional chest pain and cardiac risk factors is classic for an inferior wall MI, usually from RCA occlusion.",
+          "keyLearningPoint": "ST elevation in II, III, and aVF localizes to the inferior wall, most often from RCA occlusion; check for right ventricular involvement before giving nitrates.",
+          "distractorAnalysis": {
+            "A": "Acute pericarditis causes diffuse ST elevation with PR depression, not localized to the inferior leads.",
+            "C": "Aortic dissection classically presents with tearing pain radiating to the back, not focal ST elevation.",
+            "D": "Pulmonary embolism causes sinus tachycardia and possible right heart strain (S1Q3T3), not inferior ST elevation.",
+            "E": "Costochondritis is reproducible on palpation and does not cause ECG changes."
           },
-          hint: "Which three leads localize the inferior wall of the heart?",
-          educationalObjective: "Localize an inferior wall MI to leads II, III, and aVF, and link it to RCA occlusion.",
-          sourceReferences: [
-            { sourceTitle: "First Aid for the USMLE Step 1 (2025)", chapterSection: "Cardiovascular — Ischemic Heart Disease", pageNumber: "302", relevance: "ECG localization of infarct territory and culprit vessel" },
-            { sourceTitle: "BRS Pathology (6th Ed.)", chapterSection: "Chapter 8: The Cardiovascular System", pageNumber: "145-148", relevance: "Pathophysiology of coronary occlusion" },
-          ],
+          "hint": "Think about which leads localize the inferior wall, and what vessel usually supplies it.",
+          "educationalObjective": "Recognize inferior wall MI from ST elevation in leads II, III, and aVF, typically from RCA occlusion.",
+          "sourceReferences": [
+            {
+              "sourceTitle": "First Aid for the USMLE Step 1 (2025)",
+              "chapterSection": "Cardiovascular — Ischemic Heart Disease",
+              "pageNumber": "302",
+              "relevance": "ECG localization of infarct territory and culprit vessel"
+            },
+            {
+              "sourceTitle": "BRS Pathology (6th Ed.)",
+              "chapterSection": "Chapter 8: The Cardiovascular System",
+              "pageNumber": "145-148",
+              "relevance": "Pathophysiology of coronary occlusion and infarct evolution"
+            }
+          ]
         },
         {
-          id: "d2",
-          subject: "Endocrine",
-          vignette:
-            "A 34-year-old woman comes to the physician because of a 3-month history of weight loss, heat intolerance, and palpitations. Examination shows a fine tremor, warm moist skin, and a diffusely enlarged, non-tender thyroid gland. Exophthalmos is present.",
-          stem: "Which of the following is the most likely underlying mechanism?",
-          options: [
-            { key: "A", text: "Autoantibodies against thyroid-stimulating hormone receptor" },
-            { key: "B", text: "Autonomous thyroid nodule" },
-            { key: "C", text: "Viral-induced thyroid inflammation" },
-            { key: "D", text: "Excess iodine ingestion" },
-            { key: "E", text: "Pituitary adenoma secreting TSH" },
+          "id": "d2",
+          "subject": "Endocrine",
+          "difficultyRating": 2,
+          "vignette": "A 34-year-old woman comes to the physician because of a 3-month history of weight loss, heat intolerance, and palpitations. Examination shows a fine tremor, warm moist skin, and a diffusely enlarged, non-tender thyroid gland. Exophthalmos is present.",
+          "keyInfoPhrases": [
+            "weight loss, heat intolerance, and palpitations",
+            "diffusely enlarged, non-tender thyroid gland",
+            "Exophthalmos is present"
           ],
-          correctAnswer: "A",
-          explanation:
-            "Diffuse goiter, exophthalmos, and hyperthyroid symptoms in a young woman are classic for Graves disease, caused by stimulating autoantibodies against the TSH receptor.",
-          hint: "Exophthalmos narrows this down to one specific autoimmune cause of hyperthyroidism.",
-          educationalObjective: "Recognize Graves disease as TSH-receptor autoantibody-mediated hyperthyroidism with exophthalmos.",
-          sourceReferences: [
-            { sourceTitle: "First Aid for the USMLE Step 1 (2025)", chapterSection: "Endocrine — Thyroid Pathology", pageNumber: "338", relevance: "Graves disease mechanism and exam findings" },
+          "stem": "Which of the following is the most likely underlying mechanism?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Autoantibodies against thyroid-stimulating hormone receptor"
+            },
+            {
+              "key": "B",
+              "text": "Autonomous thyroid nodule"
+            },
+            {
+              "key": "C",
+              "text": "Viral-induced thyroid inflammation"
+            },
+            {
+              "key": "D",
+              "text": "Excess iodine ingestion"
+            },
+            {
+              "key": "E",
+              "text": "Pituitary adenoma secreting TSH"
+            }
           ],
+          "correctAnswer": "A",
+          "attendingTip": "Hyperthyroid symptoms plus a diffuse, non-tender goiter narrow the field to Graves disease versus thyroiditis. Exophthalmos is the tiebreaker: it occurs in Graves disease, where the autoantibodies also act on orbital fibroblasts.",
+          "explanation": "Diffuse goiter, exophthalmos, and hyperthyroid symptoms in a young woman are classic for Graves disease, caused by stimulating autoantibodies against the TSH receptor.",
+          "keyLearningPoint": "Graves disease is caused by TSH-receptor-stimulating IgG antibodies and is the hyperthyroid state that uniquely produces exophthalmos and pretibial myxedema.",
+          "distractorAnalysis": {
+            "B": "An autonomous nodule causes hyperthyroidism from a focal toxic adenoma, giving a nodular rather than diffusely enlarged gland and no exophthalmos.",
+            "C": "Viral (subacute) thyroiditis produces a painful, tender thyroid with an elevated ESR, not exophthalmos.",
+            "D": "Excess iodine can trigger hyperthyroidism in a patient with underlying nodular goiter (Jod-Basedow) but does not cause exophthalmos.",
+            "E": "A TSH-secreting pituitary adenoma is rare and presents with inappropriately normal or elevated TSH, without exophthalmos."
+          },
+          "hint": "Exophthalmos narrows this down to one specific autoimmune cause of hyperthyroidism.",
+          "educationalObjective": "Recognize Graves disease as TSH-receptor autoantibody-mediated hyperthyroidism with exophthalmos.",
+          "sourceReferences": [
+            {
+              "sourceTitle": "First Aid for the USMLE Step 1 (2025)",
+              "chapterSection": "Endocrine — Thyroid Pathology",
+              "pageNumber": "338",
+              "relevance": "Graves disease mechanism and exam findings"
+            }
+          ]
         },
         {
-          id: "d3",
-          subject: "Renal",
-          vignette:
-            "A 6-year-old boy is brought in with periorbital edema and cola-colored urine 10 days after a sore throat. Blood pressure is 128/84 mm Hg. Urinalysis shows red cell casts and mild proteinuria. Serum C3 is decreased.",
-          stem: "Which of the following is the most likely diagnosis?",
-          options: [
-            { key: "A", text: "Minimal change disease" },
-            { key: "B", text: "IgA nephropathy" },
-            { key: "C", text: "Post-streptococcal glomerulonephritis" },
-            { key: "D", text: "Membranous nephropathy" },
-            { key: "E", text: "Alport syndrome" },
+          "id": "d3",
+          "subject": "Renal",
+          "difficultyRating": 3,
+          "vignette": "A 6-year-old boy is brought in with periorbital edema and cola-colored urine 10 days after a sore throat. Blood pressure is 128/84 mm Hg. Urinalysis shows red cell casts and mild proteinuria. Serum C3 is decreased.",
+          "keyInfoPhrases": [
+            "periorbital edema and cola-colored urine",
+            "10 days after a sore throat",
+            "red cell casts",
+            "Serum C3 is decreased"
           ],
-          correctAnswer: "C",
-          explanation:
-            "Red cell casts, low C3, and onset 1-3 weeks after pharyngitis in a child are characteristic of post-streptococcal glomerulonephritis.",
-          hint: "The low complement level points toward one specific post-infectious diagnosis.",
-          educationalObjective: "Distinguish post-streptococcal GN by its latency period, low C3, and red cell casts.",
-          sourceReferences: [
-            { sourceTitle: "First Aid for the USMLE Step 1 (2025)", chapterSection: "Renal — Nephritic Syndromes", pageNumber: "588", relevance: "Post-infectious GN timeline and complement findings" },
-            { sourceTitle: "BRS Pathology (6th Ed.)", chapterSection: "Chapter 16: The Kidney and Urinary System", pageNumber: "310-312", relevance: "Immune complex mechanism of glomerular injury" },
+          "stem": "Which of the following is the most likely diagnosis?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Minimal change disease"
+            },
+            {
+              "key": "B",
+              "text": "IgA nephropathy"
+            },
+            {
+              "key": "C",
+              "text": "Post-streptococcal glomerulonephritis"
+            },
+            {
+              "key": "D",
+              "text": "Membranous nephropathy"
+            },
+            {
+              "key": "E",
+              "text": "Alport syndrome"
+            }
           ],
-        },
-      ],
-    },
-  ],
+          "correctAnswer": "C",
+          "attendingTip": "Cola-colored urine, hypertension, and red cell casts make this a nephritic picture. The latency after a sore throat and the low C3 then point to an immune-complex, post-infectious cause.",
+          "explanation": "Red cell casts, low C3, and onset 1-3 weeks after pharyngitis in a child are characteristic of post-streptococcal glomerulonephritis.",
+          "keyLearningPoint": "Post-streptococcal GN appears 1-3 weeks after pharyngitis or skin infection with low C3 and subepithelial humps, and is usually self-limited in children.",
+          "distractorAnalysis": {
+            "A": "Minimal change disease causes nephrotic-range proteinuria with normal complement and no red cell casts.",
+            "B": "IgA nephropathy typically presents 1-2 days after an upper respiratory infection and has normal C3.",
+            "D": "Membranous nephropathy is a nephrotic syndrome of adults with heavy proteinuria, not a nephritic picture.",
+            "E": "Alport syndrome causes hematuria with hearing loss and ocular findings, a family history, and normal complement."
+          },
+          "hint": "The low complement level points toward one specific post-infectious diagnosis.",
+          "educationalObjective": "Distinguish post-streptococcal GN by its latency period, low C3, and red cell casts.",
+          "sourceReferences": [
+            {
+              "sourceTitle": "First Aid for the USMLE Step 1 (2025)",
+              "chapterSection": "Renal — Nephritic Syndromes",
+              "pageNumber": "588",
+              "relevance": "Post-infectious GN timeline and complement findings"
+            },
+            {
+              "sourceTitle": "BRS Pathology (6th Ed.)",
+              "chapterSection": "Chapter 16: The Kidney and Urinary System",
+              "pageNumber": "310-312",
+              "relevance": "Immune complex mechanism of glomerular injury"
+            }
+          ]
+        }
+      ]
+    }
+  ]
 };
 
 const FOCUS_MODES = [
@@ -577,12 +756,12 @@ const FOCUS_MODES = [
 ];
 const BLOCK_SIZES = [5, 15, 25, 40];
 
-// Compact schema used INSIDE the generated prompt (NotebookLM/Gemini has a
+// Compact schema used INSIDE the generated prompt (some AI tools have a
 // tight input-length limit). The full, richly-annotated SCHEMA_TEXT above
 // stays in the "JSON schema" reference panel for humans to read — this is a
 // field-name/type skeleton only, no prose example values, to keep the copied
 // prompt as short as possible while still fully specifying the shape.
-const PROMPT_SCHEMA_TEXT = `{"examTitle":"string","blocks":[{"blockName":"string","timeLimitMinutes":number,"questions":[{"id":"unique string","subject":"organ system/discipline","vignette":"string","stem":"string","options":[{"key":"A","text":"string"}],"correctAnswer":"matching key","explanation":"string","distractorAnalysis":{"key":"string"},"hint":"string (optional)","educationalObjective":"string","sourceReferences":[{"sourceTitle":"string","chapterSection":"string","pageNumber":"string (optional)","relevance":"string"}]}]}]}`;
+const PROMPT_SCHEMA_TEXT = `{"examTitle":"string","blocks":[{"blockName":"string","timeLimitMinutes":number,"questions":[{"id":"unique string","subject":"organ system/discipline","difficultyRating":number,"vignette":"string","keyInfoPhrases":["string"],"stem":"string","options":[{"key":"A","text":"string"}],"correctAnswer":"matching key","attendingTip":"string","explanation":"string","keyLearningPoint":"string","distractorAnalysis":{"key":"string"},"hint":"string","educationalObjective":"string","sourceReferences":[{"sourceTitle":"string","chapterSection":"string","pageNumber":"string (optional)","relevance":"string"}]}]}]}`;
 
 function buildQuestionRecipe({ size, focusMode, focusValue, lang }) {
   if (lang === "es") return buildQuestionRecipeEs({ size, focusMode, focusValue });
@@ -605,11 +784,16 @@ function buildQuestionRecipe({ size, focusMode, focusValue, lang }) {
 ${PROMPT_SCHEMA_TEXT}
 
 Block: "${blockName}", timeLimitMinutes ${timeLimit}.
-Vignette 4-8 sentences (age/sex, complaint, history, exam, labs/imaging). 5 options (A-E), 1 correct.
-explanation: 3-5 sentences on the key discriminator. distractorAnalysis: 1 sentence per wrong option, same keys.
-hint: 1 short sentence, no answer giveaway. educationalObjective: 1-2 sentence takeaway.
+Vignette: 4-8 sentences (age/sex, chief complaint, history, physical exam, labs/imaging). Include 3-5 distinct high-yield clinical clues. 5 options (A-E), exactly 1 correct.
+keyInfoPhrases: Extract 3-5 exact key diagnostic substring phrases directly from vignette text for smart-highlighting.
+attendingTip: 1-2 sentence clinical reasoning breakdown written from the perspective of an attending physician guiding a student to the diagnosis.
+explanation: 3-5 sentences analyzing why the correct option is right.
+keyLearningPoint: 1-2 sentence high-yield takeaway summarizing the pathology/management.
+distractorAnalysis: 1 concise sentence per wrong option explaining why it is incorrect and what condition it would typically point to.
+hint: 1 short sentence guiding attention to the core abnormality without revealing the answer.
+educationalObjective: 1-2 sentence core concept summary.
 sourceReferences: 1-3 real sources (First Aid, BRS, Pathoma, etc.) — sourceTitle, chapterSection, pageNumber (omit if unsure), relevance.
-subject: specific system/discipline. Every id unique. Spread correctAnswer evenly across A-E (never the same letter more than twice in a row).
+subject: specific system/discipline. Every id unique. difficultyRating: 1 to 5. Spread correctAnswer evenly across A-E (never the same letter more than twice in a row).
 Focus: ${focusLine}`;
 }
 
@@ -640,6 +824,14 @@ function validateExamData(raw, t) {
       if (!q.correctAnswer) return bad("err.correct", { id: q.id });
       const keys = q.options.map((o) => o.key);
       if (!keys.includes(q.correctAnswer)) return bad("err.match", { id: q.id, ans: q.correctAnswer });
+      // Optional enrichment fields are normalised rather than rejected, so older banks still load.
+      if (q.difficultyRating != null) {
+        const d = Number(q.difficultyRating);
+        q.difficultyRating = Number.isFinite(d) ? Math.max(1, Math.min(5, Math.round(d))) : undefined;
+      }
+      if (q.keyInfoPhrases != null) {
+        q.keyInfoPhrases = Array.isArray(q.keyInfoPhrases) ? q.keyInfoPhrases.filter((x) => typeof x === "string" && x.trim()) : [];
+      }
     }
   }
   return { valid: true, data };
@@ -659,11 +851,16 @@ ${PROMPT_SCHEMA_TEXT}
 
 Escribe TODO el contenido (viñetas, opciones, explicaciones, pistas, etc.) en español.
 Bloque: "${blockName}", timeLimitMinutes ${Math.round(size * 1.5)}.
-Viñeta de 4-8 oraciones (edad/sexo, motivo de consulta, antecedentes, examen, laboratorios/imágenes). 5 opciones (A-E), 1 correcta.
-explanation: 3-5 oraciones sobre el discriminador clave. distractorAnalysis: 1 oración por opción incorrecta, mismas claves.
-hint: 1 oración corta, sin revelar la respuesta. educationalObjective: 1-2 oraciones.
+Viñeta: 4-8 oraciones (edad/sexo, motivo de consulta, antecedentes, examen físico, laboratorios/imágenes). Incluye 3-5 pistas clínicas distintas y de alto rendimiento. 5 opciones (A-E), exactamente 1 correcta.
+keyInfoPhrases: extrae de 3 a 5 frases diagnósticas clave, copiadas EXACTAMENTE como subcadenas del texto de la viñeta, para el resaltado inteligente.
+attendingTip: desglose del razonamiento clínico en 1-2 oraciones, escrito desde la perspectiva de un médico adjunto que guía al estudiante hacia el diagnóstico.
+explanation: 3-5 oraciones que analicen por qué la opción correcta es la correcta.
+keyLearningPoint: conclusión de alto rendimiento en 1-2 oraciones que resuma la patología/el manejo.
+distractorAnalysis: 1 oración concisa por opción incorrecta que explique por qué es incorrecta y a qué condición apuntaría normalmente.
+hint: 1 oración corta que dirija la atención a la anomalía central sin revelar la respuesta.
+educationalObjective: resumen del concepto central en 1-2 oraciones.
 sourceReferences: 1-3 fuentes reales (First Aid, BRS, Pathoma, etc.) — sourceTitle, chapterSection, pageNumber (omítelo si no estás seguro), relevance.
-subject: sistema/disciplina específica. Cada id único. Distribuye correctAnswer de forma uniforme entre A-E (nunca la misma letra más de dos veces seguidas).
+subject: sistema/disciplina específica. Cada id único. difficultyRating: de 1 a 5. Distribuye correctAnswer de forma uniforme entre A-E (nunca la misma letra más de dos veces seguidas).
 Enfoque: ${focusLine}`;
 }
 
@@ -709,22 +906,230 @@ function shuffleQuestionOptions(q) {
   return { ...q, options: rekeyed, correctAnswer: newCorrectAnswer, ...(q.distractorAnalysis ? { distractorAnalysis } : {}) };
 }
 
+// Fisher-Yates shuffle of a plain array (returns a new array).
+function shuffleArray(arr) {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
 // Strips any "— Retest Missed" / "— Retest All" suffix a block may already carry,
 // so re-retesting a retest block doesn't chain suffixes indefinitely.
 function baseBlockName(name) {
-  return name.replace(/\s+—\s+Retest (Missed|All)$/i, "");
+  return name.replace(/\s+—\s+Retest (Missed|All|Flagged)$/i, "");
 }
 
 function makeInitialBlockState(block) {
   const hasLimit = typeof block.timeLimitMinutes === "number";
   return {
     status: "pending", // pending | in-progress | done
-    answers: {}, // qId -> { selected: null, struck: [], flagged: false } — always fresh, never inherited
+    answers: {}, // qId -> { selected, struck, flagged, checked, keyInfoOn, tipOpen, hintUsed } — always fresh, never inherited
     notes: {}, // qId -> note text
-    timed: hasLimit, // defaults from the JSON, but can be toggled in the lobby or in-exam Settings
+    // Exactly one of timed / tutor is true. Chosen in the lobby; locked once the block starts.
+    timed: true,
+    startedAt: null, // wall-clock ms when the block was first started (for elapsed-time analytics)
+    timerOff: false, // Timed mode only: the student may switch the countdown off mid-block, never back on
+    tutor: false,
     timeLeft: (hasLimit ? block.timeLimitMinutes : 60) * 60,
     score: null,
+    currentQuestionIndex: 0, // persisted so a refresh resumes on the same question
+    highlights: {}, // qId -> { field -> [{ id, start, end }] } — persisted with the block
   };
+}
+
+// Answer-position bias guard (moved out of handleImport so "Save to Library" applies it too):
+// if any single letter is the correct answer for >50% of a block's questions (5+ questions),
+// shuffle that block's options so students can't pattern-match.
+function debiasBlock(b) {
+  const counts = {};
+  b.questions.forEach((q) => { counts[q.correctAnswer] = (counts[q.correctAnswer] || 0) + 1; });
+  const maxShare = Math.max(...Object.values(counts)) / b.questions.length;
+  if (b.questions.length >= 5 && maxShare > 0.5) return { ...b, questions: b.questions.map(shuffleQuestionOptions) };
+  return b;
+}
+
+// ---------------------------------------------------------------------------
+// Qbank mixing engine
+//   buildMixPool(entries)      merge banks → de-duplicated, id-namespaced question pool
+//   mixQbanks(entries, {size}) pool → ONE shuffled block with subjects balanced
+// A question's `subject` (system or discipline, e.g. "Cardiovascular", "Pharmacology") is the balancing key.
+// ---------------------------------------------------------------------------
+const subjectKey = (q) => (q.subject || "").trim().toLowerCase() || "general";
+
+function buildMixPool(entries) {
+  const multi = entries.length > 1;
+  // AI tools reuse ids like "q1" in every bank, so namespace them per bank or answers/notes would collide.
+  const tagged = entries.flatMap((e) =>
+    e.questions.map((q) => ({ ...q, id: multi ? `${e.id}::${q.id}` : q.id, sourceBank: e.title })));
+  const seen = new Set();
+  const pool = tagged.filter((q) => {
+    const k = hashString(`${q.vignette}\u0001${q.stem}`);
+    if (seen.has(k)) return false; // same question present in two banks
+    seen.add(k);
+    return true;
+  });
+  const subjects = new Set(pool.map(subjectKey)).size;
+  return { pool, subjects, dupes: tagged.length - pool.length };
+}
+
+// Interleaves subject buckets so no subject repeats back-to-back (when avoidable) and big subjects
+// can't pile up at the end: always draw from one of the fullest remaining buckets, chosen at random.
+function spreadBySubject(buckets) {
+  const live = buckets.map((b) => ({ key: b.key, items: [...b.items] }));
+  const out = [];
+  let last = null;
+  for (;;) {
+    const open = live.filter((b) => b.items.length > 0);
+    if (open.length === 0) break;
+    const candidates = open.filter((b) => b.key !== last);
+    const from = candidates.length ? candidates : open;
+    const max = Math.max(...from.map((b) => b.items.length));
+    const top = from.filter((b) => b.items.length >= max * 0.75);
+    const pick = top[Math.floor(Math.random() * top.length)];
+    out.push(pick.items.pop());
+    last = pick.key;
+  }
+  return out;
+}
+
+// size = null → use every question (just spread evenly).
+// size < pool → equal share per subject (round-robin), so a huge subject can't crowd out the small ones.
+function mixQbanks(entries, { size = null } = {}) {
+  const { pool } = buildMixPool(entries);
+  const map = new Map();
+  pool.forEach((q) => { const k = subjectKey(q); if (!map.has(k)) map.set(k, []); map.get(k).push(q); });
+  let buckets = shuffleArray([...map.entries()]).map(([key, items]) => ({ key, items: shuffleArray(items) }));
+
+  const n = size && size < pool.length ? size : pool.length;
+  if (n < pool.length) {
+    const picked = new Map(buckets.map((b) => [b.key, []]));
+    let count = 0;
+    while (count < n) {
+      for (const b of buckets) {
+        if (count >= n) break;
+        if (b.items.length) { picked.get(b.key).push(b.items.pop()); count += 1; }
+      }
+    }
+    buckets = buckets.map((b) => ({ key: b.key, items: picked.get(b.key) }));
+  }
+
+  // debiasBlock re-shuffles option order if the merged pool's correct answers cluster on one letter.
+  return debiasBlock({
+    blockName: "Mixed Qbank",
+    isMixed: true,
+    mixCount: entries.length,
+    sourceBanks: entries.map((e) => e.title),
+    timeLimitMinutes: Math.max(5, Math.round(n * 1.5)),
+    questions: spreadBySubject(buckets),
+  });
+}
+
+// ---------------------------------------------------------------------------
+// Local persistence (localStorage)
+//   activeSession — the exam in progress (content + answers + timers + position). Removed when
+//                   nothing is left to resume, i.e. every block has been completed.
+//   qbankLibrary  — [{ id, title, importDate, questions, lastScore, timeLimitMinutes }]
+//   oworldPrefs   — { darkMode, lang } (only stored when different from the defaults)
+// Every access is wrapped: storage can be disabled (private mode), full, or hold corrupt JSON.
+// ---------------------------------------------------------------------------
+const LS_SESSION = "activeSession";
+const LS_LIBRARY = "qbankLibrary";
+const LS_PREFS = "oworldPrefs";
+const SESSION_VERSION = 1;
+
+function lsGet(key) {
+  try {
+    const raw = window.localStorage.getItem(key);
+    return raw == null ? null : JSON.parse(raw);
+  } catch (e) { return null; }
+}
+function lsSet(key, raw) {
+  try { window.localStorage.setItem(key, raw); return true; } catch (e) { return false; }
+}
+function lsRemove(key) {
+  try { window.localStorage.removeItem(key); } catch (e) { /* ignore */ }
+}
+
+function loadLibrary() {
+  const lib = lsGet(LS_LIBRARY);
+  if (!Array.isArray(lib)) return [];
+  return lib.filter((e) => e && typeof e.id === "string" && typeof e.title === "string" && Array.isArray(e.questions) && e.questions.length > 0);
+}
+
+function loadPrefs() {
+  const p = lsGet(LS_PREFS) || {};
+  return { darkMode: typeof p.darkMode === "boolean" ? p.darkMode : true, lang: p.lang === "es" ? "es" : "en" };
+}
+
+// Returns a validated session, or null if there is none / it is corrupt / from an incompatible version.
+function loadSession() {
+  const s = lsGet(LS_SESSION);
+  if (!s || s.v !== SESSION_VERSION) return null;
+  const ex = s.examData;
+  if (!ex || !Array.isArray(ex.blocks) || ex.blocks.length === 0) return null;
+  if (!ex.blocks.every((b) => b && Array.isArray(b.questions) && b.questions.length > 0)) return null;
+  if (!Array.isArray(s.blockStates) || s.blockStates.length !== ex.blocks.length) return null;
+  if (!s.blockStates.every((bs) => bs && typeof bs === "object" && bs.answers && typeof bs.answers === "object")) return null;
+  if (s.view !== "lobby" && s.view !== "exam") return null;
+  if (!s.blockStates.some((bs) => bs.status !== "done")) return null;
+
+  const idx = Number.isInteger(s.activeBlockIdx) ? s.activeBlockIdx : null;
+  const view = s.view === "exam" && idx !== null && ex.blocks[idx] && s.blockStates[idx].status === "in-progress" ? "exam" : "lobby";
+  // The countdown only runs while the page is open, so time spent away must not count as elapsed time either.
+  const away = Math.max(0, Date.now() - (Number(s.savedAt) || Date.now()));
+  const blockStates = s.blockStates.map((bs) =>
+    bs.status === "in-progress" && bs.startedAt ? { ...bs, startedAt: bs.startedAt + away } : bs);
+  return { examData: ex, blockStates, history: Array.isArray(s.history) ? s.history : [], activeBlockIdx: idx, view };
+}
+
+// Library de-duplication: same title + same question content (not just ids — AI tools reuse "q1, q2…").
+function hashString(str) {
+  let h = 5381;
+  for (let i = 0; i < str.length; i++) h = ((h << 5) + h + str.charCodeAt(i)) | 0;
+  return (h >>> 0).toString(36);
+}
+function blockSignature(title, questions) {
+  return hashString(title + "\u0001" + questions.map((q) => `${q.id}\u0002${q.vignette}\u0002${q.stem}\u0002${q.correctAnswer}`).join("\u0003"));
+}
+function makeLibraryEntry(block) {
+  return {
+    id: `qb_${Date.now().toString(36)}_${Math.random().toString(36).slice(2, 8)}`,
+    title: block.blockName,
+    importDate: Date.now(),
+    questions: block.questions,
+    lastScore: null, // { correct, total, pct, date } — set when a first-pass attempt of this block is submitted
+    timeLimitMinutes: typeof block.timeLimitMinutes === "number" ? block.timeLimitMinutes : null,
+  };
+}
+
+// Lets any Settings menu reach the app-level "wipe local data" action without prop-drilling.
+const DataContext = createContext({ resetAllData: () => {} });
+
+function ResetDataControl({ T }) {
+  const { t } = useI18n();
+  const { resetAllData } = useContext(DataContext);
+  const [confirming, setConfirming] = useState(false);
+  const small = { fontFamily: FONT_UI, fontWeight: 600, fontSize: 12.5, borderRadius: 6, padding: "7px 10px", cursor: "pointer" };
+  return (
+    <div style={{ borderTop: `1px solid ${T.border}`, paddingTop: 10, marginTop: 10 }}>
+      {!confirming ? (
+        <button onClick={() => setConfirming(true)} style={{ ...small, width: "100%", display: "flex", alignItems: "center", justifyContent: "center", gap: 6, background: "transparent", color: T.red, border: `1px solid ${T.red}` }}>
+          <Trash2 size={14} /> {t("resetData")}
+        </button>
+      ) : (
+        <div>
+          <p style={{ fontFamily: FONT_UI, fontSize: 12, color: T.muted, lineHeight: 1.45, margin: "0 0 8px" }}>{t("resetDataWarn")}</p>
+          <div style={{ display: "flex", gap: 8 }}>
+            <button onClick={() => { setConfirming(false); resetAllData(); }} style={{ ...small, flex: 1, background: T.red, color: T.onBlue, border: `1px solid ${T.red}` }}>{t("resetDataConfirm")}</button>
+            <button onClick={() => setConfirming(false)} style={{ ...small, background: "transparent", color: T.ink, border: `1px solid ${T.border}` }}>{t("cancel")}</button>
+          </div>
+        </div>
+      )}
+    </div>
+  );
 }
 
 // ---------------------------------------------------------------------------
@@ -742,6 +1147,7 @@ function makeInitialBlockState(block) {
 // highlighter reads correctly in both light and dark mode, matching the
 // real NBME/UWorld convention.
 // ---------------------------------------------------------------------------
+const HINT_YELLOW = "#EAB308"; // hollow marker for "hint used" (reads on light and dark)
 const HIGHLIGHT_BG = "#FEF08A"; // Tailwind yellow-200
 const HIGHLIGHT_BG_HOVER = "#FDE047"; // Tailwind yellow-300
 const HIGHLIGHT_TEXT = "#0F172A"; // Tailwind slate-900
@@ -785,9 +1191,9 @@ function mergeHighlightRanges(ranges) {
   return out;
 }
 
-function useHighlighter() {
+function useHighlighter(initialMap) {
   // highlightsMap: { [questionId]: { [field]: [{ id, start, end }] } }
-  const [highlightsMap, setHighlightsMap] = useState({});
+  const [highlightsMap, setHighlightsMap] = useState(initialMap || {});
   const [pending, setPending] = useState(null); // { qId, field, containerEl, x, y, range }
 
   function addHighlight(qId, field, start, end) {
@@ -859,36 +1265,74 @@ function useHighlighter() {
 // Derives an array of plain-text strings interleaved with clickable <mark>
 // elements from raw text + a set of {start,end} ranges. Pure/side-effect
 // free — safe to call on every render.
-function renderHighlightedText(text, ranges, onRemoveHighlight) {
-  if (!ranges || ranges.length === 0) return text;
-  const sorted = [...ranges].sort((a, b) => a.start - b.start);
+// Key-clue support (keyInfoPhrases): finds each phrase as an exact substring of the
+// vignette (falling back to a case-insensitive match). Phrases that don't occur are
+// dropped, so a model that paraphrased instead of copying never produces a bad highlight.
+function getClues(text, phrases) {
+  const out = { ranges: [], phrases: [] };
+  if (!text || !Array.isArray(phrases)) return out;
+  const lower = text.toLowerCase();
+  const seen = new Set();
+  phrases.forEach((p) => {
+    if (typeof p !== "string" || !p.trim()) return;
+    let i = text.indexOf(p);
+    if (i === -1) i = lower.indexOf(p.toLowerCase());
+    if (i === -1 || seen.has(i)) return;
+    seen.add(i);
+    out.ranges.push({ start: i, end: i + p.length });
+    out.phrases.push(text.slice(i, i + p.length));
+  });
+  return out;
+}
+
+// Renders text with user highlights (yellow, click to remove) and, optionally, key-clue
+// ranges (clueStyle). Text content is never altered, only wrapped, so highlight offsets stay valid.
+function renderHighlightedText(text, ranges, onRemoveHighlight, clues, clueStyle) {
+  const hasUser = ranges && ranges.length > 0;
+  const hasClues = clues && clues.length > 0;
+  if (!hasUser && !hasClues) return text;
+
+  const clamp = (n) => Math.max(0, Math.min(n, text.length));
+  const user = (ranges || []).map((r) => ({ ...r, start: clamp(r.start), end: clamp(r.end) })).filter((r) => r.end > r.start);
+  const clue = (clues || []).map((r) => ({ start: clamp(r.start), end: clamp(r.end) })).filter((r) => r.end > r.start);
+
+  const bounds = new Set([0, text.length]);
+  user.forEach((r) => { bounds.add(r.start); bounds.add(r.end); });
+  clue.forEach((r) => { bounds.add(r.start); bounds.add(r.end); });
+  const pts = [...bounds].sort((a, b) => a - b);
+
   const nodes = [];
-  let cursor = 0;
-  sorted.forEach((r) => {
-    const start = Math.max(cursor, Math.min(r.start, text.length));
-    const end = Math.max(start, Math.min(r.end, text.length));
-    if (start > cursor) nodes.push(text.slice(cursor, start));
-    if (end > start) {
+  for (let i = 0; i < pts.length - 1; i++) {
+    const s0 = pts[i];
+    const e0 = pts[i + 1];
+    if (e0 <= s0) continue;
+    const seg = text.slice(s0, e0);
+    const u = user.find((r) => r.start <= s0 && r.end >= e0);
+    const isClue = clue.some((r) => r.start <= s0 && r.end >= e0);
+    if (u) {
       nodes.push(
         <mark
-          key={r.id}
-          data-highlight-id={r.id}
+          key={`${u.id}-${s0}`}
+          data-highlight-id={u.id}
           title="Click to remove highlight"
-          onClick={(e) => { e.stopPropagation(); onRemoveHighlight(r.id); }}
+          onClick={(e) => { e.stopPropagation(); onRemoveHighlight(u.id); }}
           style={{
             background: HIGHLIGHT_BG, color: HIGHLIGHT_TEXT, borderRadius: 2, padding: "0 1px",
             cursor: "pointer", transition: "background 0.15s ease",
+            ...(isClue && clueStyle ? { borderBottom: clueStyle.borderBottom } : {}),
           }}
           onMouseEnter={(e) => { e.currentTarget.style.background = HIGHLIGHT_BG_HOVER; }}
           onMouseLeave={(e) => { e.currentTarget.style.background = HIGHLIGHT_BG; }}
         >
-          {text.slice(start, end)}
+          {seg}
         </mark>
       );
+    } else if (isClue) {
+      nodes.push(<span key={`c-${s0}`} style={{ borderRadius: 2, padding: "0 1px", ...clueStyle }}>{seg}</span>);
+    } else {
+      nodes.push(seg);
     }
-    cursor = end;
-  });
-  if (cursor < text.length) nodes.push(text.slice(cursor));
+  }
   return nodes;
 }
 
@@ -974,13 +1418,14 @@ function SettingsMenu({ darkMode, setDarkMode, T }) {
       {open && (
         <div style={{
           position: "absolute", top: 42, right: 0, background: T.card, border: `1px solid ${T.border}`,
-          borderRadius: 8, padding: 14, width: 190, zIndex: 70, boxShadow: "0 8px 24px rgba(0,0,0,0.3)",
+          borderRadius: 8, padding: 14, width: 240, zIndex: 70, boxShadow: "0 8px 24px rgba(0,0,0,0.3)",
         }}>
           <label style={{ display: "flex", alignItems: "center", gap: 8, fontFamily: FONT_UI, fontSize: 13, cursor: "pointer", color: T.ink }}>
             <input type="checkbox" checked={darkMode} onChange={() => setDarkMode((v) => !v)} />
             {t("dark")}
           </label>
           <LangSelect T={T} />
+          <ResetDataControl T={T} />
         </div>
       )}
     </div>
@@ -988,18 +1433,125 @@ function SettingsMenu({ darkMode, setDarkMode, T }) {
 }
 
 // ---------------------------------------------------------------------------
+// Qbank library panel — saved blocks; start one, or tick several to run them as a queue
+// ---------------------------------------------------------------------------
+function QbankLibraryPanel({ library, onLaunch, onMix, onDelete, T }) {
+  const { t, lang } = useI18n();
+  const [queue, setQueue] = useState([]); // entry ids in the order they were ticked
+  const [confirmId, setConfirmId] = useState(null);
+  const liveQueue = queue.filter((id) => library.some((e) => e.id === id));
+  const [mixSize, setMixSize] = useState("all");
+  const mixInfo = useMemo(
+    () => (liveQueue.length >= 2 ? buildMixPool(liveQueue.map((id) => library.find((e) => e.id === id))) : null),
+    [liveQueue.join("|"), library]);
+  const mixSizes = mixInfo ? [10, 20, 40, 80, 120].filter((n) => n < mixInfo.pool.length) : [];
+  const effSize = mixInfo && mixSize !== "all" && Number(mixSize) < mixInfo.pool.length ? Number(mixSize) : null;
+  const toggle = (id) => setQueue((q) => (q.includes(id) ? q.filter((x) => x !== id) : [...q, id]));
+  const fmtDate = (ms) => new Date(ms).toLocaleDateString(lang === "es" ? "es" : "en-US", { year: "numeric", month: "short", day: "numeric" });
+
+  return (
+    <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, padding: 24, marginBottom: 20 }}>
+      <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 14 }}>
+        <BookOpen size={17} color={T.ink} />
+        <span style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: 14, color: T.ink }}>{t("libTitle")}</span>
+        <Pill T={T} tone="muted">{t("libCount", { n: library.length })}</Pill>
+      </div>
+
+      {library.length === 0 ? (
+        <p style={{ fontFamily: FONT_UI, fontSize: 13.5, color: T.muted, lineHeight: 1.6, margin: 0 }}>{t("libEmpty")}</p>
+      ) : (
+        <>
+          <div style={{ display: "grid", gap: 8 }}>
+            {library.map((e) => {
+              const pos = liveQueue.indexOf(e.id);
+              const ls = e.lastScore;
+              return (
+                <div key={e.id} style={{
+                  display: "flex", alignItems: "center", gap: 12, flexWrap: "wrap", padding: "12px 14px", borderRadius: 8,
+                  border: `1px solid ${pos >= 0 ? T.blue : T.border}`, background: pos >= 0 ? T.blueLight : "transparent",
+                }}>
+                  <input type="checkbox" checked={pos >= 0} onChange={() => toggle(e.id)} aria-label={e.title} style={{ cursor: "pointer" }} />
+                  <div style={{ flex: 1, minWidth: 180 }}>
+                    <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap" }}>
+                      <span style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: 14.5, color: T.ink }}>{e.title}</span>
+                      {pos >= 0 && <Pill T={T} tone="blue">#{pos + 1}</Pill>}
+                      {ls
+                        ? <Pill T={T} tone={ls.pct >= 70 ? "green" : "red"}>{t("libLastScore", { pct: ls.pct, c: ls.correct, t: ls.total })}</Pill>
+                        : <Pill T={T} tone="muted">{t("libNoScore")}</Pill>}
+                    </div>
+                    <span style={{ fontFamily: FONT_MONO, fontSize: 12, color: T.muted }}>
+                      {t("libMeta", { q: e.questions.length, d: fmtDate(e.importDate) })}
+                    </span>
+                  </div>
+                  {confirmId === e.id ? (
+                    <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                      <span style={{ fontFamily: FONT_UI, fontSize: 12.5, color: T.red, fontWeight: 600 }}>{t("libDeleteQ")}</span>
+                      <button onClick={() => { onDelete(e.id); setConfirmId(null); }} style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: 12.5, padding: "6px 10px", borderRadius: 6, border: `1px solid ${T.red}`, background: T.red, color: T.onBlue, cursor: "pointer" }}>{t("libDelete")}</button>
+                      <button onClick={() => setConfirmId(null)} style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: 12.5, padding: "6px 10px", borderRadius: 6, border: `1px solid ${T.border}`, background: "transparent", color: T.ink, cursor: "pointer" }}>{t("cancel")}</button>
+                    </div>
+                  ) : (
+                    <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                      <GhostButton T={T} onClick={() => onLaunch([e.id])} icon={Play}>{t("libStart")}</GhostButton>
+                      <button onClick={() => setConfirmId(e.id)} title={t("libDelete")} aria-label={t("libDelete")} style={{ background: "transparent", border: "none", cursor: "pointer", color: T.muted, padding: 6, display: "flex" }}>
+                        <Trash2 size={16} />
+                      </button>
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 12, flexWrap: "wrap", marginTop: 14 }}>
+            <span style={{ fontFamily: FONT_UI, fontSize: 12.5, color: T.muted, maxWidth: 440, lineHeight: 1.5 }}>{t("libQueueHint")}</span>
+            <PrimaryButton T={T} onClick={() => onLaunch(liveQueue)} icon={Play} disabled={liveQueue.length === 0}>
+              {t("libStartQueue", { n: liveQueue.length })}
+            </PrimaryButton>
+          </div>
+          {mixInfo && (
+            <div style={{ marginTop: 14, padding: "14px 16px", borderRadius: 8, border: `1px dashed ${T.blue}`, display: "flex", flexWrap: "wrap", alignItems: "center", gap: 14 }}>
+              <div style={{ flex: 1, minWidth: 220 }}>
+                <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap", marginBottom: 4 }}>
+                  <Shuffle size={15} color={T.blue} />
+                  <span style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: 13.5, color: T.ink }}>{t("libMixTitle")}</span>
+                  <Pill T={T} tone="blue">{t("libMixPool", { q: mixInfo.pool.length, s: mixInfo.subjects })}</Pill>
+                  {mixInfo.dupes > 0 && <Pill T={T} tone="muted">{t("libMixDupes", { d: mixInfo.dupes })}</Pill>}
+                </div>
+                <span style={{ fontFamily: FONT_UI, fontSize: 12.5, color: T.muted, lineHeight: 1.5 }}>{t("libMixHint")}</span>
+              </div>
+              <label style={{ display: "flex", alignItems: "center", gap: 8, fontFamily: FONT_UI, fontSize: 12.5, color: T.muted }}>
+                {t("libMixSize")}
+                <select value={mixSize} onChange={(e) => setMixSize(e.target.value)} style={{ fontFamily: FONT_UI, fontSize: 13, padding: "7px 8px", borderRadius: 6, border: `1px solid ${T.border}`, background: T.paper, color: T.ink }}>
+                  <option value="all">{t("libMixAll", { n: mixInfo.pool.length })}</option>
+                  {mixSizes.map((n) => <option key={n} value={n}>{n}</option>)}
+                </select>
+              </label>
+              <PrimaryButton T={T} onClick={() => onMix(liveQueue, effSize)} icon={Shuffle}>
+                {t("libMix", { n: effSize || mixInfo.pool.length })}
+              </PrimaryButton>
+            </div>
+          )}
+        </>
+      )}
+      <p style={{ fontFamily: FONT_UI, fontSize: 11.5, color: T.muted, margin: "14px 0 0" }}>{t("libLocalNote")}</p>
+    </div>
+  );
+}
+
+// ---------------------------------------------------------------------------
 // Import screen
 // ---------------------------------------------------------------------------
-function ImportScreen({ onImport, T, darkMode, setDarkMode }) {
+function ImportScreen({ onImport, onSaveToLibrary, library, onLaunchLibrary, onMixLibrary, onDeleteLibraryEntry, T, darkMode, setDarkMode }) {
   const { t, lang } = useI18n();
   const [text, setText] = useState("");
   const [error, setError] = useState("");
   const [showSchema, setShowSchema] = useState(false);
+  const [showDevSchema, setShowDevSchema] = useState(false);
   const [copied, setCopied] = useState(false);
   const [recipeSize, setRecipeSize] = useState(25);
   const [recipeFocusMode, setRecipeFocusMode] = useState("standard");
   const [recipeFocusValue, setRecipeFocusValue] = useState("");
   const [showDisclaimer, setShowDisclaimer] = useState(false);
+  const [saveMsg, setSaveMsg] = useState(null); // { tone: "green" | "red" | "muted", text }
   const fileRef = useRef(null);
 
   const recipeText = buildQuestionRecipe({ size: recipeSize, focusMode: recipeFocusMode, focusValue: recipeFocusValue.trim(), lang });
@@ -1008,7 +1560,19 @@ function ImportScreen({ onImport, T, darkMode, setDarkMode }) {
     const result = validateExamData(text, t);
     if (!result.valid) { setError(result.error); return; }
     setError("");
+    setSaveMsg(null);
     onImport(result.data);
+  }
+
+  // Stores the pasted/uploaded blocks in the local Qbank library without starting an exam.
+  function handleSaveToLibrary() {
+    const result = validateExamData(text, t);
+    if (!result.valid) { setError(result.error); setSaveMsg(null); return; }
+    setError("");
+    const r = onSaveToLibrary(result.data);
+    if (r.failed) setSaveMsg({ tone: "red", text: t("storageFull") });
+    else if (r.added === 0) setSaveMsg({ tone: "muted", text: t("libNothing") });
+    else setSaveMsg({ tone: "green", text: [t("libSaved", { n: r.added }), r.dup ? t("libDup", { d: r.dup }) : ""].filter(Boolean).join(" ") });
   }
 
   function handleFile(e) {
@@ -1096,14 +1660,27 @@ function ImportScreen({ onImport, T, darkMode, setDarkMode }) {
           </div>
         )}
 
+        {saveMsg && (
+          <div role="status" style={{
+            marginTop: 12, display: "flex", gap: 8, alignItems: "center", fontFamily: FONT_UI, fontSize: 13,
+            color: saveMsg.tone === "green" ? T.green : saveMsg.tone === "red" ? T.red : T.muted,
+          }}>
+            {saveMsg.tone === "green" ? <CheckCircle2 size={16} /> : <AlertTriangle size={16} />}
+            <span>{saveMsg.text}</span>
+          </div>
+        )}
+
         <div style={{ display: "flex", gap: 10, marginTop: 16, flexWrap: "wrap" }}>
           <PrimaryButton T={T} onClick={handleSubmit} icon={Play} disabled={!text.trim()}>{t("load")}</PrimaryButton>
+          <GhostButton T={T} onClick={handleSaveToLibrary} icon={Save} disabled={!text.trim()}>{t("saveToLibrary")}</GhostButton>
           <GhostButton T={T} onClick={() => onImport(DEMO_EXAM)} icon={ClipboardList}>{t("demo")}</GhostButton>
           <GhostButton T={T} onClick={() => setShowSchema((s) => !s)} icon={showSchema ? ChevronUp : ChevronDown}>
             {showSchema ? t("hide") + " " : ""}{t("recipe")}
           </GhostButton>
         </div>
       </div>
+
+      <QbankLibraryPanel library={library} onLaunch={onLaunchLibrary} onMix={onMixLibrary} onDelete={onDeleteLibraryEntry} T={T} />
 
       {showSchema && (
         <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, padding: 24 }}>
@@ -1190,16 +1767,27 @@ function ImportScreen({ onImport, T, darkMode, setDarkMode }) {
           }}>
             {recipeText}
           </pre>
-          <div style={{ marginTop: 18, fontFamily: FONT_UI, fontWeight: 600, fontSize: 12.5, color: T.ink, textTransform: "uppercase", letterSpacing: "0.05em" }}>
-            {t("schema")}
-          </div>
-          <pre style={{
-            fontFamily: FONT_MONO, fontSize: 11.5, color: T.ink, background: T.paper,
-            border: `1px solid ${T.border}`, borderRadius: 8, padding: 14, marginTop: 8,
-            whiteSpace: "pre-wrap", wordBreak: "break-word", lineHeight: 1.6,
-          }}>
-            {SCHEMA_TEXT}
-          </pre>
+          <button
+            onClick={() => setShowDevSchema((v) => !v)}
+            aria-expanded={showDevSchema}
+            style={{
+              marginTop: 18, width: "100%", display: "flex", alignItems: "center", justifyContent: "center", gap: 8,
+              fontFamily: FONT_UI, fontWeight: 600, fontSize: 13, color: T.ink, background: T.mutedBg,
+              border: `1px solid ${T.border}`, borderRadius: 6, padding: "10px 14px", cursor: "pointer",
+            }}
+          >
+            {showDevSchema ? <ChevronUp size={15} /> : <ChevronDown size={15} />}
+            {showDevSchema ? t("hideSchema") : t("viewSchema")}
+          </button>
+          {showDevSchema && (
+            <pre style={{
+              fontFamily: FONT_MONO, fontSize: 11.5, color: T.ink, background: T.paper,
+              border: `1px solid ${T.border}`, borderRadius: 8, padding: 14, marginTop: 10, marginBottom: 0,
+              whiteSpace: "pre-wrap", wordBreak: "break-word", lineHeight: 1.6,
+            }}>
+              {SCHEMA_TEXT}
+            </pre>
+          )}
         </div>
       )}
 
@@ -1246,10 +1834,12 @@ function ImportScreen({ onImport, T, darkMode, setDarkMode }) {
 // ---------------------------------------------------------------------------
 // Lobby / block select
 // ---------------------------------------------------------------------------
-function Lobby({ examData, blockStates, onStart, onReview, onReset, onFinalSummary, onToggleTimed, onRetestMissed, onRetestAll, T, darkMode, setDarkMode }) {
+function Lobby({ examData, blockStates, onStart, onReview, onReset, onFinalSummary, onSetMode, onRetestMissed, onRetestAll, onSaveToLibrary, T, darkMode, setDarkMode }) {
   const { t } = useI18n();
-  const allDone = blockStates.every((b) => b.status === "done");
-  const anyDone = blockStates.some((b) => b.status === "done");
+  const hasUnsaved = examData.blocks.some((b) => !b.isRetest && !b.isMixed && !b.libraryId);
+  const baseStates = blockStates.filter((_, i) => !examData.blocks[i].isRetest);
+  const allDone = baseStates.every((b) => b.status === "done");
+  const anyDone = baseStates.some((b) => b.status === "done");
 
   return (
     <div style={{ maxWidth: 880, margin: "0 auto", padding: "48px 20px 80px" }}>
@@ -1268,19 +1858,12 @@ function Lobby({ examData, blockStates, onStart, onReview, onReset, onFinalSumma
         </div>
         <div style={{ display: "flex", gap: 10 }}>
           {allDone && <PrimaryButton T={T} onClick={onFinalSummary} icon={ClipboardList}>{t("fullSummary")}</PrimaryButton>}
+          {hasUnsaved && <GhostButton T={T} onClick={onSaveToLibrary} icon={Save}>{t("saveToLibrary")}</GhostButton>}
           <GhostButton T={T} onClick={onReset} icon={RotateCcw}>{t("importNew")}</GhostButton>
           <SettingsMenu darkMode={darkMode} setDarkMode={setDarkMode} T={T} />
         </div>
       </div>
 
-      {(examData.notice || examData.shuffled) && (
-        <div style={{
-          marginBottom: 16, padding: "10px 14px", borderRadius: 6, background: T.amberLight, color: T.amber,
-          border: `1px solid ${T.amber}`, fontFamily: FONT_UI, fontSize: 12.5,
-        }}>
-          {examData.notice || t("notice")}
-        </div>
-      )}
 
       <div style={{ display: "grid", gap: 14 }}>
         {examData.blocks.map((block, idx) => {
@@ -1307,15 +1890,30 @@ function Lobby({ examData, blockStates, onStart, onReview, onReset, onFinalSumma
                   )}
                 </div>
                 <span style={{ fontFamily: FONT_MONO, fontSize: 12.5, color: T.muted }}>
-                  {t("qCount", { n: total })} &nbsp;·&nbsp; {bs.timed ? t("minLimit", { m: Math.round(bs.timeLeft / 60) }) : t("untimed")}
+                  {t("qCount", { n: total })} &nbsp;·&nbsp; {bs.timed && !bs.timerOff ? t("minLimit", { m: Math.round(bs.timeLeft / 60) }) : bs.timerOff ? t("untimed") + " (" + t("timerOffSuffix") + ")" : t("untimed")}
                 </span>
               </div>
               <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
                 {bs.status !== "done" && (
-                  <label style={{ display: "flex", alignItems: "center", gap: 6, fontFamily: FONT_UI, fontSize: 12.5, color: T.muted, cursor: "pointer" }}>
-                    <input type="checkbox" checked={bs.timed} onChange={() => onToggleTimed(idx)} />
-                    {t("timed")}
-                  </label>
+                  <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", gap: 4 }}>
+                    <div role="group" aria-label={t("modeLabel")} style={{ display: "inline-flex", border: `1px solid ${T.border}`, borderRadius: 6, overflow: "hidden", opacity: bs.status === "pending" ? 1 : 0.6 }}>
+                      {[["timed", t("timed"), Clock], ["tutor", t("tutorShort"), Lightbulb]].map(([m, label, Ic]) => {
+                        const on = m === "tutor" ? bs.tutor : bs.timed;
+                        return (
+                          <button key={m} aria-pressed={on} disabled={bs.status !== "pending"} onClick={() => onSetMode(idx, m)}
+                            style={{
+                              display: "flex", alignItems: "center", gap: 6, fontFamily: FONT_UI, fontWeight: 700, fontSize: 12.5, padding: "8px 14px", border: "none",
+                              cursor: bs.status === "pending" ? "pointer" : "not-allowed", background: on ? T.blue : "transparent", color: on ? T.onBlue : T.ink,
+                            }}>
+                            <Ic size={14} /> {label}
+                          </button>
+                        );
+                      })}
+                    </div>
+                    <span style={{ fontFamily: FONT_UI, fontSize: 11.5, color: T.muted }}>
+                      {bs.status !== "pending" ? t("modeLocked") : bs.tutor ? t("modeTutorHint") : t("modeTimedHint")}
+                    </span>
+                  </div>
                 )}
                 {bs.status === "done" ? (
                   <>
@@ -1462,8 +2060,13 @@ function CalculatorPanel({ T, onClose }) {
 // Exam taking screen
 // ---------------------------------------------------------------------------
 function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, darkMode, setDarkMode }) {
-  const [qIdx, setQIdx] = useState(0);
+  // Resume on the question the student was last viewing (clamped in case the stored value is stale).
+  const [qIdx, setQIdx] = useState(() => {
+    const n = Math.floor(Number(blockState.currentQuestionIndex) || 0);
+    return Math.min(Math.max(0, n), block.questions.length - 1);
+  });
   const [confirmSubmit, setConfirmSubmit] = useState(false);
+  const [confirmTimerOff, setConfirmTimerOff] = useState(false);
   const [timeUp, setTimeUp] = useState(false);
   const [settingsOpen, setSettingsOpen] = useState(false);
   const [labOpen, setLabOpen] = useState(false);
@@ -1472,22 +2075,41 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, darkMode,
   const [locked, setLocked] = useState(false);
   const [hintsEnabled, setHintsEnabled] = useState(true);
   const [showHint, setShowHint] = useState(false);
+  const [toggledDistractors, setToggledDistractors] = useState([]); // option keys flipped from their default (own wrong pick: open, others: closed)
   const [labSearch, setLabSearch] = useState("");
   const [labTab, setLabTab] = useState("Serum");
   const [siUnits, setSiUnits] = useState(false);
 
-  const { highlightsMap, pending, handleSelectionInContainer, commitPending, handleGlobalKeyDown, removeHighlight, clearPending } = useHighlighter();
+  const { highlightsMap, pending, handleSelectionInContainer, commitPending, handleGlobalKeyDown, removeHighlight, clearPending } = useHighlighter(blockState.highlights);
+
+  // Mirror question position and highlights into blockState so App's auto-save captures them.
+  useEffect(() => {
+    setBlockState((prev) => (prev.currentQuestionIndex === qIdx ? prev : { ...prev, currentQuestionIndex: qIdx }));
+  }, [qIdx]);
+  useEffect(() => {
+    setBlockState((prev) => (prev.highlights === highlightsMap ? prev : { ...prev, highlights: highlightsMap }));
+  }, [highlightsMap]);
 
   const T = darkMode ? DARK : LIGHT;
   const { t, lang } = useI18n();
+  const tutorMode = !!blockState.tutor;
   const lh = (h) => (lang === "es" ? LAB_HDR_ES[h] || h : h);
   const lv = (v) => labVal(v, lang);
   const questions = block.questions;
   const q = questions[qIdx];
-  const qState = blockState.answers[q.id] || { selected: null, struck: [], flagged: false };
+  const qState = blockState.answers[q.id] || { selected: null, struck: [], flagged: false, checked: false };
+  // Tutor mode: once an answer is checked, show right/wrong + explanations and lock the question until reset.
+  const revealed = tutorMode && !!qState.checked && !!qState.selected;
+  // A wrong pick does NOT disclose the correct answer: the student asks for it with a button (qState.answerRevealed).
+  const isCorrectPick = revealed && qState.selected === q.correctAnswer;
+  const showAnswer = revealed && (isCorrectPick || !!qState.answerRevealed);
+  // Hint button (the question's `hint` field) is only for timed blocks once the timer has been turned off.
+  const hintAvailable = hintsEnabled && !tutorMode && !!blockState.timerOff;
   const noteText = blockState.notes?.[q.id] || "";
+  // Tutor aids are on-demand: Key Info highlights the vignette's key phrases, Tutor's Tip opens a drawer.
+  const clueInfo = getClues(q.vignette, q.keyInfoPhrases);
 
-  useEffect(() => { setShowHint(false); clearPending(); }, [qIdx]);
+  useEffect(() => { setShowHint(false); setToggledDistractors([]); clearPending(); }, [qIdx]);
 
   // Alt+H (Option+H on macOS) applies a highlight to the current text
   // selection, wherever the cursor is within the question content.
@@ -1505,13 +2127,14 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, darkMode,
     function handler(e) {
       const tag = document.activeElement?.tagName;
       const isTyping = tag === "INPUT" || tag === "TEXTAREA";
-      if (locked || confirmSubmit || timeUp) return;
+      if (locked || confirmSubmit || confirmTimerOff || timeUp) return;
 
       if (e.altKey) {
         const k = e.key.toLowerCase();
         if (k === "n") { e.preventDefault(); goNext(); return; }
         if (k === "p") { e.preventDefault(); goPrev(); return; }
         if (k === "j") { e.preventDefault(); toggleFlag(); return; }
+        if (k === "r" && tutorMode) { e.preventDefault(); resetQuestion(); return; }
         return;
       }
 
@@ -1531,7 +2154,7 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, darkMode,
     }
     document.addEventListener("keydown", handler);
     return () => document.removeEventListener("keydown", handler);
-  }, [q, qState, locked, confirmSubmit, timeUp]);
+  }, [q, qState, locked, confirmSubmit, confirmTimerOff, timeUp, tutorMode]);
 
   const highlightBtnRef = useRef(null);
   useEffect(() => {
@@ -1544,7 +2167,7 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, darkMode,
     return () => document.removeEventListener("mousedown", onDocMouseDown);
   }, [pending, clearPending]);
 
-  const timed = blockState.timed;
+  const timed = blockState.timed && !blockState.timerOff; // false once the student turns the timer off
 
   // Timer — only runs when this block is set to timed
   useEffect(() => {
@@ -1552,7 +2175,7 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, darkMode,
     const interval = setInterval(() => {
       setBlockState((prev) => {
         if (locked) return prev;
-        if (prev.timeLeft <= 1) { clearInterval(interval); return { ...prev, timeLeft: 0 }; }
+        if (prev.timeLeft <= 1) { clearInterval(interval); return prev.timeLeft === 0 ? prev : { ...prev, timeLeft: 0 }; }
         return { ...prev, timeLeft: prev.timeLeft - 1 };
       });
     }, 1000);
@@ -1570,11 +2193,34 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, darkMode,
     setBlockState((prev) => ({ ...prev, notes: { ...prev.notes, [q.id]: text } }));
   }
   function selectOption(key) {
-    if (qState.struck.includes(key)) return;
-    updateQState({ selected: qState.selected === key ? null : key });
+    if (revealed || qState.struck.includes(key)) return;
+    if (tutorMode) {
+      // Tutor mode: picking an option checks it immediately and locks the question.
+      updateQState({ selected: key, checked: true });
+      return;
+    }
+    updateQState({ selected: qState.selected === key ? null : key, checked: false });
+  }
+  // Tutor mode: wipe this question's answer, strikeouts and feedback so it can be retried. The flag is kept.
+  // hintUsed is deliberately sticky: a hint seen before answering still counts after a reset.
+  function resetQuestion() {
+    updateQState({ selected: null, struck: [], checked: false, answerRevealed: false, keyInfoOn: false, tipOpen: false });
+    setShowHint(false);
+    setToggledDistractors([]);
+  }
+  function toggleDistractor(key) {
+    setToggledDistractors((cur) => (cur.includes(key) ? cur.filter((k) => k !== key) : [...cur, key]));
+  }
+  // Toggle Key Info / Tutor's Tip. Opening either one before the answer is checked flags the question as hintUsed.
+  function toggleTutorAid(field) {
+    const next = !qState[field];
+    const patch = { [field]: next };
+    if (next && !revealed) patch.hintUsed = true;
+    updateQState(patch);
   }
   function toggleStrike(e, key) {
     e.stopPropagation();
+    if (revealed) return;
     const struck = qState.struck.includes(key) ? qState.struck.filter((k) => k !== key) : [...qState.struck, key];
     const selected = qState.selected === key && !qState.struck.includes(key) ? null : qState.selected;
     updateQState({ struck, selected });
@@ -1633,7 +2279,7 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, darkMode,
             fontFamily: FONT_UI, fontSize: 12, fontWeight: 700,
           }}>
             <RotateCcw size={13} />
-            {t("retestMode", { type: t(block.retestType === "missed" ? "rt.missed" : "rt.full"), n: block.retestCount, items: t(block.retestCount === 1 ? "item1" : "itemN") })}
+            {t("retestMode", { type: t(block.retestType === "missed" ? "rt.missed" : block.retestType === "flagged" ? "rt.flagged" : "rt.full"), n: block.retestCount, items: t(block.retestCount === 1 ? "item1" : "itemN") })}
           </div>
         )}
 
@@ -1672,27 +2318,35 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, darkMode,
                   <input type="checkbox" checked={darkMode} onChange={() => setDarkMode((v) => !v)} />
                   {t("dark")}
                 </label>
-                <label style={{ display: "flex", alignItems: "center", gap: 8, fontFamily: FONT_UI, fontSize: 13, cursor: "pointer", marginBottom: 10 }}>
-                  <input type="checkbox" checked={timed} onChange={() => setBlockState((prev) => ({ ...prev, timed: !prev.timed }))} />
-                  {t("timedBlock")}
-                </label>
                 <label style={{ display: "flex", alignItems: "center", gap: 8, fontFamily: FONT_UI, fontSize: 13, cursor: "pointer", marginBottom: 12 }}>
                   <input type="checkbox" checked={hintsEnabled} onChange={() => setHintsEnabled((v) => !v)} />
                   {t("hints")}
                 </label>
+                <div style={{ fontFamily: FONT_UI, fontSize: 13, marginBottom: 12 }}>
+                  <span style={{ color: T.muted }}>{t("modeLabel")}: </span><strong>{tutorMode ? t("tutorShort") : t("timed")}</strong>
+                  <div style={{ fontSize: 11.5, color: T.muted, lineHeight: 1.45, marginTop: 2 }}>{t("modeLocked")}</div>
+                </div>
+                {!tutorMode && (
+                  <div style={{ fontFamily: FONT_UI, fontSize: 13, marginBottom: 12, paddingTop: 10, borderTop: `1px solid ${T.border}` }}>
+                    <label style={{ display: "flex", alignItems: "center", gap: 8, cursor: timed ? "pointer" : "not-allowed", opacity: timed ? 1 : 0.7 }}>
+                      <input type="checkbox" checked={timed} disabled={!timed} onChange={() => { setSettingsOpen(false); setConfirmTimerOff(true); }} />
+                      {t("timerLabel")}
+                    </label>
+                    <div style={{ fontSize: 11.5, color: T.muted, lineHeight: 1.45, margin: "4px 0 0 24px" }}>
+                      {timed ? t("timerOnHint") : t("timerOffNote")}
+                    </div>
+                  </div>
+                )}
                 <LangSelect T={T} />
                 <div style={{ borderTop: `1px solid ${T.border}`, paddingTop: 10 }}>
                   <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: 11, color: T.muted, textTransform: "uppercase", letterSpacing: "0.04em", marginBottom: 6 }}>
                     {t("shortcuts")}
                   </div>
                   <div style={{ display: "grid", gap: 4, fontFamily: FONT_UI, fontSize: 12, color: T.muted }}>
-                    <div><strong style={{ color: T.ink }}>Alt+N</strong> — {t("sc.next")}</div>
-                    <div><strong style={{ color: T.ink }}>Alt+P</strong> — {t("sc.prev")}</div>
-                    <div><strong style={{ color: T.ink }}>Alt+J</strong> — {t("sc.mark")}</div>
                     <div><strong style={{ color: T.ink }}>1–5 / A–E</strong> — {t("sc.select")}</div>
-                    <div><strong style={{ color: T.ink }}>Alt+H</strong> — {t("sc.hl")}</div>
                   </div>
                 </div>
+                <ResetDataControl T={T} />
               </div>
             )}
           </div>
@@ -1714,6 +2368,8 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, darkMode,
             {questions.map((qq, i) => {
               const st = blockState.answers[qq.id];
               const isCurrent = i === qIdx;
+              const navChecked = tutorMode && !!st?.checked && !!st?.selected;
+              const navCorrect = navChecked && st.selected === qq.correctAnswer;
               return (
                 <div
                   key={qq.id}
@@ -1724,9 +2380,15 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, darkMode,
                     color: isCurrent ? T.onBlue : T.ink, fontFamily: FONT_UI, fontSize: 14,
                   }}
                 >
-                  <span style={{ fontSize: 9, opacity: st?.selected ? 1 : 0.35 }}>●</span>
+                  <span style={{
+                    fontSize: navChecked ? 12 : 9, fontWeight: navChecked ? 700 : 400, opacity: st?.selected ? 1 : 0.35,
+                    color: navChecked && !isCurrent ? (navCorrect ? T.green : T.red) : "inherit",
+                  }}>{navChecked ? (navCorrect ? "✓" : "✕") : "●"}</span>
                   <span>{i + 1}</span>
                   {st?.flagged && <Flag size={11} color={isCurrent ? T.onBlue : T.flagRed} fill={isCurrent ? T.onBlue : T.flagRed} />}
+                  {tutorMode && st?.hintUsed && (
+                    <span title={t("hintUsedBadge")} aria-label={t("hintUsedBadge")} style={{ width: 9, height: 9, borderRadius: 999, boxSizing: "border-box", border: `2px solid ${HINT_YELLOW}`, background: "transparent", flexShrink: 0 }} />
+                  )}
                 </div>
               );
             })}
@@ -1742,7 +2404,7 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, darkMode,
               <span style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: 14, color: T.ink }}>{t("mark")}</span>
             </label>
 
-            {hintsEnabled && (
+            {hintAvailable && (
               <button
                 onClick={() => setShowHint((v) => !v)}
                 style={{
@@ -1761,7 +2423,7 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, darkMode,
             <Highlighter size={12} /> {t("hlTip")}
           </p>
 
-          {hintsEnabled && showHint && (
+          {hintAvailable && showHint && (
             <div style={{
               display: "flex", gap: 8, alignItems: "flex-start", background: T.blueLight, color: T.ink,
               border: `1px solid ${T.blue}`, borderRadius: 6, padding: "10px 14px", marginBottom: 18,
@@ -1772,14 +2434,58 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, darkMode,
             </div>
           )}
 
+          {tutorMode && qState.hintUsed && (
+            <div style={{ marginBottom: 10 }}><Pill T={T} tone="amber">{t("hintUsedBadge")}</Pill></div>
+          )}
           <p
             data-hl-field="vignette"
             onMouseUp={(e) => handleSelectionInContainer(q.id, "vignette", e.currentTarget)}
             onKeyUp={(e) => handleSelectionInContainer(q.id, "vignette", e.currentTarget)}
             style={{ fontFamily: FONT_DISPLAY, fontSize: 17, lineHeight: 1.75, color: T.ink, margin: "0 0 20px", cursor: "text" }}
           >
-            {renderHighlightedText(q.vignette, highlightsMap[q.id]?.vignette, (hlId) => removeHighlight(q.id, "vignette", hlId))}
+            {renderHighlightedText(q.vignette, highlightsMap[q.id]?.vignette, (hlId) => removeHighlight(q.id, "vignette", hlId), tutorMode && qState.keyInfoOn ? clueInfo.ranges : null, clueStyleFor(T))}
           </p>
+          {tutorMode && (
+            <div style={{ margin: "-8px 0 18px" }}>
+              <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: 8 }}>
+                {[
+                  { id: "keyInfoOn", label: "keyInfoBtn", available: clueInfo.phrases.length > 0, missing: "noKeyInfo", on: !!qState.keyInfoOn, click: () => toggleTutorAid("keyInfoOn") },
+                  { id: "tipOpen", label: "tipBtn", available: !!q.attendingTip, missing: "noTipAvail", on: !!qState.tipOpen, expandable: true, click: () => toggleTutorAid("tipOpen") },
+                ].map((b) => {
+                  const on = b.on && b.available;
+                  return (
+                    <button
+                      key={b.id}
+                      aria-pressed={on}
+                      aria-expanded={b.expandable ? on : undefined}
+                      disabled={!b.available}
+                      title={b.available ? undefined : t(b.missing)}
+                      onClick={b.click}
+                      style={{
+                        display: "inline-flex", alignItems: "center", gap: 6, padding: "6px 12px", borderRadius: 999,
+                        fontFamily: FONT_UI, fontWeight: 600, fontSize: 13,
+                        cursor: b.available ? "pointer" : "not-allowed", opacity: b.available ? 1 : 0.45,
+                        background: on ? T.blueLight : "transparent", color: on ? T.blueDeep : T.blue,
+                        border: `1px solid ${on ? T.blue : T.border}`,
+                      }}
+                    >
+                      {t(b.label)}
+                      {b.expandable && (on ? <ChevronUp size={14} /> : <ChevronDown size={14} />)}
+                    </button>
+                  );
+                })}
+                <span style={{ marginLeft: "auto" }}><DifficultyMeter value={q.difficultyRating} T={T} /></span>
+              </div>
+              {qState.tipOpen && q.attendingTip && (
+                <div style={{ background: T.paper, borderLeft: `3px solid ${T.blue}`, borderRadius: 8, padding: "12px 14px", marginTop: 10, maxWidth: 720 }}>
+                  <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: 12, color: T.blue, marginBottom: 4, textTransform: "uppercase", letterSpacing: "0.05em", display: "flex", alignItems: "center", gap: 6 }}>
+                    <Stethoscope size={14} /> {t("attendingTip")}
+                  </div>
+                  <p style={{ fontFamily: FONT_UI, fontSize: 13.5, color: T.ink, lineHeight: 1.6, margin: 0 }}>{q.attendingTip}</p>
+                </div>
+              )}
+            </div>
+          )}
           <p
             data-hl-field="stem"
             onMouseUp={(e) => handleSelectionInContainer(q.id, "stem", e.currentTarget)}
@@ -1793,52 +2499,101 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, darkMode,
             {q.options.map((opt, i) => {
               const isSelected = qState.selected === opt.key;
               const isStruck = qState.struck.includes(opt.key);
+              const isCorrectOpt = opt.key === q.correctAnswer;
+              const showCorrect = showAnswer && isCorrectOpt;
+              const showWrong = revealed && isSelected && !isCorrectOpt;
+              // Distractor dropdown: on the student's own wrong pick right away, on every wrong choice once the answer is shown
+              // (offering it only on wrong choices before that would reveal the correct one by omission).
+              const hasAnalysis = revealed && !isCorrectOpt && !!q.distractorAnalysis?.[opt.key] && (showAnswer || isSelected);
+              const analysisOpen = hasAnalysis && (isSelected !== toggledDistractors.includes(opt.key)); // own wrong pick auto-opens
               return (
                 <div
                   key={opt.key}
-                  onClick={() => {
-                    const sel = window.getSelection();
-                    if (sel && sel.toString().trim().length > 0) return; // user was selecting text, not choosing an answer
-                    selectOption(opt.key);
-                  }}
-                  style={{
-                    display: "flex", alignItems: "center", gap: 10, cursor: "pointer",
-                    background: isSelected ? T.blueLight : "transparent",
-                    borderBottom: i < q.options.length - 1 ? `1px solid ${T.border}` : "none",
-                    padding: "10px 14px",
-                  }}
+                  style={{ borderBottom: i < q.options.length - 1 ? `1px solid ${T.border}` : "none" }}
                 >
-                  <input type="radio" checked={isSelected} onChange={() => selectOption(opt.key)} disabled={isStruck} />
-                  <span
-                    data-hl-field={`option-${opt.key}`}
-                    onMouseUp={(e) => { e.stopPropagation(); handleSelectionInContainer(q.id, `option-${opt.key}`, e.currentTarget); }}
-                    onKeyUp={(e) => { e.stopPropagation(); handleSelectionInContainer(q.id, `option-${opt.key}`, e.currentTarget); }}
+                  <div
+                    onClick={() => {
+                      const sel = window.getSelection();
+                      if (sel && sel.toString().trim().length > 0) return; // user was selecting text, not choosing an answer
+                      selectOption(opt.key);
+                    }}
                     style={{
-                      fontFamily: FONT_DISPLAY, fontSize: 15.5, color: T.ink, flex: 1,
-                      textDecoration: isStruck ? "line-through" : "none", opacity: isStruck ? 0.5 : 1,
+                      display: "flex", alignItems: "center", gap: 10, cursor: revealed ? "default" : "pointer",
+                      background: showCorrect ? T.greenStrong : showWrong ? T.redStrong : isSelected ? T.blueLight : "transparent",
+                      padding: "10px 14px",
                     }}
                   >
-                    {opt.key}. {renderHighlightedText(opt.text, highlightsMap[q.id]?.[`option-${opt.key}`], (hlId) => removeHighlight(q.id, `option-${opt.key}`, hlId))}
-                  </span>
-                  <button
-                    onClick={(e) => toggleStrike(e, opt.key)}
-                    title={t("strike")}
-                    style={{
-                      background: "transparent", border: "none", cursor: "pointer", fontFamily: FONT_DISPLAY,
-                      fontSize: 13, color: T.muted, textDecoration: "line-through", padding: "0 4px",
-                    }}
-                  >
-                    ab
-                  </button>
+                    <input type="radio" checked={isSelected} onChange={() => selectOption(opt.key)} disabled={isStruck || revealed} />
+                    <span
+                      data-hl-field={`option-${opt.key}`}
+                      onMouseUp={(e) => { e.stopPropagation(); handleSelectionInContainer(q.id, `option-${opt.key}`, e.currentTarget); }}
+                      onKeyUp={(e) => { e.stopPropagation(); handleSelectionInContainer(q.id, `option-${opt.key}`, e.currentTarget); }}
+                      style={{
+                        fontFamily: FONT_DISPLAY, fontSize: 15.5, color: T.ink, flex: 1,
+                        textDecoration: isStruck ? "line-through" : "none", opacity: isStruck ? 0.5 : 1,
+                      }}
+                    >
+                      {opt.key}. {renderHighlightedText(opt.text, highlightsMap[q.id]?.[`option-${opt.key}`], (hlId) => removeHighlight(q.id, `option-${opt.key}`, hlId))}
+                    </span>
+                    {showCorrect && <CheckCircle2 size={18} color={T.green} style={{ flexShrink: 0 }} />}
+                    {showWrong && <XCircle size={18} color={T.red} style={{ flexShrink: 0 }} />}
+                    {!revealed && (
+                      <button
+                        onClick={(e) => toggleStrike(e, opt.key)}
+                        title={t("strike")}
+                        style={{
+                          background: "transparent", border: "none", cursor: "pointer", fontFamily: FONT_DISPLAY,
+                          fontSize: 13, color: T.muted, textDecoration: "line-through", padding: "0 4px",
+                        }}
+                      >
+                        ab
+                      </button>
+                    )}
+                  </div>
+                  {hasAnalysis && (
+                    <div style={{ padding: showWrong ? "10px 14px 12px 42px" : "0 14px 10px 42px", background: showWrong ? T.redSoft : "transparent" }}>
+                      <button
+                        aria-expanded={analysisOpen}
+                        onClick={() => toggleDistractor(opt.key)}
+                        style={{
+                          display: "inline-flex", alignItems: "center", gap: 4, padding: 0, background: "transparent", border: "none", cursor: "pointer",
+                          fontFamily: FONT_UI, fontWeight: 600, fontSize: 12.5, color: T.blue,
+                        }}
+                      >
+                        {t("distractorBtn")}
+                        {analysisOpen ? <ChevronUp size={13} /> : <ChevronDown size={13} />}
+                      </button>
+                      {analysisOpen && (
+                        <div style={{ fontFamily: FONT_UI, fontSize: 13, color: showWrong ? T.ink : T.muted, lineHeight: 1.55, marginTop: 6 }}>
+                          {q.distractorAnalysis[opt.key]}
+                        </div>
+                      )}
+                    </div>
+                  )}
+                  {showCorrect && (
+                    <div style={{ background: T.greenSoft, padding: "14px 14px 14px 42px" }}>
+                      <ExplanationPanels q={q} T={T} showTip={false} showClues={false} flat />
+                    </div>
+                  )}
                 </div>
               );
             })}
           </div>
 
-          <div style={{ marginTop: 22 }}>
+          {/* Tutor mode: a wrong pick does not disclose the answer until asked for */}
+          {revealed && !isCorrectPick && !showAnswer && (
+            <div style={{ marginTop: 12 }}>
+              <GhostButton T={T} onClick={() => updateQState({ answerRevealed: true })}>{t("showCorrectBtn")}</GhostButton>
+            </div>
+          )}
+
+          <div style={{ marginTop: 22, display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap" }}>
             <PrimaryButton T={T} onClick={goNext} style={{ background: T.blue }}>
               {qIdx < questions.length - 1 ? t("proceedNext") : t("proceedSummary")}
             </PrimaryButton>
+            {tutorMode && (qState.selected || qState.struck.length > 0) && (
+              <GhostButton T={T} icon={RotateCcw} onClick={resetQuestion}>{t("resetQ")}</GhostButton>
+            )}
           </div>
         </div>
 
@@ -2004,6 +2759,23 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, darkMode,
         </div>
       )}
 
+      {/* Turn-off-timer confirmation (one-way: the timer can't be re-enabled) */}
+      {confirmTimerOff && (
+        <div style={{
+          position: "fixed", inset: 0, background: "rgba(10,15,20,0.6)", display: "flex", alignItems: "center",
+          justifyContent: "center", zIndex: 95, padding: 20,
+        }}>
+          <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, padding: 28, maxWidth: 420 }}>
+            <h3 style={{ fontFamily: FONT_UI, fontSize: 17, fontWeight: 700, color: T.ink, margin: "0 0 10px" }}>{t("timerOffTitle")}</h3>
+            <p style={{ fontFamily: FONT_UI, fontSize: 14, color: T.muted, lineHeight: 1.55, margin: "0 0 20px" }}>{t("timerOffBody")}</p>
+            <div style={{ display: "flex", gap: 10, justifyContent: "flex-end" }}>
+              <GhostButton T={T} onClick={() => setConfirmTimerOff(false)}>{t("keepTimer")}</GhostButton>
+              <PrimaryButton T={T} onClick={() => { setBlockState((prev) => ({ ...prev, timerOff: true })); setConfirmTimerOff(false); }}>{t("turnOffTimer")}</PrimaryButton>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* End block confirmation */}
       {confirmSubmit && (
         <div style={{
@@ -2054,10 +2826,134 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, darkMode,
 // ---------------------------------------------------------------------------
 // Results / review screen (single block)
 // ---------------------------------------------------------------------------
-function BlockResults({ block, blockState, onBackToLobby, onRetestMissed, onRetestAll, onLoadNewExam, T, darkMode, setDarkMode }) {
+// Clue highlight style, shared by the vignette and the key-clue chips.
+const clueStyleFor = (T) => ({ background: T.greenLight, borderBottom: `2px solid ${T.green}` });
+
+// Five-pip difficulty rating (1-5), shown after an answer is revealed and in block review.
+function DifficultyMeter({ value, T }) {
+  const { t } = useI18n();
+  if (typeof value !== "number") return null;
+  const n = Math.max(1, Math.min(5, Math.round(value)));
+  return (
+    <span title={t("diffTitle", { n })} style={{ display: "inline-flex", alignItems: "center", gap: 6, fontFamily: FONT_UI, fontSize: 11.5, fontWeight: 600, color: T.muted }}>
+      {t("difficulty")}
+      <span style={{ display: "inline-flex", gap: 3 }}>
+        {[1, 2, 3, 4, 5].map((i) => (
+          <span key={i} style={{ width: 8, height: 8, borderRadius: 999, background: i <= n ? T.amber : "transparent", border: `1.5px solid ${T.amber}`, boxSizing: "border-box" }} />
+        ))}
+      </span>
+    </span>
+  );
+}
+
+// Attending's tip, key clues, explanation, key learning point, educational objective and
+// source references for one question. Shared by Tutor mode feedback and the block review.
+// Every section is optional, so question banks in the older schema still render.
+function SourcesDropdown({ refs, T }) {
+  const { t } = useI18n();
+  const [open, setOpen] = useState(false);
+  if (!Array.isArray(refs) || refs.length === 0) return null;
+  return (
+    <div>
+      <button
+        aria-expanded={open}
+        onClick={() => setOpen((v) => !v)}
+        style={{
+          display: "flex", alignItems: "center", gap: 6, padding: 0, background: "transparent", border: "none", cursor: "pointer",
+          fontFamily: FONT_UI, fontWeight: 700, fontSize: 12, color: T.muted, textTransform: "uppercase", letterSpacing: "0.05em",
+        }}
+      >
+        <BookOpen size={13} /> {t("sources")} ({refs.length}) {open ? <ChevronUp size={13} /> : <ChevronDown size={13} />}
+      </button>
+      {open && (
+        <div style={{ display: "grid", gap: 8, marginTop: 8 }}>
+          {refs.map((ref, ri) => (
+            <div key={ri} style={{ border: `1px solid ${T.border}`, borderRadius: 8, padding: "10px 12px" }}>
+              <div style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: 13, color: T.ink }}>
+                {ref.sourceTitle}
+                {ref.pageNumber && (
+                  <span style={{ fontFamily: FONT_MONO, fontWeight: 400, fontSize: 11.5, color: T.muted }}> · {t("page")} {ref.pageNumber}</span>
+                )}
+              </div>
+              {ref.chapterSection && (
+                <div style={{ fontFamily: FONT_UI, fontSize: 12.5, color: T.muted, marginTop: 2 }}>{ref.chapterSection}</div>
+              )}
+              {ref.relevance && (
+                <div style={{ fontFamily: FONT_UI, fontSize: 12, color: T.blueDeep, marginTop: 4, fontStyle: "italic" }}>{ref.relevance}</div>
+              )}
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
+function ExplanationPanels({ q, T, showTip = true, showClues = true, flat = false }) {
+  const { t } = useI18n();
+  const clues = getClues(q.vignette, q.keyInfoPhrases);
+  const label = (color) => ({ fontFamily: FONT_UI, fontWeight: 700, fontSize: 12, color, marginBottom: 4, textTransform: "uppercase", letterSpacing: "0.05em", display: "flex", alignItems: "center", gap: 6 });
+  const body = { fontFamily: FONT_UI, fontSize: 13.5, color: T.ink, lineHeight: 1.6, margin: 0 };
+  // flat: no card backgrounds, so the whole block takes the colour of the container it sits in
+  const box = (bg, extra) => (flat ? {} : { background: bg, borderRadius: 8, padding: "12px 14px", ...extra });
+  return (
+    <div style={{ display: "grid", gap: flat ? 14 : 10 }}>
+      {showTip && q.attendingTip && (
+        <div style={{ background: T.paper, borderRadius: 8, padding: "12px 14px", borderLeft: `3px solid ${T.blue}` }}>
+          <div style={label(T.blue)}><Stethoscope size={14} /> {t("attendingTip")}</div>
+          <p style={body}>{q.attendingTip}</p>
+        </div>
+      )}
+
+      {showClues && clues.phrases.length > 0 && (
+        <div>
+          <div style={label(T.green)}><Search size={13} /> {t("keyClues")}</div>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
+            {clues.phrases.map((ph, i) => (
+              <span key={i} style={{ ...clueStyleFor(T), fontFamily: FONT_UI, fontSize: 12.5, color: T.ink, padding: "3px 8px", borderRadius: 4 }}>{ph}</span>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {q.explanation && (
+        <div style={box(T.paper)}>
+          <div style={label(T.blue)}>{t("explanation")}</div>
+          <p style={body}>{q.explanation}</p>
+        </div>
+      )}
+
+      {q.keyLearningPoint && (
+        <div style={box(T.amberLight, { border: `1px solid ${T.amber}` })}>
+          <div style={label(T.amber)}><Target size={14} /> {t("keyLearningPoint")}</div>
+          <p style={body}>{q.keyLearningPoint}</p>
+        </div>
+      )}
+
+      {q.educationalObjective && (
+        <div style={box(T.blueLight)}>
+          <div style={label(T.blueDeep)}>{t("eduObj")}</div>
+          <p style={body}>{q.educationalObjective}</p>
+        </div>
+      )}
+
+      <SourcesDropdown refs={q.sourceReferences} T={T} />
+    </div>
+  );
+}
+
+function BlockResults({ block, blockState, blockIdx, history, onBackToLobby, onRetest, onLoadNewExam, T, darkMode, setDarkMode }) {
   const { t, lang } = useI18n();
   const [expanded, setExpanded] = useState(null);
+  const [retestCfg, setRetestCfg] = useState(null); // { pool, mode } while the modal is open
   const { score } = blockState;
+
+  const incorrectQs = block.questions.filter((q) => blockState.answers[q.id]?.selected !== q.correctAnswer);
+  const flaggedQs = block.questions.filter((q) => blockState.answers[q.id]?.flagged);
+  const poolCounts = { incorrect: incorrectQs.length, flagged: flaggedQs.length, all: block.questions.length };
+  const originIdx = block.isRetest ? block.retestOf : blockIdx;
+  const attempts = history.filter((h) => h.originIdx === originIdx);
+  const hintCount = block.questions.filter((q) => blockState.answers[q.id]?.hintUsed).length;
 
   const subjectRows = useMemo(() => {
     const map = {};
@@ -2090,25 +2986,36 @@ function BlockResults({ block, blockState, onBackToLobby, onRetestMissed, onRete
         <span style={{ fontFamily: FONT_UI, fontSize: 14, color: T.muted }}>
           {t("scoreLine", { c: score.correct, t: score.total, u: score.total - score.answered })}
         </span>
+        {hintCount > 0 && <Pill T={T} tone="amber">{t("hintsUsedN", { n: hintCount })}</Pill>}
       </div>
 
       <div style={{ display: "flex", flexWrap: "wrap", gap: 10, marginBottom: 28 }}>
-        {score.correct < score.total ? (
-          <PrimaryButton T={T} onClick={onRetestMissed} icon={RotateCcw}>
-            {t("rtMissed", { n: score.total - score.correct })}
-          </PrimaryButton>
-        ) : (
-          <PrimaryButton T={T} disabled icon={CheckCircle2}>
-            {t("perfect")}
-          </PrimaryButton>
-        )}
-        <GhostButton T={T} onClick={onRetestAll} icon={RotateCcw}>
-          {t("rtAll", { n: score.total })}
-        </GhostButton>
-        <GhostButton T={T} onClick={onLoadNewExam} icon={Upload}>
-          {t("loadNew")}
-        </GhostButton>
+        <GhostButton T={T} onClick={onLoadNewExam} icon={Upload}>{t("loadNew")}</GhostButton>
       </div>
+
+      {attempts.length > 1 && (
+        <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, padding: "18px 22px", marginBottom: 22 }}>
+          <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: 13, color: T.ink, marginBottom: 10, textTransform: "uppercase", letterSpacing: "0.04em" }}>
+            {t("attemptHistory")}
+          </div>
+          <div style={{ display: "grid", gap: 8 }}>
+            {attempts.map((h, i) => (
+              <div key={h.id} style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: 10, fontFamily: FONT_UI, fontSize: 13, color: T.ink }}>
+                <span style={{ fontWeight: 600, flex: "1 1 220px" }}>
+                  {i === 0 ? t("firstAttempt") : t("retestN", { n: i })}
+                  <span style={{ fontWeight: 400, color: T.muted }}>
+                    {i === 0 ? "" : ` — ${t(h.pool === "missed" ? "poolIncorrect" : h.pool === "flagged" ? "poolFlagged" : "poolAll")}`}
+                    {` · ${t(h.mode === "tutor" ? "modeTutorOpt" : "modeTimedOpt")}${h.timerOff ? ` (${t("timerOffTag")})` : ""}`}
+                  </span>
+                </span>
+                <span style={{ fontFamily: FONT_MONO, color: T.muted }}>{t("elapsed")} {fmtTime(h.elapsedSec)}</span>
+                {h.hintsUsed > 0 && <Pill T={T} tone="amber">{t("hintsUsedN", { n: h.hintsUsed })}</Pill>}
+                <Pill T={T} tone={h.pct >= 70 ? "green" : "red"}>{h.correct}/{h.total} · {h.pct}%</Pill>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
 
       {subjectRows.length > 1 && (
         <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, padding: "20px 22px 8px", marginBottom: 22 }}>
@@ -2149,12 +3056,18 @@ function BlockResults({ block, blockState, onBackToLobby, onRetestMissed, onRete
                 {!answered ? <AlertTriangle size={17} color={T.amber} /> : correct ? <CheckCircle2 size={17} color={T.green} /> : <XCircle size={17} color={T.red} />}
                 <span style={{ fontFamily: FONT_MONO, fontSize: 12.5, color: T.muted, width: 24 }}>{i + 1}</span>
                 <span style={{ fontFamily: FONT_UI, fontSize: 14, color: T.ink, flex: 1 }}>{q.stem}</span>
+                {a?.hintUsed && <Pill T={T} tone="amber">{t("hintUsedBadge")}</Pill>}
                 <Pill T={T} tone="muted">{q.subject || t("general")}</Pill>
                 {isOpen ? <ChevronUp size={16} color={T.muted} /> : <ChevronDown size={16} color={T.muted} />}
               </div>
               {isOpen && (
                 <div style={{ padding: "0 16px 18px", borderTop: `1px solid ${T.border}` }}>
-                  <p style={{ fontFamily: FONT_DISPLAY, fontSize: 14.5, color: T.ink, lineHeight: 1.65, marginTop: 14 }}>{q.vignette}</p>
+                  <div style={{ display: "flex", justifyContent: "flex-end", marginTop: 12 }}>
+                    <DifficultyMeter value={q.difficultyRating} T={T} />
+                  </div>
+                  <p style={{ fontFamily: FONT_DISPLAY, fontSize: 14.5, color: T.ink, lineHeight: 1.65, marginTop: 8 }}>
+                    {renderHighlightedText(q.vignette, null, () => {}, getClues(q.vignette, q.keyInfoPhrases).ranges, clueStyleFor(T))}
+                  </p>
                   <div style={{ display: "grid", gap: 6, marginBottom: 12 }}>
                     {q.options.map((opt) => {
                       const isCorrectOpt = opt.key === q.correctAnswer;
@@ -2181,53 +3094,70 @@ function BlockResults({ block, blockState, onBackToLobby, onRetestMissed, onRete
                       );
                     })}
                   </div>
-                  <div style={{ background: T.paper, borderRadius: 8, padding: "12px 14px" }}>
-                    <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: 12, color: T.blue, marginBottom: 4, textTransform: "uppercase", letterSpacing: "0.05em" }}>
-                      {t("explanation")}
-                    </div>
-                    <p style={{ fontFamily: FONT_UI, fontSize: 13.5, color: T.ink, lineHeight: 1.6, margin: 0 }}>{q.explanation}</p>
-                  </div>
-
-                  {q.educationalObjective && (
-                    <div style={{ background: T.blueLight, borderRadius: 8, padding: "12px 14px", marginTop: 10 }}>
-                      <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: 12, color: T.blueDeep, marginBottom: 4, textTransform: "uppercase", letterSpacing: "0.05em" }}>
-                        {t("eduObj")}
-                      </div>
-                      <p style={{ fontFamily: FONT_UI, fontSize: 13.5, color: T.ink, lineHeight: 1.6, margin: 0 }}>{q.educationalObjective}</p>
-                    </div>
-                  )}
-
-                  {Array.isArray(q.sourceReferences) && q.sourceReferences.length > 0 && (
-                    <div style={{ marginTop: 10 }}>
-                      <div style={{ display: "flex", alignItems: "center", gap: 6, fontFamily: FONT_UI, fontWeight: 700, fontSize: 12, color: T.muted, marginBottom: 6, textTransform: "uppercase", letterSpacing: "0.05em" }}>
-                        <BookOpen size={13} /> {t("sources")}
-                      </div>
-                      <div style={{ display: "grid", gap: 8 }}>
-                        {q.sourceReferences.map((ref, ri) => (
-                          <div key={ri} style={{ border: `1px solid ${T.border}`, borderRadius: 8, padding: "10px 12px" }}>
-                            <div style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: 13, color: T.ink }}>
-                              {ref.sourceTitle}
-                              {ref.pageNumber && (
-                                <span style={{ fontFamily: FONT_MONO, fontWeight: 400, fontSize: 11.5, color: T.muted }}> · {t("page")} {ref.pageNumber}</span>
-                              )}
-                            </div>
-                            {ref.chapterSection && (
-                              <div style={{ fontFamily: FONT_UI, fontSize: 12.5, color: T.muted, marginTop: 2 }}>{ref.chapterSection}</div>
-                            )}
-                            {ref.relevance && (
-                              <div style={{ fontFamily: FONT_UI, fontSize: 12, color: T.blueDeep, marginTop: 4, fontStyle: "italic" }}>{ref.relevance}</div>
-                            )}
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  )}
+                  <ExplanationPanels q={q} T={T} />
                 </div>
               )}
             </div>
           );
         })}
       </div>
+
+      {/* Retest options bar */}
+      <div style={{
+        position: "sticky", bottom: 0, zIndex: 30, margin: "28px -20px -80px", padding: "14px 20px",
+        background: T.paper, borderTop: `1px solid ${T.border}`, display: "flex", flexWrap: "wrap", gap: 10,
+      }}>
+        <PrimaryButton T={T} onClick={() => setRetestCfg({ pool: poolCounts.incorrect > 0 ? "incorrect" : "all", mode: "tutor" })}>
+          {t("retestIncBtn")}
+        </PrimaryButton>
+        <GhostButton T={T} onClick={() => setRetestCfg({ pool: "all", mode: "timed" })}>
+          {t("retestFullBtn")}
+        </GhostButton>
+      </div>
+
+      {/* Retest configuration modal */}
+      {retestCfg && (
+        <div style={{ position: "fixed", inset: 0, background: "rgba(10,15,20,0.6)", display: "flex", alignItems: "center", justifyContent: "center", zIndex: 95, padding: 20 }}>
+          <div role="dialog" aria-modal="true" style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, padding: 26, width: "100%", maxWidth: 460 }}>
+            <h3 style={{ fontFamily: FONT_UI, fontSize: 17, fontWeight: 700, color: T.ink, margin: "0 0 16px" }}>{t("retestTitle")}</h3>
+            {[
+              ["poolLabel", "pool", [["incorrect", "poolIncorrect"], ["flagged", "poolFlagged"], ["all", "poolAll"]]],
+              ["modeSel", "mode", [["tutor", "modeTutorOpt"], ["timed", "modeTimedOpt"]]],
+            ].map(([labelKey, field, opts]) => (
+              <div key={field} style={{ marginBottom: 16 }}>
+                <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: 11, color: T.muted, textTransform: "uppercase", letterSpacing: "0.04em", marginBottom: 6 }}>{t(labelKey)}</div>
+                <div role="radiogroup" style={{ display: "flex", flexWrap: "wrap", border: `1px solid ${T.border}`, borderRadius: 6, overflow: "hidden" }}>
+                  {opts.map(([val, key]) => {
+                    const on = retestCfg[field] === val;
+                    const count = field === "pool" ? poolCounts[val] : null;
+                    const disabled = field === "pool" && count === 0;
+                    return (
+                      <button key={val} role="radio" aria-checked={on} disabled={disabled}
+                        onClick={() => setRetestCfg((c) => ({ ...c, [field]: val }))}
+                        style={{
+                          flex: 1, fontFamily: FONT_UI, fontWeight: 700, fontSize: 12.5, padding: "9px 10px", border: "none",
+                          cursor: disabled ? "not-allowed" : "pointer", opacity: disabled ? 0.45 : 1,
+                          background: on ? T.blue : "transparent", color: on ? T.onBlue : T.ink,
+                        }}>
+                        {t(key)}{count !== null ? ` (${count})` : ""}
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            ))}
+            <p style={{ fontFamily: FONT_UI, fontSize: 12.5, color: T.muted, lineHeight: 1.5, margin: "0 0 18px" }}>
+              {retestCfg.mode === "tutor" ? t("modeTutorHint") : t("modeTimedHint")}<br />{t("retestSaveNote")}
+            </p>
+            <div style={{ display: "flex", gap: 10, justifyContent: "flex-end" }}>
+              <GhostButton T={T} onClick={() => setRetestCfg(null)}>{t("cancel")}</GhostButton>
+              <PrimaryButton T={T} disabled={poolCounts[retestCfg.pool] === 0} onClick={() => { const c = retestCfg; setRetestCfg(null); onRetest(blockIdx, c); }}>
+                {t("startRetest")}
+              </PrimaryButton>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
@@ -2240,6 +3170,7 @@ function FinalSummary({ examData, blockStates, onBackToLobby, T, darkMode, setDa
   const subjectRows = useMemo(() => {
     const map = {};
     examData.blocks.forEach((block, bi) => {
+      if (block.isRetest || blockStates[bi].status !== "done") return; // retests never alter baseline stats
       block.questions.forEach((q) => {
         const subj = q.subject || t("general");
         const a = blockStates[bi].answers[q.id];
@@ -2252,8 +3183,10 @@ function FinalSummary({ examData, blockStates, onBackToLobby, T, darkMode, setDa
     return Object.values(map).map((r) => ({ ...r, pct: Math.round((r.correct / r.total) * 100) })).sort((a, b) => a.pct - b.pct);
   }, [examData, blockStates, lang]);
 
-  const totalCorrect = blockStates.reduce((s, b) => s + (b.score?.correct || 0), 0);
-  const totalQ = blockStates.reduce((s, b) => s + (b.score?.total || 0), 0);
+  const baseIdx = examData.blocks.map((b, i) => (b.isRetest ? -1 : i)).filter((i) => i >= 0);
+  const retestCount = examData.blocks.length - baseIdx.length;
+  const totalCorrect = baseIdx.reduce((s, i) => s + (blockStates[i].score?.correct || 0), 0);
+  const totalQ = baseIdx.reduce((s, i) => s + (blockStates[i].score?.total || 0), 0);
   const overallPct = totalQ ? Math.round((totalCorrect / totalQ) * 100) : 0;
   const weakest = subjectRows.slice(0, 3);
 
@@ -2273,9 +3206,12 @@ function FinalSummary({ examData, blockStates, onBackToLobby, T, darkMode, setDa
           {overallPct}%
         </span>
         <span style={{ fontFamily: FONT_UI, fontSize: 14, color: T.muted }}>
-          {t("across", { c: totalCorrect, q: totalQ, b: examData.blocks.length, blocks: t(examData.blocks.length > 1 ? "blockN" : "block1") })}
+          {t("across", { c: totalCorrect, q: totalQ, b: baseIdx.length, blocks: t(baseIdx.length > 1 ? "blockN" : "block1") })}
         </span>
       </div>
+      {retestCount > 0 && (
+        <p style={{ fontFamily: FONT_UI, fontSize: 12.5, color: T.muted, margin: "-14px 0 22px" }}>{t("retestsExcluded", { n: retestCount })}</p>
+      )}
 
       <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, padding: "20px 22px 8px", marginBottom: 22 }}>
         <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: 13, color: T.ink, marginBottom: 12, textTransform: "uppercase", letterSpacing: "0.04em" }}>
@@ -2309,7 +3245,7 @@ function FinalSummary({ examData, blockStates, onBackToLobby, T, darkMode, setDa
       )}
 
       <div style={{ display: "grid", gap: 10 }}>
-        {examData.blocks.map((block, i) => (
+        {examData.blocks.map((block, i) => blockStates[i].score && (
           <div key={i} style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 8, padding: "14px 18px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
             <span style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: 14, color: T.ink }}>{blockLabel(block, t)}</span>
             <Pill T={T} tone={blockStates[i].score.pct >= 70 ? "green" : "red"}>
@@ -2326,33 +3262,153 @@ function FinalSummary({ examData, blockStates, onBackToLobby, T, darkMode, setDa
 // Root app
 // ---------------------------------------------------------------------------
 export default function App() {
-  const [examData, setExamData] = useState(null);
-  const [blockStates, setBlockStates] = useState([]);
-  const [view, setView] = useState("import"); // import | lobby | exam | results | final
-  const [activeBlockIdx, setActiveBlockIdx] = useState(null);
-  const [darkMode, setDarkMode] = useState(true);
-  const [lang, setLang] = useState("en"); // English is the default
+  // Everything persisted is read ONCE, synchronously, before the first render — so a refresh drops the
+  // student straight back into the exam (no flash of the import screen) and the save effects below can
+  // never overwrite a stored session with empty initial state.
+  const [boot] = useState(() => ({ session: loadSession(), library: loadLibrary(), prefs: loadPrefs() }));
+  const [examData, setExamData] = useState(boot.session ? boot.session.examData : null);
+  const [blockStates, setBlockStates] = useState(boot.session ? boot.session.blockStates : []);
+  const [view, setView] = useState(boot.session ? boot.session.view : "import"); // import | lobby | exam | results | final
+  const [activeBlockIdx, setActiveBlockIdx] = useState(boot.session ? boot.session.activeBlockIdx : null);
+  const [history, setHistory] = useState(boot.session ? boot.session.history : []); // immutable snapshot of every finished attempt (baseline + retests)
+  const [darkMode, setDarkMode] = useState(boot.prefs.darkMode);
+  const [lang, setLang] = useState(boot.prefs.lang); // English is the default
+  const [library, setLibrary] = useState(boot.library); // [{ id, title, importDate, questions, lastScore }]
+  const [restoredNotice, setRestoredNotice] = useState(!!boot.session);
+  const [storageError, setStorageError] = useState(false);
   const T = darkMode ? DARK : LIGHT;
+  const tr = (k) => STR[lang]?.[k] ?? STR.en[k] ?? k; // App sits above useI18n's provider, so look strings up directly
+
+  // --- Local persistence ------------------------------------------------------
+  const failedKeys = useRef({});
+  function persist(key, raw) { // raw === null removes the key
+    let ok = true;
+    if (raw === null) lsRemove(key); else ok = lsSet(key, raw);
+    failedKeys.current[key] = !ok;
+    setStorageError(Object.values(failedKeys.current).some(Boolean));
+  }
+
+  // The (large, rarely-changing) exam content is serialised once per change, not once per timer tick.
+  const examJson = useMemo(() => (examData ? JSON.stringify(examData) : null), [examData]);
+
+  // Active-session auto-save: runs on every state change (answers, flags, question index, countdown…).
+  // The session exists only while something is left to resume; finishing the last block clears it.
+  // (The results / summary screens are saved as "lobby" so a queued block still waiting is not lost.)
+  useEffect(() => {
+    const hasOpenWork = !!examData && blockStates.some((b) => b.status !== "done");
+    if (!hasOpenWork) { persist(LS_SESSION, null); return; }
+    persist(LS_SESSION,
+      `{"v":${SESSION_VERSION},"savedAt":${Date.now()},"view":${JSON.stringify(view === "exam" ? "exam" : "lobby")},` +
+      `"activeBlockIdx":${JSON.stringify(activeBlockIdx)},"history":${JSON.stringify(history)},` +
+      `"blockStates":${JSON.stringify(blockStates)},"examData":${examJson}}`);
+  }, [examJson, blockStates, history, view, activeBlockIdx]);
+
+  useEffect(() => { persist(LS_LIBRARY, library.length ? JSON.stringify(library) : null); }, [library]);
+  useEffect(() => {
+    const isDefault = darkMode === true && lang === "en";
+    persist(LS_PREFS, isDefault ? null : JSON.stringify({ darkMode, lang }));
+  }, [darkMode, lang]);
+  useEffect(() => {
+    if (!restoredNotice) return;
+    const id = setTimeout(() => setRestoredNotice(false), 5000);
+    return () => clearTimeout(id);
+  }, [restoredNotice]);
+
+  // --- Qbank library ------------------------------------------------------------
+  // Adds blocks that aren't already stored. Returns the library ids for every input block (new or existing).
+  function addBlocksToLibrary(blocks) {
+    const existing = new Map(library.map((e) => [blockSignature(e.title, e.questions), e.id]));
+    const fresh = [];
+    const ids = blocks.map((b) => {
+      const sig = blockSignature(b.blockName, b.questions);
+      if (existing.has(sig)) return { id: existing.get(sig), isNew: false };
+      const entry = makeLibraryEntry(b);
+      existing.set(sig, entry.id);
+      fresh.push(entry);
+      return { id: entry.id, isNew: true };
+    });
+    return { fresh, ids };
+  }
+
+  // "Save to Library" on the import screen: store the pasted/uploaded blocks without starting an exam.
+  function saveImportToLibrary(data) {
+    const { fresh, ids } = addBlocksToLibrary(data.blocks.map(debiasBlock));
+    if (fresh.length === 0) return { added: 0, dup: ids.length };
+    const next = [...library, ...fresh];
+    if (!lsSet(LS_LIBRARY, JSON.stringify(next))) return { failed: true }; // quota / disabled storage: tell the user now
+    setLibrary(next);
+    return { added: fresh.length, dup: ids.length - fresh.length };
+  }
+
+  // "Save to Library" from the lobby: store the loaded exam's not-yet-saved blocks and link them to their entries,
+  // so finishing them updates lastScore.
+  function saveLoadedExamToLibrary() {
+    if (!examData) return;
+    const idxs = examData.blocks.map((b, i) => i).filter((i) => !examData.blocks[i].isRetest && !examData.blocks[i].isMixed && !examData.blocks[i].libraryId);
+    if (idxs.length === 0) return;
+    const { fresh, ids } = addBlocksToLibrary(idxs.map((i) => examData.blocks[i]));
+    const next = [...library, ...fresh];
+    if (fresh.length && !lsSet(LS_LIBRARY, JSON.stringify(next))) { setStorageError(true); return; }
+    if (fresh.length) setLibrary(next);
+    setExamData((prev) => ({ ...prev, blocks: prev.blocks.map((b, i) => (idxs.includes(i) ? { ...b, libraryId: ids[idxs.indexOf(i)].id } : b)) }));
+  }
+
+  // Start one saved block, or several as a continuous session (the lobby already runs multiple blocks in order).
+  function launchFromLibrary(ids) {
+    const entries = ids.map((id) => library.find((e) => e.id === id)).filter(Boolean);
+    if (entries.length === 0) return;
+    const blocks = entries.map((e) => ({
+      blockName: e.title,
+      ...(typeof e.timeLimitMinutes === "number" ? { timeLimitMinutes: e.timeLimitMinutes } : {}),
+      questions: e.questions,
+      libraryId: e.id,
+    }));
+    setExamData({ blocks });
+    setBlockStates(blocks.map(makeInitialBlockState));
+    setHistory([]);
+    setActiveBlockIdx(null);
+    setView("lobby");
+  }
+
+  // Merge several saved banks into ONE shuffled, subject-balanced block and open it in the lobby.
+  // The result isn't tied to a single library entry, so it never overwrites a bank's "last score".
+  function mixFromLibrary(ids, size) {
+    const entries = ids.map((id) => library.find((e) => e.id === id)).filter(Boolean);
+    if (entries.length < 2) return;
+    const block = mixQbanks(entries, { size });
+    setExamData({ blocks: [block] });
+    setBlockStates([makeInitialBlockState(block)]);
+    setHistory([]);
+    setActiveBlockIdx(null);
+    setView("lobby");
+  }
+
+  function deleteLibraryEntry(id) { setLibrary((lib) => lib.filter((e) => e.id !== id)); }
+
+  function recordLibraryScore(libraryId, score, finishedAt) {
+    setLibrary((lib) => lib.map((e) => (e.id === libraryId
+      ? { ...e, lastScore: { correct: score.correct, total: score.total, pct: score.pct, date: finishedAt } }
+      : e)));
+  }
+
+  // Settings → "Reset All Local Data": wipes the library, the active session and preferences, then returns
+  // to a clean import screen. (The save effects above then see empty/default state and keep the keys absent.)
+  function resetAllData() {
+    [LS_SESSION, LS_LIBRARY, LS_PREFS].forEach(lsRemove);
+    failedKeys.current = {};
+    setStorageError(false);
+    setRestoredNotice(false);
+    setExamData(null); setBlockStates([]); setHistory([]); setActiveBlockIdx(null);
+    setLibrary([]); setDarkMode(true); setLang("en");
+    setView("import");
+  }
 
   function handleImport(data) {
-    // Guard against answer-position bias (e.g. LLM output where every key is "A"):
-    // if any single letter is the correct answer for >50% of a block's questions
-    // (5+ questions), shuffle that block's options so students can't pattern-match.
-    let reshuffled = 0;
-    const blocks = data.blocks.map((b) => {
-      const counts = {};
-      b.questions.forEach((q) => { counts[q.correctAnswer] = (counts[q.correctAnswer] || 0) + 1; });
-      const maxShare = Math.max(...Object.values(counts)) / b.questions.length;
-      if (b.questions.length >= 5 && maxShare > 0.5) {
-        reshuffled += 1;
-        return { ...b, questions: b.questions.map(shuffleQuestionOptions) };
-      }
-      return b;
-    });
+    // Guard against answer-position bias (e.g. LLM output where every key is "A") — see debiasBlock().
+    const blocks = data.blocks.map(debiasBlock);
     const next = {
       ...data,
       blocks,
-      ...(reshuffled ? { shuffled: true } : {}),
     };
     setExamData(next);
     setBlockStates(next.blocks.map(makeInitialBlockState));
@@ -2362,41 +3418,67 @@ export default function App() {
   function startBlock(idx) {
     setBlockStates((prev) => {
       const copy = [...prev];
-      if (copy[idx].status === "pending") copy[idx] = { ...copy[idx], status: "in-progress" };
+      if (copy[idx].status === "pending") copy[idx] = { ...copy[idx], status: "in-progress", startedAt: Date.now() };
       return copy;
     });
     setActiveBlockIdx(idx);
     setView("exam");
   }
 
-  function setActiveBlockState(updater) {
+  // useCallback: ExamScreen's countdown effect lists this in its deps. A fresh function on every render
+  // tore down and recreated the 1s interval on every re-render, so rapid input (typing a note, clicking
+  // through questions) could keep postponing the next tick and the clock would lose time.
+  const setActiveBlockState = useCallback((updater) => {
     setBlockStates((prev) => {
+      const cur = prev[activeBlockIdx];
+      const next = typeof updater === "function" ? updater(cur) : updater;
+      if (next === cur) return prev; // no-op updates (e.g. the mirror effects on mount) don't re-render or re-save
       const copy = [...prev];
-      copy[activeBlockIdx] = typeof updater === "function" ? updater(copy[activeBlockIdx]) : updater;
+      copy[activeBlockIdx] = next;
       return copy;
     });
-  }
+  }, [activeBlockIdx]);
 
   function submitActiveBlock() {
+    const idx = activeBlockIdx;
+    const bs = blockStates[idx];
+    const block = examData.blocks[idx];
+    if (!bs || bs.status === "done") return; // never re-score a finished block
+    const correct = block.questions.filter((q) => bs.answers[q.id]?.selected === q.correctAnswer).length;
+    const answered = block.questions.filter((q) => bs.answers[q.id]?.selected).length;
+    const total = block.questions.length;
+    const pct = Math.round((correct / total) * 100);
+    const finishedAt = Date.now();
+    const elapsedSec = bs.startedAt ? Math.round((finishedAt - bs.startedAt) / 1000) : 0;
     setBlockStates((prev) => {
       const copy = [...prev];
-      const bs = copy[activeBlockIdx];
-      const block = examData.blocks[activeBlockIdx];
-      const correct = block.questions.filter((q) => bs.answers[q.id]?.selected === q.correctAnswer).length;
-      const answered = block.questions.filter((q) => bs.answers[q.id]?.selected).length;
-      const total = block.questions.length;
-      copy[activeBlockIdx] = { ...bs, status: "done", score: { correct, total, answered, pct: Math.round((correct / total) * 100) } };
+      copy[idx] = { ...copy[idx], status: "done", finishedAt, elapsedSec, score: { correct, total, answered, pct } };
       return copy;
     });
+    setHistory((h) => [...h, {
+      id: h.length + 1, blockIdx: idx, originIdx: block.isRetest ? block.retestOf : idx,
+      pool: block.isRetest ? block.retestType : "first", mode: bs.tutor ? "tutor" : "timed", timerOff: !!bs.timerOff,
+      correct, total, answered, pct, elapsedSec, finishedAt,
+      hintsUsed: block.questions.filter((q) => bs.answers[q.id]?.hintUsed).length,
+    }]);
+    // Finishing a first-pass block updates its library entry; retests are subsets and never overwrite it.
+    if (block.libraryId && !block.isRetest) recordLibraryScore(block.libraryId, { correct, total, pct }, finishedAt);
     setView("results");
   }
 
   function reviewBlock(idx) { setActiveBlockIdx(idx); setView("results"); }
-  function resetAll() { setExamData(null); setBlockStates([]); setActiveBlockIdx(null); setView("import"); }
-  function toggleTimed(idx) {
+  function resetAll() {
+    // Auto-save protects against refreshes, so don't let a single stray click on "Import new exam" discard a started block.
+    if (blockStates.some((b) => b.status === "in-progress") && !window.confirm(tr("leaveConfirm"))) return;
+    setExamData(null); setBlockStates([]); setHistory([]); setActiveBlockIdx(null); setView("import");
+  }
+  // Timed and Tutor are mutually exclusive; the choice is locked once a block has started.
+  function setBlockMode(idx, mode) {
     setBlockStates((prev) => {
+      const cur = prev[idx];
+      if (cur.status !== "pending") return prev;
       const copy = [...prev];
-      copy[idx] = { ...copy[idx], timed: !copy[idx].timed };
+      copy[idx] = { ...cur, timed: mode === "timed", tutor: mode === "tutor" };
       return copy;
     });
   }
@@ -2407,54 +3489,74 @@ export default function App() {
   // state can leak in), append it to examData.blocks, and jump straight into
   // the exam view at question 1.
 
-  function retestMissedBlock(idx) {
+  // pool: "incorrect" | "flagged" | "all"   mode: "tutor" | "timed"
+  // Always builds a brand-new block + block state, so the original block's score, answers and timing are never touched.
+  function launchRetest(idx, { pool, mode }) {
     const block = examData.blocks[idx];
     const bs = blockStates[idx];
-    const missed = block.questions.filter((q) => bs.answers[q.id]?.selected !== q.correctAnswer);
-    if (missed.length === 0) return; // 100% — nothing to retest
-
-    const shuffled = missed.map(shuffleQuestionOptions);
+    const src = block.questions.filter((q) =>
+      pool === "all" ? true : pool === "flagged" ? !!bs.answers[q.id]?.flagged : bs.answers[q.id]?.selected !== q.correctAnswer);
+    if (src.length === 0) return;
+    const shuffled = shuffleArray(src).map(shuffleQuestionOptions); // new question AND answer order
     const newBlock = {
       blockName: baseBlockName(block.blockName), // suffix is localized in blockLabel()
       questions: shuffled,
-      timeLimitMinutes: Math.max(5, Math.round(shuffled.length * 1.5)), // N * 1.5 min, always timed
+      timeLimitMinutes: pool === "all" && typeof block.timeLimitMinutes === "number" ? block.timeLimitMinutes : Math.max(5, Math.round(shuffled.length * 1.5)),
       isRetest: true,
-      retestType: "missed",
+      retestOf: block.isRetest ? block.retestOf : idx, // always points at the first-pass block
+      retestType: pool === "incorrect" ? "missed" : pool === "flagged" ? "flagged" : "full",
       retestCount: shuffled.length,
     };
-    launchBlock(newBlock);
+    launchBlock(newBlock, mode);
   }
+  const retestMissedBlock = (idx) => launchRetest(idx, { pool: "incorrect", mode: "tutor" });
+  const retestEntireBlock = (idx) => launchRetest(idx, { pool: "all", mode: "timed" });
 
-  function retestEntireBlock(idx) {
-    const block = examData.blocks[idx];
-    const shuffled = block.questions.map(shuffleQuestionOptions);
-    const newBlock = {
-      blockName: baseBlockName(block.blockName),
-      questions: shuffled,
-      // Original block timer carries over as-is (including "untimed" if it had none)
-      ...(typeof block.timeLimitMinutes === "number" ? { timeLimitMinutes: block.timeLimitMinutes } : {}),
-      isRetest: true,
-      retestType: "full",
-      retestCount: shuffled.length,
-    };
-    launchBlock(newBlock);
-  }
-
-  function launchBlock(newBlock) {
+  function launchBlock(newBlock, mode) {
     const newIndex = examData.blocks.length;
     setExamData((prev) => ({ ...prev, blocks: [...prev.blocks, newBlock] }));
-    setBlockStates((prev) => [...prev, { ...makeInitialBlockState(newBlock), status: "in-progress" }]);
+    setBlockStates((prev) => [...prev, { ...makeInitialBlockState(newBlock), timed: mode !== "tutor", tutor: mode === "tutor", status: "in-progress", startedAt: Date.now() }]);
     setActiveBlockIdx(newIndex); // fresh block → question index always starts at 1 in ExamScreen's own state
     setView("exam");
   }
 
   return (
     <LangContext.Provider value={{ lang, setLang }}>
+    <DataContext.Provider value={{ resetAllData }}>
     <div style={{ minHeight: "100vh", background: T.paper, fontFamily: FONT_UI }}>
-      {view === "import" && <ImportScreen onImport={handleImport} T={T} darkMode={darkMode} setDarkMode={setDarkMode} />}
+      {restoredNotice && (
+        <div role="status" onClick={() => setRestoredNotice(false)} style={{
+          position: "fixed", top: 14, left: "50%", transform: "translateX(-50%)", zIndex: 200, cursor: "pointer",
+          display: "flex", alignItems: "center", gap: 8, background: T.greenLight, color: T.green, border: `1px solid ${T.green}`,
+          borderRadius: 999, padding: "8px 16px", fontFamily: FONT_UI, fontSize: 13, fontWeight: 600, boxShadow: "0 6px 20px rgba(0,0,0,0.25)",
+        }}>
+          <CheckCircle2 size={15} /> {tr("resumed")}
+        </div>
+      )}
+      {storageError && (
+        <div role="alert" style={{
+          position: "fixed", bottom: 14, left: "50%", transform: "translateX(-50%)", zIndex: 200, maxWidth: "92vw",
+          display: "flex", alignItems: "center", gap: 8, background: T.amberLight, color: T.amber, border: `1px solid ${T.amber}`,
+          borderRadius: 8, padding: "10px 16px", fontFamily: FONT_UI, fontSize: 13, fontWeight: 600, boxShadow: "0 6px 20px rgba(0,0,0,0.25)",
+        }}>
+          <AlertTriangle size={16} style={{ flexShrink: 0 }} /> {tr("storageFull")}
+        </div>
+      )}
+
+      {view === "import" && (
+        <ImportScreen
+          onImport={handleImport}
+          onSaveToLibrary={saveImportToLibrary}
+          library={library}
+          onLaunchLibrary={launchFromLibrary}
+          onMixLibrary={mixFromLibrary}
+          onDeleteLibraryEntry={deleteLibraryEntry}
+          T={T} darkMode={darkMode} setDarkMode={setDarkMode}
+        />
+      )}
 
       {view === "lobby" && examData && (
-        <Lobby examData={examData} blockStates={blockStates} onStart={startBlock} onReview={reviewBlock} onReset={resetAll} onFinalSummary={() => setView("final")} onToggleTimed={toggleTimed} onRetestMissed={retestMissedBlock} onRetestAll={retestEntireBlock} T={T} darkMode={darkMode} setDarkMode={setDarkMode} />
+        <Lobby examData={examData} blockStates={blockStates} onStart={startBlock} onReview={reviewBlock} onReset={resetAll} onFinalSummary={() => setView("final")} onSetMode={setBlockMode} onRetestMissed={retestMissedBlock} onRetestAll={retestEntireBlock} onSaveToLibrary={saveLoadedExamToLibrary} T={T} darkMode={darkMode} setDarkMode={setDarkMode} />
       )}
 
       {view === "exam" && examData && activeBlockIdx !== null && (
@@ -2474,8 +3576,9 @@ export default function App() {
           block={examData.blocks[activeBlockIdx]}
           blockState={blockStates[activeBlockIdx]}
           onBackToLobby={() => setView("lobby")}
-          onRetestMissed={() => retestMissedBlock(activeBlockIdx)}
-          onRetestAll={() => retestEntireBlock(activeBlockIdx)}
+          blockIdx={activeBlockIdx}
+          history={history}
+          onRetest={launchRetest}
           onLoadNewExam={resetAll}
           T={T}
           darkMode={darkMode}
@@ -2487,6 +3590,7 @@ export default function App() {
         <FinalSummary examData={examData} blockStates={blockStates} onBackToLobby={() => setView("lobby")} T={T} darkMode={darkMode} setDarkMode={setDarkMode} />
       )}
     </div>
+    </DataContext.Provider>
     </LangContext.Provider>
   );
 }
