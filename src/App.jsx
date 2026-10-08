@@ -4,7 +4,7 @@ import {
   Play, CheckCircle2, XCircle, AlertTriangle, ClipboardList, Activity,
   Check, ChevronDown, ChevronUp, FileJson, FlaskConical, PencilLine,
   Calculator as CalcIcon, Settings as SettingsIcon, Lock, Unlock,
-  Search, Trash2, X, XOctagon, Lightbulb, Sun, Moon, Highlighter, BookOpen, Stethoscope, Target, Save, Shuffle
+  Search, Trash2, X, XOctagon, Lightbulb, Sun, Moon, Highlighter, BookOpen, Stethoscope, Target, Save, Shuffle, Plus, Home as HomeIcon
 } from "lucide-react";
 import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell
@@ -69,6 +69,26 @@ const DARK = {
 const FONT_DISPLAY = "'Source Serif 4', Georgia, 'Times New Roman', serif";
 const FONT_UI = "'Inter', Arial, 'Segoe UI', sans-serif";
 const FONT_MONO = "'IBM Plex Mono', 'SF Mono', Menlo, monospace";
+
+// Text size: App writes TEXT_SCALE on every render and every fontSize goes through fs(), so one
+// setting rescales all text. Layout widths that hold text grow with it (see ExamScreen).
+let TEXT_SCALE = 1;
+const TEXT_STEPS = [0.85, 1, 1.15, 1.3, 1.5, 1.75];
+const fs = (n) => Math.round(n * TEXT_SCALE * 100) / 100;
+const TextScaleContext = createContext({ textScale: 1, setTextScale: () => {} });
+
+// Live window size, so the exam layout adapts to phones, tablets, landscape, ultrawide…
+function useViewport() {
+  const read = () => ({ w: window.innerWidth, h: window.innerHeight });
+  const [vp, setVp] = useState(read);
+  useEffect(() => {
+    const on = () => setVp(read());
+    window.addEventListener("resize", on);
+    window.addEventListener("orientationchange", on);
+    return () => { window.removeEventListener("resize", on); window.removeEventListener("orientationchange", on); };
+  }, []);
+  return vp;
+}
 
 const FONT_IMPORT_URL =
   "https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap";
@@ -233,7 +253,11 @@ const STR = {
     saveToLibrary: "Save to Library", libSaved: "Saved {n} new block(s) to your library.", libDup: "{d} already in your library.", libNothing: "Already in your library — nothing new to save.",
     libTitle: "Qbank Library", libCount: "{n} saved", libEmpty: "Nothing saved yet. Paste or upload a question bank and choose \u201cSave to Library\u201d to keep it on this device.",
     libMeta: "{q} questions · imported {d}", libLastScore: "Last score {pct}% ({c}/{t})", libNoScore: "Not attempted yet",
-    libStart: "Start", libStartQueue: "Start queued blocks ({n})", libQueueHint: "Tick two or more blocks to run them back-to-back as one continuous session.", libMixTitle: "Mix selected banks", libMixHint: "Merges the ticked banks into one shuffled block, with systems and disciplines spread evenly.", libMixPool: "{q} questions · {s} subjects", libMixDupes: "{d} duplicate(s) removed", libMixSize: "Questions", libMixAll: "All ({n})", libMix: "Mix selected ({n})", mixedName: "Mixed Qbank ({n} banks)",
+    libStart: "Start", libStartQueue: "Start queued blocks ({n})", libQueueHint: "Tick two or more blocks to run them back-to-back as one continuous session.", rateTitle: "How well did you know this?", "rate.again": "Again", "rate.hard": "Hard", "rate.good": "Good", "rate.easy": "Easy",
+    poolAgain: "Rated Again", poolHard: "Rated Hard", poolAgainHard: "Again + Hard",
+    "rt.again": "Rated Again", "rt.hard": "Rated Hard", "rt.againhard": "Rated Again/Hard",
+    sufAgain: "Retest Again", sufHard: "Retest Hard", sufAgainHard: "Retest Again/Hard",
+    textSize: "Text size", textSmaller: "Smaller text", textLarger: "Larger text", textReset: "Reset", libMixTitle: "Mix selected banks", libMixHint: "Merges the ticked banks into one shuffled block, with systems and disciplines spread evenly.", libMixPool: "{q} questions · {s} subjects", libMixDupes: "{d} duplicate(s) removed", libMixSize: "Questions", libMixAll: "All ({n})", libMix: "Mix selected ({n})", mixedName: "Mixed Qbank ({n} banks)",
     libDeleteQ: "Delete this block?", libDelete: "Delete", libLocalNote: "Stored only in this browser. Clearing site data removes it.",
     resetData: "Reset All Local Data", resetDataWarn: "This permanently deletes your Qbank library, saved exam progress and preferences from this browser. It can't be undone.", resetDataConfirm: "Yes, delete everything",
     resumed: "Session restored — you're back where you left off.", storageFull: "Couldn't write to browser storage (it may be full or disabled). Your progress is not being backed up right now.",
@@ -250,7 +274,7 @@ const STR = {
     intro: "Paste or upload custom question banks created with your favorite AI tools like ChatGPT, Claude, Gemini, or NotebookLM. Experience an exam-like environment complete with lab reference panels, answer strikethroughs, a built-in calculator, and detailed score analytics.",
     pasteJson: "Paste or upload question bank", upload: "Upload file",
     pastePh: "Paste your generated question bank here…",
-    load: "Load exam", demo: "Try a 3-question demo", hide: "Hide", recipe: "Question Recipe Prompt",
+    load: "Load exam", importQbank: "Import New Qbank", homeBtn: "Home", resumeSession: "Resume Session", sessionInProgress: "Session in progress", sessionPos: "Question {n} of {total}", examLoadedLabel: "Exam loaded", openLobby: "Open exam lobby", inProgressTag: "In progress", discardTitle: "Discard in-progress session?", discardBody: "Starting something new replaces your in-progress block, and its answers will be lost.", discardGo: "Discard and continue", hide: "Hide", recipe: "Question Recipe Prompt",
     recipeIntro: "Configure a block below, then copy the generated recipe into the AI tool of your choice (add your source material if it supports it). It returns questions in the exact shape this app expects.",
     blockSize: "Block size", focus: "Focus",
     "focus.standard": "Standard USMLE mix", "focus.systems": "Single organ system", "focus.discipline": "Single discipline",
@@ -325,7 +349,11 @@ const STR = {
     saveToLibrary: "Guardar en la biblioteca", libSaved: "Se guardaron {n} bloque(s) nuevo(s) en tu biblioteca.", libDup: "{d} ya estaba(n) en tu biblioteca.", libNothing: "Ya está en tu biblioteca; no hay nada nuevo que guardar.",
     libTitle: "Biblioteca de preguntas", libCount: "{n} guardados", libEmpty: "Aún no hay nada guardado. Pega o sube un banco de preguntas y elige \u201cGuardar en la biblioteca\u201d para conservarlo en este dispositivo.",
     libMeta: "{q} preguntas · importado {d}", libLastScore: "Último puntaje {pct}% ({c}/{t})", libNoScore: "Sin intentos aún",
-    libStart: "Iniciar", libStartQueue: "Iniciar bloques en cola ({n})", libQueueHint: "Marca dos o más bloques para resolverlos seguidos en una sola sesión continua.", libMixTitle: "Mezclar bancos seleccionados", libMixHint: "Une los bancos marcados en un solo bloque mezclado, con sistemas y disciplinas repartidos de forma pareja.", libMixPool: "{q} preguntas · {s} materias", libMixDupes: "{d} duplicada(s) eliminada(s)", libMixSize: "Preguntas", libMixAll: "Todas ({n})", libMix: "Mezclar selección ({n})", mixedName: "Qbank mezclado ({n} bancos)",
+    libStart: "Iniciar", libStartQueue: "Iniciar bloques en cola ({n})", libQueueHint: "Marca dos o más bloques para resolverlos seguidos en una sola sesión continua.", rateTitle: "¿Qué tan bien lo sabías?", "rate.again": "Otra vez", "rate.hard": "Difícil", "rate.good": "Bien", "rate.easy": "Fácil",
+    poolAgain: "Calificadas Otra vez", poolHard: "Calificadas Difícil", poolAgainHard: "Otra vez + Difícil",
+    "rt.again": "Calificadas Otra vez", "rt.hard": "Calificadas Difícil", "rt.againhard": "Calificadas Otra vez/Difícil",
+    sufAgain: "Repaso Otra vez", sufHard: "Repaso Difícil", sufAgainHard: "Repaso Otra vez/Difícil",
+    textSize: "Tamaño del texto", textSmaller: "Texto más pequeño", textLarger: "Texto más grande", textReset: "Restablecer", libMixTitle: "Mezclar bancos seleccionados", libMixHint: "Une los bancos marcados en un solo bloque mezclado, con sistemas y disciplinas repartidos de forma pareja.", libMixPool: "{q} preguntas · {s} materias", libMixDupes: "{d} duplicada(s) eliminada(s)", libMixSize: "Preguntas", libMixAll: "Todas ({n})", libMix: "Mezclar selección ({n})", mixedName: "Qbank mezclado ({n} bancos)",
     libDeleteQ: "¿Eliminar este bloque?", libDelete: "Eliminar", libLocalNote: "Se guarda solo en este navegador. Borrar los datos del sitio lo elimina.",
     resetData: "Restablecer todos los datos locales", resetDataWarn: "Esto elimina de forma permanente tu biblioteca, el progreso guardado y tus preferencias en este navegador. No se puede deshacer.", resetDataConfirm: "Sí, eliminar todo",
     resumed: "Sesión restaurada: continúas donde la dejaste.", storageFull: "No se pudo escribir en el almacenamiento del navegador (puede estar lleno o desactivado). Tu progreso no se está respaldando.",
@@ -342,7 +370,7 @@ const STR = {
     intro: "Pega o sube bancos de preguntas personalizados creados con tus herramientas de IA favoritas, como ChatGPT, Claude, Gemini o NotebookLM. Vive un entorno similar al examen real, con paneles de referencia de laboratorio, tachado de respuestas, calculadora integrada y analíticas detalladas de tu puntaje.",
     pasteJson: "Pega o sube un banco de preguntas", upload: "Subir archivo",
     pastePh: "Pega aquí tu banco de preguntas generado…",
-    load: "Cargar examen", demo: "Probar una demo de 3 preguntas", hide: "Ocultar", recipe: "Prompt de receta de preguntas",
+    load: "Cargar examen", importQbank: "Importar nuevo Qbank", homeBtn: "Inicio", resumeSession: "Reanudar sesión", sessionInProgress: "Sesión en curso", sessionPos: "Pregunta {n} de {total}", examLoadedLabel: "Examen cargado", openLobby: "Abrir sala del examen", inProgressTag: "En curso", discardTitle: "¿Descartar la sesión en curso?", discardBody: "Iniciar algo nuevo reemplaza tu bloque en curso y se perderán sus respuestas.", discardGo: "Descartar y continuar", hide: "Ocultar", recipe: "Prompt de receta de preguntas",
     recipeIntro: "Configura un bloque abajo y luego copia la receta generada en la herramienta de IA que prefieras (agrega tu material de estudio si lo permite). Devuelve las preguntas en el formato exacto que esta app espera.",
     blockSize: "Tamaño del bloque", focus: "Enfoque",
     "focus.standard": "Mezcla USMLE estándar", "focus.systems": "Un solo sistema", "focus.discipline": "Una sola disciplina",
@@ -430,10 +458,15 @@ function useI18n() {
   return { t, lang, setLang };
 }
 
+// retestType → i18n keys. "missed" = incorrect, "full" = all questions; the rest mirror the retest pools.
+const RETEST_SUFFIX = { missed: "sufMissed", flagged: "sufFlagged", again: "sufAgain", hard: "sufHard", againhard: "sufAgainHard", full: "sufAll" };
+const RETEST_TITLE = { missed: "rt.missed", flagged: "rt.flagged", again: "rt.again", hard: "rt.hard", againhard: "rt.againhard", full: "rt.full" };
+const RETEST_POOL_LABEL = { missed: "poolIncorrect", flagged: "poolFlagged", again: "poolAgain", hard: "poolHard", againhard: "poolAgainHard", full: "poolAll" };
+
 // Retest blocks store only the base name; the suffix is localized at display time.
 function blockLabel(block, t) {
   if (!block.isRetest) return block.isMixed ? t("mixedName", { n: block.mixCount }) : block.blockName;
-  return `${baseBlockName(block.blockName)} — ${t(block.retestType === "missed" ? "sufMissed" : block.retestType === "flagged" ? "sufFlagged" : "sufAll")}`;
+  return `${baseBlockName(block.blockName)} — ${t(RETEST_SUFFIX[block.retestType] || "sufAll")}`;
 }
 
 // Lab-table section headers and unit words (test names keep their standard English/abbreviated form).
@@ -457,10 +490,52 @@ function LangToggle({ T }) {
     <div role="group" aria-label="Language" style={{ display: "inline-flex", border: `1px solid ${T.border}`, borderRadius: 6, overflow: "hidden", flexShrink: 0 }}>
       {["en", "es"].map((l) => (
         <button key={l} onClick={() => setLang(l)} aria-pressed={lang === l} style={{
-          fontFamily: FONT_UI, fontWeight: 700, fontSize: 12.5, padding: "9px 12px", border: "none", cursor: "pointer",
+          fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(12.5), padding: "9px 12px", border: "none", cursor: "pointer",
           background: lang === l ? T.blue : "transparent", color: lang === l ? T.onBlue : T.ink,
         }}>{l.toUpperCase()}</button>
       ))}
+    </div>
+  );
+}
+
+// Text size control. bar=true → compact A− / A+ pair for the exam toolbar; otherwise a labelled row for Settings menus.
+function TextSizeControl({ T, bar = false }) {
+  const { t } = useI18n();
+  const { textScale, setTextScale } = useContext(TextScaleContext);
+  const i = TEXT_STEPS.reduce((best, v, k) => (Math.abs(v - textScale) < Math.abs(TEXT_STEPS[best] - textScale) ? k : best), 0);
+  const go = (d) => setTextScale(TEXT_STEPS[Math.max(0, Math.min(TEXT_STEPS.length - 1, i + d))]);
+  const atMin = i === 0, atMax = i === TEXT_STEPS.length - 1;
+  const pct = Math.round(textScale * 100);
+  const mk = (label, d, off, title, size) => (
+    <button onClick={() => go(d)} disabled={off} title={title} aria-label={title} style={{
+      fontFamily: FONT_UI, fontWeight: 700, fontSize: size, lineHeight: 1, minWidth: 34, height: 30, padding: "0 8px",
+      borderRadius: 6, cursor: off ? "not-allowed" : "pointer", opacity: off ? 0.35 : 1,
+      border: `1px solid ${bar ? "rgba(255,255,255,0.45)" : T.border}`, background: "transparent", color: bar ? "#fff" : T.ink,
+    }}>{label}</button>
+  );
+  if (bar) {
+    return (
+      <div role="group" aria-label={t("textSize")} style={{ display: "flex", alignItems: "center", gap: 4 }}>
+        {mk("A−", -1, atMin, t("textSmaller"), 12)}
+        {mk("A+", 1, atMax, t("textLarger"), 15)}
+      </div>
+    );
+  }
+  return (
+    <div style={{ margin: "10px 0 12px" }}>
+      <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: 11, color: T.muted, textTransform: "uppercase", letterSpacing: "0.04em", marginBottom: 6 }}>
+        {t("textSize")}
+      </div>
+      <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
+        {mk("A−", -1, atMin, t("textSmaller"), 12)}
+        <span style={{ fontFamily: FONT_MONO, fontSize: 12.5, color: T.ink, minWidth: 44, textAlign: "center" }}>{pct}%</span>
+        {mk("A+", 1, atMax, t("textLarger"), 15)}
+        {textScale !== 1 && (
+          <button onClick={() => setTextScale(1)} style={{ marginLeft: "auto", fontFamily: FONT_UI, fontSize: 12, fontWeight: 600, background: "transparent", border: "none", color: T.blue, cursor: "pointer", padding: 4 }}>
+            {t("textReset")}
+          </button>
+        )}
+      </div>
     </div>
   );
 }
@@ -470,11 +545,11 @@ function LangSelect({ T }) {
   const { t, lang, setLang } = useI18n();
   return (
     <div style={{ margin: "10px 0 12px" }}>
-      <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: 11, color: T.muted, textTransform: "uppercase", letterSpacing: "0.04em", marginBottom: 6 }}>
+      <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(11), color: T.muted, textTransform: "uppercase", letterSpacing: "0.04em", marginBottom: 6 }}>
         {t("lang")}
       </div>
       <select value={lang} onChange={(e) => setLang(e.target.value)} style={{
-        width: "100%", fontFamily: FONT_UI, fontSize: 13, padding: "6px 8px", borderRadius: 6,
+        width: "100%", fontFamily: FONT_UI, fontSize: fs(13), padding: "6px 8px", borderRadius: 6,
         border: `1px solid ${T.border}`, background: T.paper, color: T.ink,
       }}>
         <option value="en">English</option>
@@ -929,10 +1004,10 @@ function makeInitialBlockState(block) {
     answers: {}, // qId -> { selected, struck, flagged, checked, keyInfoOn, tipOpen, hintUsed } — always fresh, never inherited
     notes: {}, // qId -> note text
     // Exactly one of timed / tutor is true. Chosen in the lobby; locked once the block starts.
-    timed: true,
+    timed: false,
     startedAt: null, // wall-clock ms when the block was first started (for elapsed-time analytics)
     timerOff: false, // Timed mode only: the student may switch the countdown off mid-block, never back on
-    tutor: false,
+    tutor: true,
     timeLeft: (hasLimit ? block.timeLimitMinutes : 60) * 60,
     score: null,
     currentQuestionIndex: 0, // persisted so a refresh resumes on the same question
@@ -1061,7 +1136,7 @@ function loadLibrary() {
 
 function loadPrefs() {
   const p = lsGet(LS_PREFS) || {};
-  return { darkMode: typeof p.darkMode === "boolean" ? p.darkMode : true, lang: p.lang === "es" ? "es" : "en" };
+  return { darkMode: typeof p.darkMode === "boolean" ? p.darkMode : true, lang: p.lang === "es" ? "es" : "en", textScale: TEXT_STEPS.includes(p.textScale) ? p.textScale : 1 };
 }
 
 // Returns a validated session, or null if there is none / it is corrupt / from an incompatible version.
@@ -1073,15 +1148,17 @@ function loadSession() {
   if (!ex.blocks.every((b) => b && Array.isArray(b.questions) && b.questions.length > 0)) return null;
   if (!Array.isArray(s.blockStates) || s.blockStates.length !== ex.blocks.length) return null;
   if (!s.blockStates.every((bs) => bs && typeof bs === "object" && bs.answers && typeof bs.answers === "object")) return null;
-  if (s.view !== "lobby" && s.view !== "exam") return null;
+  if (s.view !== "lobby" && s.view !== "exam" && s.view !== "import") return null;
   if (!s.blockStates.some((bs) => bs.status !== "done")) return null;
 
   const idx = Number.isInteger(s.activeBlockIdx) ? s.activeBlockIdx : null;
-  const view = s.view === "exam" && idx !== null && ex.blocks[idx] && s.blockStates[idx].status === "in-progress" ? "exam" : "lobby";
+  const inProg = idx !== null && !!ex.blocks[idx] && s.blockStates[idx].status === "in-progress";
+  // A timed block can never be parked on Home (real exam software has no mid-block navigation), so it always reopens in the exam.
+  const view = inProg && (s.view === "exam" || !s.blockStates[idx].tutor) ? "exam" : s.view === "import" ? "import" : "lobby";
   // The countdown only runs while the page is open, so time spent away must not count as elapsed time either.
   const away = Math.max(0, Date.now() - (Number(s.savedAt) || Date.now()));
   const blockStates = s.blockStates.map((bs) =>
-    bs.status === "in-progress" && bs.startedAt ? { ...bs, startedAt: bs.startedAt + away } : bs);
+    bs.status === "in-progress" && bs.startedAt && !bs.pausedAt ? { ...bs, startedAt: bs.startedAt + away } : bs); // pausedAt blocks are re-based on resume
   return { examData: ex, blockStates, history: Array.isArray(s.history) ? s.history : [], activeBlockIdx: idx, view };
 }
 
@@ -1112,7 +1189,7 @@ function ResetDataControl({ T }) {
   const { t } = useI18n();
   const { resetAllData } = useContext(DataContext);
   const [confirming, setConfirming] = useState(false);
-  const small = { fontFamily: FONT_UI, fontWeight: 600, fontSize: 12.5, borderRadius: 6, padding: "7px 10px", cursor: "pointer" };
+  const small = { fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(12.5), borderRadius: 6, padding: "7px 10px", cursor: "pointer" };
   return (
     <div style={{ borderTop: `1px solid ${T.border}`, paddingTop: 10, marginTop: 10 }}>
       {!confirming ? (
@@ -1121,7 +1198,7 @@ function ResetDataControl({ T }) {
         </button>
       ) : (
         <div>
-          <p style={{ fontFamily: FONT_UI, fontSize: 12, color: T.muted, lineHeight: 1.45, margin: "0 0 8px" }}>{t("resetDataWarn")}</p>
+          <p style={{ fontFamily: FONT_UI, fontSize: fs(12), color: T.muted, lineHeight: 1.45, margin: "0 0 8px" }}>{t("resetDataWarn")}</p>
           <div style={{ display: "flex", gap: 8 }}>
             <button onClick={() => { setConfirming(false); resetAllData(); }} style={{ ...small, flex: 1, background: T.red, color: T.onBlue, border: `1px solid ${T.red}` }}>{t("resetDataConfirm")}</button>
             <button onClick={() => setConfirming(false)} style={{ ...small, background: "transparent", color: T.ink, border: `1px solid ${T.border}` }}>{t("cancel")}</button>
@@ -1352,7 +1429,7 @@ function Pill({ children, tone = "muted", T = LIGHT }) {
   return (
     <span
       style={{
-        background: t.bg, color: t.fg, fontFamily: FONT_UI, fontSize: 11, fontWeight: 600,
+        background: t.bg, color: t.fg, fontFamily: FONT_UI, fontSize: fs(11), fontWeight: 600,
         letterSpacing: "0.04em", textTransform: "uppercase", padding: "3px 9px",
         borderRadius: 999, display: "inline-block",
       }}
@@ -1368,7 +1445,7 @@ function PrimaryButton({ children, onClick, disabled, icon: Icon, style, T = LIG
       onClick={onClick}
       disabled={disabled}
       style={{
-        fontFamily: FONT_UI, fontWeight: 600, fontSize: 14, color: disabled ? "#FFFFFF" : T.onBlue,
+        fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(14), color: disabled ? "#FFFFFF" : T.onBlue,
         background: disabled ? "#9FB3C4" : T.blue, border: "none", borderRadius: 6,
         padding: "10px 18px", display: "inline-flex", alignItems: "center", gap: 8,
         cursor: disabled ? "not-allowed" : "pointer", ...style,
@@ -1388,7 +1465,7 @@ function GhostButton({ children, onClick, icon: Icon, style, disabled, T = LIGHT
       onClick={onClick}
       disabled={disabled}
       style={{
-        fontFamily: FONT_UI, fontWeight: 600, fontSize: 13, color: disabled ? "#A7B3B6" : T.ink,
+        fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(13), color: disabled ? "#A7B3B6" : T.ink,
         background: "transparent", border: `1px solid ${T.border}`, borderRadius: 6,
         padding: "9px 14px", display: "inline-flex", alignItems: "center", gap: 7,
         cursor: disabled ? "not-allowed" : "pointer", ...style,
@@ -1410,7 +1487,7 @@ function SettingsMenu({ darkMode, setDarkMode, T }) {
         style={{
           display: "flex", alignItems: "center", gap: 6, background: "transparent",
           border: `1px solid ${T.border}`, borderRadius: 6, padding: "9px 14px", cursor: "pointer",
-          fontFamily: FONT_UI, fontWeight: 600, fontSize: 13, color: T.ink,
+          fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(13), color: T.ink,
         }}
       >
         <SettingsIcon size={15} /> {t("settings")}
@@ -1420,11 +1497,12 @@ function SettingsMenu({ darkMode, setDarkMode, T }) {
           position: "absolute", top: 42, right: 0, background: T.card, border: `1px solid ${T.border}`,
           borderRadius: 8, padding: 14, width: 240, zIndex: 70, boxShadow: "0 8px 24px rgba(0,0,0,0.3)",
         }}>
-          <label style={{ display: "flex", alignItems: "center", gap: 8, fontFamily: FONT_UI, fontSize: 13, cursor: "pointer", color: T.ink }}>
+          <label style={{ display: "flex", alignItems: "center", gap: 8, fontFamily: FONT_UI, fontSize: fs(13), cursor: "pointer", color: T.ink }}>
             <input type="checkbox" checked={darkMode} onChange={() => setDarkMode((v) => !v)} />
             {t("dark")}
           </label>
           <LangSelect T={T} />
+          <TextSizeControl T={T} />
           <ResetDataControl T={T} />
         </div>
       )}
@@ -1435,7 +1513,7 @@ function SettingsMenu({ darkMode, setDarkMode, T }) {
 // ---------------------------------------------------------------------------
 // Qbank library panel — saved blocks; start one, or tick several to run them as a queue
 // ---------------------------------------------------------------------------
-function QbankLibraryPanel({ library, onLaunch, onMix, onDelete, T }) {
+function QbankLibraryPanel({ library, onLaunch, onMix, onDelete, resumeId, onResume, T }) {
   const { t, lang } = useI18n();
   const [queue, setQueue] = useState([]); // entry ids in the order they were ticked
   const [confirmId, setConfirmId] = useState(null);
@@ -1453,12 +1531,12 @@ function QbankLibraryPanel({ library, onLaunch, onMix, onDelete, T }) {
     <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, padding: 24, marginBottom: 20 }}>
       <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 14 }}>
         <BookOpen size={17} color={T.ink} />
-        <span style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: 14, color: T.ink }}>{t("libTitle")}</span>
+        <span style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(14), color: T.ink }}>{t("libTitle")}</span>
         <Pill T={T} tone="muted">{t("libCount", { n: library.length })}</Pill>
       </div>
 
       {library.length === 0 ? (
-        <p style={{ fontFamily: FONT_UI, fontSize: 13.5, color: T.muted, lineHeight: 1.6, margin: 0 }}>{t("libEmpty")}</p>
+        <p style={{ fontFamily: FONT_UI, fontSize: fs(13.5), color: T.muted, lineHeight: 1.6, margin: 0 }}>{t("libEmpty")}</p>
       ) : (
         <>
           <div style={{ display: "grid", gap: 8 }}>
@@ -1473,24 +1551,26 @@ function QbankLibraryPanel({ library, onLaunch, onMix, onDelete, T }) {
                   <input type="checkbox" checked={pos >= 0} onChange={() => toggle(e.id)} aria-label={e.title} style={{ cursor: "pointer" }} />
                   <div style={{ flex: 1, minWidth: 180 }}>
                     <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap" }}>
-                      <span style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: 14.5, color: T.ink }}>{e.title}</span>
+                      <span style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(14.5), color: T.ink }}>{e.title}</span>
                       {pos >= 0 && <Pill T={T} tone="blue">#{pos + 1}</Pill>}
+                      {resumeId === e.id && <Pill T={T} tone="amber">{t("inProgressTag")}</Pill>}
                       {ls
                         ? <Pill T={T} tone={ls.pct >= 70 ? "green" : "red"}>{t("libLastScore", { pct: ls.pct, c: ls.correct, t: ls.total })}</Pill>
                         : <Pill T={T} tone="muted">{t("libNoScore")}</Pill>}
                     </div>
-                    <span style={{ fontFamily: FONT_MONO, fontSize: 12, color: T.muted }}>
+                    <span style={{ fontFamily: FONT_MONO, fontSize: fs(12), color: T.muted }}>
                       {t("libMeta", { q: e.questions.length, d: fmtDate(e.importDate) })}
                     </span>
                   </div>
                   {confirmId === e.id ? (
                     <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-                      <span style={{ fontFamily: FONT_UI, fontSize: 12.5, color: T.red, fontWeight: 600 }}>{t("libDeleteQ")}</span>
-                      <button onClick={() => { onDelete(e.id); setConfirmId(null); }} style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: 12.5, padding: "6px 10px", borderRadius: 6, border: `1px solid ${T.red}`, background: T.red, color: T.onBlue, cursor: "pointer" }}>{t("libDelete")}</button>
-                      <button onClick={() => setConfirmId(null)} style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: 12.5, padding: "6px 10px", borderRadius: 6, border: `1px solid ${T.border}`, background: "transparent", color: T.ink, cursor: "pointer" }}>{t("cancel")}</button>
+                      <span style={{ fontFamily: FONT_UI, fontSize: fs(12.5), color: T.red, fontWeight: 600 }}>{t("libDeleteQ")}</span>
+                      <button onClick={() => { onDelete(e.id); setConfirmId(null); }} style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(12.5), padding: "6px 10px", borderRadius: 6, border: `1px solid ${T.red}`, background: T.red, color: T.onBlue, cursor: "pointer" }}>{t("libDelete")}</button>
+                      <button onClick={() => setConfirmId(null)} style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(12.5), padding: "6px 10px", borderRadius: 6, border: `1px solid ${T.border}`, background: "transparent", color: T.ink, cursor: "pointer" }}>{t("cancel")}</button>
                     </div>
                   ) : (
                     <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                      {resumeId === e.id && <PrimaryButton T={T} onClick={onResume} icon={Play}>{t("resumeSession")}</PrimaryButton>}
                       <GhostButton T={T} onClick={() => onLaunch([e.id])} icon={Play}>{t("libStart")}</GhostButton>
                       <button onClick={() => setConfirmId(e.id)} title={t("libDelete")} aria-label={t("libDelete")} style={{ background: "transparent", border: "none", cursor: "pointer", color: T.muted, padding: 6, display: "flex" }}>
                         <Trash2 size={16} />
@@ -1502,7 +1582,7 @@ function QbankLibraryPanel({ library, onLaunch, onMix, onDelete, T }) {
             })}
           </div>
           <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 12, flexWrap: "wrap", marginTop: 14 }}>
-            <span style={{ fontFamily: FONT_UI, fontSize: 12.5, color: T.muted, maxWidth: 440, lineHeight: 1.5 }}>{t("libQueueHint")}</span>
+            <span style={{ fontFamily: FONT_UI, fontSize: fs(12.5), color: T.muted, maxWidth: 440, lineHeight: 1.5 }}>{t("libQueueHint")}</span>
             <PrimaryButton T={T} onClick={() => onLaunch(liveQueue)} icon={Play} disabled={liveQueue.length === 0}>
               {t("libStartQueue", { n: liveQueue.length })}
             </PrimaryButton>
@@ -1512,15 +1592,15 @@ function QbankLibraryPanel({ library, onLaunch, onMix, onDelete, T }) {
               <div style={{ flex: 1, minWidth: 220 }}>
                 <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap", marginBottom: 4 }}>
                   <Shuffle size={15} color={T.blue} />
-                  <span style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: 13.5, color: T.ink }}>{t("libMixTitle")}</span>
+                  <span style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(13.5), color: T.ink }}>{t("libMixTitle")}</span>
                   <Pill T={T} tone="blue">{t("libMixPool", { q: mixInfo.pool.length, s: mixInfo.subjects })}</Pill>
                   {mixInfo.dupes > 0 && <Pill T={T} tone="muted">{t("libMixDupes", { d: mixInfo.dupes })}</Pill>}
                 </div>
-                <span style={{ fontFamily: FONT_UI, fontSize: 12.5, color: T.muted, lineHeight: 1.5 }}>{t("libMixHint")}</span>
+                <span style={{ fontFamily: FONT_UI, fontSize: fs(12.5), color: T.muted, lineHeight: 1.5 }}>{t("libMixHint")}</span>
               </div>
-              <label style={{ display: "flex", alignItems: "center", gap: 8, fontFamily: FONT_UI, fontSize: 12.5, color: T.muted }}>
+              <label style={{ display: "flex", alignItems: "center", gap: 8, fontFamily: FONT_UI, fontSize: fs(12.5), color: T.muted }}>
                 {t("libMixSize")}
-                <select value={mixSize} onChange={(e) => setMixSize(e.target.value)} style={{ fontFamily: FONT_UI, fontSize: 13, padding: "7px 8px", borderRadius: 6, border: `1px solid ${T.border}`, background: T.paper, color: T.ink }}>
+                <select value={mixSize} onChange={(e) => setMixSize(e.target.value)} style={{ fontFamily: FONT_UI, fontSize: fs(13), padding: "7px 8px", borderRadius: 6, border: `1px solid ${T.border}`, background: T.paper, color: T.ink }}>
                   <option value="all">{t("libMixAll", { n: mixInfo.pool.length })}</option>
                   {mixSizes.map((n) => <option key={n} value={n}>{n}</option>)}
                 </select>
@@ -1532,7 +1612,7 @@ function QbankLibraryPanel({ library, onLaunch, onMix, onDelete, T }) {
           )}
         </>
       )}
-      <p style={{ fontFamily: FONT_UI, fontSize: 11.5, color: T.muted, margin: "14px 0 0" }}>{t("libLocalNote")}</p>
+      <p style={{ fontFamily: FONT_UI, fontSize: fs(11.5), color: T.muted, margin: "14px 0 0" }}>{t("libLocalNote")}</p>
     </div>
   );
 }
@@ -1540,7 +1620,7 @@ function QbankLibraryPanel({ library, onLaunch, onMix, onDelete, T }) {
 // ---------------------------------------------------------------------------
 // Import screen
 // ---------------------------------------------------------------------------
-function ImportScreen({ onImport, onSaveToLibrary, library, onLaunchLibrary, onMixLibrary, onDeleteLibraryEntry, T, darkMode, setDarkMode }) {
+function ImportScreen({ onImport, onSaveToLibrary, library, session, onResume, onOpenLobby, onLaunchLibrary, onMixLibrary, onDeleteLibraryEntry, T, darkMode, setDarkMode }) {
   const { t, lang } = useI18n();
   const [text, setText] = useState("");
   const [error, setError] = useState("");
@@ -1552,7 +1632,10 @@ function ImportScreen({ onImport, onSaveToLibrary, library, onLaunchLibrary, onM
   const [recipeFocusValue, setRecipeFocusValue] = useState("");
   const [showDisclaimer, setShowDisclaimer] = useState(false);
   const [saveMsg, setSaveMsg] = useState(null); // { tone: "green" | "red" | "muted", text }
+  const [importOpen, setImportOpen] = useState(false); // import area is an accordion, collapsed by default
   const fileRef = useRef(null);
+  // Library entry (if any) that owns the in-progress block — it gets the Resume Session button.
+  const resumeId = session?.block?.libraryId && library.some((e) => e.id === session.block.libraryId) ? session.block.libraryId : null;
 
   const recipeText = buildQuestionRecipe({ size: recipeSize, focusMode: recipeFocusMode, focusValue: recipeFocusValue.trim(), lang });
 
@@ -1595,7 +1678,7 @@ function ImportScreen({ onImport, onSaveToLibrary, library, onLaunchLibrary, onM
   }
 
   return (
-    <div style={{ maxWidth: 880, margin: "0 auto", padding: "48px 20px 80px", position: "relative" }}>
+    <div style={{ maxWidth: Math.round(1120 * Math.max(1, TEXT_SCALE)), margin: "0 auto", padding: "48px 20px 80px", position: "relative" }}>
       <style>{`@import url('${FONT_IMPORT_URL}');`}</style>
 
       <div style={{ position: "absolute", top: 48, right: 20, display: "flex", gap: 10, alignItems: "flex-start" }}>
@@ -1606,199 +1689,244 @@ function ImportScreen({ onImport, onSaveToLibrary, library, onLaunchLibrary, onM
       <div style={{ textAlign: "center", marginBottom: 36 }}>
         <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 12 }}>
           <Activity size={34} color={T.blue} strokeWidth={2.5} />
-          <span style={{ fontFamily: FONT_MONO, fontSize: 44, letterSpacing: "0.1em", color: T.blue, fontWeight: 700 }}>
+          <span style={{ fontFamily: FONT_MONO, fontSize: fs(44), letterSpacing: "0.1em", color: T.blue, fontWeight: 700 }}>
             OWORLD
           </span>
         </div>
       </div>
 
-      <h1 style={{ fontFamily: FONT_DISPLAY, fontSize: 38, fontWeight: 600, color: T.ink, margin: "0 0 10px" }}>
+      <h1 style={{ fontFamily: FONT_DISPLAY, fontSize: fs(38), fontWeight: 600, color: T.ink, margin: "0 0 10px" }}>
         {t("title")}
       </h1>
-      <p style={{ fontFamily: FONT_UI, fontSize: 15, color: T.muted, lineHeight: 1.6, maxWidth: 620, marginBottom: 32 }}>
+      <p style={{ fontFamily: FONT_UI, fontSize: fs(15), color: T.muted, lineHeight: 1.6, maxWidth: 620, marginBottom: 32 }}>
         {t("intro")}
       </p>
 
-      <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, padding: 24, marginBottom: 20 }}>
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 14 }}>
-          <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-            <FileJson size={17} color={T.ink} />
-            <span style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: 14, color: T.ink }}>
-              {t("pasteJson")}
-            </span>
-          </div>
-          <button
-            onClick={() => fileRef.current?.click()}
-            style={{
-              fontFamily: FONT_UI, fontSize: 13, fontWeight: 600, color: T.blue, background: "transparent",
-              border: "none", cursor: "pointer", display: "flex", alignItems: "center", gap: 6,
-            }}
-          >
-            <Upload size={14} /> {t("upload")}
-          </button>
-          <input ref={fileRef} type="file" accept=".json,application/json" onChange={handleFile} style={{ display: "none" }} />
-        </div>
-
-        <textarea
-          value={text}
-          onChange={(e) => setText(e.target.value)}
-          placeholder={t("pastePh")}
-          style={{
-            width: "100%", minHeight: 220, fontFamily: FONT_MONO, fontSize: 12.5, color: T.ink,
-            background: T.paper, border: `1px solid ${T.border}`, borderRadius: 8, padding: 14,
-            resize: "vertical", boxSizing: "border-box", lineHeight: 1.6,
-          }}
-        />
-
-        {error && (
-          <div style={{
-            marginTop: 12, display: "flex", gap: 8, alignItems: "flex-start", background: T.redLight,
-            color: T.red, padding: "10px 12px", borderRadius: 6, fontFamily: FONT_UI, fontSize: 13,
-          }}>
-            <AlertTriangle size={16} style={{ flexShrink: 0, marginTop: 1 }} />
-            <span>{error}</span>
-          </div>
-        )}
-
-        {saveMsg && (
-          <div role="status" style={{
-            marginTop: 12, display: "flex", gap: 8, alignItems: "center", fontFamily: FONT_UI, fontSize: 13,
-            color: saveMsg.tone === "green" ? T.green : saveMsg.tone === "red" ? T.red : T.muted,
-          }}>
-            {saveMsg.tone === "green" ? <CheckCircle2 size={16} /> : <AlertTriangle size={16} />}
-            <span>{saveMsg.text}</span>
-          </div>
-        )}
-
-        <div style={{ display: "flex", gap: 10, marginTop: 16, flexWrap: "wrap" }}>
-          <PrimaryButton T={T} onClick={handleSubmit} icon={Play} disabled={!text.trim()}>{t("load")}</PrimaryButton>
-          <GhostButton T={T} onClick={handleSaveToLibrary} icon={Save} disabled={!text.trim()}>{t("saveToLibrary")}</GhostButton>
-          <GhostButton T={T} onClick={() => onImport(DEMO_EXAM)} icon={ClipboardList}>{t("demo")}</GhostButton>
-          <GhostButton T={T} onClick={() => setShowSchema((s) => !s)} icon={showSchema ? ChevronUp : ChevronDown}>
-            {showSchema ? t("hide") + " " : ""}{t("recipe")}
-          </GhostButton>
-        </div>
-      </div>
-
-      <QbankLibraryPanel library={library} onLaunch={onLaunchLibrary} onMix={onMixLibrary} onDelete={onDeleteLibraryEntry} T={T} />
-
-      {showSchema && (
-        <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, padding: 24 }}>
-          <p style={{ fontFamily: FONT_UI, fontSize: 13.5, color: T.muted, lineHeight: 1.6, marginTop: 0 }}>
-            {t("recipeIntro")}
-          </p>
-
-          <div style={{ display: "flex", flexWrap: "wrap", gap: 24, marginBottom: 18 }}>
-            <div>
-              <div style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: 12, color: T.ink, textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: 8 }}>
-                {t("blockSize")}
-              </div>
-              <div style={{ display: "flex", gap: 6 }}>
-                {BLOCK_SIZES.map((n) => (
-                  <button
-                    key={n}
-                    onClick={() => setRecipeSize(n)}
-                    style={{
-                      fontFamily: FONT_UI, fontWeight: 600, fontSize: 13, padding: "7px 14px", borderRadius: 6,
-                      border: `1.5px solid ${recipeSize === n ? T.blue : T.border}`,
-                      background: recipeSize === n ? T.blueLight : "transparent",
-                      color: recipeSize === n ? T.blueDeep : T.ink, cursor: "pointer",
-                    }}
-                  >
-                    {n}
-                  </button>
-                ))}
-              </div>
+      {/* An exam is loaded: show the way back into it. When its in-progress block belongs to a saved library entry, the
+          Resume Session button lives on that entry's row instead. */}
+      {session && !resumeId && (
+        <div style={{
+          background: T.card, border: `1px solid ${session.block ? T.blue : T.border}`, borderRadius: 10, padding: "16px 20px", marginBottom: 20,
+          display: "flex", alignItems: "center", justifyContent: "space-between", gap: 14, flexWrap: "wrap",
+        }}>
+          <div>
+            <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(11.5), color: T.blue, textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 3 }}>
+              {session.block ? t("sessionInProgress") : t("examLoadedLabel")}
             </div>
-
-            <div>
-              <div style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: 12, color: T.ink, textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: 8 }}>
-                {t("focus")}
-              </div>
-              <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
-                {FOCUS_MODES.map((m) => (
-                  <button
-                    key={m.id}
-                    onClick={() => setRecipeFocusMode(m.id)}
-                    style={{
-                      fontFamily: FONT_UI, fontWeight: 600, fontSize: 13, padding: "7px 14px", borderRadius: 6,
-                      border: `1.5px solid ${recipeFocusMode === m.id ? T.blue : T.border}`,
-                      background: recipeFocusMode === m.id ? T.blueLight : "transparent",
-                      color: recipeFocusMode === m.id ? T.blueDeep : T.ink, cursor: "pointer",
-                    }}
-                  >
-                    {t("focus." + m.id)}
-                  </button>
-                ))}
-              </div>
+            <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(15), color: T.ink }}>
+              {session.block ? blockLabel(session.block, t) : (session.examTitle || t("practiceExam"))}
             </div>
+            {session.block && (
+              <span style={{ fontFamily: FONT_MONO, fontSize: fs(12), color: T.muted }}>
+                {t("sessionPos", { n: (Number(session.bs.currentQuestionIndex) || 0) + 1, total: session.block.questions.length })}
+              </span>
+            )}
           </div>
-
-          {recipeFocusMode !== "standard" && (
-            <input
-              value={recipeFocusValue}
-              onChange={(e) => setRecipeFocusValue(e.target.value)}
-              placeholder={recipeFocusMode === "systems" ? t("phSystems") : t("phDisc")}
-              style={{
-                width: "100%", boxSizing: "border-box", fontFamily: FONT_UI, fontSize: 13.5, color: T.ink,
-                border: `1px solid ${T.border}`, borderRadius: 6, padding: "9px 12px", marginBottom: 18,
-              }}
-            />
-          )}
-
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 8 }}>
-            <span style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: 12.5, color: T.ink, textTransform: "uppercase", letterSpacing: "0.05em" }}>
-              {t("recipeTitle")}
-            </span>
-            <button
-              onClick={copyPrompt}
-              style={{
-                fontFamily: FONT_UI, fontSize: 12.5, fontWeight: 600, color: copied ? T.green : T.blue,
-                background: "transparent", border: "none", cursor: "pointer", display: "flex", alignItems: "center", gap: 5,
-              }}
-            >
-              {copied ? <Check size={14} /> : <Copy size={14} />} {copied ? t("copied") : t("copy")}
-            </button>
-          </div>
-          <pre style={{
-            fontFamily: FONT_MONO, fontSize: 11.5, color: T.ink, background: T.paper,
-            border: `1px solid ${T.border}`, borderRadius: 8, padding: 14, whiteSpace: "pre-wrap",
-            wordBreak: "break-word", lineHeight: 1.6, margin: 0,
-          }}>
-            {recipeText}
-          </pre>
-          <button
-            onClick={() => setShowDevSchema((v) => !v)}
-            aria-expanded={showDevSchema}
-            style={{
-              marginTop: 18, width: "100%", display: "flex", alignItems: "center", justifyContent: "center", gap: 8,
-              fontFamily: FONT_UI, fontWeight: 600, fontSize: 13, color: T.ink, background: T.mutedBg,
-              border: `1px solid ${T.border}`, borderRadius: 6, padding: "10px 14px", cursor: "pointer",
-            }}
-          >
-            {showDevSchema ? <ChevronUp size={15} /> : <ChevronDown size={15} />}
-            {showDevSchema ? t("hideSchema") : t("viewSchema")}
-          </button>
-          {showDevSchema && (
-            <pre style={{
-              fontFamily: FONT_MONO, fontSize: 11.5, color: T.ink, background: T.paper,
-              border: `1px solid ${T.border}`, borderRadius: 8, padding: 14, marginTop: 10, marginBottom: 0,
-              whiteSpace: "pre-wrap", wordBreak: "break-word", lineHeight: 1.6,
-            }}>
-              {SCHEMA_TEXT}
-            </pre>
-          )}
+          {session.block
+            ? <PrimaryButton T={T} onClick={onResume} icon={Play}>{t("resumeSession")}</PrimaryButton>
+            : <GhostButton T={T} onClick={onOpenLobby}>{t("openLobby")}</GhostButton>}
         </div>
       )}
 
+      <QbankLibraryPanel library={library} onLaunch={onLaunchLibrary} onMix={onMixLibrary} onDelete={onDeleteLibraryEntry} resumeId={resumeId} onResume={onResume} T={T} />
+
+      <div style={{ marginBottom: 20 }}>
+        <button
+          aria-expanded={importOpen}
+          onClick={() => setImportOpen((v) => !v)}
+          style={{
+            width: "100%", display: "flex", alignItems: "center", justifyContent: "space-between", gap: 10,
+            background: T.card, border: `1px solid ${T.border}`, borderRadius: importOpen ? "10px 10px 0 0" : 10,
+            padding: "14px 24px", cursor: "pointer", fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(14), color: T.ink,
+          }}
+        >
+          <span style={{ display: "inline-flex", alignItems: "center", gap: 8 }}>
+            <Plus size={17} color={T.blue} /> {t("importQbank")}
+          </span>
+          {importOpen ? <ChevronUp size={17} color={T.muted} /> : <ChevronDown size={17} color={T.muted} />}
+        </button>
+        {importOpen && (
+          <div style={{ marginTop: -1 }}>
+        <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: "0 0 10px 10px", padding: 24, marginBottom: 0 }}>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 14 }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+              <FileJson size={17} color={T.ink} />
+              <span style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(14), color: T.ink }}>
+                {t("pasteJson")}
+              </span>
+            </div>
+            <button
+              onClick={() => fileRef.current?.click()}
+              style={{
+                fontFamily: FONT_UI, fontSize: fs(13), fontWeight: 600, color: T.blue, background: "transparent",
+                border: "none", cursor: "pointer", display: "flex", alignItems: "center", gap: 6,
+              }}
+            >
+              <Upload size={14} /> {t("upload")}
+            </button>
+            <input ref={fileRef} type="file" accept=".json,application/json" onChange={handleFile} style={{ display: "none" }} />
+          </div>
+
+          <textarea
+            value={text}
+            onChange={(e) => setText(e.target.value)}
+            placeholder={t("pastePh")}
+            style={{
+              width: "100%", minHeight: 220, fontFamily: FONT_MONO, fontSize: fs(12.5), color: T.ink,
+              background: T.paper, border: `1px solid ${T.border}`, borderRadius: 8, padding: 14,
+              resize: "vertical", boxSizing: "border-box", lineHeight: 1.6,
+            }}
+          />
+
+          {error && (
+            <div style={{
+              marginTop: 12, display: "flex", gap: 8, alignItems: "flex-start", background: T.redLight,
+              color: T.red, padding: "10px 12px", borderRadius: 6, fontFamily: FONT_UI, fontSize: fs(13),
+            }}>
+              <AlertTriangle size={16} style={{ flexShrink: 0, marginTop: 1 }} />
+              <span>{error}</span>
+            </div>
+          )}
+
+          {saveMsg && (
+            <div role="status" style={{
+              marginTop: 12, display: "flex", gap: 8, alignItems: "center", fontFamily: FONT_UI, fontSize: fs(13),
+              color: saveMsg.tone === "green" ? T.green : saveMsg.tone === "red" ? T.red : T.muted,
+            }}>
+              {saveMsg.tone === "green" ? <CheckCircle2 size={16} /> : <AlertTriangle size={16} />}
+              <span>{saveMsg.text}</span>
+            </div>
+          )}
+
+          <div style={{ display: "flex", gap: 10, marginTop: 16, flexWrap: "wrap" }}>
+            <PrimaryButton T={T} onClick={handleSubmit} icon={Play} disabled={!text.trim()}>{t("load")}</PrimaryButton>
+            <GhostButton T={T} onClick={handleSaveToLibrary} icon={Save} disabled={!text.trim()}>{t("saveToLibrary")}</GhostButton>
+            <GhostButton T={T} onClick={() => setShowSchema((s) => !s)} icon={showSchema ? ChevronUp : ChevronDown}>
+              {showSchema ? t("hide") + " " : ""}{t("recipe")}
+            </GhostButton>
+          </div>
+        </div>
+
+        {showSchema && (
+          <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, padding: 24, marginTop: 12 }}>
+            <p style={{ fontFamily: FONT_UI, fontSize: fs(13.5), color: T.muted, lineHeight: 1.6, marginTop: 0 }}>
+              {t("recipeIntro")}
+            </p>
+
+            <div style={{ display: "flex", flexWrap: "wrap", gap: 24, marginBottom: 18 }}>
+              <div>
+                <div style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(12), color: T.ink, textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: 8 }}>
+                  {t("blockSize")}
+                </div>
+                <div style={{ display: "flex", gap: 6 }}>
+                  {BLOCK_SIZES.map((n) => (
+                    <button
+                      key={n}
+                      onClick={() => setRecipeSize(n)}
+                      style={{
+                        fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(13), padding: "7px 14px", borderRadius: 6,
+                        border: `1.5px solid ${recipeSize === n ? T.blue : T.border}`,
+                        background: recipeSize === n ? T.blueLight : "transparent",
+                        color: recipeSize === n ? T.blueDeep : T.ink, cursor: "pointer",
+                      }}
+                    >
+                      {n}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              <div>
+                <div style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(12), color: T.ink, textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: 8 }}>
+                  {t("focus")}
+                </div>
+                <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
+                  {FOCUS_MODES.map((m) => (
+                    <button
+                      key={m.id}
+                      onClick={() => setRecipeFocusMode(m.id)}
+                      style={{
+                        fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(13), padding: "7px 14px", borderRadius: 6,
+                        border: `1.5px solid ${recipeFocusMode === m.id ? T.blue : T.border}`,
+                        background: recipeFocusMode === m.id ? T.blueLight : "transparent",
+                        color: recipeFocusMode === m.id ? T.blueDeep : T.ink, cursor: "pointer",
+                      }}
+                    >
+                      {t("focus." + m.id)}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {recipeFocusMode !== "standard" && (
+              <input
+                value={recipeFocusValue}
+                onChange={(e) => setRecipeFocusValue(e.target.value)}
+                placeholder={recipeFocusMode === "systems" ? t("phSystems") : t("phDisc")}
+                style={{
+                  width: "100%", boxSizing: "border-box", fontFamily: FONT_UI, fontSize: fs(13.5), color: T.ink,
+                  border: `1px solid ${T.border}`, borderRadius: 6, padding: "9px 12px", marginBottom: 18,
+                }}
+              />
+            )}
+
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 8 }}>
+              <span style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(12.5), color: T.ink, textTransform: "uppercase", letterSpacing: "0.05em" }}>
+                {t("recipeTitle")}
+              </span>
+              <button
+                onClick={copyPrompt}
+                style={{
+                  fontFamily: FONT_UI, fontSize: fs(12.5), fontWeight: 600, color: copied ? T.green : T.blue,
+                  background: "transparent", border: "none", cursor: "pointer", display: "flex", alignItems: "center", gap: 5,
+                }}
+              >
+                {copied ? <Check size={14} /> : <Copy size={14} />} {copied ? t("copied") : t("copy")}
+              </button>
+            </div>
+            <pre style={{
+              fontFamily: FONT_MONO, fontSize: fs(11.5), color: T.ink, background: T.paper,
+              border: `1px solid ${T.border}`, borderRadius: 8, padding: 14, whiteSpace: "pre-wrap",
+              wordBreak: "break-word", lineHeight: 1.6, margin: 0,
+            }}>
+              {recipeText}
+            </pre>
+            <button
+              onClick={() => setShowDevSchema((v) => !v)}
+              aria-expanded={showDevSchema}
+              style={{
+                marginTop: 18, width: "100%", display: "flex", alignItems: "center", justifyContent: "center", gap: 8,
+                fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(13), color: T.ink, background: T.mutedBg,
+                border: `1px solid ${T.border}`, borderRadius: 6, padding: "10px 14px", cursor: "pointer",
+              }}
+            >
+              {showDevSchema ? <ChevronUp size={15} /> : <ChevronDown size={15} />}
+              {showDevSchema ? t("hideSchema") : t("viewSchema")}
+            </button>
+            {showDevSchema && (
+              <pre style={{
+                fontFamily: FONT_MONO, fontSize: fs(11.5), color: T.ink, background: T.paper,
+                border: `1px solid ${T.border}`, borderRadius: 8, padding: 14, marginTop: 10, marginBottom: 0,
+                whiteSpace: "pre-wrap", wordBreak: "break-word", lineHeight: 1.6,
+              }}>
+                {SCHEMA_TEXT}
+              </pre>
+            )}
+          </div>
+        )}
+          </div>
+        )}
+      </div>
+
       <div style={{ marginTop: 48, paddingTop: 20, borderTop: `1px solid ${T.border}`, textAlign: "center" }}>
-        <p style={{ fontFamily: FONT_UI, fontSize: 12, color: T.muted, margin: "0 0 6px" }}>
+        <p style={{ fontFamily: FONT_UI, fontSize: fs(12), color: T.muted, margin: "0 0 6px" }}>
           {t("createdBy")} <strong style={{ color: T.ink }}>Oscar Perez</strong> — {t("role")}
         </p>
         <button
           onClick={() => setShowDisclaimer(true)}
           style={{
-            fontFamily: FONT_UI, fontSize: 11.5, color: T.muted, background: "transparent", border: "none",
+            fontFamily: FONT_UI, fontSize: fs(11.5), color: T.muted, background: "transparent", border: "none",
             cursor: "pointer", textDecoration: "underline", padding: 0,
           }}
         >
@@ -1812,13 +1940,13 @@ function ImportScreen({ onImport, onSaveToLibrary, library, onLaunchLibrary, onM
           justifyContent: "center", zIndex: 95, padding: 20,
         }}>
           <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, padding: 26, maxWidth: 440 }}>
-            <h3 style={{ fontFamily: FONT_UI, fontSize: 16, fontWeight: 700, color: T.ink, margin: "0 0 10px" }}>
+            <h3 style={{ fontFamily: FONT_UI, fontSize: fs(16), fontWeight: 700, color: T.ink, margin: "0 0 10px" }}>
               {t("tmTitle")}
             </h3>
-            <p style={{ fontFamily: FONT_UI, fontSize: 13.5, color: T.muted, lineHeight: 1.6, margin: "0 0 12px" }}>
+            <p style={{ fontFamily: FONT_UI, fontSize: fs(13.5), color: T.muted, lineHeight: 1.6, margin: "0 0 12px" }}>
               {t("tm1")}
             </p>
-            <p style={{ fontFamily: FONT_UI, fontSize: 13.5, color: T.muted, lineHeight: 1.6, margin: "0 0 20px" }}>
+            <p style={{ fontFamily: FONT_UI, fontSize: fs(13.5), color: T.muted, lineHeight: 1.6, margin: "0 0 20px" }}>
               {t("tm2")}
             </p>
             <div style={{ display: "flex", justifyContent: "flex-end" }}>
@@ -1834,7 +1962,7 @@ function ImportScreen({ onImport, onSaveToLibrary, library, onLaunchLibrary, onM
 // ---------------------------------------------------------------------------
 // Lobby / block select
 // ---------------------------------------------------------------------------
-function Lobby({ examData, blockStates, onStart, onReview, onReset, onFinalSummary, onSetMode, onRetestMissed, onRetestAll, onSaveToLibrary, T, darkMode, setDarkMode }) {
+function Lobby({ examData, blockStates, onStart, onReview, onHome, onFinalSummary, onSetMode, onRetestMissed, onRetestAll, onSaveToLibrary, T, darkMode, setDarkMode }) {
   const { t } = useI18n();
   const hasUnsaved = examData.blocks.some((b) => !b.isRetest && !b.isMixed && !b.libraryId);
   const baseStates = blockStates.filter((_, i) => !examData.blocks[i].isRetest);
@@ -1842,24 +1970,24 @@ function Lobby({ examData, blockStates, onStart, onReview, onReset, onFinalSumma
   const anyDone = baseStates.some((b) => b.status === "done");
 
   return (
-    <div style={{ maxWidth: 880, margin: "0 auto", padding: "48px 20px 80px" }}>
+    <div style={{ maxWidth: Math.round(1120 * Math.max(1, TEXT_SCALE)), margin: "0 auto", padding: "48px 20px 80px" }}>
       <style>{`@import url('${FONT_IMPORT_URL}');`}</style>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 28, gap: 16, flexWrap: "wrap" }}>
         <div>
           <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 6 }}>
             <Activity size={20} color={T.blue} strokeWidth={2.5} />
-            <span style={{ fontFamily: FONT_MONO, fontSize: 12, letterSpacing: "0.12em", color: T.blue, fontWeight: 600 }}>
+            <span style={{ fontFamily: FONT_MONO, fontSize: fs(12), letterSpacing: "0.12em", color: T.blue, fontWeight: 600 }}>
               OWORLD
             </span>
           </div>
-          <h1 style={{ fontFamily: FONT_DISPLAY, fontSize: 30, fontWeight: 600, color: T.ink, margin: 0 }}>
+          <h1 style={{ fontFamily: FONT_DISPLAY, fontSize: fs(30), fontWeight: 600, color: T.ink, margin: 0 }}>
             {examData.examTitle || t("practiceExam")}
           </h1>
         </div>
         <div style={{ display: "flex", gap: 10 }}>
           {allDone && <PrimaryButton T={T} onClick={onFinalSummary} icon={ClipboardList}>{t("fullSummary")}</PrimaryButton>}
           {hasUnsaved && <GhostButton T={T} onClick={onSaveToLibrary} icon={Save}>{t("saveToLibrary")}</GhostButton>}
-          <GhostButton T={T} onClick={onReset} icon={RotateCcw}>{t("importNew")}</GhostButton>
+          <GhostButton T={T} onClick={onHome} icon={HomeIcon}>{t("homeBtn")}</GhostButton>
           <SettingsMenu darkMode={darkMode} setDarkMode={setDarkMode} T={T} />
         </div>
       </div>
@@ -1876,9 +2004,9 @@ function Lobby({ examData, blockStates, onStart, onReview, onReset, onFinalSumma
               padding: "20px 22px", display: "flex", justifyContent: "space-between",
               alignItems: "center", flexWrap: "wrap", gap: 14,
             }}>
-              <div>
-                <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 6 }}>
-                  <span style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: 16, color: T.ink }}>
+              <div style={{ flex: "1 1 260px", minWidth: 0 }}>
+                <div style={{ display: "flex", alignItems: "center", flexWrap: "wrap", gap: 10, marginBottom: 6 }}>
+                  <span style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(16), color: T.ink }}>
                     {blockLabel(block, t)}
                   </span>
                   {bs.status === "pending" && <Pill T={T} tone="muted">{t("notStarted")}</Pill>}
@@ -1889,20 +2017,20 @@ function Lobby({ examData, blockStates, onStart, onReview, onReset, onFinalSumma
                     </Pill>
                   )}
                 </div>
-                <span style={{ fontFamily: FONT_MONO, fontSize: 12.5, color: T.muted }}>
+                <span style={{ fontFamily: FONT_MONO, fontSize: fs(12.5), color: T.muted }}>
                   {t("qCount", { n: total })} &nbsp;·&nbsp; {bs.timed && !bs.timerOff ? t("minLimit", { m: Math.round(bs.timeLeft / 60) }) : bs.timerOff ? t("untimed") + " (" + t("timerOffSuffix") + ")" : t("untimed")}
                 </span>
               </div>
-              <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
+              <div style={{ display: "flex", alignItems: "center", gap: 16, marginLeft: "auto" }}>
                 {bs.status !== "done" && (
-                  <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", gap: 4 }}>
+                  <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: 4, width: 270 }}>
                     <div role="group" aria-label={t("modeLabel")} style={{ display: "inline-flex", border: `1px solid ${T.border}`, borderRadius: 6, overflow: "hidden", opacity: bs.status === "pending" ? 1 : 0.6 }}>
                       {[["timed", t("timed"), Clock], ["tutor", t("tutorShort"), Lightbulb]].map(([m, label, Ic]) => {
                         const on = m === "tutor" ? bs.tutor : bs.timed;
                         return (
                           <button key={m} aria-pressed={on} disabled={bs.status !== "pending"} onClick={() => onSetMode(idx, m)}
                             style={{
-                              display: "flex", alignItems: "center", gap: 6, fontFamily: FONT_UI, fontWeight: 700, fontSize: 12.5, padding: "8px 14px", border: "none",
+                              display: "flex", alignItems: "center", gap: 6, fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(12.5), padding: "8px 14px", border: "none",
                               cursor: bs.status === "pending" ? "pointer" : "not-allowed", background: on ? T.blue : "transparent", color: on ? T.onBlue : T.ink,
                             }}>
                             <Ic size={14} /> {label}
@@ -1910,7 +2038,7 @@ function Lobby({ examData, blockStates, onStart, onReview, onReset, onFinalSumma
                         );
                       })}
                     </div>
-                    <span style={{ fontFamily: FONT_UI, fontSize: 11.5, color: T.muted }}>
+                    <span style={{ fontFamily: FONT_UI, fontSize: fs(11.5), color: T.muted, lineHeight: 1.4, minHeight: "2.8em" }}>
                       {bs.status !== "pending" ? t("modeLocked") : bs.tutor ? t("modeTutorHint") : t("modeTimedHint")}
                     </span>
                   </div>
@@ -1937,8 +2065,8 @@ function Lobby({ examData, blockStates, onStart, onReview, onReset, onFinalSumma
           );
         })}
       </div>
-      {!anyDone && (
-        <p style={{ fontFamily: FONT_UI, fontSize: 12.5, color: T.muted, marginTop: 20 }}>
+      {!anyDone && blockStates.some((b, i) => !examData.blocks[i].isRetest && b.status !== "done" && b.timed) && (
+        <p style={{ fontFamily: FONT_UI, fontSize: fs(12.5), color: T.muted, marginTop: 20 }}>
           {t("timingNote")}
         </p>
       )}
@@ -2001,14 +2129,14 @@ function CalculatorPanel({ T, onClose }) {
   function reciprocal() { setDisplay((prev) => { const v = parseFloat(prev); return String(v === 0 ? 0 : 1 / v); }); setFresh(true); }
 
   const btnStyle = {
-    fontFamily: FONT_MONO, fontWeight: 600, fontSize: 15, padding: "10px 0", borderRadius: 6,
+    fontFamily: FONT_MONO, fontWeight: 600, fontSize: fs(15), padding: "10px 0", borderRadius: 6,
     border: `1px solid ${T.border}`, background: "transparent", color: T.ink, cursor: "pointer",
   };
   const opStyle = { ...btnStyle, background: T.blueLight, color: T.blue };
 
   return (
     <div style={{
-      position: "fixed", right: 24, bottom: 90, width: 260, background: T.card, border: `1px solid ${T.border}`,
+      position: "fixed", right: 8, bottom: 90, width: `min(${Math.round(260 * Math.max(1, TEXT_SCALE))}px, calc(100vw - 16px))`, background: T.card, border: `1px solid ${T.border}`,
       borderRadius: 10, padding: 14, zIndex: 60, boxShadow: "0 8px 28px rgba(0,0,0,0.35)",
     }}>
       <div style={{ display: "flex", justifyContent: "flex-end", marginBottom: 8 }}>
@@ -2017,7 +2145,7 @@ function CalculatorPanel({ T, onClose }) {
         </button>
       </div>
       <div style={{
-        fontFamily: FONT_MONO, fontSize: 22, textAlign: "right", color: T.ink, background: T.paper,
+        fontFamily: FONT_MONO, fontSize: fs(22), textAlign: "right", color: T.ink, background: T.paper,
         border: `1px solid ${T.border}`, borderRadius: 6, padding: "10px 12px", marginBottom: 10, overflow: "hidden",
       }}>
         {display}
@@ -2059,7 +2187,22 @@ function CalculatorPanel({ T, onClose }) {
 // ---------------------------------------------------------------------------
 // Exam taking screen
 // ---------------------------------------------------------------------------
-function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, darkMode, setDarkMode }) {
+// One-line, whitespace-collapsed start of a question's vignette (for the Tutor-mode navigator).
+function vignettePreview(q) {
+  return String(q?.vignette || "").replace(/\s+/g, " ").trim().slice(0, 160);
+}
+
+// Home / lobby / results / summary render in their own full-viewport scroll layer, exactly like the exam screen does, so
+// they are not boxed in by whatever container the app is mounted in.
+function FullPage({ T, children }) {
+  return (
+    <div style={{ position: "fixed", inset: 0, overflowY: "auto", background: T.paper, textAlign: "left" }}>
+      {children}
+    </div>
+  );
+}
+
+function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onRate, onHome, darkMode, setDarkMode }) {
   // Resume on the question the student was last viewing (clamped in case the stored value is stale).
   const [qIdx, setQIdx] = useState(() => {
     const n = Math.floor(Number(blockState.currentQuestionIndex) || 0);
@@ -2093,6 +2236,11 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, darkMode,
   const T = darkMode ? DARK : LIGHT;
   const { t, lang } = useI18n();
   const tutorMode = !!blockState.tutor;
+  const vp = useViewport();
+  const compact = vp.w < 980;           // tablets / small windows: lab panel overlays, navigator slims down
+  const narrow = vp.w < 640;            // phones: icon-only toolbar, tighter padding
+  const short = vp.h < 480;             // landscape phones
+  const labW = Math.round(400 * Math.min(Math.max(1, TEXT_SCALE), 1.4));
   const lh = (h) => (lang === "es" ? LAB_HDR_ES[h] || h : h);
   const lv = (v) => labVal(v, lang);
   const questions = block.questions;
@@ -2252,97 +2400,110 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, darkMode,
     return out;
   })();
 
+  const showPreview = tutorMode && !compact;
+  const navAnswered = Object.values(blockState.answers).filter((a) => a.selected).length;
+
   const toolBtnStyle = (active) => ({
     display: "flex", flexDirection: "column", alignItems: "center", gap: 3, background: "transparent",
-    border: "none", cursor: "pointer", color: active ? T.blue : "#fff", fontFamily: FONT_UI, fontSize: 11, fontWeight: 600,
+    border: "none", cursor: "pointer", color: active ? T.blue : "#fff", fontFamily: FONT_UI, fontSize: fs(11), fontWeight: 600,
   });
 
   return (
-    <div style={{ height: "100vh", display: "flex", flexDirection: "column", background: T.paper, overflow: "hidden" }}>
+    <div style={{ position: "fixed", inset: 0, zIndex: 20, textAlign: "left", display: "flex", flexDirection: "column", background: T.paper, overflow: "hidden" }}>
       <style>{`@import url('${FONT_IMPORT_URL}');`}</style>
 
       {/* Top toolbar */}
       <div style={{
-        background: T.navy, color: "#fff", padding: "10px 20px", display: "flex", alignItems: "center",
-        justifyContent: "space-between", flexWrap: "wrap", gap: 14, borderBottom: `1px solid ${T.border}`, flexShrink: 0,
+        background: T.navy, color: "#fff", padding: narrow || short ? "6px 10px" : "10px 20px", display: "flex", alignItems: "center",
+        justifyContent: "space-between", flexWrap: "wrap", gap: narrow ? 8 : 14, borderBottom: `1px solid ${T.border}`, flexShrink: 0,
       }}>
-        <div style={{
-          border: `1.5px solid #fff`, borderRadius: 4, padding: "6px 14px", fontFamily: FONT_UI, fontSize: 13, lineHeight: 1.5,
-        }}>
-          {t("item", { n: qIdx + 1, total: questions.length })}<br />{t("blockOf")}
+        <div style={{ display: "flex", alignItems: "center", gap: narrow ? 10 : 18 }}>
+          {/* Home is a Tutor-mode convenience only: timed blocks (like the real exam) have no mid-block navigation. */}
+          {blockState.tutor && onHome && (
+            <button onClick={onHome} style={toolBtnStyle(false)} title={t("homeBtn")} aria-label={t("homeBtn")}>
+              <HomeIcon size={22} />
+              {!narrow && t("homeBtn")}
+            </button>
+          )}
+          <div style={{
+            border: `1.5px solid #fff`, borderRadius: 4, padding: "6px 14px", fontFamily: FONT_UI, fontSize: fs(13), lineHeight: 1.5,
+          }}>
+            {t("item", { n: qIdx + 1, total: questions.length })}<br />{t("blockOf")}
+          </div>
         </div>
 
         {block.isRetest && (
           <div style={{
             display: "flex", alignItems: "center", gap: 6, background: T.amberLight, color: T.amber,
             border: `1px solid ${T.amber}`, borderRadius: 999, padding: "5px 12px",
-            fontFamily: FONT_UI, fontSize: 12, fontWeight: 700,
+            fontFamily: FONT_UI, fontSize: fs(12), fontWeight: 700,
           }}>
             <RotateCcw size={13} />
-            {t("retestMode", { type: t(block.retestType === "missed" ? "rt.missed" : block.retestType === "flagged" ? "rt.flagged" : "rt.full"), n: block.retestCount, items: t(block.retestCount === 1 ? "item1" : "itemN") })}
+            {t("retestMode", { type: t(RETEST_TITLE[block.retestType] || "rt.full"), n: block.retestCount, items: t(block.retestCount === 1 ? "item1" : "itemN") })}
           </div>
         )}
 
         <div style={{ display: "flex", alignItems: "center", gap: 18 }}>
-          <button onClick={goPrev} disabled={qIdx === 0} style={toolBtnStyle(false)}>
+          <button onClick={goPrev} disabled={qIdx === 0} style={toolBtnStyle(false)} title={t("prev")} aria-label={t("prev")}>
             <ChevronLeft size={26} style={{ opacity: qIdx === 0 ? 0.35 : 1 }} />
-            {t("prev")}
+            {!narrow && t("prev")}
           </button>
-          <span style={{ fontFamily: FONT_UI, fontSize: 13 }}>{qIdx + 1} / {questions.length}</span>
-          <button onClick={goNext} style={toolBtnStyle(false)}>
+          <span style={{ fontFamily: FONT_UI, fontSize: fs(13) }}>{qIdx + 1} / {questions.length}</span>
+          <button onClick={goNext} style={toolBtnStyle(false)} title={t("next")} aria-label={t("next")}>
             <ChevronRight size={26} />
-            {t("next")}
+            {!narrow && t("next")}
           </button>
         </div>
 
-        <div style={{ display: "flex", alignItems: "center", gap: 22 }}>
-          <button onClick={() => setLabOpen((v) => !v)} style={toolBtnStyle(labOpen)}>
-            <FlaskConical size={20} /> {t("labValues")}
+        <div style={{ display: "flex", alignItems: "center", gap: narrow ? 12 : 22 }}>
+          <button onClick={() => setLabOpen((v) => !v)} style={toolBtnStyle(labOpen)} title={t("labValues")} aria-label={t("labValues")}>
+            <FlaskConical size={20} /> {!narrow && t("labValues")}
           </button>
-          <button onClick={() => setNotesOpen((v) => !v)} style={toolBtnStyle(notesOpen)}>
-            <PencilLine size={20} /> {t("notes")}
+          <button onClick={() => setNotesOpen((v) => !v)} style={toolBtnStyle(notesOpen)} title={t("notes")} aria-label={t("notes")}>
+            <PencilLine size={20} /> {!narrow && t("notes")}
           </button>
-          <button onClick={() => setCalcOpen((v) => !v)} style={toolBtnStyle(calcOpen)}>
-            <CalcIcon size={20} /> {t("calc")}
+          <button onClick={() => setCalcOpen((v) => !v)} style={toolBtnStyle(calcOpen)} title={t("calc")} aria-label={t("calc")}>
+            <CalcIcon size={20} /> {!narrow && t("calc")}
           </button>
           <div style={{ position: "relative" }}>
-            <button onClick={() => setSettingsOpen((v) => !v)} style={toolBtnStyle(settingsOpen)}>
-              <SettingsIcon size={20} /> {t("settings")}
+            <button onClick={() => setSettingsOpen((v) => !v)} style={toolBtnStyle(settingsOpen)} title={t("settings")} aria-label={t("settings")}>
+              <SettingsIcon size={20} /> {!narrow && t("settings")}
             </button>
             {settingsOpen && (
               <div style={{
                 position: "absolute", top: 44, right: 0, background: T.card, color: T.ink, border: `1px solid ${T.border}`,
                 borderRadius: 8, padding: 14, width: 230, zIndex: 70, boxShadow: "0 8px 24px rgba(0,0,0,0.3)",
               }}>
-                <label style={{ display: "flex", alignItems: "center", gap: 8, fontFamily: FONT_UI, fontSize: 13, cursor: "pointer", marginBottom: 10 }}>
+                <label style={{ display: "flex", alignItems: "center", gap: 8, fontFamily: FONT_UI, fontSize: fs(13), cursor: "pointer", marginBottom: 10 }}>
                   <input type="checkbox" checked={darkMode} onChange={() => setDarkMode((v) => !v)} />
                   {t("dark")}
                 </label>
-                <label style={{ display: "flex", alignItems: "center", gap: 8, fontFamily: FONT_UI, fontSize: 13, cursor: "pointer", marginBottom: 12 }}>
+                <label style={{ display: "flex", alignItems: "center", gap: 8, fontFamily: FONT_UI, fontSize: fs(13), cursor: "pointer", marginBottom: 12 }}>
                   <input type="checkbox" checked={hintsEnabled} onChange={() => setHintsEnabled((v) => !v)} />
                   {t("hints")}
                 </label>
-                <div style={{ fontFamily: FONT_UI, fontSize: 13, marginBottom: 12 }}>
+                <div style={{ fontFamily: FONT_UI, fontSize: fs(13), marginBottom: 12 }}>
                   <span style={{ color: T.muted }}>{t("modeLabel")}: </span><strong>{tutorMode ? t("tutorShort") : t("timed")}</strong>
-                  <div style={{ fontSize: 11.5, color: T.muted, lineHeight: 1.45, marginTop: 2 }}>{t("modeLocked")}</div>
+                  <div style={{ fontSize: fs(11.5), color: T.muted, lineHeight: 1.45, marginTop: 2 }}>{t("modeLocked")}</div>
                 </div>
                 {!tutorMode && (
-                  <div style={{ fontFamily: FONT_UI, fontSize: 13, marginBottom: 12, paddingTop: 10, borderTop: `1px solid ${T.border}` }}>
+                  <div style={{ fontFamily: FONT_UI, fontSize: fs(13), marginBottom: 12, paddingTop: 10, borderTop: `1px solid ${T.border}` }}>
                     <label style={{ display: "flex", alignItems: "center", gap: 8, cursor: timed ? "pointer" : "not-allowed", opacity: timed ? 1 : 0.7 }}>
                       <input type="checkbox" checked={timed} disabled={!timed} onChange={() => { setSettingsOpen(false); setConfirmTimerOff(true); }} />
                       {t("timerLabel")}
                     </label>
-                    <div style={{ fontSize: 11.5, color: T.muted, lineHeight: 1.45, margin: "4px 0 0 24px" }}>
+                    <div style={{ fontSize: fs(11.5), color: T.muted, lineHeight: 1.45, margin: "4px 0 0 24px" }}>
                       {timed ? t("timerOnHint") : t("timerOffNote")}
                     </div>
                   </div>
                 )}
                 <LangSelect T={T} />
+                <TextSizeControl T={T} />
                 <div style={{ borderTop: `1px solid ${T.border}`, paddingTop: 10 }}>
-                  <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: 11, color: T.muted, textTransform: "uppercase", letterSpacing: "0.04em", marginBottom: 6 }}>
+                  <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(11), color: T.muted, textTransform: "uppercase", letterSpacing: "0.04em", marginBottom: 6 }}>
                     {t("shortcuts")}
                   </div>
-                  <div style={{ display: "grid", gap: 4, fontFamily: FONT_UI, fontSize: 12, color: T.muted }}>
+                  <div style={{ display: "grid", gap: 4, fontFamily: FONT_UI, fontSize: fs(12), color: T.muted }}>
                     <div><strong style={{ color: T.ink }}>1–5 / A–E</strong> — {t("sc.select")}</div>
                   </div>
                 </div>
@@ -2353,17 +2514,31 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, darkMode,
         </div>
       </div>
 
-      <div style={{ flex: 1, display: "flex", minHeight: 0, overflow: "hidden" }}>
-        {/* Left navigator */}
+      <div style={{ flex: 1, display: "flex", minHeight: 0, overflow: "hidden", position: "relative" }}>
+        {/* Left navigator. Tutor mode (on screens wide enough) adds a progress header and a one-line vignette preview per row. */}
         <div style={{
-          width: 130, flexShrink: 0, background: T.card, borderRight: `1px solid ${T.border}`, padding: "16px 0",
+          width: Math.round((compact ? 76 : tutorMode ? 280 : 130) * Math.min(TEXT_SCALE, 1.3)), flexShrink: 0, background: T.card, borderRight: `1px solid ${T.border}`, padding: "16px 0",
           display: "flex", flexDirection: "column", overflow: "hidden",
         }}>
-          <div style={{
-            fontFamily: FONT_UI, fontWeight: 700, fontSize: 13, color: T.ink, textAlign: "center", marginBottom: 10,
-          }}>
-            {t("qStatus")}
-          </div>
+          {tutorMode && !compact ? (
+            <div style={{ padding: "0 16px 12px", borderBottom: `1px solid ${T.border}`, marginBottom: 6 }}>
+              <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(13), color: T.ink, marginBottom: 8, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
+                {blockLabel(block, t)}
+              </div>
+              <div style={{ fontFamily: FONT_MONO, fontSize: fs(12), color: darkMode ? T.ink : T.muted, marginBottom: 6 }}>
+                {navAnswered}/{questions.length}
+              </div>
+              <div style={{ height: 3, borderRadius: 2, background: T.border, overflow: "hidden" }}>
+                <div style={{ width: `${questions.length ? (navAnswered / questions.length) * 100 : 0}%`, height: "100%", background: T.blue }} />
+              </div>
+            </div>
+          ) : (
+            <div style={{
+              fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(13), color: T.ink, textAlign: "center", marginBottom: 10,
+            }}>
+              {compact ? "" : t("qStatus")}
+            </div>
+          )}
           <div style={{ flex: 1, overflowY: "auto" }}>
             {questions.map((qq, i) => {
               const st = blockState.answers[qq.id];
@@ -2375,19 +2550,27 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, darkMode,
                   key={qq.id}
                   onClick={() => setQIdx(i)}
                   style={{
-                    display: "flex", alignItems: "center", justifyContent: "center", gap: 6, padding: "6px 0",
+                    display: "flex", alignItems: "center", justifyContent: showPreview ? "flex-start" : "center", gap: showPreview ? 10 : 6, padding: showPreview ? "7px 16px" : "6px 0",
                     cursor: "pointer", background: isCurrent ? T.blue : "transparent",
-                    color: isCurrent ? T.onBlue : T.ink, fontFamily: FONT_UI, fontSize: 14,
+                    color: isCurrent ? T.onBlue : T.ink, fontFamily: FONT_UI, fontSize: fs(14),
                   }}
                 >
                   <span style={{
-                    fontSize: navChecked ? 12 : 9, fontWeight: navChecked ? 700 : 400, opacity: st?.selected ? 1 : 0.35,
+                    fontSize: fs(navChecked ? 12 : 9), fontWeight: navChecked ? 700 : 400, opacity: st?.selected ? 1 : 0.35,
                     color: navChecked && !isCurrent ? (navCorrect ? T.green : T.red) : "inherit",
                   }}>{navChecked ? (navCorrect ? "✓" : "✕") : "●"}</span>
-                  <span>{i + 1}</span>
+                  <span style={showPreview ? { minWidth: 20, fontWeight: 700 } : undefined}>{i + 1}</span>
                   {st?.flagged && <Flag size={11} color={isCurrent ? T.onBlue : T.flagRed} fill={isCurrent ? T.onBlue : T.flagRed} />}
                   {tutorMode && st?.hintUsed && (
                     <span title={t("hintUsedBadge")} aria-label={t("hintUsedBadge")} style={{ width: 9, height: 9, borderRadius: 999, boxSizing: "border-box", border: `2px solid ${HINT_YELLOW}`, background: "transparent", flexShrink: 0 }} />
+                  )}
+                  {showPreview && (
+                    <span title={vignettePreview(qq)} style={{
+                      flex: 1, minWidth: 0, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap",
+                      fontSize: fs(12.5), color: isCurrent ? T.onBlue : darkMode ? T.ink : T.muted, // white in dark mode for contrast
+                    }}>
+                      {vignettePreview(qq)}
+                    </span>
                   )}
                 </div>
               );
@@ -2396,12 +2579,12 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, darkMode,
         </div>
 
         {/* Question body */}
-        <div style={{ flex: 1, padding: "30px 40px 40px", maxWidth: 900, overflowY: "auto", minHeight: 0 }}>
+        <div style={{ flex: 1, minWidth: 0, padding: narrow ? "18px 16px 28px" : compact ? "24px 24px 32px" : "30px 40px 40px", maxWidth: Math.round(900 * Math.max(1, TEXT_SCALE)), margin: "0 auto", overflowY: "auto", minHeight: 0 }}>
           <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 16, flexWrap: "wrap", gap: 10 }}>
             <label style={{ display: "flex", alignItems: "center", gap: 8, cursor: "pointer" }}>
               <input type="checkbox" checked={qState.flagged} onChange={toggleFlag} />
               <Flag size={16} color={T.flagRed} fill={T.flagRed} />
-              <span style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: 14, color: T.ink }}>{t("mark")}</span>
+              <span style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(14), color: T.ink }}>{t("mark")}</span>
             </label>
 
             {hintAvailable && (
@@ -2410,7 +2593,7 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, darkMode,
                 style={{
                   display: "flex", alignItems: "center", gap: 6, background: "transparent",
                   border: `1px solid ${T.border}`, borderRadius: 6, padding: "6px 12px", cursor: "pointer",
-                  fontFamily: FONT_UI, fontWeight: 600, fontSize: 13, color: T.blue,
+                  fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(13), color: T.blue,
                 }}
               >
                 <Lightbulb size={15} />
@@ -2419,7 +2602,7 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, darkMode,
             )}
           </div>
 
-          <p style={{ fontFamily: FONT_UI, fontSize: 11.5, color: T.muted, margin: "0 0 14px", display: "flex", alignItems: "center", gap: 5 }}>
+          <p style={{ fontFamily: FONT_UI, fontSize: fs(11.5), color: T.muted, margin: "0 0 14px", display: "flex", alignItems: "center", gap: 5 }}>
             <Highlighter size={12} /> {t("hlTip")}
           </p>
 
@@ -2427,7 +2610,7 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, darkMode,
             <div style={{
               display: "flex", gap: 8, alignItems: "flex-start", background: T.blueLight, color: T.ink,
               border: `1px solid ${T.blue}`, borderRadius: 6, padding: "10px 14px", marginBottom: 18,
-              fontFamily: FONT_UI, fontSize: 13.5, lineHeight: 1.5,
+              fontFamily: FONT_UI, fontSize: fs(13.5), lineHeight: 1.5,
             }}>
               <Lightbulb size={16} color={T.blue} style={{ flexShrink: 0, marginTop: 1 }} />
               <span>{q.hint || t("noHint")}</span>
@@ -2441,7 +2624,7 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, darkMode,
             data-hl-field="vignette"
             onMouseUp={(e) => handleSelectionInContainer(q.id, "vignette", e.currentTarget)}
             onKeyUp={(e) => handleSelectionInContainer(q.id, "vignette", e.currentTarget)}
-            style={{ fontFamily: FONT_DISPLAY, fontSize: 17, lineHeight: 1.75, color: T.ink, margin: "0 0 20px", cursor: "text" }}
+            style={{ fontFamily: FONT_DISPLAY, fontSize: fs(17), lineHeight: 1.75, color: T.ink, margin: "0 0 20px", cursor: "text" }}
           >
             {renderHighlightedText(q.vignette, highlightsMap[q.id]?.vignette, (hlId) => removeHighlight(q.id, "vignette", hlId), tutorMode && qState.keyInfoOn ? clueInfo.ranges : null, clueStyleFor(T))}
           </p>
@@ -2463,7 +2646,7 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, darkMode,
                       onClick={b.click}
                       style={{
                         display: "inline-flex", alignItems: "center", gap: 6, padding: "6px 12px", borderRadius: 999,
-                        fontFamily: FONT_UI, fontWeight: 600, fontSize: 13,
+                        fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(13),
                         cursor: b.available ? "pointer" : "not-allowed", opacity: b.available ? 1 : 0.45,
                         background: on ? T.blueLight : "transparent", color: on ? T.blueDeep : T.blue,
                         border: `1px solid ${on ? T.blue : T.border}`,
@@ -2478,10 +2661,10 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, darkMode,
               </div>
               {qState.tipOpen && q.attendingTip && (
                 <div style={{ background: T.paper, borderLeft: `3px solid ${T.blue}`, borderRadius: 8, padding: "12px 14px", marginTop: 10, maxWidth: 720 }}>
-                  <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: 12, color: T.blue, marginBottom: 4, textTransform: "uppercase", letterSpacing: "0.05em", display: "flex", alignItems: "center", gap: 6 }}>
+                  <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(12), color: T.blue, marginBottom: 4, textTransform: "uppercase", letterSpacing: "0.05em", display: "flex", alignItems: "center", gap: 6 }}>
                     <Stethoscope size={14} /> {t("attendingTip")}
                   </div>
-                  <p style={{ fontFamily: FONT_UI, fontSize: 13.5, color: T.ink, lineHeight: 1.6, margin: 0 }}>{q.attendingTip}</p>
+                  <p style={{ fontFamily: FONT_UI, fontSize: fs(13.5), color: T.ink, lineHeight: 1.6, margin: 0 }}>{q.attendingTip}</p>
                 </div>
               )}
             </div>
@@ -2490,7 +2673,7 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, darkMode,
             data-hl-field="stem"
             onMouseUp={(e) => handleSelectionInContainer(q.id, "stem", e.currentTarget)}
             onKeyUp={(e) => handleSelectionInContainer(q.id, "stem", e.currentTarget)}
-            style={{ fontFamily: FONT_DISPLAY, fontSize: 17, lineHeight: 1.6, color: T.ink, marginBottom: 18, cursor: "text" }}
+            style={{ fontFamily: FONT_DISPLAY, fontSize: fs(17), lineHeight: 1.6, color: T.ink, marginBottom: 18, cursor: "text" }}
           >
             {renderHighlightedText(q.stem, highlightsMap[q.id]?.stem, (hlId) => removeHighlight(q.id, "stem", hlId))}
           </p>
@@ -2529,7 +2712,7 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, darkMode,
                       onMouseUp={(e) => { e.stopPropagation(); handleSelectionInContainer(q.id, `option-${opt.key}`, e.currentTarget); }}
                       onKeyUp={(e) => { e.stopPropagation(); handleSelectionInContainer(q.id, `option-${opt.key}`, e.currentTarget); }}
                       style={{
-                        fontFamily: FONT_DISPLAY, fontSize: 15.5, color: T.ink, flex: 1,
+                        fontFamily: FONT_DISPLAY, fontSize: fs(15.5), color: T.ink, flex: 1,
                         textDecoration: isStruck ? "line-through" : "none", opacity: isStruck ? 0.5 : 1,
                       }}
                     >
@@ -2543,7 +2726,7 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, darkMode,
                         title={t("strike")}
                         style={{
                           background: "transparent", border: "none", cursor: "pointer", fontFamily: FONT_DISPLAY,
-                          fontSize: 13, color: T.muted, textDecoration: "line-through", padding: "0 4px",
+                          fontSize: fs(13), color: T.muted, textDecoration: "line-through", padding: "0 4px",
                         }}
                       >
                         ab
@@ -2557,14 +2740,14 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, darkMode,
                         onClick={() => toggleDistractor(opt.key)}
                         style={{
                           display: "inline-flex", alignItems: "center", gap: 4, padding: 0, background: "transparent", border: "none", cursor: "pointer",
-                          fontFamily: FONT_UI, fontWeight: 600, fontSize: 12.5, color: T.blue,
+                          fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(12.5), color: T.blue,
                         }}
                       >
                         {t("distractorBtn")}
                         {analysisOpen ? <ChevronUp size={13} /> : <ChevronDown size={13} />}
                       </button>
                       {analysisOpen && (
-                        <div style={{ fontFamily: FONT_UI, fontSize: 13, color: showWrong ? T.ink : T.muted, lineHeight: 1.55, marginTop: 6 }}>
+                        <div style={{ fontFamily: FONT_UI, fontSize: fs(13), color: showWrong ? T.ink : T.muted, lineHeight: 1.55, marginTop: 6 }}>
                           {q.distractorAnalysis[opt.key]}
                         </div>
                       )}
@@ -2572,7 +2755,7 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, darkMode,
                   )}
                   {showCorrect && (
                     <div style={{ background: T.greenSoft, padding: "14px 14px 14px 42px" }}>
-                      <ExplanationPanels q={q} T={T} showTip={false} showClues={false} flat />
+                      <ExplanationPanels q={q} T={T} showTip={false} showClues={false} flat rating={q.meta?.rating ?? null} onRate={tutorMode && onRate ? (k) => onRate(q, k) : null} />
                     </div>
                   )}
                 </div>
@@ -2600,13 +2783,16 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, darkMode,
         {/* Lab values panel — in-flow split view, not an overlay, so the question stays visible */}
         {labOpen && (
           <div style={{
-            width: 400, flexShrink: 0, background: T.card, borderLeft: `1px solid ${T.border}`,
+            ...(compact
+              ? { position: "absolute", top: 0, right: 0, bottom: 0, zIndex: 40, width: `min(${labW}px, 100%)`, boxShadow: "-8px 0 24px rgba(0,0,0,0.35)" }
+              : { width: labW, flexShrink: 0 }),
+            background: T.card, borderLeft: `1px solid ${T.border}`,
             display: "flex", flexDirection: "column", minHeight: 0, overflow: "hidden",
           }}>
             {/* Fixed header: title/close, search, and tabs all stay put no matter how far the list below is scrolled */}
             <div style={{ flexShrink: 0, padding: "18px 18px 12px", borderBottom: `1px solid ${T.border}` }}>
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 12 }}>
-                <span style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: 14, color: T.ink }}>{t("labValues")}</span>
+                <span style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(14), color: T.ink }}>{t("labValues")}</span>
                 <button onClick={() => setLabOpen(false)} style={{ background: "transparent", border: "none", cursor: "pointer", color: T.muted }}>
                   <X size={16} />
                 </button>
@@ -2618,7 +2804,7 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, darkMode,
                   value={labSearch}
                   onChange={(e) => setLabSearch(e.target.value)}
                   placeholder={t("search")}
-                  style={{ border: "none", outline: "none", fontFamily: FONT_UI, fontSize: 13, flex: 1, background: "transparent", color: T.ink }}
+                  style={{ border: "none", outline: "none", fontFamily: FONT_UI, fontSize: fs(13), flex: 1, background: "transparent", color: T.ink }}
                 />
               </div>
 
@@ -2628,7 +2814,7 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, darkMode,
                     key={tab}
                     onClick={() => setLabTab(tab)}
                     style={{
-                      fontFamily: FONT_UI, fontSize: 12, fontWeight: 600, padding: "6px 10px", borderRadius: 999,
+                      fontFamily: FONT_UI, fontSize: fs(12), fontWeight: 600, padding: "6px 10px", borderRadius: 999,
                       border: `1px solid ${labTab === tab ? T.blue : T.border}`,
                       background: labTab === tab ? T.blueLight : "transparent",
                       color: labTab === tab ? T.blue : T.muted, cursor: "pointer",
@@ -2641,25 +2827,25 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, darkMode,
             </div>
 
             <div style={{ flex: 1, overflowY: "auto", padding: 18 }}>
-              <label style={{ display: "flex", alignItems: "center", gap: 8, fontFamily: FONT_UI, fontSize: 12.5, color: T.ink, marginBottom: 14, cursor: "pointer" }}>
+              <label style={{ display: "flex", alignItems: "center", gap: 8, fontFamily: FONT_UI, fontSize: fs(12.5), color: T.ink, marginBottom: 14, cursor: "pointer" }}>
                 <input type="checkbox" checked={siUnits} onChange={() => setSiUnits((v) => !v)} />
                 {t("siIntervals")}
               </label>
 
               <div style={{
                 display: "flex", justifyContent: "space-between", padding: "4px 4px 8px", borderBottom: `1.5px solid ${T.border}`,
-                fontFamily: FONT_UI, fontSize: 11.5, fontWeight: 700, color: T.muted, textTransform: "uppercase", letterSpacing: "0.04em",
+                fontFamily: FONT_UI, fontSize: fs(11.5), fontWeight: 700, color: T.muted, textTransform: "uppercase", letterSpacing: "0.04em",
               }}>
                 <span>{t("tab." + labTab)}</span>
                 <span>{siUnits ? t("siHdr") : t("refRange")}</span>
               </div>
 
-              <table style={{ width: "100%", borderCollapse: "collapse", fontFamily: FONT_UI, fontSize: 12.5 }}>
+              <table style={{ width: "100%", borderCollapse: "collapse", fontFamily: FONT_UI, fontSize: fs(12.5) }}>
                 <tbody>
                   {filteredLabRows.map((row, i) =>
                     row.h ? (
                       <tr key={`h-${i}`}>
-                        <td colSpan={2} style={{ padding: "12px 4px 4px", fontWeight: 700, color: T.blue, fontSize: 12.5 }}>
+                        <td colSpan={2} style={{ padding: "12px 4px 4px", fontWeight: 700, color: T.blue, fontSize: fs(12.5) }}>
                           {lh(row.h)}
                         </td>
                       </tr>
@@ -2684,10 +2870,10 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, darkMode,
 
       {/* Bottom bar */}
       <div style={{
-        background: T.navy, color: "#fff", padding: "10px 20px", display: "flex", alignItems: "center",
-        justifyContent: "space-between", borderTop: `1px solid ${T.border}`, flexShrink: 0,
+        background: T.navy, color: "#fff", padding: narrow || short ? "6px 10px" : "10px 20px", display: "flex", alignItems: "center",
+        justifyContent: "space-between", flexWrap: "wrap", gap: 8, borderTop: `1px solid ${T.border}`, flexShrink: 0,
       }}>
-        <div style={{ fontFamily: FONT_UI, fontSize: 13, lineHeight: 1.5 }}>
+        <div style={{ fontFamily: FONT_UI, fontSize: fs(13), lineHeight: 1.5 }}>
           <div>{t("timeLeft")}: <span style={{ fontFamily: FONT_MONO }}>{timed ? fmtTime(blockState.timeLeft) : t("untimedLower")}</span></div>
           <div style={{ opacity: 0.75 }}>{t("answered", { a: answeredCount, n: questions.length })}{flaggedCount > 0 ? t("flagged", { f: flaggedCount }) : ""}</div>
         </div>
@@ -2702,11 +2888,11 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, darkMode,
       {/* Notes panel */}
       {notesOpen && (
         <div style={{
-          position: "fixed", right: labOpen ? 420 : 24, bottom: 90, width: 320, background: T.card,
+          position: "fixed", right: !compact && labOpen ? labW + 20 : narrow ? 8 : 24, bottom: 90, width: `min(${Math.round(320 * Math.max(1, TEXT_SCALE))}px, calc(100vw - 16px))`, background: T.card,
           border: `1px solid ${T.border}`, borderRadius: 10, padding: 14, zIndex: 55, boxShadow: "0 8px 28px rgba(0,0,0,0.3)",
         }}>
           <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 8 }}>
-            <span style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: 13, color: T.ink }}>{t("notesItem", { n: qIdx + 1 })}</span>
+            <span style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(13), color: T.ink }}>{t("notesItem", { n: qIdx + 1 })}</span>
             <button onClick={() => setNotesOpen(false)} style={{ background: "transparent", border: "none", cursor: "pointer", color: T.muted }}>
               <X size={16} />
             </button>
@@ -2715,7 +2901,7 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, darkMode,
             value={noteText}
             onChange={(e) => setNote(e.target.value)}
             style={{
-              width: "100%", minHeight: 130, fontFamily: FONT_UI, fontSize: 13, border: `1px solid ${T.border}`,
+              width: "100%", minHeight: 130, fontFamily: FONT_UI, fontSize: fs(13), border: `1px solid ${T.border}`,
               borderRadius: 6, padding: 8, resize: "vertical", boxSizing: "border-box", background: T.paper, color: T.ink,
             }}
           />
@@ -2739,7 +2925,7 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, darkMode,
             position: "fixed", left: pending.x, top: pending.y - 42, transform: "translateX(-50%)",
             zIndex: 80, display: "flex", alignItems: "center", gap: 6, background: T.ink, color: T.paper,
             border: "none", borderRadius: 6, padding: "7px 12px", fontFamily: FONT_UI, fontWeight: 600,
-            fontSize: 12.5, cursor: "pointer", boxShadow: "0 4px 14px rgba(0,0,0,0.35)",
+            fontSize: fs(12.5), cursor: "pointer", boxShadow: "0 4px 14px rgba(0,0,0,0.35)",
           }}
         >
           <Highlighter size={13} />
@@ -2754,7 +2940,7 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, darkMode,
           alignItems: "center", justifyContent: "center", zIndex: 90, gap: 18,
         }}>
           <Lock size={36} color="#fff" />
-          <p style={{ fontFamily: FONT_UI, fontSize: 15, color: "#fff" }}>{t("paused")}</p>
+          <p style={{ fontFamily: FONT_UI, fontSize: fs(15), color: "#fff" }}>{t("paused")}</p>
           <PrimaryButton T={T} icon={Unlock} onClick={() => setLocked(false)}>{t("resume")}</PrimaryButton>
         </div>
       )}
@@ -2766,8 +2952,8 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, darkMode,
           justifyContent: "center", zIndex: 95, padding: 20,
         }}>
           <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, padding: 28, maxWidth: 420 }}>
-            <h3 style={{ fontFamily: FONT_UI, fontSize: 17, fontWeight: 700, color: T.ink, margin: "0 0 10px" }}>{t("timerOffTitle")}</h3>
-            <p style={{ fontFamily: FONT_UI, fontSize: 14, color: T.muted, lineHeight: 1.55, margin: "0 0 20px" }}>{t("timerOffBody")}</p>
+            <h3 style={{ fontFamily: FONT_UI, fontSize: fs(17), fontWeight: 700, color: T.ink, margin: "0 0 10px" }}>{t("timerOffTitle")}</h3>
+            <p style={{ fontFamily: FONT_UI, fontSize: fs(14), color: T.muted, lineHeight: 1.55, margin: "0 0 20px" }}>{t("timerOffBody")}</p>
             <div style={{ display: "flex", gap: 10, justifyContent: "flex-end" }}>
               <GhostButton T={T} onClick={() => setConfirmTimerOff(false)}>{t("keepTimer")}</GhostButton>
               <PrimaryButton T={T} onClick={() => { setBlockState((prev) => ({ ...prev, timerOff: true })); setConfirmTimerOff(false); }}>{t("turnOffTimer")}</PrimaryButton>
@@ -2783,10 +2969,10 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, darkMode,
           justifyContent: "center", zIndex: 95, padding: 20,
         }}>
           <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, padding: 28, maxWidth: 400 }}>
-            <h3 style={{ fontFamily: FONT_UI, fontSize: 17, fontWeight: 700, color: T.ink, margin: "0 0 10px" }}>
+            <h3 style={{ fontFamily: FONT_UI, fontSize: fs(17), fontWeight: 700, color: T.ink, margin: "0 0 10px" }}>
               {t("endQ")}
             </h3>
-            <p style={{ fontFamily: FONT_UI, fontSize: 14, color: T.muted, lineHeight: 1.55, margin: "0 0 20px" }}>
+            <p style={{ fontFamily: FONT_UI, fontSize: fs(14), color: T.muted, lineHeight: 1.55, margin: "0 0 20px" }}>
               {t("endConfirm", { a: answeredCount, n: questions.length })}
             </p>
             <div style={{ display: "flex", gap: 10, justifyContent: "flex-end" }}>
@@ -2806,11 +2992,11 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, darkMode,
           <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, padding: 28, maxWidth: 400 }}>
             <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 10 }}>
               <Clock size={20} color={T.red} />
-              <h3 style={{ fontFamily: FONT_UI, fontSize: 17, fontWeight: 700, color: T.ink, margin: 0 }}>
+              <h3 style={{ fontFamily: FONT_UI, fontSize: fs(17), fontWeight: 700, color: T.ink, margin: 0 }}>
                 {t("timesUp")}
               </h3>
             </div>
-            <p style={{ fontFamily: FONT_UI, fontSize: 14, color: T.muted, lineHeight: 1.55, margin: "0 0 20px" }}>
+            <p style={{ fontFamily: FONT_UI, fontSize: fs(14), color: T.muted, lineHeight: 1.55, margin: "0 0 20px" }}>
               {t("timesUpBody", { a: answeredCount, n: questions.length })}
             </p>
             <div style={{ display: "flex", justifyContent: "flex-end" }}>
@@ -2835,7 +3021,7 @@ function DifficultyMeter({ value, T }) {
   if (typeof value !== "number") return null;
   const n = Math.max(1, Math.min(5, Math.round(value)));
   return (
-    <span title={t("diffTitle", { n })} style={{ display: "inline-flex", alignItems: "center", gap: 6, fontFamily: FONT_UI, fontSize: 11.5, fontWeight: 600, color: T.muted }}>
+    <span title={t("diffTitle", { n })} style={{ display: "inline-flex", alignItems: "center", gap: 6, fontFamily: FONT_UI, fontSize: fs(11.5), fontWeight: 600, color: T.muted }}>
       {t("difficulty")}
       <span style={{ display: "inline-flex", gap: 3 }}>
         {[1, 2, 3, 4, 5].map((i) => (
@@ -2860,7 +3046,7 @@ function SourcesDropdown({ refs, T }) {
         onClick={() => setOpen((v) => !v)}
         style={{
           display: "flex", alignItems: "center", gap: 6, padding: 0, background: "transparent", border: "none", cursor: "pointer",
-          fontFamily: FONT_UI, fontWeight: 700, fontSize: 12, color: T.muted, textTransform: "uppercase", letterSpacing: "0.05em",
+          fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(12), color: T.muted, textTransform: "uppercase", letterSpacing: "0.05em",
         }}
       >
         <BookOpen size={13} /> {t("sources")} ({refs.length}) {open ? <ChevronUp size={13} /> : <ChevronDown size={13} />}
@@ -2869,17 +3055,17 @@ function SourcesDropdown({ refs, T }) {
         <div style={{ display: "grid", gap: 8, marginTop: 8 }}>
           {refs.map((ref, ri) => (
             <div key={ri} style={{ border: `1px solid ${T.border}`, borderRadius: 8, padding: "10px 12px" }}>
-              <div style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: 13, color: T.ink }}>
+              <div style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(13), color: T.ink }}>
                 {ref.sourceTitle}
                 {ref.pageNumber && (
-                  <span style={{ fontFamily: FONT_MONO, fontWeight: 400, fontSize: 11.5, color: T.muted }}> · {t("page")} {ref.pageNumber}</span>
+                  <span style={{ fontFamily: FONT_MONO, fontWeight: 400, fontSize: fs(11.5), color: T.muted }}> · {t("page")} {ref.pageNumber}</span>
                 )}
               </div>
               {ref.chapterSection && (
-                <div style={{ fontFamily: FONT_UI, fontSize: 12.5, color: T.muted, marginTop: 2 }}>{ref.chapterSection}</div>
+                <div style={{ fontFamily: FONT_UI, fontSize: fs(12.5), color: T.muted, marginTop: 2 }}>{ref.chapterSection}</div>
               )}
               {ref.relevance && (
-                <div style={{ fontFamily: FONT_UI, fontSize: 12, color: T.blueDeep, marginTop: 4, fontStyle: "italic" }}>{ref.relevance}</div>
+                <div style={{ fontFamily: FONT_UI, fontSize: fs(12), color: T.blueDeep, marginTop: 4, fontStyle: "italic" }}>{ref.relevance}</div>
               )}
             </div>
           ))}
@@ -2889,11 +3075,39 @@ function SourcesDropdown({ refs, T }) {
   );
 }
 
-function ExplanationPanels({ q, T, showTip = true, showClues = true, flat = false }) {
+// Anki-style self-rating. Only rendered where an onRate handler is supplied (Tutor Mode reveal + post-exam Review),
+// never in Timed testing.
+const RATINGS = ["again", "hard", "good", "easy"];
+function RatingBar({ value, onRate, T }) {
+  const { t } = useI18n();
+  const colors = { again: T.red, hard: T.amber, good: T.green, easy: T.blue };
+  return (
+    <div>
+      <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(12), color: T.muted, textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: 6 }}>
+        {t("rateTitle")}
+      </div>
+      <div role="radiogroup" aria-label={t("rateTitle")} style={{ display: "grid", gridTemplateColumns: "repeat(4, minmax(0, 1fr))", gap: 6 }}>
+        {RATINGS.map((k) => {
+          const on = value === k;
+          return (
+            <button key={k} role="radio" aria-checked={on} onClick={(e) => { e.stopPropagation(); onRate(k); }} style={{
+              fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(13), padding: "9px 6px", borderRadius: 6, cursor: "pointer",
+              border: `1.5px solid ${colors[k]}`, background: on ? colors[k] : "transparent", color: on ? "#fff" : colors[k],
+            }}>
+              {t(`rate.${k}`)}
+            </button>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
+function ExplanationPanels({ q, T, showTip = true, showClues = true, flat = false, rating = null, onRate = null }) {
   const { t } = useI18n();
   const clues = getClues(q.vignette, q.keyInfoPhrases);
-  const label = (color) => ({ fontFamily: FONT_UI, fontWeight: 700, fontSize: 12, color, marginBottom: 4, textTransform: "uppercase", letterSpacing: "0.05em", display: "flex", alignItems: "center", gap: 6 });
-  const body = { fontFamily: FONT_UI, fontSize: 13.5, color: T.ink, lineHeight: 1.6, margin: 0 };
+  const label = (color) => ({ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(12), color, marginBottom: 4, textTransform: "uppercase", letterSpacing: "0.05em", display: "flex", alignItems: "center", gap: 6 });
+  const body = { fontFamily: FONT_UI, fontSize: fs(13.5), color: T.ink, lineHeight: 1.6, margin: 0 };
   // flat: no card backgrounds, so the whole block takes the colour of the container it sits in
   const box = (bg, extra) => (flat ? {} : { background: bg, borderRadius: 8, padding: "12px 14px", ...extra });
   return (
@@ -2910,7 +3124,7 @@ function ExplanationPanels({ q, T, showTip = true, showClues = true, flat = fals
           <div style={label(T.green)}><Search size={13} /> {t("keyClues")}</div>
           <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
             {clues.phrases.map((ph, i) => (
-              <span key={i} style={{ ...clueStyleFor(T), fontFamily: FONT_UI, fontSize: 12.5, color: T.ink, padding: "3px 8px", borderRadius: 4 }}>{ph}</span>
+              <span key={i} style={{ ...clueStyleFor(T), fontFamily: FONT_UI, fontSize: fs(12.5), color: T.ink, padding: "3px 8px", borderRadius: 4 }}>{ph}</span>
             ))}
           </div>
         </div>
@@ -2938,11 +3152,13 @@ function ExplanationPanels({ q, T, showTip = true, showClues = true, flat = fals
       )}
 
       <SourcesDropdown refs={q.sourceReferences} T={T} />
+
+      {onRate && <RatingBar value={rating} onRate={onRate} T={T} />}
     </div>
   );
 }
 
-function BlockResults({ block, blockState, blockIdx, history, onBackToLobby, onRetest, onLoadNewExam, T, darkMode, setDarkMode }) {
+function BlockResults({ block, blockState, blockIdx, history, onBackToLobby, onRetest, onRate, onHome, T, darkMode, setDarkMode }) {
   const { t, lang } = useI18n();
   const [expanded, setExpanded] = useState(null);
   const [retestCfg, setRetestCfg] = useState(null); // { pool, mode } while the modal is open
@@ -2950,7 +3166,11 @@ function BlockResults({ block, blockState, blockIdx, history, onBackToLobby, onR
 
   const incorrectQs = block.questions.filter((q) => blockState.answers[q.id]?.selected !== q.correctAnswer);
   const flaggedQs = block.questions.filter((q) => blockState.answers[q.id]?.flagged);
-  const poolCounts = { incorrect: incorrectQs.length, flagged: flaggedQs.length, all: block.questions.length };
+  const ratedCount = (keys) => block.questions.filter((q) => keys.includes(q.meta?.rating)).length;
+  const poolCounts = {
+    incorrect: incorrectQs.length, flagged: flaggedQs.length, all: block.questions.length,
+    again: ratedCount(["again"]), hard: ratedCount(["hard"]), againhard: ratedCount(["again", "hard"]),
+  };
   const originIdx = block.isRetest ? block.retestOf : blockIdx;
   const attempts = history.filter((h) => h.originIdx === originIdx);
   const hintCount = block.questions.filter((q) => blockState.answers[q.id]?.hintUsed).length;
@@ -2969,42 +3189,42 @@ function BlockResults({ block, blockState, blockIdx, history, onBackToLobby, onR
   }, [block, blockState, lang]);
 
   return (
-    <div style={{ maxWidth: 880, margin: "0 auto", padding: "44px 20px 80px" }}>
+    <div style={{ maxWidth: Math.round(1120 * Math.max(1, TEXT_SCALE)), margin: "0 auto", padding: "44px 20px 80px" }}>
       <style>{`@import url('${FONT_IMPORT_URL}');`}</style>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 22 }}>
         <GhostButton T={T} icon={ChevronLeft} onClick={onBackToLobby}>{t("back")}</GhostButton>
         <SettingsMenu darkMode={darkMode} setDarkMode={setDarkMode} T={T} />
       </div>
 
-      <h1 style={{ fontFamily: FONT_DISPLAY, fontSize: 28, fontWeight: 600, color: T.ink, margin: "0 0 4px" }}>
+      <h1 style={{ fontFamily: FONT_DISPLAY, fontSize: fs(28), fontWeight: 600, color: T.ink, margin: "0 0 4px" }}>
         {t("results", { name: blockLabel(block, t) })}
       </h1>
       <div style={{ display: "flex", alignItems: "baseline", gap: 12, marginBottom: 20 }}>
-        <span style={{ fontFamily: FONT_MONO, fontSize: 32, fontWeight: 600, color: score.pct >= 70 ? T.green : T.red }}>
+        <span style={{ fontFamily: FONT_MONO, fontSize: fs(32), fontWeight: 600, color: score.pct >= 70 ? T.green : T.red }}>
           {score.pct}%
         </span>
-        <span style={{ fontFamily: FONT_UI, fontSize: 14, color: T.muted }}>
+        <span style={{ fontFamily: FONT_UI, fontSize: fs(14), color: T.muted }}>
           {t("scoreLine", { c: score.correct, t: score.total, u: score.total - score.answered })}
         </span>
         {hintCount > 0 && <Pill T={T} tone="amber">{t("hintsUsedN", { n: hintCount })}</Pill>}
       </div>
 
       <div style={{ display: "flex", flexWrap: "wrap", gap: 10, marginBottom: 28 }}>
-        <GhostButton T={T} onClick={onLoadNewExam} icon={Upload}>{t("loadNew")}</GhostButton>
+        <GhostButton T={T} onClick={onHome} icon={HomeIcon}>{t("homeBtn")}</GhostButton>
       </div>
 
       {attempts.length > 1 && (
         <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, padding: "18px 22px", marginBottom: 22 }}>
-          <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: 13, color: T.ink, marginBottom: 10, textTransform: "uppercase", letterSpacing: "0.04em" }}>
+          <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(13), color: T.ink, marginBottom: 10, textTransform: "uppercase", letterSpacing: "0.04em" }}>
             {t("attemptHistory")}
           </div>
           <div style={{ display: "grid", gap: 8 }}>
             {attempts.map((h, i) => (
-              <div key={h.id} style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: 10, fontFamily: FONT_UI, fontSize: 13, color: T.ink }}>
+              <div key={h.id} style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: 10, fontFamily: FONT_UI, fontSize: fs(13), color: T.ink }}>
                 <span style={{ fontWeight: 600, flex: "1 1 220px" }}>
                   {i === 0 ? t("firstAttempt") : t("retestN", { n: i })}
                   <span style={{ fontWeight: 400, color: T.muted }}>
-                    {i === 0 ? "" : ` — ${t(h.pool === "missed" ? "poolIncorrect" : h.pool === "flagged" ? "poolFlagged" : "poolAll")}`}
+                    {i === 0 ? "" : ` — ${t(RETEST_POOL_LABEL[h.pool] || "poolAll")}`}
                     {` · ${t(h.mode === "tutor" ? "modeTutorOpt" : "modeTimedOpt")}${h.timerOff ? ` (${t("timerOffTag")})` : ""}`}
                   </span>
                 </span>
@@ -3019,17 +3239,17 @@ function BlockResults({ block, blockState, blockIdx, history, onBackToLobby, onR
 
       {subjectRows.length > 1 && (
         <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, padding: "20px 22px 8px", marginBottom: 22 }}>
-          <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: 13, color: T.ink, marginBottom: 12, textTransform: "uppercase", letterSpacing: "0.04em" }}>
+          <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(13), color: T.ink, marginBottom: 12, textTransform: "uppercase", letterSpacing: "0.04em" }}>
             {t("perfSubject")}
           </div>
           <ResponsiveContainer width="100%" height={Math.max(140, subjectRows.length * 42)}>
             <BarChart data={subjectRows} layout="vertical" margin={{ left: 8, right: 24, top: 4, bottom: 4 }}>
               <CartesianGrid strokeDasharray="3 3" stroke={T.border} horizontal={false} />
-              <XAxis type="number" domain={[0, 100]} tick={{ fontFamily: FONT_MONO, fontSize: 11, fill: T.muted }} unit="%" />
-              <YAxis type="category" dataKey="subject" width={130} tick={{ fontFamily: FONT_UI, fontSize: 12.5, fill: T.ink }} />
+              <XAxis type="number" domain={[0, 100]} tick={{ fontFamily: FONT_MONO, fontSize: fs(11), fill: T.muted }} unit="%" />
+              <YAxis type="category" dataKey="subject" width={130} tick={{ fontFamily: FONT_UI, fontSize: fs(12.5), fill: T.ink }} />
               <Tooltip
                 formatter={(v, n, p) => [`${p.payload.correct}/${p.payload.total} (${v}%)`, t("score")]}
-                contentStyle={{ fontFamily: FONT_UI, fontSize: 12.5, borderRadius: 8, border: `1px solid ${T.border}`, background: T.card, color: T.ink }}
+                contentStyle={{ fontFamily: FONT_UI, fontSize: fs(12.5), borderRadius: 8, border: `1px solid ${T.border}`, background: T.card, color: T.ink }}
               />
               <Bar dataKey="pct" radius={[0, 6, 6, 0]} barSize={18}>
                 {subjectRows.map((r, i) => (
@@ -3041,7 +3261,7 @@ function BlockResults({ block, blockState, blockIdx, history, onBackToLobby, onR
         </div>
       )}
 
-      <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: 13, color: T.ink, marginBottom: 10, textTransform: "uppercase", letterSpacing: "0.04em" }}>
+      <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(13), color: T.ink, marginBottom: 10, textTransform: "uppercase", letterSpacing: "0.04em" }}>
         {t("qReview")}
       </div>
       <div style={{ display: "grid", gap: 10 }}>
@@ -3054,8 +3274,8 @@ function BlockResults({ block, blockState, blockIdx, history, onBackToLobby, onR
             <div key={q.id} style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 8, overflow: "hidden" }}>
               <div onClick={() => setExpanded(isOpen ? null : q.id)} style={{ display: "flex", alignItems: "center", gap: 12, padding: "13px 16px", cursor: "pointer" }}>
                 {!answered ? <AlertTriangle size={17} color={T.amber} /> : correct ? <CheckCircle2 size={17} color={T.green} /> : <XCircle size={17} color={T.red} />}
-                <span style={{ fontFamily: FONT_MONO, fontSize: 12.5, color: T.muted, width: 24 }}>{i + 1}</span>
-                <span style={{ fontFamily: FONT_UI, fontSize: 14, color: T.ink, flex: 1 }}>{q.stem}</span>
+                <span style={{ fontFamily: FONT_MONO, fontSize: fs(12.5), color: T.muted, width: 24 }}>{i + 1}</span>
+                <span style={{ fontFamily: FONT_UI, fontSize: fs(14), color: T.ink, flex: 1 }}>{q.stem}</span>
                 {a?.hintUsed && <Pill T={T} tone="amber">{t("hintUsedBadge")}</Pill>}
                 <Pill T={T} tone="muted">{q.subject || t("general")}</Pill>
                 {isOpen ? <ChevronUp size={16} color={T.muted} /> : <ChevronDown size={16} color={T.muted} />}
@@ -3065,7 +3285,7 @@ function BlockResults({ block, blockState, blockIdx, history, onBackToLobby, onR
                   <div style={{ display: "flex", justifyContent: "flex-end", marginTop: 12 }}>
                     <DifficultyMeter value={q.difficultyRating} T={T} />
                   </div>
-                  <p style={{ fontFamily: FONT_DISPLAY, fontSize: 14.5, color: T.ink, lineHeight: 1.65, marginTop: 8 }}>
+                  <p style={{ fontFamily: FONT_DISPLAY, fontSize: fs(14.5), color: T.ink, lineHeight: 1.65, marginTop: 8 }}>
                     {renderHighlightedText(q.vignette, null, () => {}, getClues(q.vignette, q.keyInfoPhrases).ranges, clueStyleFor(T))}
                   </p>
                   <div style={{ display: "grid", gap: 6, marginBottom: 12 }}>
@@ -3077,16 +3297,16 @@ function BlockResults({ block, blockState, blockIdx, history, onBackToLobby, onR
                         <div key={opt.key} style={{
                           padding: "8px 10px", borderRadius: 6,
                           background: isCorrectOpt ? T.greenLight : isYourPick ? T.redLight : "transparent",
-                          fontFamily: FONT_UI, fontSize: 13.5, color: T.ink,
+                          fontFamily: FONT_UI, fontSize: fs(13.5), color: T.ink,
                         }}>
                           <div style={{ display: "flex", gap: 10, alignItems: "center" }}>
-                            <span style={{ fontFamily: FONT_MONO, fontWeight: 700, fontSize: 12, width: 18 }}>{opt.key}</span>
+                            <span style={{ fontFamily: FONT_MONO, fontWeight: 700, fontSize: fs(12), width: 18 }}>{opt.key}</span>
                             <span style={{ flex: 1 }}>{opt.text}</span>
                             {isCorrectOpt && <Pill T={T} tone="green">{t("correct")}</Pill>}
                             {isYourPick && !isCorrectOpt && <Pill T={T} tone="red">{t("yours")}</Pill>}
                           </div>
                           {reason && (
-                            <div style={{ fontFamily: FONT_UI, fontSize: 12.5, color: T.muted, marginTop: 4, paddingLeft: 28, lineHeight: 1.5 }}>
+                            <div style={{ fontFamily: FONT_UI, fontSize: fs(12.5), color: T.muted, marginTop: 4, paddingLeft: 28, lineHeight: 1.5 }}>
                               {reason}
                             </div>
                           )}
@@ -3094,7 +3314,7 @@ function BlockResults({ block, blockState, blockIdx, history, onBackToLobby, onR
                       );
                     })}
                   </div>
-                  <ExplanationPanels q={q} T={T} />
+                  <ExplanationPanels q={q} T={T} rating={q.meta?.rating ?? null} onRate={onRate ? (k) => onRate(q, k) : null} />
                 </div>
               )}
             </div>
@@ -3110,7 +3330,7 @@ function BlockResults({ block, blockState, blockIdx, history, onBackToLobby, onR
         <PrimaryButton T={T} onClick={() => setRetestCfg({ pool: poolCounts.incorrect > 0 ? "incorrect" : "all", mode: "tutor" })}>
           {t("retestIncBtn")}
         </PrimaryButton>
-        <GhostButton T={T} onClick={() => setRetestCfg({ pool: "all", mode: "timed" })}>
+        <GhostButton T={T} onClick={() => setRetestCfg({ pool: "all", mode: "tutor" })}>
           {t("retestFullBtn")}
         </GhostButton>
       </div>
@@ -3118,14 +3338,14 @@ function BlockResults({ block, blockState, blockIdx, history, onBackToLobby, onR
       {/* Retest configuration modal */}
       {retestCfg && (
         <div style={{ position: "fixed", inset: 0, background: "rgba(10,15,20,0.6)", display: "flex", alignItems: "center", justifyContent: "center", zIndex: 95, padding: 20 }}>
-          <div role="dialog" aria-modal="true" style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, padding: 26, width: "100%", maxWidth: 460 }}>
-            <h3 style={{ fontFamily: FONT_UI, fontSize: 17, fontWeight: 700, color: T.ink, margin: "0 0 16px" }}>{t("retestTitle")}</h3>
+          <div role="dialog" aria-modal="true" style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, padding: 26, width: "100%", maxWidth: 520, maxHeight: "90vh", overflowY: "auto" }}>
+            <h3 style={{ fontFamily: FONT_UI, fontSize: fs(17), fontWeight: 700, color: T.ink, margin: "0 0 16px" }}>{t("retestTitle")}</h3>
             {[
-              ["poolLabel", "pool", [["incorrect", "poolIncorrect"], ["flagged", "poolFlagged"], ["all", "poolAll"]]],
+              ["poolLabel", "pool", [["incorrect", "poolIncorrect"], ["flagged", "poolFlagged"], ["again", "poolAgain"], ["hard", "poolHard"], ["againhard", "poolAgainHard"], ["all", "poolAll"]]],
               ["modeSel", "mode", [["tutor", "modeTutorOpt"], ["timed", "modeTimedOpt"]]],
             ].map(([labelKey, field, opts]) => (
               <div key={field} style={{ marginBottom: 16 }}>
-                <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: 11, color: T.muted, textTransform: "uppercase", letterSpacing: "0.04em", marginBottom: 6 }}>{t(labelKey)}</div>
+                <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(11), color: T.muted, textTransform: "uppercase", letterSpacing: "0.04em", marginBottom: 6 }}>{t(labelKey)}</div>
                 <div role="radiogroup" style={{ display: "flex", flexWrap: "wrap", border: `1px solid ${T.border}`, borderRadius: 6, overflow: "hidden" }}>
                   {opts.map(([val, key]) => {
                     const on = retestCfg[field] === val;
@@ -3135,7 +3355,7 @@ function BlockResults({ block, blockState, blockIdx, history, onBackToLobby, onR
                       <button key={val} role="radio" aria-checked={on} disabled={disabled}
                         onClick={() => setRetestCfg((c) => ({ ...c, [field]: val }))}
                         style={{
-                          flex: 1, fontFamily: FONT_UI, fontWeight: 700, fontSize: 12.5, padding: "9px 10px", border: "none",
+                          flex: "1 1 auto", fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(12.5), padding: "9px 10px", border: "none",
                           cursor: disabled ? "not-allowed" : "pointer", opacity: disabled ? 0.45 : 1,
                           background: on ? T.blue : "transparent", color: on ? T.onBlue : T.ink,
                         }}>
@@ -3146,7 +3366,7 @@ function BlockResults({ block, blockState, blockIdx, history, onBackToLobby, onR
                 </div>
               </div>
             ))}
-            <p style={{ fontFamily: FONT_UI, fontSize: 12.5, color: T.muted, lineHeight: 1.5, margin: "0 0 18px" }}>
+            <p style={{ fontFamily: FONT_UI, fontSize: fs(12.5), color: T.muted, lineHeight: 1.5, margin: "0 0 18px" }}>
               {retestCfg.mode === "tutor" ? t("modeTutorHint") : t("modeTimedHint")}<br />{t("retestSaveNote")}
             </p>
             <div style={{ display: "flex", gap: 10, justifyContent: "flex-end" }}>
@@ -3191,40 +3411,40 @@ function FinalSummary({ examData, blockStates, onBackToLobby, T, darkMode, setDa
   const weakest = subjectRows.slice(0, 3);
 
   return (
-    <div style={{ maxWidth: 880, margin: "0 auto", padding: "44px 20px 80px" }}>
+    <div style={{ maxWidth: Math.round(1120 * Math.max(1, TEXT_SCALE)), margin: "0 auto", padding: "44px 20px 80px" }}>
       <style>{`@import url('${FONT_IMPORT_URL}');`}</style>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 22 }}>
         <GhostButton T={T} icon={ChevronLeft} onClick={onBackToLobby}>{t("back")}</GhostButton>
         <SettingsMenu darkMode={darkMode} setDarkMode={setDarkMode} T={T} />
       </div>
 
-      <h1 style={{ fontFamily: FONT_DISPLAY, fontSize: 28, fontWeight: 600, color: T.ink, margin: "0 0 4px" }}>
+      <h1 style={{ fontFamily: FONT_DISPLAY, fontSize: fs(28), fontWeight: 600, color: T.ink, margin: "0 0 4px" }}>
         {t("fullSummaryTitle", { name: examData.examTitle })}
       </h1>
       <div style={{ display: "flex", alignItems: "baseline", gap: 12, marginBottom: 28 }}>
-        <span style={{ fontFamily: FONT_MONO, fontSize: 32, fontWeight: 600, color: overallPct >= 70 ? T.green : T.red }}>
+        <span style={{ fontFamily: FONT_MONO, fontSize: fs(32), fontWeight: 600, color: overallPct >= 70 ? T.green : T.red }}>
           {overallPct}%
         </span>
-        <span style={{ fontFamily: FONT_UI, fontSize: 14, color: T.muted }}>
+        <span style={{ fontFamily: FONT_UI, fontSize: fs(14), color: T.muted }}>
           {t("across", { c: totalCorrect, q: totalQ, b: baseIdx.length, blocks: t(baseIdx.length > 1 ? "blockN" : "block1") })}
         </span>
       </div>
       {retestCount > 0 && (
-        <p style={{ fontFamily: FONT_UI, fontSize: 12.5, color: T.muted, margin: "-14px 0 22px" }}>{t("retestsExcluded", { n: retestCount })}</p>
+        <p style={{ fontFamily: FONT_UI, fontSize: fs(12.5), color: T.muted, margin: "-14px 0 22px" }}>{t("retestsExcluded", { n: retestCount })}</p>
       )}
 
       <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, padding: "20px 22px 8px", marginBottom: 22 }}>
-        <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: 13, color: T.ink, marginBottom: 12, textTransform: "uppercase", letterSpacing: "0.04em" }}>
+        <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(13), color: T.ink, marginBottom: 12, textTransform: "uppercase", letterSpacing: "0.04em" }}>
           {t("perfAll")}
         </div>
         <ResponsiveContainer width="100%" height={Math.max(160, subjectRows.length * 40)}>
           <BarChart data={subjectRows} layout="vertical" margin={{ left: 8, right: 24, top: 4, bottom: 4 }}>
             <CartesianGrid strokeDasharray="3 3" stroke={T.border} horizontal={false} />
-            <XAxis type="number" domain={[0, 100]} tick={{ fontFamily: FONT_MONO, fontSize: 11, fill: T.muted }} unit="%" />
-            <YAxis type="category" dataKey="subject" width={130} tick={{ fontFamily: FONT_UI, fontSize: 12.5, fill: T.ink }} />
+            <XAxis type="number" domain={[0, 100]} tick={{ fontFamily: FONT_MONO, fontSize: fs(11), fill: T.muted }} unit="%" />
+            <YAxis type="category" dataKey="subject" width={130} tick={{ fontFamily: FONT_UI, fontSize: fs(12.5), fill: T.ink }} />
             <Tooltip
               formatter={(v, n, p) => [`${p.payload.correct}/${p.payload.total} (${v}%)`, t("score")]}
-              contentStyle={{ fontFamily: FONT_UI, fontSize: 12.5, borderRadius: 8, border: `1px solid ${T.border}`, background: T.card, color: T.ink }}
+              contentStyle={{ fontFamily: FONT_UI, fontSize: fs(12.5), borderRadius: 8, border: `1px solid ${T.border}`, background: T.card, color: T.ink }}
             />
             <Bar dataKey="pct" radius={[0, 6, 6, 0]} barSize={18}>
               {subjectRows.map((r, i) => (
@@ -3237,8 +3457,8 @@ function FinalSummary({ examData, blockStates, onBackToLobby, T, darkMode, setDa
 
       {weakest.length > 0 && (
         <div style={{ background: T.blueLight, borderRadius: 10, padding: "16px 20px", marginBottom: 22 }}>
-          <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: 13, color: T.blueDeep, marginBottom: 6 }}>{t("focusAreas")}</div>
-          <p style={{ fontFamily: FONT_UI, fontSize: 13.5, color: T.blueDeep, margin: 0, lineHeight: 1.6 }}>
+          <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(13), color: T.blueDeep, marginBottom: 6 }}>{t("focusAreas")}</div>
+          <p style={{ fontFamily: FONT_UI, fontSize: fs(13.5), color: T.blueDeep, margin: 0, lineHeight: 1.6 }}>
             {t("lowest", { list: weakest.map((w) => `${w.subject} (${w.pct}%)`).join(", ") })}
           </p>
         </div>
@@ -3247,7 +3467,7 @@ function FinalSummary({ examData, blockStates, onBackToLobby, T, darkMode, setDa
       <div style={{ display: "grid", gap: 10 }}>
         {examData.blocks.map((block, i) => blockStates[i].score && (
           <div key={i} style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 8, padding: "14px 18px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-            <span style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: 14, color: T.ink }}>{blockLabel(block, t)}</span>
+            <span style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(14), color: T.ink }}>{blockLabel(block, t)}</span>
             <Pill T={T} tone={blockStates[i].score.pct >= 70 ? "green" : "red"}>
               {blockStates[i].score.correct}/{blockStates[i].score.total} · {blockStates[i].score.pct}%
             </Pill>
@@ -3273,6 +3493,8 @@ export default function App() {
   const [history, setHistory] = useState(boot.session ? boot.session.history : []); // immutable snapshot of every finished attempt (baseline + retests)
   const [darkMode, setDarkMode] = useState(boot.prefs.darkMode);
   const [lang, setLang] = useState(boot.prefs.lang); // English is the default
+  const [textScale, setTextScale] = useState(boot.prefs.textScale);
+  TEXT_SCALE = textScale; // read by fs() while this render builds the tree
   const [library, setLibrary] = useState(boot.library); // [{ id, title, importDate, questions, lastScore }]
   const [restoredNotice, setRestoredNotice] = useState(!!boot.session);
   const [storageError, setStorageError] = useState(false);
@@ -3298,16 +3520,16 @@ export default function App() {
     const hasOpenWork = !!examData && blockStates.some((b) => b.status !== "done");
     if (!hasOpenWork) { persist(LS_SESSION, null); return; }
     persist(LS_SESSION,
-      `{"v":${SESSION_VERSION},"savedAt":${Date.now()},"view":${JSON.stringify(view === "exam" ? "exam" : "lobby")},` +
+      `{"v":${SESSION_VERSION},"savedAt":${Date.now()},"view":${JSON.stringify(view === "exam" ? "exam" : view === "import" ? "import" : "lobby")},` +
       `"activeBlockIdx":${JSON.stringify(activeBlockIdx)},"history":${JSON.stringify(history)},` +
       `"blockStates":${JSON.stringify(blockStates)},"examData":${examJson}}`);
   }, [examJson, blockStates, history, view, activeBlockIdx]);
 
   useEffect(() => { persist(LS_LIBRARY, library.length ? JSON.stringify(library) : null); }, [library]);
   useEffect(() => {
-    const isDefault = darkMode === true && lang === "en";
-    persist(LS_PREFS, isDefault ? null : JSON.stringify({ darkMode, lang }));
-  }, [darkMode, lang]);
+    const isDefault = darkMode === true && lang === "en" && textScale === 1;
+    persist(LS_PREFS, isDefault ? null : JSON.stringify({ darkMode, lang, textScale }));
+  }, [darkMode, lang, textScale]);
   useEffect(() => {
     if (!restoredNotice) return;
     const id = setTimeout(() => setRestoredNotice(false), 5000);
@@ -3383,6 +3605,27 @@ export default function App() {
     setView("lobby");
   }
 
+  // Saves a self-rating on the question's `meta` ({ rating, ratedAt }) — in the loaded exam (every copy, incl. retest
+  // blocks) and in the persisted qbankLibrary entry it came from, so ratings survive reloads and drive retest filters.
+  function rateQuestion(blockIdx, q, key) {
+    const ratedAt = Date.now();
+    const stamp = (qq) => (qq.id === q.id ? { ...qq, meta: { ...(qq.meta || {}), rating: key, ratedAt } } : qq);
+    setExamData((prev) => ({ ...prev, blocks: prev.blocks.map((b) => ({ ...b, questions: b.questions.map(stamp) })) }));
+
+    // Which library entry owns this question? Mixed blocks namespace ids as "<entryId>::<questionId>";
+    // retest blocks point back at their first-pass block via retestOf.
+    const block = examData.blocks[blockIdx];
+    const sep = String(q.id).indexOf("::");
+    let entryId = null, origId = q.id;
+    if (sep > 0) { entryId = q.id.slice(0, sep); origId = q.id.slice(sep + 2); }
+    else if (block) { entryId = (block.isRetest ? examData.blocks[block.retestOf] : block)?.libraryId || null; }
+    if (!entryId) return; // not saved to the library yet: the rating lives with the session and is saved if the block is added later
+    setLibrary((lib) => lib.map((e) => (e.id !== entryId ? e : {
+      ...e,
+      questions: e.questions.map((qq) => (qq.id === origId ? { ...qq, meta: { ...(qq.meta || {}), rating: key, ratedAt } } : qq)),
+    })));
+  }
+
   function deleteLibraryEntry(id) { setLibrary((lib) => lib.filter((e) => e.id !== id)); }
 
   function recordLibraryScore(libraryId, score, finishedAt) {
@@ -3399,7 +3642,7 @@ export default function App() {
     setStorageError(false);
     setRestoredNotice(false);
     setExamData(null); setBlockStates([]); setHistory([]); setActiveBlockIdx(null);
-    setLibrary([]); setDarkMode(true); setLang("en");
+    setLibrary([]); setDarkMode(true); setLang("en"); setTextScale(1);
     setView("import");
   }
 
@@ -3415,15 +3658,47 @@ export default function App() {
     setView("lobby");
   }
 
+  // Time spent parked on Home must not count toward a block's elapsed time: re-base startedAt when the block is reopened.
+  function unpause(bs) {
+    if (!bs.pausedAt) return bs;
+    return { ...bs, startedAt: bs.startedAt ? bs.startedAt + (Date.now() - bs.pausedAt) : bs.startedAt, pausedAt: null };
+  }
+
   function startBlock(idx) {
     setBlockStates((prev) => {
       const copy = [...prev];
       if (copy[idx].status === "pending") copy[idx] = { ...copy[idx], status: "in-progress", startedAt: Date.now() };
+      else copy[idx] = unpause(copy[idx]);
       return copy;
     });
     setActiveBlockIdx(idx);
     setView("exam");
   }
+
+  // Home: go back to the dashboard WITHOUT resetting anything. Answers, question index and timing live in blockStates and are
+  // written to localStorage by the auto-save effect above on every change, so the session is already saved when we leave.
+  // A timed block can't leave the exam screen at all (no mid-block navigation); the button isn't rendered there either.
+  function goHome() {
+    const bs = view === "exam" ? blockStates[activeBlockIdx] : null;
+    if (bs && bs.status === "in-progress") {
+      if (!bs.tutor) return;
+      setBlockStates((prev) => {
+        const copy = [...prev];
+        copy[activeBlockIdx] = { ...copy[activeBlockIdx], pausedAt: Date.now() };
+        return copy;
+      });
+    }
+    setView("import");
+  }
+
+  function resumeSession(idx) { startBlock(idx); }
+
+  // Starting something new from Home would replace the loaded exam, so an in-progress block needs an explicit OK first.
+  const hasInProgress = !!examData && blockStates.some((b) => b.status === "in-progress");
+  const [discardPrompt, setDiscardPrompt] = useState(null);
+  function guardNew(fn) { if (hasInProgress) setDiscardPrompt(() => fn); else fn(); }
+  const ipIdx = examData ? blockStates.findIndex((b) => b.status === "in-progress") : -1;
+  const homeSession = examData ? { examTitle: examData.examTitle, idx: ipIdx, block: ipIdx >= 0 ? examData.blocks[ipIdx] : null, bs: ipIdx >= 0 ? blockStates[ipIdx] : null } : null;
 
   // useCallback: ExamScreen's countdown effect lists this in its deps. A fresh function on every render
   // tore down and recreated the 1s interval on every re-render, so rapid input (typing a note, clicking
@@ -3495,7 +3770,12 @@ export default function App() {
     const block = examData.blocks[idx];
     const bs = blockStates[idx];
     const src = block.questions.filter((q) =>
-      pool === "all" ? true : pool === "flagged" ? !!bs.answers[q.id]?.flagged : bs.answers[q.id]?.selected !== q.correctAnswer);
+      pool === "all" ? true
+      : pool === "flagged" ? !!bs.answers[q.id]?.flagged
+      : pool === "again" ? q.meta?.rating === "again"
+      : pool === "hard" ? q.meta?.rating === "hard"
+      : pool === "againhard" ? (q.meta?.rating === "again" || q.meta?.rating === "hard")
+      : bs.answers[q.id]?.selected !== q.correctAnswer);
     if (src.length === 0) return;
     const shuffled = shuffleArray(src).map(shuffleQuestionOptions); // new question AND answer order
     const newBlock = {
@@ -3504,13 +3784,13 @@ export default function App() {
       timeLimitMinutes: pool === "all" && typeof block.timeLimitMinutes === "number" ? block.timeLimitMinutes : Math.max(5, Math.round(shuffled.length * 1.5)),
       isRetest: true,
       retestOf: block.isRetest ? block.retestOf : idx, // always points at the first-pass block
-      retestType: pool === "incorrect" ? "missed" : pool === "flagged" ? "flagged" : "full",
+      retestType: { incorrect: "missed", flagged: "flagged", all: "full" }[pool] || pool, // again / hard / againhard keep their own name
       retestCount: shuffled.length,
     };
     launchBlock(newBlock, mode);
   }
   const retestMissedBlock = (idx) => launchRetest(idx, { pool: "incorrect", mode: "tutor" });
-  const retestEntireBlock = (idx) => launchRetest(idx, { pool: "all", mode: "timed" });
+  const retestEntireBlock = (idx) => launchRetest(idx, { pool: "all", mode: "tutor" });
 
   function launchBlock(newBlock, mode) {
     const newIndex = examData.blocks.length;
@@ -3522,13 +3802,14 @@ export default function App() {
 
   return (
     <LangContext.Provider value={{ lang, setLang }}>
+    <TextScaleContext.Provider value={{ textScale, setTextScale }}>
     <DataContext.Provider value={{ resetAllData }}>
-    <div style={{ minHeight: "100vh", background: T.paper, fontFamily: FONT_UI }}>
+    <div style={{ minHeight: "100vh", background: T.paper, fontFamily: FONT_UI, textAlign: "left" }}>
       {restoredNotice && (
         <div role="status" onClick={() => setRestoredNotice(false)} style={{
           position: "fixed", top: 14, left: "50%", transform: "translateX(-50%)", zIndex: 200, cursor: "pointer",
           display: "flex", alignItems: "center", gap: 8, background: T.greenLight, color: T.green, border: `1px solid ${T.green}`,
-          borderRadius: 999, padding: "8px 16px", fontFamily: FONT_UI, fontSize: 13, fontWeight: 600, boxShadow: "0 6px 20px rgba(0,0,0,0.25)",
+          borderRadius: 999, padding: "8px 16px", fontFamily: FONT_UI, fontSize: fs(13), fontWeight: 600, boxShadow: "0 6px 20px rgba(0,0,0,0.25)",
         }}>
           <CheckCircle2 size={15} /> {tr("resumed")}
         </div>
@@ -3537,26 +3818,46 @@ export default function App() {
         <div role="alert" style={{
           position: "fixed", bottom: 14, left: "50%", transform: "translateX(-50%)", zIndex: 200, maxWidth: "92vw",
           display: "flex", alignItems: "center", gap: 8, background: T.amberLight, color: T.amber, border: `1px solid ${T.amber}`,
-          borderRadius: 8, padding: "10px 16px", fontFamily: FONT_UI, fontSize: 13, fontWeight: 600, boxShadow: "0 6px 20px rgba(0,0,0,0.25)",
+          borderRadius: 8, padding: "10px 16px", fontFamily: FONT_UI, fontSize: fs(13), fontWeight: 600, boxShadow: "0 6px 20px rgba(0,0,0,0.25)",
         }}>
           <AlertTriangle size={16} style={{ flexShrink: 0 }} /> {tr("storageFull")}
         </div>
       )}
 
+      {discardPrompt && (
+        <div role="dialog" aria-modal="true" style={{ position: "fixed", inset: 0, zIndex: 300, background: "rgba(0,0,0,0.55)", display: "flex", alignItems: "center", justifyContent: "center", padding: 20 }}>
+          <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, padding: 24, maxWidth: 420, width: "100%" }}>
+            <h3 style={{ fontFamily: FONT_UI, fontSize: fs(17), fontWeight: 700, color: T.ink, margin: "0 0 10px" }}>{tr("discardTitle")}</h3>
+            <p style={{ fontFamily: FONT_UI, fontSize: fs(14), color: T.muted, lineHeight: 1.55, margin: "0 0 20px" }}>{tr("discardBody")}</p>
+            <div style={{ display: "flex", justifyContent: "flex-end", gap: 10 }}>
+              <GhostButton T={T} onClick={() => setDiscardPrompt(null)}>{tr("cancel")}</GhostButton>
+              <PrimaryButton T={T} onClick={() => { const fn = discardPrompt; setDiscardPrompt(null); fn(); }}>{tr("discardGo")}</PrimaryButton>
+            </div>
+          </div>
+        </div>
+      )}
+
       {view === "import" && (
+        <FullPage T={T}>
         <ImportScreen
-          onImport={handleImport}
+          onImport={(d) => guardNew(() => handleImport(d))}
           onSaveToLibrary={saveImportToLibrary}
           library={library}
-          onLaunchLibrary={launchFromLibrary}
-          onMixLibrary={mixFromLibrary}
+          session={homeSession}
+          onResume={() => resumeSession(ipIdx)}
+          onOpenLobby={() => setView("lobby")}
+          onLaunchLibrary={(ids) => guardNew(() => launchFromLibrary(ids))}
+          onMixLibrary={(ids, size) => guardNew(() => mixFromLibrary(ids, size))}
           onDeleteLibraryEntry={deleteLibraryEntry}
           T={T} darkMode={darkMode} setDarkMode={setDarkMode}
         />
+        </FullPage>
       )}
 
       {view === "lobby" && examData && (
-        <Lobby examData={examData} blockStates={blockStates} onStart={startBlock} onReview={reviewBlock} onReset={resetAll} onFinalSummary={() => setView("final")} onSetMode={setBlockMode} onRetestMissed={retestMissedBlock} onRetestAll={retestEntireBlock} onSaveToLibrary={saveLoadedExamToLibrary} T={T} darkMode={darkMode} setDarkMode={setDarkMode} />
+        <FullPage T={T}>
+        <Lobby examData={examData} blockStates={blockStates} onStart={startBlock} onReview={reviewBlock} onHome={goHome} onFinalSummary={() => setView("final")} onSetMode={setBlockMode} onRetestMissed={retestMissedBlock} onRetestAll={retestEntireBlock} onSaveToLibrary={saveLoadedExamToLibrary} T={T} darkMode={darkMode} setDarkMode={setDarkMode} />
+        </FullPage>
       )}
 
       {view === "exam" && examData && activeBlockIdx !== null && (
@@ -3566,12 +3867,15 @@ export default function App() {
           blockState={blockStates[activeBlockIdx]}
           setBlockState={setActiveBlockState}
           onSubmitBlock={submitActiveBlock}
+          onRate={(q, k) => rateQuestion(activeBlockIdx, q, k)}
+          onHome={goHome}
           darkMode={darkMode}
           setDarkMode={setDarkMode}
         />
       )}
 
       {view === "results" && examData && activeBlockIdx !== null && (
+        <FullPage T={T}>
         <BlockResults
           block={examData.blocks[activeBlockIdx]}
           blockState={blockStates[activeBlockIdx]}
@@ -3579,18 +3883,23 @@ export default function App() {
           blockIdx={activeBlockIdx}
           history={history}
           onRetest={launchRetest}
-          onLoadNewExam={resetAll}
+          onRate={(q, k) => rateQuestion(activeBlockIdx, q, k)}
+          onHome={goHome}
           T={T}
           darkMode={darkMode}
           setDarkMode={setDarkMode}
         />
+        </FullPage>
       )}
 
       {view === "final" && examData && (
+        <FullPage T={T}>
         <FinalSummary examData={examData} blockStates={blockStates} onBackToLobby={() => setView("lobby")} T={T} darkMode={darkMode} setDarkMode={setDarkMode} />
+        </FullPage>
       )}
     </div>
     </DataContext.Provider>
+    </TextScaleContext.Provider>
     </LangContext.Provider>
   );
 }
