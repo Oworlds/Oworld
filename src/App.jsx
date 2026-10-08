@@ -274,7 +274,7 @@ const STR = {
     intro: "Paste or upload custom question banks created with your favorite AI tools like ChatGPT, Claude, Gemini, or NotebookLM. Experience an exam-like environment complete with lab reference panels, answer strikethroughs, a built-in calculator, and detailed score analytics.",
     pasteJson: "Paste or upload question bank", upload: "Upload file",
     pastePh: "Paste your generated question bank here…",
-    load: "Load exam", importQbank: "Import New Qbank", homeBtn: "Home", resumeSession: "Resume Session", sessionInProgress: "Session in progress", sessionPos: "Question {n} of {total}", examLoadedLabel: "Exam loaded", openLobby: "Open exam lobby", inProgressTag: "In progress", discardTitle: "Discard in-progress session?", discardBody: "Starting something new replaces your in-progress block, and its answers will be lost.", discardGo: "Discard and continue", hide: "Hide", recipe: "Question Recipe Prompt",
+    load: "Load exam", importQbank: "Import New Qbank", homeBtn: "Home", navCollapse: "Collapse question list", navExpand: "Expand question list", resumeSession: "Resume Session", sessionInProgress: "Session in progress", sessionPos: "Question {n} of {total}", examLoadedLabel: "Exam loaded", openLobby: "Open exam lobby", inProgressTag: "In progress", discardTitle: "Discard in-progress session?", discardBody: "Starting something new replaces your in-progress block, and its answers will be lost.", discardGo: "Discard and continue", hide: "Hide", recipe: "Question Recipe Prompt",
     recipeIntro: "Configure a block below, then copy the generated recipe into the AI tool of your choice (add your source material if it supports it). It returns questions in the exact shape this app expects.",
     blockSize: "Block size", focus: "Focus",
     "focus.standard": "Standard USMLE mix", "focus.systems": "Single organ system", "focus.discipline": "Single discipline",
@@ -370,7 +370,7 @@ const STR = {
     intro: "Pega o sube bancos de preguntas personalizados creados con tus herramientas de IA favoritas, como ChatGPT, Claude, Gemini o NotebookLM. Vive un entorno similar al examen real, con paneles de referencia de laboratorio, tachado de respuestas, calculadora integrada y analíticas detalladas de tu puntaje.",
     pasteJson: "Pega o sube un banco de preguntas", upload: "Subir archivo",
     pastePh: "Pega aquí tu banco de preguntas generado…",
-    load: "Cargar examen", importQbank: "Importar nuevo Qbank", homeBtn: "Inicio", resumeSession: "Reanudar sesión", sessionInProgress: "Sesión en curso", sessionPos: "Pregunta {n} de {total}", examLoadedLabel: "Examen cargado", openLobby: "Abrir sala del examen", inProgressTag: "En curso", discardTitle: "¿Descartar la sesión en curso?", discardBody: "Iniciar algo nuevo reemplaza tu bloque en curso y se perderán sus respuestas.", discardGo: "Descartar y continuar", hide: "Ocultar", recipe: "Prompt de receta de preguntas",
+    load: "Cargar examen", importQbank: "Importar nuevo Qbank", homeBtn: "Inicio", navCollapse: "Contraer lista de preguntas", navExpand: "Expandir lista de preguntas", resumeSession: "Reanudar sesión", sessionInProgress: "Sesión en curso", sessionPos: "Pregunta {n} de {total}", examLoadedLabel: "Examen cargado", openLobby: "Abrir sala del examen", inProgressTag: "En curso", discardTitle: "¿Descartar la sesión en curso?", discardBody: "Iniciar algo nuevo reemplaza tu bloque en curso y se perderán sus respuestas.", discardGo: "Descartar y continuar", hide: "Ocultar", recipe: "Prompt de receta de preguntas",
     recipeIntro: "Configura un bloque abajo y luego copia la receta generada en la herramienta de IA que prefieras (agrega tu material de estudio si lo permite). Devuelve las preguntas en el formato exacto que esta app espera.",
     blockSize: "Tamaño del bloque", focus: "Enfoque",
     "focus.standard": "Mezcla USMLE estándar", "focus.systems": "Un solo sistema", "focus.discipline": "Una sola disciplina",
@@ -2212,6 +2212,9 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onRate, o
   const [confirmTimerOff, setConfirmTimerOff] = useState(false);
   const [timeUp, setTimeUp] = useState(false);
   const [settingsOpen, setSettingsOpen] = useState(false);
+  // The question list can fold into a slim rail to give the question more room; the choice is remembered.
+  const [navCollapsed, setNavCollapsed] = useState(() => lsGet("navCollapsed") === true);
+  const toggleNav = () => setNavCollapsed((v) => { lsSet("navCollapsed", JSON.stringify(!v)); return !v; });
   const [labOpen, setLabOpen] = useState(false);
   const [notesOpen, setNotesOpen] = useState(false);
   const [calcOpen, setCalcOpen] = useState(false);
@@ -2400,7 +2403,7 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onRate, o
     return out;
   })();
 
-  const showPreview = tutorMode && !compact;
+  const showPreview = tutorMode && !compact && !navCollapsed;
   const navAnswered = Object.values(blockState.answers).filter((a) => a.selected).length;
 
   const toolBtnStyle = (active) => ({
@@ -2517,10 +2520,21 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onRate, o
       <div style={{ flex: 1, display: "flex", minHeight: 0, overflow: "hidden", position: "relative" }}>
         {/* Left navigator. Tutor mode (on screens wide enough) adds a progress header and a one-line vignette preview per row. */}
         <div style={{
-          width: Math.round((compact ? 76 : tutorMode ? 280 : 130) * Math.min(TEXT_SCALE, 1.3)), flexShrink: 0, background: T.card, borderRight: `1px solid ${T.border}`, padding: "16px 0",
+          width: Math.round((navCollapsed ? (compact ? 56 : 72) : compact ? 76 : tutorMode ? 280 : 130) * Math.min(TEXT_SCALE, 1.3)), transition: "width 0.18s ease", flexShrink: 0, background: T.card, borderRight: `1px solid ${T.border}`, padding: "16px 0",
           display: "flex", flexDirection: "column", overflow: "hidden",
         }}>
-          {tutorMode && !compact ? (
+          <div style={{ display: "flex", justifyContent: navCollapsed ? "center" : "flex-end", padding: navCollapsed ? "0 0 8px" : "0 10px 6px" }}>
+            <button
+              onClick={toggleNav}
+              title={navCollapsed ? t("navExpand") : t("navCollapse")}
+              aria-label={navCollapsed ? t("navExpand") : t("navCollapse")}
+              aria-expanded={!navCollapsed}
+              style={{ display: "flex", alignItems: "center", justifyContent: "center", width: 28, height: 26, borderRadius: 6, cursor: "pointer", background: "transparent", color: T.muted, border: `1px solid ${T.border}` }}
+            >
+              {navCollapsed ? <ChevronRight size={16} /> : <ChevronLeft size={16} />}
+            </button>
+          </div>
+          {navCollapsed ? null : tutorMode && !compact ? (
             <div style={{ padding: "0 16px 12px", borderBottom: `1px solid ${T.border}`, marginBottom: 6 }}>
               <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(13), color: T.ink, marginBottom: 8, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
                 {blockLabel(block, t)}
@@ -2551,6 +2565,7 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onRate, o
                   onClick={() => setQIdx(i)}
                   style={{
                     display: "flex", alignItems: "center", justifyContent: showPreview ? "flex-start" : "center", gap: showPreview ? 10 : 6, padding: showPreview ? "7px 16px" : "6px 0",
+                    flexWrap: navCollapsed ? "wrap" : "nowrap", rowGap: 2,
                     cursor: "pointer", background: isCurrent ? T.blue : "transparent",
                     color: isCurrent ? T.onBlue : T.ink, fontFamily: FONT_UI, fontSize: fs(14),
                   }}
