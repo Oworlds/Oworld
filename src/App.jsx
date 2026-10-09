@@ -1799,6 +1799,8 @@ function ImportScreen({ onImport, onSaveToLibrary, library, session, onResume, o
   const [showDisclaimer, setShowDisclaimer] = useState(false);
   const [saveMsg, setSaveMsg] = useState(null); // { tone: "green" | "red" | "muted", text }
   const [guideOpen, setGuideOpen] = useState(false);
+  const vp = useViewport();
+  const stacked = vp.w < 820; // on narrow screens the buttons sit in their own row above the logo instead of floating over it
   const [importOpen, setImportOpen] = useState(false); // import area is an accordion, collapsed by default
   const fileRef = useRef(null);
   // Library entry (if any) that owns the in-progress block — it gets the Resume Session button.
@@ -1848,7 +1850,9 @@ function ImportScreen({ onImport, onSaveToLibrary, library, session, onResume, o
     <div style={{ maxWidth: Math.round(1120 * Math.max(1, TEXT_SCALE)), margin: "0 auto", padding: "48px 20px 80px", position: "relative" }}>
       <style>{`@import url('${FONT_IMPORT_URL}');`}</style>
 
-      <div style={{ position: "absolute", top: 48, right: 20, display: "flex", gap: 10, alignItems: "flex-start" }}>
+      <div style={stacked
+        ? { display: "flex", flexWrap: "wrap", justifyContent: "flex-end", gap: 8, alignItems: "flex-start", marginBottom: 22 }
+        : { position: "absolute", top: 48, right: 20, display: "flex", gap: 10, alignItems: "flex-start" }}>
         <GhostButton T={T} icon={HelpCircle} onClick={() => setGuideOpen(true)}>{t("howItWorks")}</GhostButton>
         <LangToggle T={T} />
         <SettingsMenu darkMode={darkMode} setDarkMode={setDarkMode} T={T} />
@@ -1857,14 +1861,14 @@ function ImportScreen({ onImport, onSaveToLibrary, library, session, onResume, o
 
       <div style={{ textAlign: "center", marginBottom: 36 }}>
         <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 12 }}>
-          <Activity size={34} color={T.blue} strokeWidth={2.5} />
-          <span style={{ fontFamily: FONT_MONO, fontSize: fs(44), letterSpacing: "0.1em", color: T.blue, fontWeight: 700 }}>
+          <Activity size={stacked ? 28 : 34} color={T.blue} strokeWidth={2.5} />
+          <span style={{ fontFamily: FONT_MONO, fontSize: fs(stacked ? 34 : 44), letterSpacing: "0.1em", color: T.blue, fontWeight: 700 }}>
             OWORLD
           </span>
         </div>
       </div>
 
-      <h1 style={{ fontFamily: FONT_DISPLAY, fontSize: fs(38), fontWeight: 600, color: T.ink, margin: "0 0 10px" }}>
+      <h1 style={{ fontFamily: FONT_DISPLAY, fontSize: fs(stacked ? 30 : 38), fontWeight: 600, lineHeight: 1.15, color: T.ink, margin: "0 0 10px" }}>
         {t("title")}
       </h1>
       <p style={{ fontFamily: FONT_UI, fontSize: fs(15), color: T.muted, lineHeight: 1.6, maxWidth: 620, marginBottom: 32 }}>
