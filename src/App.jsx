@@ -4,7 +4,7 @@ import {
   Play, CheckCircle2, XCircle, AlertTriangle, ClipboardList, Activity,
   Check, ChevronDown, ChevronUp, FileJson, FlaskConical, PencilLine,
   Calculator as CalcIcon, Settings as SettingsIcon, Lock, Unlock,
-  Search, Trash2, X, XOctagon, Lightbulb, Sun, Moon, Highlighter, BookOpen, Stethoscope, Target, Save, Shuffle, Plus, Home as HomeIcon
+  Search, Trash2, X, XOctagon, Lightbulb, Sun, Moon, Highlighter, BookOpen, Stethoscope, Target, Save, Shuffle, Plus, Home as HomeIcon, HelpCircle
 } from "lucide-react";
 import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell
@@ -274,7 +274,7 @@ const STR = {
     intro: "Paste or upload custom question banks created with your favorite AI tools like ChatGPT, Claude, Gemini, or NotebookLM. Experience an exam-like environment complete with lab reference panels, answer strikethroughs, a built-in calculator, and detailed score analytics.",
     pasteJson: "Paste or upload question bank", upload: "Upload file",
     pastePh: "Paste your generated question bank here…",
-    load: "Load exam", importQbank: "Import New Qbank", homeBtn: "Home", navCollapse: "Collapse question list", navExpand: "Expand question list", resumeSession: "Resume Session", sessionInProgress: "Session in progress", sessionPos: "Question {n} of {total}", examLoadedLabel: "Exam loaded", openLobby: "Open exam lobby", inProgressTag: "In progress", discardTitle: "Discard in-progress session?", discardBody: "Starting something new replaces your in-progress block, and its answers will be lost.", discardGo: "Discard and continue", hide: "Hide", recipe: "Question Recipe Prompt",
+    load: "Load exam", importQbank: "Import New Qbank", homeBtn: "Home", howItWorks: "How it works", guideStep: "Step {n} of {total}", guideBack: "Back", guideNext: "Next", guideDone: "Got it", guideClose: "Close guide", navCollapse: "Collapse question list", navExpand: "Expand question list", resumeSession: "Resume Session", sessionInProgress: "Session in progress", sessionPos: "Question {n} of {total}", examLoadedLabel: "Exam loaded", openLobby: "Open exam lobby", inProgressTag: "In progress", discardTitle: "Discard in-progress session?", discardBody: "Starting something new replaces your in-progress block, and its answers will be lost.", discardGo: "Discard and continue", hide: "Hide", recipe: "Question Recipe Prompt",
     recipeIntro: "Configure a block below, then copy the generated recipe into the AI tool of your choice (add your source material if it supports it). It returns questions in the exact shape this app expects.",
     blockSize: "Block size", focus: "Focus",
     "focus.standard": "Standard USMLE mix", "focus.systems": "Single organ system", "focus.discipline": "Single discipline",
@@ -370,7 +370,7 @@ const STR = {
     intro: "Pega o sube bancos de preguntas personalizados creados con tus herramientas de IA favoritas, como ChatGPT, Claude, Gemini o NotebookLM. Vive un entorno similar al examen real, con paneles de referencia de laboratorio, tachado de respuestas, calculadora integrada y analíticas detalladas de tu puntaje.",
     pasteJson: "Pega o sube un banco de preguntas", upload: "Subir archivo",
     pastePh: "Pega aquí tu banco de preguntas generado…",
-    load: "Cargar examen", importQbank: "Importar nuevo Qbank", homeBtn: "Inicio", navCollapse: "Contraer lista de preguntas", navExpand: "Expandir lista de preguntas", resumeSession: "Reanudar sesión", sessionInProgress: "Sesión en curso", sessionPos: "Pregunta {n} de {total}", examLoadedLabel: "Examen cargado", openLobby: "Abrir sala del examen", inProgressTag: "En curso", discardTitle: "¿Descartar la sesión en curso?", discardBody: "Iniciar algo nuevo reemplaza tu bloque en curso y se perderán sus respuestas.", discardGo: "Descartar y continuar", hide: "Ocultar", recipe: "Prompt de receta de preguntas",
+    load: "Cargar examen", importQbank: "Importar nuevo Qbank", homeBtn: "Inicio", howItWorks: "Cómo funciona", guideStep: "Paso {n} de {total}", guideBack: "Atrás", guideNext: "Siguiente", guideDone: "Entendido", guideClose: "Cerrar guía", navCollapse: "Contraer lista de preguntas", navExpand: "Expandir lista de preguntas", resumeSession: "Reanudar sesión", sessionInProgress: "Sesión en curso", sessionPos: "Pregunta {n} de {total}", examLoadedLabel: "Examen cargado", openLobby: "Abrir sala del examen", inProgressTag: "En curso", discardTitle: "¿Descartar la sesión en curso?", discardBody: "Iniciar algo nuevo reemplaza tu bloque en curso y se perderán sus respuestas.", discardGo: "Descartar y continuar", hide: "Ocultar", recipe: "Prompt de receta de preguntas",
     recipeIntro: "Configura un bloque abajo y luego copia la receta generada en la herramienta de IA que prefieras (agrega tu material de estudio si lo permite). Devuelve las preguntas en el formato exacto que esta app espera.",
     blockSize: "Tamaño del bloque", focus: "Enfoque",
     "focus.standard": "Mezcla USMLE estándar", "focus.systems": "Un solo sistema", "focus.discipline": "Una sola disciplina",
@@ -1620,6 +1620,107 @@ function QbankLibraryPanel({ library, onLaunch, onMix, onDelete, resumeId, onRes
 // ---------------------------------------------------------------------------
 // Import screen
 // ---------------------------------------------------------------------------
+// Quick-start guide shown from the Home screen's "How it works" button. Plain language, one idea per step, and the button /
+// feature names match the on-screen labels in each language.
+const GUIDE = {
+  en: [
+    { title: "Welcome to OWORLD", body: "OWORLD is a practice-exam simulator. You bring the questions, and it turns them into a realistic exam with answer tools, instant feedback and score tracking.",
+      points: ["You don't need any technical skills.", "Your saved question blocks and progress are stored only in this browser."] },
+    { title: "1. Get your questions", body: "A question bank (\"Qbank\") is simply a set of practice questions. You can ask an AI tool to write one for you.",
+      points: ["On Home, open Import New Qbank and tap Question Recipe Prompt, then copy the prompt.", "Paste it into ChatGPT, Claude, Gemini or NotebookLM along with your topic or notes.", "Paste the AI's reply back into OWORLD (or upload the file) and tap Load exam.", "Tap Save to Library to keep the questions for next time."] },
+    { title: "2. Your Qbank Library", body: "Home shows your saved blocks first, so you can jump straight back in.",
+      points: ["Tap Start on a block to begin it.", "Tick two or more blocks to run them back to back, using Start queued blocks or Mix selected.", "Tap Home any time (in Tutor Mode) to come back here."] },
+    { title: "3. Pick a mode", body: "Before you press Start block, choose how you want to practice.",
+      points: ["Tutor Mode (the default): no timer, and you get feedback right after each answer.", "Timed Mode: a countdown like the real exam, with no feedback until the block ends. There is no Home button during a timed block, so plan to finish it.", "In Timed Mode you can switch the timer off during the block, but not back on."] },
+    { title: "4. Answering questions", body: "Tap an answer choice. In Tutor Mode you see the result straight away.",
+      points: ["Key Info highlights the important clues in the story. Tutor's Tip gives you a hint. If you open either before answering, the question is tagged Hint used.", "Got it wrong? Tap Show Correct Answer when you're ready, and Why this is incorrect to see why each choice is wrong.", "Handy tools: Mark Question (flag it for later), the ab button to strike out a choice, Highlight for selected text, Notes, Lab Values and Calculator.", "The question list on the left lets you jump anywhere. Use the arrow at its top to collapse it."] },
+    { title: "5. Results and retesting", body: "When you tap End Block you get your score, a breakdown by subject, and a review of every question.",
+      points: ["Use Retest Incorrects (Tutor Mode) to practice only what you missed, or Retest Full Block to go again.", "Your first-attempt score is always kept as your baseline. Retests never overwrite it."] },
+    { title: "6. Pause and come back", body: "In Tutor Mode you can leave and pick up where you stopped.",
+      points: ["Tap Home. Your answers and place in the block are saved automatically.", "Back on Home, tap Resume Session next to that block.", "Settings (top right) has text size and dark mode."] },
+  ],
+  es: [
+    { title: "Bienvenido a OWORLD", body: "OWORLD es un simulador de exámenes de práctica. Tú aportas las preguntas y él las convierte en un examen realista con herramientas, retroalimentación inmediata y seguimiento de puntaje.",
+      points: ["No necesitas conocimientos técnicos.", "Tus bloques guardados y tu progreso se almacenan solo en este navegador."] },
+    { title: "1. Consigue tus preguntas", body: "Un banco de preguntas (\"Qbank\") es simplemente un conjunto de preguntas de práctica. Puedes pedirle a una herramienta de IA que te escriba uno.",
+      points: ["En Inicio, abre Importar nuevo Qbank y toca Prompt de receta de preguntas; luego copia el prompt.", "Pégalo en ChatGPT, Claude, Gemini o NotebookLM junto con tu tema o tus apuntes.", "Pega la respuesta de la IA en OWORLD (o sube el archivo) y toca Cargar examen.", "Toca Guardar en la biblioteca para conservar las preguntas para la próxima vez."] },
+    { title: "2. Tu biblioteca de preguntas", body: "Inicio muestra primero tus bloques guardados, para que retomes de inmediato.",
+      points: ["Toca Iniciar en un bloque para comenzarlo.", "Marca dos o más bloques para hacerlos seguidos con Iniciar bloques en cola o Mezclar selección.", "Toca Inicio en cualquier momento (en modo tutor) para volver aquí."] },
+    { title: "3. Elige un modo", body: "Antes de pulsar Iniciar bloque, elige cómo quieres practicar.",
+      points: ["Modo tutor (el predeterminado): sin cronómetro y con retroalimentación justo después de cada respuesta.", "Modo cronometrado: cuenta regresiva como en el examen real, sin retroalimentación hasta terminar el bloque. No hay botón de Inicio durante un bloque cronometrado, así que planea terminarlo.", "En modo cronometrado puedes apagar el cronómetro durante el bloque, pero no volver a encenderlo."] },
+    { title: "4. Responder preguntas", body: "Toca una opción de respuesta. En modo tutor ves el resultado al instante.",
+      points: ["Datos clave resalta las pistas importantes del caso. Consejo del tutor te da una pista. Si abres cualquiera antes de responder, la pregunta queda marcada como Pista usada.", "¿Fallaste? Toca Mostrar respuesta correcta cuando quieras y Por qué es incorrecta para ver por qué falla cada opción.", "Herramientas útiles: Marcar pregunta (para revisarla luego), el botón ab para tachar una opción, Resaltar para el texto seleccionado, Notas, Valores de laboratorio y Calculadora.", "La lista de preguntas a la izquierda te deja saltar a cualquiera. Usa la flecha de arriba para contraerla."] },
+    { title: "5. Resultados y repetición", body: "Al tocar Terminar bloque ves tu puntaje, un desglose por materia y una revisión de cada pregunta.",
+      points: ["Usa Repetir falladas (modo tutor) para practicar solo lo que fallaste, o Repetir bloque completo para hacerlo de nuevo.", "El puntaje de tu primer intento siempre se conserva como referencia. Las repeticiones nunca lo sobrescriben."] },
+    { title: "6. Pausa y vuelve", body: "En modo tutor puedes salir y retomar donde lo dejaste.",
+      points: ["Toca Inicio. Tus respuestas y tu posición en el bloque se guardan automáticamente.", "De vuelta en Inicio, toca Reanudar sesión junto a ese bloque.", "Ajustes (arriba a la derecha) tiene el tamaño de texto y el modo oscuro."] },
+  ],
+};
+
+function HowItWorksGuide({ onClose, T }) {
+  const { t, lang } = useI18n();
+  const steps = GUIDE[lang] || GUIDE.en;
+  const [i, setI] = useState(0);
+  const last = i === steps.length - 1;
+  const step = steps[i];
+
+  useEffect(() => {
+    const onKey = (e) => {
+      if (e.key === "Escape") onClose();
+      else if (e.key === "ArrowRight") setI((v) => Math.min(v + 1, steps.length - 1));
+      else if (e.key === "ArrowLeft") setI((v) => Math.max(v - 1, 0));
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [onClose, steps.length]);
+
+  return (
+    <div role="dialog" aria-modal="true" aria-label={t("howItWorks")} onClick={onClose}
+      style={{ position: "fixed", inset: 0, zIndex: 320, background: "rgba(0,0,0,0.6)", display: "flex", alignItems: "center", justifyContent: "center", padding: 20 }}>
+      <div onClick={(e) => e.stopPropagation()} style={{
+        background: T.card, border: `1px solid ${T.border}`, borderRadius: 12, width: "100%", maxWidth: Math.round(620 * Math.max(1, TEXT_SCALE)),
+        maxHeight: "88vh", display: "flex", flexDirection: "column", overflow: "hidden",
+      }}>
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "16px 22px", borderBottom: `1px solid ${T.border}` }}>
+          <span style={{ display: "inline-flex", alignItems: "center", gap: 8, fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(14), color: T.ink }}>
+            <HelpCircle size={17} color={T.blue} /> {t("howItWorks")}
+          </span>
+          <button onClick={onClose} aria-label={t("guideClose")} title={t("guideClose")}
+            style={{ background: "transparent", border: "none", cursor: "pointer", color: T.muted, display: "flex" }}>
+            <X size={18} />
+          </button>
+        </div>
+
+        <div style={{ padding: "22px 26px", overflowY: "auto", flex: 1 }}>
+          <div style={{ fontFamily: FONT_MONO, fontSize: fs(11.5), color: T.muted, marginBottom: 8 }}>
+            {t("guideStep", { n: i + 1, total: steps.length })}
+          </div>
+          <h2 style={{ fontFamily: FONT_DISPLAY, fontSize: fs(24), fontWeight: 600, color: T.ink, margin: "0 0 10px" }}>{step.title}</h2>
+          <p style={{ fontFamily: FONT_UI, fontSize: fs(14.5), color: T.ink, lineHeight: 1.6, margin: "0 0 14px" }}>{step.body}</p>
+          <ul style={{ margin: 0, paddingLeft: 20, display: "grid", gap: 8 }}>
+            {step.points.map((p, pi) => (
+              <li key={pi} style={{ fontFamily: FONT_UI, fontSize: fs(14), color: T.muted, lineHeight: 1.55 }}>{p}</li>
+            ))}
+          </ul>
+        </div>
+
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 12, padding: "14px 22px", borderTop: `1px solid ${T.border}` }}>
+          <div style={{ display: "flex", gap: 6 }}>
+            {steps.map((_, di) => (
+              <button key={di} onClick={() => setI(di)} aria-label={t("guideStep", { n: di + 1, total: steps.length })}
+                style={{ width: 9, height: 9, borderRadius: 999, padding: 0, cursor: "pointer", border: `1px solid ${T.blue}`, background: di === i ? T.blue : "transparent" }} />
+            ))}
+          </div>
+          <div style={{ display: "flex", gap: 10 }}>
+            {i > 0 && <GhostButton T={T} icon={ChevronLeft} onClick={() => setI(i - 1)}>{t("guideBack")}</GhostButton>}
+            <PrimaryButton T={T} onClick={() => (last ? onClose() : setI(i + 1))}>{last ? t("guideDone") : t("guideNext")}</PrimaryButton>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function ImportScreen({ onImport, onSaveToLibrary, library, session, onResume, onOpenLobby, onLaunchLibrary, onMixLibrary, onDeleteLibraryEntry, T, darkMode, setDarkMode }) {
   const { t, lang } = useI18n();
   const [text, setText] = useState("");
@@ -1632,6 +1733,7 @@ function ImportScreen({ onImport, onSaveToLibrary, library, session, onResume, o
   const [recipeFocusValue, setRecipeFocusValue] = useState("");
   const [showDisclaimer, setShowDisclaimer] = useState(false);
   const [saveMsg, setSaveMsg] = useState(null); // { tone: "green" | "red" | "muted", text }
+  const [guideOpen, setGuideOpen] = useState(false);
   const [importOpen, setImportOpen] = useState(false); // import area is an accordion, collapsed by default
   const fileRef = useRef(null);
   // Library entry (if any) that owns the in-progress block — it gets the Resume Session button.
@@ -1682,9 +1784,11 @@ function ImportScreen({ onImport, onSaveToLibrary, library, session, onResume, o
       <style>{`@import url('${FONT_IMPORT_URL}');`}</style>
 
       <div style={{ position: "absolute", top: 48, right: 20, display: "flex", gap: 10, alignItems: "flex-start" }}>
+        <GhostButton T={T} icon={HelpCircle} onClick={() => setGuideOpen(true)}>{t("howItWorks")}</GhostButton>
         <LangToggle T={T} />
         <SettingsMenu darkMode={darkMode} setDarkMode={setDarkMode} T={T} />
       </div>
+      {guideOpen && <HowItWorksGuide onClose={() => setGuideOpen(false)} T={T} />}
 
       <div style={{ textAlign: "center", marginBottom: 36 }}>
         <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 12 }}>
@@ -2785,12 +2889,12 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onRate, o
             </div>
           )}
 
-          <div style={{ marginTop: 22, display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap" }}>
+          <div style={{ marginTop: 22, display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap", maxWidth: 640 }}>
             <PrimaryButton T={T} onClick={goNext} style={{ background: T.blue }}>
               {qIdx < questions.length - 1 ? t("proceedNext") : t("proceedSummary")}
             </PrimaryButton>
             {tutorMode && (qState.selected || qState.struck.length > 0) && (
-              <GhostButton T={T} icon={RotateCcw} onClick={resetQuestion}>{t("resetQ")}</GhostButton>
+              <GhostButton T={T} icon={RotateCcw} onClick={resetQuestion} style={{ marginLeft: "auto" }}>{t("resetQ")}</GhostButton>
             )}
           </div>
         </div>
@@ -3261,7 +3365,7 @@ function BlockResults({ block, blockState, blockIdx, history, onBackToLobby, onR
             <BarChart data={subjectRows} layout="vertical" margin={{ left: 8, right: 24, top: 4, bottom: 4 }}>
               <CartesianGrid strokeDasharray="3 3" stroke={T.border} horizontal={false} />
               <XAxis type="number" domain={[0, 100]} tick={{ fontFamily: FONT_MONO, fontSize: fs(11), fill: T.muted }} unit="%" />
-              <YAxis type="category" dataKey="subject" width={130} tick={{ fontFamily: FONT_UI, fontSize: fs(12.5), fill: T.ink }} />
+              <YAxis type="category" dataKey="subject" width={Math.round(200 * Math.max(1, TEXT_SCALE))} interval={0} tick={<SubjectTick T={T} />} />
               <Tooltip
                 formatter={(v, n, p) => [`${p.payload.correct}/${p.payload.total} (${v}%)`, t("score")]}
                 contentStyle={{ fontFamily: FONT_UI, fontSize: fs(12.5), borderRadius: 8, border: `1px solid ${T.border}`, background: T.card, color: T.ink }}
@@ -3400,6 +3504,20 @@ function BlockResults({ block, blockState, blockIdx, history, onBackToLobby, onR
 // ---------------------------------------------------------------------------
 // Final exam summary (across all blocks)
 // ---------------------------------------------------------------------------
+// Y-axis tick for the subject charts. Long "Parent / Child" subject names used to wrap and collide, so show the last
+// segment on one line (ellipsised if still long) and keep the full name as a hover title.
+function SubjectTick({ x, y, payload, T }) {
+  const full = String(payload?.value ?? "");
+  const leaf = full.includes(" / ") ? full.split(" / ").pop() : full;
+  const label = leaf.length > 28 ? leaf.slice(0, 27) + "…" : leaf;
+  return (
+    <g transform={`translate(${x},${y})`}>
+      <title>{full}</title>
+      <text x={-8} y={0} dy={4} textAnchor="end" fontFamily={FONT_UI} fontSize={fs(12.5)} fill={T.ink}>{label}</text>
+    </g>
+  );
+}
+
 function FinalSummary({ examData, blockStates, onBackToLobby, T, darkMode, setDarkMode }) {
   const { t, lang } = useI18n();
   const subjectRows = useMemo(() => {
@@ -3434,7 +3552,7 @@ function FinalSummary({ examData, blockStates, onBackToLobby, T, darkMode, setDa
       </div>
 
       <h1 style={{ fontFamily: FONT_DISPLAY, fontSize: fs(28), fontWeight: 600, color: T.ink, margin: "0 0 4px" }}>
-        {t("fullSummaryTitle", { name: examData.examTitle })}
+        {t("fullSummaryTitle", { name: examData.examTitle || t("practiceExam") })}
       </h1>
       <div style={{ display: "flex", alignItems: "baseline", gap: 12, marginBottom: 28 }}>
         <span style={{ fontFamily: FONT_MONO, fontSize: fs(32), fontWeight: 600, color: overallPct >= 70 ? T.green : T.red }}>
@@ -3456,7 +3574,7 @@ function FinalSummary({ examData, blockStates, onBackToLobby, T, darkMode, setDa
           <BarChart data={subjectRows} layout="vertical" margin={{ left: 8, right: 24, top: 4, bottom: 4 }}>
             <CartesianGrid strokeDasharray="3 3" stroke={T.border} horizontal={false} />
             <XAxis type="number" domain={[0, 100]} tick={{ fontFamily: FONT_MONO, fontSize: fs(11), fill: T.muted }} unit="%" />
-            <YAxis type="category" dataKey="subject" width={130} tick={{ fontFamily: FONT_UI, fontSize: fs(12.5), fill: T.ink }} />
+            <YAxis type="category" dataKey="subject" width={Math.round(200 * Math.max(1, TEXT_SCALE))} interval={0} tick={<SubjectTick T={T} />} />
             <Tooltip
               formatter={(v, n, p) => [`${p.payload.correct}/${p.payload.total} (${v}%)`, t("score")]}
               contentStyle={{ fontFamily: FONT_UI, fontSize: fs(12.5), borderRadius: 8, border: `1px solid ${T.border}`, background: T.card, color: T.ink }}
