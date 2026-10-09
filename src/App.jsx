@@ -277,6 +277,13 @@ const STR = {
     load: "Load exam", importQbank: "Import New Qbank", homeBtn: "Home", removeExam: "Remove exam", removeTitle: "Remove this exam?", removeBody: "This clears the loaded exam and any progress or results in it. Your saved Qbank Library is not affected.", removeBodyUnsaved: "This clears the loaded exam and any progress or results in it. Some of its blocks are not saved to your Library and would be gone for good. Cancel and tap Save to Library first if you want to keep them.", removeGo: "Remove", libRename: "Rename Qbank", libRenameSave: "Save name", howItWorks: "How it works", guideStep: "Step {n} of {total}", guideBack: "Back", guideNext: "Next", guideDone: "Got it", guideClose: "Close guide", navCollapse: "Collapse question list", navExpand: "Expand question list", resumeSession: "Resume Session", sessionInProgress: "Session in progress", sessionPos: "Question {n} of {total}", examLoadedLabel: "Exam loaded", openLobby: "Open exam lobby", inProgressTag: "In progress", discardTitle: "Discard in-progress session?", discardBody: "Starting something new replaces your in-progress block, and its answers will be lost.", discardGo: "Discard and continue", hide: "Hide", recipe: "Question Recipe Prompt",
     recipeIntro: "Configure a block below, then copy the generated recipe into the AI tool of your choice (add your source material if it supports it). It returns questions in the exact shape this app expects.",
     blockSize: "Block size", focus: "Focus",
+    diffMode: "Difficulty", "diffMode.mixed": "Mixed (recommended)", "diffMode.easy": "Easy", "diffMode.medium": "Medium", "diffMode.hard": "Hard (USMLE standard)",
+    diffHintMixed: "{e} Easy · {m} Medium · {h} Hard (about 20% / 60% / 20%), interleaved to mirror real exam variance. Every question is labeled by its difficulty rating for tracking.",
+    diffHintEasy: "Recall and core triads: 1–3 sentence vignettes, 1–2 step recognition, 3–4 options with distinct distractors.",
+    diffHintMedium: "Standard practice: 3–5 sentence vignettes, 2-step reasoning (diagnosis, then best initial test), 5 realistic options.",
+    diffHintHard: "USMLE standard: 5–8 sentence vignettes with subtle nuances and red herrings, 3-step reasoning, closely related options.",
+    mixDiffAll: "All", mixBalanced: "Balanced", mixBalancedShort: "Balanced", mixBalancedHint: "20% Easy / 60% Medium / 20% Hard, e.g. {e} · {m} · {h} at this size.", mixUnrated: "{n} question(s) without a difficulty label are left out.",
+    customSize: "Custom", customSizePh: "1–{n}", "dl.easy": "Easy", "dl.medium": "Medium", "dl.hard": "Hard", perfDifficulty: "Performance by difficulty",
     "focus.standard": "Standard USMLE mix", "focus.systems": "Single organ system", "focus.discipline": "Single discipline",
     phSystems: "e.g. Cardiovascular, Renal, Neuro…", phDisc: "e.g. Pharmacology, Biochemistry, Microbiology…",
     recipeTitle: "Question Recipe — AI prompt", copied: "Copied", copy: "Copy", schema: "JSON schema", viewSchema: "View Developer JSON Schema", hideSchema: "Hide Developer JSON Schema",
@@ -332,7 +339,19 @@ const STR = {
     perfAll: "Performance by subject (all blocks)", focusAreas: "Focus areas",
     lowest: "Lowest scoring: {list}. Consider generating a fresh block with your AI tool focused on these systems.",
     sufMissed: "Retest Missed", sufAll: "Retest All",
-    "err.json": "That isn't valid JSON. Check for trailing commas or missing quotes.",
+    "err.json": "Couldn't read this as JSON, even after automatic repairs ({detail}). Make sure you copied the complete response, including the closing brackets at the end.",
+    "err.noneValid": "No valid questions could be loaded.",
+    "err.qObj": "Question {n} in \"{name}\" isn't a JSON object.",
+    "err.correctMulti": "Question \"{id}\" lists more than one correct answer; exactly one is required.",
+    "err.correctConflict": "Question \"{id}\": the correct answer's letter and text point to different options.",
+    "warn.fixed": "Formatting problems in the pasted text (code fences, extra commentary, smart quotes, trailing or missing commas, unescaped quotes) were repaired automatically.",
+    "warn.truncated": "This text is cut off or has a syntax error partway through, so only the {n} complete question(s) before that point were recovered. Ask ChatGPT to continue, or generate a smaller block.",
+    "warn.skipped": "{n} question(s) were incomplete or ambiguous and will be left out:",
+    "warn.blockDropped": "Block \"{name}\" had no usable questions and will be left out.",
+    "warn.timeDropped": "Block \"{name}\" has a time limit that isn't a number, so it will be untimed.",
+    "warn.normalized": "{n} question(s) used different field names or option formats and were converted to the standard format.",
+    "warn.defaults": "Missing or duplicate ids and missing block names were filled in automatically.",
+    "warn.reviewTitle": "Review before loading", "warn.loadN": "Load {n} question(s)", "warn.saveN": "Save {n} question(s)", "warn.back": "Back to editing", "warn.more": "…and {n} more",
     "err.root": "Root must be a JSON object.",
     "err.blocks": "Missing a non-empty \"blocks\" array.",
     "err.blockName": "Block {n} is missing \"blockName\".",
@@ -373,6 +392,13 @@ const STR = {
     load: "Cargar examen", importQbank: "Importar nuevo Qbank", homeBtn: "Inicio", removeExam: "Quitar examen", removeTitle: "¿Quitar este examen?", removeBody: "Esto borra el examen cargado y su progreso o resultados. Tu biblioteca de preguntas guardada no se ve afectada.", removeBodyUnsaved: "Esto borra el examen cargado y su progreso o resultados. Algunos de sus bloques no están guardados en tu biblioteca y se perderían para siempre. Cancela y toca Guardar en la biblioteca primero si quieres conservarlos.", removeGo: "Quitar", libRename: "Renombrar Qbank", libRenameSave: "Guardar nombre", howItWorks: "Cómo funciona", guideStep: "Paso {n} de {total}", guideBack: "Atrás", guideNext: "Siguiente", guideDone: "Entendido", guideClose: "Cerrar guía", navCollapse: "Contraer lista de preguntas", navExpand: "Expandir lista de preguntas", resumeSession: "Reanudar sesión", sessionInProgress: "Sesión en curso", sessionPos: "Pregunta {n} de {total}", examLoadedLabel: "Examen cargado", openLobby: "Abrir sala del examen", inProgressTag: "En curso", discardTitle: "¿Descartar la sesión en curso?", discardBody: "Iniciar algo nuevo reemplaza tu bloque en curso y se perderán sus respuestas.", discardGo: "Descartar y continuar", hide: "Ocultar", recipe: "Prompt de receta de preguntas",
     recipeIntro: "Configura un bloque abajo y luego copia la receta generada en la herramienta de IA que prefieras (agrega tu material de estudio si lo permite). Devuelve las preguntas en el formato exacto que esta app espera.",
     blockSize: "Tamaño del bloque", focus: "Enfoque",
+    diffMode: "Dificultad", "diffMode.mixed": "Mixta (recomendada)", "diffMode.easy": "Fácil", "diffMode.medium": "Media", "diffMode.hard": "Difícil (estándar USMLE)",
+    diffHintMixed: "{e} fáciles · {m} medias · {h} difíciles (aprox. 20% / 60% / 20%), intercaladas para reflejar la variación de un examen real. Cada pregunta se etiqueta según su nivel de dificultad para el seguimiento.",
+    diffHintEasy: "Recuerdo y tríadas básicas: viñetas de 1–3 oraciones, reconocimiento en 1–2 pasos, 3–4 opciones con distractores distintos.",
+    diffHintMedium: "Práctica estándar: viñetas de 3–5 oraciones, razonamiento en 2 pasos (diagnóstico y luego mejor prueba inicial), 5 opciones realistas.",
+    diffHintHard: "Estándar USMLE: viñetas de 5–8 oraciones con matices sutiles y señuelos, razonamiento en 3 pasos, opciones muy cercanas.",
+    mixDiffAll: "Todas", mixBalanced: "Equilibrada", mixBalancedShort: "Equilibrada", mixBalancedHint: "20% fáciles / 60% medias / 20% difíciles, p. ej. {e} · {m} · {h} con este tamaño.", mixUnrated: "Se omiten {n} pregunta(s) sin etiqueta de dificultad.",
+    customSize: "Personalizado", customSizePh: "1–{n}", "dl.easy": "Fácil", "dl.medium": "Media", "dl.hard": "Difícil", perfDifficulty: "Desempeño por dificultad",
     "focus.standard": "Mezcla USMLE estándar", "focus.systems": "Un solo sistema", "focus.discipline": "Una sola disciplina",
     phSystems: "p. ej. Cardiovascular, Renal, Neuro…", phDisc: "p. ej. Farmacología, Bioquímica, Microbiología…",
     recipeTitle: "Receta de preguntas — prompt para IA", copied: "Copiado", copy: "Copiar", schema: "Esquema JSON", viewSchema: "Ver esquema JSON para desarrolladores", hideSchema: "Ocultar esquema JSON para desarrolladores",
@@ -428,7 +454,19 @@ const STR = {
     perfAll: "Desempeño por materia (todos los bloques)", focusAreas: "Áreas de enfoque",
     lowest: "Menor puntaje: {list}. Considera generar un nuevo bloque con tu herramienta de IA enfocado en estos sistemas.",
     sufMissed: "Repetir falladas", sufAll: "Repetir todo",
-    "err.json": "Ese JSON no es válido. Revisa si hay comas finales o comillas faltantes.",
+    "err.json": "No se pudo leer como JSON, ni siquiera tras repararlo automáticamente ({detail}). Asegúrate de haber copiado la respuesta completa, incluidos los corchetes de cierre del final.",
+    "err.noneValid": "No se pudo cargar ninguna pregunta válida.",
+    "err.qObj": "La pregunta {n} de \"{name}\" no es un objeto JSON.",
+    "err.correctMulti": "La pregunta \"{id}\" indica más de una respuesta correcta; se requiere exactamente una.",
+    "err.correctConflict": "Pregunta \"{id}\": la letra y el texto de la respuesta correcta apuntan a opciones distintas.",
+    "warn.fixed": "Se repararon automáticamente problemas de formato en el texto pegado (bloques de código, comentarios extra, comillas tipográficas, comas finales o faltantes, comillas sin escapar).",
+    "warn.truncated": "Este texto está cortado o tiene un error de sintaxis a mitad de camino, así que solo se recuperaron las {n} pregunta(s) completas anteriores a ese punto. Pide a ChatGPT que continúe o genera un bloque más pequeño.",
+    "warn.skipped": "{n} pregunta(s) estaban incompletas o eran ambiguas y se omitirán:",
+    "warn.blockDropped": "El bloque \"{name}\" no tenía preguntas utilizables y se omitirá.",
+    "warn.timeDropped": "El bloque \"{name}\" tiene un límite de tiempo que no es un número, así que no tendrá cronómetro.",
+    "warn.normalized": "{n} pregunta(s) usaban otros nombres de campos u otros formatos de opciones y se convirtieron al formato estándar.",
+    "warn.defaults": "Se completaron automáticamente los ids faltantes o duplicados y los nombres de bloque faltantes.",
+    "warn.reviewTitle": "Revisa antes de cargar", "warn.loadN": "Cargar {n} pregunta(s)", "warn.saveN": "Guardar {n} pregunta(s)", "warn.back": "Volver a editar", "warn.more": "…y {n} más",
     "err.root": "La raíz debe ser un objeto JSON.",
     "err.blocks": "Falta un arreglo \"blocks\" que no esté vacío.",
     "err.blockName": "Al bloque {n} le falta \"blockName\".",
@@ -465,7 +503,11 @@ const RETEST_POOL_LABEL = { missed: "poolIncorrect", flagged: "poolFlagged", aga
 
 // Retest blocks store only the base name; the suffix is localized at display time.
 function blockLabel(block, t) {
-  if (!block.isRetest) return block.isMixed && block.mixCount > 1 ? t("mixedName", { n: block.mixCount }) : block.blockName;
+  if (!block.isRetest) {
+    const base = block.isMixed && block.mixCount > 1 ? t("mixedName", { n: block.mixCount }) : block.blockName;
+    const d = block.mixDifficulty;
+    return d && d !== "all" ? `${base} · ${t(d === "balanced" ? "mixBalancedShort" : "dl." + d)}` : base;
+  }
   return `${baseBlockName(block.blockName)} — ${t(RETEST_SUFFIX[block.retestType] || "sufAll")}`;
 }
 
@@ -574,6 +616,7 @@ const SCHEMA_TEXT = `{
           "id": "b1q1",
           "subject": "Cardiovascular",
           "difficultyRating": 2,
+          "difficultyLabel": "Easy",
           "vignette": "A 58-year-old man comes to the physician because of substernal chest pressure that began 2 hours ago while shoveling snow. He has a history of hypertension and type 2 diabetes mellitus. His pulse is 98/min and blood pressure is 148/92 mm Hg. An ECG shows ST-segment elevation in leads II, III, and aVF.",
           "keyInfoPhrases": [
             "substernal chest pressure",
@@ -647,6 +690,7 @@ const DEMO_EXAM = {
           "id": "d1",
           "subject": "Cardiovascular",
           "difficultyRating": 2,
+          "difficultyLabel": "Easy",
           "vignette": "A 58-year-old man comes to the physician because of substernal chest pressure that began 2 hours ago while shoveling snow. He has a history of hypertension and type 2 diabetes mellitus. His pulse is 98/min and blood pressure is 148/92 mm Hg. An ECG shows ST-segment elevation in leads II, III, and aVF.",
           "keyInfoPhrases": [
             "substernal chest pressure",
@@ -708,6 +752,7 @@ const DEMO_EXAM = {
           "id": "d2",
           "subject": "Endocrine",
           "difficultyRating": 2,
+          "difficultyLabel": "Easy",
           "vignette": "A 34-year-old woman comes to the physician because of a 3-month history of weight loss, heat intolerance, and palpitations. Examination shows a fine tremor, warm moist skin, and a diffusely enlarged, non-tender thyroid gland. Exophthalmos is present.",
           "keyInfoPhrases": [
             "weight loss, heat intolerance, and palpitations",
@@ -762,6 +807,7 @@ const DEMO_EXAM = {
           "id": "d3",
           "subject": "Renal",
           "difficultyRating": 3,
+          "difficultyLabel": "Medium",
           "vignette": "A 6-year-old boy is brought in with periorbital edema and cola-colored urine 10 days after a sore throat. Blood pressure is 128/84 mm Hg. Urinalysis shows red cell casts and mild proteinuria. Serum C3 is decreased.",
           "keyInfoPhrases": [
             "periorbital edema and cola-colored urine",
@@ -830,21 +876,167 @@ const FOCUS_MODES = [
   { id: "discipline", label: "Single discipline" },
 ];
 const BLOCK_SIZES = [5, 15, 25, 40];
+const MAX_RECIPE_SIZE = 60; // upper bound for the custom question count (most AI tools truncate far beyond this)
+
+// Difficulty modes for the recipe. "mixed" is the recommended default.
+const DIFFICULTY_MODES = ["mixed", "easy", "medium", "hard"];
+
+// Difficulty tiers. A question carries an explicit difficultyLabel ("Easy" | "Medium" | "Hard") plus a 1-5
+// difficultyRating (the dots). The label is authoritative; the rating is kept inside its tier's band
+// (Easy 1-2, Medium 3, Hard 4-5). Either one alone still works, so banks made before the label existed
+// keep their tracking.
+const TIER_LABEL = { easy: "Easy", medium: "Medium", hard: "Hard" };
+const TIER_BAND = { easy: [1, 2], medium: [3, 3], hard: [4, 5] };
+const TIER_DEFAULT_RATING = { easy: 2, medium: 3, hard: 4 }; // dots shown when only a label is present
+
+function difficultyTier(rating) {
+  if (typeof rating !== "number" || !Number.isFinite(rating)) return null;
+  return rating <= 2 ? "easy" : rating === 3 ? "medium" : "hard";
+}
+
+// "Easy" / "hard" / "Fácil" / "Difícil" / "Intermediate" / "Moderate" … -> "easy" | "medium" | "hard" | null
+function tierFromLabel(v) {
+  if (typeof v !== "string") return null;
+  const x = v.trim().toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+  if (!x) return null;
+  if (/^(easy|facil|basic|simple|low|beginner)/.test(x)) return "easy";
+  if (/^(med|moder|interm|average|standard)/.test(x)) return "medium";
+  if (/^(hard|dificil|difficult|advanced|challeng|high)/.test(x)) return "hard";
+  return null;
+}
+
+// -> { tier, rating } | null. Label wins; the rating is clamped into the tier's band (or defaulted).
+function resolveDifficulty(rating, label) {
+  const hasRating = typeof rating === "number" && Number.isFinite(rating);
+  const tier = tierFromLabel(label) || (hasRating ? difficultyTier(Math.round(rating)) : null);
+  if (!tier) return null;
+  const [lo, hi] = TIER_BAND[tier];
+  const r = hasRating ? Math.max(lo, Math.min(hi, Math.max(1, Math.min(5, Math.round(rating))))) : TIER_DEFAULT_RATING[tier];
+  return { tier, rating: r };
+}
+
+const questionTier = (q) => resolveDifficulty(q && q.difficultyRating, q && q.difficultyLabel)?.tier || null;
+
+// Mixed split: 20% Easy / 60% Medium / 20% Hard, rounded so the three always sum to the block size.
+function mixedCounts(size) {
+  const easy = Math.round(size * 0.2);
+  const hard = Math.round(size * 0.2);
+  return { easy, medium: size - easy - hard, hard };
+}
+
+// What each difficulty asks the AI for (vignette length, reasoning steps, options, clue counts).
+const RECIPE_PROFILES = {
+  en: {
+    names: { easy: "Easy", medium: "Medium", hard: "Hard" },
+    ratings: { easy: "1-2", medium: "3", hard: "4-5" },
+    easy: {
+      vignette: "1-3 short sentences focused on classic buzzwords and pathognomonic findings",
+      step: "direct 1-step or 2-step recognition (e.g. identifying a condition straight from its primary presentation)",
+      options: "3-4 options (A-D at most) with distinct, non-overlapping distractors",
+      clues: "2-3", phrases: "2-3",
+    },
+    medium: {
+      vignette: "3-5 sentences with standard clinical context (age/sex, chief complaint, history, exam, key labs/imaging)",
+      step: "2-step clinical reasoning (e.g. Vignette → Diagnosis → Best Initial Test)",
+      options: "5 options (A-E) with realistic clinical distractors",
+      clues: "3-4", phrases: "3-4",
+    },
+    hard: {
+      vignette: "5-8 sentences containing subtle clinical nuances, extra lab data, and potential red herrings",
+      step: "3-step high-yield reasoning (e.g. Vignette → Diagnosis → Pathophysiology of the treatment mechanism)",
+      options: "5 options (A-E) with closely related differential options requiring subtle discriminators",
+      clues: "4-5", phrases: "4-5",
+    },
+  },
+  es: {
+    names: { easy: "Fácil", medium: "Media", hard: "Difícil" },
+    ratings: { easy: "1-2", medium: "3", hard: "4-5" },
+    easy: {
+      vignette: "1 a 3 oraciones cortas centradas en palabras clave clásicas y hallazgos patognomónicos",
+      step: "reconocimiento directo de 1 o 2 pasos (p. ej., identificar la condición directamente a partir de su presentación principal)",
+      options: "3 a 4 opciones (como máximo A-D) con distractores distintos que no se solapen",
+      clues: "2-3", phrases: "2-3",
+    },
+    medium: {
+      vignette: "3 a 5 oraciones con contexto clínico estándar (edad/sexo, motivo de consulta, antecedentes, examen, laboratorios/imágenes clave)",
+      step: "razonamiento clínico de 2 pasos (p. ej., viñeta → diagnóstico → mejor prueba inicial)",
+      options: "5 opciones (A-E) con distractores clínicos realistas",
+      clues: "3-4", phrases: "3-4",
+    },
+    hard: {
+      vignette: "5 a 8 oraciones con matices clínicos sutiles, datos de laboratorio adicionales y posibles señuelos (red herrings)",
+      step: "razonamiento de alto rendimiento de 3 pasos (p. ej., viñeta → diagnóstico → fisiopatología del mecanismo del tratamiento)",
+      options: "5 opciones (A-E) con diferenciales muy cercanos que exigen discriminadores sutiles",
+      clues: "4-5", phrases: "4-5",
+    },
+  },
+};
+
+// Difficulty section of the recipe. Returns { text, tiers, phrases } so the callers can reuse the
+// tier list for the keyInfoPhrases count. Mixed lists each tier's profile and its exact question count.
+function buildDifficultySection(size, difficulty, lang) {
+  const P = RECIPE_PROFILES[lang === "es" ? "es" : "en"];
+  const es = lang === "es";
+  const tierLine = (id) => es
+    ? `Viñeta: ${P[id].vignette}. Incluye ${P[id].clues} pistas clínicas distintas y de alto rendimiento. Paso cognitivo: ${P[id].step}. Opciones: ${P[id].options}, exactamente 1 correcta.`
+    : `Vignette: ${P[id].vignette}. Include ${P[id].clues} distinct high-yield clinical clues. Cognitive step: ${P[id].step}. Options: ${P[id].options}, exactly 1 correct.`;
+  // difficultyLabel values stay in English in both languages so the app can read them reliably.
+  const pair = (id) => `difficultyLabel "${TIER_LABEL[id]}" ${es ? "con" : "with"} difficultyRating ${P.ratings[id]}`;
+
+  if (difficulty === "easy" || difficulty === "medium" || difficulty === "hard") {
+    const id = difficulty;
+    const text = es
+      ? `Dificultad: ${P.names[id]}. En todas las preguntas usa ${pair(id)}.\n${tierLine(id).replace(" Paso cognitivo:", "\nPaso cognitivo:").replace(" Opciones:", "\nOpciones:")}`
+      : `Difficulty: ${P.names[id]}. On every question use ${pair(id)}.\n${tierLine(id).replace(" Cognitive step:", "\nCognitive step:").replace(" Options:", "\nOptions:")}`;
+    return { text, tiers: [id], phrases: P[id].phrases };
+  }
+
+  const counts = mixedCounts(size);
+  const tiers = ["easy", "medium", "hard"].filter((id) => counts[id] > 0);
+  const countList = tiers.map((id) => `${counts[id]} ${P.names[id]}`).join(", ");
+  const head = es
+    ? `Dificultad: Mixta — exactamente ${countList}, intercaladas en orden aleatorio (nunca agrupadas por dificultad). Construye cada pregunta según su nivel y etiquétala: ${tiers.map(pair).join("; ")}.`
+    : `Difficulty: Mixed — exactly ${countList}, interleaved in random order (never grouped by difficulty). Build each question to its tier and label it: ${tiers.map(pair).join("; ")}.`;
+  const body = tiers.map((id) => `- ${P.names[id]}: ${tierLine(id)}`).join("\n");
+  const phrases = tiers.length === 1 ? P[tiers[0]].phrases : tiers.map((id) => `${P[id].phrases} (${P.names[id]})`).join(", ");
+  return { text: `${head}\n${body}`, tiers, phrases };
+}
+
+// Easy blocks use shorter vignettes, so they get a tighter default clock (1 min/question vs 1.5).
+function recipeTimeLimit(size, difficulty) {
+  return Math.max(1, Math.round(size * (difficulty === "easy" ? 1 : 1.5)));
+}
+
+// Overall score split by difficulty tier. entries: [{ rating, label, correct }]. Tiers with no questions are omitted.
+function difficultyBreakdown(entries) {
+  const map = { easy: { correct: 0, total: 0 }, medium: { correct: 0, total: 0 }, hard: { correct: 0, total: 0 } };
+  entries.forEach((e) => {
+    const tier = resolveDifficulty(e.rating, e.label)?.tier;
+    if (!tier) return;
+    map[tier].total += 1;
+    if (e.correct) map[tier].correct += 1;
+  });
+  return ["easy", "medium", "hard"]
+    .filter((id) => map[id].total > 0)
+    .map((id) => ({ id, ...map[id], pct: Math.round((map[id].correct / map[id].total) * 100) }));
+}
 
 // Compact schema used INSIDE the generated prompt (some AI tools have a
 // tight input-length limit). The full, richly-annotated SCHEMA_TEXT above
 // stays in the "JSON schema" reference panel for humans to read — this is a
 // field-name/type skeleton only, no prose example values, to keep the copied
 // prompt as short as possible while still fully specifying the shape.
-const PROMPT_SCHEMA_TEXT = `{"examTitle":"string","blocks":[{"blockName":"string","timeLimitMinutes":number,"questions":[{"id":"unique string","subject":"organ system/discipline","difficultyRating":number,"vignette":"string","keyInfoPhrases":["string"],"stem":"string","options":[{"key":"A","text":"string"}],"correctAnswer":"matching key","attendingTip":"string","explanation":"string","keyLearningPoint":"string","distractorAnalysis":{"key":"string"},"hint":"string","educationalObjective":"string","sourceReferences":[{"sourceTitle":"string","chapterSection":"string","pageNumber":"string (optional)","relevance":"string"}]}]}]}`;
+const PROMPT_SCHEMA_TEXT = `{"examTitle":"string","blocks":[{"blockName":"string","timeLimitMinutes":number,"questions":[{"id":"unique string","subject":"organ system/discipline","difficultyRating":number,"difficultyLabel":"Easy|Medium|Hard","vignette":"string","keyInfoPhrases":["string"],"stem":"string","options":[{"key":"A","text":"string"}],"correctAnswer":"matching key","attendingTip":"string","explanation":"string","keyLearningPoint":"string","distractorAnalysis":{"key":"string"},"hint":"string","educationalObjective":"string","sourceReferences":[{"sourceTitle":"string","chapterSection":"string","pageNumber":"string (optional)","relevance":"string"}]}]}]}`;
 
-function buildQuestionRecipe({ size, focusMode, focusValue, lang }) {
-  if (lang === "es") return buildQuestionRecipeEs({ size, focusMode, focusValue });
-  const blockName =
+function buildQuestionRecipe({ size, focusMode, focusValue, lang, difficulty = "mixed" }) {
+  if (lang === "es") return buildQuestionRecipeEs({ size, focusMode, focusValue, difficulty });
+  const baseName =
     focusMode === "systems" && focusValue ? `${focusValue} System Block`
     : focusMode === "discipline" && focusValue ? `${focusValue} Block`
     : "Mixed Block";
-  const timeLimit = Math.round(size * 1.5);
+  const blockName = difficulty === "mixed" ? baseName : `${baseName} (${RECIPE_PROFILES.en.names[difficulty]})`;
+  const timeLimit = recipeTimeLimit(size, difficulty);
+  const diff = buildDifficultySection(size, difficulty, "en");
 
   let focusLine;
   if (focusMode === "systems") {
@@ -859,8 +1051,8 @@ function buildQuestionRecipe({ size, focusMode, focusValue, lang }) {
 ${PROMPT_SCHEMA_TEXT}
 
 Block: "${blockName}", timeLimitMinutes ${timeLimit}.
-Vignette: 4-8 sentences (age/sex, chief complaint, history, physical exam, labs/imaging). Include 3-5 distinct high-yield clinical clues. 5 options (A-E), exactly 1 correct.
-keyInfoPhrases: Extract 3-5 exact key diagnostic substring phrases directly from vignette text for smart-highlighting.
+${diff.text}
+keyInfoPhrases: Extract ${diff.phrases} exact key diagnostic substring phrases directly from vignette text for smart-highlighting.
 attendingTip: 1-2 sentence clinical reasoning breakdown written from the perspective of an attending physician guiding a student to the diagnosis.
 explanation: 3-5 sentences analyzing why the correct option is right.
 keyLearningPoint: 1-2 sentence high-yield takeaway summarizing the pathology/management.
@@ -868,55 +1060,564 @@ distractorAnalysis: 1 concise sentence per wrong option explaining why it is inc
 hint: 1 short sentence guiding attention to the core abnormality without revealing the answer.
 educationalObjective: 1-2 sentence core concept summary.
 sourceReferences: 1-3 real sources (First Aid, BRS, Pathoma, etc.) — sourceTitle, chapterSection, pageNumber (omit if unsure), relevance.
-subject: specific system/discipline. Every id unique. difficultyRating: 1 to 5. Spread correctAnswer evenly across A-E (never the same letter more than twice in a row).
+subject: specific system/discipline. Every id unique. difficultyRating: integer 1 to 5, matching the difficulty tier above. difficultyLabel: exactly "Easy", "Medium" or "Hard", consistent with difficultyRating. Spread correctAnswer evenly across the option letters used (never the same letter more than twice in a row).
 Focus: ${focusLine}`;
 }
 
 // ---------------------------------------------------------------------------
 // Helpers
 // ---------------------------------------------------------------------------
-function validateExamData(raw, t) {
-  const bad = (k, v) => ({ valid: false, error: t(k, v) });
-  let data;
-  try {
-    data = typeof raw === "string" ? JSON.parse(raw) : raw;
-  } catch (e) {
-    return bad("err.json");
-  }
-  if (!data || typeof data !== "object") return bad("err.root");
-  if (!Array.isArray(data.blocks) || data.blocks.length === 0) return bad("err.blocks");
-  for (let bi = 0; bi < data.blocks.length; bi++) {
-    const b = data.blocks[bi];
-    if (!b.blockName) return bad("err.blockName", { n: bi + 1 });
-    if (b.timeLimitMinutes != null && typeof b.timeLimitMinutes !== "number") return bad("err.timeLimit", { name: b.blockName || bi + 1 });
-    if (!Array.isArray(b.questions) || b.questions.length === 0) return bad("err.questions", { name: b.blockName });
-    for (let qi = 0; qi < b.questions.length; qi++) {
-      const q = b.questions[qi];
-      if (!q.id) return bad("err.qId", { n: qi + 1, name: b.blockName });
-      if (!q.vignette) return bad("err.vignette", { id: q.id });
-      if (!q.stem) return bad("err.stem", { id: q.id });
-      if (!Array.isArray(q.options) || q.options.length < 2) return bad("err.options", { id: q.id });
-      if (!q.correctAnswer) return bad("err.correct", { id: q.id });
-      const keys = q.options.map((o) => o.key);
-      if (!keys.includes(q.correctAnswer)) return bad("err.match", { id: q.id, ans: q.correctAnswer });
-      // Optional enrichment fields are normalised rather than rejected, so older banks still load.
-      if (q.difficultyRating != null) {
-        const d = Number(q.difficultyRating);
-        q.difficultyRating = Number.isFinite(d) ? Math.max(1, Math.min(5, Math.round(d))) : undefined;
-      }
-      if (q.keyInfoPhrases != null) {
-        q.keyInfoPhrases = Array.isArray(q.keyInfoPhrases) ? q.keyInfoPhrases.filter((x) => typeof x === "string" && x.trim()) : [];
-      }
+// ---------------------------------------------------------------------------
+// Tolerant exam loading
+//
+// AI tools (ChatGPT especially) rarely produce byte-perfect JSON. This pipeline accepts what a person
+// can clearly "see" is the intended exam, while never loading a question that is incomplete or ambiguous:
+//
+//   1. Find the JSON inside whatever was pasted (code fences, chatty intro/outro text, BOM, zero-width chars).
+//   2. Parse it. If that fails, repair the usual slips (smart quotes, trailing/missing commas, comments,
+//      raw newlines or unescaped quotes inside strings, bad \\ escapes, unquoted keys, 'single quotes',
+//      Python True/None). If it is still broken (e.g. the reply was cut off), recover everything complete
+//      before the break.
+//   3. Normalise the structure: root array / single block / wrapped object, snake_case & synonym field names,
+//      options as strings / objects / maps, the correct answer as "b", "B)", "Option B" or the answer text.
+//   4. Validate each question with the SAME rules as before (vignette, stem, >=2 options, exactly one
+//      correct answer that matches an option). A question that fails is left out and reported — it is never
+//      guessed at. Numeric answers like 2 are NOT guessed either (0- or 1-based is ambiguous).
+// ---------------------------------------------------------------------------
+const INVISIBLE_RE = /[\uFEFF\u200B\u200C\u200D\u2060]/g;
+const normKey = (k) => String(k).toLowerCase().replace(/[^a-z0-9]/g, "");
+const normText = (s) => String(s).toLowerCase().replace(/\s+/g, " ").replace(/[\s.]+$/, "").trim();
+
+// Case/underscore-insensitive property lookup: indexKeys(obj).questionid -> "question_id"
+function indexKeys(obj) {
+  const m = {};
+  for (const k of Object.keys(obj)) { const nk = normKey(k); if (!(nk in m)) m[nk] = k; }
+  return m;
+}
+function pickAlias(obj, aliases) {
+  if (!obj || typeof obj !== "object" || Array.isArray(obj)) return undefined;
+  const nk = indexKeys(obj);
+  for (const a of aliases) {
+    if (nk[a] !== undefined) {
+      const v = obj[nk[a]];
+      if (v != null && !(typeof v === "string" && !v.trim())) return v;
     }
   }
-  return { valid: true, data };
+  return undefined;
+}
+// Plain text from a string / number / array of strings; undefined for anything else (objects would crash React).
+function toText(v) {
+  if (typeof v === "string") { const s = v.trim(); return s || undefined; }
+  if (typeof v === "number" || typeof v === "boolean") return String(v);
+  if (Array.isArray(v) && v.length && v.every((x) => typeof x === "string" || typeof x === "number")) {
+    const s = v.map(String).join(" ").trim();
+    return s || undefined;
+  }
+  return undefined;
 }
 
-function buildQuestionRecipeEs({ size, focusMode, focusValue }) {
-  const blockName =
+// ---- 1. find the JSON ------------------------------------------------------
+function extractJsonText(raw) {
+  let text = String(raw).replace(INVISIBLE_RE, "").replace(/\u00A0/g, " ");
+  // Prefer the longest fenced block that contains JSON; an unclosed fence (cut-off reply) runs to the end.
+  const fences = [...text.matchAll(/```[A-Za-z0-9_-]*[ \t]*\r?\n?([\s\S]*?)(?:```|$)/g)]
+    .map((m) => m[1]).filter((b) => /[{\[]/.test(b)).sort((a, b) => b.length - a.length);
+  if (fences.length) text = fences[0];
+  const s = text.search(/[{\[]/);
+  if (s === -1) return text.trim();
+  const closer = text[s] === "{" ? "}" : "]";
+  const e = text.lastIndexOf(closer);
+  return (e > s ? text.slice(s, e + 1) : text.slice(s)).trim();
+}
+
+// ---- 2a. repair ---------------------------------------------------------------
+// Only ever run AFTER a plain JSON.parse has failed, so valid JSON is never touched.
+function repairJsonText(src) {
+  const n = src.length;
+  let out = "";
+  let i = 0;
+  let prev = ""; // last significant character emitted outside a string
+  const isWs = (c) => c === " " || c === "\n" || c === "\r" || c === "\t";
+  const nextSig = (j) => { // next significant character: skips whitespace AND comments
+    for (;;) {
+      while (j < n && isWs(src[j])) j++;
+      if (src[j] === "/" && src[j + 1] === "/") { while (j < n && src[j] !== "\n") j++; continue; }
+      if (src[j] === "/" && src[j + 1] === "*") { const e = src.indexOf("*/", j + 2); j = e === -1 ? n : e + 2; continue; }
+      return j;
+    }
+  };
+  const startsValue = (j) => {
+    const c = src[j];
+    if (c === undefined) return false;
+    if (c === '"' || c === "'" || c === "{" || c === "[" || c === "]" || c === "}" || c === "-" || (c >= "0" && c <= "9")) return true;
+    const ahead = src.slice(j, j + 60);
+    return /^(true|false|null|True|False|None|undefined|NaN)\b/.test(ahead) || /^[A-Za-z_$][\w$]*\s*:/.test(ahead); // literal, or an unquoted key
+  };
+  const needsComma = () => prev === "}" || prev === "]" || prev === '"' || /[0-9el]/.test(prev); // a value just ended
+  const wordRe = /[A-Za-z_$][\w$]*|-?\d[\d.eE+\-]*/y;
+
+  while (i < n) {
+    const c = src[i];
+    if (c === "/" && src[i + 1] === "/") { while (i < n && src[i] !== "\n") i++; continue; }
+    if (c === "/" && src[i + 1] === "*") { const e = src.indexOf("*/", i + 2); i = e === -1 ? n : e + 2; continue; }
+    if (isWs(c)) { out += c; i++; continue; }
+
+    if (c === '"' || c === "'") {
+      if (needsComma()) out += ","; // missing comma between two values
+      const quote = c;
+      out += '"';
+      i++;
+      while (i < n) {
+        const d = src[i];
+        if (d === "\\") {
+          const e = src[i + 1];
+          if (e !== undefined && ('"\\/bfnrt'.includes(e) || (e === "u" && /^[0-9a-fA-F]{4}$/.test(src.slice(i + 2, i + 6))))) { out += d + e; i += 2; continue; }
+          if (quote === "'" && e === "'") { out += "'"; i += 2; continue; }
+          out += "\\\\"; i++; continue; // stray backslash (e.g. LaTeX "\(") -> keep it literally
+        }
+        if (d === quote) {
+          // A quote only CLOSES the string if what follows is plausible JSON; otherwise it is an unescaped quote in the text.
+          const j = nextSig(i + 1);
+          const nx = src[j];
+          let closing = j >= n || nx === "}" || nx === "]";
+          if (!closing && nx === ",") { const k = nextSig(j + 1); closing = k >= n || startsValue(k); }
+          if (!closing && nx === ":") closing = startsValue(nextSig(j + 1));
+          if (closing) { out += '"'; i++; break; }
+          out += quote === '"' ? '\\"' : "'";
+          i++;
+          continue;
+        }
+        if (d === '"') { out += '\\"'; i++; continue; } // " inside a 'single-quoted' string
+        if (d === "\n") { out += "\\n"; i++; continue; }
+        if (d === "\r") { i++; continue; }
+        if (d === "\t") { out += "\\t"; i++; continue; }
+        if (d.charCodeAt(0) < 0x20) { out += " "; i++; continue; }
+        out += d;
+        i++;
+      }
+      prev = '"';
+      continue;
+    }
+
+    if (c === ",") {
+      const j = nextSig(i + 1);
+      if (prev === "," || src[j] === "}" || src[j] === "]") { i++; continue; } // doubled / trailing comma
+      out += ","; prev = ","; i++;
+      continue;
+    }
+    if (c === "{" || c === "[") { if (needsComma()) out += ","; out += c; prev = c; i++; continue; }
+    if (c === "}" || c === "]" || c === ":") { out += c; prev = c; i++; continue; }
+
+    wordRe.lastIndex = i;
+    const m = wordRe.exec(src);
+    if (m) {
+      const tok = m[0];
+      i += tok.length;
+      if (/^[A-Za-z_$]/.test(tok)) {
+        const j = nextSig(i);
+        if (src[j] === ":") { if (needsComma()) out += ","; out += `"${tok}"`; prev = '"'; continue; } // unquoted key
+        const lit = { True: "true", False: "false", None: "null", undefined: "null", NaN: "null", Infinity: "null" }[tok];
+        const val = lit || tok;
+        if (needsComma()) out += ",";
+        out += val; prev = val[val.length - 1];
+        continue;
+      }
+      if (needsComma()) out += ",";
+      out += tok; prev = tok[tok.length - 1];
+      continue;
+    }
+    out += c; i++; // anything else: leave it and let JSON.parse decide
+  }
+  return out;
+}
+
+// ---- 2b. recover a cut-off / broken-partway document ------------------------------------
+// Cuts the text after each closing bracket (latest first), appends the brackets still open, and keeps the
+// first cut that parses. Whatever sat after the break is dropped; every question before it survives.
+function salvageTruncatedJson(text) {
+  const stack = [];
+  const cuts = [];
+  let inStr = false;
+  for (let i = 0; i < text.length; i++) {
+    const c = text[i];
+    if (inStr) { if (c === "\\") i++; else if (c === '"') inStr = false; continue; }
+    if (c === '"') { inStr = true; continue; }
+    if (c === "{" || c === "[") stack.push(c);
+    else if (c === "}" || c === "]") {
+      stack.pop();
+      if (stack.length > 0) cuts.push({ end: i + 1, closers: stack.map((s) => (s === "{" ? "}" : "]")).reverse().join("") });
+    }
+  }
+  for (let k = cuts.length - 1, tries = 0; k >= 0 && tries < 300; k--, tries++) {
+    try { return JSON.parse(text.slice(0, cuts[k].end) + cuts[k].closers); } catch (e) { /* try an earlier cut */ }
+  }
+  return undefined;
+}
+
+function tolerantParseJson(raw, depth = 0) {
+  const trimmed = String(raw).replace(INVISIBLE_RE, "").trim();
+  if (depth < 1 && /^"[\s\S]*"$/.test(trimmed)) { // the whole thing is one JSON string: "{\"blocks\": …}"
+    try {
+      const inner = JSON.parse(trimmed);
+      if (typeof inner === "string") { const r = tolerantParseJson(inner, depth + 1); if (r.ok) return { ...r, repaired: true }; }
+    } catch (e) { /* not a plain string; carry on */ }
+  }
+  const base = extractJsonText(raw);
+  const variants = [base];
+  // Rich-text editors turn " into “ ”. Tried only as a fallback because those characters are also legitimate text.
+  if (/[\u201C\u201D]/.test(base)) variants.push(base.replace(/[\u201C\u201D]/g, '"').replace(/[\u2018\u2019]/g, "'"));
+  let detail = "";
+  const done = (value, repaired, truncated) => {
+    // A JSON document that was pasted as one big string ("{\"blocks\": …}") is unwrapped once.
+    if (typeof value === "string" && depth < 1 && /[{\[]/.test(value)) {
+      const inner = tolerantParseJson(value, depth + 1);
+      if (inner.ok) return { ok: true, value: inner.value, repaired: true, truncated: inner.truncated };
+    }
+    return { ok: true, value, repaired, truncated };
+  };
+  for (let vi = 0; vi < variants.length; vi++) {
+    const v = variants[vi];
+    try { return done(JSON.parse(v), vi > 0, false); } catch (e) { if (vi === 0) detail = String(e.message || e); }
+    const fixed = repairJsonText(v);
+    try { return done(JSON.parse(fixed), true, false); } catch (e) { /* fall through to recovery */ }
+    const salvaged = salvageTruncatedJson(fixed);
+    if (salvaged !== undefined) return done(salvaged, true, true);
+  }
+  return { ok: false, detail: detail.replace(/\s+/g, " ").slice(0, 140) };
+}
+
+// ---- 3. normalise the structure -----------------------------------------------------------
+const Q_ALIASES = {
+  id: ["id", "qid", "questionid", "questionnumber", "qnumber", "number", "no"],
+  subject: ["subject", "system", "discipline", "organsystem", "topic", "category"],
+  difficultyRating: ["difficultyrating", "difficulty", "difficultylevel", "rating"],
+  difficultyLabel: ["difficultylabel", "difficultytier", "difficultycategory", "tier"],
+  vignette: ["vignette", "clinicalvignette", "scenario", "clinicalscenario", "case", "casepresentation", "patientpresentation"],
+  stem: ["stem", "questionstem", "question", "questiontext", "prompt", "leadin"],
+  options: ["options", "choices", "answerchoices", "answeroptions", "answers"],
+  correctAnswer: ["correctanswer", "answer", "correct", "correctoption", "correctchoice", "correctletter", "correctkey", "answerkey", "rightanswer"],
+  keyInfoPhrases: ["keyinfophrases", "keyphrases", "keyclues", "cluephrases", "keyinformation"],
+  attendingTip: ["attendingtip", "tutortip", "tutorstip", "attendingstip", "tip"],
+  explanation: ["explanation", "rationale", "answerexplanation"],
+  keyLearningPoint: ["keylearningpoint", "learningpoint", "keytakeaway", "takeaway", "highyieldpearl"],
+  distractorAnalysis: ["distractoranalysis", "distractors", "incorrectexplanations", "wronganswerexplanations", "optionanalysis"],
+  hint: ["hint"],
+  educationalObjective: ["educationalobjective", "learningobjective", "objective"],
+  sourceReferences: ["sourcereferences", "sources", "references"],
+};
+const QUESTION_LIST = ["questions", "items", "qs", "questionlist"];
+
+const LABEL_RE = /^\s*(?:\(([A-Za-z])\)|([A-Za-z])(?:[.):]|\s[-\u2013\u2014:]))\s*(\S[\s\S]*)$/;
+const LEAD_LETTER_RE = /^(?:option|choice|answer)?\s*[:\-]?\s*\(?([A-Za-z])\)?(?:[.):\s\-\u2013\u2014]+([\s\S]*))?$/i;
+const labelToLetter = (label) => {
+  const m = /^\s*(?:option|choice)?\s*\(?([A-Za-z])\)?[.):]?\s*$/i.exec(String(label));
+  return m ? m[1].toUpperCase() : null;
+};
+const isLabelLike = (s) => /^\s*(?:option|choice)?\s*\(?[A-Za-z0-9]\)?[.):]?\s*$/i.test(String(s));
+
+// -> { options: [{key,text}], origKeys, touched } | null
+function normalizeOptions(raw) {
+  let items;
+  if (Array.isArray(raw)) {
+    items = raw.map((o) => {
+      if (o && typeof o === "object" && !Array.isArray(o)) {
+        let label = pickAlias(o, ["key", "label", "letter", "optionletter", "optionkey", "id", "choice", "option", "name"]);
+        let text = toText(pickAlias(o, ["text", "content", "value", "optiontext", "choicetext", "description", "answer", "body", "statement"]));
+        label = label == null ? undefined : String(label);
+        if (text === undefined && label !== undefined && !isLabelLike(label)) { text = label.trim(); label = undefined; } // {"option": "Aspirin"}
+        return { label, text };
+      }
+      return { label: undefined, text: toText(o), plain: true };
+    });
+    // ["A) Aspirin", "B) Heparin", …] — accept the embedded labels only if they run A, B, C… for every option.
+    const plain = items.filter((it) => it.plain);
+    if (plain.length === items.length && items.every((it) => it.text)) {
+      const ms = items.map((it) => LABEL_RE.exec(it.text));
+      if (ms.every((m, i) => m && (m[1] || m[2]).toUpperCase() === String.fromCharCode(65 + i))) {
+        items = items.map((it, i) => ({ label: ms[i][1] || ms[i][2], text: ms[i][3].trim() }));
+      }
+    }
+  } else if (raw && typeof raw === "object") {
+    items = Object.entries(raw).map(([k, v]) => ({
+      label: k,
+      text: v && typeof v === "object" && !Array.isArray(v) ? toText(pickAlias(v, ["text", "content", "value", "option"])) : toText(v),
+    }));
+  } else return null;
+
+  if (items.length < 2 || items.some((it) => !it.text)) return null;
+  const letters = items.map((it) => (it.label === undefined ? null : labelToLetter(it.label)));
+  const useLabels = letters.every(Boolean) && new Set(letters).size === letters.length;
+  const keys = useLabels ? letters : items.map((_, i) => String.fromCharCode(65 + i));
+  let stripped = false;
+  const options = items.map((it, i) => {
+    let text = it.text;
+    const m = LABEL_RE.exec(text);
+    if (m && (m[1] || m[2]).toUpperCase() === keys[i]) { text = m[3].trim(); stripped = true; } // "A) Aspirin" in the text field
+    return { key: keys[i], text };
+  });
+  const canonical = Array.isArray(raw) && raw.every((o) => o && typeof o.key === "string" && typeof o.text === "string" && /^[A-Z]$/.test(o.key)) && !stripped
+    && raw.every((o, i) => o.key === keys[i]);
+  return { options, origKeys: items.map((it) => it.label), touched: !canonical };
+}
+
+// Maps something like "B", "(b)", "Option B", "2" to an option index (numbers only when the options were numbered).
+function makeKeyResolver(options, origKeys) {
+  return (s) => {
+    const str = String(s).trim();
+    const L = labelToLetter(str);
+    if (L) { const i = options.findIndex((o) => o.key === L); if (i >= 0) return i; }
+    const j = origKeys.findIndex((k) => k !== undefined && String(k).trim().toLowerCase() === str.toLowerCase());
+    if (j >= 0) return j;
+    const dm = /^\s*(?:option|choice)?\s*\(?(\d)\)?[.):]?\s*$/i.exec(str);
+    if (dm) { const j2 = origKeys.findIndex((k) => k !== undefined && String(k).trim() === dm[1]); if (j2 >= 0) return j2; }
+    return -1;
+  };
+}
+
+// -> { idx, exact } | { err }
+function resolveCorrectIndex(rawCorrect, options, resolve) {
+  let c = rawCorrect;
+  if (Array.isArray(c)) { if (c.length !== 1) return { err: "err.correctMulti" }; c = c[0]; }
+  if (c && typeof c === "object") c = pickAlias(c, ["key", "letter", "label", "option", "text", "answer"]);
+  if (c == null || String(c).trim() === "") return { err: "err.correct" };
+  const s = String(c).trim();
+  const exact = options.findIndex((o) => o.key === s);
+  if (exact >= 0) return { idx: exact, exact: true };
+  const ns = normText(s);
+  const byText = options.map((o, i) => (normText(o.text) === ns ? i : -1)).filter((i) => i >= 0);
+  if (byText.length === 1) return { idx: byText[0] };
+  if (byText.length > 1) return { err: "err.match" }; // identical option texts: can't tell which is meant
+  const lm = LEAD_LETTER_RE.exec(s); // "B", "B)", "Option B", "B. Aspirin"
+  if (lm) {
+    const idx = resolve(lm[1]);
+    if (idx >= 0) {
+      const rest = (lm[2] || "").trim();
+      if (rest && normText(options[idx].text) !== normText(rest)) {
+        // "C. Aspirin" where Aspirin is actually option A: the letter and the text disagree — don't guess.
+        if (options.some((o, i) => i !== idx && normText(o.text) === normText(rest))) return { err: "err.correctConflict" };
+      }
+      return { idx };
+    }
+  }
+  const idx = resolve(s);
+  return idx >= 0 ? { idx } : { err: "err.match" };
+}
+
+function normalizeDistractors(raw, options, resolve) {
+  if (!raw || typeof raw !== "object") return undefined;
+  const out = {};
+  const put = (kRaw, v) => {
+    if (kRaw == null) return;
+    const val = toText(v) ?? (v && typeof v === "object" && !Array.isArray(v) ? toText(pickAlias(v, ["reason", "explanation", "analysis", "text", "why"])) : undefined);
+    const idx = resolve(kRaw);
+    if (val && idx >= 0) out[options[idx].key] = val;
+  };
+  if (Array.isArray(raw)) {
+    raw.forEach((it, i) => {
+      if (typeof it === "string") { const m = LABEL_RE.exec(it); if (m) put(m[1] || m[2], m[3]); else put(options[i] && options[i].key, it); }
+      else if (it && typeof it === "object") put(pickAlias(it, ["key", "option", "letter", "label"]) ?? (options[i] && options[i].key), it);
+    });
+  } else Object.entries(raw).forEach(([k, v]) => put(k, v));
+  return Object.keys(out).length ? out : undefined;
+}
+
+function normalizeSources(raw) {
+  const list = Array.isArray(raw) ? raw : raw != null ? [raw] : [];
+  const out = list.map((r) => {
+    if (typeof r === "string" && r.trim()) return { sourceTitle: r.trim() };
+    if (!r || typeof r !== "object") return null;
+    const title = toText(pickAlias(r, ["sourcetitle", "title", "source", "name", "book"]));
+    if (!title) return null;
+    const ref = { sourceTitle: title };
+    const ch = toText(pickAlias(r, ["chaptersection", "chapter", "section"]));
+    const pg = toText(pickAlias(r, ["pagenumber", "page", "pages"]));
+    const rel = toText(pickAlias(r, ["relevance", "note", "notes", "description", "why"]));
+    if (ch) ref.chapterSection = ch;
+    if (pg) ref.pageNumber = pg;
+    if (rel) ref.relevance = rel;
+    return ref;
+  }).filter(Boolean);
+  return out.length ? out : undefined;
+}
+
+// -> { q, touched } | { err, vars }
+function normalizeQuestion(q, n, usedIds, ctx) {
+  if (!q || typeof q !== "object" || Array.isArray(q)) return { err: "err.qObj", vars: { n, name: ctx.blockName } };
+  const nk = indexKeys(q);
+  let touched = false;
+  const get = (name) => {
+    const aliases = Q_ALIASES[name];
+    for (let k = 0; k < aliases.length; k++) {
+      const key = nk[aliases[k]];
+      if (key === undefined) continue;
+      const v = q[key];
+      if (v != null && !(typeof v === "string" && !v.trim())) { if (k > 0 && !(name in q)) touched = true; return v; }
+    }
+    return undefined;
+  };
+
+  let id = toText(get("id"));
+  if (!id) { id = `q${n}`; ctx.defaults = true; }
+  if (usedIds.has(id)) { // duplicate ids would make two questions share one answer slot
+    let k = 2;
+    while (usedIds.has(`${id}-${k}`)) k++;
+    id = `${id}-${k}`;
+    ctx.defaults = true;
+  }
+  usedIds.add(id);
+
+  const vignette = toText(get("vignette"));
+  if (!vignette) return { err: "err.vignette", vars: { id } };
+  const stem = toText(get("stem"));
+  if (!stem) return { err: "err.stem", vars: { id } };
+  const normOpts = normalizeOptions(get("options"));
+  if (!normOpts) return { err: "err.options", vars: { id } };
+  if (normOpts.touched) touched = true;
+  const { options, origKeys } = normOpts;
+  const resolve = makeKeyResolver(options, origKeys);
+  const res = resolveCorrectIndex(get("correctAnswer"), options, resolve);
+  if (res.err) return { err: res.err, vars: { id, ans: String(get("correctAnswer") ?? "") } };
+  if (!res.exact) touched = true;
+
+  const out = { ...q, id, vignette, stem, options, correctAnswer: options[res.idx].key };
+  const setText = (field) => { const v = toText(get(field)); if (v !== undefined) out[field] = v; else delete out[field]; };
+  ["subject", "attendingTip", "explanation", "keyLearningPoint", "hint", "educationalObjective"].forEach(setText);
+
+  // Difficulty: an explicit label (Easy/Medium/Hard) and a 1-5 rating. Either may be missing, or an AI may put the
+  // label in the "difficulty" field; resolveDifficulty reconciles them so the label always wins and the rating stays inside its band.
+  const dr = get("difficultyRating");
+  const dn = typeof dr === "number" ? dr : parseFloat(String(dr));
+  const dl = get("difficultyLabel");
+  const resolved = resolveDifficulty(Number.isFinite(dn) ? dn : undefined, typeof dl === "string" ? dl : typeof dr === "string" ? dr : undefined);
+  if (resolved) { out.difficultyRating = resolved.rating; out.difficultyLabel = TIER_LABEL[resolved.tier]; }
+  else { delete out.difficultyRating; delete out.difficultyLabel; }
+
+  const kp = get("keyInfoPhrases");
+  const phrases = (Array.isArray(kp) ? kp : kp != null ? [kp] : []).filter((x) => typeof x === "string" && x.trim());
+  if (kp !== undefined) out.keyInfoPhrases = phrases; else delete out.keyInfoPhrases;
+
+  const da = normalizeDistractors(get("distractorAnalysis"), options, resolve);
+  if (da) out.distractorAnalysis = da; else delete out.distractorAnalysis;
+  const sr = normalizeSources(get("sourceReferences"));
+  if (sr) out.sourceReferences = sr; else delete out.sourceReferences;
+  return { q: out, touched };
+}
+
+const isQuestionLike = (x) => !!x && typeof x === "object" && !Array.isArray(x) && pickAlias(x, Q_ALIASES.options) !== undefined;
+const hasQuestionList = (x) => !!x && typeof x === "object" && !Array.isArray(x) && Array.isArray(pickAlias(x, QUESTION_LIST));
+
+// Finds the list of blocks in the many shapes people paste: {blocks:[…]}, [block,…], [question,…],
+// {questions:[…]} (one block), or any of those wrapped in {"exam": …} / {"data": …}.
+function locateBlocks(v, depth = 0) {
+  if (depth > 3 || v == null || typeof v !== "object") return null;
+  if (Array.isArray(v)) {
+    if (!v.length) return null;
+    if (v.every(hasQuestionList)) return { blocks: v, root: {} };
+    if (v.some(isQuestionLike)) return { blocks: [{ questions: v }], root: {} };
+    return null;
+  }
+  const bl = pickAlias(v, ["blocks", "blocklist", "sections"]);
+  if (Array.isArray(bl) && bl.length) {
+    if (bl.every(hasQuestionList)) return { blocks: bl, root: v };
+    if (bl.some(isQuestionLike)) return { blocks: [{ questions: bl }], root: v };
+  }
+  if (Array.isArray(pickAlias(v, QUESTION_LIST))) return { blocks: [v], root: v };
+  for (const val of Object.values(v)) {
+    if (val && typeof val === "object") {
+      const r = locateBlocks(val, depth + 1);
+      if (r) return { ...r, root: Object.keys(r.root).length ? r.root : v };
+    }
+  }
+  return null;
+}
+
+function parseMinutes(v) {
+  if (typeof v === "number") return Number.isFinite(v) && v > 0 ? v : null;
+  if (typeof v === "string") {
+    const m = /^\s*(\d+(?:\.\d+)?)\s*(?:min(?:ute)?s?)?\s*$/i.exec(v);
+    if (m && parseFloat(m[1]) > 0) return parseFloat(m[1]);
+  }
+  return null;
+}
+
+// Returns { valid:false, error } or { valid:true, data:{examTitle?, blocks}, warnings:[{level,text,details?}], stats }.
+// level "content" = something was left out / changed in a way the student should confirm; "info" = purely cosmetic.
+function validateExamData(raw, t) {
+  const fail = (k, v, extra) => ({ valid: false, error: t(k, v) + (extra ? " " + extra : "") });
+  let value;
+  const flags = { repaired: false, truncated: false };
+  if (typeof raw === "string") {
+    const p = tolerantParseJson(raw);
+    if (!p.ok) return fail("err.json", { detail: p.detail || "?" });
+    value = p.value;
+    flags.repaired = p.repaired;
+    flags.truncated = p.truncated;
+  } else value = raw;
+  if (!value || typeof value !== "object") return fail("err.root");
+  const found = locateBlocks(value);
+  if (!found) return fail("err.blocks");
+
+  const ctx = { defaults: false, blockName: "" };
+  const skipped = [];
+  const droppedBlocks = [];
+  const timeDropped = [];
+  let normalized = 0;
+  const outBlocks = [];
+
+  found.blocks.forEach((b, bi) => {
+    if (!b || typeof b !== "object" || Array.isArray(b)) return;
+    let name = toText(pickAlias(b, ["blockname", "name", "title", "block"]));
+    if (!name) { name = `Block ${outBlocks.length + 1}`; ctx.defaults = true; }
+    ctx.blockName = name;
+    const rawQs = pickAlias(b, QUESTION_LIST);
+    if (!Array.isArray(rawQs) || rawQs.length === 0) { droppedBlocks.push(name); return; }
+
+    const tlRaw = pickAlias(b, ["timelimitminutes", "timelimit", "timeminutes", "minutes", "durationminutes", "duration"]);
+    const tl = tlRaw === undefined ? undefined : parseMinutes(tlRaw);
+    if (tlRaw !== undefined && tl === null) timeDropped.push(name);
+
+    const usedIds = new Set();
+    const qs = [];
+    rawQs.forEach((rq, qi) => {
+      const r = normalizeQuestion(rq, qi + 1, usedIds, ctx);
+      if (r.err) skipped.push(r); else { qs.push(r.q); if (r.touched) normalized++; }
+    });
+    if (qs.length === 0) { droppedBlocks.push(name); return; }
+    const nb = { ...b, blockName: name, questions: qs };
+    if (tl === undefined || tl === null) delete nb.timeLimitMinutes; else nb.timeLimitMinutes = tl;
+    outBlocks.push(nb);
+  });
+
+  const total = outBlocks.reduce((a, b) => a + b.questions.length, 0);
+  const skipLines = skipped.map((s) => t(s.err, s.vars));
+  if (total === 0) return fail("err.noneValid", undefined, skipLines.slice(0, 3).join(" "));
+
+  const warnings = [];
+  if (flags.truncated) warnings.push({ level: "content", text: t("warn.truncated", { n: total }) });
+  else if (flags.repaired) warnings.push({ level: "info", text: t("warn.fixed") });
+  if (skipped.length) {
+    const shown = skipLines.slice(0, 8);
+    if (skipLines.length > 8) shown.push(t("warn.more", { n: skipLines.length - 8 }));
+    warnings.push({ level: "content", text: t("warn.skipped", { n: skipped.length }), details: shown });
+  }
+  droppedBlocks.forEach((name) => warnings.push({ level: "content", text: t("warn.blockDropped", { name }) }));
+  timeDropped.forEach((name) => warnings.push({ level: "content", text: t("warn.timeDropped", { name }) }));
+  if (normalized) warnings.push({ level: "info", text: t("warn.normalized", { n: normalized }) });
+  if (ctx.defaults) warnings.push({ level: "info", text: t("warn.defaults") });
+
+  const data = { blocks: outBlocks };
+  const title = toText(pickAlias(found.root, ["examtitle", "title", "name"]));
+  if (title) data.examTitle = title;
+  return { valid: true, data, warnings, stats: { questions: total, skipped: skipped.length } };
+}
+
+function buildQuestionRecipeEs({ size, focusMode, focusValue, difficulty = "mixed" }) {
+  const baseName =
     focusMode === "systems" && focusValue ? `Bloque de sistema ${focusValue}`
     : focusMode === "discipline" && focusValue ? `Bloque de ${focusValue}`
     : "Bloque mixto";
+  const blockName = difficulty === "mixed" ? baseName : `${baseName} (${RECIPE_PROFILES.es.names[difficulty]})`;
+  const diff = buildDifficultySection(size, difficulty, "es");
   const focusLine =
     focusMode === "systems" ? `Todas las preguntas de un solo sistema — ${focusValue || "[SISTEMA]"}. Varía la disciplina evaluada (anatomía/fisiología/patología/farmacología/microbiología).`
     : focusMode === "discipline" ? `Todas las preguntas de una sola disciplina — ${focusValue || "[DISCIPLINA]"}. Varía el sistema evaluado.`
@@ -925,9 +1626,9 @@ function buildQuestionRecipeEs({ size, focusMode, focusValue }) {
 ${PROMPT_SCHEMA_TEXT}
 
 Escribe TODO el contenido (viñetas, opciones, explicaciones, pistas, etc.) en español.
-Bloque: "${blockName}", timeLimitMinutes ${Math.round(size * 1.5)}.
-Viñeta: 4-8 oraciones (edad/sexo, motivo de consulta, antecedentes, examen físico, laboratorios/imágenes). Incluye 3-5 pistas clínicas distintas y de alto rendimiento. 5 opciones (A-E), exactamente 1 correcta.
-keyInfoPhrases: extrae de 3 a 5 frases diagnósticas clave, copiadas EXACTAMENTE como subcadenas del texto de la viñeta, para el resaltado inteligente.
+Bloque: "${blockName}", timeLimitMinutes ${recipeTimeLimit(size, difficulty)}.
+${diff.text}
+keyInfoPhrases: extrae ${diff.phrases} frases diagnósticas clave, copiadas EXACTAMENTE como subcadenas del texto de la viñeta, para el resaltado inteligente.
 attendingTip: desglose del razonamiento clínico en 1-2 oraciones, escrito desde la perspectiva de un médico adjunto que guía al estudiante hacia el diagnóstico.
 explanation: 3-5 oraciones que analicen por qué la opción correcta es la correcta.
 keyLearningPoint: conclusión de alto rendimiento en 1-2 oraciones que resuma la patología/el manejo.
@@ -935,7 +1636,7 @@ distractorAnalysis: 1 oración concisa por opción incorrecta que explique por q
 hint: 1 oración corta que dirija la atención a la anomalía central sin revelar la respuesta.
 educationalObjective: resumen del concepto central en 1-2 oraciones.
 sourceReferences: 1-3 fuentes reales (First Aid, BRS, Pathoma, etc.) — sourceTitle, chapterSection, pageNumber (omítelo si no estás seguro), relevance.
-subject: sistema/disciplina específica. Cada id único. difficultyRating: de 1 a 5. Distribuye correctAnswer de forma uniforme entre A-E (nunca la misma letra más de dos veces seguidas).
+subject: sistema/disciplina específica. Cada id único. difficultyRating: entero de 1 a 5, acorde con el nivel de dificultad indicado. difficultyLabel: exactamente "Easy", "Medium" o "Hard" (en inglés), coherente con difficultyRating. Distribuye correctAnswer de forma uniforme entre las letras de opción usadas (nunca la misma letra más de dos veces seguidas).
 Enfoque: ${focusLine}`;
 }
 
@@ -1072,30 +1773,88 @@ function spreadBySubject(buckets) {
 
 // size = null → use every question (just spread evenly).
 // size < pool → equal share per subject (round-robin), so a huge subject can't crowd out the small ones.
-function mixQbanks(entries, { size = null } = {}) {
-  const { pool } = buildMixPool(entries);
+// Equal share per subject (round-robin) so a huge subject can't crowd out the small ones.
+function pickBySubject(items, n) {
+  if (n >= items.length) return [...items];
   const map = new Map();
-  pool.forEach((q) => { const k = subjectKey(q); if (!map.has(k)) map.set(k, []); map.get(k).push(q); });
-  let buckets = shuffleArray([...map.entries()]).map(([key, items]) => ({ key, items: shuffleArray(items) }));
-
-  const n = size && size < pool.length ? size : pool.length;
-  if (n < pool.length) {
-    const picked = new Map(buckets.map((b) => [b.key, []]));
-    let count = 0;
-    while (count < n) {
-      for (const b of buckets) {
-        if (count >= n) break;
-        if (b.items.length) { picked.get(b.key).push(b.items.pop()); count += 1; }
-      }
+  items.forEach((q) => { const k = subjectKey(q); if (!map.has(k)) map.set(k, []); map.get(k).push(q); });
+  const buckets = shuffleArray([...map.entries()]).map(([key, its]) => ({ key, items: shuffleArray(its) }));
+  const out = [];
+  while (out.length < n) {
+    let moved = false;
+    for (const b of buckets) {
+      if (out.length >= n) break;
+      if (b.items.length) { out.push(b.items.pop()); moved = true; }
     }
-    buckets = buckets.map((b) => ({ key: b.key, items: picked.get(b.key) }));
+    if (!moved) break;
   }
+  return out;
+}
+
+// Mixer difficulty filters: "all" (as saved), a single tier, or "balanced" (20% Easy / 60% Medium / 20% Hard).
+const MIX_DIFFICULTIES = ["all", "easy", "medium", "hard", "balanced"];
+
+function tierCounts(pool) {
+  const c = { easy: 0, medium: 0, hard: 0, unrated: 0 };
+  pool.forEach((q) => { const tier = questionTier(q); if (tier) c[tier] += 1; else c.unrated += 1; });
+  return c;
+}
+
+// Largest block that holds the exact 20/60/20 split with the questions on hand.
+function maxBalancedSize(c) {
+  for (let n = c.easy + c.medium + c.hard; n >= 1; n--) {
+    const w = mixedCounts(n);
+    if (w.easy <= c.easy && w.medium <= c.medium && w.hard <= c.hard) return n;
+  }
+  return 0;
+}
+
+// How many questions a difficulty filter can offer from this pool (the quantity picker's ceiling).
+function mixCapacity(pool, difficulty) {
+  const c = tierCounts(pool);
+  if (difficulty === "easy" || difficulty === "medium" || difficulty === "hard") return c[difficulty];
+  if (difficulty === "balanced") return maxBalancedSize(c);
+  return pool.length;
+}
+
+// Picks the questions for a mix: filter by difficulty, then take a subject-balanced share of the requested size.
+function selectByDifficulty(pool, difficulty, size) {
+  if (difficulty === "easy" || difficulty === "medium" || difficulty === "hard") {
+    const items = pool.filter((q) => questionTier(q) === difficulty);
+    return pickBySubject(items, size && size < items.length ? size : items.length);
+  }
+  if (difficulty === "balanced") {
+    const by = { easy: [], medium: [], hard: [] };
+    pool.forEach((q) => { const tier = questionTier(q); if (tier) by[tier].push(q); });
+    const rated = by.easy.length + by.medium.length + by.hard.length;
+    const n = Math.min(size || maxBalancedSize({ easy: by.easy.length, medium: by.medium.length, hard: by.hard.length }), rated);
+    const want = mixedCounts(n);
+    const take = { easy: Math.min(want.easy, by.easy.length), medium: Math.min(want.medium, by.medium.length), hard: Math.min(want.hard, by.hard.length) };
+    let short = n - take.easy - take.medium - take.hard; // a tier ran dry: backfill from the others, Medium first
+    for (const id of ["medium", "easy", "hard"]) {
+      const spare = Math.min(short, by[id].length - take[id]);
+      take[id] += spare; short -= spare;
+    }
+    return ["easy", "medium", "hard"].flatMap((id) => pickBySubject(by[id], take[id]));
+  }
+  return pickBySubject(pool, size && size < pool.length ? size : pool.length);
+}
+
+// size = null → use every question the difficulty filter allows (just spread evenly).
+function mixQbanks(entries, { size = null, difficulty = "all" } = {}) {
+  const { pool } = buildMixPool(entries);
+  const chosen = selectByDifficulty(pool, difficulty, size);
+  const map = new Map();
+  chosen.forEach((q) => { const k = subjectKey(q); if (!map.has(k)) map.set(k, []); map.get(k).push(q); });
+  const buckets = shuffleArray([...map.entries()]).map(([key, items]) => ({ key, items: shuffleArray(items) }));
+  const n = chosen.length;
 
   // debiasBlock re-shuffles option order if the merged pool's correct answers cluster on one letter.
   return debiasBlock({
     blockName: entries.length === 1 ? entries[0].title : "Mixed Qbank",
     isMixed: true,
     mixCount: entries.length,
+    mixDifficulty: difficulty,
     sourceBanks: entries.map((e) => e.title),
     timeLimitMinutes: Math.max(5, Math.round(n * 1.5)),
     questions: spreadBySubject(buckets),
@@ -1527,13 +2286,18 @@ function QbankLibraryPanel({ library, onLaunch, onMix, onDelete, onRename, resum
   };
   const liveQueue = queue.filter((id) => library.some((e) => e.id === id));
   const [mixSize, setMixSize] = useState("all");
+  const [mixDiff, setMixDiff] = useState("all"); // all | easy | medium | hard | balanced
   const mixInfo = useMemo(
     () => (liveQueue.length >= 1 ? buildMixPool(liveQueue.map((id) => library.find((e) => e.id === id))) : null),
     [liveQueue.join("|"), library]);
-  const poolSize = mixInfo ? mixInfo.pool.length : 0;
+  const tiers = useMemo(() => (mixInfo ? tierCounts(mixInfo.pool) : { easy: 0, medium: 0, hard: 0, unrated: 0 }), [mixInfo]);
+  const diffAvailable = (id) => (id === "all" ? true : id === "balanced" ? maxBalancedSize(tiers) > 0 : tiers[id] > 0);
+  const effDiff = mixInfo && diffAvailable(mixDiff) ? mixDiff : "all"; // a tier that vanished from the queue falls back to All
+  const poolSize = mixInfo ? mixCapacity(mixInfo.pool, effDiff) : 0;
   const mixSizes = [5, 10, 15, 20, 25, 30, 35, 40].filter((n) => n < poolSize); // presets in steps of 5, up to 40
   const [customMix, setCustomMix] = useState("");
-  const effSize = mixInfo && mixSize !== "all" && Number(mixSize) >= 1 && Number(mixSize) < mixInfo.pool.length ? Number(mixSize) : null;
+  const effSize = mixInfo && mixSize !== "all" && Number(mixSize) >= 1 && Number(mixSize) < poolSize ? Number(mixSize) : null;
+  const blockCount = effSize || poolSize;
   const toggle = (id) => setQueue((q) => (q.includes(id) ? q.filter((x) => x !== id) : [...q, id]));
   const fmtDate = (ms) => new Date(ms).toLocaleDateString(lang === "es" ? "es" : "en-US", { year: "numeric", month: "short", day: "numeric" });
 
@@ -1635,7 +2399,28 @@ function QbankLibraryPanel({ library, onLaunch, onMix, onDelete, onRename, resum
                 <span style={{ fontFamily: FONT_UI, fontSize: fs(12.5), color: T.muted, lineHeight: 1.5 }}>{liveQueue.length >= 2 ? t("libMixHint") : t("libCountHint")}</span>
               </div>
               <div style={{ display: "flex", flexDirection: "column", gap: 8, minWidth: 220 }}>
-                <span style={{ fontFamily: FONT_UI, fontSize: fs(12.5), color: T.muted }}>{t("libMixSize")}</span>
+                <span style={{ fontFamily: FONT_UI, fontSize: fs(12.5), color: T.muted }}>{t("diffMode")}</span>
+                <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: 6 }} role="group" aria-label={t("diffMode")}>
+                  {MIX_DIFFICULTIES.map((id) => {
+                    const on = effDiff === id;
+                    const ok = diffAvailable(id);
+                    const count = id === "all" ? mixInfo.pool.length : id === "balanced" ? null : tiers[id];
+                    return (
+                      <button key={id} aria-pressed={on} disabled={!ok} onClick={() => { setMixDiff(id); setMixSize("all"); setCustomMix(""); }}
+                        style={{ fontFamily: FONT_UI, fontSize: fs(12.5), fontWeight: 600, padding: "5px 10px", borderRadius: 6, cursor: ok ? "pointer" : "not-allowed", opacity: ok ? 1 : 0.4,
+                          background: on ? T.blue : "transparent", color: on ? T.onBlue : T.ink, border: `1px solid ${on ? T.blue : T.border}` }}>
+                        {id === "all" ? t("mixDiffAll") : id === "balanced" ? t("mixBalanced") : t("dl." + id)}{count !== null ? ` (${count})` : ""}
+                      </button>
+                    );
+                  })}
+                </div>
+                {effDiff === "balanced" && (() => { const w = mixedCounts(blockCount); return (
+                  <span style={{ fontFamily: FONT_UI, fontSize: fs(12), color: T.muted, lineHeight: 1.45 }}>{t("mixBalancedHint", { e: w.easy, m: w.medium, h: w.hard })}</span>
+                ); })()}
+                {effDiff !== "all" && tiers.unrated > 0 && (
+                  <span style={{ fontFamily: FONT_UI, fontSize: fs(12), color: T.muted, lineHeight: 1.45 }}>{t("mixUnrated", { n: tiers.unrated })}</span>
+                )}
+                <span style={{ fontFamily: FONT_UI, fontSize: fs(12.5), color: T.muted, marginTop: 4 }}>{t("libMixSize")}</span>
                 <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: 6 }} role="group" aria-label={t("libMixSize")}>
                   {mixSizes.map((n) => (
                     <button key={n} aria-pressed={effSize === n} onClick={() => { setMixSize(n); setCustomMix(""); }}
@@ -1670,8 +2455,8 @@ function QbankLibraryPanel({ library, onLaunch, onMix, onDelete, onRename, resum
                   />
                 </label>
               </div>
-              <PrimaryButton T={T} onClick={() => onMix(liveQueue, effSize)} icon={Shuffle}>
-                {liveQueue.length >= 2 ? t("libMix", { n: effSize || mixInfo.pool.length }) : t("libStartN", { n: effSize || mixInfo.pool.length })}
+              <PrimaryButton T={T} onClick={() => onMix(liveQueue, effSize, effDiff)} icon={Shuffle} disabled={blockCount < 1}>
+                {liveQueue.length >= 2 ? t("libMix", { n: blockCount }) : t("libStartN", { n: blockCount })}
               </PrimaryButton>
             </div>
           )}
@@ -1794,10 +2579,13 @@ function ImportScreen({ onImport, onSaveToLibrary, library, session, onResume, o
   const [showDevSchema, setShowDevSchema] = useState(false);
   const [copied, setCopied] = useState(false);
   const [recipeSize, setRecipeSize] = useState(25);
+  const [recipeCustom, setRecipeCustom] = useState(""); // typed custom question count; "" = a preset is active
+  const [recipeDifficulty, setRecipeDifficulty] = useState("mixed"); // mixed (recommended) | easy | medium | hard
   const [recipeFocusMode, setRecipeFocusMode] = useState("standard");
   const [recipeFocusValue, setRecipeFocusValue] = useState("");
   const [showDisclaimer, setShowDisclaimer] = useState(false);
   const [saveMsg, setSaveMsg] = useState(null); // { tone: "green" | "red" | "muted", text }
+  const [review, setReview] = useState(null); // { result, action: "load" | "save" } — confirm when the tolerant loader left something out
   const [guideOpen, setGuideOpen] = useState(false);
   const vp = useViewport();
   const stacked = vp.w < 820; // on narrow screens the buttons sit in their own row above the logo instead of floating over it
@@ -1806,35 +2594,42 @@ function ImportScreen({ onImport, onSaveToLibrary, library, session, onResume, o
   // Library entry (if any) that owns the in-progress block — it gets the Resume Session button.
   const resumeId = session?.block?.libraryId && library.some((e) => e.id === session.block.libraryId) ? session.block.libraryId : null;
 
-  const recipeText = buildQuestionRecipe({ size: recipeSize, focusMode: recipeFocusMode, focusValue: recipeFocusValue.trim(), lang });
+  const recipeText = buildQuestionRecipe({ size: recipeSize, focusMode: recipeFocusMode, focusValue: recipeFocusValue.trim(), lang, difficulty: recipeDifficulty });
 
-  function handleSubmit() {
+  // Shared by "Load exam" and "Save to Library". The loader is tolerant, but if anything was left out or changed in a way
+  // that matters, show it and let the student confirm rather than silently loading less than they pasted.
+  function attempt(action) {
     const result = validateExamData(text, t);
-    if (!result.valid) { setError(result.error); return; }
+    if (!result.valid) { setError(result.error); setSaveMsg(null); setReview(null); return; }
     setError("");
-    setSaveMsg(null);
-    onImport(result.data);
+    if (result.warnings.some((w) => w.level === "content")) { setSaveMsg(null); setReview({ result, action }); return; }
+    proceed(result, action);
   }
 
-  // Stores the pasted/uploaded blocks in the local Qbank library without starting an exam.
-  function handleSaveToLibrary() {
-    const result = validateExamData(text, t);
-    if (!result.valid) { setError(result.error); setSaveMsg(null); return; }
-    setError("");
+  function proceed(result, action) {
+    setReview(null);
+    if (action === "load") { setSaveMsg(null); onImport(result.data); return; }
     const r = onSaveToLibrary(result.data);
     if (r.failed) setSaveMsg({ tone: "red", text: t("storageFull") });
     else if (r.added === 0) setSaveMsg({ tone: "muted", text: t("libNothing") });
     else setSaveMsg({ tone: "green", text: [t("libSaved", { n: r.added }), r.dup ? t("libDup", { d: r.dup }) : ""].filter(Boolean).join(" ") });
   }
 
+  function handleSubmit() { attempt("load"); }
+  function handleSaveToLibrary() { attempt("save"); }
+
   function handleFile(e) {
     const file = e.target.files?.[0];
     if (!file) return;
     const reader = new FileReader();
     reader.onload = (ev) => {
-      setText(ev.target.result);
-      const result = validateExamData(ev.target.result, t);
-      setError(result.valid ? "" : result.error);
+      const content = ev.target.result;
+      setText(content);
+      setSaveMsg(null);
+      const result = validateExamData(content, t);
+      if (!result.valid) { setError(result.error); setReview(null); return; }
+      setError("");
+      setReview(result.warnings.some((w) => w.level === "content") ? { result, action: "load" } : null);
     };
     reader.readAsText(file);
   }
@@ -1942,7 +2737,7 @@ function ImportScreen({ onImport, onSaveToLibrary, library, session, onResume, o
 
           <textarea
             value={text}
-            onChange={(e) => setText(e.target.value)}
+            onChange={(e) => { setText(e.target.value); setReview(null); }}
             placeholder={t("pastePh")}
             style={{
               width: "100%", minHeight: 220, fontFamily: FONT_MONO, fontSize: fs(12.5), color: T.ink,
@@ -1958,6 +2753,35 @@ function ImportScreen({ onImport, onSaveToLibrary, library, session, onResume, o
             }}>
               <AlertTriangle size={16} style={{ flexShrink: 0, marginTop: 1 }} />
               <span>{error}</span>
+            </div>
+          )}
+
+          {review && (
+            <div role="alert" style={{
+              marginTop: 12, background: T.amberLight, color: T.ink, border: `1px solid ${T.amber}`, borderRadius: 8,
+              padding: "14px 16px", fontFamily: FONT_UI, fontSize: fs(13),
+            }}>
+              <div style={{ display: "flex", gap: 8, alignItems: "center", fontWeight: 700, color: T.amber, marginBottom: 8 }}>
+                <AlertTriangle size={16} /> {t("warn.reviewTitle")}
+              </div>
+              <div style={{ display: "grid", gap: 8 }}>
+                {review.result.warnings.map((w, i) => (
+                  <div key={i}>
+                    <div style={{ lineHeight: 1.5 }}>{w.text}</div>
+                    {w.details && (
+                      <ul style={{ margin: "4px 0 0", paddingLeft: 18, color: T.muted, lineHeight: 1.5 }}>
+                        {w.details.map((d, j) => <li key={j}>{d}</li>)}
+                      </ul>
+                    )}
+                  </div>
+                ))}
+              </div>
+              <div style={{ display: "flex", gap: 10, marginTop: 14, flexWrap: "wrap" }}>
+                <PrimaryButton T={T} icon={review.action === "save" ? Save : Play} onClick={() => proceed(review.result, review.action)}>
+                  {t(review.action === "save" ? "warn.saveN" : "warn.loadN", { n: review.result.stats.questions })}
+                </PrimaryButton>
+                <GhostButton T={T} onClick={() => setReview(null)}>{t("warn.back")}</GhostButton>
+              </div>
             </div>
           )}
 
@@ -1991,21 +2815,43 @@ function ImportScreen({ onImport, onSaveToLibrary, library, session, onResume, o
                 <div style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(12), color: T.ink, textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: 8 }}>
                   {t("blockSize")}
                 </div>
-                <div style={{ display: "flex", gap: 6 }}>
-                  {BLOCK_SIZES.map((n) => (
-                    <button
-                      key={n}
-                      onClick={() => setRecipeSize(n)}
-                      style={{
-                        fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(13), padding: "7px 14px", borderRadius: 6,
-                        border: `1.5px solid ${recipeSize === n ? T.blue : T.border}`,
-                        background: recipeSize === n ? T.blueLight : "transparent",
-                        color: recipeSize === n ? T.blueDeep : T.ink, cursor: "pointer",
-                      }}
-                    >
-                      {n}
-                    </button>
-                  ))}
+                <div style={{ display: "flex", gap: 6, flexWrap: "wrap", alignItems: "center" }}>
+                  {BLOCK_SIZES.map((n) => {
+                    const active = recipeCustom === "" && recipeSize === n;
+                    return (
+                      <button
+                        key={n}
+                        onClick={() => { setRecipeSize(n); setRecipeCustom(""); }}
+                        style={{
+                          fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(13), padding: "7px 14px", borderRadius: 6,
+                          border: `1.5px solid ${active ? T.blue : T.border}`,
+                          background: active ? T.blueLight : "transparent",
+                          color: active ? T.blueDeep : T.ink, cursor: "pointer",
+                        }}
+                      >
+                        {n}
+                      </button>
+                    );
+                  })}
+                  <input
+                    type="text"
+                    inputMode="numeric"
+                    value={recipeCustom}
+                    aria-label={t("customSize")}
+                    placeholder={`${t("customSize")} (${t("customSizePh", { n: MAX_RECIPE_SIZE })})`}
+                    onChange={(e) => {
+                      const digits = e.target.value.replace(/\D/g, "").slice(0, 3);
+                      if (digits === "") { setRecipeCustom(""); return; }
+                      const n = Math.max(1, Math.min(MAX_RECIPE_SIZE, parseInt(digits, 10)));
+                      setRecipeCustom(String(n));
+                      setRecipeSize(n);
+                    }}
+                    style={{
+                      width: Math.round(150 * Math.max(1, TEXT_SCALE)), boxSizing: "border-box", fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(13), color: T.ink,
+                      background: recipeCustom !== "" ? T.blueLight : "transparent",
+                      border: `1.5px solid ${recipeCustom !== "" ? T.blue : T.border}`, borderRadius: 6, padding: "7px 10px",
+                    }}
+                  />
                 </div>
               </div>
 
@@ -2030,7 +2876,36 @@ function ImportScreen({ onImport, onSaveToLibrary, library, session, onResume, o
                   ))}
                 </div>
               </div>
+
+              <div>
+                <div style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(12), color: T.ink, textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: 8 }}>
+                  {t("diffMode")}
+                </div>
+                <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
+                  {DIFFICULTY_MODES.map((id) => (
+                    <button
+                      key={id}
+                      onClick={() => setRecipeDifficulty(id)}
+                      aria-pressed={recipeDifficulty === id}
+                      style={{
+                        fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(13), padding: "7px 14px", borderRadius: 6,
+                        border: `1.5px solid ${recipeDifficulty === id ? T.blue : T.border}`,
+                        background: recipeDifficulty === id ? T.blueLight : "transparent",
+                        color: recipeDifficulty === id ? T.blueDeep : T.ink, cursor: "pointer",
+                      }}
+                    >
+                      {t("diffMode." + id)}
+                    </button>
+                  ))}
+                </div>
+              </div>
             </div>
+
+            <p style={{ fontFamily: FONT_UI, fontSize: fs(12.5), color: T.muted, lineHeight: 1.55, margin: "-6px 0 18px" }}>
+              {recipeDifficulty === "mixed"
+                ? t("diffHintMixed", (() => { const c = mixedCounts(recipeSize); return { e: c.easy, m: c.medium, h: c.hard }; })())
+                : t("diffHint" + recipeDifficulty.charAt(0).toUpperCase() + recipeDifficulty.slice(1))}
+            </p>
 
             {recipeFocusMode !== "standard" && (
               <input
@@ -2861,7 +3736,7 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onRate, o
                     </button>
                   );
                 })}
-                <span style={{ marginLeft: "auto" }}><DifficultyMeter value={q.difficultyRating} T={T} /></span>
+                <span style={{ marginLeft: "auto" }}><DifficultyMeter value={q.difficultyRating} label={q.difficultyLabel} T={T} /></span>
               </div>
               {qState.tipOpen && q.attendingTip && (
                 <div style={{ background: T.paper, borderLeft: `3px solid ${T.blue}`, borderRadius: 8, padding: "12px 14px", marginTop: 10, maxWidth: 720 }}>
@@ -3220,10 +4095,11 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onRate, o
 const clueStyleFor = (T) => ({ background: T.greenLight, borderBottom: `2px solid ${T.green}` });
 
 // Five-pip difficulty rating (1-5), shown after an answer is revealed and in block review.
-function DifficultyMeter({ value, T }) {
+function DifficultyMeter({ value, label, T }) {
   const { t } = useI18n();
-  if (typeof value !== "number") return null;
-  const n = Math.max(1, Math.min(5, Math.round(value)));
+  const d = resolveDifficulty(value, label);
+  if (!d) return null;
+  const n = d.rating;
   return (
     <span title={t("diffTitle", { n })} style={{ display: "inline-flex", alignItems: "center", gap: 6, fontFamily: FONT_UI, fontSize: fs(11.5), fontWeight: 600, color: T.muted }}>
       {t("difficulty")}
@@ -3232,6 +4108,7 @@ function DifficultyMeter({ value, T }) {
           <span key={i} style={{ width: 8, height: 8, borderRadius: 999, background: i <= n ? T.amber : "transparent", border: `1.5px solid ${T.amber}`, boxSizing: "border-box" }} />
         ))}
       </span>
+      <span style={{ color: T.ink }}>{t("dl." + d.tier)}</span>
     </span>
   );
 }
@@ -3362,6 +4239,28 @@ function ExplanationPanels({ q, T, showTip = true, showClues = true, flat = fals
   );
 }
 
+// Easy / Medium / Hard score tiles (tracking for the difficulty labels). Hidden unless 2+ tiers are present.
+function DifficultyBreakdown({ rows, T }) {
+  const { t } = useI18n();
+  if (!rows || rows.length < 2) return null;
+  return (
+    <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, padding: "18px 22px", marginBottom: 22 }}>
+      <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(13), color: T.ink, marginBottom: 12, textTransform: "uppercase", letterSpacing: "0.04em" }}>
+        {t("perfDifficulty")}
+      </div>
+      <div style={{ display: "flex", flexWrap: "wrap", gap: 12 }}>
+        {rows.map((r) => (
+          <div key={r.id} style={{ flex: "1 1 140px", background: T.paper, borderRadius: 8, padding: "12px 14px" }}>
+            <div style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(12), color: T.muted, textTransform: "uppercase", letterSpacing: "0.04em" }}>{t("dl." + r.id)}</div>
+            <div style={{ fontFamily: FONT_MONO, fontWeight: 600, fontSize: fs(24), color: r.pct >= 70 ? T.green : r.pct >= 50 ? T.amber : T.red }}>{r.pct}%</div>
+            <div style={{ fontFamily: FONT_MONO, fontSize: fs(12), color: T.muted }}>{r.correct}/{r.total}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 function BlockResults({ block, blockState, blockIdx, history, onBackToLobby, onRetest, onRate, onHome, T, darkMode, setDarkMode }) {
   const { t, lang } = useI18n();
   const [expanded, setExpanded] = useState(null);
@@ -3391,6 +4290,11 @@ function BlockResults({ block, blockState, blockIdx, history, onBackToLobby, onR
     });
     return Object.values(map).map((r) => ({ ...r, pct: Math.round((r.correct / r.total) * 100) }));
   }, [block, blockState, lang]);
+
+  const difficultyRows = useMemo(
+    () => difficultyBreakdown(block.questions.map((q) => ({ rating: q.difficultyRating, label: q.difficultyLabel, correct: blockState.answers[q.id]?.selected === q.correctAnswer }))),
+    [block, blockState]
+  );
 
   return (
     <div style={{ maxWidth: Math.round(1120 * Math.max(1, TEXT_SCALE)), margin: "0 auto", padding: "44px 20px 80px" }}>
@@ -3465,6 +4369,8 @@ function BlockResults({ block, blockState, blockIdx, history, onBackToLobby, onR
         </div>
       )}
 
+      <DifficultyBreakdown rows={difficultyRows} T={T} />
+
       <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(13), color: T.ink, marginBottom: 10, textTransform: "uppercase", letterSpacing: "0.04em" }}>
         {t("qReview")}
       </div>
@@ -3487,7 +4393,7 @@ function BlockResults({ block, blockState, blockIdx, history, onBackToLobby, onR
               {isOpen && (
                 <div style={{ padding: "0 16px 18px", borderTop: `1px solid ${T.border}` }}>
                   <div style={{ display: "flex", justifyContent: "flex-end", marginTop: 12 }}>
-                    <DifficultyMeter value={q.difficultyRating} T={T} />
+                    <DifficultyMeter value={q.difficultyRating} label={q.difficultyLabel} T={T} />
                   </div>
                   <p style={{ fontFamily: FONT_DISPLAY, fontSize: fs(14.5), color: T.ink, lineHeight: 1.65, marginTop: 8 }}>
                     {renderHighlightedText(q.vignette, null, () => {}, getClues(q.vignette, q.keyInfoPhrases).ranges, clueStyleFor(T))}
@@ -3621,6 +4527,15 @@ function FinalSummary({ examData, blockStates, onBackToLobby, T, darkMode, setDa
     return Object.values(map).map((r) => ({ ...r, pct: Math.round((r.correct / r.total) * 100) })).sort((a, b) => a.pct - b.pct);
   }, [examData, blockStates, lang]);
 
+  const difficultyRows = useMemo(() => {
+    const entries = [];
+    examData.blocks.forEach((block, bi) => {
+      if (block.isRetest || blockStates[bi].status !== "done") return; // retests never alter baseline stats
+      block.questions.forEach((q) => entries.push({ rating: q.difficultyRating, label: q.difficultyLabel, correct: blockStates[bi].answers[q.id]?.selected === q.correctAnswer }));
+    });
+    return difficultyBreakdown(entries);
+  }, [examData, blockStates]);
+
   const baseIdx = examData.blocks.map((b, i) => (b.isRetest ? -1 : i)).filter((i) => i >= 0);
   const retestCount = examData.blocks.length - baseIdx.length;
   const totalCorrect = baseIdx.reduce((s, i) => s + (blockStates[i].score?.correct || 0), 0);
@@ -3672,6 +4587,8 @@ function FinalSummary({ examData, blockStates, onBackToLobby, T, darkMode, setDa
           </BarChart>
         </ResponsiveContainer>
       </div>
+
+      <DifficultyBreakdown rows={difficultyRows} T={T} />
 
       {weakest.length > 0 && (
         <div style={{ background: T.blueLight, borderRadius: 10, padding: "16px 20px", marginBottom: 22 }}>
@@ -3812,10 +4729,11 @@ export default function App() {
 
   // Merge several saved banks into ONE shuffled, subject-balanced block and open it in the lobby.
   // The result isn't tied to a single library entry, so it never overwrites a bank's "last score".
-  function mixFromLibrary(ids, size) {
+  function mixFromLibrary(ids, size, difficulty = "all") {
     const entries = ids.map((id) => library.find((e) => e.id === id)).filter(Boolean);
     if (entries.length < 1) return;
-    const block = mixQbanks(entries, { size });
+    const block = mixQbanks(entries, { size, difficulty });
+    if (block.questions.length === 0) return;
     setExamData({ blocks: [block] });
     setBlockStates([makeInitialBlockState(block)]);
     setHistory([]);
@@ -4081,7 +4999,7 @@ export default function App() {
           onResume={() => resumeSession(ipIdx)}
           onOpenLobby={() => setView("lobby")}
           onLaunchLibrary={(ids) => guardNew(() => launchFromLibrary(ids))}
-          onMixLibrary={(ids, size) => guardNew(() => mixFromLibrary(ids, size))}
+          onMixLibrary={(ids, size, difficulty) => guardNew(() => mixFromLibrary(ids, size, difficulty))}
           onDeleteLibraryEntry={deleteLibraryEntry}
           onRenameLibraryEntry={renameLibraryEntry}
           T={T} darkMode={darkMode} setDarkMode={setDarkMode}
