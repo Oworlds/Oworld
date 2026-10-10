@@ -4,7 +4,7 @@ import {
   Play, CheckCircle2, XCircle, AlertTriangle, ClipboardList, Activity,
   Check, ChevronDown, ChevronUp, FileJson, FlaskConical, PencilLine,
   Calculator as CalcIcon, Settings as SettingsIcon, Lock, Unlock,
-  Search, Trash2, X, XOctagon, Lightbulb, Sun, Moon, Highlighter, BookOpen, Stethoscope, Target, Save, Shuffle, Plus, Home as HomeIcon, HelpCircle, Pencil, Share2
+  Search, Trash2, X, XOctagon, Lightbulb, Sun, Moon, Highlighter, BookOpen, Stethoscope, Target, Save, Shuffle, Plus, Home as HomeIcon, HelpCircle, Pencil, Share2, ExternalLink, Sparkles
 } from "lucide-react";
 import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell
@@ -253,11 +253,11 @@ const STR = {
     saveToLibrary: "Save to Library", libSaved: "Saved {n} new block(s) to your library.", libDup: "{d} already in your library.", libNothing: "Already in your library — nothing new to save.",
     libTitle: "Qbank Library", libCount: "{n} saved", libEmpty: "Nothing saved yet. Paste or upload a question bank and choose \u201cSave to Library\u201d to keep it on this device.",
     libMeta: "{q} questions · imported {d}", libLastScore: "Last score {pct}% ({c}/{t})", libNoScore: "Not attempted yet",
-    libStart: "Start", libStartQueue: "Start queued blocks ({n})", libQueueHint: "Tick two or more blocks to run them back-to-back as one continuous session.", rateTitle: "How well did you know this?", "rate.again": "Again", "rate.hard": "Hard", "rate.good": "Good", "rate.easy": "Easy",
+    libStart: "Start", rateTitle: "How well did you know this?", "rate.again": "Again", "rate.hard": "Hard", "rate.good": "Good", "rate.easy": "Easy",
     poolAgain: "Rated Again", poolHard: "Rated Hard", poolAgainHard: "Again + Hard",
     "rt.again": "Rated Again", "rt.hard": "Rated Hard", "rt.againhard": "Rated Again/Hard",
     sufAgain: "Retest Again", sufHard: "Retest Hard", sufAgainHard: "Retest Again/Hard",
-    textSize: "Text size", textSmaller: "Smaller text", textLarger: "Larger text", textReset: "Reset", libMixMax: "Max ({n})", libMixCustom: "Custom", libMixCustomHint: "1–{n}", libCountTitle: "Choose question count", libCountHint: "Draws a random, subject-balanced set of questions from this bank. Scores from this block never change the bank's last score.", libStartN: "Start {n} questions", libMixTitle: "Mix selected banks", libMixHint: "Merges the ticked banks into one shuffled block, with systems and disciplines spread evenly.", libMixPool: "{q} questions · {s} subjects", libMixDupes: "{d} duplicate(s) removed", libMixSize: "Questions", libMixAll: "All ({n})", libMix: "Mix selected ({n})", mixedName: "Mixed Qbank ({n} banks)",
+    textSize: "Text size", textSmaller: "Smaller text", textLarger: "Larger text", textReset: "Reset", libMixMax: "Max ({n})", libMixCustom: "Custom", libMixCustomHint: "1–{n}", libCountTitle: "Choose question count", libCountHint: "Draws a random, subject-balanced set of questions from this bank. Scores from this block never change the bank's last score.", libLoad: "Load {n} questions", libLoadOne: "Load 1 question", libShareSel: "Share / Export Selected", libExporting: "Exporting your selection ({n}) as one file…", libExportShared: "Shared your selection ({n}) as one file.", libExportDownloaded: "Downloaded your selection ({n}) as one file.", libExportFailed: "Export failed. Please try again.", bundleFound: "Bundle detected: {n} blocks ({names}). Save to Library adds each one as its own card; Load exam opens them as separate blocks.", libEditSel: "Edit Selected", libDeleteSel: "Delete Selected", libEditing: "{i} of {n}", libSelectHint: "Tick blocks to load, share, rename or delete them. Tick two or more to mix them into one custom block.", libDeleteSelQ: "Delete {n} selected Qbank(s)? This can't be undone.", libMixTitle: "Mix selected banks", libMixHint: "Merges the ticked banks into one shuffled block, with systems and disciplines spread evenly.", libMixPool: "{q} questions · {s} subjects", libMixDupes: "{d} duplicate(s) removed", libMixSize: "Questions", libMixAll: "All ({n})", libMix: "Mix {n} questions", libMixOne: "Mix 1 question", mixedName: "Mixed Qbank ({n} banks)",
     libDeleteQ: "Delete this block?", libDelete: "Delete", libLocalNote: "Stored only in this browser. Clearing site data removes it.",
     resetData: "Reset All Local Data", resetDataWarn: "This permanently deletes your Qbank library, saved exam progress and preferences from this browser. It can't be undone.", resetDataConfirm: "Yes, delete everything",
     resumed: "Session restored — you're back where you left off.", storageFull: "Couldn't write to browser storage (it may be full or disabled). Your progress is not being backed up right now.",
@@ -274,7 +274,8 @@ const STR = {
     intro: "Paste or upload custom question banks created with your favorite AI tools like ChatGPT, Claude, Gemini, or NotebookLM. Experience an exam-like environment complete with lab reference panels, answer strikethroughs, a built-in calculator, and detailed score analytics.",
     pasteJson: "Paste or upload question bank", upload: "Upload file",
     pastePh: "Paste your generated question bank here…",
-    load: "Load exam", importQbank: "Import New Qbank", homeBtn: "Home", removeExam: "Remove exam", removeTitle: "Remove this exam?", removeBody: "This clears the loaded exam and any progress or results in it. Your saved Qbank Library is not affected.", removeBodyUnsaved: "This clears the loaded exam and any progress or results in it. Some of its blocks are not saved to your Library and would be gone for good. Cancel and tap Save to Library first if you want to keep them.", removeGo: "Remove", libRename: "Rename Qbank", libRenameSave: "Save name", howItWorks: "How it works", guideStep: "Step {n} of {total}", guideBack: "Back", guideNext: "Next", guideDone: "Got it", guideClose: "Close guide", navCollapse: "Collapse question list", navExpand: "Expand question list", resumeSession: "Resume Session", sessionInProgress: "Session in progress", sessionPos: "Question {n} of {total}", examLoadedLabel: "Exam loaded", openLobby: "Open exam lobby", inProgressTag: "In progress", discardTitle: "Discard in-progress session?", discardBody: "Starting something new replaces your in-progress block, and its answers will be lost.", discardGo: "Discard and continue", hide: "Hide", recipe: "Question Recipe Prompt",
+    pasteChars: "{n} characters pasted", pasteClear: "Clear", pasteEmpty: "Nothing pasted yet — expand to paste, or use Upload.",
+    load: "Load exam", importQbank: "Import New Qbank", aiLaunchTitle: "AI Quick Launch", aiLaunchHint: "Open your AI tool, paste the Question Recipe Prompt below along with your topic or notes, then bring the reply back here.", aiLaunchOpens: "Opens in a new tab", homeBtn: "Home", removeExam: "Remove exam", removeTitle: "Remove this exam?", removeBody: "This clears the loaded exam and any progress or results in it. Your saved Qbank Library is not affected.", removeBodyUnsaved: "This clears the loaded exam and any progress or results in it. Some of its blocks are not saved to your Library and would be gone for good. Cancel and tap Save to Library first if you want to keep them.", removeGo: "Remove", libRename: "Rename Qbank", libRenameSave: "Save name", howItWorks: "How it works", guideStep: "Step {n} of {total}", guideBack: "Back", guideNext: "Next", guideDone: "Got it", guideClose: "Close guide", navCollapse: "Collapse question list", navExpand: "Expand question list", resumeSession: "Resume Session", sessionInProgress: "Session in progress", sessionPos: "Question {n} of {total}", examLoadedLabel: "Exam loaded", openLobby: "Open exam lobby", inProgressTag: "In progress", discardTitle: "Discard in-progress session?", discardBody: "Starting something new replaces your in-progress block, and its answers will be lost.", discardGo: "Discard and continue", hide: "Hide", recipe: "Question Recipe Prompt",
     recipeIntro: "Configure a block below, then copy the generated recipe into the AI tool of your choice (add your source material if it supports it). It returns questions in the exact shape this app expects.",
     blockSize: "Block size", focus: "Focus",
     diffMode: "Difficulty", "diffMode.mixed": "Mixed (recommended)", "diffMode.easy": "Easy", "diffMode.medium": "Medium", "diffMode.hard": "Hard (USMLE standard)",
@@ -370,11 +371,11 @@ const STR = {
     saveToLibrary: "Guardar en la biblioteca", libSaved: "Se guardaron {n} bloque(s) nuevo(s) en tu biblioteca.", libDup: "{d} ya estaba(n) en tu biblioteca.", libNothing: "Ya está en tu biblioteca; no hay nada nuevo que guardar.",
     libTitle: "Biblioteca de preguntas", libCount: "{n} guardados", libEmpty: "Aún no hay nada guardado. Pega o sube un banco de preguntas y elige \u201cGuardar en la biblioteca\u201d para conservarlo en este dispositivo.",
     libMeta: "{q} preguntas · importado {d}", libLastScore: "Último puntaje {pct}% ({c}/{t})", libNoScore: "Sin intentos aún",
-    libStart: "Iniciar", libStartQueue: "Iniciar bloques en cola ({n})", libQueueHint: "Marca dos o más bloques para resolverlos seguidos en una sola sesión continua.", rateTitle: "¿Qué tan bien lo sabías?", "rate.again": "Otra vez", "rate.hard": "Difícil", "rate.good": "Bien", "rate.easy": "Fácil",
+    libStart: "Iniciar", rateTitle: "¿Qué tan bien lo sabías?", "rate.again": "Otra vez", "rate.hard": "Difícil", "rate.good": "Bien", "rate.easy": "Fácil",
     poolAgain: "Calificadas Otra vez", poolHard: "Calificadas Difícil", poolAgainHard: "Otra vez + Difícil",
     "rt.again": "Calificadas Otra vez", "rt.hard": "Calificadas Difícil", "rt.againhard": "Calificadas Otra vez/Difícil",
     sufAgain: "Repaso Otra vez", sufHard: "Repaso Difícil", sufAgainHard: "Repaso Otra vez/Difícil",
-    textSize: "Tamaño del texto", textSmaller: "Texto más pequeño", textLarger: "Texto más grande", textReset: "Restablecer", libMixMax: "Máx ({n})", libMixCustom: "Personalizado", libMixCustomHint: "1–{n}", libCountTitle: "Elegir cantidad de preguntas", libCountHint: "Toma un conjunto aleatorio y equilibrado por materia de este banco. El puntaje de este bloque nunca cambia el último puntaje del banco.", libStartN: "Iniciar {n} preguntas", libMixTitle: "Mezclar bancos seleccionados", libMixHint: "Une los bancos marcados en un solo bloque mezclado, con sistemas y disciplinas repartidos de forma pareja.", libMixPool: "{q} preguntas · {s} materias", libMixDupes: "{d} duplicada(s) eliminada(s)", libMixSize: "Preguntas", libMixAll: "Todas ({n})", libMix: "Mezclar selección ({n})", mixedName: "Qbank mezclado ({n} bancos)",
+    textSize: "Tamaño del texto", textSmaller: "Texto más pequeño", textLarger: "Texto más grande", textReset: "Restablecer", libMixMax: "Máx ({n})", libMixCustom: "Personalizado", libMixCustomHint: "1–{n}", libCountTitle: "Elegir cantidad de preguntas", libCountHint: "Toma un conjunto aleatorio y equilibrado por materia de este banco. El puntaje de este bloque nunca cambia el último puntaje del banco.", libLoad: "Cargar {n} preguntas", libLoadOne: "Cargar 1 pregunta", libShareSel: "Compartir / Exportar selección", libExporting: "Exportando tu selección ({n}) en un solo archivo…", libExportShared: "Compartiste tu selección ({n}) en un solo archivo.", libExportDownloaded: "Descargaste tu selección ({n}) en un solo archivo.", libExportFailed: "Error al exportar. Inténtalo de nuevo.", bundleFound: "Paquete detectado: {n} bloques ({names}). Guardar en la biblioteca añade cada uno como su propia tarjeta; Cargar examen los abre como bloques separados.", libEditSel: "Editar selección", libDeleteSel: "Eliminar selección", libEditing: "{i} de {n}", libSelectHint: "Marca bloques para cargarlos, compartirlos, renombrarlos o eliminarlos. Marca dos o más para mezclarlos en un solo bloque personalizado.", libDeleteSelQ: "¿Eliminar {n} Qbank(s) seleccionado(s)? No se puede deshacer.", libMixTitle: "Mezclar bancos seleccionados", libMixHint: "Une los bancos marcados en un solo bloque mezclado, con sistemas y disciplinas repartidos de forma pareja.", libMixPool: "{q} preguntas · {s} materias", libMixDupes: "{d} duplicada(s) eliminada(s)", libMixSize: "Preguntas", libMixAll: "Todas ({n})", libMix: "Mezclar {n} preguntas", libMixOne: "Mezclar 1 pregunta", mixedName: "Qbank mezclado ({n} bancos)",
     libDeleteQ: "¿Eliminar este bloque?", libDelete: "Eliminar", libLocalNote: "Se guarda solo en este navegador. Borrar los datos del sitio lo elimina.",
     resetData: "Restablecer todos los datos locales", resetDataWarn: "Esto elimina de forma permanente tu biblioteca, el progreso guardado y tus preferencias en este navegador. No se puede deshacer.", resetDataConfirm: "Sí, eliminar todo",
     resumed: "Sesión restaurada: continúas donde la dejaste.", storageFull: "No se pudo escribir en el almacenamiento del navegador (puede estar lleno o desactivado). Tu progreso no se está respaldando.",
@@ -391,7 +392,8 @@ const STR = {
     intro: "Pega o sube bancos de preguntas personalizados creados con tus herramientas de IA favoritas, como ChatGPT, Claude, Gemini o NotebookLM. Vive un entorno similar al examen real, con paneles de referencia de laboratorio, tachado de respuestas, calculadora integrada y analíticas detalladas de tu puntaje.",
     pasteJson: "Pega o sube un banco de preguntas", upload: "Subir archivo",
     pastePh: "Pega aquí tu banco de preguntas generado…",
-    load: "Cargar examen", importQbank: "Importar nuevo Qbank", homeBtn: "Inicio", removeExam: "Quitar examen", removeTitle: "¿Quitar este examen?", removeBody: "Esto borra el examen cargado y su progreso o resultados. Tu biblioteca de preguntas guardada no se ve afectada.", removeBodyUnsaved: "Esto borra el examen cargado y su progreso o resultados. Algunos de sus bloques no están guardados en tu biblioteca y se perderían para siempre. Cancela y toca Guardar en la biblioteca primero si quieres conservarlos.", removeGo: "Quitar", libRename: "Renombrar Qbank", libRenameSave: "Guardar nombre", howItWorks: "Cómo funciona", guideStep: "Paso {n} de {total}", guideBack: "Atrás", guideNext: "Siguiente", guideDone: "Entendido", guideClose: "Cerrar guía", navCollapse: "Contraer lista de preguntas", navExpand: "Expandir lista de preguntas", resumeSession: "Reanudar sesión", sessionInProgress: "Sesión en curso", sessionPos: "Pregunta {n} de {total}", examLoadedLabel: "Examen cargado", openLobby: "Abrir sala del examen", inProgressTag: "En curso", discardTitle: "¿Descartar la sesión en curso?", discardBody: "Iniciar algo nuevo reemplaza tu bloque en curso y se perderán sus respuestas.", discardGo: "Descartar y continuar", hide: "Ocultar", recipe: "Prompt de receta de preguntas",
+    pasteChars: "{n} caracteres pegados", pasteClear: "Borrar", pasteEmpty: "Aún no has pegado nada — expande para pegar o usa Subir archivo.",
+    load: "Cargar examen", importQbank: "Importar nuevo Qbank", aiLaunchTitle: "Acceso rápido a IA", aiLaunchHint: "Abre tu herramienta de IA, pega el Prompt de receta de preguntas de abajo junto con tu tema o apuntes y trae la respuesta aquí.", aiLaunchOpens: "Se abre en una pestaña nueva", homeBtn: "Inicio", removeExam: "Quitar examen", removeTitle: "¿Quitar este examen?", removeBody: "Esto borra el examen cargado y su progreso o resultados. Tu biblioteca de preguntas guardada no se ve afectada.", removeBodyUnsaved: "Esto borra el examen cargado y su progreso o resultados. Algunos de sus bloques no están guardados en tu biblioteca y se perderían para siempre. Cancela y toca Guardar en la biblioteca primero si quieres conservarlos.", removeGo: "Quitar", libRename: "Renombrar Qbank", libRenameSave: "Guardar nombre", howItWorks: "Cómo funciona", guideStep: "Paso {n} de {total}", guideBack: "Atrás", guideNext: "Siguiente", guideDone: "Entendido", guideClose: "Cerrar guía", navCollapse: "Contraer lista de preguntas", navExpand: "Expandir lista de preguntas", resumeSession: "Reanudar sesión", sessionInProgress: "Sesión en curso", sessionPos: "Pregunta {n} de {total}", examLoadedLabel: "Examen cargado", openLobby: "Abrir sala del examen", inProgressTag: "En curso", discardTitle: "¿Descartar la sesión en curso?", discardBody: "Iniciar algo nuevo reemplaza tu bloque en curso y se perderán sus respuestas.", discardGo: "Descartar y continuar", hide: "Ocultar", recipe: "Prompt de receta de preguntas",
     recipeIntro: "Configura un bloque abajo y luego copia la receta generada en la herramienta de IA que prefieras (agrega tu material de estudio si lo permite). Devuelve las preguntas en el formato exacto que esta app espera.",
     blockSize: "Tamaño del bloque", focus: "Enfoque",
     diffMode: "Dificultad", "diffMode.mixed": "Mixta (recomendada)", "diffMode.easy": "Fácil", "diffMode.medium": "Media", "diffMode.hard": "Difícil (estándar USMLE)",
@@ -1258,6 +1260,34 @@ function salvageTruncatedJson(text) {
   return undefined;
 }
 
+// Splits text that holds several top-level JSON values back to back ({…} {…} or {…},{…}, even with prose between them).
+// Brace matching respects strings and escapes. Returns the list of value texts.
+function splitTopLevelJson(text) {
+  const out = [];
+  let depth = 0, inStr = false, esc = false, start = -1;
+  for (let i = 0; i < text.length; i++) {
+    const c = text[i];
+    if (inStr) { if (esc) esc = false; else if (c === "\\") esc = true; else if (c === '"') inStr = false; continue; }
+    if (c === '"') { if (depth > 0) inStr = true; continue; }
+    if (c === "{" || c === "[") { if (depth === 0) start = i; depth++; }
+    else if ((c === "}" || c === "]") && depth > 0) { depth--; if (depth === 0) out.push(text.slice(start, i + 1)); }
+  }
+  return out;
+}
+
+// Several ```json fences in one reply, each a complete dataset: gather them all instead of keeping only the longest.
+// Strict on purpose (every JSON fence must parse and contain blocks), so an unrelated code sample never gets mixed in.
+function parseMultiFence(raw) {
+  const text = String(raw).replace(INVISIBLE_RE, "");
+  const fences = [...text.matchAll(/```[A-Za-z0-9_-]*[ \t]*\r?\n?([\s\S]*?)```/g)].map((m) => m[1]).filter((b) => /[{\[]/.test(b));
+  if (fences.length < 2) return undefined;
+  const values = [];
+  for (const f of fences) {
+    try { const v = JSON.parse(f.trim()); if (!locateBlocks(v)) return undefined; values.push(v); } catch (e) { return undefined; }
+  }
+  return values;
+}
+
 function tolerantParseJson(raw, depth = 0) {
   const trimmed = String(raw).replace(INVISIBLE_RE, "").trim();
   if (depth < 1 && /^"[\s\S]*"$/.test(trimmed)) { // the whole thing is one JSON string: "{\"blocks\": …}"
@@ -1266,6 +1296,8 @@ function tolerantParseJson(raw, depth = 0) {
       if (typeof inner === "string") { const r = tolerantParseJson(inner, depth + 1); if (r.ok) return { ...r, repaired: true }; }
     } catch (e) { /* not a plain string; carry on */ }
   }
+  const fenced = parseMultiFence(raw);
+  if (fenced) return { ok: true, value: fenced, repaired: false, truncated: false };
   const base = extractJsonText(raw);
   const variants = [base];
   // Rich-text editors turn " into “ ”. Tried only as a fallback because those characters are also legitimate text.
@@ -1282,6 +1314,10 @@ function tolerantParseJson(raw, depth = 0) {
   for (let vi = 0; vi < variants.length; vi++) {
     const v = variants[vi];
     try { return done(JSON.parse(v), vi > 0, false); } catch (e) { if (vi === 0) detail = String(e.message || e); }
+    const parts = splitTopLevelJson(v); // two exports pasted back to back
+    if (parts.length >= 2) {
+      try { return done(parts.map((x) => JSON.parse(x)), vi > 0, false); } catch (e) { /* not all complete: try repair */ }
+    }
     const fixed = repairJsonText(v);
     try { return done(JSON.parse(fixed), true, false); } catch (e) { /* fall through to recovery */ }
     const salvaged = salvageTruncatedJson(fixed);
@@ -1518,6 +1554,9 @@ function locateBlocks(v, depth = 0) {
     if (!v.length) return null;
     if (v.every(hasQuestionList)) return { blocks: v, root: {} };
     if (v.some(isQuestionLike)) return { blocks: [{ questions: v }], root: {} };
+    // Several datasets in one array ([{ examTitle, blocks }, { blocks }, …]): keep every block, in order.
+    const parts = v.map((x) => locateBlocks(x, depth + 1));
+    if (parts.every(Boolean)) return { blocks: parts.flatMap((x) => x.blocks), root: parts.length === 1 ? parts[0].root : {} };
     return null;
   }
   const bl = pickAlias(v, ["blocks", "blocklist", "sections"]);
@@ -1526,12 +1565,15 @@ function locateBlocks(v, depth = 0) {
     if (bl.some(isQuestionLike)) return { blocks: [{ questions: bl }], root: v };
   }
   if (Array.isArray(pickAlias(v, QUESTION_LIST))) return { blocks: [v], root: v };
+  const hits = [];
   for (const val of Object.values(v)) {
     if (val && typeof val === "object") {
       const r = locateBlocks(val, depth + 1);
-      if (r) return { ...r, root: Object.keys(r.root).length ? r.root : v };
+      if (r) hits.push(r);
     }
   }
+  if (hits.length === 1) return { ...hits[0], root: Object.keys(hits[0].root).length ? hits[0].root : v };
+  if (hits.length > 1) return { blocks: hits.flatMap((h) => h.blocks), root: {} }; // {"setA": {…}, "setB": {…}}: all of them
   return null;
 }
 
@@ -2294,8 +2336,8 @@ function SettingsMenu({ darkMode, setDarkMode, T, iconOnly = false }) {
 
 // ---------------------------------------------------------------------------
 // Export / share a block
-//   serializeExamBlock(block, title)  block -> { json, fileName }   pretty-printed, re-importable by this app
-//   exportExamBlock(block, opts)      Web Share (AirDrop on Apple devices) -> .json download fallback
+//   serializeExamBlocks(blocks, title)  one block or an array (a bundle) -> { json, fileName }   pretty-printed, re-importable
+//   exportExamBlock(blockOrBlocks, opts) Web Share (AirDrop on Apple devices) -> .json download fallback
 //   ExportShareButton                 the "Export / Share" button used on library and lobby block cards
 // The file is the same shape the importer reads ({ examTitle, blocks: [...] }), so a classmate can load it as-is.
 // ---------------------------------------------------------------------------
@@ -2312,18 +2354,26 @@ function exportableQuestion(q) {
   return rest;
 }
 
-function serializeExamBlock(block, examTitle) {
-  const title = examTitle || block.blockName || "Oworld block";
+const BUNDLE_TITLE = "Oworld Shared Bundle";
+
+// One or many blocks -> pretty-printed { examTitle, blocks: [...] }. Several blocks become one bundle file; every block
+// keeps its own name, time limit and questions, so the importer can turn each back into its own library card.
+function serializeExamBlocks(blocks, examTitle) {
+  const list = (Array.isArray(blocks) ? blocks : [blocks]).filter(Boolean);
+  if (list.length === 0) throw new Error("nothing to export");
+  const bundle = list.length > 1;
+  const title = examTitle || (bundle ? BUNDLE_TITLE : list[0].blockName) || "Oworld block";
   const payload = {
     examTitle: title,
-    blocks: [{
-      blockName: block.blockName || title,
-      ...(typeof block.timeLimitMinutes === "number" ? { timeLimitMinutes: block.timeLimitMinutes } : {}),
-      questions: (block.questions || []).map(exportableQuestion),
-    }],
+    blocks: list.map((b, i) => ({
+      blockName: b.blockName || `Block ${i + 1}`,
+      ...(typeof b.timeLimitMinutes === "number" ? { timeLimitMinutes: b.timeLimitMinutes } : {}),
+      questions: (b.questions || []).map(exportableQuestion),
+    })),
   };
-  return { json: JSON.stringify(payload, null, 2), fileName: exportFileName(block.blockName || title) };
+  return { json: JSON.stringify(payload, null, 2), fileName: exportFileName(bundle ? title : (list[0].blockName || title)) };
 }
+const serializeExamBlock = (block, examTitle) => serializeExamBlocks([block], examTitle);
 
 // Plain file download: works on every desktop browser, and on mobile browsers without file sharing.
 function downloadBlob(blob, fileName) {
@@ -2339,9 +2389,9 @@ function downloadBlob(blob, fileName) {
 // Resolves to "shared" | "downloaded" | "cancelled" | "error" — it never rejects, so callers need no try/catch.
 // Everything before navigator.share() is synchronous on purpose: browsers only allow the share sheet while the
 // click's user activation is still live, so no await may sit between the tap and the share call.
-async function exportExamBlock(block, { examTitle, shareTitle, shareText } = {}) {
+async function exportExamBlock(blockOrBlocks, { examTitle, shareTitle, shareText } = {}) {
   let json, fileName;
-  try { ({ json, fileName } = serializeExamBlock(block, examTitle)); } catch (e) { return "error"; }
+  try { ({ json, fileName } = serializeExamBlocks(blockOrBlocks, examTitle)); } catch (e) { return "error"; }
 
   // 1. Native share sheet (AirDrop, Messages, Mail, Drive…), file sharing only. Some browsers reject
   //    application/json files, so a text/plain copy with the same .json name is tried second.
@@ -2411,16 +2461,52 @@ function ExportShareButton({ getBlock, T, style, fullWidth = false, wrapStyle })
 function QbankLibraryPanel({ library, onLaunch, onMix, onDelete, onRename, resumeId, onResume, T }) {
   const { t, lang } = useI18n();
   const [queue, setQueue] = useState([]); // entry ids in the order they were ticked
-  const [confirmId, setConfirmId] = useState(null);
-  const [renameId, setRenameId] = useState(null);
+  const phone = useViewport().w < 640;
+  const liveQueue = queue.filter((id) => library.some((e) => e.id === id));
+  const titleOf = (id) => library.find((e) => e.id === id)?.title || "";
+
+  // Edit Selected: walks through the ticked Qbanks one at a time (Enter / check saves and moves on, Esc / X skips).
+  const [renameQueue, setRenameQueue] = useState([]);
+  const [renameTotal, setRenameTotal] = useState(0);
   const [renameVal, setRenameVal] = useState("");
-  const startRename = (e) => { setConfirmId(null); setRenameId(e.id); setRenameVal(e.title); };
+  const renameId = renameQueue[0] || null;
+  const advanceRename = (rest) => { setRenameQueue(rest); if (rest.length) setRenameVal(titleOf(rest[0])); };
+  const startEdit = () => {
+    if (!liveQueue.length) return;
+    setConfirmDel(false);
+    setRenameQueue([...liveQueue]); setRenameTotal(liveQueue.length); setRenameVal(titleOf(liveQueue[0]));
+  };
   const commitRename = () => {
     const name = renameVal.trim();
-    if (name && renameId) onRename(renameId, name);
-    setRenameId(null);
+    if (!name || !renameId) return;
+    onRename(renameId, name);
+    advanceRename(renameQueue.slice(1));
   };
-  const liveQueue = queue.filter((id) => library.some((e) => e.id === id));
+  const skipRename = () => advanceRename(renameQueue.slice(1));
+
+  // Delete Selected: one confirmation for the whole selection.
+  const [confirmDel, setConfirmDel] = useState(false);
+  const deleteSelected = () => { liveQueue.forEach((id) => onDelete(id)); setQueue([]); setConfirmDel(false); };
+
+  // Share / Export Selected: every ticked Qbank goes into ONE bundle file ({ examTitle, blocks: [...] }), so a single share
+  // sheet / download carries them all. The block boundaries stay intact: whoever imports the file gets each block back
+  // as its own library card. One ticked Qbank exports as before (titled after that Qbank).
+  const [exp, setExp] = useState(null); // { phase: "running" | "done", n, result? }
+  const alive = useRef(true);
+  useEffect(() => { alive.current = true; return () => { alive.current = false; }; }, []);
+  async function startExport() {
+    if (!liveQueue.length || (exp && exp.phase === "running")) return;
+    const entries = liveQueue.map((id) => library.find((e) => e.id === id)).filter(Boolean);
+    if (!entries.length) return;
+    const blocks = entries.map((e) => ({ blockName: e.title, timeLimitMinutes: e.timeLimitMinutes, questions: e.questions }));
+    const title = entries.length === 1 ? entries[0].title : BUNDLE_TITLE;
+    setExp({ phase: "running", n: entries.length });
+    // No await before this call: the share sheet needs the tap's user activation.
+    const r = await exportExamBlock(blocks.length === 1 ? blocks[0] : blocks, {
+      examTitle: title, shareTitle: title, shareText: t("exportShareText", { name: title }) });
+    if (!alive.current) return;
+    setExp(r === "cancelled" ? null : { phase: "done", n: entries.length, result: r }); // closing the share sheet is not an error
+  }
   const [mixSize, setMixSize] = useState("all");
   const [mixDiff, setMixDiff] = useState("all"); // all | easy | medium | hard | balanced
   const mixInfo = useMemo(
@@ -2439,11 +2525,55 @@ function QbankLibraryPanel({ library, onLaunch, onMix, onDelete, onRename, resum
 
   return (
     <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, padding: 24, marginBottom: 20 }}>
-      <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 14 }}>
+      <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 14, flexWrap: "wrap" }}>
         <BookOpen size={17} color={T.ink} />
         <span style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(14), color: T.ink }}>{t("libTitle")}</span>
         <Pill T={T} tone="muted">{t("libCount", { n: library.length })}</Pill>
+        {/* Contextual actions: only present while at least one Qbank is ticked */}
+        {liveQueue.length > 0 && (
+          <div role="toolbar" aria-label={t("libTitle")} style={{ marginLeft: "auto", display: "flex", gap: 6, flexWrap: "wrap", justifyContent: "flex-end" }}>
+            {[
+              { id: "share", icon: Share2, label: t("libShareSel"), onClick: startExport, disabled: !!exp && exp.phase !== "done" },
+              { id: "edit", icon: Pencil, label: t("libEditSel"), onClick: startEdit, disabled: false },
+              { id: "delete", icon: Trash2, label: t("libDeleteSel"), onClick: () => { setRenameQueue([]); setConfirmDel(true); }, disabled: false, danger: true },
+            ].map((a) => (
+              <GhostButton key={a.id} T={T} icon={a.icon} onClick={a.onClick} disabled={a.disabled} title={`${a.label} (${liveQueue.length})`}
+                style={{ ...(a.danger ? { color: T.red, borderColor: T.red } : {}), ...(phone ? { padding: "11px 12px" } : {}) }}>
+                {!phone && a.label}
+              </GhostButton>
+            ))}
+          </div>
+        )}
       </div>
+
+      {resumeId && (
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 12, flexWrap: "wrap", padding: "10px 14px", marginBottom: 12, borderRadius: 8, border: `1px solid ${T.amber}`, background: T.amberLight }}>
+          <span style={{ fontFamily: FONT_UI, fontSize: fs(13), color: T.ink }}>
+            <strong style={{ color: T.amber }}>{t("sessionInProgress")}:</strong> {titleOf(resumeId)}
+          </span>
+          <PrimaryButton T={T} onClick={onResume} icon={Play}>{t("resumeSession")}</PrimaryButton>
+        </div>
+      )}
+
+      {confirmDel && (
+        <div role="alertdialog" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 12, flexWrap: "wrap", padding: "10px 14px", marginBottom: 12, borderRadius: 8, border: `1px solid ${T.red}`, background: T.redLight }}>
+          <span style={{ fontFamily: FONT_UI, fontSize: fs(13), fontWeight: 600, color: T.red }}>{t("libDeleteSelQ", { n: liveQueue.length })}</span>
+          <span style={{ display: "inline-flex", gap: 8 }}>
+            <button onClick={deleteSelected} style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(12.5), padding: "7px 12px", borderRadius: 6, border: `1px solid ${T.red}`, background: T.red, color: "#fff", cursor: "pointer" }}>{t("libDelete")}</button>
+            <GhostButton T={T} onClick={() => setConfirmDel(false)}>{t("cancel")}</GhostButton>
+          </span>
+        </div>
+      )}
+
+      {exp && (
+        <div role="status" aria-live="polite" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 12, flexWrap: "wrap", padding: "10px 14px", marginBottom: 12, borderRadius: 8, border: `1px solid ${exp.result === "error" ? T.red : T.blue}`, background: exp.result === "error" ? T.redLight : T.blueLight }}>
+          <span style={{ fontFamily: FONT_UI, fontSize: fs(13), color: T.ink }}>
+            {exp.phase === "running" && t("libExporting", { n: exp.n })}
+            {exp.phase === "done" && (exp.result === "shared" ? t("libExportShared", { n: exp.n }) : exp.result === "downloaded" ? t("libExportDownloaded", { n: exp.n }) : t("libExportFailed"))}
+          </span>
+          {exp.phase === "done" && <GhostButton T={T} onClick={() => setExp(null)}>{t("close")}</GhostButton>}
+        </div>
+      )}
 
       {library.length === 0 ? (
         <p style={{ fontFamily: FONT_UI, fontSize: fs(13.5), color: T.muted, lineHeight: 1.6, margin: 0 }}>{t("libEmpty")}</p>
@@ -2454,11 +2584,11 @@ function QbankLibraryPanel({ library, onLaunch, onMix, onDelete, onRename, resum
               const pos = liveQueue.indexOf(e.id);
               const ls = e.lastScore;
               return (
-                <div key={e.id} style={{
-                  display: "flex", alignItems: "center", gap: 12, flexWrap: "wrap", padding: "12px 14px", borderRadius: 8,
+                <div key={e.id} onClick={() => { if (renameId !== e.id) toggle(e.id); }} style={{
+                  display: "flex", alignItems: "center", gap: 12, flexWrap: "wrap", padding: "12px 14px", borderRadius: 8, cursor: "pointer",
                   border: `1px solid ${pos >= 0 ? T.blue : T.border}`, background: pos >= 0 ? T.blueLight : "transparent",
                 }}>
-                  <input type="checkbox" checked={pos >= 0} onChange={() => toggle(e.id)} aria-label={e.title} style={{ cursor: "pointer" }} />
+                  <input type="checkbox" checked={pos >= 0} onChange={() => toggle(e.id)} onClick={(ev) => ev.stopPropagation()} aria-label={e.title} style={{ cursor: "pointer", width: 18, height: 18 }} />
                   <div style={{ flex: 1, minWidth: 180 }}>
                     <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap" }}>
                       {renameId === e.id ? (
@@ -2470,17 +2600,18 @@ function QbankLibraryPanel({ library, onLaunch, onMix, onDelete, onRename, resum
                             aria-label={t("libRename")}
                             onChange={(ev) => setRenameVal(ev.target.value)}
                             onFocus={(ev) => ev.target.select()}
-                            onKeyDown={(ev) => { if (ev.key === "Enter") commitRename(); else if (ev.key === "Escape") setRenameId(null); }}
+                            onKeyDown={(ev) => { if (ev.key === "Enter") commitRename(); else if (ev.key === "Escape") skipRename(); }}
                             style={{ flex: 1, minWidth: 0, fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(14.5), color: T.ink, background: T.paper, border: `1px solid ${T.blue}`, borderRadius: 6, padding: "5px 8px", outline: "none" }}
                           />
                           <button onClick={commitRename} disabled={!renameVal.trim()} title={t("libRenameSave")} aria-label={t("libRenameSave")}
                             style={{ background: "transparent", border: `1px solid ${T.blue}`, borderRadius: 6, cursor: renameVal.trim() ? "pointer" : "not-allowed", color: T.blue, padding: 5, display: "flex", opacity: renameVal.trim() ? 1 : 0.4 }}>
                             <Check size={15} />
                           </button>
-                          <button onClick={() => setRenameId(null)} title={t("cancel")} aria-label={t("cancel")}
+                          <button onClick={skipRename} title={t("cancel")} aria-label={t("cancel")}
                             style={{ background: "transparent", border: `1px solid ${T.border}`, borderRadius: 6, cursor: "pointer", color: T.muted, padding: 5, display: "flex" }}>
                             <X size={15} />
                           </button>
+                          {renameTotal > 1 && <Pill T={T} tone="muted">{t("libEditing", { i: renameTotal - renameQueue.length + 1, n: renameTotal })}</Pill>}
                         </span>
                       ) : (
                         <span style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(14.5), color: T.ink }}>{e.title}</span>
@@ -2495,36 +2626,12 @@ function QbankLibraryPanel({ library, onLaunch, onMix, onDelete, onRename, resum
                       {t("libMeta", { q: e.questions.length, d: fmtDate(e.importDate) })}
                     </span>
                   </div>
-                  {confirmId === e.id ? (
-                    <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-                      <span style={{ fontFamily: FONT_UI, fontSize: fs(12.5), color: T.red, fontWeight: 600 }}>{t("libDeleteQ")}</span>
-                      <button onClick={() => { onDelete(e.id); setConfirmId(null); }} style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(12.5), padding: "6px 10px", borderRadius: 6, border: `1px solid ${T.red}`, background: T.red, color: T.onBlue, cursor: "pointer" }}>{t("libDelete")}</button>
-                      <button onClick={() => setConfirmId(null)} style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(12.5), padding: "6px 10px", borderRadius: 6, border: `1px solid ${T.border}`, background: "transparent", color: T.ink, cursor: "pointer" }}>{t("cancel")}</button>
-                    </div>
-                  ) : (
-                    <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap" }}>
-                      {resumeId === e.id && <PrimaryButton T={T} onClick={onResume} icon={Play}>{t("resumeSession")}</PrimaryButton>}
-                      <GhostButton T={T} onClick={() => onLaunch([e.id])} icon={Play}>{t("libStart")}</GhostButton>
-                      <ExportShareButton T={T} getBlock={() => ({ block: { blockName: e.title, timeLimitMinutes: e.timeLimitMinutes, questions: e.questions }, examTitle: e.title })} />
-                      <span style={{ display: "inline-flex", alignItems: "center", gap: 8 }}>
-                      <button onClick={() => startRename(e)} title={t("libRename")} aria-label={t("libRename")} style={{ background: "transparent", border: "none", cursor: "pointer", color: T.muted, padding: 6, display: "flex" }}>
-                        <Pencil size={16} />
-                      </button>
-                      <button onClick={() => setConfirmId(e.id)} title={t("libDelete")} aria-label={t("libDelete")} style={{ background: "transparent", border: "none", cursor: "pointer", color: T.muted, padding: 6, display: "flex" }}>
-                        <Trash2 size={16} />
-                      </button>
-                      </span>
-                    </div>
-                  )}
                 </div>
               );
             })}
           </div>
           <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 12, flexWrap: "wrap", marginTop: 14 }}>
-            <span style={{ fontFamily: FONT_UI, fontSize: fs(12.5), color: T.muted, maxWidth: 440, lineHeight: 1.5 }}>{t("libQueueHint")}</span>
-            <PrimaryButton T={T} onClick={() => onLaunch(liveQueue)} icon={Play} disabled={liveQueue.length === 0}>
-              {t("libStartQueue", { n: liveQueue.length })}
-            </PrimaryButton>
+            <span style={{ fontFamily: FONT_UI, fontSize: fs(12.5), color: T.muted, maxWidth: 440, lineHeight: 1.5 }}>{t("libSelectHint")}</span>
           </div>
           {mixInfo && (
             <div style={{ marginTop: 14, padding: "14px 16px", borderRadius: 8, border: `1px dashed ${T.blue}`, display: "flex", flexWrap: "wrap", alignItems: "center", gap: 14 }}>
@@ -2595,7 +2702,9 @@ function QbankLibraryPanel({ library, onLaunch, onMix, onDelete, onRename, resum
                 </label>
               </div>
               <PrimaryButton T={T} onClick={() => onMix(liveQueue, effSize, effDiff)} icon={Shuffle} disabled={blockCount < 1}>
-                {liveQueue.length >= 2 ? t("libMix", { n: blockCount }) : t("libStartN", { n: blockCount })}
+                {liveQueue.length >= 2
+                  ? (blockCount === 1 ? t("libMixOne") : t("libMix", { n: blockCount }))
+                  : (blockCount === 1 ? t("libLoadOne") : t("libLoad", { n: blockCount }))}
               </PrimaryButton>
             </div>
           )}
@@ -2614,35 +2723,39 @@ function QbankLibraryPanel({ library, onLaunch, onMix, onDelete, onRename, resum
 const GUIDE = {
   en: [
     { title: "Welcome to OWORLD", body: "OWORLD is a practice-exam simulator. You bring the questions, and it turns them into a realistic exam with answer tools, instant feedback and score tracking.",
-      points: ["You don't need any technical skills.", "Your saved question blocks and progress are stored only in this browser."] },
+      points: ["You don't need any technical skills.", "Your saved question blocks, ratings and progress are stored only in this browser."] },
     { title: "1. Get your questions", body: "A question bank (\"Qbank\") is simply a set of practice questions. You can ask an AI tool to write one for you.",
-      points: ["On Home, open Import New Qbank and tap Question Recipe Prompt, then copy the prompt.", "Paste it into ChatGPT, Claude, Gemini or NotebookLM along with your topic or notes.", "Paste the AI's reply back into OWORLD (or upload the file) and tap Load exam.", "Tap Save to Library to keep the questions for next time."] },
+      points: ["On Home, open Import New Qbank. AI Quick Launch at the top has one-tap links to ChatGPT, Claude, Gemini and NotebookLM.", "Open Question Recipe Prompt, choose a difficulty (Mixed is recommended) and copy the prompt.", "Paste it into your AI tool along with your topic or notes.", "Paste the AI's reply back into OWORLD (or upload the file) and tap Load exam.", "Tap Save to Library to keep the questions for next time."] },
     { title: "2. Your Qbank Library", body: "Home shows your saved blocks first, so you can jump straight back in.",
-      points: ["Tap Start on a block to begin it.", "Tick two or more blocks to run them back to back (Start queued blocks) or merge them (Mix selected). Tick just one to choose how many of its questions to practice.", "Tap Home any time (in Tutor Mode) to come back here."] },
-    { title: "3. Pick a mode", body: "Before you press Start block, choose how you want to practice.",
-      points: ["Tutor Mode (the default): no timer, and you get feedback right after each answer.", "Timed Mode: a countdown like the real exam, with no feedback until the block ends. There is no Home button during a timed block, so plan to finish it.", "In Timed Mode you can switch the timer off during the block, but not back on."] },
+      points: ["Tick a block, choose how many of its questions to practice (5 to 40, Max, or any number you type), then tap the Load button, which shows how many questions you will get.", "Tick two or more blocks to merge them into one custom block. Choose a difficulty and how many questions you want, then tap the Mix button, which shows the total.", "Once a block is ticked, a toolbar appears at the top right of the library: Share / Export Selected (bundles every ticked block into one file; whoever imports it gets each block back as its own card), Edit Selected (rename) and Delete Selected.", "A block you left half-finished shows Resume Session."] },
+    { title: "3. Pick a mode", body: "Before you press Start block, choose how you want to practice. Tutor Mode is selected by default.",
+      points: ["Tutor Mode: no timer, and you get feedback right after each answer.", "Timed Mode: a countdown like the real exam, with no feedback until the block ends. There is no Home button during a timed block, so plan to finish it.", "In Timed Mode you can switch the timer off during the block, but not back on."] },
     { title: "4. Answering questions", body: "Tap an answer choice. In Tutor Mode you see the result straight away.",
-      points: ["Key Info highlights the important clues in the story. Tutor's Tip gives you a hint. If you open either before answering, the question is tagged Hint used.", "Got it wrong? Tap Show Correct Answer when you're ready, and Why this is incorrect to see why each choice is wrong.", "Handy tools: Mark Question (flag it for later), the ab button to strike out a choice, Highlight for selected text, Notes, Lab Values and Calculator.", "The question list on the left lets you jump anywhere. Use the arrow at its top to collapse it."] },
-    { title: "5. Results and retesting", body: "When you tap End Block you get your score, a breakdown by subject, and a review of every question.",
-      points: ["Use Retest Incorrects (Tutor Mode) to practice only what you missed, or Retest Full Block to go again.", "Your first-attempt score is always kept as your baseline. Retests never overwrite it."] },
-    { title: "6. Pause and come back", body: "In Tutor Mode you can leave and pick up where you stopped.",
-      points: ["Tap Home. Your answers and place in the block are saved automatically.", "Back on Home, tap Resume Session next to that block.", "Settings (top right) has text size and dark mode."] },
+      points: ["Key Info highlights the important clues in the story. Tutor's Tip gives you a hint. If you open either before answering, the question is tagged Hint used.", "Got it wrong? Tap Show Correct Answer when you're ready, and Why this is incorrect to see why each choice is wrong. Source References are tucked into a dropdown.", "After answering, rate how well you knew it: Again, Hard, Good or Easy. You can retest by rating later.", "Tools: Mark Question (flag it), the ab button to strike out a choice, Highlight for selected text, Notes, Lab Values and Calculator.", "On a computer, the question list on the left lets you jump anywhere. Use its arrow to collapse it."] },
+    { title: "5. Results and retesting", body: "When you tap End Block you get your score, breakdowns by subject and difficulty, and a review of every question.",
+      points: ["Retest Incorrects (Tutor Mode) practices only what you missed. Retest Full Block goes again. You can also retest only flagged questions, or ones you rated Again or Hard.", "Your first-attempt score is always kept as your baseline. Retests never overwrite it."] },
+    { title: "6. Pause, come back, and tidy up", body: "In Tutor Mode you can leave and pick up where you stopped.",
+      points: ["Tap Home. Your answers and place in the block are saved automatically. Back on Home, tap Resume Session.", "In the exam lobby, Remove exam clears the loaded exam without touching your saved library.", "Settings has text size, dark mode, language, and Reset All Local Data (this deletes everything saved in this browser)."] },
+    { title: "7. Using your phone", body: "On a phone the screen is simplified so the question gets the room.",
+      points: ["The question list is hidden. Use Previous and Next at the top right, and Home at the top left (Tutor Mode).", "Lab Values, Notes, Calculator and Settings are in one row under them.", "At the bottom, Lock is on the left and End Block is on the right. A timed block also shows its countdown in the middle."] },
   ],
   es: [
     { title: "Bienvenido a OWORLD", body: "OWORLD es un simulador de exámenes de práctica. Tú aportas las preguntas y él las convierte en un examen realista con herramientas, retroalimentación inmediata y seguimiento de puntaje.",
-      points: ["No necesitas conocimientos técnicos.", "Tus bloques guardados y tu progreso se almacenan solo en este navegador."] },
+      points: ["No necesitas conocimientos técnicos.", "Tus bloques guardados, calificaciones y progreso se almacenan solo en este navegador."] },
     { title: "1. Consigue tus preguntas", body: "Un banco de preguntas (\"Qbank\") es simplemente un conjunto de preguntas de práctica. Puedes pedirle a una herramienta de IA que te escriba uno.",
-      points: ["En Inicio, abre Importar nuevo Qbank y toca Prompt de receta de preguntas; luego copia el prompt.", "Pégalo en ChatGPT, Claude, Gemini o NotebookLM junto con tu tema o tus apuntes.", "Pega la respuesta de la IA en OWORLD (o sube el archivo) y toca Cargar examen.", "Toca Guardar en la biblioteca para conservar las preguntas para la próxima vez."] },
+      points: ["En Inicio, abre Importar nuevo Qbank. Acceso rápido a IA, arriba, tiene enlaces directos a ChatGPT, Claude, Gemini y NotebookLM.", "Abre Prompt de receta de preguntas, elige una dificultad (se recomienda Mixta) y copia el prompt.", "Pégalo en tu herramienta de IA junto con tu tema o tus apuntes.", "Pega la respuesta de la IA en OWORLD (o sube el archivo) y toca Cargar examen.", "Toca Guardar en la biblioteca para conservar las preguntas para la próxima vez."] },
     { title: "2. Tu biblioteca de preguntas", body: "Inicio muestra primero tus bloques guardados, para que retomes de inmediato.",
-      points: ["Toca Iniciar en un bloque para comenzarlo.", "Marca dos o más bloques para hacerlos seguidos (Iniciar bloques en cola) o combinarlos (Mezclar selección). Marca solo uno para elegir cuántas de sus preguntas practicar.", "Toca Inicio en cualquier momento (en modo tutor) para volver aquí."] },
-    { title: "3. Elige un modo", body: "Antes de pulsar Iniciar bloque, elige cómo quieres practicar.",
-      points: ["Modo tutor (el predeterminado): sin cronómetro y con retroalimentación justo después de cada respuesta.", "Modo cronometrado: cuenta regresiva como en el examen real, sin retroalimentación hasta terminar el bloque. No hay botón de Inicio durante un bloque cronometrado, así que planea terminarlo.", "En modo cronometrado puedes apagar el cronómetro durante el bloque, pero no volver a encenderlo."] },
+      points: ["Marca un bloque, elige cuántas de sus preguntas practicar (de 5 a 40, Máx, o el número que escribas) y toca el botón Cargar, que muestra cuántas preguntas recibirás.", "Marca dos o más bloques para combinarlos en un solo bloque personalizado. Elige la dificultad y cuántas preguntas quieres, y toca el botón Mezclar, que muestra el total.", "Al marcar un bloque aparece una barra arriba a la derecha de la biblioteca: Compartir / Exportar selección (reúne todos los bloques marcados en un solo archivo; quien lo importe recibe cada bloque como su propia tarjeta), Editar selección (renombrar) y Eliminar selección.", "Un bloque que dejaste a medias muestra Reanudar sesión."] },
+    { title: "3. Elige un modo", body: "Antes de pulsar Iniciar bloque, elige cómo quieres practicar. El modo tutor viene seleccionado por defecto.",
+      points: ["Modo tutor: sin cronómetro y con retroalimentación justo después de cada respuesta.", "Modo cronometrado: cuenta regresiva como en el examen real, sin retroalimentación hasta terminar el bloque. No hay botón de Inicio durante un bloque cronometrado, así que planea terminarlo.", "En modo cronometrado puedes apagar el cronómetro durante el bloque, pero no volver a encenderlo."] },
     { title: "4. Responder preguntas", body: "Toca una opción de respuesta. En modo tutor ves el resultado al instante.",
-      points: ["Datos clave resalta las pistas importantes del caso. Consejo del tutor te da una pista. Si abres cualquiera antes de responder, la pregunta queda marcada como Pista usada.", "¿Fallaste? Toca Mostrar respuesta correcta cuando quieras y Por qué es incorrecta para ver por qué falla cada opción.", "Herramientas útiles: Marcar pregunta (para revisarla luego), el botón ab para tachar una opción, Resaltar para el texto seleccionado, Notas, Valores de laboratorio y Calculadora.", "La lista de preguntas a la izquierda te deja saltar a cualquiera. Usa la flecha de arriba para contraerla."] },
-    { title: "5. Resultados y repetición", body: "Al tocar Terminar bloque ves tu puntaje, un desglose por materia y una revisión de cada pregunta.",
-      points: ["Usa Repetir falladas (modo tutor) para practicar solo lo que fallaste, o Repetir bloque completo para hacerlo de nuevo.", "El puntaje de tu primer intento siempre se conserva como referencia. Las repeticiones nunca lo sobrescriben."] },
-    { title: "6. Pausa y vuelve", body: "En modo tutor puedes salir y retomar donde lo dejaste.",
-      points: ["Toca Inicio. Tus respuestas y tu posición en el bloque se guardan automáticamente.", "De vuelta en Inicio, toca Reanudar sesión junto a ese bloque.", "Ajustes (arriba a la derecha) tiene el tamaño de texto y el modo oscuro."] },
+      points: ["Datos clave resalta las pistas importantes del caso. Consejo del tutor te da una pista. Si abres cualquiera antes de responder, la pregunta queda marcada como Pista usada.", "¿Fallaste? Toca Mostrar respuesta correcta cuando quieras y Por qué es incorrecta para ver por qué falla cada opción. Las fuentes están en un menú desplegable.", "Después de responder, califica qué tan bien lo sabías: Otra vez, Difícil, Bien o Fácil. Luego puedes repetir según tu calificación.", "Herramientas: Marcar pregunta, el botón ab para tachar una opción, Resaltar para el texto seleccionado, Notas, Valores de laboratorio y Calculadora.", "En computadora, la lista de preguntas a la izquierda te deja saltar a cualquiera. Usa su flecha para contraerla."] },
+    { title: "5. Resultados y repetición", body: "Al tocar Terminar bloque ves tu puntaje, desgloses por materia y dificultad, y una revisión de cada pregunta.",
+      points: ["Repetir falladas (modo tutor) practica solo lo que fallaste. Repetir bloque completo lo hace de nuevo. También puedes repetir solo las marcadas o las que calificaste Otra vez o Difícil.", "El puntaje de tu primer intento siempre se conserva como referencia. Las repeticiones nunca lo sobrescriben."] },
+    { title: "6. Pausa, vuelve y ordena", body: "En modo tutor puedes salir y retomar donde lo dejaste.",
+      points: ["Toca Inicio. Tus respuestas y tu posición en el bloque se guardan automáticamente. De vuelta en Inicio, toca Reanudar sesión.", "En la sala del examen, Quitar examen borra el examen cargado sin tocar tu biblioteca guardada.", "Ajustes tiene el tamaño de texto, el modo oscuro, el idioma y Restablecer todos los datos locales (borra todo lo guardado en este navegador)."] },
+    { title: "7. Usar el teléfono", body: "En el teléfono la pantalla se simplifica para que la pregunta tenga espacio.",
+      points: ["La lista de preguntas se oculta. Usa Anterior y Siguiente arriba a la derecha, e Inicio arriba a la izquierda (modo tutor).", "Valores de laboratorio, Notas, Calculadora y Ajustes están en una fila debajo.", "Abajo, Bloquear está a la izquierda y Terminar bloque a la derecha. Un bloque cronometrado también muestra su cuenta regresiva en el centro."] },
   ],
 };
 
@@ -2723,6 +2836,7 @@ function ImportScreen({ onImport, onSaveToLibrary, library, session, onResume, o
   const [recipeFocusMode, setRecipeFocusMode] = useState("standard");
   const [recipeFocusValue, setRecipeFocusValue] = useState("");
   const [showDisclaimer, setShowDisclaimer] = useState(false);
+  const [pasteOpen, setPasteOpen] = useState(true); // the paste box can be collapsed; Load / Save stay available
   const [saveMsg, setSaveMsg] = useState(null); // { tone: "green" | "red" | "muted", text }
   const [review, setReview] = useState(null); // { result, action: "load" | "save" } — confirm when the tolerant loader left something out
   const [guideOpen, setGuideOpen] = useState(false);
@@ -2740,7 +2854,7 @@ function ImportScreen({ onImport, onSaveToLibrary, library, session, onResume, o
   // that matters, show it and let the student confirm rather than silently loading less than they pasted.
   function attempt(action) {
     const result = validateExamData(text, t);
-    if (!result.valid) { setError(result.error); setSaveMsg(null); setReview(null); return; }
+    if (!result.valid) { setError(result.error); setSaveMsg(null); setReview(null); setPasteOpen(true); return; }
     setError("");
     if (result.warnings.some((w) => w.level === "content")) { setSaveMsg(null); setReview({ result, action }); return; }
     proceed(result, action);
@@ -2752,7 +2866,7 @@ function ImportScreen({ onImport, onSaveToLibrary, library, session, onResume, o
     const r = onSaveToLibrary(result.data);
     if (r.failed) setSaveMsg({ tone: "red", text: t("storageFull") });
     else if (r.added === 0) setSaveMsg({ tone: "muted", text: t("libNothing") });
-    else setSaveMsg({ tone: "green", text: [t("libSaved", { n: r.added }), r.dup ? t("libDup", { d: r.dup }) : ""].filter(Boolean).join(" ") });
+    else { setSaveMsg({ tone: "green", text: [t("libSaved", { n: r.added }), r.dup ? t("libDup", { d: r.dup }) : ""].filter(Boolean).join(" ") }); setPasteOpen(false); }
   }
 
   function handleSubmit() { attempt("load"); }
@@ -2767,8 +2881,14 @@ function ImportScreen({ onImport, onSaveToLibrary, library, session, onResume, o
       setText(content);
       setSaveMsg(null);
       const result = validateExamData(content, t);
-      if (!result.valid) { setError(result.error); setReview(null); return; }
+      if (!result.valid) { setError(result.error); setReview(null); setPasteOpen(true); return; }
       setError("");
+      setPasteOpen(false); // a loaded file is rarely edited — collapse the box, the char count still shows
+      const nb = result.data.blocks.length;
+      if (nb >= 2) { // a bundle: tell the student each block will stay its own block / library card
+        const names = result.data.blocks.slice(0, 4).map((b) => b.blockName).join(", ") + (nb > 4 ? ` +${nb - 4}` : "");
+        setSaveMsg({ tone: "muted", text: t("bundleFound", { n: nb, names }) });
+      }
       setReview(result.warnings.some((w) => w.level === "content") ? { result, action: "load" } : null);
     };
     reader.readAsText(file);
@@ -2802,13 +2922,6 @@ function ImportScreen({ onImport, onSaveToLibrary, library, session, onResume, o
           </span>
         </div>
       </div>
-
-      <h1 style={{ fontFamily: FONT_DISPLAY, fontSize: fs(stacked ? 30 : 38), fontWeight: 600, lineHeight: 1.15, color: T.ink, margin: "0 0 10px" }}>
-        {t("title")}
-      </h1>
-      <p style={{ fontFamily: FONT_UI, fontSize: fs(15), color: T.muted, lineHeight: 1.6, maxWidth: 620, marginBottom: 32 }}>
-        {t("intro")}
-      </p>
 
       {/* An exam is loaded: show the way back into it. When its in-progress block belongs to a saved library entry, the
           Resume Session button lives on that entry's row instead. */}
@@ -2855,97 +2968,50 @@ function ImportScreen({ onImport, onSaveToLibrary, library, session, onResume, o
         </button>
         {importOpen && (
           <div style={{ marginTop: -1 }}>
-        <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: "0 0 10px 10px", padding: 24, marginBottom: 0 }}>
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 14 }}>
-            <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-              <FileJson size={17} color={T.ink} />
-              <span style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(14), color: T.ink }}>
-                {t("pasteJson")}
-              </span>
-            </div>
-            <button
-              onClick={() => fileRef.current?.click()}
-              style={{
-                fontFamily: FONT_UI, fontSize: fs(13), fontWeight: 600, color: T.blue, background: "transparent",
-                border: "none", cursor: "pointer", display: "flex", alignItems: "center", gap: 6,
-              }}
-            >
-              <Upload size={14} /> {t("upload")}
-            </button>
-            <input ref={fileRef} type="file" accept=".json,application/json" onChange={handleFile} style={{ display: "none" }} />
+        <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: "0 0 10px 10px", padding: 24 }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 6 }}>
+            <Sparkles size={17} color={T.blue} />
+            <span style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(14), color: T.ink }}>{t("aiLaunchTitle")}</span>
           </div>
-
-          <textarea
-            value={text}
-            onChange={(e) => { setText(e.target.value); setReview(null); }}
-            placeholder={t("pastePh")}
-            style={{
-              width: "100%", minHeight: 220, fontFamily: FONT_MONO, fontSize: fs(12.5), color: T.ink,
-              background: T.paper, border: `1px solid ${T.border}`, borderRadius: 8, padding: 14,
-              resize: "vertical", boxSizing: "border-box", lineHeight: 1.6,
-            }}
-          />
-
-          {error && (
-            <div style={{
-              marginTop: 12, display: "flex", gap: 8, alignItems: "flex-start", background: T.redLight,
-              color: T.red, padding: "10px 12px", borderRadius: 6, fontFamily: FONT_UI, fontSize: fs(13),
-            }}>
-              <AlertTriangle size={16} style={{ flexShrink: 0, marginTop: 1 }} />
-              <span>{error}</span>
-            </div>
-          )}
-
-          {review && (
-            <div role="alert" style={{
-              marginTop: 12, background: T.amberLight, color: T.ink, border: `1px solid ${T.amber}`, borderRadius: 8,
-              padding: "14px 16px", fontFamily: FONT_UI, fontSize: fs(13),
-            }}>
-              <div style={{ display: "flex", gap: 8, alignItems: "center", fontWeight: 700, color: T.amber, marginBottom: 8 }}>
-                <AlertTriangle size={16} /> {t("warn.reviewTitle")}
-              </div>
-              <div style={{ display: "grid", gap: 8 }}>
-                {review.result.warnings.map((w, i) => (
-                  <div key={i}>
-                    <div style={{ lineHeight: 1.5 }}>{w.text}</div>
-                    {w.details && (
-                      <ul style={{ margin: "4px 0 0", paddingLeft: 18, color: T.muted, lineHeight: 1.5 }}>
-                        {w.details.map((d, j) => <li key={j}>{d}</li>)}
-                      </ul>
-                    )}
-                  </div>
-                ))}
-              </div>
-              <div style={{ display: "flex", gap: 10, marginTop: 14, flexWrap: "wrap" }}>
-                <PrimaryButton T={T} icon={review.action === "save" ? Save : Play} onClick={() => proceed(review.result, review.action)}>
-                  {t(review.action === "save" ? "warn.saveN" : "warn.loadN", { n: review.result.stats.questions })}
-                </PrimaryButton>
-                <GhostButton T={T} onClick={() => setReview(null)}>{t("warn.back")}</GhostButton>
-              </div>
-            </div>
-          )}
-
-          {saveMsg && (
-            <div role="status" style={{
-              marginTop: 12, display: "flex", gap: 8, alignItems: "center", fontFamily: FONT_UI, fontSize: fs(13),
-              color: saveMsg.tone === "green" ? T.green : saveMsg.tone === "red" ? T.red : T.muted,
-            }}>
-              {saveMsg.tone === "green" ? <CheckCircle2 size={16} /> : <AlertTriangle size={16} />}
-              <span>{saveMsg.text}</span>
-            </div>
-          )}
-
-          <div style={{ display: "flex", gap: 10, marginTop: 16, flexWrap: "wrap" }}>
-            <PrimaryButton T={T} onClick={handleSubmit} icon={Play} disabled={!text.trim()}>{t("load")}</PrimaryButton>
-            <GhostButton T={T} onClick={handleSaveToLibrary} icon={Save} disabled={!text.trim()}>{t("saveToLibrary")}</GhostButton>
-            <GhostButton T={T} onClick={() => setShowSchema((s) => !s)} icon={showSchema ? ChevronUp : ChevronDown}>
-              {showSchema ? t("hide") + " " : ""}{t("recipe")}
-            </GhostButton>
+          <p style={{ fontFamily: FONT_UI, fontSize: fs(13), color: T.muted, lineHeight: 1.55, margin: "0 0 14px" }}>{t("aiLaunchHint")}</p>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))", gap: 8 }}>
+            {[
+              { name: "ChatGPT", url: "https://chatgpt.com/" },
+              { name: "Claude", url: "https://claude.ai/new" },
+              { name: "Gemini", url: "https://gemini.google.com/app" },
+              { name: "NotebookLM", url: "https://notebooklm.google.com/" },
+            ].map((ai) => (
+              <a
+                key={ai.name}
+                href={ai.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                title={`${ai.name} - ${t("aiLaunchOpens")}`}
+                style={{
+                  display: "flex", alignItems: "center", justifyContent: "center", gap: 6, padding: "11px 12px", borderRadius: 8,
+                  border: `1px solid ${T.border}`, color: T.ink, textDecoration: "none", fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(13.5),
+                }}
+              >
+                {ai.name} <ExternalLink size={14} color={T.blue} />
+              </a>
+            ))}
           </div>
         </div>
 
-        {showSchema && (
-          <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, padding: 24, marginTop: 12 }}>
+        <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, marginTop: 12, overflow: "hidden" }}>
+          <button
+            onClick={() => setShowSchema((v) => !v)}
+            aria-expanded={showSchema}
+            style={{
+              width: "100%", display: "flex", alignItems: "center", justifyContent: "space-between", gap: 10, padding: "16px 24px",
+              background: "transparent", border: "none", cursor: "pointer", fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(14), color: T.ink,
+            }}
+          >
+            <span style={{ display: "inline-flex", alignItems: "center", gap: 8 }}><ClipboardList size={17} /> {t("recipe")}</span>
+            {showSchema ? <ChevronUp size={17} color={T.muted} /> : <ChevronDown size={17} color={T.muted} />}
+          </button>
+          {showSchema && (
+          <div style={{ padding: "0 24px 24px" }}>
             <p style={{ fontFamily: FONT_UI, fontSize: fs(13.5), color: T.muted, lineHeight: 1.6, marginTop: 0 }}>
               {t("recipeIntro")}
             </p>
@@ -3102,7 +3168,118 @@ function ImportScreen({ onImport, onSaveToLibrary, library, session, onResume, o
               </pre>
             )}
           </div>
-        )}
+          )}
+        </div>
+        <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, padding: 24, marginTop: 12 }}>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 14 }}>
+            <button
+              type="button"
+              onClick={() => setPasteOpen((o) => !o)}
+              aria-expanded={pasteOpen}
+              style={{ display: "flex", alignItems: "center", gap: 8, background: "transparent", border: "none", padding: 0, cursor: "pointer", textAlign: "left" }}
+            >
+              <FileJson size={17} color={T.ink} />
+              <span style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(14), color: T.ink }}>
+                {t("pasteJson")}
+              </span>
+              {pasteOpen ? <ChevronUp size={16} color={T.muted} /> : <ChevronDown size={16} color={T.muted} />}
+            </button>
+            <button
+              onClick={() => fileRef.current?.click()}
+              style={{
+                fontFamily: FONT_UI, fontSize: fs(13), fontWeight: 600, color: T.blue, background: "transparent",
+                border: "none", cursor: "pointer", display: "flex", alignItems: "center", gap: 6,
+              }}
+            >
+              <Upload size={14} /> {t("upload")}
+            </button>
+            <input ref={fileRef} type="file" accept=".json,application/json" onChange={handleFile} style={{ display: "none" }} />
+          </div>
+
+          {pasteOpen && (
+            <textarea
+              value={text}
+              rows={4}
+              spellCheck={false}
+              onChange={(e) => { setText(e.target.value); setReview(null); }}
+              placeholder={t("pastePh")}
+              style={{
+                width: "100%", minHeight: 88, fontFamily: FONT_MONO, fontSize: fs(12.5), color: T.ink,
+                background: T.paper, border: `1px solid ${T.border}`, borderRadius: 8, padding: 12,
+                resize: "vertical", boxSizing: "border-box", lineHeight: 1.5,
+              }}
+            />
+          )}
+          {(text.trim() || !pasteOpen) && (
+            <div style={{ display: "flex", alignItems: "center", gap: 12, marginTop: pasteOpen ? 6 : 0, fontFamily: FONT_UI, fontSize: fs(12), color: T.muted }}>
+              <span>{text.trim() ? t("pasteChars", { n: text.length.toLocaleString() }) : t("pasteEmpty")}</span>
+              {text.trim() && (
+                <button
+                  type="button"
+                  onClick={() => { setText(""); setError(""); setReview(null); setSaveMsg(null); }}
+                  style={{ fontFamily: FONT_UI, fontSize: fs(12), fontWeight: 600, color: T.blue, background: "transparent", border: "none", padding: 0, cursor: "pointer" }}
+                >
+                  {t("pasteClear")}
+                </button>
+              )}
+            </div>
+          )}
+
+          {error && (
+            <div style={{
+              marginTop: 12, display: "flex", gap: 8, alignItems: "flex-start", background: T.redLight,
+              color: T.red, padding: "10px 12px", borderRadius: 6, fontFamily: FONT_UI, fontSize: fs(13),
+            }}>
+              <AlertTriangle size={16} style={{ flexShrink: 0, marginTop: 1 }} />
+              <span>{error}</span>
+            </div>
+          )}
+
+          {review && (
+            <div role="alert" style={{
+              marginTop: 12, background: T.amberLight, color: T.ink, border: `1px solid ${T.amber}`, borderRadius: 8,
+              padding: "14px 16px", fontFamily: FONT_UI, fontSize: fs(13),
+            }}>
+              <div style={{ display: "flex", gap: 8, alignItems: "center", fontWeight: 700, color: T.amber, marginBottom: 8 }}>
+                <AlertTriangle size={16} /> {t("warn.reviewTitle")}
+              </div>
+              <div style={{ display: "grid", gap: 8 }}>
+                {review.result.warnings.map((w, i) => (
+                  <div key={i}>
+                    <div style={{ lineHeight: 1.5 }}>{w.text}</div>
+                    {w.details && (
+                      <ul style={{ margin: "4px 0 0", paddingLeft: 18, color: T.muted, lineHeight: 1.5 }}>
+                        {w.details.map((d, j) => <li key={j}>{d}</li>)}
+                      </ul>
+                    )}
+                  </div>
+                ))}
+              </div>
+              <div style={{ display: "flex", gap: 10, marginTop: 14, flexWrap: "wrap" }}>
+                <PrimaryButton T={T} icon={review.action === "save" ? Save : Play} onClick={() => proceed(review.result, review.action)}>
+                  {t(review.action === "save" ? "warn.saveN" : "warn.loadN", { n: review.result.stats.questions })}
+                </PrimaryButton>
+                <GhostButton T={T} onClick={() => setReview(null)}>{t("warn.back")}</GhostButton>
+              </div>
+            </div>
+          )}
+
+          {saveMsg && (
+            <div role="status" style={{
+              marginTop: 12, display: "flex", gap: 8, alignItems: "center", fontFamily: FONT_UI, fontSize: fs(13),
+              color: saveMsg.tone === "green" ? T.green : saveMsg.tone === "red" ? T.red : T.muted,
+            }}>
+              {saveMsg.tone === "green" ? <CheckCircle2 size={16} /> : <AlertTriangle size={16} />}
+              <span>{saveMsg.text}</span>
+            </div>
+          )}
+
+          <div style={{ display: "flex", gap: 10, marginTop: 16, flexWrap: "wrap" }}>
+            <PrimaryButton T={T} onClick={handleSubmit} icon={Play} disabled={!text.trim()}>{t("load")}</PrimaryButton>
+            <GhostButton T={T} onClick={handleSaveToLibrary} icon={Save} disabled={!text.trim()}>{t("saveToLibrary")}</GhostButton>
+          </div>
+        </div>
+
           </div>
         )}
       </div>
