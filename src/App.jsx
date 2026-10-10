@@ -2786,7 +2786,7 @@ function ImportScreen({ onImport, onSaveToLibrary, library, session, onResume, o
       <style>{`@import url('${FONT_IMPORT_URL}');`}</style>
 
       <div style={stacked
-        ? { display: "flex", flexWrap: phone ? "nowrap" : "wrap", justifyContent: "flex-end", gap: 8, alignItems: "center", marginBottom: 22 }
+        ? { display: "flex", flexWrap: phone ? "nowrap" : "wrap", justifyContent: phone ? "center" : "flex-end", gap: 8, alignItems: "center", marginBottom: 22 }
         : { position: "absolute", top: 48, right: 20, display: "flex", gap: 10, alignItems: "flex-start" }}>
         <GhostButton T={T} icon={HelpCircle} onClick={() => setGuideOpen(true)} title={t("howItWorks")} style={phone ? { padding: "12px 13px" } : undefined}>{!phone && t("howItWorks")}</GhostButton>
         <LangToggle T={T} />
