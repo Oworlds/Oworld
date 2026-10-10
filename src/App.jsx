@@ -4,7 +4,7 @@ import {
   Play, CheckCircle2, XCircle, AlertTriangle, ClipboardList, Activity,
   Check, ChevronDown, ChevronUp, FileJson, FlaskConical, PencilLine,
   Calculator as CalcIcon, Settings as SettingsIcon, Lock, Unlock,
-  Search, Trash2, X, XOctagon, Lightbulb, Sun, Moon, Highlighter, BookOpen, Stethoscope, Target, Save, Shuffle, Plus, Home as HomeIcon, HelpCircle, Pencil
+  Search, Trash2, X, XOctagon, Lightbulb, Sun, Moon, Highlighter, BookOpen, Stethoscope, Target, Save, Shuffle, Plus, Home as HomeIcon, HelpCircle, Pencil, Share2
 } from "lucide-react";
 import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell
@@ -282,6 +282,8 @@ const STR = {
     diffHintEasy: "Recall and core triads: 1–3 sentence vignettes, 1–2 step recognition, 3–4 options with distinct distractors.",
     diffHintMedium: "Standard practice: 3–5 sentence vignettes, 2-step reasoning (diagnosis, then best initial test), 5 realistic options.",
     diffHintHard: "USMLE standard: 5–8 sentence vignettes with subtle nuances and red herrings, 3-step reasoning, closely related options.",
+    exportShare: "Export / Share", exportShared: "Shared", exportDownloaded: "Downloaded", exportFailed: "Export failed",
+    exportTitle: "Send this block to another student as a .json file (AirDrop / share sheet where supported, otherwise a download)", exportShareText: "Oworld question block: {name}",
     mixDiffAll: "All", mixBalanced: "Balanced", mixBalancedShort: "Balanced", mixBalancedHint: "20% Easy / 60% Medium / 20% Hard, e.g. {e} · {m} · {h} at this size.", mixUnrated: "{n} question(s) without a difficulty label are left out.",
     customSize: "Custom", customSizePh: "1–{n}", "dl.easy": "Easy", "dl.medium": "Medium", "dl.hard": "Hard", perfDifficulty: "Performance by difficulty",
     "focus.standard": "Standard USMLE mix", "focus.systems": "Single organ system", "focus.discipline": "Single discipline",
@@ -397,6 +399,8 @@ const STR = {
     diffHintEasy: "Recuerdo y tríadas básicas: viñetas de 1–3 oraciones, reconocimiento en 1–2 pasos, 3–4 opciones con distractores distintos.",
     diffHintMedium: "Práctica estándar: viñetas de 3–5 oraciones, razonamiento en 2 pasos (diagnóstico y luego mejor prueba inicial), 5 opciones realistas.",
     diffHintHard: "Estándar USMLE: viñetas de 5–8 oraciones con matices sutiles y señuelos, razonamiento en 3 pasos, opciones muy cercanas.",
+    exportShare: "Exportar / Compartir", exportShared: "Compartido", exportDownloaded: "Descargado", exportFailed: "Error al exportar",
+    exportTitle: "Envía este bloque a otro estudiante como archivo .json (AirDrop / menú de compartir cuando esté disponible; si no, se descarga)", exportShareText: "Bloque de preguntas de Oworld: {name}",
     mixDiffAll: "Todas", mixBalanced: "Equilibrada", mixBalancedShort: "Equilibrada", mixBalancedHint: "20% fáciles / 60% medias / 20% difíciles, p. ej. {e} · {m} · {h} con este tamaño.", mixUnrated: "Se omiten {n} pregunta(s) sin etiqueta de dificultad.",
     customSize: "Personalizado", customSizePh: "1–{n}", "dl.easy": "Fácil", "dl.medium": "Media", "dl.hard": "Difícil", perfDifficulty: "Desempeño por dificultad",
     "focus.standard": "Mezcla USMLE estándar", "focus.systems": "Un solo sistema", "focus.discipline": "Una sola disciplina",
@@ -2270,6 +2274,119 @@ function SettingsMenu({ darkMode, setDarkMode, T }) {
 }
 
 // ---------------------------------------------------------------------------
+// Export / share a block
+//   serializeExamBlock(block, title)  block -> { json, fileName }   pretty-printed, re-importable by this app
+//   exportExamBlock(block, opts)      Web Share (AirDrop on Apple devices) -> .json download fallback
+//   ExportShareButton                 the "Export / Share" button used on library and lobby block cards
+// The file is the same shape the importer reads ({ examTitle, blocks: [...] }), so a classmate can load it as-is.
+// ---------------------------------------------------------------------------
+function exportFileName(title) {
+  const base = String(title || "")
+    .normalize("NFD").replace(/[\u0300-\u036f]/g, "") // drop accents
+    .replace(/[^a-zA-Z0-9]+/g, "-").replace(/^-+|-+$/g, "").slice(0, 60);
+  return `${base || "oworld-block"}.json`;
+}
+
+// Question content only. The student's own self-ratings (meta) and the mixer's bookkeeping (sourceBank) stay private.
+function exportableQuestion(q) {
+  const { meta, sourceBank, ...rest } = q || {};
+  return rest;
+}
+
+function serializeExamBlock(block, examTitle) {
+  const title = examTitle || block.blockName || "Oworld block";
+  const payload = {
+    examTitle: title,
+    blocks: [{
+      blockName: block.blockName || title,
+      ...(typeof block.timeLimitMinutes === "number" ? { timeLimitMinutes: block.timeLimitMinutes } : {}),
+      questions: (block.questions || []).map(exportableQuestion),
+    }],
+  };
+  return { json: JSON.stringify(payload, null, 2), fileName: exportFileName(block.blockName || title) };
+}
+
+// Plain file download: works on every desktop browser, and on mobile browsers without file sharing.
+function downloadBlob(blob, fileName) {
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url; a.download = fileName; a.rel = "noopener"; a.style.display = "none";
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  setTimeout(() => URL.revokeObjectURL(url), 4000); // give the browser time to start the download
+}
+
+// Resolves to "shared" | "downloaded" | "cancelled" | "error" — it never rejects, so callers need no try/catch.
+// Everything before navigator.share() is synchronous on purpose: browsers only allow the share sheet while the
+// click's user activation is still live, so no await may sit between the tap and the share call.
+async function exportExamBlock(block, { examTitle, shareTitle, shareText } = {}) {
+  let json, fileName;
+  try { ({ json, fileName } = serializeExamBlock(block, examTitle)); } catch (e) { return "error"; }
+
+  // 1. Native share sheet (AirDrop, Messages, Mail, Drive…), file sharing only. Some browsers reject
+  //    application/json files, so a text/plain copy with the same .json name is tried second.
+  try {
+    if (typeof navigator !== "undefined" && typeof navigator.share === "function" && typeof navigator.canShare === "function" && typeof File === "function") {
+      for (const type of ["application/json", "text/plain"]) {
+        const file = new File([json], fileName, { type });
+        if (!navigator.canShare({ files: [file] })) continue;
+        await navigator.share({ files: [file], title: shareTitle || fileName, text: shareText || "" });
+        return "shared";
+      }
+    }
+  } catch (err) {
+    // Closing the share sheet rejects with AbortError. That's a choice, not a failure: stay quiet.
+    if (err && err.name === "AbortError") return "cancelled";
+    // Anything else (NotAllowedError, DataError, an unsupported file type…): fall through to the download.
+  }
+
+  // 2. Fallback: save the .json locally.
+  try {
+    downloadBlob(new Blob([json], { type: "application/json" }), fileName);
+    return "downloaded";
+  } catch (e) {
+    return "error";
+  }
+}
+
+// getBlock() -> { block, examTitle }; called at click time so it always exports the current content.
+function ExportShareButton({ getBlock, T, style }) {
+  const { t } = useI18n();
+  const [state, setState] = useState("idle"); // idle | busy | shared | downloaded | error
+  const timer = useRef(null);
+  const mounted = useRef(true);
+  useEffect(() => () => { mounted.current = false; clearTimeout(timer.current); }, []);
+
+  async function onClick(e) {
+    e.stopPropagation();
+    if (state === "busy") return;
+    setState("busy");
+    let result = "error";
+    try {
+      const { block, examTitle } = getBlock();
+      result = await exportExamBlock(block, { examTitle, shareTitle: block.blockName, shareText: t("exportShareText", { name: block.blockName || examTitle || "" }) });
+    } catch (err) { result = "error"; }
+    if (!mounted.current) return;
+    if (result === "cancelled") { setState("idle"); return; }
+    setState(result);
+    clearTimeout(timer.current);
+    timer.current = setTimeout(() => { if (mounted.current) setState("idle"); }, 2800);
+  }
+
+  const label = state === "shared" ? t("exportShared") : state === "downloaded" ? t("exportDownloaded") : state === "error" ? t("exportFailed") : t("exportShare");
+  const Icon = state === "shared" || state === "downloaded" ? Check : state === "error" ? AlertTriangle : Share2;
+  const color = state === "error" ? T.red : state === "shared" || state === "downloaded" ? T.green : undefined;
+  return (
+    <span aria-live="polite" style={{ display: "inline-flex" }}>
+      <GhostButton T={T} icon={Icon} onClick={onClick} disabled={state === "busy"} style={{ ...(color ? { color, borderColor: color } : {}), ...style }}>
+        <span title={t("exportTitle")}>{label}</span>
+      </GhostButton>
+    </span>
+  );
+}
+
+// ---------------------------------------------------------------------------
 // Qbank library panel — saved blocks; start one, or tick several to run them as a queue
 // ---------------------------------------------------------------------------
 function QbankLibraryPanel({ library, onLaunch, onMix, onDelete, onRename, resumeId, onResume, T }) {
@@ -2369,6 +2486,7 @@ function QbankLibraryPanel({ library, onLaunch, onMix, onDelete, onRename, resum
                     <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
                       {resumeId === e.id && <PrimaryButton T={T} onClick={onResume} icon={Play}>{t("resumeSession")}</PrimaryButton>}
                       <GhostButton T={T} onClick={() => onLaunch([e.id])} icon={Play}>{t("libStart")}</GhostButton>
+                      <ExportShareButton T={T} getBlock={() => ({ block: { blockName: e.title, timeLimitMinutes: e.timeLimitMinutes, questions: e.questions }, examTitle: e.title })} />
                       <button onClick={() => startRename(e)} title={t("libRename")} aria-label={t("libRename")} style={{ background: "transparent", border: "none", cursor: "pointer", color: T.muted, padding: 6, display: "flex" }}>
                         <Pencil size={16} />
                       </button>
@@ -3085,7 +3203,8 @@ function Lobby({ examData, blockStates, onStart, onReview, onHome, onRemove, onF
                   {t("qCount", { n: total })} &nbsp;·&nbsp; {bs.timed && !bs.timerOff ? t("minLimit", { m: Math.round(bs.timeLeft / 60) }) : bs.timerOff ? t("untimed") + " (" + t("timerOffSuffix") + ")" : t("untimed")}
                 </span>
               </div>
-              <div style={{ display: "flex", alignItems: "center", gap: 16, marginLeft: "auto" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: 16, marginLeft: "auto", flexWrap: "wrap" }}>
+                <ExportShareButton T={T} getBlock={() => ({ block: examData.blocks[idx], examTitle: examData.examTitle })} />
                 {bs.status !== "done" && (
                   <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: 4, width: 270 }}>
                     <div role="group" aria-label={t("modeLabel")} style={{ display: "inline-flex", border: `1px solid ${T.border}`, borderRadius: 6, overflow: "hidden", opacity: bs.status === "pending" ? 1 : 0.6 }}>
