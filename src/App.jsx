@@ -2896,16 +2896,18 @@ const GUIDE = {
     { title: "1. Get your questions", body: "A question bank (\"Qbank\") is simply a set of practice questions. You can ask an AI tool to write one for you.",
       points: ["On Home, open Import New Qbank. AI Quick Launch at the top has one-tap links to ChatGPT, Claude, Gemini and NotebookLM.", "Open Question Recipe Prompt, choose a difficulty (Mixed is recommended) and copy the prompt.", "Paste it into your AI tool along with your topic or notes.", "Paste the AI's reply back into OWORLD (or upload the file) and tap Load exam.", "Tap Save to Library to keep the questions for next time."] },
     { title: "2. Your Qbank Library", body: "Home shows your saved blocks first, so you can jump straight back in.",
-      points: ["Tick a block, choose how many of its questions to practice (5 to 40, Max, or any number you type), then tap the Load button, which shows how many questions you will get.", "Tick two or more blocks to merge them into one custom block. Choose a difficulty and how many questions you want, then tap the Mix button, which shows the total.", "Once a block is ticked, a toolbar appears at the top right of the library: Share / Export Selected (bundles every ticked block into one file; whoever imports it gets each block back as its own card), Edit Selected (rename) and Delete Selected.", "A block you left half-finished shows Resume Session."] },
+      points: ["Each card shows its status: Not attempted yet, In progress, or Completed with your score. Running a Qbank in full on its own marks its card Completed.", "Tick a block, choose how many of its questions to practice (5 to 40, Max, or any number you type), then tap Load. Tick two or more to merge them into one custom block, pick a difficulty and size, then tap Mix.", "Custom and mixed runs are saved under Past Sessions and never change your cards.", "Ticking a block shows a toolbar at the top right: Share / Export Selected, Edit Selected (rename) and Delete Selected.", "A block you left half-finished shows Resume Session."] },
     { title: "3. Pick a mode", body: "Before you press Start block, choose how you want to practice. Tutor Mode is selected by default.",
       points: ["Tutor Mode: no timer, and you get feedback right after each answer.", "Timed Mode: a countdown like the real exam, with no feedback until the block ends. There is no Home button during a timed block, so plan to finish it.", "In Timed Mode you can switch the timer off during the block, but not back on."] },
     { title: "4. Answering questions", body: "Tap an answer choice. In Tutor Mode you see the result straight away.",
       points: ["Key Info highlights the important clues in the story. Tutor's Tip gives you a hint. If you open either before answering, the question is tagged Hint used.", "Got it wrong? Tap Show Correct Answer when you're ready, and Why this is incorrect to see why each choice is wrong. Source References are tucked into a dropdown.", "After answering, rate how well you knew it: Again, Hard, Good or Easy. You can retest by rating later.", "Tools: Mark Question (flag it), the ab button to strike out a choice, Highlight for selected text, Notes, Lab Values and Calculator.", "On a computer, the question list on the left lets you jump anywhere. Use its arrow to collapse it."] },
     { title: "5. Results and retesting", body: "When you tap End Block you get your score, breakdowns by subject and difficulty, and a review of every question.",
       points: ["Retest Incorrects (Tutor Mode) practices only what you missed. Retest Full Block goes again. You can also retest only flagged questions, or ones you rated Again or Hard.", "Your first-attempt score is always kept as your baseline. Retests never overwrite it."] },
-    { title: "6. Pause, come back, and tidy up", body: "In Tutor Mode you can leave and pick up where you stopped.",
+    { title: "6. Past Sessions", body: "Every block you finish is logged, so you can look back at your progress and reopen any run.",
+      points: ["On Home, use the switch above the library to go from Qbank Library to Past Sessions.", "Each entry shows its title (for example Mixed: 3 blocks · 50 Questions), the date completed and your score.", "Tap Review Exam to reopen the full question-by-question breakdown with lab values and explanations.", "Tick entries to reveal Delete Selected, or use Select all. Deleting a log never touches your Qbank cards.", "The 25 most recent sessions keep their full review. Older ones keep a score summary only."] },
+    { title: "7. Pause, come back, and tidy up", body: "In Tutor Mode you can leave and pick up where you stopped.",
       points: ["Tap Home. Your answers and place in the block are saved automatically. Back on Home, tap Resume Session.", "In the exam lobby, Remove exam clears the loaded exam without touching your saved library.", "Settings has text size, dark mode, language, and Reset All Local Data (this deletes everything saved in this browser)."] },
-    { title: "7. Using your phone", body: "On a phone the screen is simplified so the question gets the room.",
+    { title: "8. Using your phone", body: "On a phone the screen is simplified so the question gets the room.",
       points: ["The question list is hidden. Use Previous and Next at the top right, and Home at the top left (Tutor Mode).", "Lab Values, Notes, Calculator and Settings are in one row under them.", "At the bottom, Lock is on the left and End Block is on the right. A timed block also shows its countdown in the middle."] },
   ],
   es: [
@@ -2914,26 +2916,33 @@ const GUIDE = {
     { title: "1. Consigue tus preguntas", body: "Un banco de preguntas (\"Qbank\") es simplemente un conjunto de preguntas de práctica. Puedes pedirle a una herramienta de IA que te escriba uno.",
       points: ["En Inicio, abre Importar nuevo Qbank. Acceso rápido a IA, arriba, tiene enlaces directos a ChatGPT, Claude, Gemini y NotebookLM.", "Abre Prompt de receta de preguntas, elige una dificultad (se recomienda Mixta) y copia el prompt.", "Pégalo en tu herramienta de IA junto con tu tema o tus apuntes.", "Pega la respuesta de la IA en OWORLD (o sube el archivo) y toca Cargar examen.", "Toca Guardar en la biblioteca para conservar las preguntas para la próxima vez."] },
     { title: "2. Tu biblioteca de preguntas", body: "Inicio muestra primero tus bloques guardados, para que retomes de inmediato.",
-      points: ["Marca un bloque, elige cuántas de sus preguntas practicar (de 5 a 40, Máx, o el número que escribas) y toca el botón Cargar, que muestra cuántas preguntas recibirás.", "Marca dos o más bloques para combinarlos en un solo bloque personalizado. Elige la dificultad y cuántas preguntas quieres, y toca el botón Mezclar, que muestra el total.", "Al marcar un bloque aparece una barra arriba a la derecha de la biblioteca: Compartir / Exportar selección (reúne todos los bloques marcados en un solo archivo; quien lo importe recibe cada bloque como su propia tarjeta), Editar selección (renombrar) y Eliminar selección.", "Un bloque que dejaste a medias muestra Reanudar sesión."] },
+      points: ["Cada tarjeta muestra su estado: Sin intentos aún, En curso o Completado con tu puntaje. Hacer un Qbank completo por sí solo marca su tarjeta como Completada.", "Marca un bloque, elige cuántas de sus preguntas practicar (de 5 a 40, Máx, o el número que escribas) y toca Cargar. Marca dos o más para combinarlos en un bloque personalizado, elige dificultad y tamaño, y toca Mezclar.", "Las sesiones personalizadas y mezcladas se guardan en Sesiones anteriores y nunca cambian tus tarjetas.", "Al marcar un bloque aparece una barra arriba a la derecha: Compartir / Exportar selección, Editar selección (renombrar) y Eliminar selección.", "Un bloque que dejaste a medias muestra Reanudar sesión."] },
     { title: "3. Elige un modo", body: "Antes de pulsar Iniciar bloque, elige cómo quieres practicar. El modo tutor viene seleccionado por defecto.",
       points: ["Modo tutor: sin cronómetro y con retroalimentación justo después de cada respuesta.", "Modo cronometrado: cuenta regresiva como en el examen real, sin retroalimentación hasta terminar el bloque. No hay botón de Inicio durante un bloque cronometrado, así que planea terminarlo.", "En modo cronometrado puedes apagar el cronómetro durante el bloque, pero no volver a encenderlo."] },
     { title: "4. Responder preguntas", body: "Toca una opción de respuesta. En modo tutor ves el resultado al instante.",
       points: ["Datos clave resalta las pistas importantes del caso. Consejo del tutor te da una pista. Si abres cualquiera antes de responder, la pregunta queda marcada como Pista usada.", "¿Fallaste? Toca Mostrar respuesta correcta cuando quieras y Por qué es incorrecta para ver por qué falla cada opción. Las fuentes están en un menú desplegable.", "Después de responder, califica qué tan bien lo sabías: Otra vez, Difícil, Bien o Fácil. Luego puedes repetir según tu calificación.", "Herramientas: Marcar pregunta, el botón ab para tachar una opción, Resaltar para el texto seleccionado, Notas, Valores de laboratorio y Calculadora.", "En computadora, la lista de preguntas a la izquierda te deja saltar a cualquiera. Usa su flecha para contraerla."] },
     { title: "5. Resultados y repetición", body: "Al tocar Terminar bloque ves tu puntaje, desgloses por materia y dificultad, y una revisión de cada pregunta.",
       points: ["Repetir falladas (modo tutor) practica solo lo que fallaste. Repetir bloque completo lo hace de nuevo. También puedes repetir solo las marcadas o las que calificaste Otra vez o Difícil.", "El puntaje de tu primer intento siempre se conserva como referencia. Las repeticiones nunca lo sobrescriben."] },
-    { title: "6. Pausa, vuelve y ordena", body: "En modo tutor puedes salir y retomar donde lo dejaste.",
+    { title: "6. Sesiones anteriores", body: "Cada bloque que terminas queda registrado, para que veas tu progreso y reabras cualquier intento.",
+      points: ["En Inicio, usa el interruptor sobre la biblioteca para pasar de Biblioteca de preguntas a Sesiones anteriores.", "Cada entrada muestra su título (por ejemplo Mezcla: 3 bloques · 50 preguntas), la fecha y tu puntaje.", "Toca Revisar examen para reabrir el desglose completo pregunta por pregunta, con valores de laboratorio y explicaciones.", "Marca entradas para mostrar Eliminar selección, o usa Seleccionar todo. Eliminar un registro nunca toca tus tarjetas de Qbank.", "Las 25 sesiones más recientes conservan su revisión completa. Las anteriores conservan solo un resumen del puntaje."] },
+    { title: "7. Pausa, vuelve y ordena", body: "En modo tutor puedes salir y retomar donde lo dejaste.",
       points: ["Toca Inicio. Tus respuestas y tu posición en el bloque se guardan automáticamente. De vuelta en Inicio, toca Reanudar sesión.", "En la sala del examen, Quitar examen borra el examen cargado sin tocar tu biblioteca guardada.", "Ajustes tiene el tamaño de texto, el modo oscuro, el idioma y Restablecer todos los datos locales (borra todo lo guardado en este navegador)."] },
-    { title: "7. Usar el teléfono", body: "En el teléfono la pantalla se simplifica para que la pregunta tenga espacio.",
+    { title: "8. Usar el teléfono", body: "En el teléfono la pantalla se simplifica para que la pregunta tenga espacio.",
       points: ["La lista de preguntas se oculta. Usa Anterior y Siguiente arriba a la derecha, e Inicio arriba a la izquierda (modo tutor).", "Valores de laboratorio, Notas, Calculadora y Ajustes están en una fila debajo.", "Abajo, Bloquear está a la izquierda y Terminar bloque a la derecha. Un bloque cronometrado también muestra su cuenta regresiva en el centro."] },
   ],
 };
 
 function HowItWorksGuide({ onClose, T }) {
   const { t, lang } = useI18n();
+  const vp = useViewport();
+  const phone = vp.w < 640;
   const steps = GUIDE[lang] || GUIDE.en;
   const [i, setI] = useState(0);
   const last = i === steps.length - 1;
   const step = steps[i];
+  const bodyRef = useRef(null);
+  const touch = useRef(null);
+  const go = (n) => setI(Math.max(0, Math.min(steps.length - 1, n)));
 
   useEffect(() => {
     const onKey = (e) => {
@@ -2945,47 +2954,74 @@ function HowItWorksGuide({ onClose, T }) {
     return () => window.removeEventListener("keydown", onKey);
   }, [onClose, steps.length]);
 
+  useEffect(() => { if (bodyRef.current) bodyRef.current.scrollTop = 0; }, [i]); // every step opens at its top
+
+  // Phones: swipe left / right between steps (mostly-horizontal swipes only, so vertical scrolling is unaffected).
+  const onTouchStart = (e) => { const p = e.touches[0]; touch.current = { x: p.clientX, y: p.clientY }; };
+  const onTouchEnd = (e) => {
+    const st = touch.current; touch.current = null;
+    if (!st) return;
+    const p = e.changedTouches[0]; const dx = p.clientX - st.x; const dy = p.clientY - st.y;
+    if (Math.abs(dx) > 60 && Math.abs(dx) > Math.abs(dy) * 1.5) go(i + (dx < 0 ? 1 : -1));
+  };
+
+  const pad = phone ? 16 : 26;
   return (
     <div role="dialog" aria-modal="true" aria-label={t("howItWorks")} onClick={onClose}
-      style={{ position: "fixed", inset: 0, zIndex: 320, background: "rgba(0,0,0,0.6)", display: "flex", alignItems: "center", justifyContent: "center", padding: 20 }}>
+      style={{ position: "fixed", inset: 0, zIndex: 320, background: "rgba(0,0,0,0.6)", display: "flex", alignItems: phone ? "flex-end" : "center", justifyContent: "center", padding: phone ? 0 : 20 }}>
       <div onClick={(e) => e.stopPropagation()} style={{
-        background: T.card, border: `1px solid ${T.border}`, borderRadius: 12, width: "100%", maxWidth: Math.round(620 * Math.max(1, TEXT_SCALE)),
-        maxHeight: "88vh", display: "flex", flexDirection: "column", overflow: "hidden",
+        background: T.card, border: `1px solid ${T.border}`, borderRadius: phone ? "14px 14px 0 0" : 12, width: "100%", maxWidth: phone ? "100%" : Math.round(620 * Math.max(1, TEXT_SCALE)),
+        maxHeight: Math.round(vp.h * (phone ? 0.92 : 0.88)), display: "flex", flexDirection: "column", overflow: "hidden",
       }}>
-        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "16px 22px", borderBottom: `1px solid ${T.border}` }}>
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: phone ? "10px 8px 10px 16px" : "16px 22px", borderBottom: `1px solid ${T.border}` }}>
           <span style={{ display: "inline-flex", alignItems: "center", gap: 8, fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(14), color: T.ink }}>
             <HelpCircle size={17} color={T.blue} /> {t("howItWorks")}
           </span>
           <button onClick={onClose} aria-label={t("guideClose")} title={t("guideClose")}
-            style={{ background: "transparent", border: "none", cursor: "pointer", color: T.muted, display: "flex" }}>
+            style={{ background: "transparent", border: "none", cursor: "pointer", color: T.muted, display: "flex", padding: phone ? 10 : 0 }}>
             <X size={18} />
           </button>
         </div>
 
-        <div style={{ padding: "22px 26px", overflowY: "auto", flex: 1 }}>
+        <div ref={bodyRef} onTouchStart={onTouchStart} onTouchEnd={onTouchEnd}
+          style={{ padding: phone ? "16px 16px 12px" : "22px 26px", overflowY: "auto", flex: 1, minHeight: 0, overscrollBehavior: "contain", WebkitOverflowScrolling: "touch" }}>
           <div style={{ fontFamily: FONT_MONO, fontSize: fs(11.5), color: T.muted, marginBottom: 8 }}>
             {t("guideStep", { n: i + 1, total: steps.length })}
           </div>
-          <h2 style={{ fontFamily: FONT_DISPLAY, fontSize: fs(24), fontWeight: 600, color: T.ink, margin: "0 0 10px" }}>{step.title}</h2>
-          <p style={{ fontFamily: FONT_UI, fontSize: fs(14.5), color: T.ink, lineHeight: 1.6, margin: "0 0 14px" }}>{step.body}</p>
-          <ul style={{ margin: 0, paddingLeft: 20, display: "grid", gap: 8 }}>
+          <h2 style={{ fontFamily: FONT_DISPLAY, fontSize: fs(phone ? 20 : 24), fontWeight: 600, color: T.ink, margin: "0 0 10px", lineHeight: 1.25 }}>{step.title}</h2>
+          <p style={{ fontFamily: FONT_UI, fontSize: fs(phone ? 14 : 14.5), color: T.ink, lineHeight: 1.6, margin: "0 0 14px" }}>{step.body}</p>
+          <ul style={{ margin: 0, paddingLeft: phone ? 18 : 20, display: "grid", gap: phone ? 10 : 8 }}>
             {step.points.map((p, pi) => (
-              <li key={pi} style={{ fontFamily: FONT_UI, fontSize: fs(14), color: T.muted, lineHeight: 1.55 }}>{p}</li>
+              <li key={pi} style={{ fontFamily: FONT_UI, fontSize: fs(phone ? 13.5 : 14), color: T.muted, lineHeight: 1.55 }}>{p}</li>
             ))}
           </ul>
         </div>
 
-        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 12, padding: "14px 22px", borderTop: `1px solid ${T.border}` }}>
-          <div style={{ display: "flex", gap: 6 }}>
-            {steps.map((_, di) => (
-              <button key={di} onClick={() => setI(di)} aria-label={t("guideStep", { n: di + 1, total: steps.length })}
-                style={{ width: 9, height: 9, borderRadius: 999, padding: 0, cursor: "pointer", border: `1px solid ${T.blue}`, background: di === i ? T.blue : "transparent" }} />
-            ))}
-          </div>
-          <div style={{ display: "flex", gap: 10 }}>
-            {i > 0 && <GhostButton T={T} icon={ChevronLeft} onClick={() => setI(i - 1)}>{t("guideBack")}</GhostButton>}
-            <PrimaryButton T={T} onClick={() => (last ? onClose() : setI(i + 1))}>{last ? t("guideDone") : t("guideNext")}</PrimaryButton>
-          </div>
+        <div style={{ borderTop: `1px solid ${T.border}`, padding: phone ? "10px 16px calc(12px + env(safe-area-inset-bottom, 0px))" : "14px 22px" }}>
+          {phone ? (
+            <>
+              <div role="progressbar" aria-valuemin={1} aria-valuemax={steps.length} aria-valuenow={i + 1} style={{ height: 4, borderRadius: 999, background: T.mutedBg, overflow: "hidden", marginBottom: 10 }}>
+                <div style={{ height: "100%", width: `${((i + 1) / steps.length) * 100}%`, background: T.blue, transition: "width 0.2s" }} />
+              </div>
+              <div style={{ display: "flex", gap: 10 }}>
+                {i > 0 && <GhostButton T={T} icon={ChevronLeft} onClick={() => go(i - 1)} style={{ padding: "12px 14px" }}>{t("guideBack")}</GhostButton>}
+                <PrimaryButton T={T} onClick={() => (last ? onClose() : go(i + 1))} style={{ flex: 1, justifyContent: "center", padding: "12px 14px" }}>{last ? t("guideDone") : t("guideNext")}</PrimaryButton>
+              </div>
+            </>
+          ) : (
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 12 }}>
+              <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
+                {steps.map((_, di) => (
+                  <button key={di} onClick={() => setI(di)} aria-label={t("guideStep", { n: di + 1, total: steps.length })}
+                    style={{ width: 9, height: 9, borderRadius: 999, padding: 0, cursor: "pointer", border: `1px solid ${T.blue}`, background: di === i ? T.blue : "transparent" }} />
+                ))}
+              </div>
+              <div style={{ display: "flex", gap: 10 }}>
+                {i > 0 && <GhostButton T={T} icon={ChevronLeft} onClick={() => setI(i - 1)}>{t("guideBack")}</GhostButton>}
+                <PrimaryButton T={T} onClick={() => (last ? onClose() : setI(i + 1))}>{last ? t("guideDone") : t("guideNext")}</PrimaryButton>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </div>
