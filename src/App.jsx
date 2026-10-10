@@ -252,7 +252,7 @@ const STR = {
   en: {
     saveToLibrary: "Save to Library", libSaved: "Saved {n} new block(s) to your library.", libDup: "{d} already in your library.", libNothing: "Already in your library — nothing new to save.",
     libTitle: "Qbank Library", libCount: "{n} saved", libEmpty: "Nothing saved yet. Paste or upload a question bank and choose \u201cSave to Library\u201d to keep it on this device.",
-    libMeta: "{q} questions · imported {d}", libLastScore: "Last score {pct}% ({c}/{t})", libNoScore: "Not attempted yet",
+    libMeta: "{q} questions · imported {d}", libLastScore: "Last score {pct}% ({c}/{t})", libNoScore: "Not attempted yet", libCompleted: "Completed · {pct}% ({c}/{t})", tabLibrary: "Qbank Library", tabHistory: "Past Sessions", histTitle: "Past Sessions", histEmpty: "No finished sessions yet. Every block you complete is logged here, including custom and mixed sessions.", histNote: "Each finished session is saved as its own log. Custom and mixed sessions never change your Qbank cards; a card is marked Completed only when you run that whole Qbank on its own. The 25 most recent sessions also keep their full question-by-question review; older ones keep a summary.", histKindBank: "Qbank", histKindCustom: "Custom", histKindRetest: "Retest", histQ: "{n} questions", histAnswered: "{a}/{n} answered", histSources: "From: {s}", histBySubject: "By subject", histDelete: "Delete this log", histClear: "Clear history", histClearQ: "Delete all {n} logged sessions? Your Qbank cards are not affected.", histClearGo: "Delete all", histToggle: "Show details", histSelectAll: "Select all", histDeselect: "Deselect all", histDeleteSelQ: "Delete {n} selected session(s)? Your Qbank cards are not affected.", histReview: "Review Exam", histNoReview: "Review unavailable", histNoReviewFlash: "The full review for this session is no longer stored.", histMixed: "Mixed: {n} blocks · {q} Questions", histNamed: "{name} · {q} Questions", histDone: "Completed {d}",
     libStart: "Start", rateTitle: "How well did you know this?", "rate.again": "Again", "rate.hard": "Hard", "rate.good": "Good", "rate.easy": "Easy",
     poolAgain: "Rated Again", poolHard: "Rated Hard", poolAgainHard: "Again + Hard",
     "rt.again": "Rated Again", "rt.hard": "Rated Hard", "rt.againhard": "Rated Again/Hard",
@@ -380,7 +380,7 @@ const STR = {
   es: {
     saveToLibrary: "Guardar en la biblioteca", libSaved: "Se guardaron {n} bloque(s) nuevo(s) en tu biblioteca.", libDup: "{d} ya estaba(n) en tu biblioteca.", libNothing: "Ya está en tu biblioteca; no hay nada nuevo que guardar.",
     libTitle: "Biblioteca de preguntas", libCount: "{n} guardados", libEmpty: "Aún no hay nada guardado. Pega o sube un banco de preguntas y elige \u201cGuardar en la biblioteca\u201d para conservarlo en este dispositivo.",
-    libMeta: "{q} preguntas · importado {d}", libLastScore: "Último puntaje {pct}% ({c}/{t})", libNoScore: "Sin intentos aún",
+    libMeta: "{q} preguntas · importado {d}", libLastScore: "Último puntaje {pct}% ({c}/{t})", libNoScore: "Sin intentos aún", libCompleted: "Completado · {pct}% ({c}/{t})", tabLibrary: "Biblioteca de preguntas", tabHistory: "Sesiones anteriores", histTitle: "Sesiones anteriores", histEmpty: "Aún no hay sesiones terminadas. Cada bloque que completes queda registrado aquí, incluidas las sesiones personalizadas y mezcladas.", histNote: "Cada sesión terminada se guarda como un registro independiente. Las sesiones personalizadas y mezcladas nunca cambian tus tarjetas de Qbank; una tarjeta se marca como Completada solo cuando haces ese Qbank completo por sí solo. Las 25 sesiones más recientes también conservan su revisión completa pregunta por pregunta; las anteriores conservan un resumen.", histKindBank: "Qbank", histKindCustom: "Personalizada", histKindRetest: "Repetición", histQ: "{n} preguntas", histAnswered: "{a}/{n} respondidas", histSources: "De: {s}", histBySubject: "Por materia", histDelete: "Eliminar este registro", histClear: "Borrar historial", histClearQ: "¿Eliminar las {n} sesiones registradas? Tus tarjetas de Qbank no se ven afectadas.", histClearGo: "Eliminar todo", histToggle: "Ver detalles", histSelectAll: "Seleccionar todo", histDeselect: "Deseleccionar todo", histDeleteSelQ: "¿Eliminar {n} sesión(es) seleccionada(s)? Tus tarjetas de Qbank no se ven afectadas.", histReview: "Revisar examen", histNoReview: "Revisión no disponible", histNoReviewFlash: "La revisión completa de esta sesión ya no está guardada.", histMixed: "Mezcla: {n} bloques · {q} preguntas", histNamed: "{name} · {q} preguntas", histDone: "Completado {d}",
     libStart: "Iniciar", rateTitle: "¿Qué tan bien lo sabías?", "rate.again": "Otra vez", "rate.hard": "Difícil", "rate.good": "Bien", "rate.easy": "Fácil",
     poolAgain: "Calificadas Otra vez", poolHard: "Calificadas Difícil", poolAgainHard: "Otra vez + Difícil",
     "rt.again": "Calificadas Otra vez", "rt.hard": "Calificadas Difícil", "rt.againhard": "Calificadas Otra vez/Difícil",
@@ -1922,6 +1922,7 @@ function mixQbanks(entries, { size = null, difficulty = "all" } = {}) {
     mixCount: entries.length,
     mixDifficulty: difficulty,
     sourceBanks: entries.map((e) => e.title),
+    sourceIds: entries.map((e) => e.id),
     timeLimitMinutes: Math.max(5, Math.round(n * 1.5)),
     questions: spreadBySubject(buckets),
   });
@@ -1938,6 +1939,10 @@ function mixQbanks(entries, { size = null, difficulty = "all" } = {}) {
 const LS_SESSION = "activeSession";
 const LS_LIBRARY = "qbankLibrary";
 const LS_PREFS = "oworldPrefs";
+const LS_HISTORY = "sessionHistory";
+const LS_REVIEW = "sessionReview:"; // + log id: the full block + answers behind a log, so "Review Exam" can reopen it
+const REVIEW_MAX = 25; // full snapshots are large (explanations, labs), so only the newest runs keep one
+const HISTORY_MAX = 300; // oldest logs fall off first so the log can never fill localStorage on its own
 const SESSION_VERSION = 1;
 
 function lsGet(key) {
@@ -1957,6 +1962,21 @@ function loadLibrary() {
   const lib = lsGet(LS_LIBRARY);
   if (!Array.isArray(lib)) return [];
   return lib.filter((e) => e && typeof e.id === "string" && typeof e.title === "string" && Array.isArray(e.questions) && e.questions.length > 0);
+}
+
+function hasReviewSnapshot(id) { try { return window.localStorage.getItem(LS_REVIEW + id) !== null; } catch (e) { return false; } }
+function removeAllReviewSnapshots() {
+  try {
+    const keys = [];
+    for (let i = 0; i < window.localStorage.length; i++) { const k = window.localStorage.key(i); if (k && k.startsWith(LS_REVIEW)) keys.push(k); }
+    keys.forEach((k) => window.localStorage.removeItem(k));
+  } catch (e) { /* ignore */ }
+}
+// Past-session logs: independent of the Qbank cards and of the active session, so deleting a card or finishing/removing an exam never touches them.
+function loadHistory() {
+  const h = lsGet(LS_HISTORY);
+  if (!Array.isArray(h)) return [];
+  return h.filter((e) => e && typeof e.id === "string" && Number.isFinite(e.total) && Number.isFinite(e.finishedAt)).slice(0, HISTORY_MAX);
 }
 
 function loadPrefs() {
@@ -2645,8 +2665,8 @@ function QbankLibraryPanel({ library, onLaunch, onMix, onDelete, onRename, resum
                       {pos >= 0 && <Pill T={T} tone="blue">#{pos + 1}</Pill>}
                       {resumeId === e.id && <Pill T={T} tone="amber">{t("inProgressTag")}</Pill>}
                       {ls
-                        ? <Pill T={T} tone={ls.pct >= 70 ? "green" : "red"}>{t("libLastScore", { pct: ls.pct, c: ls.correct, t: ls.total })}</Pill>
-                        : <Pill T={T} tone="muted">{t("libNoScore")}</Pill>}
+                        ? <Pill T={T} tone={ls.pct >= 70 ? "green" : "red"}>{t("libCompleted", { pct: ls.pct, c: ls.correct, t: ls.total })}</Pill>
+                        : resumeId !== e.id && <Pill T={T} tone="muted">{t("libNoScore")}</Pill>}
                     </div>
                     <span style={{ fontFamily: FONT_MONO, fontSize: fs(12), color: T.muted }}>
                       {t("libMeta", { q: e.questions.length, d: fmtDate(e.importDate) })}
@@ -2748,6 +2768,118 @@ function QbankLibraryPanel({ library, onLaunch, onMix, onDelete, onRename, resum
         </>
       )}
       <p style={{ fontFamily: FONT_UI, fontSize: fs(11.5), color: T.muted, margin: "14px 0 0" }}>{t("libLocalNote")}</p>
+    </div>
+  );
+}
+
+
+// ---------------------------------------------------------------------------
+// Past Sessions: one row per finished block, newest first. Rows are snapshots, so they stay valid after a Qbank is renamed or deleted.
+// ---------------------------------------------------------------------------
+function sessionTitle(h, t) {
+  if (h.isRetest) return `${blockLabel(h, t)} · ${t("histQ", { n: h.total })}`;
+  const diff = h.mixDifficulty && h.mixDifficulty !== "all" ? ` · ${t(h.mixDifficulty === "balanced" ? "mixBalancedShort" : "dl." + h.mixDifficulty)}` : "";
+  if (h.isMixed && h.mixCount > 1) return t("histMixed", { n: h.mixCount, q: h.total }) + diff;
+  return t("histNamed", { name: h.blockName, q: h.total }) + diff;
+}
+
+function SessionHistoryPanel({ history, onDelete, onClear, onReview, T }) {
+  const { t, lang } = useI18n();
+  const phone = useViewport().w < 640;
+  const [sel, setSel] = useState([]); // ticked log ids
+  const [confirmDel, setConfirmDel] = useState(false);
+  const liveSel = sel.filter((id) => history.some((e) => e.id === id));
+  const toggleSel = (id) => setSel((q) => (q.includes(id) ? q.filter((x) => x !== id) : [...q, id]));
+  const deleteSelected = () => { liveSel.forEach((id) => onDelete(id)); setSel([]); setConfirmDel(false); };
+  const ordered = useMemo(() => [...history].sort((a, b) => b.finishedAt - a.finishedAt), [history]); // newest first
+  const fmt = (ms) => new Date(ms).toLocaleString(lang === "es" ? "es" : "en-US", { year: "numeric", month: "short", day: "numeric", hour: "numeric", minute: "2-digit" });
+  const kindTone = { bank: "blue", custom: "amber", retest: "muted" };
+  const kindKey = { bank: "histKindBank", custom: "histKindCustom", retest: "histKindRetest" };
+  return (
+    <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, padding: 24, marginBottom: 20 }}>
+      <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 14, flexWrap: "wrap" }}>
+        <ClipboardList size={17} color={T.ink} />
+        <span style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(14), color: T.ink }}>{t("histTitle")}</span>
+        <Pill T={T} tone="muted">{history.length}</Pill>
+        {history.length > 0 && (
+          <div role="toolbar" aria-label={t("histTitle")} style={{ marginLeft: "auto", display: "flex", gap: 6, flexWrap: "wrap", justifyContent: "flex-end" }}>
+            <GhostButton T={T} onClick={() => { setConfirmDel(false); setSel(liveSel.length === history.length ? [] : history.map((e) => e.id)); }}>
+              {liveSel.length === history.length ? t("histDeselect") : t("histSelectAll")}
+            </GhostButton>
+            {liveSel.length > 0 && (
+              <GhostButton T={T} icon={Trash2} onClick={() => setConfirmDel(true)} title={`${t("libDeleteSel")} (${liveSel.length})`}
+                style={{ color: T.red, borderColor: T.red, ...(phone ? { padding: "11px 12px" } : {}) }}>
+                {!phone && t("libDeleteSel")}
+              </GhostButton>
+            )}
+          </div>
+        )}
+      </div>
+
+      {confirmDel && liveSel.length > 0 && (
+        <div role="alertdialog" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 12, flexWrap: "wrap", padding: "10px 14px", marginBottom: 12, borderRadius: 8, border: `1px solid ${T.red}`, background: T.redLight }}>
+          <span style={{ fontFamily: FONT_UI, fontSize: fs(13), fontWeight: 600, color: T.red }}>{t("histDeleteSelQ", { n: liveSel.length })}</span>
+          <span style={{ display: "inline-flex", gap: 8 }}>
+            <button onClick={deleteSelected} style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(12.5), padding: "7px 12px", borderRadius: 6, border: `1px solid ${T.red}`, background: T.red, color: "#fff", cursor: "pointer" }}>{t("libDelete")}</button>
+            <GhostButton T={T} onClick={() => setConfirmDel(false)}>{t("cancel")}</GhostButton>
+          </span>
+        </div>
+      )}
+
+      {history.length === 0 ? (
+        <p style={{ fontFamily: FONT_UI, fontSize: fs(13.5), color: T.muted, lineHeight: 1.6, margin: 0 }}>{t("histEmpty")}</p>
+      ) : (
+        <div style={{ display: "grid", gap: 8 }}>
+          {ordered.map((h) => {
+            const label = sessionTitle(h, t);
+            const canReview = hasReviewSnapshot(h.id);
+            const picked = liveSel.includes(h.id);
+            return (
+              <div key={h.id} onClick={() => toggleSel(h.id)} style={{
+                display: "flex", alignItems: "center", gap: 12, flexWrap: "wrap", padding: "12px 14px", borderRadius: 8, cursor: "pointer",
+                border: `1px solid ${picked ? T.blue : T.border}`, background: picked ? T.blueLight : "transparent",
+              }}>
+                <input type="checkbox" checked={picked} onChange={() => toggleSel(h.id)} onClick={(ev) => ev.stopPropagation()} aria-label={label} style={{ cursor: "pointer", width: 18, height: 18 }} />
+                <div style={{ flex: 1, minWidth: 180 }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap" }}>
+                    <span style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(14.5), color: T.ink }}>{label}</span>
+                    <Pill T={T} tone={kindTone[h.kind] || "muted"}>{t(kindKey[h.kind] || "histKindCustom")}</Pill>
+                    <Pill T={T} tone="muted">{h.mode === "tutor" ? t("tutorShort") : t("timed")}</Pill>
+                    <Pill T={T} tone={h.pct >= 70 ? "green" : "red"}>{h.pct}% ({h.correct}/{h.total})</Pill>
+                  </div>
+                  <span style={{ fontFamily: FONT_MONO, fontSize: fs(12), color: T.muted }}>
+                    {t("histDone", { d: fmt(h.finishedAt) })}{h.elapsedSec ? ` · ${fmtTime(h.elapsedSec)}` : ""}
+                  </span>
+                  {Array.isArray(h.sourceBanks) && h.sourceBanks.length > 0 && h.kind !== "bank" && (
+                    <div style={{ fontFamily: FONT_UI, fontSize: fs(12), color: T.muted, marginTop: 2 }}>{t("histSources", { s: h.sourceBanks.join(", ") })}</div>
+                  )}
+                </div>
+                {canReview
+                  ? <PrimaryButton T={T} icon={ClipboardList} onClick={(ev) => { ev.stopPropagation(); onReview(h.id); }}>{t("histReview")}</PrimaryButton>
+                  : <span style={{ fontFamily: FONT_UI, fontSize: fs(12), color: T.muted }}>{t("histNoReview")}</span>}
+              </div>
+            );
+          })}
+        </div>
+      )}
+      <p style={{ fontFamily: FONT_UI, fontSize: fs(11.5), color: T.muted, margin: "14px 0 0", lineHeight: 1.5 }}>{t("histNote")}</p>
+    </div>
+  );
+}
+
+// Segmented switch above the Qbank Library: Library | Past Sessions (N).
+function LibraryTabs({ tab, setTab, count, T }) {
+  const { t } = useI18n();
+  return (
+    <div style={{ display: "flex", justifyContent: "center", marginBottom: 14 }}>
+    <div role="tablist" style={{ display: "inline-flex", border: `1px solid ${T.border}`, borderRadius: 8, overflow: "hidden" }}>
+      {[["library", t("tabLibrary"), BookOpen], ["history", t("tabHistory"), ClipboardList]].map(([id, label, Ic]) => (
+        <button key={id} role="tab" aria-selected={tab === id} onClick={() => setTab(id)} style={{
+          display: "flex", alignItems: "center", gap: 6, fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(12.5), padding: "9px 16px", border: "none",
+          cursor: "pointer", background: tab === id ? T.blue : "transparent", color: tab === id ? T.onBlue : T.ink,
+        }}><Ic size={14} /> {label}</button>
+      ))}
+    </div>
     </div>
   );
 }
@@ -2860,7 +2992,7 @@ function HowItWorksGuide({ onClose, T }) {
   );
 }
 
-function ImportScreen({ onImport, onSaveToLibrary, library, session, onResume, onOpenLobby, onLaunchLibrary, onMixLibrary, onDeleteLibraryEntry, onRenameLibraryEntry, T, darkMode, setDarkMode }) {
+function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], onDeleteSession, onClearSessions, onReviewSession, libTab, setLibTab, session, onResume, onOpenLobby, onLaunchLibrary, onMixLibrary, onDeleteLibraryEntry, onRenameLibraryEntry, T, darkMode, setDarkMode }) {
   const { t, lang } = useI18n();
   const [text, setText] = useState("");
   const [error, setError] = useState("");
@@ -2999,7 +3131,10 @@ function ImportScreen({ onImport, onSaveToLibrary, library, session, onResume, o
         </div>
       )}
 
-      <QbankLibraryPanel library={library} onLaunch={onLaunchLibrary} onMix={onMixLibrary} onDelete={onDeleteLibraryEntry} onRename={onRenameLibraryEntry} resumeId={resumeId} onResume={onResume} T={T} />
+      <LibraryTabs tab={libTab} setTab={setLibTab} count={sessionLog.length} T={T} />
+      {libTab === "history"
+        ? <SessionHistoryPanel history={sessionLog} onDelete={onDeleteSession} onClear={onClearSessions} onReview={onReviewSession} T={T} />
+        : <QbankLibraryPanel library={library} onLaunch={onLaunchLibrary} onMix={onMixLibrary} onDelete={onDeleteLibraryEntry} onRename={onRenameLibraryEntry} resumeId={resumeId} onResume={onResume} T={T} />}
 
       <div style={{ marginBottom: 20 }}>
         <button
@@ -5235,7 +5370,7 @@ export default function App() {
   // Everything persisted is read ONCE, synchronously, before the first render — so a refresh drops the
   // student straight back into the exam (no flash of the import screen) and the save effects below can
   // never overwrite a stored session with empty initial state.
-  const [boot] = useState(() => ({ session: loadSession(), library: loadLibrary(), prefs: loadPrefs() }));
+  const [boot] = useState(() => ({ session: loadSession(), library: loadLibrary(), prefs: loadPrefs(), sessionLog: loadHistory() }));
   const [examData, setExamData] = useState(boot.session ? boot.session.examData : null);
   const [blockStates, setBlockStates] = useState(boot.session ? boot.session.blockStates : []);
   const [view, setView] = useState(boot.session ? boot.session.view : "import"); // import | lobby | exam | results | final
@@ -5246,6 +5381,8 @@ export default function App() {
   const [textScale, setTextScale] = useState(boot.prefs.textScale);
   TEXT_SCALE = textScale; // read by fs() while this render builds the tree
   const [library, setLibrary] = useState(boot.library); // [{ id, title, importDate, questions, lastScore }]
+  const [libTab, setLibTab] = useState("library"); // Home tab: library | history (lives here so Review Exam → Home lands back on Past Sessions)
+  const [sessionLog, setSessionLog] = useState(boot.sessionLog); // independent log of every finished session, newest first
   const [restoredNotice, setRestoredNotice] = useState(!!boot.session);
   const [storageError, setStorageError] = useState(false);
   const [flash, setFlash] = useState(null); // one-line confirmation toast (e.g. after a bundle import)
@@ -5282,6 +5419,7 @@ export default function App() {
   }, [examJson, blockStates, history, view, activeBlockIdx]);
 
   useEffect(() => { persist(LS_LIBRARY, library.length ? JSON.stringify(library) : null); }, [library]);
+  useEffect(() => { persist(LS_HISTORY, sessionLog.length ? JSON.stringify(sessionLog) : null); }, [sessionLog]);
   useEffect(() => {
     const isDefault = darkMode === true && lang === "en" && textScale === 1;
     persist(LS_PREFS, isDefault ? null : JSON.stringify({ darkMode, lang, textScale }));
@@ -5378,6 +5516,10 @@ export default function App() {
     if (entries.length < 1) return;
     const block = mixQbanks(entries, { size, difficulty });
     if (block.questions.length === 0) return;
+    // Running ONE Qbank in full (no size cap, no difficulty filter) is that card's own attempt, so it is linked to the card and
+    // its badge flips to Completed. Anything else (a subset, a difficulty filter, several banks) is a custom session: it is
+    // only logged under Past Sessions and the source cards are left exactly as they were.
+    if (entries.length === 1 && size == null && difficulty === "all") block.libraryId = entries[0].id;
     setExamData({ blocks: [block] });
     setBlockStates([{ ...makeInitialBlockState(block), timed: mode !== "tutor", tutor: mode === "tutor", status: "in-progress", startedAt: Date.now() }]);
     setHistory([]);
@@ -5404,6 +5546,28 @@ export default function App() {
       ...e,
       questions: e.questions.map((qq) => (qq.id === origId ? { ...qq, meta: { ...(qq.meta || {}), rating: key, ratedAt } } : qq)),
     })));
+  }
+
+  function deleteSessionLog(id) { lsRemove(LS_REVIEW + id); setSessionLog((log) => log.filter((e) => e.id !== id)); }
+  function clearSessionLog() { removeAllReviewSnapshots(); setSessionLog([]); }
+
+  // Past Sessions → Review Exam: reopen the saved run in the normal results screen (every question, labs, explanations, notes,
+  // highlights). The run is loaded as a one-block exam that is already "done", so nothing is re-scored and no new log is written.
+  function reviewSession(id) {
+    const snap = lsGet(LS_REVIEW + id);
+    if (!snap || !snap.block || !snap.blockState || !snap.blockState.score) { setFlash(tr("histNoReviewFlash")); return; }
+    const block = snap.block.isRetest ? { ...snap.block, retestOf: 0 } : snap.block; // the first-pass block isn't loaded with it
+    const bs = snap.blockState;
+    setExamData({ blocks: [block] });
+    setBlockStates([bs]);
+    setHistory([{
+      id: 1, blockIdx: 0, originIdx: 0, pool: block.isRetest ? block.retestType : "first", mode: bs.tutor ? "tutor" : "timed", timerOff: !!bs.timerOff,
+      correct: bs.score.correct, total: bs.score.total, answered: bs.score.answered, pct: bs.score.pct, elapsedSec: bs.elapsedSec || 0, finishedAt: bs.finishedAt || Date.now(),
+      hintsUsed: block.questions.filter((q) => bs.answers[q.id]?.hintUsed).length,
+    }]);
+    setActiveBlockIdx(0);
+    setLibTab("history");
+    setView("results");
   }
 
   function deleteLibraryEntry(id) { setLibrary((lib) => lib.filter((e) => e.id !== id)); }
@@ -5442,12 +5606,12 @@ export default function App() {
   // Settings → "Reset All Local Data": wipes the library, the active session and preferences, then returns
   // to a clean import screen. (The save effects above then see empty/default state and keep the keys absent.)
   function resetAllData() {
-    [LS_SESSION, LS_LIBRARY, LS_PREFS].forEach(lsRemove);
+    [LS_SESSION, LS_LIBRARY, LS_PREFS, LS_HISTORY].forEach(lsRemove);
     failedKeys.current = {};
     setStorageError(false);
     setRestoredNotice(false);
     setExamData(null); setBlockStates([]); setHistory([]); setActiveBlockIdx(null);
-    setLibrary([]); setDarkMode(true); setLang("en"); setTextScale(1);
+    removeAllReviewSnapshots(); setLibrary([]); setSessionLog([]); setDarkMode(true); setLang("en"); setTextScale(1);
     setView("import");
   }
 
@@ -5563,6 +5727,41 @@ export default function App() {
       correct, total, answered, pct, elapsedSec, finishedAt,
       hintsUsed: block.questions.filter((q) => bs.answers[q.id]?.hintUsed).length,
     }]);
+    // Independent session log: a self-contained snapshot, written for EVERY finished block (card run, custom/mixed, retest).
+    const subj = new Map();
+    block.questions.forEach((q) => {
+      const k = (q.subject || "").trim() || "General";
+      const cur = subj.get(k) || { subject: k, correct: 0, total: 0 };
+      cur.total += 1;
+      if (bs.answers[q.id]?.selected === q.correctAnswer) cur.correct += 1;
+      subj.set(k, cur);
+    });
+    const parent = block.isRetest ? examData.blocks[block.retestOf] : null;
+    const logEntry = {
+      id: `ses_${finishedAt.toString(36)}_${Math.random().toString(36).slice(2, 7)}`,
+      finishedAt, elapsedSec, correct, total, answered, pct,
+      kind: block.isRetest ? "retest" : block.libraryId ? "bank" : "custom",
+      mode: bs.tutor ? "tutor" : "timed",
+      blockName: block.blockName, isMixed: !!block.isMixed, mixCount: block.mixCount || 0, mixDifficulty: block.mixDifficulty || null,
+      isRetest: !!block.isRetest, retestType: block.retestType || null,
+      sourceBanks: block.sourceBanks || (parent && parent.sourceBanks) || [],
+      libraryId: block.isRetest ? (parent && parent.libraryId) || null : block.libraryId || null,
+      bySubject: [...subj.values()].sort((a, b) => b.total - a.total),
+    };
+    // Full snapshot for "Review Exam" (kept in its own key; only the newest REVIEW_MAX runs keep one, and a full disk just drops the oldest).
+    const snapshot = JSON.stringify({ v: 1, block, blockState: { ...bs, status: "done", finishedAt, elapsedSec, score: { correct, total, answered, pct } } });
+    const olderIds = sessionLog.map((e) => e.id);
+    let saved = lsSet(LS_REVIEW + logEntry.id, snapshot);
+    for (let i = 0; !saved && i < olderIds.length; i++) { // quota: free the oldest snapshots one at a time and retry
+      const victim = olderIds[olderIds.length - 1 - i];
+      if (hasReviewSnapshot(victim)) { lsRemove(LS_REVIEW + victim); saved = lsSet(LS_REVIEW + logEntry.id, snapshot); }
+    }
+    olderIds.slice(REVIEW_MAX - 1).forEach((id) => lsRemove(LS_REVIEW + id)); // older than the newest REVIEW_MAX: summary only
+    setSessionLog((log) => {
+      const next = [logEntry, ...log];
+      next.slice(HISTORY_MAX).forEach((e) => lsRemove(LS_REVIEW + e.id));
+      return next.slice(0, HISTORY_MAX);
+    });
     // Finishing a first-pass block updates its library entry; retests are subsets and never overwrite it.
     if (block.libraryId && !block.isRetest) recordLibraryScore(block.libraryId, { correct, total, pct }, finishedAt);
     setView("results");
@@ -5679,6 +5878,11 @@ export default function App() {
           onImport={(d) => guardNew(() => handleImport(d))}
           onSaveToLibrary={saveImportToLibrary}
           library={library}
+          sessionLog={sessionLog}
+          onDeleteSession={deleteSessionLog}
+          onClearSessions={clearSessionLog}
+          onReviewSession={(id) => guardNew(() => reviewSession(id))}
+          libTab={libTab} setLibTab={setLibTab}
           session={homeSession}
           onResume={() => resumeSession(ipIdx)}
           onOpenLobby={() => setView("lobby")}
