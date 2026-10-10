@@ -2210,55 +2210,74 @@ function PrimaryButton({ children, onClick, disabled, icon: Icon, style, T = LIG
       style={{
         fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(14), color: disabled ? "#FFFFFF" : T.onBlue,
         background: disabled ? "#9FB3C4" : T.blue, border: "none", borderRadius: 6,
-        padding: "10px 18px", display: "inline-flex", alignItems: "center", gap: 8,
-        cursor: disabled ? "not-allowed" : "pointer", ...style,
+        padding: "10px 18px", display: "inline-flex", alignItems: "center", justifyContent: "center", gap: 8,
+        whiteSpace: "nowrap", cursor: disabled ? "not-allowed" : "pointer", ...style,
       }}
       onMouseEnter={(e) => { if (!disabled) e.currentTarget.style.background = T.blueDeep; }}
       onMouseLeave={(e) => { if (!disabled) e.currentTarget.style.background = T.blue; }}
     >
-      {Icon && <Icon size={16} />}
+      {Icon && <Icon size={16} style={{ flexShrink: 0 }} />}
       {children}
     </button>
   );
 }
 
-function GhostButton({ children, onClick, icon: Icon, style, disabled, T = LIGHT }) {
+function GhostButton({ children, onClick, icon: Icon, style, disabled, title, T = LIGHT }) {
   return (
     <button
       onClick={onClick}
       disabled={disabled}
+      title={title}
+      aria-label={title}
       style={{
         fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(13), color: disabled ? "#A7B3B6" : T.ink,
         background: "transparent", border: `1px solid ${T.border}`, borderRadius: 6,
-        padding: "9px 14px", display: "inline-flex", alignItems: "center", gap: 7,
-        cursor: disabled ? "not-allowed" : "pointer", ...style,
+        padding: "9px 14px", display: "inline-flex", alignItems: "center", justifyContent: "center", gap: 7,
+        whiteSpace: "nowrap", cursor: disabled ? "not-allowed" : "pointer", ...style,
       }}
     >
-      {Icon && <Icon size={15} />}
+      {Icon && <Icon size={15} style={{ flexShrink: 0 }} />}
       {children}
     </button>
   );
 }
 
-function SettingsMenu({ darkMode, setDarkMode, T }) {
+function SettingsMenu({ darkMode, setDarkMode, T, iconOnly = false }) {
   const { t } = useI18n();
   const [open, setOpen] = useState(false);
+  const wrapRef = useRef(null);
+  const [place, setPlace] = useState({ right: 0 });
+  // When the header wraps (phones), the button can sit near the left edge. Right-align the dropdown when it fits,
+  // else open it to the right, else pin it inside the viewport, so it is never clipped off-screen.
+  function toggle() {
+    if (!open && wrapRef.current) {
+      const r = wrapRef.current.getBoundingClientRect();
+      const vw = window.innerWidth;
+      const W = Math.min(240, vw - 16);
+      if (r.right - W >= 8) setPlace({ right: 0 });
+      else if (r.left + W <= vw - 8) setPlace({ left: 0 });
+      else setPlace({ left: 8 - r.left });
+    }
+    setOpen((v) => !v);
+  }
   return (
-    <div style={{ position: "relative", flexShrink: 0 }}>
+    <div ref={wrapRef} style={{ position: "relative", flexShrink: 0 }}>
       <button
-        onClick={() => setOpen((v) => !v)}
+        onClick={toggle}
         style={{
-          display: "flex", alignItems: "center", gap: 6, background: "transparent",
-          border: `1px solid ${T.border}`, borderRadius: 6, padding: "9px 14px", cursor: "pointer",
+          display: "flex", alignItems: "center", gap: 6, background: "transparent", whiteSpace: "nowrap",
+          border: `1px solid ${T.border}`, borderRadius: 6, padding: iconOnly ? "12px 13px" : "9px 14px", cursor: "pointer",
           fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(13), color: T.ink,
         }}
+        title={iconOnly ? t("settings") : undefined}
+        aria-label={t("settings")}
       >
-        <SettingsIcon size={15} /> {t("settings")}
+        <SettingsIcon size={15} style={{ flexShrink: 0 }} /> {!iconOnly && t("settings")}
       </button>
       {open && (
         <div style={{
-          position: "absolute", top: 42, right: 0, background: T.card, border: `1px solid ${T.border}`,
-          borderRadius: 8, padding: 14, width: 240, zIndex: 70, boxShadow: "0 8px 24px rgba(0,0,0,0.3)",
+          position: "absolute", top: 42, ...place, background: T.card, border: `1px solid ${T.border}`,
+          borderRadius: 8, padding: 14, width: "min(240px, calc(100vw - 16px))", boxSizing: "border-box", zIndex: 70, boxShadow: "0 8px 24px rgba(0,0,0,0.3)",
         }}>
           <label style={{ display: "flex", alignItems: "center", gap: 8, fontFamily: FONT_UI, fontSize: fs(13), cursor: "pointer", color: T.ink }}>
             <input type="checkbox" checked={darkMode} onChange={() => setDarkMode((v) => !v)} />
@@ -2351,7 +2370,7 @@ async function exportExamBlock(block, { examTitle, shareTitle, shareText } = {})
 }
 
 // getBlock() -> { block, examTitle }; called at click time so it always exports the current content.
-function ExportShareButton({ getBlock, T, style }) {
+function ExportShareButton({ getBlock, T, style, fullWidth = false, wrapStyle }) {
   const { t } = useI18n();
   const [state, setState] = useState("idle"); // idle | busy | shared | downloaded | error
   const timer = useRef(null);
@@ -2378,8 +2397,8 @@ function ExportShareButton({ getBlock, T, style }) {
   const Icon = state === "shared" || state === "downloaded" ? Check : state === "error" ? AlertTriangle : Share2;
   const color = state === "error" ? T.red : state === "shared" || state === "downloaded" ? T.green : undefined;
   return (
-    <span aria-live="polite" style={{ display: "inline-flex" }}>
-      <GhostButton T={T} icon={Icon} onClick={onClick} disabled={state === "busy"} style={{ ...(color ? { color, borderColor: color } : {}), ...style }}>
+    <span aria-live="polite" style={{ display: fullWidth ? "flex" : "inline-flex", ...wrapStyle }}>
+      <GhostButton T={T} icon={Icon} onClick={onClick} disabled={state === "busy"} style={{ ...(fullWidth ? { width: "100%" } : {}), ...(color ? { color, borderColor: color } : {}), ...style }}>
         <span title={t("exportTitle")}>{label}</span>
       </GhostButton>
     </span>
@@ -2483,16 +2502,18 @@ function QbankLibraryPanel({ library, onLaunch, onMix, onDelete, onRename, resum
                       <button onClick={() => setConfirmId(null)} style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(12.5), padding: "6px 10px", borderRadius: 6, border: `1px solid ${T.border}`, background: "transparent", color: T.ink, cursor: "pointer" }}>{t("cancel")}</button>
                     </div>
                   ) : (
-                    <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                    <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap" }}>
                       {resumeId === e.id && <PrimaryButton T={T} onClick={onResume} icon={Play}>{t("resumeSession")}</PrimaryButton>}
                       <GhostButton T={T} onClick={() => onLaunch([e.id])} icon={Play}>{t("libStart")}</GhostButton>
                       <ExportShareButton T={T} getBlock={() => ({ block: { blockName: e.title, timeLimitMinutes: e.timeLimitMinutes, questions: e.questions }, examTitle: e.title })} />
+                      <span style={{ display: "inline-flex", alignItems: "center", gap: 8 }}>
                       <button onClick={() => startRename(e)} title={t("libRename")} aria-label={t("libRename")} style={{ background: "transparent", border: "none", cursor: "pointer", color: T.muted, padding: 6, display: "flex" }}>
                         <Pencil size={16} />
                       </button>
                       <button onClick={() => setConfirmId(e.id)} title={t("libDelete")} aria-label={t("libDelete")} style={{ background: "transparent", border: "none", cursor: "pointer", color: T.muted, padding: 6, display: "flex" }}>
                         <Trash2 size={16} />
                       </button>
+                      </span>
                     </div>
                   )}
                 </div>
@@ -2706,6 +2727,7 @@ function ImportScreen({ onImport, onSaveToLibrary, library, session, onResume, o
   const [review, setReview] = useState(null); // { result, action: "load" | "save" } — confirm when the tolerant loader left something out
   const [guideOpen, setGuideOpen] = useState(false);
   const vp = useViewport();
+  const phone = vp.w < 640; // phones: the header buttons drop their labels so they all fit inline in one row
   const stacked = vp.w < 820; // on narrow screens the buttons sit in their own row above the logo instead of floating over it
   const [importOpen, setImportOpen] = useState(false); // import area is an accordion, collapsed by default
   const fileRef = useRef(null);
@@ -2764,11 +2786,11 @@ function ImportScreen({ onImport, onSaveToLibrary, library, session, onResume, o
       <style>{`@import url('${FONT_IMPORT_URL}');`}</style>
 
       <div style={stacked
-        ? { display: "flex", flexWrap: "wrap", justifyContent: "flex-end", gap: 8, alignItems: "flex-start", marginBottom: 22 }
+        ? { display: "flex", flexWrap: phone ? "nowrap" : "wrap", justifyContent: "flex-end", gap: 8, alignItems: "center", marginBottom: 22 }
         : { position: "absolute", top: 48, right: 20, display: "flex", gap: 10, alignItems: "flex-start" }}>
-        <GhostButton T={T} icon={HelpCircle} onClick={() => setGuideOpen(true)}>{t("howItWorks")}</GhostButton>
+        <GhostButton T={T} icon={HelpCircle} onClick={() => setGuideOpen(true)} title={t("howItWorks")} style={phone ? { padding: "12px 13px" } : undefined}>{!phone && t("howItWorks")}</GhostButton>
         <LangToggle T={T} />
-        <SettingsMenu darkMode={darkMode} setDarkMode={setDarkMode} T={T} />
+        <SettingsMenu darkMode={darkMode} setDarkMode={setDarkMode} T={T} iconOnly={phone} />
       </div>
       {guideOpen && <HowItWorksGuide onClose={() => setGuideOpen(false)} T={T} />}
 
@@ -3135,6 +3157,8 @@ function Lobby({ examData, blockStates, onStart, onReview, onHome, onRemove, onF
   const baseStates = blockStates.filter((_, i) => !examData.blocks[i].isRetest);
   const allDone = baseStates.every((b) => b.status === "done");
   const anyDone = baseStates.some((b) => b.status === "done");
+  const { w: vpW } = useViewport();
+  const narrow = vpW < 640; // phones: block actions stack full-width instead of squeezing side by side
 
   return (
     <div style={{ maxWidth: Math.round(1120 * Math.max(1, TEXT_SCALE)), margin: "0 auto", padding: "48px 20px 80px" }}>
@@ -3151,7 +3175,7 @@ function Lobby({ examData, blockStates, onStart, onReview, onHome, onRemove, onF
             {examData.examTitle || t("practiceExam")}
           </h1>
         </div>
-        <div style={{ display: "flex", gap: 10 }}>
+        <div style={{ display: "flex", gap: 10, flexWrap: "wrap", maxWidth: "100%" }}>
           {allDone && <PrimaryButton T={T} onClick={onFinalSummary} icon={ClipboardList}>{t("fullSummary")}</PrimaryButton>}
           {hasUnsaved && <GhostButton T={T} onClick={onSaveToLibrary} icon={Save}>{t("saveToLibrary")}</GhostButton>}
           <GhostButton T={T} onClick={onHome} icon={HomeIcon}>{t("homeBtn")}</GhostButton>
@@ -3203,17 +3227,19 @@ function Lobby({ examData, blockStates, onStart, onReview, onHome, onRemove, onF
                   {t("qCount", { n: total })} &nbsp;·&nbsp; {bs.timed && !bs.timerOff ? t("minLimit", { m: Math.round(bs.timeLeft / 60) }) : bs.timerOff ? t("untimed") + " (" + t("timerOffSuffix") + ")" : t("untimed")}
                 </span>
               </div>
-              <div style={{ display: "flex", alignItems: "center", gap: 16, marginLeft: "auto", flexWrap: "wrap" }}>
-                <ExportShareButton T={T} getBlock={() => ({ block: examData.blocks[idx], examTitle: examData.examTitle })} />
+              <div style={narrow
+                ? { display: "flex", flexDirection: "column", alignItems: "stretch", gap: 12, width: "100%" }
+                : { display: "flex", alignItems: "center", gap: 16, marginLeft: "auto", flexWrap: "wrap" }}>
+                <ExportShareButton T={T} fullWidth={narrow} wrapStyle={narrow ? { order: 3 } : undefined} getBlock={() => ({ block: examData.blocks[idx], examTitle: examData.examTitle })} />
                 {bs.status !== "done" && (
-                  <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: 4, width: 270 }}>
-                    <div role="group" aria-label={t("modeLabel")} style={{ display: "inline-flex", border: `1px solid ${T.border}`, borderRadius: 6, overflow: "hidden", opacity: bs.status === "pending" ? 1 : 0.6 }}>
+                  <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: 4, width: narrow ? "100%" : 270, maxWidth: "100%" }}>
+                    <div role="group" aria-label={t("modeLabel")} style={{ display: narrow ? "flex" : "inline-flex", width: narrow ? "100%" : undefined, border: `1px solid ${T.border}`, borderRadius: 6, overflow: "hidden", opacity: bs.status === "pending" ? 1 : 0.6 }}>
                       {[["timed", t("timed"), Clock], ["tutor", t("tutorShort"), Lightbulb]].map(([m, label, Ic]) => {
                         const on = m === "tutor" ? bs.tutor : bs.timed;
                         return (
                           <button key={m} aria-pressed={on} disabled={bs.status !== "pending"} onClick={() => onSetMode(idx, m)}
                             style={{
-                              display: "flex", alignItems: "center", gap: 6, fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(12.5), padding: "8px 14px", border: "none",
+                              display: "flex", alignItems: "center", justifyContent: "center", gap: 6, flex: narrow ? 1 : "none", whiteSpace: "nowrap", fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(12.5), padding: narrow ? "11px 14px" : "8px 14px", border: "none",
                               cursor: bs.status === "pending" ? "pointer" : "not-allowed", background: on ? T.blue : "transparent", color: on ? T.onBlue : T.ink,
                             }}>
                             <Ic size={14} /> {label}
@@ -3221,25 +3247,25 @@ function Lobby({ examData, blockStates, onStart, onReview, onHome, onRemove, onF
                         );
                       })}
                     </div>
-                    <span style={{ fontFamily: FONT_UI, fontSize: fs(11.5), color: T.muted, lineHeight: 1.4, minHeight: "2.8em" }}>
+                    <span style={{ fontFamily: FONT_UI, fontSize: fs(11.5), color: T.muted, lineHeight: 1.4, minHeight: narrow ? undefined : "2.8em" }}>
                       {bs.status !== "pending" ? t("modeLocked") : bs.tutor ? t("modeTutorHint") : t("modeTimedHint")}
                     </span>
                   </div>
                 )}
                 {bs.status === "done" ? (
                   <>
-                    <GhostButton T={T} onClick={() => onReview(idx)} icon={ChevronRight}>{t("review")}</GhostButton>
+                    <GhostButton T={T} onClick={() => onReview(idx)} icon={ChevronRight} style={narrow ? { width: "100%" } : undefined}>{t("review")}</GhostButton>
                     {bs.score.correct < bs.score.total && (
-                      <GhostButton T={T} onClick={() => onRetestMissed(idx)} icon={RotateCcw}>
+                      <GhostButton T={T} onClick={() => onRetestMissed(idx)} icon={RotateCcw} style={narrow ? { width: "100%" } : undefined}>
                         {t("retestMissed", { n: bs.score.total - bs.score.correct })}
                       </GhostButton>
                     )}
-                    <GhostButton T={T} onClick={() => onRetestAll(idx)} icon={RotateCcw}>
+                    <GhostButton T={T} onClick={() => onRetestAll(idx)} icon={RotateCcw} style={narrow ? { width: "100%" } : undefined}>
                       {t("retestAll", { n: total })}
                     </GhostButton>
                   </>
                 ) : (
-                  <PrimaryButton T={T} onClick={() => onStart(idx)} icon={Play}>
+                  <PrimaryButton T={T} onClick={() => onStart(idx)} icon={Play} style={narrow ? { width: "100%" } : undefined}>
                     {bs.status === "in-progress" ? t("resume") : t("start")}
                   </PrimaryButton>
                 )}
@@ -3261,6 +3287,7 @@ function Lobby({ examData, blockStates, onStart, onReview, onHome, onRemove, onF
 // Calculator (floating tool)
 // ---------------------------------------------------------------------------
 function CalculatorPanel({ T, onClose }) {
+  const touch = useViewport().w < 640;
   const [display, setDisplay] = useState("0");
   const [stored, setStored] = useState(null);
   const [pendingOp, setPendingOp] = useState(null);
@@ -3312,7 +3339,7 @@ function CalculatorPanel({ T, onClose }) {
   function reciprocal() { setDisplay((prev) => { const v = parseFloat(prev); return String(v === 0 ? 0 : 1 / v); }); setFresh(true); }
 
   const btnStyle = {
-    fontFamily: FONT_MONO, fontWeight: 600, fontSize: fs(15), padding: "10px 0", borderRadius: 6,
+    fontFamily: FONT_MONO, fontWeight: 600, fontSize: fs(touch ? 18 : 15), padding: touch ? "15px 0" : "10px 0", borderRadius: touch ? 8 : 6,
     border: `1px solid ${T.border}`, background: "transparent", color: T.ink, cursor: "pointer",
   };
   const opStyle = { ...btnStyle, background: T.blueLight, color: T.blue };
@@ -3323,8 +3350,8 @@ function CalculatorPanel({ T, onClose }) {
       borderRadius: 10, padding: 14, zIndex: 60, boxShadow: "0 8px 28px rgba(0,0,0,0.35)",
     }}>
       <div style={{ display: "flex", justifyContent: "flex-end", marginBottom: 8 }}>
-        <button onClick={onClose} style={{ background: "transparent", border: "none", cursor: "pointer", color: T.muted }}>
-          <X size={16} />
+        <button onClick={onClose} aria-label="Close" style={{ background: "transparent", border: "none", cursor: "pointer", color: T.muted, ...(touch ? { minWidth: 44, minHeight: 44, margin: "-10px -10px 0 0" } : {}) }}>
+          <X size={touch ? 22 : 16} />
         </button>
       </div>
       <div style={{
@@ -3592,44 +3619,19 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onRate, o
   const toolBtnStyle = (active) => ({
     display: "flex", flexDirection: "column", alignItems: "center", gap: 3, background: "transparent",
     border: "none", cursor: "pointer", color: active ? T.blue : "#fff", fontFamily: FONT_UI, fontSize: fs(11), fontWeight: 600,
+    // Phones: every toolbar button gets at least a 48x48 hit area (the old 20px icons were far below touch guidelines).
+    ...(narrow ? { justifyContent: "center", minWidth: 48, minHeight: 48, padding: "4px 6px", borderRadius: 8, background: active ? "rgba(255,255,255,0.12)" : "transparent" } : {}),
   });
+  // The four tool buttons (Lab Values / Notes / Calculator / Settings) share one full-width row of equal, labelled cells on phones.
+  const toolStyle = (active) => ({ ...toolBtnStyle(active), ...(narrow ? { width: "100%" } : {}) });
+  const toolLabel = (text) => (narrow
+    ? <span style={{ maxWidth: "100%", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{text}</span>
+    : text);
+  const toolIcon = narrow ? 24 : 20;
 
-  return (
-    <div style={{ position: "fixed", inset: 0, zIndex: 20, textAlign: "left", display: "flex", flexDirection: "column", background: T.paper, overflow: "hidden" }}>
-      <style>{`@import url('${FONT_IMPORT_URL}');`}</style>
-
-      {/* Top toolbar */}
-      <div style={{
-        background: T.navy, color: "#fff", padding: narrow || short ? "6px 10px" : "10px 20px", display: "flex", alignItems: "center",
-        justifyContent: "space-between", flexWrap: "wrap", gap: narrow ? 8 : 14, borderBottom: `1px solid ${T.border}`, flexShrink: 0,
-      }}>
-        <div style={{ display: "flex", alignItems: "center", gap: narrow ? 10 : 18 }}>
-          {/* Home is a Tutor-mode convenience only: timed blocks (like the real exam) have no mid-block navigation. */}
-          {blockState.tutor && onHome && (
-            <button onClick={onHome} style={toolBtnStyle(false)} title={t("homeBtn")} aria-label={t("homeBtn")}>
-              <HomeIcon size={22} />
-              {!narrow && t("homeBtn")}
-            </button>
-          )}
-          <div style={{
-            border: `1.5px solid #fff`, borderRadius: 4, padding: "6px 14px", fontFamily: FONT_UI, fontSize: fs(13), lineHeight: 1.5,
-          }}>
-            {t("item", { n: qIdx + 1, total: questions.length })}<br />{t("blockOf")}
-          </div>
-        </div>
-
-        {block.isRetest && (
-          <div style={{
-            display: "flex", alignItems: "center", gap: 6, background: T.amberLight, color: T.amber,
-            border: `1px solid ${T.amber}`, borderRadius: 999, padding: "5px 12px",
-            fontFamily: FONT_UI, fontSize: fs(12), fontWeight: 700,
-          }}>
-            <RotateCcw size={13} />
-            {t("retestMode", { type: t(RETEST_TITLE[block.retestType] || "rt.full"), n: block.retestCount, items: t(block.retestCount === 1 ? "item1" : "itemN") })}
-          </div>
-        )}
-
-        <div style={{ display: "flex", alignItems: "center", gap: 18 }}>
+  // Previous / counter / Next. On phones it is pushed to the far right, away from Home, to avoid accidental Home taps.
+  const prevNextEl = (
+        <div style={{ display: "flex", alignItems: "center", gap: narrow ? 2 : 18, ...(narrow ? { order: 2, marginLeft: "auto" } : {}) }}>
           <button onClick={goPrev} disabled={qIdx === 0} style={toolBtnStyle(false)} title={t("prev")} aria-label={t("prev")}>
             <ChevronLeft size={26} style={{ opacity: qIdx === 0 ? 0.35 : 1 }} />
             {!narrow && t("prev")}
@@ -3640,32 +3642,73 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onRate, o
             {!narrow && t("next")}
           </button>
         </div>
+  );
 
-        <div style={{ display: "flex", alignItems: "center", gap: narrow ? 12 : 22 }}>
-          <button onClick={() => setLabOpen((v) => !v)} style={toolBtnStyle(labOpen)} title={t("labValues")} aria-label={t("labValues")}>
-            <FlaskConical size={20} /> {!narrow && t("labValues")}
+  return (
+    <div style={{ position: "fixed", inset: 0, zIndex: 20, textAlign: "left", display: "flex", flexDirection: "column", background: T.paper, overflow: "hidden" }}>
+      <style>{`@import url('${FONT_IMPORT_URL}');`}</style>
+
+      {/* Top toolbar */}
+      <div style={{
+        background: T.navy, color: "#fff", padding: narrow || short ? "6px 10px" : "10px 20px", display: "flex", alignItems: "center",
+        justifyContent: "space-between", flexWrap: "wrap", gap: narrow ? 8 : 14, borderBottom: `1px solid ${T.border}`, flexShrink: 0,
+      }}>
+        <div style={{ display: "flex", alignItems: "center", gap: narrow ? 10 : 18, ...(narrow ? { order: 1 } : {}) }}>
+          {/* Home is a Tutor-mode convenience only: timed blocks (like the real exam) have no mid-block navigation. */}
+          {blockState.tutor && onHome && (
+            <button onClick={onHome} style={toolBtnStyle(false)} title={t("homeBtn")} aria-label={t("homeBtn")}>
+              <HomeIcon size={22} />
+              {!narrow && t("homeBtn")}
+            </button>
+          )}
+          {!narrow && (
+            <div style={{
+              border: `1.5px solid #fff`, borderRadius: 4, padding: "6px 14px", fontFamily: FONT_UI, fontSize: fs(13), lineHeight: 1.5,
+            }}>
+              {t("item", { n: qIdx + 1, total: questions.length })}<br />{t("blockOf")}
+            </div>
+          )}
+        </div>
+
+        {block.isRetest && (
+          <div style={{
+            display: "flex", alignItems: "center", gap: 6, background: T.amberLight, color: T.amber,
+            border: `1px solid ${T.amber}`, borderRadius: 999, padding: "5px 12px", ...(narrow ? { order: 3, flexBasis: "100%", justifyContent: "center" } : {}),
+            fontFamily: FONT_UI, fontSize: fs(12), fontWeight: 700,
+          }}>
+            <RotateCcw size={13} />
+            {t("retestMode", { type: t(RETEST_TITLE[block.retestType] || "rt.full"), n: block.retestCount, items: t(block.retestCount === 1 ? "item1" : "itemN") })}
+          </div>
+        )}
+
+        {prevNextEl}
+
+        <div style={narrow ? { display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 4, width: "100%", order: 4 } : { display: "flex", alignItems: "center", gap: 22 }}>
+          <button onClick={() => setLabOpen((v) => !v)} style={toolStyle(labOpen)} title={t("labValues")} aria-label={t("labValues")}>
+            <FlaskConical size={toolIcon} /> {toolLabel(t("labValues"))}
           </button>
-          <button onClick={() => setNotesOpen((v) => !v)} style={toolBtnStyle(notesOpen)} title={t("notes")} aria-label={t("notes")}>
-            <PencilLine size={20} /> {!narrow && t("notes")}
+          <button onClick={() => setNotesOpen((v) => !v)} style={toolStyle(notesOpen)} title={t("notes")} aria-label={t("notes")}>
+            <PencilLine size={toolIcon} /> {toolLabel(t("notes"))}
           </button>
-          <button onClick={() => setCalcOpen((v) => !v)} style={toolBtnStyle(calcOpen)} title={t("calc")} aria-label={t("calc")}>
-            <CalcIcon size={20} /> {!narrow && t("calc")}
+          <button onClick={() => setCalcOpen((v) => !v)} style={toolStyle(calcOpen)} title={t("calc")} aria-label={t("calc")}>
+            <CalcIcon size={toolIcon} /> {toolLabel(t("calc"))}
           </button>
           <div style={{ position: "relative" }}>
-            <button onClick={() => setSettingsOpen((v) => !v)} style={toolBtnStyle(settingsOpen)} title={t("settings")} aria-label={t("settings")}>
-              <SettingsIcon size={20} /> {!narrow && t("settings")}
+            <button onClick={() => setSettingsOpen((v) => !v)} style={toolStyle(settingsOpen)} title={t("settings")} aria-label={t("settings")}>
+              <SettingsIcon size={toolIcon} /> {toolLabel(t("settings"))}
             </button>
             {settingsOpen && (
               <div style={{
-                position: "absolute", top: 44, right: 0, background: T.card, color: T.ink, border: `1px solid ${T.border}`,
-                borderRadius: 8, padding: 14, width: 230, zIndex: 70, boxShadow: "0 8px 24px rgba(0,0,0,0.3)",
+                position: "absolute", top: narrow ? 58 : 44, right: 0, background: T.card, color: T.ink, border: `1px solid ${T.border}`,
+                borderRadius: 8, padding: 14, width: narrow ? "min(280px, calc(100vw - 16px))" : 230, zIndex: 70, boxShadow: "0 8px 24px rgba(0,0,0,0.3)",
+                ...(narrow ? { maxHeight: "70vh", overflowY: "auto" } : {}),
               }}>
-                <label style={{ display: "flex", alignItems: "center", gap: 8, fontFamily: FONT_UI, fontSize: fs(13), cursor: "pointer", marginBottom: 10 }}>
-                  <input type="checkbox" checked={darkMode} onChange={() => setDarkMode((v) => !v)} />
+                <label style={{ display: "flex", alignItems: "center", gap: 8, fontFamily: FONT_UI, fontSize: fs(13), cursor: "pointer", marginBottom: 10, minHeight: narrow ? 40 : undefined }}>
+                  <input type="checkbox" style={narrow ? { width: 22, height: 22 } : undefined} checked={darkMode} onChange={() => setDarkMode((v) => !v)} />
                   {t("dark")}
                 </label>
-                <label style={{ display: "flex", alignItems: "center", gap: 8, fontFamily: FONT_UI, fontSize: fs(13), cursor: "pointer", marginBottom: 12 }}>
-                  <input type="checkbox" checked={hintsEnabled} onChange={() => setHintsEnabled((v) => !v)} />
+                <label style={{ display: "flex", alignItems: "center", gap: 8, fontFamily: FONT_UI, fontSize: fs(13), cursor: "pointer", marginBottom: 12, minHeight: narrow ? 40 : undefined }}>
+                  <input type="checkbox" style={narrow ? { width: 22, height: 22 } : undefined} checked={hintsEnabled} onChange={() => setHintsEnabled((v) => !v)} />
                   {t("hints")}
                 </label>
                 <div style={{ fontFamily: FONT_UI, fontSize: fs(13), marginBottom: 12 }}>
@@ -3675,7 +3718,7 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onRate, o
                 {!tutorMode && (
                   <div style={{ fontFamily: FONT_UI, fontSize: fs(13), marginBottom: 12, paddingTop: 10, borderTop: `1px solid ${T.border}` }}>
                     <label style={{ display: "flex", alignItems: "center", gap: 8, cursor: timed ? "pointer" : "not-allowed", opacity: timed ? 1 : 0.7 }}>
-                      <input type="checkbox" checked={timed} disabled={!timed} onChange={() => { setSettingsOpen(false); setConfirmTimerOff(true); }} />
+                      <input type="checkbox" style={narrow ? { width: 22, height: 22 } : undefined} checked={timed} disabled={!timed} onChange={() => { setSettingsOpen(false); setConfirmTimerOff(true); }} />
                       {t("timerLabel")}
                     </label>
                     <div style={{ fontSize: fs(11.5), color: T.muted, lineHeight: 1.45, margin: "4px 0 0 24px" }}>
@@ -3702,6 +3745,8 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onRate, o
 
       <div style={{ flex: 1, display: "flex", minHeight: 0, overflow: "hidden", position: "relative" }}>
         {/* Left navigator. Tutor mode (on screens wide enough) adds a progress header and a one-line vignette preview per row. */}
+        {/* Phones: the question list is hidden entirely so the question gets the full width. */}
+        {!narrow && (
         <div style={{
           width: Math.round((navCollapsed ? (compact ? 56 : 72) : compact ? 76 : tutorMode ? 280 : 130) * Math.min(TEXT_SCALE, 1.3)), transition: "width 0.18s ease", flexShrink: 0, background: T.card, borderRight: `1px solid ${T.border}`, padding: "16px 0",
           display: "flex", flexDirection: "column", overflow: "hidden",
@@ -3775,6 +3820,7 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onRate, o
             })}
           </div>
         </div>
+        )}
 
         {/* Question body */}
         <div style={{ flex: 1, minWidth: 0, padding: narrow ? "18px 16px 28px" : compact ? "24px 24px 32px" : "30px 40px 40px", maxWidth: Math.round(900 * Math.max(1, TEXT_SCALE)), margin: "0 auto", overflowY: "auto", minHeight: 0 }}>
@@ -3991,7 +4037,7 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onRate, o
             <div style={{ flexShrink: 0, padding: "18px 18px 12px", borderBottom: `1px solid ${T.border}` }}>
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 12 }}>
                 <span style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(14), color: T.ink }}>{t("labValues")}</span>
-                <button onClick={() => setLabOpen(false)} style={{ background: "transparent", border: "none", cursor: "pointer", color: T.muted }}>
+                <button onClick={() => setLabOpen(false)} aria-label={t("guideClose")} style={{ background: "transparent", border: "none", cursor: "pointer", color: T.muted, ...(narrow ? { minWidth: 44, minHeight: 44 } : {}) }}>
                   <X size={16} />
                 </button>
               </div>
@@ -4071,15 +4117,21 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onRate, o
         background: T.navy, color: "#fff", padding: narrow || short ? "6px 10px" : "10px 20px", display: "flex", alignItems: "center",
         justifyContent: "space-between", flexWrap: "wrap", gap: 8, borderTop: `1px solid ${T.border}`, flexShrink: 0,
       }}>
-        <div style={{ fontFamily: FONT_UI, fontSize: fs(13), lineHeight: 1.5 }}>
-          <div>{t("timeLeft")}: <span style={{ fontFamily: FONT_MONO }}>{timed ? fmtTime(blockState.timeLeft) : t("untimedLower")}</span></div>
-          <div style={{ opacity: 0.75 }}>{t("answered", { a: answeredCount, n: questions.length })}{flaggedCount > 0 ? t("flagged", { f: flaggedCount }) : ""}</div>
-        </div>
-        <button onClick={() => setLocked(true)} style={{ ...toolBtnStyle(false), flexDirection: "row", gap: 6 }}>
-          <Lock size={18} /> {t("lock")}
+        {/* Phones: Lock far left, End Block far right, both icon-only. The status text is dropped, except that a running
+            countdown stays visible (a timed block must always show its clock). */}
+        {!narrow ? (
+          <div style={{ fontFamily: FONT_UI, fontSize: fs(13), lineHeight: 1.5, order: 2 }}>
+            <div>{t("timeLeft")}: <span style={{ fontFamily: FONT_MONO }}>{timed ? fmtTime(blockState.timeLeft) : t("untimedLower")}</span></div>
+            <div style={{ opacity: 0.75 }}>{t("answered", { a: answeredCount, n: questions.length })}{flaggedCount > 0 ? t("flagged", { f: flaggedCount }) : ""}</div>
+          </div>
+        ) : timed ? (
+          <div style={{ fontFamily: FONT_MONO, fontSize: fs(15), fontWeight: 600, order: 2 }}>{fmtTime(blockState.timeLeft)}</div>
+        ) : null}
+        <button onClick={() => setLocked(true)} title={t("lock")} aria-label={t("lock")} style={{ ...toolBtnStyle(false), flexDirection: "row", gap: 6, order: narrow ? 1 : 3 }}>
+          <Lock size={narrow ? 24 : 18} /> {!narrow && t("lock")}
         </button>
-        <button onClick={() => setConfirmSubmit(true)} style={{ ...toolBtnStyle(false), flexDirection: "row", gap: 6 }}>
-          <XOctagon size={18} /> {t("endBlock")}
+        <button onClick={() => setConfirmSubmit(true)} title={t("endBlock")} aria-label={t("endBlock")} style={{ ...toolBtnStyle(false), flexDirection: "row", gap: 6, order: narrow ? 3 : 4 }}>
+          <XOctagon size={narrow ? 24 : 18} /> {!narrow && t("endBlock")}
         </button>
       </div>
 
@@ -4091,8 +4143,8 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onRate, o
         }}>
           <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 8 }}>
             <span style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(13), color: T.ink }}>{t("notesItem", { n: qIdx + 1 })}</span>
-            <button onClick={() => setNotesOpen(false)} style={{ background: "transparent", border: "none", cursor: "pointer", color: T.muted }}>
-              <X size={16} />
+            <button onClick={() => setNotesOpen(false)} aria-label={t("guideClose")} style={{ background: "transparent", border: "none", cursor: "pointer", color: T.muted, ...(narrow ? { minWidth: 44, minHeight: 44, margin: "-10px -10px 0 0" } : {}) }}>
+              <X size={narrow ? 22 : 16} />
             </button>
           </div>
           <textarea
