@@ -257,7 +257,7 @@ const STR = {
     poolAgain: "Rated Again", poolHard: "Rated Hard", poolAgainHard: "Again + Hard",
     "rt.again": "Rated Again", "rt.hard": "Rated Hard", "rt.againhard": "Rated Again/Hard",
     sufAgain: "Retest Again", sufHard: "Retest Hard", sufAgainHard: "Retest Again/Hard",
-    textSize: "Text size", textSmaller: "Smaller text", textLarger: "Larger text", textReset: "Reset", libMixMax: "Max ({n})", libMixCustom: "Custom", libMixCustomHint: "1–{n}", libCountTitle: "Choose question count", libCountHint: "Draws a random, subject-balanced set of questions from this bank. Scores from this block never change the bank's last score.", libLoad: "Load {n} questions", libLoadOne: "Load 1 question", libShareSel: "Share / Export Selected", libExporting: "Exporting your selection ({n}) as one file…", libExportShared: "Shared your selection ({n}) as one file.", libExportDownloaded: "Downloaded your selection ({n}) as one file.", libExportFailed: "Export failed. Please try again.", bundleFound: "Bundle detected: {n} blocks ({names}). Save to Library adds each one as its own card; Load exam opens them as separate blocks.", libEditSel: "Edit Selected", libDeleteSel: "Delete Selected", libEditing: "{i} of {n}", libSelectHint: "Tick blocks to load, share, rename or delete them. Tick two or more to mix them into one custom block.", libDeleteSelQ: "Delete {n} selected Qbank(s)? This can't be undone.", libMixTitle: "Mix selected banks", libMixHint: "Merges the ticked banks into one shuffled block, with systems and disciplines spread evenly.", libMixPool: "{q} questions · {s} subjects", libMixDupes: "{d} duplicate(s) removed", libMixSize: "Questions", libMixAll: "All ({n})", libMix: "Mix {n} questions", libMixOne: "Mix 1 question", mixedName: "Mixed Qbank ({n} banks)",
+    textSize: "Text size", textSmaller: "Smaller text", textLarger: "Larger text", textReset: "Reset", libMixMax: "Max ({n})", libMixCustom: "Custom", libMixCustomHint: "1–{n}", libCountTitle: "Choose question count", libCountHint: "Draws a random, subject-balanced set of questions from this bank. Scores from this block never change the bank's last score.", libLoad: "Load {n} questions", libLoadOne: "Load 1 question", libShareSel: "Share / Export Selected", libExporting: "Exporting your selection ({n}) as one file…", libExportShared: "Shared your selection ({n}) as one file.", libExportDownloaded: "Downloaded your selection ({n}) as one file.", libExportFailed: "Export failed. Please try again.", bundleFound: "Bundle detected: {n} blocks ({names}). Press Import to choose which ones to add to your library.", libEditSel: "Edit Selected", libDeleteSel: "Delete Selected", libEditing: "{i} of {n}", libSelectHint: "Tick blocks to load, share, rename or delete them. Tick two or more to mix them into one custom block.", libDeleteSelQ: "Delete {n} selected Qbank(s)? This can't be undone.", libMixTitle: "Mix selected banks", libMixHint: "Merges the ticked banks into one shuffled block, with systems and disciplines spread evenly.", libMixPool: "{q} questions · {s} subjects", libMixDupes: "{d} duplicate(s) removed", libMixSize: "Questions", libMixAll: "All ({n})", libMix: "Mix {n} questions", libMixOne: "Mix 1 question", mixedName: "Mixed Qbank ({n} banks)",
     libDeleteQ: "Delete this block?", libDelete: "Delete", libLocalNote: "Stored only in this browser. Clearing site data removes it.",
     resetData: "Reset All Local Data", resetDataWarn: "This permanently deletes your Qbank library, saved exam progress and preferences from this browser. It can't be undone.", resetDataConfirm: "Yes, delete everything",
     resumed: "Session restored — you're back where you left off.", storageFull: "Couldn't write to browser storage (it may be full or disabled). Your progress is not being backed up right now.",
@@ -274,8 +274,18 @@ const STR = {
     intro: "Paste or upload custom question banks created with your favorite AI tools like ChatGPT, Claude, Gemini, or NotebookLM. Experience an exam-like environment complete with lab reference panels, answer strikethroughs, a built-in calculator, and detailed score analytics.",
     pasteJson: "Paste or upload question bank", upload: "Upload file",
     pastePh: "Paste your generated question bank here…",
+    importBundle: "Import", "warn.importN": "Import {n} question(s)",
+    irTitle: "Import Qbanks", irSub: "{n} Qbanks found. Choose which ones to add to your library — anything you leave unticked is discarded.",
+    irAddAll: "Add all to library ({n})", irAddSel: "Add selected to library ({n})", irDone: "Done", irCancel: "Cancel import",
+    irNew: "New", irNoneNew: "Every Qbank in this file is already in your library, so there is nothing new to add.",
+    lobbySelectAll: "Select all", lobbyClear: "Clear", lobbySelected: "{n} selected", lobbySaveSel: "Save selected ({n})", lobbyRemoveSel: "Remove selected ({n})",
+    lobbySaved: "In library", lobbyNotSaved: "Not saved",
+    lobbyMerged: "{n} duplicate block(s) in this file were merged into one.", lobbyLinked: "{n} block(s) were already in your library and were linked instead of duplicated.",
+    removeSelTitle: "Remove selected blocks?", removeSelGo: "Remove",
+    removeSelBody: "{n} block(s) will be removed from this session. Copies saved in your Qbank Library aren't affected.",
+    removeSelBodyUnsaved: "{n} block(s) will be removed from this session. {u} of them aren't saved to your library and will be gone for good — save them first if you want to keep them.",
     pasteChars: "{n} characters pasted", pasteClear: "Clear", pasteEmpty: "Nothing pasted yet — expand to paste, or use Upload.",
-    load: "Load exam", importQbank: "Import New Qbank", aiLaunchTitle: "AI Quick Launch", aiLaunchHint: "Open your AI tool, paste the Question Recipe Prompt below along with your topic or notes, then bring the reply back here.", aiLaunchOpens: "Opens in a new tab", homeBtn: "Home", removeExam: "Remove exam", removeTitle: "Remove this exam?", removeBody: "This clears the loaded exam and any progress or results in it. Your saved Qbank Library is not affected.", removeBodyUnsaved: "This clears the loaded exam and any progress or results in it. Some of its blocks are not saved to your Library and would be gone for good. Cancel and tap Save to Library first if you want to keep them.", removeGo: "Remove", libRename: "Rename Qbank", libRenameSave: "Save name", howItWorks: "How it works", guideStep: "Step {n} of {total}", guideBack: "Back", guideNext: "Next", guideDone: "Got it", guideClose: "Close guide", navCollapse: "Collapse question list", navExpand: "Expand question list", resumeSession: "Resume Session", sessionInProgress: "Session in progress", sessionPos: "Question {n} of {total}", examLoadedLabel: "Exam loaded", openLobby: "Open exam lobby", inProgressTag: "In progress", discardTitle: "Discard in-progress session?", discardBody: "Starting something new replaces your in-progress block, and its answers will be lost.", discardGo: "Discard and continue", hide: "Hide", recipe: "Question Recipe Prompt",
+    load: "Load exam", importQbank: "Import New Qbank", importInLibrary: "Already in your library — start it from there.", lobbySaveN: "Save to Library ({n})", lobbyRemoveN: "Remove ({n})", triageHint: "Tick this Qbank to save it to your library or remove it.", lobbyTriageNote: "These Qbanks were just imported. Tick the ones you want, then use Save to Library to keep them or Remove to dismiss them.", aiLaunchTitle: "AI Quick Launch", aiLaunchHint: "Open your AI tool, paste the Question Recipe Prompt below along with your topic or notes, then bring the reply back here.", aiLaunchOpens: "Opens in a new tab", homeBtn: "Home", removeExam: "Remove exam", removeTitle: "Remove this exam?", removeBody: "This clears the loaded exam and any progress or results in it. Your saved Qbank Library is not affected.", removeBodyUnsaved: "This clears the loaded exam and any progress or results in it. Some of its blocks are not saved to your Library and would be gone for good. Cancel and tap Save to Library first if you want to keep them.", removeGo: "Remove", libRename: "Rename Qbank", libRenameSave: "Save name", howItWorks: "How it works", guideStep: "Step {n} of {total}", guideBack: "Back", guideNext: "Next", guideDone: "Got it", guideClose: "Close guide", navCollapse: "Collapse question list", navExpand: "Expand question list", resumeSession: "Resume Session", sessionInProgress: "Session in progress", sessionPos: "Question {n} of {total}", examLoadedLabel: "Exam loaded", openLobby: "Open exam lobby", inProgressTag: "In progress", discardTitle: "Discard in-progress session?", discardBody: "Starting something new replaces your in-progress block, and its answers will be lost.", discardGo: "Discard and continue", hide: "Hide", recipe: "Question Recipe Prompt",
     recipeIntro: "Configure a block below, then copy the generated recipe into the AI tool of your choice (add your source material if it supports it). It returns questions in the exact shape this app expects.",
     blockSize: "Block size", focus: "Focus",
     diffMode: "Difficulty", "diffMode.mixed": "Mixed (recommended)", "diffMode.easy": "Easy", "diffMode.medium": "Medium", "diffMode.hard": "Hard (USMLE standard)",
@@ -375,7 +385,7 @@ const STR = {
     poolAgain: "Calificadas Otra vez", poolHard: "Calificadas Difícil", poolAgainHard: "Otra vez + Difícil",
     "rt.again": "Calificadas Otra vez", "rt.hard": "Calificadas Difícil", "rt.againhard": "Calificadas Otra vez/Difícil",
     sufAgain: "Repaso Otra vez", sufHard: "Repaso Difícil", sufAgainHard: "Repaso Otra vez/Difícil",
-    textSize: "Tamaño del texto", textSmaller: "Texto más pequeño", textLarger: "Texto más grande", textReset: "Restablecer", libMixMax: "Máx ({n})", libMixCustom: "Personalizado", libMixCustomHint: "1–{n}", libCountTitle: "Elegir cantidad de preguntas", libCountHint: "Toma un conjunto aleatorio y equilibrado por materia de este banco. El puntaje de este bloque nunca cambia el último puntaje del banco.", libLoad: "Cargar {n} preguntas", libLoadOne: "Cargar 1 pregunta", libShareSel: "Compartir / Exportar selección", libExporting: "Exportando tu selección ({n}) en un solo archivo…", libExportShared: "Compartiste tu selección ({n}) en un solo archivo.", libExportDownloaded: "Descargaste tu selección ({n}) en un solo archivo.", libExportFailed: "Error al exportar. Inténtalo de nuevo.", bundleFound: "Paquete detectado: {n} bloques ({names}). Guardar en la biblioteca añade cada uno como su propia tarjeta; Cargar examen los abre como bloques separados.", libEditSel: "Editar selección", libDeleteSel: "Eliminar selección", libEditing: "{i} de {n}", libSelectHint: "Marca bloques para cargarlos, compartirlos, renombrarlos o eliminarlos. Marca dos o más para mezclarlos en un solo bloque personalizado.", libDeleteSelQ: "¿Eliminar {n} Qbank(s) seleccionado(s)? No se puede deshacer.", libMixTitle: "Mezclar bancos seleccionados", libMixHint: "Une los bancos marcados en un solo bloque mezclado, con sistemas y disciplinas repartidos de forma pareja.", libMixPool: "{q} preguntas · {s} materias", libMixDupes: "{d} duplicada(s) eliminada(s)", libMixSize: "Preguntas", libMixAll: "Todas ({n})", libMix: "Mezclar {n} preguntas", libMixOne: "Mezclar 1 pregunta", mixedName: "Qbank mezclado ({n} bancos)",
+    textSize: "Tamaño del texto", textSmaller: "Texto más pequeño", textLarger: "Texto más grande", textReset: "Restablecer", libMixMax: "Máx ({n})", libMixCustom: "Personalizado", libMixCustomHint: "1–{n}", libCountTitle: "Elegir cantidad de preguntas", libCountHint: "Toma un conjunto aleatorio y equilibrado por materia de este banco. El puntaje de este bloque nunca cambia el último puntaje del banco.", libLoad: "Cargar {n} preguntas", libLoadOne: "Cargar 1 pregunta", libShareSel: "Compartir / Exportar selección", libExporting: "Exportando tu selección ({n}) en un solo archivo…", libExportShared: "Compartiste tu selección ({n}) en un solo archivo.", libExportDownloaded: "Descargaste tu selección ({n}) en un solo archivo.", libExportFailed: "Error al exportar. Inténtalo de nuevo.", bundleFound: "Paquete detectado: {n} bloques ({names}). Pulsa Importar para elegir cuáles añadir a tu biblioteca.", libEditSel: "Editar selección", libDeleteSel: "Eliminar selección", libEditing: "{i} de {n}", libSelectHint: "Marca bloques para cargarlos, compartirlos, renombrarlos o eliminarlos. Marca dos o más para mezclarlos en un solo bloque personalizado.", libDeleteSelQ: "¿Eliminar {n} Qbank(s) seleccionado(s)? No se puede deshacer.", libMixTitle: "Mezclar bancos seleccionados", libMixHint: "Une los bancos marcados en un solo bloque mezclado, con sistemas y disciplinas repartidos de forma pareja.", libMixPool: "{q} preguntas · {s} materias", libMixDupes: "{d} duplicada(s) eliminada(s)", libMixSize: "Preguntas", libMixAll: "Todas ({n})", libMix: "Mezclar {n} preguntas", libMixOne: "Mezclar 1 pregunta", mixedName: "Qbank mezclado ({n} bancos)",
     libDeleteQ: "¿Eliminar este bloque?", libDelete: "Eliminar", libLocalNote: "Se guarda solo en este navegador. Borrar los datos del sitio lo elimina.",
     resetData: "Restablecer todos los datos locales", resetDataWarn: "Esto elimina de forma permanente tu biblioteca, el progreso guardado y tus preferencias en este navegador. No se puede deshacer.", resetDataConfirm: "Sí, eliminar todo",
     resumed: "Sesión restaurada: continúas donde la dejaste.", storageFull: "No se pudo escribir en el almacenamiento del navegador (puede estar lleno o desactivado). Tu progreso no se está respaldando.",
@@ -392,8 +402,18 @@ const STR = {
     intro: "Pega o sube bancos de preguntas personalizados creados con tus herramientas de IA favoritas, como ChatGPT, Claude, Gemini o NotebookLM. Vive un entorno similar al examen real, con paneles de referencia de laboratorio, tachado de respuestas, calculadora integrada y analíticas detalladas de tu puntaje.",
     pasteJson: "Pega o sube un banco de preguntas", upload: "Subir archivo",
     pastePh: "Pega aquí tu banco de preguntas generado…",
+    importBundle: "Importar", "warn.importN": "Importar {n} pregunta(s)",
+    irTitle: "Importar Qbanks", irSub: "Se encontraron {n} Qbanks. Elige cuáles añadir a tu biblioteca; lo que dejes sin marcar se descarta.",
+    irAddAll: "Añadir todos a la biblioteca ({n})", irAddSel: "Añadir seleccionados a la biblioteca ({n})", irDone: "Listo", irCancel: "Cancelar importación",
+    irNew: "Nuevo", irNoneNew: "Todos los Qbanks de este archivo ya están en tu biblioteca, así que no hay nada nuevo que añadir.",
+    lobbySelectAll: "Seleccionar todo", lobbyClear: "Limpiar", lobbySelected: "{n} seleccionados", lobbySaveSel: "Guardar seleccionados ({n})", lobbyRemoveSel: "Quitar seleccionados ({n})",
+    lobbySaved: "En la biblioteca", lobbyNotSaved: "Sin guardar",
+    lobbyMerged: "{n} bloque(s) duplicado(s) de este archivo se fusionaron en uno.", lobbyLinked: "{n} bloque(s) ya estaban en tu biblioteca y se vincularon en lugar de duplicarse.",
+    removeSelTitle: "¿Quitar los bloques seleccionados?", removeSelGo: "Quitar",
+    removeSelBody: "{n} bloque(s) se quitarán de esta sesión. Las copias guardadas en tu biblioteca Qbank no se ven afectadas.",
+    removeSelBodyUnsaved: "{n} bloque(s) se quitarán de esta sesión. {u} de ellos no están guardados en tu biblioteca y se perderán definitivamente; guárdalos primero si quieres conservarlos.",
     pasteChars: "{n} caracteres pegados", pasteClear: "Borrar", pasteEmpty: "Aún no has pegado nada — expande para pegar o usa Subir archivo.",
-    load: "Cargar examen", importQbank: "Importar nuevo Qbank", aiLaunchTitle: "Acceso rápido a IA", aiLaunchHint: "Abre tu herramienta de IA, pega el Prompt de receta de preguntas de abajo junto con tu tema o apuntes y trae la respuesta aquí.", aiLaunchOpens: "Se abre en una pestaña nueva", homeBtn: "Inicio", removeExam: "Quitar examen", removeTitle: "¿Quitar este examen?", removeBody: "Esto borra el examen cargado y su progreso o resultados. Tu biblioteca de preguntas guardada no se ve afectada.", removeBodyUnsaved: "Esto borra el examen cargado y su progreso o resultados. Algunos de sus bloques no están guardados en tu biblioteca y se perderían para siempre. Cancela y toca Guardar en la biblioteca primero si quieres conservarlos.", removeGo: "Quitar", libRename: "Renombrar Qbank", libRenameSave: "Guardar nombre", howItWorks: "Cómo funciona", guideStep: "Paso {n} de {total}", guideBack: "Atrás", guideNext: "Siguiente", guideDone: "Entendido", guideClose: "Cerrar guía", navCollapse: "Contraer lista de preguntas", navExpand: "Expandir lista de preguntas", resumeSession: "Reanudar sesión", sessionInProgress: "Sesión en curso", sessionPos: "Pregunta {n} de {total}", examLoadedLabel: "Examen cargado", openLobby: "Abrir sala del examen", inProgressTag: "En curso", discardTitle: "¿Descartar la sesión en curso?", discardBody: "Iniciar algo nuevo reemplaza tu bloque en curso y se perderán sus respuestas.", discardGo: "Descartar y continuar", hide: "Ocultar", recipe: "Prompt de receta de preguntas",
+    load: "Cargar examen", importQbank: "Importar nuevo Qbank", importInLibrary: "Ya está en tu biblioteca — inícialo desde ahí.", lobbySaveN: "Guardar en la biblioteca ({n})", lobbyRemoveN: "Quitar ({n})", triageHint: "Márcalo para guardarlo en tu biblioteca o quitarlo.", lobbyTriageNote: "Estos Qbanks acaban de importarse. Marca los que quieras y usa Guardar en la biblioteca para conservarlos o Quitar para descartarlos.", aiLaunchTitle: "Acceso rápido a IA", aiLaunchHint: "Abre tu herramienta de IA, pega el Prompt de receta de preguntas de abajo junto con tu tema o apuntes y trae la respuesta aquí.", aiLaunchOpens: "Se abre en una pestaña nueva", homeBtn: "Inicio", removeExam: "Quitar examen", removeTitle: "¿Quitar este examen?", removeBody: "Esto borra el examen cargado y su progreso o resultados. Tu biblioteca de preguntas guardada no se ve afectada.", removeBodyUnsaved: "Esto borra el examen cargado y su progreso o resultados. Algunos de sus bloques no están guardados en tu biblioteca y se perderían para siempre. Cancela y toca Guardar en la biblioteca primero si quieres conservarlos.", removeGo: "Quitar", libRename: "Renombrar Qbank", libRenameSave: "Guardar nombre", howItWorks: "Cómo funciona", guideStep: "Paso {n} de {total}", guideBack: "Atrás", guideNext: "Siguiente", guideDone: "Entendido", guideClose: "Cerrar guía", navCollapse: "Contraer lista de preguntas", navExpand: "Expandir lista de preguntas", resumeSession: "Reanudar sesión", sessionInProgress: "Sesión en curso", sessionPos: "Pregunta {n} de {total}", examLoadedLabel: "Examen cargado", openLobby: "Abrir sala del examen", inProgressTag: "En curso", discardTitle: "¿Descartar la sesión en curso?", discardBody: "Iniciar algo nuevo reemplaza tu bloque en curso y se perderán sus respuestas.", discardGo: "Descartar y continuar", hide: "Ocultar", recipe: "Prompt de receta de preguntas",
     recipeIntro: "Configura un bloque abajo y luego copia la receta generada en la herramienta de IA que prefieras (agrega tu material de estudio si lo permite). Devuelve las preguntas en el formato exacto que esta app espera.",
     blockSize: "Tamaño del bloque", focus: "Enfoque",
     diffMode: "Dificultad", "diffMode.mixed": "Mixta (recomendada)", "diffMode.easy": "Fácil", "diffMode.medium": "Media", "diffMode.hard": "Difícil (estándar USMLE)",
@@ -1974,7 +1994,12 @@ function hashString(str) {
   return (h >>> 0).toString(36);
 }
 function blockSignature(title, questions) {
-  return hashString(title + "\u0001" + questions.map((q) => `${q.id}\u0002${q.vignette}\u0002${q.stem}\u0002${q.correctAnswer}`).join("\u0003"));
+  // Content only: the correct option's TEXT (not its letter, which changes when answer-bias shuffling re-orders options) and
+  // no ids (AI tools reuse "q1, q2…"), so the same block re-imported from the same source is recognised as already stored.
+  return hashString(title + "\u0001" + questions.map((q) => {
+    const right = (q.options || []).find((o) => o.key === q.correctAnswer);
+    return `${q.vignette}\u0002${q.stem}\u0002${right ? right.text : q.correctAnswer}`;
+  }).join("\u0003"));
 }
 function makeLibraryEntry(block) {
   return {
@@ -2508,6 +2533,7 @@ function QbankLibraryPanel({ library, onLaunch, onMix, onDelete, onRename, resum
     setExp(r === "cancelled" ? null : { phase: "done", n: entries.length, result: r }); // closing the share sheet is not an error
   }
   const [mixSize, setMixSize] = useState("all");
+  const [mode, setMode] = useState("timed"); // how the next Load starts: "timed" | "tutor"
   const [mixDiff, setMixDiff] = useState("all"); // all | easy | medium | hard | balanced
   const mixInfo = useMemo(
     () => (liveQueue.length >= 1 ? buildMixPool(liveQueue.map((id) => library.find((e) => e.id === id))) : null),
@@ -2701,11 +2727,22 @@ function QbankLibraryPanel({ library, onLaunch, onMix, onDelete, onRename, resum
                   />
                 </label>
               </div>
-              <PrimaryButton T={T} onClick={() => onMix(liveQueue, effSize, effDiff)} icon={Shuffle} disabled={blockCount < 1}>
-                {liveQueue.length >= 2
-                  ? (blockCount === 1 ? t("libMixOne") : t("libMix", { n: blockCount }))
-                  : (blockCount === 1 ? t("libLoadOne") : t("libLoad", { n: blockCount }))}
-              </PrimaryButton>
+              <div style={{ display: "flex", flexDirection: "column", gap: 6, alignItems: "flex-start" }}>
+                <div role="group" aria-label={t("modeLabel")} style={{ display: "inline-flex", border: `1px solid ${T.border}`, borderRadius: 6, overflow: "hidden" }}>
+                  {[["timed", t("timed"), Clock], ["tutor", t("tutorShort"), Lightbulb]].map(([m, label, Ic]) => (
+                    <button key={m} aria-pressed={mode === m} onClick={() => setMode(m)} style={{
+                      display: "flex", alignItems: "center", gap: 6, fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(12.5), padding: "8px 14px", border: "none",
+                      cursor: "pointer", background: mode === m ? T.blue : "transparent", color: mode === m ? T.onBlue : T.ink,
+                    }}><Ic size={14} /> {label}</button>
+                  ))}
+                </div>
+                <span style={{ fontFamily: FONT_UI, fontSize: fs(11.5), color: T.muted, lineHeight: 1.4, maxWidth: 300 }}>{mode === "tutor" ? t("modeTutorHint") : t("modeTimedHint")}</span>
+                <PrimaryButton T={T} onClick={() => onMix(liveQueue, effSize, effDiff, mode)} icon={Shuffle} disabled={blockCount < 1}>
+                  {liveQueue.length >= 2
+                    ? (blockCount === 1 ? t("libMixOne") : t("libMix", { n: blockCount }))
+                    : (blockCount === 1 ? t("libLoadOne") : t("libLoad", { n: blockCount }))}
+                </PrimaryButton>
+              </div>
             </div>
           )}
         </>
@@ -2836,6 +2873,8 @@ function ImportScreen({ onImport, onSaveToLibrary, library, session, onResume, o
   const [recipeFocusMode, setRecipeFocusMode] = useState("standard");
   const [recipeFocusValue, setRecipeFocusValue] = useState("");
   const [showDisclaimer, setShowDisclaimer] = useState(false);
+  const [bundleCount, setBundleCount] = useState(0); // blocks detected in the pasted text (>= 2 → a bundle)
+  const [aiOpen, setAiOpen] = useState(false); // AI Quick Launch is an expandable chevron, collapsed by default
   const [pasteOpen, setPasteOpen] = useState(true); // the paste box can be collapsed; Load / Save stay available
   const [saveMsg, setSaveMsg] = useState(null); // { tone: "green" | "red" | "muted", text }
   const [review, setReview] = useState(null); // { result, action: "load" | "save" } — confirm when the tolerant loader left something out
@@ -2868,6 +2907,17 @@ function ImportScreen({ onImport, onSaveToLibrary, library, session, onResume, o
     else if (r.added === 0) setSaveMsg({ tone: "muted", text: t("libNothing") });
     else { setSaveMsg({ tone: "green", text: [t("libSaved", { n: r.added }), r.dup ? t("libDup", { d: r.dup }) : ""].filter(Boolean).join(" ") }); setPasteOpen(false); }
   }
+
+  // Live bundle detection (debounced so typing / pasting a large file stays smooth).
+  useEffect(() => {
+    if (!text.trim()) { setBundleCount(0); return undefined; }
+    const id = setTimeout(() => {
+      const r = validateExamData(text, t);
+      setBundleCount(r.valid ? r.data.blocks.length : 0);
+    }, 300);
+    return () => clearTimeout(id);
+  }, [text]);
+  const isBundle = bundleCount >= 2;
 
   function handleSubmit() { attempt("load"); }
   function handleSaveToLibrary() { attempt("save"); }
@@ -2968,37 +3018,7 @@ function ImportScreen({ onImport, onSaveToLibrary, library, session, onResume, o
         </button>
         {importOpen && (
           <div style={{ marginTop: -1 }}>
-        <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: "0 0 10px 10px", padding: 24 }}>
-          <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 6 }}>
-            <Sparkles size={17} color={T.blue} />
-            <span style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(14), color: T.ink }}>{t("aiLaunchTitle")}</span>
-          </div>
-          <p style={{ fontFamily: FONT_UI, fontSize: fs(13), color: T.muted, lineHeight: 1.55, margin: "0 0 14px" }}>{t("aiLaunchHint")}</p>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))", gap: 8 }}>
-            {[
-              { name: "ChatGPT", url: "https://chatgpt.com/" },
-              { name: "Claude", url: "https://claude.ai/new" },
-              { name: "Gemini", url: "https://gemini.google.com/app" },
-              { name: "NotebookLM", url: "https://notebooklm.google.com/" },
-            ].map((ai) => (
-              <a
-                key={ai.name}
-                href={ai.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                title={`${ai.name} - ${t("aiLaunchOpens")}`}
-                style={{
-                  display: "flex", alignItems: "center", justifyContent: "center", gap: 6, padding: "11px 12px", borderRadius: 8,
-                  border: `1px solid ${T.border}`, color: T.ink, textDecoration: "none", fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(13.5),
-                }}
-              >
-                {ai.name} <ExternalLink size={14} color={T.blue} />
-              </a>
-            ))}
-          </div>
-        </div>
-
-        <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, marginTop: 12, overflow: "hidden" }}>
+        <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: "0 0 10px 10px", overflow: "hidden" }}>
           <button
             onClick={() => setShowSchema((v) => !v)}
             aria-expanded={showSchema}
@@ -3170,6 +3190,48 @@ function ImportScreen({ onImport, onSaveToLibrary, library, session, onResume, o
           </div>
           )}
         </div>
+
+        <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, marginTop: 12, overflow: "hidden" }}>
+          <button
+            onClick={() => setAiOpen((v) => !v)}
+            aria-expanded={aiOpen}
+            style={{
+              width: "100%", display: "flex", alignItems: "center", justifyContent: "space-between", gap: 10, padding: "16px 24px",
+              background: "transparent", border: "none", cursor: "pointer", fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(14), color: T.ink,
+            }}
+          >
+            <span style={{ display: "inline-flex", alignItems: "center", gap: 8 }}><Sparkles size={17} color={T.blue} /> {t("aiLaunchTitle")}</span>
+            {aiOpen ? <ChevronUp size={17} color={T.muted} /> : <ChevronDown size={17} color={T.muted} />}
+          </button>
+          {aiOpen && (
+            <div style={{ padding: "0 24px 24px" }}>
+              <p style={{ fontFamily: FONT_UI, fontSize: fs(13), color: T.muted, lineHeight: 1.55, margin: "0 0 14px" }}>{t("aiLaunchHint")}</p>
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))", gap: 8 }}>
+                {[
+                  { name: "ChatGPT", url: "https://chatgpt.com/" },
+                  { name: "Claude", url: "https://claude.ai/new" },
+                  { name: "Gemini", url: "https://gemini.google.com/app" },
+                  { name: "NotebookLM", url: "https://notebooklm.google.com/" },
+                ].map((ai) => (
+                  <a
+                    key={ai.name}
+                    href={ai.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title={`${ai.name} - ${t("aiLaunchOpens")}`}
+                    style={{
+                      display: "flex", alignItems: "center", justifyContent: "center", gap: 6, padding: "11px 12px", borderRadius: 8,
+                      border: `1px solid ${T.border}`, color: T.ink, textDecoration: "none", fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(13.5),
+                    }}
+                  >
+                    {ai.name} <ExternalLink size={14} color={T.blue} />
+                  </a>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+
         <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, padding: 24, marginTop: 12 }}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 14 }}>
             <button
@@ -3257,7 +3319,7 @@ function ImportScreen({ onImport, onSaveToLibrary, library, session, onResume, o
               </div>
               <div style={{ display: "flex", gap: 10, marginTop: 14, flexWrap: "wrap" }}>
                 <PrimaryButton T={T} icon={review.action === "save" ? Save : Play} onClick={() => proceed(review.result, review.action)}>
-                  {t(review.action === "save" ? "warn.saveN" : "warn.loadN", { n: review.result.stats.questions })}
+                  {t(review.action === "save" ? "warn.saveN" : review.result.data.blocks.length >= 2 ? "warn.importN" : "warn.loadN", { n: review.result.stats.questions })}
                 </PrimaryButton>
                 <GhostButton T={T} onClick={() => setReview(null)}>{t("warn.back")}</GhostButton>
               </div>
@@ -3275,8 +3337,8 @@ function ImportScreen({ onImport, onSaveToLibrary, library, session, onResume, o
           )}
 
           <div style={{ display: "flex", gap: 10, marginTop: 16, flexWrap: "wrap" }}>
-            <PrimaryButton T={T} onClick={handleSubmit} icon={Play} disabled={!text.trim()}>{t("load")}</PrimaryButton>
-            <GhostButton T={T} onClick={handleSaveToLibrary} icon={Save} disabled={!text.trim()}>{t("saveToLibrary")}</GhostButton>
+            <PrimaryButton T={T} onClick={handleSubmit} icon={isBundle ? Plus : Play} disabled={!text.trim()}>{isBundle ? t("importBundle") : t("load")}</PrimaryButton>
+            {!isBundle && <GhostButton T={T} onClick={handleSaveToLibrary} icon={Save} disabled={!text.trim()}>{t("saveToLibrary")}</GhostButton>}
           </div>
         </div>
 
@@ -3327,10 +3389,148 @@ function ImportScreen({ onImport, onSaveToLibrary, library, session, onResume, o
 // ---------------------------------------------------------------------------
 // Lobby / block select
 // ---------------------------------------------------------------------------
-function Lobby({ examData, blockStates, onStart, onReview, onHome, onRemove, onFinalSummary, onSetMode, onRetestMissed, onRetestAll, onSaveToLibrary, T, darkMode, setDarkMode }) {
+// Bundle import step: a file with 2+ Qbanks lands here instead of the lobby. No start / export / mode controls — the only
+// decision is which Qbanks go into the library (everything new is ticked by default; unticked ones are discarded).
+function ImportReview({ examData, library, onAdd, onCancel, T, darkMode, setDarkMode }) {
+  const { t } = useI18n();
+  const narrow = useViewport().w < 640;
+  const isSaved = (b) => !!b.libraryId && library.some((e) => e.id === b.libraryId);
+  const newIdx = examData.blocks.map((_, i) => i).filter((i) => !isSaved(examData.blocks[i]));
+  const [sel, setSel] = useState(newIdx);
+  const [msg, setMsg] = useState(null);
+  const picked = sel.filter((i) => newIdx.includes(i));
+  const allPicked = newIdx.length > 0 && picked.length === newIdx.length;
+  const toggle = (i) => setSel((cur) => (cur.includes(i) ? cur.filter((x) => x !== i) : [...cur, i]));
+  const subjectsOf = (b) => {
+    const m = {};
+    b.questions.forEach((q) => { if (q.subject) m[q.subject] = (m[q.subject] || 0) + 1; });
+    return Object.entries(m).sort((a, c) => c[1] - a[1]).slice(0, 3).map(([k]) => k).join(" · ");
+  };
+  const submit = () => {
+    const r = onAdd(newIdx.length === 0 ? [] : picked);
+    if (r && r.failed) setMsg({ tone: "red", text: t("storageFull") });
+  };
+  const primaryLabel = newIdx.length === 0 ? t("irDone") : allPicked ? t("irAddAll", { n: picked.length }) : t("irAddSel", { n: picked.length });
+  const note = [
+    examData.mergedDuplicates > 0 ? t("lobbyMerged", { n: examData.mergedDuplicates }) : "",
+    examData.linkedExisting > 0 ? t("lobbyLinked", { n: examData.linkedExisting }) : "",
+  ].filter(Boolean).join(" ");
+
+  return (
+    <div style={{ maxWidth: Math.round(900 * Math.max(1, TEXT_SCALE)), margin: "0 auto", padding: "48px 20px 80px" }}>
+      <style>{`@import url('${FONT_IMPORT_URL}');`}</style>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 22, gap: 16, flexWrap: "wrap" }}>
+        <div style={{ flex: "1 1 320px", minWidth: 0 }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 6 }}>
+            <Activity size={20} color={T.blue} strokeWidth={2.5} />
+            <span style={{ fontFamily: FONT_MONO, fontSize: fs(12), letterSpacing: "0.12em", color: T.blue, fontWeight: 600 }}>OWORLD</span>
+          </div>
+          <h1 style={{ fontFamily: FONT_DISPLAY, fontSize: fs(30), fontWeight: 600, color: T.ink, margin: "0 0 6px" }}>{t("irTitle")}</h1>
+          <p style={{ fontFamily: FONT_UI, fontSize: fs(14), color: T.muted, lineHeight: 1.55, margin: 0 }}>{t("irSub", { n: examData.blocks.length })}</p>
+        </div>
+        <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
+          <GhostButton T={T} onClick={onCancel} icon={X}>{t("irCancel")}</GhostButton>
+          <SettingsMenu darkMode={darkMode} setDarkMode={setDarkMode} T={T} />
+        </div>
+      </div>
+
+      {note && <p style={{ fontFamily: FONT_UI, fontSize: fs(12.5), color: T.muted, margin: "0 0 14px", lineHeight: 1.5 }}>{note}</p>}
+      {newIdx.length === 0 && <p style={{ fontFamily: FONT_UI, fontSize: fs(13.5), color: T.muted, margin: "0 0 14px" }}>{t("irNoneNew")}</p>}
+
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 10, marginBottom: 12 }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap" }}>
+          {newIdx.length > 0 && <GhostButton T={T} onClick={() => setSel(newIdx)} disabled={allPicked}>{t("lobbySelectAll")}</GhostButton>}
+          {picked.length > 0 && <GhostButton T={T} onClick={() => setSel([])}>{t("lobbyClear")}</GhostButton>}
+          {newIdx.length > 0 && <span style={{ fontFamily: FONT_MONO, fontSize: fs(12.5), color: T.muted }}>{t("lobbySelected", { n: picked.length })}</span>}
+        </div>
+        <PrimaryButton T={T} icon={newIdx.length === 0 ? CheckCircle2 : Save} disabled={newIdx.length > 0 && picked.length === 0} onClick={submit} style={narrow ? { width: "100%" } : undefined}>
+          {primaryLabel}
+        </PrimaryButton>
+      </div>
+      {msg && (
+        <div role="status" style={{ marginBottom: 12, display: "flex", gap: 8, alignItems: "center", fontFamily: FONT_UI, fontSize: fs(13), color: T.red }}>
+          <AlertTriangle size={16} /> <span>{msg.text}</span>
+        </div>
+      )}
+
+      <div style={{ display: "grid", gap: 12 }}>
+        {examData.blocks.map((b, i) => {
+          const saved = isSaved(b);
+          const on = !saved && sel.includes(i);
+          const subj = subjectsOf(b);
+          return (
+            <div
+              key={i}
+              onClick={saved ? undefined : () => toggle(i)}
+              style={{
+                display: "flex", alignItems: "center", gap: 14, padding: "16px 20px", borderRadius: 10, cursor: saved ? "default" : "pointer",
+                background: on ? T.blueLight : T.card, border: `1px solid ${on ? T.blue : T.border}`, opacity: saved ? 0.7 : 1,
+              }}
+            >
+              <input
+                type="checkbox" checked={on} disabled={saved} onChange={() => toggle(i)} onClick={(e) => e.stopPropagation()}
+                aria-label={b.blockName} style={{ cursor: saved ? "not-allowed" : "pointer", width: 18, height: 18, flexShrink: 0 }}
+              />
+              <div style={{ flex: 1, minWidth: 0 }}>
+                <div style={{ display: "flex", alignItems: "center", flexWrap: "wrap", gap: 10, marginBottom: 4 }}>
+                  <span style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(16), color: T.ink, overflowWrap: "anywhere" }}>{b.blockName}</span>
+                  {saved ? <Pill T={T} tone="green">{t("lobbySaved")}</Pill> : <Pill T={T} tone="blue">{t("irNew")}</Pill>}
+                </div>
+                <span style={{ fontFamily: FONT_MONO, fontSize: fs(12.5), color: T.muted }}>
+                  {t("qCount", { n: b.questions.length })}{typeof b.timeLimitMinutes === "number" ? ` · ${t("minLimit", { m: b.timeLimitMinutes })}` : ""}
+                </span>
+                {subj && <div style={{ fontFamily: FONT_UI, fontSize: fs(12), color: T.muted, marginTop: 3, overflowWrap: "anywhere" }}>{subj}</div>}
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
+function Lobby({ examData, blockStates, library = [], onStart, onReview, onHome, onRemove, onRemoveBlocks, onFinalSummary, onSetMode, onRetestMissed, onRetestAll, onSaveBlocks, T, darkMode, setDarkMode }) {
   const { t } = useI18n();
   const [confirmRemove, setConfirmRemove] = useState(false);
-  const hasUnsaved = examData.blocks.some((b) => !b.isRetest && !b.isMixed && !b.libraryId);
+  const [sel, setSel] = useState([]); // ticked block indices — same select-then-act logic as the Qbank Library
+  const [confirmRemoveSel, setConfirmRemoveSel] = useState(false);
+  const [selMsg, setSelMsg] = useState(null); // { tone, text }
+  // "Saved" means the block's library entry still exists (a deleted entry leaves a stale libraryId behind).
+  const isSaved = (b) => !!b.libraryId && library.some((e) => e.id === b.libraryId);
+  const canSave = (i) => { const b = examData.blocks[i]; return !b.isRetest && !b.isMixed && !isSaved(b); };
+  const canRemove = (i) => !!blockStates[i] && blockStates[i].status === "pending"; // never discard answers or results
+  // Sorting state: an imported block that is neither saved nor started. It can only be saved or dismissed, not practiced,
+  // so a Qbank always lives in the library before it is taken. (Mixed / retest blocks and anything already underway keep full controls.)
+  const isTriage = (i) => canSave(i) && blockStates[i]?.status === "pending";
+  const hasTriage = examData.blocks.some((_, i) => isTriage(i));
+  // Nothing left to sort: close the lobby (a block that is mid-exam keeps its session and just returns Home).
+  useEffect(() => {
+    if (hasTriage) return;
+    if (blockStates.some((b) => b.status === "in-progress")) onHome(); else onRemove();
+  }, [hasTriage]);
+  const selectableIdx = examData.blocks.map((_, i) => i).filter((i) => canSave(i) || canRemove(i));
+  const selIdx = sel.filter((i) => selectableIdx.includes(i));
+  const selSavable = selIdx.filter(canSave);
+  const selRemovable = selIdx.filter(canRemove);
+  const hasUnsaved = examData.blocks.some((_, i) => canSave(i));
+  // Header actions: act on the ticked blocks, or on everything when nothing is ticked.
+  const hasSel = selIdx.length > 0;
+  const saveLabel = hasSel ? t("lobbySaveN", { n: selSavable.length }) : t("saveToLibrary");
+  const removeLabel = hasSel ? t("lobbyRemoveN", { n: selRemovable.length }) : t("removeExam");
+  const doSave = (only) => {
+    const r = onSaveBlocks(only);
+    if (r.failed) setSelMsg({ tone: "red", text: t("storageFull") });
+    else if (r.added === 0 && !r.dup) setSelMsg(null);
+    else if (r.added === 0) setSelMsg({ tone: "muted", text: t("libNothing") });
+    else setSelMsg({ tone: "green", text: [t("libSaved", { n: r.added }), r.dup ? t("libDup", { d: r.dup }) : ""].filter(Boolean).join(" ") });
+    setSel([]);
+    // Sorting: a Qbank that is now in the library leaves this list (the library copy stays), so only unsorted ones remain.
+    // Blocks already underway are never dropped (removeLoadedBlocks only removes not-yet-started ones).
+    if (!r.failed && (r.added > 0 || r.dup > 0)) {
+      const sorted = (Array.isArray(only) ? only : examData.blocks.map((_, i) => i)).filter((i) => isTriage(i));
+      if (sorted.length) onRemoveBlocks(sorted);
+    }
+  };
   const baseStates = blockStates.filter((_, i) => !examData.blocks[i].isRetest);
   const allDone = baseStates.every((b) => b.status === "done");
   const anyDone = baseStates.some((b) => b.status === "done");
@@ -3340,23 +3540,28 @@ function Lobby({ examData, blockStates, onStart, onReview, onHome, onRemove, onF
   return (
     <div style={{ maxWidth: Math.round(1120 * Math.max(1, TEXT_SCALE)), margin: "0 auto", padding: "48px 20px 80px" }}>
       <style>{`@import url('${FONT_IMPORT_URL}');`}</style>
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 28, gap: 16, flexWrap: "wrap" }}>
-        <div>
-          <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 6 }}>
-            <Activity size={20} color={T.blue} strokeWidth={2.5} />
-            <span style={{ fontFamily: FONT_MONO, fontSize: fs(12), letterSpacing: "0.12em", color: T.blue, fontWeight: 600 }}>
-              OWORLD
-            </span>
-          </div>
-          <h1 style={{ fontFamily: FONT_DISPLAY, fontSize: fs(30), fontWeight: 600, color: T.ink, margin: 0 }}>
-            {examData.examTitle || t("practiceExam")}
-          </h1>
+      {/* Logo (same size as Home) → bundle title → the action row, all centered */}
+      <div style={{ textAlign: "center", marginBottom: 28 }}>
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 12 }}>
+          <Activity size={narrow ? 28 : 34} color={T.blue} strokeWidth={2.5} />
+          <span style={{ fontFamily: FONT_MONO, fontSize: fs(narrow ? 34 : 44), letterSpacing: "0.1em", color: T.blue, fontWeight: 700 }}>
+            OWORLD
+          </span>
         </div>
-        <div style={{ display: "flex", gap: 10, flexWrap: "wrap", maxWidth: "100%" }}>
-          {allDone && <PrimaryButton T={T} onClick={onFinalSummary} icon={ClipboardList}>{t("fullSummary")}</PrimaryButton>}
-          {hasUnsaved && <GhostButton T={T} onClick={onSaveToLibrary} icon={Save}>{t("saveToLibrary")}</GhostButton>}
+        <h1 style={{ fontFamily: FONT_DISPLAY, fontSize: fs(30), fontWeight: 600, color: T.ink, margin: "14px 0 18px", overflowWrap: "anywhere" }}>
+          {examData.examTitle || t("practiceExam")}
+        </h1>
+        <div style={{ display: "flex", justifyContent: "center", alignItems: "flex-start", gap: 10, flexWrap: "wrap", maxWidth: "100%" }}>
           <GhostButton T={T} onClick={onHome} icon={HomeIcon}>{t("homeBtn")}</GhostButton>
-          <GhostButton T={T} onClick={() => setConfirmRemove(true)} icon={Trash2}>{t("removeExam")}</GhostButton>
+          {allDone && <PrimaryButton T={T} onClick={onFinalSummary} icon={ClipboardList}>{t("fullSummary")}</PrimaryButton>}
+          {hasUnsaved && (
+            <PrimaryButton T={T} icon={Save} disabled={hasSel && selSavable.length === 0} onClick={() => doSave(hasSel ? selSavable : undefined)}>
+              {saveLabel}
+            </PrimaryButton>
+          )}
+          <GhostButton T={T} icon={Trash2} disabled={hasSel && selRemovable.length === 0} onClick={() => (hasSel ? setConfirmRemoveSel(true) : setConfirmRemove(true))}>
+            {removeLabel}
+          </GhostButton>
           <SettingsMenu darkMode={darkMode} setDarkMode={setDarkMode} T={T} />
         </div>
       </div>
@@ -3376,22 +3581,79 @@ function Lobby({ examData, blockStates, onStart, onReview, onHome, onRemove, onF
       )}
 
 
+      {confirmRemoveSel && (
+        <div role="dialog" aria-modal="true" onClick={() => setConfirmRemoveSel(false)}
+          style={{ position: "fixed", inset: 0, zIndex: 300, background: "rgba(0,0,0,0.55)", display: "flex", alignItems: "center", justifyContent: "center", padding: 20 }}>
+          <div onClick={(e) => e.stopPropagation()} style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, padding: 24, maxWidth: 440, width: "100%" }}>
+            <h3 style={{ fontFamily: FONT_UI, fontSize: fs(17), fontWeight: 700, color: T.ink, margin: "0 0 10px" }}>{t("removeSelTitle")}</h3>
+            <p style={{ fontFamily: FONT_UI, fontSize: fs(14), color: T.muted, lineHeight: 1.55, margin: "0 0 20px" }}>
+              {selRemovable.filter(canSave).length > 0
+                ? t("removeSelBodyUnsaved", { n: selRemovable.length, u: selRemovable.filter(canSave).length })
+                : t("removeSelBody", { n: selRemovable.length })}
+            </p>
+            <div style={{ display: "flex", justifyContent: "flex-end", gap: 10 }}>
+              <GhostButton T={T} onClick={() => setConfirmRemoveSel(false)}>{t("cancel")}</GhostButton>
+              <PrimaryButton T={T} onClick={() => { setConfirmRemoveSel(false); onRemoveBlocks(selRemovable); setSel([]); setSelMsg(null); }}>{t("removeSelGo")}</PrimaryButton>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {(examData.mergedDuplicates > 0 || examData.linkedExisting > 0) && (
+        <p style={{ fontFamily: FONT_UI, fontSize: fs(12.5), color: T.muted, margin: "0 0 14px", lineHeight: 1.5 }}>
+          {[examData.mergedDuplicates > 0 ? t("lobbyMerged", { n: examData.mergedDuplicates }) : "", examData.linkedExisting > 0 ? t("lobbyLinked", { n: examData.linkedExisting }) : ""].filter(Boolean).join(" ")}
+        </p>
+      )}
+
+      {hasTriage && (
+        <p style={{ fontFamily: FONT_UI, fontSize: fs(13.5), color: T.ink, margin: "0 0 14px", lineHeight: 1.5 }}>{t("lobbyTriageNote")}</p>
+      )}
+
+      {selectableIdx.length > 0 && (
+        <label style={{ display: "inline-flex", alignItems: "center", gap: 10, marginBottom: 12, cursor: "pointer", fontFamily: FONT_UI, fontSize: fs(13), color: T.ink }}>
+          <input type="checkbox" checked={selIdx.length === selectableIdx.length}
+            onChange={(e) => setSel(e.target.checked ? selectableIdx : [])} style={{ cursor: "pointer", width: 18, height: 18 }} />
+          {t("lobbySelectAll")}
+          <span style={{ fontFamily: FONT_MONO, fontSize: fs(12.5), color: T.muted }}>{t("lobbySelected", { n: selIdx.length })}</span>
+        </label>
+      )}
+      {selMsg && (
+        <div role="status" style={{
+          marginBottom: 12, display: "flex", gap: 8, alignItems: "center", fontFamily: FONT_UI, fontSize: fs(13),
+          color: selMsg.tone === "green" ? T.green : selMsg.tone === "red" ? T.red : T.muted,
+        }}>
+          {selMsg.tone === "green" ? <CheckCircle2 size={16} /> : <AlertTriangle size={16} />}
+          <span>{selMsg.text}</span>
+        </div>
+      )}
+
       <div style={{ display: "grid", gap: 14 }}>
         {examData.blocks.map((block, idx) => {
           const bs = blockStates[idx];
           const total = block.questions.length;
           const answered = Object.values(bs.answers).filter((a) => a.selected).length;
+          const selectable = selectableIdx.includes(idx);
+          const picked = selectable && sel.includes(idx);
+          const triage = isTriage(idx);
+          if (!triage) return null; // saved / started Qbanks live in the library, not here
+          const toggleSel = () => setSel((cur) => (cur.includes(idx) ? cur.filter((x) => x !== idx) : [...cur, idx]));
           return (
-            <div key={idx} style={{
-              background: T.card, border: `1px solid ${T.border}`, borderRadius: 10,
+            <div key={idx} onClick={triage ? toggleSel : undefined} style={{
+              background: picked ? T.blueLight : T.card, border: `1px solid ${picked ? T.blue : T.border}`, borderRadius: 10,
               padding: "20px 22px", display: "flex", justifyContent: "space-between",
-              alignItems: "center", flexWrap: "wrap", gap: 14,
+              alignItems: "center", flexWrap: "wrap", gap: 14, cursor: triage ? "pointer" : undefined,
             }}>
               <div style={{ flex: "1 1 260px", minWidth: 0 }}>
                 <div style={{ display: "flex", alignItems: "center", flexWrap: "wrap", gap: 10, marginBottom: 6 }}>
+                  {selectable && (
+                    <input type="checkbox" checked={picked} onChange={toggleSel} onClick={(e) => e.stopPropagation()} aria-label={blockLabel(block, t)} style={{ cursor: "pointer", width: 18, height: 18 }} />
+                  )}
                   <span style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(16), color: T.ink }}>
                     {blockLabel(block, t)}
                   </span>
+                  {!block.isRetest && !block.isMixed && (isSaved(block)
+                    ? <Pill T={T} tone="green">{t("lobbySaved")}</Pill>
+                    : <Pill T={T} tone="amber">{t("lobbyNotSaved")}</Pill>)}
                   {bs.status === "pending" && <Pill T={T} tone="muted">{t("notStarted")}</Pill>}
                   {bs.status === "in-progress" && <Pill T={T} tone="blue">{t("inProgress", { a: answered, n: total })}</Pill>}
                   {bs.status === "done" && (
@@ -3401,9 +3663,13 @@ function Lobby({ examData, blockStates, onStart, onReview, onHome, onRemove, onF
                   )}
                 </div>
                 <span style={{ fontFamily: FONT_MONO, fontSize: fs(12.5), color: T.muted }}>
-                  {t("qCount", { n: total })} &nbsp;·&nbsp; {bs.timed && !bs.timerOff ? t("minLimit", { m: Math.round(bs.timeLeft / 60) }) : bs.timerOff ? t("untimed") + " (" + t("timerOffSuffix") + ")" : t("untimed")}
+                  {t("qCount", { n: total })}{triage ? null : <> &nbsp;·&nbsp; {bs.timed && !bs.timerOff ? t("minLimit", { m: Math.round(bs.timeLeft / 60) }) : bs.timerOff ? t("untimed") + " (" + t("timerOffSuffix") + ")" : t("untimed")}</>}
                 </span>
+                {triage && (
+                  <div style={{ fontFamily: FONT_UI, fontSize: fs(12.5), color: T.muted, lineHeight: 1.45, marginTop: 6 }}>{t("triageHint")}</div>
+                )}
               </div>
+              {!triage && (
               <div style={narrow
                 ? { display: "flex", flexDirection: "column", alignItems: "stretch", gap: 12, width: "100%" }
                 : { display: "flex", alignItems: "center", gap: 16, marginLeft: "auto", flexWrap: "wrap" }}>
@@ -3447,11 +3713,12 @@ function Lobby({ examData, blockStates, onStart, onReview, onHome, onRemove, onF
                   </PrimaryButton>
                 )}
               </div>
+              )}
             </div>
           );
         })}
       </div>
-      {!anyDone && blockStates.some((b, i) => !examData.blocks[i].isRetest && b.status !== "done" && b.timed) && (
+      {!anyDone && blockStates.some((b, i) => !examData.blocks[i].isRetest && !isTriage(i) && b.status !== "done" && b.timed) && (
         <p style={{ fontFamily: FONT_UI, fontSize: fs(12.5), color: T.muted, marginTop: 20 }}>
           {t("timingNote")}
         </p>
@@ -4648,7 +4915,7 @@ function BlockResults({ block, blockState, blockIdx, history, onBackToLobby, onR
     <div style={{ maxWidth: Math.round(1120 * Math.max(1, TEXT_SCALE)), margin: "0 auto", padding: "44px 20px 80px" }}>
       <style>{`@import url('${FONT_IMPORT_URL}');`}</style>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 22 }}>
-        <GhostButton T={T} icon={ChevronLeft} onClick={onBackToLobby}>{t("back")}</GhostButton>
+        <span />
         <SettingsMenu darkMode={darkMode} setDarkMode={setDarkMode} T={T} />
       </div>
 
@@ -4981,6 +5248,12 @@ export default function App() {
   const [library, setLibrary] = useState(boot.library); // [{ id, title, importDate, questions, lastScore }]
   const [restoredNotice, setRestoredNotice] = useState(!!boot.session);
   const [storageError, setStorageError] = useState(false);
+  const [flash, setFlash] = useState(null); // one-line confirmation toast (e.g. after a bundle import)
+  useEffect(() => {
+    if (!flash) return undefined;
+    const id = setTimeout(() => setFlash(null), 5000);
+    return () => clearTimeout(id);
+  }, [flash]);
   const T = darkMode ? DARK : LIGHT;
   const tr = (k) => STR[lang]?.[k] ?? STR.en[k] ?? k; // App sits above useI18n's provider, so look strings up directly
 
@@ -5045,17 +5318,38 @@ export default function App() {
     return { added: fresh.length, dup: ids.length - fresh.length };
   }
 
-  // "Save to Library" from the lobby: store the loaded exam's not-yet-saved blocks and link them to their entries,
-  // so finishing them updates lastScore.
-  function saveLoadedExamToLibrary() {
-    if (!examData) return;
-    const idxs = examData.blocks.map((b, i) => i).filter((i) => !examData.blocks[i].isRetest && !examData.blocks[i].isMixed && !examData.blocks[i].libraryId);
-    if (idxs.length === 0) return;
+  // Lobby → "Save to Library" / "Save selected": store the loaded exam's not-yet-saved blocks (all of them, or only `only`)
+  // and link them to their entries so finishing them updates lastScore. Identical content is never stored twice.
+  function saveLoadedBlocksToLibrary(only) {
+    if (!examData) return { added: 0, dup: 0 };
+    const isSaved = (b) => !!b.libraryId && library.some((e) => e.id === b.libraryId);
+    const idxs = examData.blocks.map((_, i) => i).filter((i) => {
+      const b = examData.blocks[i];
+      return !b.isRetest && !b.isMixed && !isSaved(b) && (!Array.isArray(only) || only.includes(i));
+    });
+    if (idxs.length === 0) return { added: 0, dup: 0 };
     const { fresh, ids } = addBlocksToLibrary(idxs.map((i) => examData.blocks[i]));
     const next = [...library, ...fresh];
-    if (fresh.length && !lsSet(LS_LIBRARY, JSON.stringify(next))) { setStorageError(true); return; }
+    if (fresh.length && !lsSet(LS_LIBRARY, JSON.stringify(next))) { setStorageError(true); return { failed: true }; }
     if (fresh.length) setLibrary(next);
     setExamData((prev) => ({ ...prev, blocks: prev.blocks.map((b, i) => (idxs.includes(i) ? { ...b, libraryId: ids[idxs.indexOf(i)].id } : b)) }));
+    return { added: fresh.length, dup: ids.length - fresh.length };
+  }
+
+  // Lobby → "Remove selected": drop not-yet-started blocks from the loaded exam (library copies are untouched). Block indices
+  // shift, so everything that points at one — retest links, history entries, the active block — is re-mapped.
+  function removeLoadedBlocks(idxs) {
+    if (!examData) return;
+    const drop = new Set(idxs.filter((i) => blockStates[i] && blockStates[i].status === "pending"));
+    if (drop.size === 0) return;
+    const keep = examData.blocks.map((_, i) => i).filter((i) => !drop.has(i));
+    if (keep.length === 0) { removeLoadedExam(); return; }
+    const remap = new Map(keep.map((oldI, newI) => [oldI, newI]));
+    const fix = (i) => (remap.has(i) ? remap.get(i) : i);
+    setExamData((prev) => ({ ...prev, blocks: keep.map((i) => (prev.blocks[i].isRetest ? { ...prev.blocks[i], retestOf: fix(prev.blocks[i].retestOf) } : prev.blocks[i])) }));
+    setBlockStates((prev) => keep.map((i) => prev[i]));
+    setHistory((h) => h.map((e) => ({ ...e, blockIdx: fix(e.blockIdx), originIdx: fix(e.originIdx) })));
+    setActiveBlockIdx((cur) => (cur == null ? cur : remap.has(cur) ? remap.get(cur) : null));
   }
 
   // Start one saved block, or several as a continuous session (the lobby already runs multiple blocks in order).
@@ -5077,16 +5371,18 @@ export default function App() {
 
   // Merge several saved banks into ONE shuffled, subject-balanced block and open it in the lobby.
   // The result isn't tied to a single library entry, so it never overwrites a bank's "last score".
-  function mixFromLibrary(ids, size, difficulty = "all") {
+  // The lobby is only for sorting freshly imported Qbanks, so a saved Qbank never passes through it: Load starts the exam
+  // right away in the mode chosen next to the Load button.
+  function mixFromLibrary(ids, size, difficulty = "all", mode = "timed") {
     const entries = ids.map((id) => library.find((e) => e.id === id)).filter(Boolean);
     if (entries.length < 1) return;
     const block = mixQbanks(entries, { size, difficulty });
     if (block.questions.length === 0) return;
     setExamData({ blocks: [block] });
-    setBlockStates([makeInitialBlockState(block)]);
+    setBlockStates([{ ...makeInitialBlockState(block), timed: mode !== "tutor", tutor: mode === "tutor", status: "in-progress", startedAt: Date.now() }]);
     setHistory([]);
-    setActiveBlockIdx(null);
-    setView("lobby");
+    setActiveBlockIdx(0);
+    setView("exam");
   }
 
   // Saves a self-rating on the question's `meta` ({ rating, ratedAt }) — in the loaded exam (every copy, incl. retest
@@ -5121,6 +5417,15 @@ export default function App() {
   }
 
   // Remove the exam that is currently loaded in the lobby (the saved library is untouched).
+  // Import step → "Add … to library": store the chosen Qbanks, discard the rest, and go back to the library.
+  function finishBundleImport(idxs) {
+    const r = idxs.length ? saveLoadedBlocksToLibrary(idxs) : { added: 0, dup: 0 };
+    if (r.failed) return r; // storage refused the write: stay here, the banner explains
+    removeLoadedExam();
+    if (r.added) setFlash([tr("libSaved").replace("{n}", r.added), r.dup ? tr("libDup").replace("{d}", r.dup) : ""].filter(Boolean).join(" "));
+    return r;
+  }
+
   function removeLoadedExam() {
     lsRemove(LS_SESSION);
     setRestoredNotice(false);
@@ -5148,10 +5453,32 @@ export default function App() {
 
   function handleImport(data) {
     // Guard against answer-position bias (e.g. LLM output where every key is "A") — see debiasBlock().
-    const blocks = data.blocks.map(debiasBlock);
+    // Remove redundancy: identical blocks inside the file collapse into one, and a block that is already in the library is
+    // linked to that entry (shown as "In library") instead of being offered for saving again.
+    const stored = new Map(library.map((e) => [blockSignature(e.title, e.questions), e.id]));
+    const seen = new Set();
+    let merged = 0;
+    let linked = 0;
+    const blocks = [];
+    data.blocks.map(debiasBlock).forEach((b) => {
+      const sig = blockSignature(b.blockName, b.questions);
+      if (seen.has(sig)) { merged++; return; }
+      seen.add(sig);
+      if (stored.has(sig)) { linked++; blocks.push({ ...b, libraryId: stored.get(sig) }); } else blocks.push(b);
+    });
+    // A single Qbank that is already in the library never opens the lobby (that would just be a second, confusing copy of
+    // something already sorted). Leave whatever is loaded alone, stay on Home, and point to the library entry.
+    if (data.blocks.length === 1 && linked === 1) {
+      setFlash(tr("importInLibrary"));
+      setView("import");
+      return;
+    }
     const next = {
       ...data,
       blocks,
+      ...(data.blocks.length >= 2 ? { importReview: true } : {}), // a bundle goes to the import step (choose what to keep), not the lobby
+      ...(merged ? { mergedDuplicates: merged } : {}),
+      ...(linked ? { linkedExisting: linked } : {}),
     };
     setExamData(next);
     setBlockStates(next.blocks.map(makeInitialBlockState));
@@ -5314,6 +5641,15 @@ export default function App() {
           <CheckCircle2 size={15} /> {tr("resumed")}
         </div>
       )}
+      {flash && (
+        <div role="status" onClick={() => setFlash(null)} style={{
+          position: "fixed", top: 14, left: "50%", transform: "translateX(-50%)", zIndex: 200, cursor: "pointer", maxWidth: "92vw",
+          display: "flex", alignItems: "center", gap: 8, background: T.greenLight, color: T.green, border: `1px solid ${T.green}`,
+          borderRadius: 999, padding: "8px 16px", fontFamily: FONT_UI, fontSize: fs(13), fontWeight: 600, boxShadow: "0 6px 20px rgba(0,0,0,0.25)",
+        }}>
+          <CheckCircle2 size={15} style={{ flexShrink: 0 }} /> {flash}
+        </div>
+      )}
       {storageError && (
         <div role="alert" style={{
           position: "fixed", bottom: 14, left: "50%", transform: "translateX(-50%)", zIndex: 200, maxWidth: "92vw",
@@ -5347,7 +5683,7 @@ export default function App() {
           onResume={() => resumeSession(ipIdx)}
           onOpenLobby={() => setView("lobby")}
           onLaunchLibrary={(ids) => guardNew(() => launchFromLibrary(ids))}
-          onMixLibrary={(ids, size, difficulty) => guardNew(() => mixFromLibrary(ids, size, difficulty))}
+          onMixLibrary={(ids, size, difficulty, mode) => guardNew(() => mixFromLibrary(ids, size, difficulty, mode))}
           onDeleteLibraryEntry={deleteLibraryEntry}
           onRenameLibraryEntry={renameLibraryEntry}
           T={T} darkMode={darkMode} setDarkMode={setDarkMode}
@@ -5357,7 +5693,11 @@ export default function App() {
 
       {view === "lobby" && examData && (
         <FullPage T={T}>
-        <Lobby examData={examData} blockStates={blockStates} onStart={startBlock} onReview={reviewBlock} onHome={goHome} onRemove={removeLoadedExam} onFinalSummary={() => setView("final")} onSetMode={setBlockMode} onRetestMissed={retestMissedBlock} onRetestAll={retestEntireBlock} onSaveToLibrary={saveLoadedExamToLibrary} T={T} darkMode={darkMode} setDarkMode={setDarkMode} />
+        {examData.importReview
+          ? <ImportReview examData={examData} library={library} onAdd={finishBundleImport} onCancel={removeLoadedExam} T={T} darkMode={darkMode} setDarkMode={setDarkMode} />
+          : (
+          <Lobby examData={examData} blockStates={blockStates} onStart={startBlock} onReview={reviewBlock} onHome={goHome} library={library} onRemove={removeLoadedExam} onRemoveBlocks={removeLoadedBlocks} onFinalSummary={() => setView("final")} onSetMode={setBlockMode} onRetestMissed={retestMissedBlock} onRetestAll={retestEntireBlock} onSaveBlocks={saveLoadedBlocksToLibrary} T={T} darkMode={darkMode} setDarkMode={setDarkMode} />
+          )}
         </FullPage>
       )}
 
@@ -5380,12 +5720,12 @@ export default function App() {
         <BlockResults
           block={examData.blocks[activeBlockIdx]}
           blockState={blockStates[activeBlockIdx]}
-          onBackToLobby={() => setView("lobby")}
+          onBackToLobby={removeLoadedExam}
           blockIdx={activeBlockIdx}
           history={history}
           onRetest={launchRetest}
           onRate={(q, k) => rateQuestion(activeBlockIdx, q, k)}
-          onHome={goHome}
+          onHome={removeLoadedExam}
           T={T}
           darkMode={darkMode}
           setDarkMode={setDarkMode}
