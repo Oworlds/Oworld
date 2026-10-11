@@ -4,7 +4,7 @@ import {
   Play, CheckCircle2, XCircle, AlertTriangle, ClipboardList, Activity,
   Check, ChevronDown, ChevronUp, FileJson, FlaskConical, PencilLine,
   Calculator as CalcIcon, Settings as SettingsIcon, Lock, Unlock,
-  Search, Trash2, X, XOctagon, Lightbulb, Sun, Moon, Highlighter, BookOpen, Stethoscope, Target, Save, Shuffle, Plus, Home as HomeIcon, HelpCircle, Pencil, Share2, ExternalLink, Sparkles
+  Search, Trash2, X, XOctagon, Lightbulb, Sun, Moon, Highlighter, BookOpen, Stethoscope, Target, Save, Shuffle, Plus, Home as HomeIcon, HelpCircle, Pencil, Share2, ExternalLink, Sparkles, Cloud, RefreshCw
 } from "lucide-react";
 import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell
@@ -285,7 +285,8 @@ const STR = {
     removeSelBody: "{n} block(s) will be removed from this session. Copies saved in your Qbank Library aren't affected.",
     removeSelBodyUnsaved: "{n} block(s) will be removed from this session. {u} of them aren't saved to your library and will be gone for good — save them first if you want to keep them.",
     pasteChars: "{n} characters pasted", pasteClear: "Clear", pasteEmpty: "Nothing pasted yet — expand to paste, or use Upload.",
-    load: "Load exam", importQbank: "Import New Qbank", importInLibrary: "Already in your library — start it from there.", lobbySaveN: "Save to Library ({n})", lobbyRemoveN: "Remove ({n})", triageHint: "Tick this Qbank to save it to your library or remove it.", lobbyTriageNote: "These Qbanks were just imported. Tick the ones you want, then use Save to Library to keep them or Remove to dismiss them.", aiLaunchTitle: "AI Quick Launch", aiLaunchHint: "Open your AI tool, paste the Question Recipe Prompt below along with your topic or notes, then bring the reply back here.", aiLaunchOpens: "Opens in a new tab", nbTitle: "NotebookLM Notebooks", nbHint: "Your study notebooks, by block. Each one opens in NotebookLM in a new tab.", nbAll: "USMLE (all-in-one notebook)", nbBlock1: "Block 1", nbBlock2: "Block 2", nbCore: "Core sciences", homeBtn: "Home", removeExam: "Remove exam", removeTitle: "Remove this exam?", removeBody: "This clears the loaded exam and any progress or results in it. Your saved Qbank Library is not affected.", removeBodyUnsaved: "This clears the loaded exam and any progress or results in it. Some of its blocks are not saved to your Library and would be gone for good. Cancel and tap Save to Library first if you want to keep them.", removeGo: "Remove", libRename: "Rename Qbank", libRenameSave: "Save name", howItWorks: "How it works", guideStep: "Step {n} of {total}", guideBack: "Back", guideNext: "Next", guideDone: "Got it", guideClose: "Close guide", navCollapse: "Collapse question list", navExpand: "Expand question list", resumeSession: "Resume Session", sessionInProgress: "Session in progress", sessionPos: "Question {n} of {total}", examLoadedLabel: "Exam loaded", openLobby: "Open exam lobby", inProgressTag: "In progress", discardTitle: "Discard in-progress session?", discardBody: "Starting something new replaces your in-progress block, and its answers will be lost.", discardGo: "Discard and continue", hide: "Hide", recipe: "Question Recipe Prompt",
+    load: "Load exam", importQbank: "Import New Qbank", importInLibrary: "Already in your library — start it from there.", lobbySaveN: "Save to Library ({n})", lobbyRemoveN: "Remove ({n})", triageHint: "Tick this Qbank to save it to your library or remove it.", lobbyTriageNote: "These Qbanks were just imported. Tick the ones you want, then use Save to Library to keep them or Remove to dismiss them.", aiLaunchTitle: "AI Quick Launch", aiLaunchHint: "Open your AI tool, paste the Question Recipe Prompt below along with your topic or notes, then bring the reply back here.", aiLaunchOpens: "Opens in a new tab", nbTitle: "NotebookLM Notebooks", nbHint: "Your study notebooks, by block. Each one opens in NotebookLM in a new tab.", nbAll: "USMLE (all-in-one notebook)", nbBlock1: "Block 1", nbBlock2: "Block 2", nbCore: "Core sciences",
+    syncTitle: "Google Drive Sync", syncHint: "Keeps your Qbank library and Past Sessions in step across your devices through a private app folder in your own Google Drive. Share / Export to a friend still works separately.", syncOff: "Cloud sync isn't set up in this version of the app.", syncConnect: "Connect Google Drive", syncNow: "Sync now", syncDisconnect: "Disconnect", syncReconnect: "Reconnect", syncStNone: "Not connected", syncStBusy: "Syncing…", syncStDone: "Synced {time}", syncStReauth: "Reconnect needed", syncStError: "Sync problem", syncBlocked: "Google sign-in couldn't load here (blocked or offline).", syncDenied: "Drive access wasn't granted. Allow the app-data permission to sync.", syncGenericErr: "Couldn't sync with Google Drive. Your data on this device is safe.", syncReauthHint: "Your Google session expired. Tap Reconnect; local changes are kept and will sync.", syncGuide: "Google Drive Sync (Home) keeps your library and Past Sessions in step across devices. Share / Export is still the way to send a block to someone else.", homeBtn: "Home", removeExam: "Remove exam", removeTitle: "Remove this exam?", removeBody: "This clears the loaded exam and any progress or results in it. Your saved Qbank Library is not affected.", removeBodyUnsaved: "This clears the loaded exam and any progress or results in it. Some of its blocks are not saved to your Library and would be gone for good. Cancel and tap Save to Library first if you want to keep them.", removeGo: "Remove", libRename: "Rename Qbank", libRenameSave: "Save name", howItWorks: "How it works", guideStep: "Step {n} of {total}", guideBack: "Back", guideNext: "Next", guideDone: "Got it", guideClose: "Close guide", navCollapse: "Collapse question list", navExpand: "Expand question list", resumeSession: "Resume Session", sessionInProgress: "Session in progress", sessionPos: "Question {n} of {total}", examLoadedLabel: "Exam loaded", openLobby: "Open exam lobby", inProgressTag: "In progress", discardTitle: "Discard in-progress session?", discardBody: "Starting something new replaces your in-progress block, and its answers will be lost.", discardGo: "Discard and continue", hide: "Hide", recipe: "Question Recipe Prompt",
     recipeIntro: "Configure a block below, then copy the generated recipe into the AI tool of your choice (add your source material if it supports it). It returns questions in the exact shape this app expects.",
     blockSize: "Block size", focus: "Focus",
     diffMode: "Difficulty", "diffMode.mixed": "Mixed (recommended)", "diffMode.easy": "Easy", "diffMode.medium": "Medium", "diffMode.hard": "Hard (USMLE standard)",
@@ -413,7 +414,8 @@ const STR = {
     removeSelBody: "{n} bloque(s) se quitarán de esta sesión. Las copias guardadas en tu biblioteca Qbank no se ven afectadas.",
     removeSelBodyUnsaved: "{n} bloque(s) se quitarán de esta sesión. {u} de ellos no están guardados en tu biblioteca y se perderán definitivamente; guárdalos primero si quieres conservarlos.",
     pasteChars: "{n} caracteres pegados", pasteClear: "Borrar", pasteEmpty: "Aún no has pegado nada — expande para pegar o usa Subir archivo.",
-    load: "Cargar examen", importQbank: "Importar nuevo Qbank", importInLibrary: "Ya está en tu biblioteca — inícialo desde ahí.", lobbySaveN: "Guardar en la biblioteca ({n})", lobbyRemoveN: "Quitar ({n})", triageHint: "Márcalo para guardarlo en tu biblioteca o quitarlo.", lobbyTriageNote: "Estos Qbanks acaban de importarse. Marca los que quieras y usa Guardar en la biblioteca para conservarlos o Quitar para descartarlos.", aiLaunchTitle: "Acceso rápido a IA", aiLaunchHint: "Abre tu herramienta de IA, pega el Prompt de receta de preguntas de abajo junto con tu tema o apuntes y trae la respuesta aquí.", aiLaunchOpens: "Se abre en una pestaña nueva", nbTitle: "Cuadernos de NotebookLM", nbHint: "Tus cuadernos de estudio, por bloque. Cada uno se abre en NotebookLM en una pestaña nueva.", nbAll: "USMLE (cuaderno general)", nbBlock1: "Bloque 1", nbBlock2: "Bloque 2", nbCore: "Ciencias básicas", homeBtn: "Inicio", removeExam: "Quitar examen", removeTitle: "¿Quitar este examen?", removeBody: "Esto borra el examen cargado y su progreso o resultados. Tu biblioteca de preguntas guardada no se ve afectada.", removeBodyUnsaved: "Esto borra el examen cargado y su progreso o resultados. Algunos de sus bloques no están guardados en tu biblioteca y se perderían para siempre. Cancela y toca Guardar en la biblioteca primero si quieres conservarlos.", removeGo: "Quitar", libRename: "Renombrar Qbank", libRenameSave: "Guardar nombre", howItWorks: "Cómo funciona", guideStep: "Paso {n} de {total}", guideBack: "Atrás", guideNext: "Siguiente", guideDone: "Entendido", guideClose: "Cerrar guía", navCollapse: "Contraer lista de preguntas", navExpand: "Expandir lista de preguntas", resumeSession: "Reanudar sesión", sessionInProgress: "Sesión en curso", sessionPos: "Pregunta {n} de {total}", examLoadedLabel: "Examen cargado", openLobby: "Abrir sala del examen", inProgressTag: "En curso", discardTitle: "¿Descartar la sesión en curso?", discardBody: "Iniciar algo nuevo reemplaza tu bloque en curso y se perderán sus respuestas.", discardGo: "Descartar y continuar", hide: "Ocultar", recipe: "Prompt de receta de preguntas",
+    load: "Cargar examen", importQbank: "Importar nuevo Qbank", importInLibrary: "Ya está en tu biblioteca — inícialo desde ahí.", lobbySaveN: "Guardar en la biblioteca ({n})", lobbyRemoveN: "Quitar ({n})", triageHint: "Márcalo para guardarlo en tu biblioteca o quitarlo.", lobbyTriageNote: "Estos Qbanks acaban de importarse. Marca los que quieras y usa Guardar en la biblioteca para conservarlos o Quitar para descartarlos.", aiLaunchTitle: "Acceso rápido a IA", aiLaunchHint: "Abre tu herramienta de IA, pega el Prompt de receta de preguntas de abajo junto con tu tema o apuntes y trae la respuesta aquí.", aiLaunchOpens: "Se abre en una pestaña nueva", nbTitle: "Cuadernos de NotebookLM", nbHint: "Tus cuadernos de estudio, por bloque. Cada uno se abre en NotebookLM en una pestaña nueva.", nbAll: "USMLE (cuaderno general)", nbBlock1: "Bloque 1", nbBlock2: "Bloque 2", nbCore: "Ciencias básicas",
+    syncTitle: "Sincronización con Google Drive", syncHint: "Mantiene tu biblioteca de Qbank y tus Sesiones anteriores al día en todos tus dispositivos mediante una carpeta privada de la app en tu propio Google Drive. Compartir / Exportar a un amigo sigue funcionando por separado.", syncOff: "La sincronización en la nube no está configurada en esta versión de la app.", syncConnect: "Conectar Google Drive", syncNow: "Sincronizar ahora", syncDisconnect: "Desconectar", syncReconnect: "Reconectar", syncStNone: "Sin conexión", syncStBusy: "Sincronizando…", syncStDone: "Sincronizado {time}", syncStReauth: "Hay que reconectar", syncStError: "Problema de sincronización", syncBlocked: "No se pudo cargar el inicio de sesión de Google aquí (bloqueado o sin conexión).", syncDenied: "No se concedió acceso a Drive. Permite el permiso de datos de la app para sincronizar.", syncGenericErr: "No se pudo sincronizar con Google Drive. Tus datos en este dispositivo están a salvo.", syncReauthHint: "Tu sesión de Google caducó. Toca Reconectar; los cambios locales se conservan y se sincronizarán.", syncGuide: "Sincronización con Google Drive (Inicio) mantiene tu biblioteca y tus Sesiones anteriores al día entre dispositivos. Compartir / Exportar sigue siendo la forma de enviar un bloque a otra persona.", homeBtn: "Inicio", removeExam: "Quitar examen", removeTitle: "¿Quitar este examen?", removeBody: "Esto borra el examen cargado y su progreso o resultados. Tu biblioteca de preguntas guardada no se ve afectada.", removeBodyUnsaved: "Esto borra el examen cargado y su progreso o resultados. Algunos de sus bloques no están guardados en tu biblioteca y se perderían para siempre. Cancela y toca Guardar en la biblioteca primero si quieres conservarlos.", removeGo: "Quitar", libRename: "Renombrar Qbank", libRenameSave: "Guardar nombre", howItWorks: "Cómo funciona", guideStep: "Paso {n} de {total}", guideBack: "Atrás", guideNext: "Siguiente", guideDone: "Entendido", guideClose: "Cerrar guía", navCollapse: "Contraer lista de preguntas", navExpand: "Expandir lista de preguntas", resumeSession: "Reanudar sesión", sessionInProgress: "Sesión en curso", sessionPos: "Pregunta {n} de {total}", examLoadedLabel: "Examen cargado", openLobby: "Abrir sala del examen", inProgressTag: "En curso", discardTitle: "¿Descartar la sesión en curso?", discardBody: "Iniciar algo nuevo reemplaza tu bloque en curso y se perderán sus respuestas.", discardGo: "Descartar y continuar", hide: "Ocultar", recipe: "Prompt de receta de preguntas",
     recipeIntro: "Configura un bloque abajo y luego copia la receta generada en la herramienta de IA que prefieras (agrega tu material de estudio si lo permite). Devuelve las preguntas en el formato exacto que esta app espera.",
     blockSize: "Tamaño del bloque", focus: "Enfoque",
     diffMode: "Dificultad", "diffMode.mixed": "Mixta (recomendada)", "diffMode.easy": "Fácil", "diffMode.medium": "Media", "diffMode.hard": "Difícil (estándar USMLE)",
@@ -2008,6 +2010,281 @@ function loadHistory() {
   return h.filter((e) => e && typeof e.id === "string" && Number.isFinite(e.total) && Number.isFinite(e.finishedAt)).slice(0, HISTORY_MAX);
 }
 
+// ---------------------------------------------------------------------------
+// Google Drive sync (personal, cross-device). Uses Google Identity Services (token model) with the drive.appdata scope, so the app
+// can only see its own hidden app-data folder, never the user's other Drive files. Peer sharing (Share / Export, AirDrop) is separate.
+// SETUP: create an OAuth "Web application" client ID in Google Cloud, enable the Drive API, add this site's origin under
+// "Authorized JavaScript origins", then paste the client ID below (or set window.OWORLD_GOOGLE_CLIENT_ID before the app loads).
+// ---------------------------------------------------------------------------
+const GOOGLE_CLIENT_ID = (typeof window !== "undefined" && window.OWORLD_GOOGLE_CLIENT_ID) || "";
+const DRIVE_SCOPE = "https://www.googleapis.com/auth/drive.appdata";
+const SYNC_FILE_NAME = "oword_sync_state.json";
+const LS_SYNC = "owordDriveSync";   // { linked, fileId, lastSync }
+const LS_TOMBS = "owordTombstones"; // { qbanks: {id: deletedAt}, sessions: {id: deletedAt} }
+const TOMB_TTL = 180 * 24 * 3600 * 1000;
+
+function emptyTombs() { return { qbanks: {}, sessions: {} }; }
+function loadTombs() {
+  const t = lsGet(LS_TOMBS);
+  return t && typeof t === "object" ? { qbanks: { ...(t.qbanks || {}) }, sessions: { ...(t.sessions || {}) } } : emptyTombs();
+}
+function unionTombs(a, b) {
+  const out = emptyTombs(); const cutoff = Date.now() - TOMB_TTL;
+  for (const k of ["qbanks", "sessions"]) {
+    for (const src of [a && a[k], b && b[k]]) for (const [id, ts] of Object.entries(src || {})) if (ts > cutoff) out[k][id] = Math.max(out[k][id] || 0, ts);
+  }
+  return out;
+}
+const validLibEntry = (e) => e && typeof e.id === "string" && typeof e.title === "string" && Array.isArray(e.questions) && e.questions.length > 0;
+const validSession = (e) => e && typeof e.id === "string" && Number.isFinite(e.total) && Number.isFinite(e.finishedAt);
+
+// Same Qbank on two devices: the newer edit (rename / rating / score) wins; the latest score and the newest per-question rating are kept.
+function mergeQbankEntry(a, b) {
+  if (a === b) return a;
+  const win = (b.updatedAt || 0) > (a.updatedAt || 0) ? b : a;
+  const lose = win === a ? b : a;
+  let out = win;
+  const scores = [a.lastScore, b.lastScore].filter(Boolean).sort((x, y) => (y.date || 0) - (x.date || 0));
+  const best = scores[0] || null;
+  if (((win.lastScore && win.lastScore.date) || 0) !== ((best && best.date) || 0)) out = { ...out, lastScore: best };
+  const loseMeta = new Map(lose.questions.map((q) => [q.id, q.meta]));
+  let changed = false;
+  const qs = out.questions.map((q) => {
+    const m = loseMeta.get(q.id);
+    if (m && m.ratedAt && m.ratedAt > ((q.meta && q.meta.ratedAt) || 0)) { changed = true; return { ...q, meta: { ...(q.meta || {}), rating: m.rating, ratedAt: m.ratedAt } }; }
+    return q;
+  });
+  return changed ? { ...out, questions: qs } : out;
+}
+// Non-destructive union by id. Only an explicit delete (tombstone) removes anything.
+function mergeQbanks(local, remote, deleted) {
+  const dead = (deleted && deleted.qbanks) || {};
+  const map = new Map();
+  for (const e of local || []) if (!dead[e.id]) map.set(e.id, e);
+  for (const r of remote || []) {
+    if (!validLibEntry(r) || dead[r.id]) continue;
+    map.set(r.id, map.has(r.id) ? mergeQbankEntry(map.get(r.id), r) : r);
+  }
+  return [...map.values()].sort((x, y) => (x.importDate || 0) - (y.importDate || 0) || (x.id < y.id ? -1 : 1));
+}
+function mergeSessions(local, remote, deleted) {
+  const dead = (deleted && deleted.sessions) || {};
+  const map = new Map();
+  for (const e of local || []) if (!dead[e.id]) map.set(e.id, e);
+  for (const r of remote || []) if (validSession(r) && !dead[r.id] && !map.has(r.id)) map.set(r.id, r);
+  return [...map.values()].sort((x, y) => y.finishedAt - x.finishedAt || (x.id < y.id ? -1 : 1)).slice(0, HISTORY_MAX);
+}
+function sameList(a, b) { return a.length === b.length && a.every((x, i) => x === b[i]); }
+function collectReviews(sessions) {
+  const out = {};
+  sessions.slice(0, REVIEW_MAX).forEach((e) => { const r = lsGet(LS_REVIEW + e.id); if (r) out[e.id] = r; });
+  return out;
+}
+function mergeSyncState(local, remote) {
+  const r = remote && typeof remote === "object" ? remote : {};
+  const deleted = unionTombs(local.deleted, r.deleted);
+  const qbanks = mergeQbanks(local.qbanks, r.qbanks, deleted);
+  const examSessions = mergeSessions(local.examSessions, r.examSessions, deleted);
+  const keep = new Set(examSessions.slice(0, REVIEW_MAX).map((e) => e.id));
+  const reviews = {};
+  for (const src of [r.reviews || {}, local.reviews || {}]) for (const [id, snap] of Object.entries(src)) if (keep.has(id) && snap) reviews[id] = snap; // local wins
+  return { qbanks, examSessions, reviews, deleted };
+}
+function hashStr(str) { let h = 2166136261; for (let i = 0; i < str.length; i++) { h ^= str.charCodeAt(i); h = Math.imul(h, 16777619); } return `${str.length}:${h >>> 0}`; }
+
+let gisPromise = null;
+function loadGis() {
+  if (typeof window === "undefined") return Promise.reject(new Error("no-window"));
+  if (window.google && window.google.accounts && window.google.accounts.oauth2) return Promise.resolve();
+  if (!gisPromise) gisPromise = new Promise((res, rej) => {
+    const sc = document.createElement("script");
+    sc.src = "https://accounts.google.com/gsi/client"; sc.async = true;
+    sc.onload = () => res();
+    sc.onerror = () => { gisPromise = null; rej(new Error("gis-blocked")); };
+    document.head.appendChild(sc);
+  });
+  return gisPromise;
+}
+async function driveReq(token, url, opts = {}) {
+  const res = await fetch(url, { ...opts, headers: { Authorization: `Bearer ${token}`, ...(opts.headers || {}) } });
+  if (!res.ok) { const e = new Error(`drive-${res.status}`); e.status = res.status; throw e; }
+  return res;
+}
+async function driveFindSyncFile(token) {
+  const q = encodeURIComponent(`name='${SYNC_FILE_NAME}' and trashed=false`);
+  const res = await driveReq(token, `https://www.googleapis.com/drive/v3/files?spaces=appDataFolder&q=${q}&fields=files(id,modifiedTime)&orderBy=createdTime&pageSize=10`);
+  const j = await res.json();
+  return j.files && j.files.length ? j.files[0].id : null;
+}
+async function driveDownload(token, id) {
+  const res = await driveReq(token, `https://www.googleapis.com/drive/v3/files/${id}?alt=media`);
+  return res.json();
+}
+// Small payloads go up in one multipart request; big ones (a large library) use a resumable upload.
+async function driveUpload(token, id, jsonText) {
+  const meta = id ? {} : { name: SYNC_FILE_NAME, parents: ["appDataFolder"], mimeType: "application/json" };
+  const method = id ? "PATCH" : "POST";
+  const base = "https://www.googleapis.com/upload/drive/v3/files" + (id ? `/${id}` : "");
+  if (jsonText.length < 4 * 1024 * 1024) {
+    const boundary = "oworld" + Math.random().toString(36).slice(2);
+    const body = `--${boundary}\r\nContent-Type: application/json; charset=UTF-8\r\n\r\n${JSON.stringify(meta)}\r\n--${boundary}\r\nContent-Type: application/json\r\n\r\n${jsonText}\r\n--${boundary}--`;
+    const res = await driveReq(token, `${base}?uploadType=multipart&fields=id`, { method, headers: { "Content-Type": `multipart/related; boundary=${boundary}` }, body });
+    return (await res.json()).id;
+  }
+  const start = await driveReq(token, `${base}?uploadType=resumable&fields=id`, { method, headers: { "Content-Type": "application/json; charset=UTF-8", "X-Upload-Content-Type": "application/json" }, body: JSON.stringify(meta) });
+  const loc = start.headers.get("Location");
+  if (!loc) throw new Error("no-upload-url");
+  const res = await driveReq(token, loc, { method: "PUT", headers: { "Content-Type": "application/json" }, body: jsonText });
+  return (await res.json()).id;
+}
+
+// useDriveSync: owns sign-in, the pull → merge → push cycle, and the debounced background sync.
+// onMerged(merged) lets the app fold the cloud's data into its own state (merges are idempotent and never delete without a tombstone).
+function useDriveSync({ library, sessionLog, tombs, onMerged }) {
+  const configured = !!GOOGLE_CLIENT_ID;
+  const saved = useRef(lsGet(LS_SYNC) || {});
+  const [linked, setLinked] = useState(!!saved.current.linked && configured);
+  const [status, setStatus] = useState(configured ? (saved.current.linked ? "reauth" : "none") : "off"); // off | none | busy | done | reauth | error
+  const [errKey, setErrKey] = useState("");
+  const [lastSync, setLastSync] = useState(saved.current.lastSync || 0);
+  const latest = useRef({}); latest.current = { library, sessionLog, tombs, onMerged };
+  const tokenRef = useRef(null);          // { value, exp }
+  const clientRef = useRef(null);
+  const pending = useRef(null);
+  const fileIdRef = useRef(saved.current.fileId || null);
+  const running = useRef(false);
+  const rerun = useRef(false);
+  const needsAuth = useRef(!!saved.current.linked);
+  const deviceId = useRef((lsGet("owordDeviceId") || null) || (() => { const id = `dev_${Math.random().toString(36).slice(2, 10)}`; lsSet("owordDeviceId", JSON.stringify(id)); return id; })());
+
+  const remember = (patch) => { saved.current = { ...saved.current, ...patch }; lsSet(LS_SYNC, JSON.stringify(saved.current)); };
+
+  const getToken = useCallback(async () => {
+    const tk = tokenRef.current;
+    if (tk && tk.exp - 60000 > Date.now()) return tk.value;
+    await loadGis();
+    if (!clientRef.current) {
+      clientRef.current = window.google.accounts.oauth2.initTokenClient({
+        client_id: GOOGLE_CLIENT_ID, scope: DRIVE_SCOPE,
+        callback: (resp) => { const p = pending.current; pending.current = null; if (p) p.resolve(resp); },
+        error_callback: (err) => { const p = pending.current; pending.current = null; if (p) p.reject(Object.assign(new Error((err && err.type) || "auth-failed"), { auth: true })); },
+      });
+    }
+    const resp = await new Promise((resolve, reject) => { pending.current = { resolve, reject }; clientRef.current.requestAccessToken({ prompt: "" }); });
+    if (resp.error) throw Object.assign(new Error(resp.error), { auth: true });
+    if (!window.google.accounts.oauth2.hasGrantedAllScopes(resp, DRIVE_SCOPE)) throw Object.assign(new Error("scope-denied"), { auth: true, denied: true });
+    tokenRef.current = { value: resp.access_token, exp: Date.now() + (Number(resp.expires_in) || 3600) * 1000 };
+    return resp.access_token;
+  }, []);
+
+  const sync = useCallback(async ({ interactive = false } = {}) => {
+    if (!configured) return;
+    if (!interactive && needsAuth.current && !(tokenRef.current && tokenRef.current.exp > Date.now())) return; // no popups behind the user's back after a failed silent attempt
+    if (running.current) { rerun.current = true; return; }
+    running.current = true; setStatus("busy"); setErrKey("");
+    try {
+      const token = await getToken();
+      needsAuth.current = false;
+      let fileId = fileIdRef.current; let remote = null;
+      if (fileId) { try { remote = await driveDownload(token, fileId); } catch (e) { if (e.status === 404) fileId = null; else throw e; } }
+      if (!fileId) { fileId = await driveFindSyncFile(token); if (fileId) remote = await driveDownload(token, fileId); }
+
+      const cur = latest.current;
+      const local = { qbanks: cur.library, examSessions: cur.sessionLog, deleted: cur.tombs, reviews: collectReviews(cur.sessionLog) };
+      const merged = mergeSyncState(local, remote);
+      cur.onMerged(merged);
+
+      const coreText = JSON.stringify({ qbanks: merged.qbanks, examSessions: merged.examSessions, reviews: merged.reviews, deleted: merged.deleted });
+      const remoteCore = remote ? mergeSyncState({ qbanks: [], examSessions: [], deleted: emptyTombs(), reviews: {} }, remote) : null;
+      const remoteText = remoteCore ? JSON.stringify({ qbanks: remoteCore.qbanks, examSessions: remoteCore.examSessions, reviews: remoteCore.reviews, deleted: remoteCore.deleted }) : null;
+      if (!fileId || !remoteText || hashStr(coreText) !== hashStr(remoteText)) {
+        const payload = JSON.stringify({ v: 1, app: "oworld", updatedAt: Date.now(), deviceId: deviceId.current, ...merged });
+        fileId = await driveUpload(token, fileId, payload);
+      }
+      fileIdRef.current = fileId;
+      const now = Date.now();
+      remember({ linked: true, fileId, lastSync: now });
+      setLinked(true); setLastSync(now); setStatus("done");
+    } catch (e) {
+      if (e && e.auth) { needsAuth.current = true; tokenRef.current = null; setStatus("reauth"); setErrKey(e.denied ? "syncDenied" : interactive ? "syncGenericErr" : ""); }
+      else if (e && e.message === "gis-blocked") { setStatus("error"); setErrKey("syncBlocked"); }
+      else if (e && e.status === 401) { tokenRef.current = null; needsAuth.current = true; setStatus("reauth"); }
+      else { setStatus("error"); setErrKey("syncGenericErr"); }
+    } finally {
+      running.current = false;
+      if (rerun.current) { rerun.current = false; setTimeout(() => sync(), 0); }
+    }
+  }, [configured, getToken]);
+
+  // First sync after the app starts (silent if Google still has a session; otherwise the panel shows Reconnect).
+  useEffect(() => { if (configured && saved.current.linked) sync(); }, []); // eslint-disable-line
+
+  // Background sync after any change to the library, Past Sessions or deletions (debounced so a burst becomes one sync).
+  const first = useRef(true);
+  useEffect(() => {
+    if (first.current) { first.current = false; return; }
+    if (!linked) return;
+    const id = setTimeout(() => sync(), 4000);
+    return () => clearTimeout(id);
+  }, [library, sessionLog, tombs, linked, sync]);
+
+  const connect = useCallback(() => { setLinked(true); remember({ linked: true }); needsAuth.current = false; sync({ interactive: true }); }, [sync]);
+  const disconnect = useCallback(() => {
+    const tk = tokenRef.current;
+    try { if (tk && window.google && window.google.accounts) window.google.accounts.oauth2.revoke(tk.value); } catch (e) { /* ignore */ }
+    tokenRef.current = null; fileIdRef.current = null; needsAuth.current = false;
+    lsRemove(LS_SYNC); saved.current = {};
+    setLinked(false); setLastSync(0); setErrKey(""); setStatus(configured ? "none" : "off");
+  }, [configured]);
+
+  return { configured, linked, status, errKey, lastSync, connect, disconnect, syncNow: () => sync({ interactive: true }), reconnect: () => sync({ interactive: true }) };
+}
+
+function CloudSyncPanel({ drive, T }) {
+  const { t, lang } = useI18n();
+  const [open, setOpen] = useState(false);
+  const stText = {
+    off: t("syncOff"), none: t("syncStNone"), busy: t("syncStBusy"), reauth: t("syncStReauth"), error: t("syncStError"),
+    done: t("syncStDone", { time: drive.lastSync ? new Date(drive.lastSync).toLocaleTimeString(lang === "es" ? "es" : "en-US", { hour: "numeric", minute: "2-digit" }) : "" }),
+  }[drive.status];
+  const tone = { done: "green", busy: "blue", reauth: "amber", error: "red" }[drive.status] || "muted";
+  return (
+    <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, overflow: "hidden", flex: "1 1 300px", minWidth: 0 }}>
+      <button onClick={() => setOpen((v) => !v)} aria-expanded={open} style={{
+        width: "100%", display: "flex", alignItems: "center", justifyContent: "space-between", gap: 10, padding: "16px 24px",
+        background: "transparent", border: "none", cursor: "pointer", fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(14), color: T.ink, textAlign: "left",
+      }}>
+        <span style={{ display: "inline-flex", alignItems: "center", gap: 8, flexWrap: "wrap" }}>
+          <Cloud size={17} color={T.blue} /> {t("syncTitle")}
+          {drive.configured && drive.linked && <Pill T={T} tone={tone}>{stText}</Pill>}
+        </span>
+        {open ? <ChevronUp size={17} color={T.muted} /> : <ChevronDown size={17} color={T.muted} />}
+      </button>
+      {open && (
+        <div style={{ padding: "0 24px 24px", display: "grid", gap: 12 }}>
+          <p style={{ fontFamily: FONT_UI, fontSize: fs(13), color: T.muted, lineHeight: 1.55, margin: 0 }}>{t("syncHint")}</p>
+          {!drive.configured ? (
+            <p style={{ fontFamily: FONT_UI, fontSize: fs(13), color: T.muted, margin: 0 }}>{t("syncOff")}</p>
+          ) : !drive.linked ? (
+            <div><PrimaryButton T={T} icon={Cloud} onClick={drive.connect}>{t("syncConnect")}</PrimaryButton></div>
+          ) : (
+            <>
+              {drive.status === "reauth" && <p style={{ fontFamily: FONT_UI, fontSize: fs(12.5), color: T.amber || T.muted, margin: 0 }}>{t("syncReauthHint")}</p>}
+              {drive.errKey && <p role="alert" style={{ fontFamily: FONT_UI, fontSize: fs(12.5), color: T.red, margin: 0 }}>{t(drive.errKey)}</p>}
+              <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
+                {drive.status === "reauth"
+                  ? <PrimaryButton T={T} icon={Cloud} onClick={drive.reconnect}>{t("syncReconnect")}</PrimaryButton>
+                  : <PrimaryButton T={T} icon={RefreshCw} onClick={drive.syncNow} disabled={drive.status === "busy"}>{t("syncNow")}</PrimaryButton>}
+                <GhostButton T={T} onClick={drive.disconnect}>{t("syncDisconnect")}</GhostButton>
+              </div>
+            </>
+          )}
+        </div>
+      )}
+    </div>
+  );
+}
+
 function loadPrefs() {
   const p = lsGet(LS_PREFS) || {};
   return { darkMode: typeof p.darkMode === "boolean" ? p.darkMode : true, lang: p.lang === "es" ? "es" : "en", textScale: TEXT_STEPS.includes(p.textScale) ? p.textScale : 1 };
@@ -2935,7 +3212,7 @@ const GUIDE = {
     { title: "6. Past Sessions", body: "Every block you finish is logged, so you can look back at your progress and reopen any run.",
       points: ["On Home, use the switch above the library to go from Qbank Library to Past Sessions.", "Each entry shows its title (for example Mixed: 3 blocks · 50 Questions), the date completed and your score.", "Tap Review Exam to reopen the full question-by-question breakdown with lab values and explanations.", "Tick entries to reveal Delete Selected, or use Select all. Deleting a log never touches your Qbank cards.", "The 25 most recent sessions keep their full review. Older ones keep a score summary only."] },
     { title: "7. Pause, come back, and tidy up", body: "In Tutor Mode you can leave and pick up where you stopped.",
-      points: ["Tap Home. Your answers and place in the block are saved automatically. Back on Home, tap Resume Session.", "In the exam lobby, Remove exam clears the loaded exam without touching your saved library.", "Settings has text size, dark mode, language, and Reset All Local Data (this deletes everything saved in this browser)."] },
+      points: ["Tap Home. Your answers and place in the block are saved automatically. Back on Home, tap Resume Session.", "In the exam lobby, Remove exam clears the loaded exam without touching your saved library.", "Settings has text size, dark mode, language, and Reset All Local Data (this deletes everything saved in this browser).", "Optional: connect Google Drive Sync on Home to keep your library and Past Sessions in step across your devices."] },
     { title: "8. Using your phone", body: "On a phone the screen is simplified so the question gets the room.",
       points: ["The question list is hidden. Use Previous and Next at the top right, and Home at the top left (Tutor Mode).", "Lab Values, Notes, Calculator and Settings are in one row under them.", "At the bottom, Lock is on the left and End Block is on the right. A timed block also shows its countdown in the middle."] },
   ],
@@ -2955,7 +3232,7 @@ const GUIDE = {
     { title: "6. Sesiones anteriores", body: "Cada bloque que terminas queda registrado, para que veas tu progreso y reabras cualquier intento.",
       points: ["En Inicio, usa el interruptor sobre la biblioteca para pasar de Biblioteca de preguntas a Sesiones anteriores.", "Cada entrada muestra su título (por ejemplo Mezcla: 3 bloques · 50 preguntas), la fecha y tu puntaje.", "Toca Revisar examen para reabrir el desglose completo pregunta por pregunta, con valores de laboratorio y explicaciones.", "Marca entradas para mostrar Eliminar selección, o usa Seleccionar todo. Eliminar un registro nunca toca tus tarjetas de Qbank.", "Las 25 sesiones más recientes conservan su revisión completa. Las anteriores conservan solo un resumen del puntaje."] },
     { title: "7. Pausa, vuelve y ordena", body: "En modo tutor puedes salir y retomar donde lo dejaste.",
-      points: ["Toca Inicio. Tus respuestas y tu posición en el bloque se guardan automáticamente. De vuelta en Inicio, toca Reanudar sesión.", "En la sala del examen, Quitar examen borra el examen cargado sin tocar tu biblioteca guardada.", "Ajustes tiene el tamaño de texto, el modo oscuro, el idioma y Restablecer todos los datos locales (borra todo lo guardado en este navegador)."] },
+      points: ["Toca Inicio. Tus respuestas y tu posición en el bloque se guardan automáticamente. De vuelta en Inicio, toca Reanudar sesión.", "En la sala del examen, Quitar examen borra el examen cargado sin tocar tu biblioteca guardada.", "Ajustes tiene el tamaño de texto, el modo oscuro, el idioma y Restablecer todos los datos locales (borra todo lo guardado en este navegador).", "Opcional: conecta la Sincronización con Google Drive en Inicio para mantener tu biblioteca y tus Sesiones anteriores al día entre dispositivos."] },
     { title: "8. Usar el teléfono", body: "En el teléfono la pantalla se simplifica para que la pregunta tenga espacio.",
       points: ["La lista de preguntas se oculta. Usa Anterior y Siguiente arriba a la derecha, e Inicio arriba a la izquierda (modo tutor).", "Valores de laboratorio, Notas, Calculadora y Ajustes están en una fila debajo.", "Abajo, Bloquear está a la izquierda y Terminar bloque a la derecha. Un bloque cronometrado también muestra su cuenta regresiva en el centro."] },
   ],
@@ -3057,7 +3334,7 @@ function HowItWorksGuide({ onClose, T }) {
   );
 }
 
-function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], onDeleteSession, onClearSessions, onReviewSession, libTab, setLibTab, session, onResume, onOpenLobby, onLaunchLibrary, onMixLibrary, onDeleteLibraryEntry, onRenameLibraryEntry, T, darkMode, setDarkMode }) {
+function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], drive, onDeleteSession, onClearSessions, onReviewSession, libTab, setLibTab, session, onResume, onOpenLobby, onLaunchLibrary, onMixLibrary, onDeleteLibraryEntry, onRenameLibraryEntry, T, darkMode, setDarkMode }) {
   const { t, lang } = useI18n();
   const [text, setText] = useState("");
   const [error, setError] = useState("");
@@ -3477,6 +3754,7 @@ function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], onD
             </div>
           )}
         </div>
+        {drive && <CloudSyncPanel drive={drive} T={T} />}
         </div>
 
         <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, padding: 24, marginTop: 12 }}>
@@ -5494,6 +5772,7 @@ export default function App() {
   TEXT_SCALE = textScale; // read by fs() while this render builds the tree
   const [library, setLibrary] = useState(boot.library); // [{ id, title, importDate, questions, lastScore }]
   const [libTab, setLibTab] = useState("library"); // Home tab: library | history (lives here so Review Exam → Home lands back on Past Sessions)
+  const [tombs, setTombs] = useState(loadTombs); // deletions, so a delete on one device isn't undone by another device's copy
   const [sessionLog, setSessionLog] = useState(boot.sessionLog); // independent log of every finished session, newest first
   const [restoredNotice, setRestoredNotice] = useState(!!boot.session);
   const [storageError, setStorageError] = useState(false);
@@ -5531,6 +5810,7 @@ export default function App() {
   }, [examJson, blockStates, history, view, activeBlockIdx]);
 
   useEffect(() => { persist(LS_LIBRARY, library.length ? JSON.stringify(library) : null); }, [library]);
+  useEffect(() => { persist(LS_TOMBS, (Object.keys(tombs.qbanks).length || Object.keys(tombs.sessions).length) ? JSON.stringify(tombs) : null); }, [tombs]);
   useEffect(() => { persist(LS_HISTORY, sessionLog.length ? JSON.stringify(sessionLog) : null); }, [sessionLog]);
   useEffect(() => {
     const isDefault = darkMode === true && lang === "en" && textScale === 1;
@@ -5656,12 +5936,25 @@ export default function App() {
     if (!entryId) return; // not saved to the library yet: the rating lives with the session and is saved if the block is added later
     setLibrary((lib) => lib.map((e) => (e.id !== entryId ? e : {
       ...e,
+      updatedAt: ratedAt,
       questions: e.questions.map((qq) => (qq.id === origId ? { ...qq, meta: { ...(qq.meta || {}), rating: key, ratedAt } } : qq)),
     })));
   }
 
-  function deleteSessionLog(id) { lsRemove(LS_REVIEW + id); setSessionLog((log) => log.filter((e) => e.id !== id)); }
-  function clearSessionLog() { removeAllReviewSnapshots(); setSessionLog([]); }
+  const addTombs = (kind, ids) => setTombs((t0) => ({ ...t0, [kind]: { ...t0[kind], ...Object.fromEntries(ids.map((i) => [i, Date.now()])) } }));
+  function deleteSessionLog(id) { lsRemove(LS_REVIEW + id); addTombs("sessions", [id]); setSessionLog((log) => log.filter((e) => e.id !== id)); }
+  function clearSessionLog() { addTombs("sessions", sessionLog.map((e) => e.id)); removeAllReviewSnapshots(); setSessionLog([]); }
+
+  // Fold what Google Drive had into local state. Pure unions + explicit deletes only, so nothing local is ever lost.
+  function applyCloudMerge(m) {
+    setTombs((cur) => { const u = unionTombs(cur, m.deleted); return JSON.stringify(u) === JSON.stringify(cur) ? cur : u; });
+    setLibrary((cur) => { const next = mergeQbanks(cur, m.qbanks, m.deleted); return sameList(cur, next) ? cur : next; });
+    setSessionLog((cur) => { const next = mergeSessions(cur, m.examSessions, m.deleted); return sameList(cur, next) ? cur : next; });
+    const top = new Set(m.examSessions.slice(0, REVIEW_MAX).map((e) => e.id));
+    Object.entries(m.reviews || {}).forEach(([id, snap]) => { if (top.has(id) && !hasReviewSnapshot(id)) lsSet(LS_REVIEW + id, JSON.stringify(snap)); });
+    Object.keys(m.deleted.sessions || {}).forEach((id) => { if (hasReviewSnapshot(id)) lsRemove(LS_REVIEW + id); });
+  }
+  const drive = useDriveSync({ library, sessionLog, tombs, onMerged: applyCloudMerge });
 
   // Past Sessions → Review Exam: reopen the saved run in the normal results screen (every question, labs, explanations, notes,
   // highlights). The run is loaded as a one-block exam that is already "done", so nothing is re-scored and no new log is written.
@@ -5682,13 +5975,13 @@ export default function App() {
     setView("results");
   }
 
-  function deleteLibraryEntry(id) { setLibrary((lib) => lib.filter((e) => e.id !== id)); }
+  function deleteLibraryEntry(id) { addTombs("qbanks", [id]); setLibrary((lib) => lib.filter((e) => e.id !== id)); }
 
   // Rename a saved Qbank. A loaded exam keeps showing the old name unless its blocks are updated too, so do both.
   function renameLibraryEntry(id, title) {
     const name = String(title || "").trim().slice(0, 120);
     if (!name) return;
-    setLibrary((lib) => lib.map((e) => (e.id === id ? { ...e, title: name } : e)));
+    setLibrary((lib) => lib.map((e) => (e.id === id ? { ...e, title: name, updatedAt: Date.now() } : e)));
     setExamData((prev) => (prev ? { ...prev, blocks: prev.blocks.map((b) => (b.libraryId === id ? { ...b, blockName: name } : b)) } : prev));
   }
 
@@ -5711,14 +6004,15 @@ export default function App() {
 
   function recordLibraryScore(libraryId, score, finishedAt) {
     setLibrary((lib) => lib.map((e) => (e.id === libraryId
-      ? { ...e, lastScore: { correct: score.correct, total: score.total, pct: score.pct, date: finishedAt } }
+      ? { ...e, updatedAt: finishedAt, lastScore: { correct: score.correct, total: score.total, pct: score.pct, date: finishedAt } }
       : e)));
   }
 
   // Settings → "Reset All Local Data": wipes the library, the active session and preferences, then returns
   // to a clean import screen. (The save effects above then see empty/default state and keep the keys absent.)
   function resetAllData() {
-    [LS_SESSION, LS_LIBRARY, LS_PREFS, LS_HISTORY].forEach(lsRemove);
+    [LS_SESSION, LS_LIBRARY, LS_PREFS, LS_HISTORY, LS_TOMBS].forEach(lsRemove);
+    drive.disconnect(); setTombs(emptyTombs()); // Drive is left as it was; reconnect to restore from it
     failedKeys.current = {};
     setStorageError(false);
     setRestoredNotice(false);
@@ -5991,6 +6285,7 @@ export default function App() {
           onSaveToLibrary={saveImportToLibrary}
           library={library}
           sessionLog={sessionLog}
+          drive={drive}
           onDeleteSession={deleteSessionLog}
           onClearSessions={clearSessionLog}
           onReviewSession={(id) => guardNew(() => reviewSession(id))}
