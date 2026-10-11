@@ -1959,6 +1959,7 @@ const NOTEBOOKS = {
       { name: "Renal", url: NB("3695e6ed-b3bf-48c1-9d64-463e44119437") },
     ] },
     { key: "nbCore", items: [
+      { name: "Pathology", url: NB("fdbff5bc-d5e2-429d-8ce0-80d95b72da16") },
       { name: "Pharmacology", url: NB("31e72588-144c-427e-a404-64bf2bffcd91") },
       { name: "Microbiology", url: NB("f2c2f013-8d70-42e3-8424-a629db203aa5") },
       { name: "Biochemistry", url: NB("5fd25697-6240-47b2-8f06-bc7ba290ecad") },
