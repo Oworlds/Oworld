@@ -2016,7 +2016,7 @@ function loadHistory() {
 // SETUP: create an OAuth "Web application" client ID in Google Cloud, enable the Drive API, add this site's origin under
 // "Authorized JavaScript origins", then paste the client ID below (or set window.OWORLD_GOOGLE_CLIENT_ID before the app loads).
 // ---------------------------------------------------------------------------
-const GOOGLE_CLIENT_ID = (typeof window !== "undefined" && window.OWORLD_GOOGLE_CLIENT_ID) || "";
+const GOOGLE_CLIENT_ID = import.meta.env.VITE_GOOGLE_CLIENT_ID || "";
 const DRIVE_SCOPE = "https://www.googleapis.com/auth/drive.appdata";
 const SYNC_FILE_NAME = "oword_sync_state.json";
 const LS_SYNC = "owordDriveSync";   // { linked, fileId, lastSync }
