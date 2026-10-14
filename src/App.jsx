@@ -3610,9 +3610,10 @@ function DonutLegend({ totals, T }) {
 // Analytics page: the donut across every logged session, above the session list.
 function AnalyticsOverview({ history, T }) {
   const totals = useMemo(() => overviewTotals(history), [history]);
+  const wide = useViewport().w >= 900; // larger displays: legend on the left, donut on the right
   if (totals.answered <= 0) return null;
   return (
-    <div style={{ display: "flex", alignItems: "center", gap: 28, flexWrap: "wrap", padding: "6px 0 22px", marginBottom: 20, borderBottom: `1px solid ${T.border}` }}>
+    <div style={{ display: "flex", flexDirection: wide ? "row-reverse" : "row", justifyContent: wide ? "space-between" : "flex-start", alignItems: "center", gap: 28, flexWrap: "wrap", padding: "6px 0 22px", marginBottom: 20, borderBottom: `1px solid ${T.border}` }}>
       <DonutRing totals={totals} T={T} />
       <DonutLegend totals={totals} T={T} />
     </div>
@@ -3640,7 +3641,9 @@ function TrendSpark({ vals, T }) {
 function ConsolePanel({ library, sessionLog, session, onResume, onOpenLobby, onReview, onNavigate, T }) {
   const { t, lang } = useI18n();
   const drive = useContext(DriveContext);
-  const phone = useViewport().w < 640;
+  const vw = useViewport().w;
+  const phone = vw < 640;
+  const wide = vw >= 900; // larger displays: legend on the left, donut on the right (same as the Analytics page)
   const signedIn = !!(drive && drive.configured && drive.linked && drive.profile);
   const firstName = signedIn ? String(drive.profile.name || (drive.profile.email || "").split("@")[0] || "").trim().split(/\s+/)[0] : "";
   const hr = new Date().getHours();
@@ -3764,14 +3767,14 @@ function ConsolePanel({ library, sessionLog, session, onResume, onOpenLobby, onR
 
           {/* Analytics highlights */}
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 340px), 1fr))", gap: 20 }}>
-            <div style={card}>
+            <div style={{ ...card, ...(wide ? { order: 2 } : {}) }}>
               <div style={cardHead}>
                 <BarChart3 size={17} color={T.ink} />
                 <span style={headTxt}>{t("csHighlights")}</span>
                 <button onClick={() => onNavigate("analytics")} style={linkBtn}>{t("csViewAll")}</button>
               </div>
               {data.totals.answered > 0 && (
-                <div style={{ display: "flex", alignItems: "center", gap: 22, flexWrap: "wrap" }}>
+                <div style={{ display: "flex", flexDirection: wide ? "row-reverse" : "row", justifyContent: wide ? "space-between" : "flex-start", alignItems: "center", gap: 22, flexWrap: "wrap" }}>
                   <DonutRing totals={data.totals} T={T} maxW={190} />
                   <DonutLegend totals={data.totals} T={T} />
                 </div>
