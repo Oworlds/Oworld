@@ -2333,7 +2333,9 @@ function useDriveSync({ library, sessionLog, tombs, onMerged }) {
     const resp = await new Promise((resolve, reject) => { pending.current = { resolve, reject }; const hint = saved.current.profile && saved.current.profile.email;
       const prompt = chooseAccount.current ? "select_account" : "";
       chooseAccount.current = false;
-      clientRef.current.requestAccessToken(hint && !prompt ? { prompt, hint } : { prompt });
+      // Explicit "Sign in" → always the account chooser. Background token refreshes stay silent (hinted to the linked account),
+      // otherwise the chooser would pop up every hour.
+      clientRef.current.requestAccessToken(prompt ? { prompt } : hint ? { prompt: "", hint } : { prompt: "" });
     });
     if (resp.error) throw Object.assign(new Error(resp.error), { auth: true });
     if (!window.google.accounts.oauth2.hasGrantedAllScopes(resp, DRIVE_SCOPE)) throw Object.assign(new Error("scope-denied"), { auth: true, denied: true });
@@ -2439,7 +2441,9 @@ function useDriveSync({ library, sessionLog, tombs, onMerged }) {
   const connect = useCallback(() => { chooseAccount.current = true; setLinked(true); remember({ linked: true }); needsAuth.current = false; sync({ interactive: true }); }, [sync]);
   const disconnect = useCallback(() => {
     const tk = tokenRef.current;
-    try { if (tk && window.google && window.google.accounts) window.google.accounts.oauth2.revoke(tk.value); } catch (e) { /* ignore */ }
+    // Revoke the access token with Google first, then clear everything stored locally.
+    try { if (tk && tk.value && window.google && window.google.accounts) window.google.accounts.oauth2.revoke(tk.value, () => {}); } catch (e) { /* ignore */ }
+    try { if (window.google && window.google.accounts && window.google.accounts.id) window.google.accounts.id.disableAutoSelect(); } catch (e) { /* ignore */ }
     tokenRef.current = null; fileIdRef.current = null; needsAuth.current = false; clientRef.current = null;
     lsRemove(LS_SYNC); saved.current = {};
     setProfile(null); setLinked(false); setLastSync(0); setErrKey(""); setStatus(configured ? "none" : "off");
