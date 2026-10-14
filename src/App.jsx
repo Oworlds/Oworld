@@ -4,7 +4,7 @@ import {
   Play, CheckCircle2, XCircle, AlertTriangle, ClipboardList, Activity,
   Check, ChevronDown, ChevronUp, FileJson, FlaskConical, PencilLine,
   Calculator as CalcIcon, Settings as SettingsIcon, Lock, Unlock,
-  Search, Trash2, X, XOctagon, Lightbulb, Sun, Moon, Highlighter, BookOpen, Stethoscope, Target, Save, Shuffle, Plus, Home as HomeIcon, HelpCircle, Pencil, Share2, ExternalLink, Sparkles, Cloud, RefreshCw
+  Search, Trash2, X, XOctagon, Lightbulb, Sun, Moon, Highlighter, BookOpen, Stethoscope, Target, Save, Shuffle, Plus, Home as HomeIcon, Pencil, Share2, ExternalLink, Sparkles, Cloud, RefreshCw, LogIn, LogOut, User as UserIcon, BarChart3, LayoutDashboard, Flame, TrendingUp
 } from "lucide-react";
 import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell
@@ -252,7 +252,7 @@ const STR = {
   en: {
     saveToLibrary: "Save to Library", libSaved: "Saved {n} new block(s) to your library.", libDup: "{d} already in your library.", libNothing: "Already in your library — nothing new to save.",
     libTitle: "Qbank Library", libCount: "{n} saved", libEmpty: "Nothing saved yet. Paste or upload a question bank and choose \u201cSave to Library\u201d to keep it on this device.",
-    libMeta: "{q} questions · imported {d}", libLastScore: "Last score {pct}% ({c}/{t})", libNoScore: "Not attempted yet", libCompleted: "Completed · {pct}% ({c}/{t})", tabLibrary: "Qbank Library", tabHistory: "Past Sessions", histTitle: "Past Sessions", histEmpty: "No finished sessions yet. Every block you complete is logged here, including custom and mixed sessions.", histNote: "Each finished session is saved as its own log. Custom and mixed sessions never change your Qbank cards; a card is marked Completed only when you run that whole Qbank on its own. The 25 most recent sessions also keep their full question-by-question review; older ones keep a summary.", histKindBank: "Qbank", histKindCustom: "Custom", histKindRetest: "Retest", histQ: "{n} questions", histAnswered: "{a}/{n} answered", histSources: "From: {s}", histBySubject: "By subject", histDelete: "Delete this log", histClear: "Clear history", histClearQ: "Delete all {n} logged sessions? Your Qbank cards are not affected.", histClearGo: "Delete all", histToggle: "Show details", histSelectAll: "Select all", histDeselect: "Deselect all", histDeleteSelQ: "Delete {n} selected session(s)? Your Qbank cards are not affected.", histReview: "Review Exam", histNoReview: "Review unavailable", histNoReviewFlash: "The full review for this session is no longer stored.", histMixed: "Mixed: {n} blocks · {q} Questions", histNamed: "{name} · {q} Questions", histDone: "Completed {d}",
+    libMeta: "{q} questions · imported {d}", libLastScore: "Last score {pct}% ({c}/{t})", libNoScore: "Not attempted yet", libCompleted: "Completed · {pct}% ({c}/{t})", tabLibrary: "Library", tabHistory: "Analytics", tabImport: "Import", importPageTitle: "Import Qbank", histTitle: "Analytics", histEmpty: "No finished sessions yet. Every block you complete is logged here, including custom and mixed sessions.", histNote: "Each finished session is saved as its own log. Custom and mixed sessions never change your Qbank cards; a card is marked Completed only when you run that whole Qbank on its own. The 25 most recent sessions also keep their full question-by-question review; older ones keep a summary.", histKindBank: "Qbank", histKindCustom: "Custom", histKindRetest: "Retest", histQ: "{n} questions", histAnswered: "{a}/{n} answered", histSources: "From: {s}", histBySubject: "By subject", histDelete: "Delete this log", histClear: "Clear history", histClearQ: "Delete all {n} logged sessions? Your Qbank cards are not affected.", histClearGo: "Delete all", histToggle: "Show details", histSelectAll: "Select all", histDeselect: "Deselect all", histDeleteSelQ: "Delete {n} selected session(s)? Your Qbank cards are not affected.", histReview: "Review Exam", histNoReview: "Review unavailable", histNoReviewFlash: "The full review for this session is no longer stored.", histMixed: "Mixed: {n} blocks · {q} Questions", histNamed: "{name} · {q} Questions", histDone: "Completed {d}", anOverall: "Overall you answered {n} questions:", anCorrect: "correctly", anHints: "correctly using hints", anIncorrect: "incorrectly", anCenter: "Correct + using hints", anQ: "({n} questions)", anQ1: "(1 question)", tabConsole: "Console", csGoodMorning: "Good morning", csGoodAfternoon: "Good afternoon", csGoodEvening: "Good evening", csStreakLine: "{n}-day study streak", csReadyLine: "Ready when you are.", csNoSession: "No session in progress", csNoSessionHint: "Start a Qbank from your library, or import a new one.", csOpenLibrary: "Open Library", csImportNew: "Import a Qbank", csViewAll: "View all", csStatSessions: "Sessions", csStatWeek: "{n} this week", csStatAnswered: "Questions answered", csStatAccuracy: "Accuracy", csStatStreak: "Day streak", csStatDays: "{n} days", csStatDay1: "1 day", csHighlights: "Analytics highlights", csTrend: "Recent scores", csTrendHint: "Last {n} sessions · dashed line = 70%", csTrendNeed: "Finish 2 sessions to see your trend.", csStrong: "Strongest subjects", csWeak: "Needs work", csSubjNeed: "Answer at least 5 questions in a subject to rank it.", csRecent: "Recent sessions", csYourLibrary: "Your library", csLibSub: "{n} Qbanks saved", csLibEmpty: "Your library is empty. Import a Qbank to get started.", csFirstTitle: "Let's get your first session going", csFirstBody: "Import a Qbank (the JSON your AI tool writes), save it to your library, then run it as a timed or tutor block. Your stats will show up right here.", csProgress: "{a} of {n} answered",
     libStart: "Start", rateTitle: "How well did you know this?", "rate.again": "Again", "rate.hard": "Hard", "rate.good": "Good", "rate.easy": "Easy",
     poolAgain: "Rated Again", poolHard: "Rated Hard", poolAgainHard: "Again + Hard",
     "rt.again": "Rated Again", "rt.hard": "Rated Hard", "rt.againhard": "Rated Again/Hard",
@@ -286,7 +286,15 @@ const STR = {
     removeSelBodyUnsaved: "{n} block(s) will be removed from this session. {u} of them aren't saved to your library and will be gone for good — save them first if you want to keep them.",
     pasteChars: "{n} characters pasted", pasteClear: "Clear", pasteEmpty: "Nothing pasted yet — expand to paste, or use Upload.",
     load: "Load exam", importQbank: "Import New Qbank", importInLibrary: "Already in your library — start it from there.", lobbySaveN: "Save to Library ({n})", lobbyRemoveN: "Remove ({n})", triageHint: "Tick this Qbank to save it to your library or remove it.", lobbyTriageNote: "These Qbanks were just imported. Tick the ones you want, then use Save to Library to keep them or Remove to dismiss them.", aiLaunchTitle: "AI Quick Launch", aiLaunchHint: "Open your AI tool, paste the Question Recipe Prompt below along with your topic or notes, then bring the reply back here.", aiLaunchOpens: "Opens in a new tab", nbTitle: "NotebookLM Notebooks", nbHint: "Your study notebooks, by block. Each one opens in NotebookLM in a new tab.", nbAll: "USMLE (all-in-one notebook)", nbBlock1: "Block 1", nbBlock2: "Block 2", nbCore: "Core sciences",
-    syncTitle: "Google Drive Sync", syncHint: "Keeps your Qbank library and Past Sessions in step across your devices through a private app folder in your own Google Drive. Share / Export to a friend still works separately.", syncOff: "Cloud sync isn't set up in this version of the app.", syncConnect: "Connect Google Drive", syncNow: "Sync now", syncDisconnect: "Disconnect", syncReconnect: "Reconnect", syncStNone: "Not connected", syncStBusy: "Syncing…", syncStDone: "Synced {time}", syncStReauth: "Reconnect needed", syncStError: "Sync problem", syncBlocked: "Google sign-in couldn't load here (blocked or offline).", syncDenied: "Drive access wasn't granted. Allow the app-data permission to sync.", syncGenericErr: "Couldn't sync with Google Drive. Your data on this device is safe.", syncReauthHint: "Your Google session expired. Tap Reconnect; local changes are kept and will sync.", syncGuide: "Google Drive Sync (Home) keeps your library and Past Sessions in step across devices. Share / Export is still the way to send a block to someone else.", homeBtn: "Home", removeExam: "Remove exam", removeTitle: "Remove this exam?", removeBody: "This clears the loaded exam and any progress or results in it. Your saved Qbank Library is not affected.", removeBodyUnsaved: "This clears the loaded exam and any progress or results in it. Some of its blocks are not saved to your Library and would be gone for good. Cancel and tap Save to Library first if you want to keep them.", removeGo: "Remove", libRename: "Rename Qbank", libRenameSave: "Save name", howItWorks: "How it works", guideStep: "Step {n} of {total}", guideBack: "Back", guideNext: "Next", guideDone: "Got it", guideClose: "Close guide", navCollapse: "Collapse question list", navExpand: "Expand question list", resumeSession: "Resume Session", sessionInProgress: "Session in progress", sessionPos: "Question {n} of {total}", examLoadedLabel: "Exam loaded", openLobby: "Open exam lobby", inProgressTag: "In progress", discardTitle: "Discard in-progress session?", discardBody: "Starting something new replaces your in-progress block, and its answers will be lost.", discardGo: "Discard and continue", hide: "Hide", recipe: "Question Recipe Prompt",
+    wasIncorrectBadge: "Missed before reset", missedBeforeN: "{n} missed before reset", explHide: "Hide explanation", explShow: "Show explanation",
+    activeTitle: "Continue your test from another device?", activeTitleConflict: "A different version of this test is on another device",
+    activeBody: "“{name}”: question {n} of {total}, {answered} answered. Last updated {time}.",
+    activeReplaceWarn: "Continuing replaces the exam that is open on this device.", activeContinue: "Continue here", activeNotNow: "Not now", activeKeepMine: "Keep this device's",
+    activeResumed: "Picked up “{name}” from another device.", activeEndedElsewhere: "This test was finished on another device.",
+    activeMissing: "Couldn't load that test from Google Drive. Check your connection and try again.", activeMixed: "Mixed from {banks}.",
+    themeLabel: "Theme", themeLight: "Light", themeDark: "Dark",
+    accountBtn: "Account", signIn: "Sign in with Google", signOut: "Sign out", signedInAs: "Signed in with Google", signInHint: "Sign in to sync your library and Analytics across devices through your Google Drive.", signOutHint: "Signing out stops syncing on this device. Your data stays here and in your Drive.", signedOutNote: "Not signed in",
+    syncTitle: "Google Drive Sync", syncHint: "Keeps your Qbank library and Analytics in step across your devices through a private app folder in your own Google Drive. Share / Export to a friend still works separately.", syncOff: "Cloud sync isn't set up in this version of the app.", syncConnect: "Connect Google Drive", syncNow: "Sync now", syncDisconnect: "Disconnect", syncReconnect: "Reconnect", syncStNone: "Not connected", syncStBusy: "Syncing…", syncStDone: "Synced {time}", syncStReauth: "Reconnect needed", syncStError: "Sync problem", syncBlocked: "Google sign-in couldn't load here (blocked or offline).", syncDenied: "Drive access wasn't granted. Allow the app-data permission to sync.", syncGenericErr: "Couldn't sync with Google Drive. Your data on this device is safe.", syncReauthHint: "Your Google session expired. Tap Reconnect; local changes are kept and will sync.", syncGuide: "Google Drive sync (profile menu, top right) keeps your library and Analytics in step across devices. Share / Export is still the way to send a block to someone else.", homeBtn: "Home", removeExam: "Remove exam", removeTitle: "Remove this exam?", removeBody: "This clears the loaded exam and any progress or results in it. Your saved Qbank Library is not affected.", removeBodyUnsaved: "This clears the loaded exam and any progress or results in it. Some of its blocks are not saved to your Library and would be gone for good. Cancel and tap Save to Library first if you want to keep them.", removeGo: "Remove", libRename: "Rename Qbank", libRenameSave: "Save name", howItWorks: "Help", guideStep: "Step {n} of {total}", guideBack: "Back", guideNext: "Next", guideDone: "Got it", guideClose: "Close guide", navCollapse: "Collapse question list", navExpand: "Expand question list", resumeSession: "Resume Session", sessionInProgress: "Session in progress", sessionPos: "Question {n} of {total}", examLoadedLabel: "Exam loaded", openLobby: "Open exam lobby", inProgressTag: "In progress", discardTitle: "Discard in-progress session?", discardBody: "Starting something new replaces your in-progress block, and its answers will be lost.", discardGo: "Discard and continue", hide: "Hide", recipe: "Question Recipe Prompt",
     recipeIntro: "Configure a block below, then copy the generated recipe into the AI tool of your choice (add your source material if it supports it). It returns questions in the exact shape this app expects.",
     blockSize: "Block size", focus: "Focus",
     diffMode: "Difficulty", "diffMode.mixed": "Mixed (recommended)", "diffMode.easy": "Easy", "diffMode.medium": "Medium", "diffMode.hard": "Hard (USMLE standard)",
@@ -320,7 +328,9 @@ const STR = {
     "sc.next": "Next question", "sc.prev": "Previous question", "sc.mark": "Mark question",
     "sc.select": "Select answer", "sc.hl": "Highlight selection",
     qStatus: "Question Status", mark: "Mark Question", hideHint: "Hide Hint", showHint: "Show Hint",
-    hlTip: "Select text, then click Highlight.",
+    hlTip: "Select text, then pick a highlight color.", hlColor: "Highlight color", hlYellow: "Yellow", hlGreen: "Green", hlBlue: "Blue", hlPink: "Pink", hlOrange: "Orange",
+    explShowAll: "Show all explanations", explHideAll: "Hide all explanations",
+    impMidTitle: "Import Qbank", impMidHint: "Adds it to your library. Your current session keeps going, untouched.", impMidPlaceholder: "Paste Qbank JSON here, or choose a file", impMidFile: "Choose file", impMidAdd: "Add to library", impMidClose: "Close", sessionKept: "Your current session was not touched.",
     noHint: "No hint was provided for this question.", strike: "Strike out this option",
     proceedNext: "Proceed to Next Item", proceedSummary: "Proceed to Block Summary",
     timeLeft: "Block Time Remaining", untimedLower: "untimed",
@@ -381,7 +391,7 @@ const STR = {
   es: {
     saveToLibrary: "Guardar en la biblioteca", libSaved: "Se guardaron {n} bloque(s) nuevo(s) en tu biblioteca.", libDup: "{d} ya estaba(n) en tu biblioteca.", libNothing: "Ya está en tu biblioteca; no hay nada nuevo que guardar.",
     libTitle: "Biblioteca de preguntas", libCount: "{n} guardados", libEmpty: "Aún no hay nada guardado. Pega o sube un banco de preguntas y elige \u201cGuardar en la biblioteca\u201d para conservarlo en este dispositivo.",
-    libMeta: "{q} preguntas · importado {d}", libLastScore: "Último puntaje {pct}% ({c}/{t})", libNoScore: "Sin intentos aún", libCompleted: "Completado · {pct}% ({c}/{t})", tabLibrary: "Biblioteca de preguntas", tabHistory: "Sesiones anteriores", histTitle: "Sesiones anteriores", histEmpty: "Aún no hay sesiones terminadas. Cada bloque que completes queda registrado aquí, incluidas las sesiones personalizadas y mezcladas.", histNote: "Cada sesión terminada se guarda como un registro independiente. Las sesiones personalizadas y mezcladas nunca cambian tus tarjetas de Qbank; una tarjeta se marca como Completada solo cuando haces ese Qbank completo por sí solo. Las 25 sesiones más recientes también conservan su revisión completa pregunta por pregunta; las anteriores conservan un resumen.", histKindBank: "Qbank", histKindCustom: "Personalizada", histKindRetest: "Repetición", histQ: "{n} preguntas", histAnswered: "{a}/{n} respondidas", histSources: "De: {s}", histBySubject: "Por materia", histDelete: "Eliminar este registro", histClear: "Borrar historial", histClearQ: "¿Eliminar las {n} sesiones registradas? Tus tarjetas de Qbank no se ven afectadas.", histClearGo: "Eliminar todo", histToggle: "Ver detalles", histSelectAll: "Seleccionar todo", histDeselect: "Deseleccionar todo", histDeleteSelQ: "¿Eliminar {n} sesión(es) seleccionada(s)? Tus tarjetas de Qbank no se ven afectadas.", histReview: "Revisar examen", histNoReview: "Revisión no disponible", histNoReviewFlash: "La revisión completa de esta sesión ya no está guardada.", histMixed: "Mezcla: {n} bloques · {q} preguntas", histNamed: "{name} · {q} preguntas", histDone: "Completado {d}",
+    libMeta: "{q} preguntas · importado {d}", libLastScore: "Último puntaje {pct}% ({c}/{t})", libNoScore: "Sin intentos aún", libCompleted: "Completado · {pct}% ({c}/{t})", tabLibrary: "Biblioteca", tabHistory: "Analíticas", tabImport: "Importar", importPageTitle: "Importar Qbank", histTitle: "Analíticas", histEmpty: "Aún no hay sesiones terminadas. Cada bloque que completes queda registrado aquí, incluidas las sesiones personalizadas y mezcladas.", histNote: "Cada sesión terminada se guarda como un registro independiente. Las sesiones personalizadas y mezcladas nunca cambian tus tarjetas de Qbank; una tarjeta se marca como Completada solo cuando haces ese Qbank completo por sí solo. Las 25 sesiones más recientes también conservan su revisión completa pregunta por pregunta; las anteriores conservan un resumen.", histKindBank: "Qbank", histKindCustom: "Personalizada", histKindRetest: "Repetición", histQ: "{n} preguntas", histAnswered: "{a}/{n} respondidas", histSources: "De: {s}", histBySubject: "Por materia", histDelete: "Eliminar este registro", histClear: "Borrar historial", histClearQ: "¿Eliminar las {n} sesiones registradas? Tus tarjetas de Qbank no se ven afectadas.", histClearGo: "Eliminar todo", histToggle: "Ver detalles", histSelectAll: "Seleccionar todo", histDeselect: "Deseleccionar todo", histDeleteSelQ: "¿Eliminar {n} sesión(es) seleccionada(s)? Tus tarjetas de Qbank no se ven afectadas.", histReview: "Revisar examen", histNoReview: "Revisión no disponible", histNoReviewFlash: "La revisión completa de esta sesión ya no está guardada.", histMixed: "Mezcla: {n} bloques · {q} preguntas", histNamed: "{name} · {q} preguntas", histDone: "Completado {d}", anOverall: "En total respondiste {n} preguntas:", anCorrect: "correctas", anHints: "correctas con pistas", anIncorrect: "incorrectas", anCenter: "Correctas + con pistas", anQ: "({n} preguntas)", anQ1: "(1 pregunta)", tabConsole: "Consola", csGoodMorning: "Buenos días", csGoodAfternoon: "Buenas tardes", csGoodEvening: "Buenas noches", csStreakLine: "Racha de estudio de {n} días", csReadyLine: "Listo cuando tú lo estés.", csNoSession: "Ninguna sesión en curso", csNoSessionHint: "Inicia un Qbank de tu biblioteca o importa uno nuevo.", csOpenLibrary: "Abrir biblioteca", csImportNew: "Importar un Qbank", csViewAll: "Ver todo", csStatSessions: "Sesiones", csStatWeek: "{n} esta semana", csStatAnswered: "Preguntas respondidas", csStatAccuracy: "Precisión", csStatStreak: "Racha de días", csStatDays: "{n} días", csStatDay1: "1 día", csHighlights: "Resumen de analíticas", csTrend: "Puntajes recientes", csTrendHint: "Últimas {n} sesiones · línea punteada = 70%", csTrendNeed: "Termina 2 sesiones para ver tu tendencia.", csStrong: "Materias más fuertes", csWeak: "Por mejorar", csSubjNeed: "Responde al menos 5 preguntas de una materia para clasificarla.", csRecent: "Sesiones recientes", csYourLibrary: "Tu biblioteca", csLibSub: "{n} Qbanks guardados", csLibEmpty: "Tu biblioteca está vacía. Importa un Qbank para comenzar.", csFirstTitle: "Empecemos tu primera sesión", csFirstBody: "Importa un Qbank (el JSON que escribe tu herramienta de IA), guárdalo en tu biblioteca y ejecútalo como bloque cronometrado o con tutor. Tus estadísticas aparecerán aquí.", csProgress: "{a} de {n} respondidas",
     libStart: "Iniciar", rateTitle: "¿Qué tan bien lo sabías?", "rate.again": "Otra vez", "rate.hard": "Difícil", "rate.good": "Bien", "rate.easy": "Fácil",
     poolAgain: "Calificadas Otra vez", poolHard: "Calificadas Difícil", poolAgainHard: "Otra vez + Difícil",
     "rt.again": "Calificadas Otra vez", "rt.hard": "Calificadas Difícil", "rt.againhard": "Calificadas Otra vez/Difícil",
@@ -415,7 +425,15 @@ const STR = {
     removeSelBodyUnsaved: "{n} bloque(s) se quitarán de esta sesión. {u} de ellos no están guardados en tu biblioteca y se perderán definitivamente; guárdalos primero si quieres conservarlos.",
     pasteChars: "{n} caracteres pegados", pasteClear: "Borrar", pasteEmpty: "Aún no has pegado nada — expande para pegar o usa Subir archivo.",
     load: "Cargar examen", importQbank: "Importar nuevo Qbank", importInLibrary: "Ya está en tu biblioteca — inícialo desde ahí.", lobbySaveN: "Guardar en la biblioteca ({n})", lobbyRemoveN: "Quitar ({n})", triageHint: "Márcalo para guardarlo en tu biblioteca o quitarlo.", lobbyTriageNote: "Estos Qbanks acaban de importarse. Marca los que quieras y usa Guardar en la biblioteca para conservarlos o Quitar para descartarlos.", aiLaunchTitle: "Acceso rápido a IA", aiLaunchHint: "Abre tu herramienta de IA, pega el Prompt de receta de preguntas de abajo junto con tu tema o apuntes y trae la respuesta aquí.", aiLaunchOpens: "Se abre en una pestaña nueva", nbTitle: "Cuadernos de NotebookLM", nbHint: "Tus cuadernos de estudio, por bloque. Cada uno se abre en NotebookLM en una pestaña nueva.", nbAll: "USMLE (cuaderno general)", nbBlock1: "Bloque 1", nbBlock2: "Bloque 2", nbCore: "Ciencias básicas",
-    syncTitle: "Sincronización con Google Drive", syncHint: "Mantiene tu biblioteca de Qbank y tus Sesiones anteriores al día en todos tus dispositivos mediante una carpeta privada de la app en tu propio Google Drive. Compartir / Exportar a un amigo sigue funcionando por separado.", syncOff: "La sincronización en la nube no está configurada en esta versión de la app.", syncConnect: "Conectar Google Drive", syncNow: "Sincronizar ahora", syncDisconnect: "Desconectar", syncReconnect: "Reconectar", syncStNone: "Sin conexión", syncStBusy: "Sincronizando…", syncStDone: "Sincronizado {time}", syncStReauth: "Hay que reconectar", syncStError: "Problema de sincronización", syncBlocked: "No se pudo cargar el inicio de sesión de Google aquí (bloqueado o sin conexión).", syncDenied: "No se concedió acceso a Drive. Permite el permiso de datos de la app para sincronizar.", syncGenericErr: "No se pudo sincronizar con Google Drive. Tus datos en este dispositivo están a salvo.", syncReauthHint: "Tu sesión de Google caducó. Toca Reconectar; los cambios locales se conservan y se sincronizarán.", syncGuide: "Sincronización con Google Drive (Inicio) mantiene tu biblioteca y tus Sesiones anteriores al día entre dispositivos. Compartir / Exportar sigue siendo la forma de enviar un bloque a otra persona.", homeBtn: "Inicio", removeExam: "Quitar examen", removeTitle: "¿Quitar este examen?", removeBody: "Esto borra el examen cargado y su progreso o resultados. Tu biblioteca de preguntas guardada no se ve afectada.", removeBodyUnsaved: "Esto borra el examen cargado y su progreso o resultados. Algunos de sus bloques no están guardados en tu biblioteca y se perderían para siempre. Cancela y toca Guardar en la biblioteca primero si quieres conservarlos.", removeGo: "Quitar", libRename: "Renombrar Qbank", libRenameSave: "Guardar nombre", howItWorks: "Cómo funciona", guideStep: "Paso {n} de {total}", guideBack: "Atrás", guideNext: "Siguiente", guideDone: "Entendido", guideClose: "Cerrar guía", navCollapse: "Contraer lista de preguntas", navExpand: "Expandir lista de preguntas", resumeSession: "Reanudar sesión", sessionInProgress: "Sesión en curso", sessionPos: "Pregunta {n} de {total}", examLoadedLabel: "Examen cargado", openLobby: "Abrir sala del examen", inProgressTag: "En curso", discardTitle: "¿Descartar la sesión en curso?", discardBody: "Iniciar algo nuevo reemplaza tu bloque en curso y se perderán sus respuestas.", discardGo: "Descartar y continuar", hide: "Ocultar", recipe: "Prompt de receta de preguntas",
+    wasIncorrectBadge: "Fallada antes de reiniciar", missedBeforeN: "{n} falladas antes de reiniciar", explHide: "Ocultar explicación", explShow: "Mostrar explicación",
+    activeTitle: "¿Continuar tu examen desde otro dispositivo?", activeTitleConflict: "Hay otra versión de este examen en otro dispositivo",
+    activeBody: "«{name}»: pregunta {n} de {total}, {answered} respondidas. Última actualización {time}.",
+    activeReplaceWarn: "Continuar reemplaza el examen abierto en este dispositivo.", activeContinue: "Continuar aquí", activeNotNow: "Ahora no", activeKeepMine: "Conservar el de este dispositivo",
+    activeResumed: "Retomaste «{name}» desde otro dispositivo.", activeEndedElsewhere: "Este examen se terminó en otro dispositivo.",
+    activeMissing: "No se pudo cargar ese examen desde Google Drive. Revisa tu conexión e inténtalo de nuevo.", activeMixed: "Mezcla de {banks}.",
+    themeLabel: "Tema", themeLight: "Claro", themeDark: "Oscuro",
+    accountBtn: "Cuenta", signIn: "Iniciar sesión con Google", signOut: "Cerrar sesión", signedInAs: "Sesión iniciada con Google", signInHint: "Inicia sesión para sincronizar tu biblioteca y tus Analíticas entre dispositivos mediante tu Google Drive.", signOutHint: "Al cerrar sesión se detiene la sincronización en este dispositivo. Tus datos se conservan aquí y en tu Drive.", signedOutNote: "Sin sesión iniciada",
+    syncTitle: "Sincronización con Google Drive", syncHint: "Mantiene tu biblioteca de Qbank y tus Analíticas al día en todos tus dispositivos mediante una carpeta privada de la app en tu propio Google Drive. Compartir / Exportar a un amigo sigue funcionando por separado.", syncOff: "La sincronización en la nube no está configurada en esta versión de la app.", syncConnect: "Conectar Google Drive", syncNow: "Sincronizar ahora", syncDisconnect: "Desconectar", syncReconnect: "Reconectar", syncStNone: "Sin conexión", syncStBusy: "Sincronizando…", syncStDone: "Sincronizado {time}", syncStReauth: "Hay que reconectar", syncStError: "Problema de sincronización", syncBlocked: "No se pudo cargar el inicio de sesión de Google aquí (bloqueado o sin conexión).", syncDenied: "No se concedió acceso a Drive. Permite el permiso de datos de la app para sincronizar.", syncGenericErr: "No se pudo sincronizar con Google Drive. Tus datos en este dispositivo están a salvo.", syncReauthHint: "Tu sesión de Google caducó. Toca Reconectar; los cambios locales se conservan y se sincronizarán.", syncGuide: "La sincronización con Google Drive (menú de perfil, arriba a la derecha) mantiene tu biblioteca y tus Analíticas al día entre dispositivos. Compartir / Exportar sigue siendo la forma de enviar un bloque a otra persona.", homeBtn: "Inicio", removeExam: "Quitar examen", removeTitle: "¿Quitar este examen?", removeBody: "Esto borra el examen cargado y su progreso o resultados. Tu biblioteca de preguntas guardada no se ve afectada.", removeBodyUnsaved: "Esto borra el examen cargado y su progreso o resultados. Algunos de sus bloques no están guardados en tu biblioteca y se perderían para siempre. Cancela y toca Guardar en la biblioteca primero si quieres conservarlos.", removeGo: "Quitar", libRename: "Renombrar Qbank", libRenameSave: "Guardar nombre", howItWorks: "Ayuda", guideStep: "Paso {n} de {total}", guideBack: "Atrás", guideNext: "Siguiente", guideDone: "Entendido", guideClose: "Cerrar guía", navCollapse: "Contraer lista de preguntas", navExpand: "Expandir lista de preguntas", resumeSession: "Reanudar sesión", sessionInProgress: "Sesión en curso", sessionPos: "Pregunta {n} de {total}", examLoadedLabel: "Examen cargado", openLobby: "Abrir sala del examen", inProgressTag: "En curso", discardTitle: "¿Descartar la sesión en curso?", discardBody: "Iniciar algo nuevo reemplaza tu bloque en curso y se perderán sus respuestas.", discardGo: "Descartar y continuar", hide: "Ocultar", recipe: "Prompt de receta de preguntas",
     recipeIntro: "Configura un bloque abajo y luego copia la receta generada en la herramienta de IA que prefieras (agrega tu material de estudio si lo permite). Devuelve las preguntas en el formato exacto que esta app espera.",
     blockSize: "Tamaño del bloque", focus: "Enfoque",
     diffMode: "Dificultad", "diffMode.mixed": "Mixta (recomendada)", "diffMode.easy": "Fácil", "diffMode.medium": "Media", "diffMode.hard": "Difícil (estándar USMLE)",
@@ -449,7 +467,9 @@ const STR = {
     "sc.next": "Siguiente pregunta", "sc.prev": "Pregunta anterior", "sc.mark": "Marcar pregunta",
     "sc.select": "Seleccionar respuesta", "sc.hl": "Resaltar selección",
     qStatus: "Estado de preguntas", mark: "Marcar pregunta", hideHint: "Ocultar pista", showHint: "Mostrar pista",
-    hlTip: "Selecciona texto y haz clic en Resaltar.",
+    hlTip: "Selecciona texto y elige un color de resaltado.", hlColor: "Color de resaltado", hlYellow: "Amarillo", hlGreen: "Verde", hlBlue: "Azul", hlPink: "Rosa", hlOrange: "Naranja",
+    explShowAll: "Mostrar todas las explicaciones", explHideAll: "Ocultar todas las explicaciones",
+    impMidTitle: "Importar Qbank", impMidHint: "Se agrega a tu biblioteca. Tu sesión actual sigue sin cambios.", impMidPlaceholder: "Pega aquí el JSON del Qbank o elige un archivo", impMidFile: "Elegir archivo", impMidAdd: "Agregar a la biblioteca", impMidClose: "Cerrar", sessionKept: "Tu sesión actual no se modificó.",
     noHint: "No se proporcionó una pista para esta pregunta.", strike: "Tachar esta opción",
     proceedNext: "Pasar al siguiente ítem", proceedSummary: "Pasar al resumen del bloque",
     timeLeft: "Tiempo restante del bloque", untimedLower: "sin límite",
@@ -554,20 +574,6 @@ function labVal(s, lang) {
 }
 
 // Front-page language switch (always visible on the import screen)
-function LangToggle({ T }) {
-  const { lang, setLang } = useI18n();
-  return (
-    <div role="group" aria-label="Language" style={{ display: "inline-flex", border: `1px solid ${T.border}`, borderRadius: 6, overflow: "hidden", flexShrink: 0 }}>
-      {["en", "es"].map((l) => (
-        <button key={l} onClick={() => setLang(l)} aria-pressed={lang === l} style={{
-          fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(12.5), padding: "9px 12px", border: "none", cursor: "pointer",
-          background: lang === l ? T.blue : "transparent", color: lang === l ? T.onBlue : T.ink,
-        }}>{l.toUpperCase()}</button>
-      ))}
-    </div>
-  );
-}
-
 // Text size control. bar=true → compact A− / A+ pair for the exam toolbar; otherwise a labelled row for Settings menus.
 function TextSizeControl({ T, bar = false }) {
   const { t } = useI18n();
@@ -2016,8 +2022,10 @@ function loadHistory() {
 // SETUP: create an OAuth "Web application" client ID in Google Cloud, enable the Drive API, add this site's origin under
 // "Authorized JavaScript origins", then paste the client ID below (or set window.OWORLD_GOOGLE_CLIENT_ID before the app loads).
 // ---------------------------------------------------------------------------
-const GOOGLE_CLIENT_ID = import.meta.env.VITE_GOOGLE_CLIENT_ID || "";
+const GOOGLE_CLIENT_ID = (typeof window !== "undefined" && window.OWORLD_GOOGLE_CLIENT_ID) || "";
 const DRIVE_SCOPE = "https://www.googleapis.com/auth/drive.appdata";
+const SIGNIN_SCOPES = `openid email profile ${DRIVE_SCOPE}`; // identity (name, email, photo) + the app-data folder
+const USERINFO_URL = "https://openidconnect.googleapis.com/v1/userinfo";
 const SYNC_FILE_NAME = "oword_sync_state.json";
 const LS_SYNC = "owordDriveSync";   // { linked, fileId, lastSync }
 const LS_TOMBS = "owordTombstones"; // { qbanks: {id: deletedAt}, sessions: {id: deletedAt} }
@@ -2092,6 +2100,135 @@ function mergeSyncState(local, remote) {
 }
 function hashStr(str) { let h = 2166136261; for (let i = 0; i < str.length; i++) { h ^= str.charCodeAt(i); h = Math.imul(h, 16777619); } return `${str.length}:${h >>> 0}`; }
 
+// ---------------------------------------------------------------------------
+// Active-session sync: a test that is in progress follows the student to another device. It has its OWN Drive files, so the
+// (potentially large) library file is never re-uploaded per answer and a library merge can never clobber a live test:
+//   oword_active_session.json   small and hot: the state below, rewritten after every change
+//   oword_block_<sessionId>.json   the exact question set of that test, written ONCE (a mixed block is shuffled at creation, so it
+//                                  can only be reproduced exactly by storing it), deleted when the test ends
+// State schema (`oword_active_session.json`):
+//   { sessionId, qbankId, currentIndex, answers: {qId: selectedKey}, flagged: [qId], highlights: {qId: {field: [{id,start,end,color}]}},
+//     timeElapsed (s), updatedAt (ms of the last LOCAL mutation),
+//     + what a faithful restore needs: blockFileId, blockName, mode, timeLeft, timerOff, notes, states, questionCount, answeredCount,
+//       isMixed, sourceBanks, sourceIds }
+// A finished / removed test is written as a tombstone { sessionId, ended: true, updatedAt } so the other device lets go of it.
+// Only a one-block exam with a block in progress is synced (a library launch, a Mixed Qbank, a pasted single block); multi-block bundles are not.
+// ---------------------------------------------------------------------------
+const LS_ACTIVE_SYNC = "owordActiveSync"; // this device's marker for the synced session: { sessionId, updatedAt, baseAt, ended, sig, blockFileId }
+const LS_SESSION_FILE = "owordSessionFile"; // { fileId } of oword_active_session.json
+const SESSION_FILE_NAME = "oword_active_session.json";
+const blockFileName = (sessionId) => `oword_block_${sessionId}.json`;
+const validActive = (a) => !!a && typeof a === "object" && typeof a.sessionId === "string" && Number.isFinite(a.updatedAt);
+
+function syncableLive(examData, blockStates) {
+  if (!examData || !Array.isArray(examData.blocks) || examData.blocks.length !== 1 || !Array.isArray(blockStates) || blockStates.length !== 1) return null;
+  const bs = blockStates[0];
+  return bs && bs.status === "in-progress" ? { block: examData.blocks[0], bs } : null;
+}
+
+// Fingerprint of what the student has DONE (answer, strike-out, flag, check, highlight, note, position). Timer ticks and tutor-panel
+// toggles are not part of it, so only a real mutation bumps `updatedAt`.
+function stableJson(v) { // key-order independent, so a state rebuilt on another device fingerprints the same
+  if (Array.isArray(v)) return `[${v.map(stableJson).join(",")}]`;
+  if (v && typeof v === "object") return `{${Object.keys(v).sort().map((k) => `${JSON.stringify(k)}:${stableJson(v[k])}`).join(",")}}`;
+  return JSON.stringify(v === undefined ? null : v);
+}
+function activeSig(bs) {
+  const a = {};
+  for (const [qid, x] of Object.entries(bs.answers || {})) a[qid] = [x.selected || null, x.struck && x.struck.length ? x.struck : 0, !!x.flagged, !!x.checked, !!x.answerRevealed, !!x.hintUsed];
+  return hashStr(stableJson([bs.currentQuestionIndex || 0, a, bs.highlights || {}, bs.notes || {}]));
+}
+
+// Local state → the session-state payload (no questions: those live in the block file).
+function buildActiveSession(block, bs, rec) {
+  const answers = {}, flagged = [], states = {};
+  let answered = 0;
+  for (const [qid, a] of Object.entries(bs.answers || {})) {
+    if (a.selected != null) { answers[qid] = a.selected; answered++; }
+    if (a.flagged) flagged.push(qid);
+    const st = {};
+    if (a.struck && a.struck.length) st.struck = a.struck;
+    for (const k of ["checked", "answerRevealed", "hintUsed", "keyInfoOn", "tipOpen"]) if (a[k]) st[k] = a[k];
+    if (Object.keys(st).length) states[qid] = st;
+  }
+  const sourceIds = Array.isArray(block.sourceIds) ? block.sourceIds.slice(0, 50) : [];
+  const firstId = String((block.questions[0] && block.questions[0].id) || "");
+  const qbankId = block.libraryId || (sourceIds.length === 1 ? sourceIds[0] : null) || (firstId.includes("::") ? firstId.split("::")[0] : null);
+  const timeElapsed = bs.startedAt ? Math.max(0, Math.round(((bs.pausedAt || Date.now()) - bs.startedAt) / 1000)) : 0;
+  return {
+    sessionId: rec.sessionId, ended: false, qbankId, currentIndex: bs.currentQuestionIndex || 0,
+    answers, flagged, highlights: bs.highlights || {}, timeElapsed, updatedAt: rec.updatedAt,
+    blockFileId: rec.blockFileId || null, blockName: block.blockName || "", mode: bs.tutor ? "tutor" : "timed", timeLeft: bs.timeLeft, timerOff: !!bs.timerOff,
+    notes: bs.notes || {}, states, questionCount: block.questions.length, answeredCount: answered,
+    isMixed: !!block.isMixed, sourceBanks: Array.isArray(block.sourceBanks) ? block.sourceBanks.slice(0, 12).map(String) : [], sourceIds,
+    deviceId: lsGet("owordDeviceId") || null,
+  };
+}
+
+// A block read back from its block file is untrusted input: check the shape before the exam screen sees it.
+function validBlock(b) {
+  return !!b && typeof b === "object" && Array.isArray(b.questions) && b.questions.length > 0
+    && b.questions.every((q) => q && typeof q.id === "string" && Array.isArray(q.options));
+}
+async function fetchSessionBlock(token, r) {
+  const id = r.blockFileId || await driveFindSyncFile(token, blockFileName(r.sessionId));
+  if (!id) return null;
+  const j = await driveDownload(token, id);
+  return j && validBlock(j.block) ? j.block : null;
+}
+
+// Remote payload → a block state the exam screen can open exactly where the student left off.
+function hydrateActiveState(block, r, parked) {
+  const base = makeInitialBlockState(block);
+  const ids = new Set(block.questions.map((q) => q.id));
+  const flagged = new Set(Array.isArray(r.flagged) ? r.flagged : []);
+  const answers = {};
+  for (const qid of new Set([...Object.keys(r.answers || {}), ...Object.keys(r.states || {}), ...flagged])) {
+    if (!ids.has(qid)) continue;
+    answers[qid] = { selected: null, struck: [], flagged: false, checked: false, ...((r.states || {})[qid] || {}), selected: (r.answers || {})[qid] ?? null, flagged: flagged.has(qid) };
+  }
+  const tutor = r.mode === "tutor";
+  const elapsed = Math.max(0, Number(r.timeElapsed) || 0);
+  const idx = Math.min(Math.max(0, Math.floor(Number(r.currentIndex) || 0)), block.questions.length - 1);
+  return {
+    ...base, status: "in-progress", timed: !tutor, tutor, timerOff: !!r.timerOff,
+    timeLeft: Number.isFinite(r.timeLeft) ? r.timeLeft : base.timeLeft,
+    startedAt: Date.now() - elapsed * 1000, pausedAt: parked && tutor ? Date.now() : null,
+    answers, notes: r.notes && typeof r.notes === "object" ? r.notes : {}, highlights: r.highlights && typeof r.highlights === "object" ? r.highlights : {},
+    currentQuestionIndex: idx, syncId: r.sessionId,
+  };
+}
+
+// Pull-side reconciliation. `local` / `remote` are activeSession payloads (or tombstones / null); `baseAt` is the updatedAt both sides last agreed on.
+//   push     this device's version wins → upload it
+//   none     nothing to do
+//   adopt    same session, the other device moved on and this one has no unsynced changes → fast-forward silently
+//   offer    another device has a live test and this one has none → ask before restoring
+//   conflict both sides changed (or two different tests are open) and the remote is newer → ask which to keep
+//   end      the same session was finished / removed elsewhere → close it here
+function reconcileActiveSession(local, remote, baseAt = 0) {
+  const L = validActive(local) ? local : null;
+  const R = validActive(remote) ? remote : null;
+  if (!R) return L && !L.ended ? { winner: L, action: "push" } : { winner: null, action: "none" };
+  if (!L || L.ended) {
+    if (L && R.sessionId === L.sessionId) {
+      if (R.ended) return { winner: L.updatedAt >= R.updatedAt ? L : R, action: "none" };
+      return { winner: L, action: "push" };                      // finished here: tell the other device
+    }
+    if (R.ended) return { winner: L && L.updatedAt > R.updatedAt ? L : R, action: "none" };
+    if (L && L.updatedAt > R.updatedAt) return { winner: L, action: "push" }; // the remote test is older than what was finished here
+    return { winner: R, action: "offer" };
+  }
+  if (R.sessionId === L.sessionId) {
+    if (R.ended) return { winner: R, action: "end" };
+    if (R.updatedAt === L.updatedAt) return (L.timeElapsed || 0) > (R.timeElapsed || 0) ? { winner: L, action: "push" } : { winner: R, action: "none" };
+    if (L.updatedAt > R.updatedAt) return { winner: L, action: "push" };
+    return L.updatedAt > baseAt ? { winner: R, action: "conflict" } : { winner: R, action: "adopt" };
+  }
+  if (R.ended) return { winner: L, action: "push" };
+  return R.updatedAt > L.updatedAt ? { winner: R, action: "conflict" } : { winner: L, action: "push" };
+}
+
 let gisPromise = null;
 function loadGis() {
   if (typeof window === "undefined") return Promise.reject(new Error("no-window"));
@@ -2110,8 +2247,27 @@ async function driveReq(token, url, opts = {}) {
   if (!res.ok) { const e = new Error(`drive-${res.status}`); e.status = res.status; throw e; }
   return res;
 }
-async function driveFindSyncFile(token) {
-  const q = encodeURIComponent(`name='${SYNC_FILE_NAME}' and trashed=false`);
+// Drive's per-file `version` rises on every write. The session sync reads it before a pull and re-checks it right before a push,
+// so a write from another device in between is noticed (and re-reconciled) instead of overwritten.
+async function driveVersion(token, id) {
+  const res = await driveReq(token, `https://www.googleapis.com/drive/v3/files/${id}?fields=version`);
+  const j = await res.json();
+  return (j && j.version) || null;
+}
+async function driveDelete(token, id) { await driveReq(token, `https://www.googleapis.com/drive/v3/files/${id}`, { method: "DELETE" }); }
+async function driveListByPrefix(token, prefix) {
+  const q = encodeURIComponent(`name contains '${prefix}' and trashed=false`);
+  const res = await driveReq(token, `https://www.googleapis.com/drive/v3/files?spaces=appDataFolder&q=${q}&fields=files(id,name,createdTime)&pageSize=100`);
+  const j = await res.json();
+  return j.files || [];
+}
+async function driveModified(token, id) {
+  const res = await driveReq(token, `https://www.googleapis.com/drive/v3/files/${id}?fields=modifiedTime`);
+  const j = await res.json();
+  return (j && j.modifiedTime) || null;
+}
+async function driveFindSyncFile(token, name = SYNC_FILE_NAME) {
+  const q = encodeURIComponent(`name='${name}' and trashed=false`);
   const res = await driveReq(token, `https://www.googleapis.com/drive/v3/files?spaces=appDataFolder&q=${q}&fields=files(id,modifiedTime)&orderBy=createdTime&pageSize=10`);
   const j = await res.json();
   return j.files && j.files.length ? j.files[0].id : null;
@@ -2121,8 +2277,8 @@ async function driveDownload(token, id) {
   return res.json();
 }
 // Small payloads go up in one multipart request; big ones (a large library) use a resumable upload.
-async function driveUpload(token, id, jsonText) {
-  const meta = id ? {} : { name: SYNC_FILE_NAME, parents: ["appDataFolder"], mimeType: "application/json" };
+async function driveUpload(token, id, jsonText, name = SYNC_FILE_NAME) {
+  const meta = id ? {} : { name, parents: ["appDataFolder"], mimeType: "application/json" };
   const method = id ? "PATCH" : "POST";
   const base = "https://www.googleapis.com/upload/drive/v3/files" + (id ? `/${id}` : "");
   if (jsonText.length < 4 * 1024 * 1024) {
@@ -2147,6 +2303,8 @@ function useDriveSync({ library, sessionLog, tombs, onMerged }) {
   const [status, setStatus] = useState(configured ? (saved.current.linked ? "reauth" : "none") : "off"); // off | none | busy | done | reauth | error
   const [errKey, setErrKey] = useState("");
   const [lastSync, setLastSync] = useState(saved.current.lastSync || 0);
+  const [profile, setProfile] = useState((configured && saved.current.profile) || null); // { name, email, picture }
+  const chooseAccount = useRef(false);   // an explicit "Sign in" click shows the account chooser
   const latest = useRef({}); latest.current = { library, sessionLog, tombs, onMerged };
   const tokenRef = useRef(null);          // { value, exp }
   const clientRef = useRef(null);
@@ -2155,6 +2313,8 @@ function useDriveSync({ library, sessionLog, tombs, onMerged }) {
   const running = useRef(false);
   const rerun = useRef(false);
   const needsAuth = useRef(!!saved.current.linked);
+  const modRef = useRef(null);            // the sync file's last-seen modifiedTime, so polling can skip a full download when nothing changed
+  const linkedRef = useRef(linked); linkedRef.current = linked;
   const deviceId = useRef((lsGet("owordDeviceId") || null) || (() => { const id = `dev_${Math.random().toString(36).slice(2, 10)}`; lsSet("owordDeviceId", JSON.stringify(id)); return id; })());
 
   const remember = (patch) => { saved.current = { ...saved.current, ...patch }; lsSet(LS_SYNC, JSON.stringify(saved.current)); };
@@ -2165,12 +2325,16 @@ function useDriveSync({ library, sessionLog, tombs, onMerged }) {
     await loadGis();
     if (!clientRef.current) {
       clientRef.current = window.google.accounts.oauth2.initTokenClient({
-        client_id: GOOGLE_CLIENT_ID, scope: DRIVE_SCOPE,
+        client_id: GOOGLE_CLIENT_ID, scope: SIGNIN_SCOPES,
         callback: (resp) => { const p = pending.current; pending.current = null; if (p) p.resolve(resp); },
         error_callback: (err) => { const p = pending.current; pending.current = null; if (p) p.reject(Object.assign(new Error((err && err.type) || "auth-failed"), { auth: true })); },
       });
     }
-    const resp = await new Promise((resolve, reject) => { pending.current = { resolve, reject }; clientRef.current.requestAccessToken({ prompt: "" }); });
+    const resp = await new Promise((resolve, reject) => { pending.current = { resolve, reject }; const hint = saved.current.profile && saved.current.profile.email;
+      const prompt = chooseAccount.current ? "select_account" : "";
+      chooseAccount.current = false;
+      clientRef.current.requestAccessToken(hint && !prompt ? { prompt, hint } : { prompt });
+    });
     if (resp.error) throw Object.assign(new Error(resp.error), { auth: true });
     if (!window.google.accounts.oauth2.hasGrantedAllScopes(resp, DRIVE_SCOPE)) throw Object.assign(new Error("scope-denied"), { auth: true, denied: true });
     tokenRef.current = { value: resp.access_token, exp: Date.now() + (Number(resp.expires_in) || 3600) * 1000 };
@@ -2185,6 +2349,16 @@ function useDriveSync({ library, sessionLog, tombs, onMerged }) {
     try {
       const token = await getToken();
       needsAuth.current = false;
+      if (interactive || !saved.current.profile) { // name / email / photo for the account button; a failure here never blocks syncing
+        try {
+          const r = await fetch(USERINFO_URL, { headers: { Authorization: `Bearer ${token}` } });
+          if (r.ok) {
+            const u = await r.json();
+            const prof = { name: u.name || "", email: u.email || "", picture: u.picture || "" };
+            remember({ profile: prof }); setProfile(prof);
+          }
+        } catch (e) { /* ignore */ }
+      }
       let fileId = fileIdRef.current; let remote = null;
       if (fileId) { try { remote = await driveDownload(token, fileId); } catch (e) { if (e.status === 404) fileId = null; else throw e; } }
       if (!fileId) { fileId = await driveFindSyncFile(token); if (fileId) remote = await driveDownload(token, fileId); }
@@ -2202,6 +2376,7 @@ function useDriveSync({ library, sessionLog, tombs, onMerged }) {
         fileId = await driveUpload(token, fileId, payload);
       }
       fileIdRef.current = fileId;
+      try { modRef.current = await driveModified(token, fileId); } catch (e) { /* polling just does a full sync next time */ }
       const now = Date.now();
       remember({ linked: true, fileId, lastSync: now });
       setLinked(true); setLastSync(now); setStatus("done");
@@ -2216,10 +2391,32 @@ function useDriveSync({ library, sessionLog, tombs, onMerged }) {
     }
   }, [configured, getToken]);
 
+  // Preload Google's script so the sign-in popup opens directly from the click (browsers block popups after an await).
+  useEffect(() => { if (configured) loadGis().catch(() => {}); }, []); // eslint-disable-line
+
   // First sync after the app starts (silent if Google still has a session; otherwise the panel shows Reconnect).
   useEffect(() => { if (configured && saved.current.linked) sync(); }, []); // eslint-disable-line
 
-  // Background sync after any change to the library, Past Sessions or deletions (debounced so a burst becomes one sync).
+  // Pick up another device's library changes: a cheap metadata check every 45 s and whenever the tab comes back to the foreground.
+  // A full pull/merge only runs if the Drive file actually changed. (A test in progress syncs separately, see useSessionSync.)
+  const pollRemote = useCallback(async () => {
+    const tk = tokenRef.current;
+    if (!configured || !linkedRef.current || running.current || !fileIdRef.current || !tk || tk.exp - 60000 <= Date.now()) return;
+    try { const mod = await driveModified(tk.value, fileIdRef.current); if (mod && modRef.current && mod !== modRef.current) sync(); } catch (e) { /* ignore */ }
+  }, [configured, sync]);
+  useEffect(() => {
+    if (!configured) return undefined;
+    const onVis = () => {
+      if (!linkedRef.current || document.visibilityState === "hidden") return;
+      const tk = tokenRef.current;
+      if (tk && tk.exp - 60000 > Date.now()) pollRemote(); else sync();
+    };
+    const id = setInterval(() => { if (document.visibilityState === "visible") pollRemote(); }, 45000);
+    document.addEventListener("visibilitychange", onVis);
+    return () => { clearInterval(id); document.removeEventListener("visibilitychange", onVis); };
+  }, [configured, sync, pollRemote]);
+
+  // Background sync after any change to the library, Analytics or deletions (debounced so a burst becomes one sync).
   const first = useRef(true);
   useEffect(() => {
     if (first.current) { first.current = false; return; }
@@ -2228,61 +2425,140 @@ function useDriveSync({ library, sessionLog, tombs, onMerged }) {
     return () => clearTimeout(id);
   }, [library, sessionLog, tombs, linked, sync]);
 
-  const connect = useCallback(() => { setLinked(true); remember({ linked: true }); needsAuth.current = false; sync({ interactive: true }); }, [sync]);
+  // Shared with useSessionSync. A valid token, or (only when `interactive`, i.e. from a click) a fresh one. Never pops a window by itself
+  // after a failed silent attempt, same rule as the library sync.
+  const acquireToken = useCallback(async ({ interactive = false } = {}) => {
+    const tk = tokenRef.current;
+    if (tk && tk.exp - 60000 > Date.now()) return tk.value;
+    if (!interactive && needsAuth.current) return null;
+    try { const v = await getToken(); needsAuth.current = false; return v; }
+    catch (e) { needsAuth.current = true; tokenRef.current = null; setStatus("reauth"); return null; }
+  }, [getToken]);
+  const peekToken = useCallback(() => { const tk = tokenRef.current; return tk && tk.exp - 60000 > Date.now() ? tk.value : null; }, []);
+
+  const connect = useCallback(() => { chooseAccount.current = true; setLinked(true); remember({ linked: true }); needsAuth.current = false; sync({ interactive: true }); }, [sync]);
   const disconnect = useCallback(() => {
     const tk = tokenRef.current;
     try { if (tk && window.google && window.google.accounts) window.google.accounts.oauth2.revoke(tk.value); } catch (e) { /* ignore */ }
-    tokenRef.current = null; fileIdRef.current = null; needsAuth.current = false;
+    tokenRef.current = null; fileIdRef.current = null; needsAuth.current = false; clientRef.current = null;
     lsRemove(LS_SYNC); saved.current = {};
-    setLinked(false); setLastSync(0); setErrKey(""); setStatus(configured ? "none" : "off");
+    setProfile(null); setLinked(false); setLastSync(0); setErrKey(""); setStatus(configured ? "none" : "off");
   }, [configured]);
 
-  return { configured, linked, status, errKey, lastSync, connect, disconnect, syncNow: () => sync({ interactive: true }), reconnect: () => sync({ interactive: true }) };
+  return { configured, linked, profile, acquireToken, peekToken, status, errKey, lastSync, connect, disconnect, signIn: connect, signOut: disconnect, syncNow: () => sync({ interactive: true }), reconnect: () => sync({ interactive: true }) };
 }
 
-function CloudSyncPanel({ drive, T }) {
-  const { t, lang } = useI18n();
-  const [open, setOpen] = useState(false);
-  const stText = {
-    off: t("syncOff"), none: t("syncStNone"), busy: t("syncStBusy"), reauth: t("syncStReauth"), error: t("syncStError"),
-    done: t("syncStDone", { time: drive.lastSync ? new Date(drive.lastSync).toLocaleTimeString(lang === "es" ? "es" : "en-US", { hour: "numeric", minute: "2-digit" }) : "" }),
-  }[drive.status];
-  const tone = { done: "green", busy: "blue", reauth: "amber", error: "red" }[drive.status] || "muted";
-  return (
-    <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, overflow: "hidden", flex: "1 1 300px", minWidth: 0 }}>
-      <button onClick={() => setOpen((v) => !v)} aria-expanded={open} style={{
-        width: "100%", display: "flex", alignItems: "center", justifyContent: "space-between", gap: 10, padding: "16px 24px",
-        background: "transparent", border: "none", cursor: "pointer", fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(14), color: T.ink, textAlign: "left",
-      }}>
-        <span style={{ display: "inline-flex", alignItems: "center", gap: 8, flexWrap: "wrap" }}>
-          <Cloud size={17} color={T.blue} /> {t("syncTitle")}
-          {drive.configured && drive.linked && <Pill T={T} tone={tone}>{stText}</Pill>}
-        </span>
-        {open ? <ChevronUp size={17} color={T.muted} /> : <ChevronDown size={17} color={T.muted} />}
-      </button>
-      {open && (
-        <div style={{ padding: "0 24px 24px", display: "grid", gap: 12 }}>
-          <p style={{ fontFamily: FONT_UI, fontSize: fs(13), color: T.muted, lineHeight: 1.55, margin: 0 }}>{t("syncHint")}</p>
-          {!drive.configured ? (
-            <p style={{ fontFamily: FONT_UI, fontSize: fs(13), color: T.muted, margin: 0 }}>{t("syncOff")}</p>
-          ) : !drive.linked ? (
-            <div><PrimaryButton T={T} icon={Cloud} onClick={drive.connect}>{t("syncConnect")}</PrimaryButton></div>
-          ) : (
-            <>
-              {drive.status === "reauth" && <p style={{ fontFamily: FONT_UI, fontSize: fs(12.5), color: T.amber || T.muted, margin: 0 }}>{t("syncReauthHint")}</p>}
-              {drive.errKey && <p role="alert" style={{ fontFamily: FONT_UI, fontSize: fs(12.5), color: T.red, margin: 0 }}>{t(drive.errKey)}</p>}
-              <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
-                {drive.status === "reauth"
-                  ? <PrimaryButton T={T} icon={Cloud} onClick={drive.reconnect}>{t("syncReconnect")}</PrimaryButton>
-                  : <PrimaryButton T={T} icon={RefreshCw} onClick={drive.syncNow} disabled={drive.status === "busy"}>{t("syncNow")}</PrimaryButton>}
-                <GhostButton T={T} onClick={drive.disconnect}>{t("syncDisconnect")}</GhostButton>
-              </div>
-            </>
-          )}
-        </div>
-      )}
-    </div>
-  );
+// useSessionSync: keeps the test in progress in step through its own two small Drive files (see the schema note above).
+//  - state file: pull → reconcile → (maybe) push, with a version check right before the write so another device's write in between is
+//    re-reconciled instead of overwritten (up to 3 rounds);
+//  - block file: uploaded once per test, before the state file that points at it;
+//  - polling the state file's version every 15 s (tiny request) and when the tab returns to the foreground; a push when it is hidden.
+function useSessionSync({ drive, stamp, getLocal, onDecision, onSynced, onBlockSaved }) {
+  const { configured, linked, acquireToken, peekToken, lastSync } = drive;
+  const latest = useRef({}); latest.current = { getLocal, onDecision, onSynced, onBlockSaved };
+  const fileRef = useRef((lsGet(LS_SESSION_FILE) || {}).fileId || null);
+  const verRef = useRef(null);
+  const running = useRef(false);
+  const rerun = useRef(false);
+  const linkedRef = useRef(linked); linkedRef.current = linked;
+
+  const remember = (id) => { fileRef.current = id; if (id) lsSet(LS_SESSION_FILE, JSON.stringify({ fileId: id })); else lsRemove(LS_SESSION_FILE); };
+
+  const run = useCallback(async ({ interactive = false } = {}) => {
+    if (!configured || !linkedRef.current) return;
+    if (running.current) { rerun.current = true; return; }
+    running.current = true;
+    try {
+      const token = await acquireToken({ interactive });
+      if (!token) return;
+      for (let round = 0; round < 3; round++) {
+        // 1. pull (version first, then content: if the file changes in between, the pre-push check below catches it)
+        let fileId = fileRef.current; let remote = null; let ver = null;
+        if (fileId) { try { ver = await driveVersion(token, fileId); remote = await driveDownload(token, fileId); } catch (e) { if (e.status === 404) fileId = null; else throw e; } }
+        if (!fileId) { fileId = await driveFindSyncFile(token, SESSION_FILE_NAME); if (fileId) { ver = await driveVersion(token, fileId); remote = await driveDownload(token, fileId); } }
+
+        // 2. reconcile remote vs local
+        const cur = latest.current;
+        const local = cur.getLocal();
+        const { winner, action } = reconcileActiveSession(local.active, remote, local.baseAt);
+
+        // 3. act on what the other device did
+        if (action === "offer" || action === "conflict") {
+          let block = null; try { block = await fetchSessionBlock(token, remote); } catch (e) { /* the prompt retries the download on accept */ }
+          cur.onDecision({ action, remote, block });
+        } else if (action === "adopt" || action === "end") cur.onDecision({ action, remote });
+
+        // 4. push this device's version when it wins
+        if (action === "push" && winner) {
+          let payload = winner;
+          if (winner.ended) {
+            payload = { sessionId: winner.sessionId, ended: true, updatedAt: winner.updatedAt };
+            if (local.blockFileId) { driveDelete(token, local.blockFileId).catch(() => {}); cur.onBlockSaved(winner.sessionId, null); } // the test is over: its question copy can go
+          } else {
+            let bf = winner.blockFileId;
+            if (!bf && local.block) { // first push of this test: the exact question set goes up once, BEFORE the state that points at it
+              bf = await driveUpload(token, null, JSON.stringify({ v: 1, sessionId: winner.sessionId, block: local.block }), blockFileName(winner.sessionId));
+              cur.onBlockSaved(winner.sessionId, bf);
+              driveListByPrefix(token, "oword_block_").then((files) => { // housekeeping: copies left behind by crashed devices, older than 3 days
+                const old = Date.now() - 3 * 24 * 3600 * 1000;
+                files.filter((f) => f.name !== blockFileName(winner.sessionId) && Date.parse(f.createdTime) < old).forEach((f) => driveDelete(token, f.id).catch(() => {}));
+              }).catch(() => {});
+            }
+            payload = { ...winner, blockFileId: bf || null };
+          }
+          if (fileId && ver !== null && (await driveVersion(token, fileId)) !== ver) continue; // someone wrote since we pulled: re-pull and re-reconcile
+          fileId = await driveUpload(token, fileId, JSON.stringify({ v: 1, app: "oworld", ...payload }), SESSION_FILE_NAME);
+          remember(fileId);
+          try { verRef.current = await driveVersion(token, fileId); } catch (e) { verRef.current = null; }
+          cur.onSynced(payload);
+        } else {
+          remember(fileId); verRef.current = ver;
+          cur.onSynced(winner);
+        }
+        break;
+      }
+    } catch (e) { /* offline / blocked: local state is untouched, the next change or poll retries */ }
+    finally {
+      running.current = false;
+      if (rerun.current) { rerun.current = false; setTimeout(() => run(), 0); }
+    }
+  }, [configured, acquireToken]);
+
+  // After any real mutation of the test (answer, navigate, flag, highlight, note): push soon. The files are tiny, so this stays short.
+  const first = useRef(true);
+  useEffect(() => {
+    if (first.current) { first.current = false; return undefined; }
+    if (!linked) return undefined;
+    const id = setTimeout(() => run(), 2000);
+    return () => clearTimeout(id);
+  }, [stamp, linked, run]);
+
+  // On connect / reconnect / after each library sync: make sure the test is current.
+  useEffect(() => { if (linked) run(); else { remember(null); verRef.current = null; } }, [linked, lastSync, run]); // eslint-disable-line
+
+  // Notice the other device: version poll while visible, immediate check on return, push on hide (fresh elapsed time).
+  const poll = useCallback(async () => {
+    const tk = peekToken();
+    if (!configured || !linkedRef.current || running.current || !tk) return;
+    if (!fileRef.current) { run(); return; }                         // nothing known yet: look for the file
+    try { const v = await driveVersion(tk, fileRef.current); if (v !== verRef.current) run(); } catch (e) { /* ignore */ }
+  }, [configured, peekToken, run]);
+  useEffect(() => {
+    if (!configured) return undefined;
+    const onVis = () => { if (!linkedRef.current) return; if (document.visibilityState === "hidden") run(); else poll(); };
+    const id = setInterval(() => { if (document.visibilityState === "visible") poll(); }, 15000);
+    document.addEventListener("visibilitychange", onVis);
+    return () => { clearInterval(id); document.removeEventListener("visibilitychange", onVis); };
+  }, [configured, run, poll]);
+
+  // Prompt "Continue here": the block normally arrives with the prompt, otherwise fetch it now (this is a click, so a sign-in popup is allowed).
+  const fetchBlock = useCallback(async (remote) => {
+    const token = await acquireToken({ interactive: true });
+    if (!token) return null;
+    try { return await fetchSessionBlock(token, remote); } catch (e) { return null; }
+  }, [acquireToken]);
+
+  return { syncNow: () => run({ interactive: true }), fetchBlock };
 }
 
 function loadPrefs() {
@@ -2340,6 +2616,7 @@ function makeLibraryEntry(block) {
 
 // Lets any Settings menu reach the app-level "wipe local data" action without prop-drilling.
 const DataContext = createContext({ resetAllData: () => {} });
+const DriveContext = createContext(null); // the Google account + Drive sync, read by the profile menu on every screen
 
 function ResetDataControl({ T }) {
   const { t } = useI18n();
@@ -2381,9 +2658,19 @@ function ResetDataControl({ T }) {
 // real NBME/UWorld convention.
 // ---------------------------------------------------------------------------
 const HINT_YELLOW = "#EAB308"; // hollow marker for "hint used" (reads on light and dark)
-const HIGHLIGHT_BG = "#FEF08A"; // Tailwind yellow-200
-const HIGHLIGHT_BG_HOVER = "#FDE047"; // Tailwind yellow-300
+const HINT_YELLOW_STRONG = "rgba(234,179,8,0.38)"; // correct option when a hint was used (reads on light and dark)
+const HINT_YELLOW_SOFT = "rgba(234,179,8,0.16)";   // its explanation panel
 const HIGHLIGHT_TEXT = "#0F172A"; // Tailwind slate-900
+// Highlighter palette (pastel fill + a slightly deeper hover tone). Dark text stays readable on all of them in both themes.
+const HL_COLORS = {
+  yellow: { bg: "#FEF08A", hover: "#FDE047", label: "hlYellow" },
+  green:  { bg: "#BBF7D0", hover: "#86EFAC", label: "hlGreen" },
+  blue:   { bg: "#BFDBFE", hover: "#93C5FD", label: "hlBlue" },
+  pink:   { bg: "#FBCFE8", hover: "#F9A8D4", label: "hlPink" },
+  orange: { bg: "#FED7AA", hover: "#FDBA74", label: "hlOrange" },
+};
+const HL_COLOR_KEYS = Object.keys(HL_COLORS);
+const DEFAULT_HL = "yellow"; // highlights saved before colors existed have no `color` and render as yellow
 
 // Walks a container's text nodes to convert a DOM (node, offset) pair from a
 // Selection Range into a plain character offset relative to the container's
@@ -2424,18 +2711,40 @@ function mergeHighlightRanges(ranges) {
   return out;
 }
 
+// Adds one highlight to a field's list. Same-colored neighbours merge into one range; a different color painted over
+// existing highlights replaces just the overlapped part (the old range is trimmed or split around it).
+function insertHighlight(existing, incoming) {
+  const color = incoming.color || DEFAULT_HL;
+  const kept = [];
+  existing.forEach((r) => {
+    const rc = r.color || DEFAULT_HL;
+    if (rc === color || r.end <= incoming.start || r.start >= incoming.end) { kept.push(r); return; }
+    if (r.start < incoming.start) kept.push({ ...r, end: incoming.start });
+    if (r.end > incoming.end) kept.push({ ...r, id: `${r.id}_r${incoming.end}`, start: incoming.end });
+  });
+  const all = [...kept, { ...incoming, color }];
+  const out = [];
+  HL_COLOR_KEYS.forEach((c) => {
+    out.push(...mergeHighlightRanges(all.filter((r) => (r.color || DEFAULT_HL) === c)).map((r) => ({ ...r, color: c })));
+  });
+  return out.sort((a, b) => a.start - b.start);
+}
+
 function useHighlighter(initialMap) {
-  // highlightsMap: { [questionId]: { [field]: [{ id, start, end }] } }
+  // highlightsMap: { [questionId]: { [field]: [{ id, start, end, color }] } }
   const [highlightsMap, setHighlightsMap] = useState(initialMap || {});
+  const [hlColor, setHlColorState] = useState(() => { const c = lsGet("hlColor"); return HL_COLORS[c] ? c : DEFAULT_HL; });
+  function setHlColor(c) { if (!HL_COLORS[c]) return; setHlColorState(c); lsSet("hlColor", JSON.stringify(c)); }
   const [pending, setPending] = useState(null); // { qId, field, containerEl, x, y, range }
 
-  function addHighlight(qId, field, start, end) {
+  function addHighlight(qId, field, start, end, color) {
     if (end <= start) return;
+    const col = HL_COLORS[color] ? color : DEFAULT_HL;
     setHighlightsMap((prev) => {
       const qMap = prev[qId] || {};
       const existing = qMap[field] || [];
       const id = `hl_${Date.now()}_${Math.round(Math.random() * 1e6)}`;
-      const merged = mergeHighlightRanges([...existing, { id, start, end }]);
+      const merged = insertHighlight(existing, { id, start, end, color: col });
       return { ...prev, [qId]: { ...qMap, [field]: merged } };
     });
   }
@@ -2462,11 +2771,13 @@ function useHighlighter(initialMap) {
     setPending({ qId, field, containerEl, range: range.cloneRange(), x: rect.left + rect.width / 2, y: rect.top });
   }
 
-  function commitPending() {
+  function commitPending(color) {
     if (!pending) return;
+    const col = HL_COLORS[color] ? color : hlColor;
+    if (col !== hlColor) setHlColor(col); // the last color used becomes the default (also for Alt+H)
     const { qId, field, containerEl, range } = pending;
     const { start, end } = rangeToOffsets(containerEl, range);
-    addHighlight(qId, field, start, end);
+    addHighlight(qId, field, start, end, col);
     window.getSelection()?.removeAllRanges();
     setPending(null);
   }
@@ -2485,14 +2796,38 @@ function useHighlighter(initialMap) {
     e.preventDefault();
     const field = containerEl.getAttribute("data-hl-field");
     const { start, end } = rangeToOffsets(containerEl, range);
-    addHighlight(qId, field, start, end);
+    addHighlight(qId, field, start, end, hlColor);
     sel.removeAllRanges();
     setPending(null);
   }
 
   function clearPending() { setPending(null); }
 
-  return { highlightsMap, pending, handleSelectionInContainer, commitPending, handleGlobalKeyDown, removeHighlight, clearPending };
+  return { highlightsMap, pending, handleSelectionInContainer, commitPending, handleGlobalKeyDown, removeHighlight, clearPending, hlColor, setHlColor };
+}
+
+// Row of round color swatches. `onPick(colorKey)` fires on click; the active color gets a ring.
+function HighlightSwatches({ value, onPick, T, t, size = 18, ring }) {
+  return (
+    <span role="group" aria-label={t("hlColor")} style={{ display: "inline-flex", alignItems: "center", gap: 6 }}>
+      {HL_COLOR_KEYS.map((k) => (
+        <button
+          key={k}
+          type="button"
+          onMouseDown={(e) => e.preventDefault()} // keep the text selection alive while picking
+          onClick={() => onPick(k)}
+          title={t(HL_COLORS[k].label)}
+          aria-label={t(HL_COLORS[k].label)}
+          aria-pressed={k === value}
+          style={{
+            width: size, height: size, borderRadius: "50%", padding: 0, cursor: "pointer", background: HL_COLORS[k].bg,
+            border: k === value ? `2px solid ${ring || T.ink}` : "1px solid rgba(0,0,0,0.35)",
+            boxSizing: "border-box", flexShrink: 0,
+          }}
+        />
+      ))}
+    </span>
+  );
 }
 
 // Derives an array of plain-text strings interleaved with clickable <mark>
@@ -2518,7 +2853,7 @@ function getClues(text, phrases) {
   return out;
 }
 
-// Renders text with user highlights (yellow, click to remove) and, optionally, key-clue
+// Renders text with user highlights (colored, click to remove) and, optionally, key-clue
 // ranges (clueStyle). Text content is never altered, only wrapped, so highlight offsets stay valid.
 function renderHighlightedText(text, ranges, onRemoveHighlight, clues, clueStyle) {
   const hasUser = ranges && ranges.length > 0;
@@ -2543,6 +2878,7 @@ function renderHighlightedText(text, ranges, onRemoveHighlight, clues, clueStyle
     const u = user.find((r) => r.start <= s0 && r.end >= e0);
     const isClue = clue.some((r) => r.start <= s0 && r.end >= e0);
     if (u) {
+      const hc = HL_COLORS[u.color] || HL_COLORS[DEFAULT_HL];
       nodes.push(
         <mark
           key={`${u.id}-${s0}`}
@@ -2550,12 +2886,12 @@ function renderHighlightedText(text, ranges, onRemoveHighlight, clues, clueStyle
           title="Click to remove highlight"
           onClick={(e) => { e.stopPropagation(); onRemoveHighlight(u.id); }}
           style={{
-            background: HIGHLIGHT_BG, color: HIGHLIGHT_TEXT, borderRadius: 2, padding: "0 1px",
+            background: hc.bg, color: HIGHLIGHT_TEXT, borderRadius: 2, padding: "0 1px",
             cursor: "pointer", transition: "background 0.15s ease",
             ...(isClue && clueStyle ? { borderBottom: clueStyle.borderBottom } : {}),
           }}
-          onMouseEnter={(e) => { e.currentTarget.style.background = HIGHLIGHT_BG_HOVER; }}
-          onMouseLeave={(e) => { e.currentTarget.style.background = HIGHLIGHT_BG; }}
+          onMouseEnter={(e) => { e.currentTarget.style.background = hc.hover; }}
+          onMouseLeave={(e) => { e.currentTarget.style.background = hc.bg; }}
         >
           {seg}
         </mark>
@@ -2615,6 +2951,16 @@ function PrimaryButton({ children, onClick, disabled, icon: Icon, style, T = LIG
   );
 }
 
+// Bare question mark (no circle) used by the Help button and the guide's title.
+function QuestionMarkIcon({ size = 15, color = "currentColor", style }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth={3} strokeLinecap="round" strokeLinejoin="round" style={style} aria-hidden="true">
+      <path d="M8.5 9a3.5 3.5 0 1 1 5.3 3c-1 .6-1.8 1.4-1.8 2.8" />
+      <line x1="12" y1="19.5" x2="12.01" y2="19.5" />
+    </svg>
+  );
+}
+
 function GhostButton({ children, onClick, icon: Icon, style, disabled, title, T = LIGHT }) {
   return (
     <button
@@ -2635,50 +2981,148 @@ function GhostButton({ children, onClick, icon: Icon, style, disabled, title, T 
   );
 }
 
+// Round profile photo with a letter fallback (Google photo URLs can fail offline or when blocked).
+function Avatar({ profile, size = 36, T }) {
+  const [bad, setBad] = useState(false);
+  useEffect(() => { setBad(false); }, [profile && profile.picture]);
+  const letter = ((profile && (profile.name || profile.email)) || "").trim().charAt(0).toUpperCase();
+  if (profile && profile.picture && !bad) {
+    return <img src={profile.picture} alt="" referrerPolicy="no-referrer" onError={() => setBad(true)} style={{ width: size, height: size, borderRadius: "50%", objectFit: "cover", display: "block", flexShrink: 0 }} />;
+  }
+  return (
+    <span style={{ width: size, height: size, borderRadius: "50%", background: T.blue, color: T.onBlue, display: "inline-flex", alignItems: "center", justifyContent: "center", fontFamily: FONT_UI, fontWeight: 700, fontSize: Math.round(size * 0.42), flexShrink: 0 }}>
+      {letter || <UserIcon size={Math.round(size * 0.5)} />}
+    </span>
+  );
+}
+
+// One menu behind the profile picture (upper right of every screen): Google account + Drive sync status, then the app settings.
+// Signed in: round photo, plus the user's name on larger displays. Signed out: a generic account icon.
 function SettingsMenu({ darkMode, setDarkMode, T, iconOnly = false }) {
-  const { t } = useI18n();
+  const { t, lang } = useI18n();
+  const drive = useContext(DriveContext);
+  const vp = useViewport();
   const [open, setOpen] = useState(false);
   const wrapRef = useRef(null);
   const [place, setPlace] = useState({ right: 0 });
-  // When the header wraps (phones), the button can sit near the left edge. Right-align the dropdown when it fits,
+  useEffect(() => {
+    if (!open) return undefined;
+    const away = (e) => { if (wrapRef.current && !wrapRef.current.contains(e.target)) setOpen(false); };
+    const esc = (e) => { if (e.key === "Escape") setOpen(false); };
+    document.addEventListener("mousedown", away); document.addEventListener("touchstart", away); document.addEventListener("keydown", esc);
+    return () => { document.removeEventListener("mousedown", away); document.removeEventListener("touchstart", away); document.removeEventListener("keydown", esc); };
+  }, [open]);
+
+  const signedIn = !!(drive && drive.configured && drive.linked);
+  const profile = signedIn ? drive.profile : null;
+  const displayName = profile ? (profile.name || (profile.email || "").split("@")[0]) : "";
+  const showName = !iconOnly && vp.w >= 900 && !!displayName; // the name only shows on larger displays
+  const reauth = signedIn && drive.status === "reauth";
+  const stText = drive ? {
+    busy: t("syncStBusy"), reauth: t("syncStReauth"), error: t("syncStError"), none: t("syncStNone"), off: t("syncOff"),
+    done: t("syncStDone", { time: drive.lastSync ? new Date(drive.lastSync).toLocaleTimeString(lang === "es" ? "es" : "en-US", { hour: "numeric", minute: "2-digit" }) : "" }),
+  }[drive.status] : "";
+  const tone = drive ? ({ done: "green", busy: "blue", reauth: "amber", error: "red" }[drive.status] || "muted") : "muted";
+
+  // When the header wraps (phones) the button can sit near the left edge. Right-align the dropdown when it fits,
   // else open it to the right, else pin it inside the viewport, so it is never clipped off-screen.
   function toggle() {
     if (!open && wrapRef.current) {
       const r = wrapRef.current.getBoundingClientRect();
       const vw = window.innerWidth;
-      const W = Math.min(240, vw - 16);
+      const W = Math.min(320, vw - 16);
       if (r.right - W >= 8) setPlace({ right: 0 });
       else if (r.left + W <= vw - 8) setPlace({ left: 0 });
       else setPlace({ left: 8 - r.left });
     }
     setOpen((v) => !v);
   }
+  const seg = (active) => ({
+    flex: 1, fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(13), padding: "8px 6px", cursor: "pointer", border: "none",
+    background: active ? T.blueLight : "transparent", color: active ? T.blue : T.ink,
+  });
+  const label = { fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(11), color: T.muted, textTransform: "uppercase", letterSpacing: "0.04em", marginBottom: 6 };
+
   return (
     <div ref={wrapRef} style={{ position: "relative", flexShrink: 0 }}>
       <button
-        onClick={toggle}
+        onClick={toggle} aria-haspopup="true" aria-expanded={open} aria-label={t("settings")}
+        title={showName ? undefined : (profile && profile.email) || t("settings")}
         style={{
-          display: "flex", alignItems: "center", gap: 6, background: "transparent", whiteSpace: "nowrap",
-          border: `1px solid ${T.border}`, borderRadius: 6, padding: iconOnly ? "12px 13px" : "9px 14px", cursor: "pointer",
+          position: "relative", display: "flex", alignItems: "center", gap: 8, background: open ? T.blueLight : "transparent", whiteSpace: "nowrap", cursor: "pointer",
+          border: `1px solid ${open ? T.blue : T.border}`, borderRadius: 999, padding: showName ? "4px 12px 4px 4px" : 3,
           fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(13), color: T.ink,
         }}
-        title={iconOnly ? t("settings") : undefined}
-        aria-label={t("settings")}
       >
-        <SettingsIcon size={15} style={{ flexShrink: 0 }} /> {!iconOnly && t("settings")}
+        {signedIn ? <Avatar profile={profile} size={iconOnly ? 34 : 32} T={T} />
+          : <span style={{ width: iconOnly ? 34 : 32, height: iconOnly ? 34 : 32, borderRadius: "50%", background: T.mutedBg, display: "inline-flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}><UserIcon size={17} color={T.muted} /></span>}
+        {showName && <span style={{ maxWidth: 180, overflow: "hidden", textOverflow: "ellipsis" }}>{displayName}</span>}
+        {showName && <ChevronDown size={15} color={T.muted} style={{ flexShrink: 0 }} />}
+        {reauth && <span title={t("syncStReauth")} style={{ position: "absolute", top: -2, right: -2, width: 11, height: 11, borderRadius: "50%", background: T.amber, border: `2px solid ${T.paper}` }} />}
       </button>
       {open && (
-        <div style={{
-          position: "absolute", top: 42, ...place, background: T.card, border: `1px solid ${T.border}`,
-          borderRadius: 8, padding: 14, width: "min(240px, calc(100vw - 16px))", boxSizing: "border-box", zIndex: 70, boxShadow: "0 8px 24px rgba(0,0,0,0.3)",
+        <div role="menu" style={{
+          position: "absolute", top: 46, ...place, background: T.card, border: `1px solid ${T.border}`, borderRadius: 10,
+          width: "min(320px, calc(100vw - 16px))", maxHeight: "calc(100vh - 64px)", overflowY: "auto", boxSizing: "border-box", zIndex: 70, boxShadow: "0 8px 24px rgba(0,0,0,0.3)",
         }}>
-          <label style={{ display: "flex", alignItems: "center", gap: 8, fontFamily: FONT_UI, fontSize: fs(13), cursor: "pointer", color: T.ink }}>
-            <input type="checkbox" checked={darkMode} onChange={() => setDarkMode((v) => !v)} />
-            {t("dark")}
-          </label>
-          <LangSelect T={T} />
-          <TextSizeControl T={T} />
-          <ResetDataControl T={T} />
+          {/* Account + sync */}
+          <div style={{ padding: 16, background: T.blueLight, borderRadius: "10px 10px 0 0", display: "grid", gap: 10 }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 12, minWidth: 0 }}>
+              {signedIn ? <Avatar profile={profile} size={46} T={T} />
+                : <span style={{ width: 46, height: 46, borderRadius: "50%", background: T.card, display: "inline-flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}><UserIcon size={22} color={T.muted} /></span>}
+              <div style={{ minWidth: 0 }}>
+                <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(15), color: T.ink, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
+                  {signedIn ? (displayName || "Google") : t("signedOutNote")}
+                </div>
+                {signedIn && profile && profile.name && profile.email && <div style={{ fontFamily: FONT_UI, fontSize: fs(12.5), color: T.muted, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{profile.email}</div>}
+              </div>
+            </div>
+            {drive && drive.configured && !signedIn && (
+              <>
+                <p style={{ fontFamily: FONT_UI, fontSize: fs(12.5), color: T.muted, lineHeight: 1.5, margin: 0 }}>{t("signInHint")}</p>
+                <PrimaryButton T={T} icon={LogIn} onClick={() => { setOpen(false); drive.signIn(); }} style={{ width: "100%", justifyContent: "center" }}>{t("signIn")}</PrimaryButton>
+              </>
+            )}
+            {drive && !drive.configured && <p style={{ fontFamily: FONT_UI, fontSize: fs(12.5), color: T.muted, lineHeight: 1.5, margin: 0 }}>{t("syncOff")}</p>}
+            {signedIn && (
+              <>
+                <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap" }}>
+                  <Cloud size={15} color={T.blue} />
+                  <span style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(12.5), color: T.ink }}>{t("syncTitle")}</span>
+                  <Pill T={T} tone={tone}>{stText}</Pill>
+                </div>
+                {drive.status === "reauth" && <p style={{ fontFamily: FONT_UI, fontSize: fs(12), color: T.amber, lineHeight: 1.45, margin: 0 }}>{t("syncReauthHint")}</p>}
+                {drive.errKey && <p role="alert" style={{ fontFamily: FONT_UI, fontSize: fs(12), color: T.red, lineHeight: 1.45, margin: 0 }}>{t(drive.errKey)}</p>}
+                {drive.status === "reauth"
+                  ? <PrimaryButton T={T} icon={Cloud} onClick={drive.reconnect} style={{ width: "100%", justifyContent: "center" }}>{t("syncReconnect")}</PrimaryButton>
+                  : <PrimaryButton T={T} icon={RefreshCw} onClick={drive.syncNow} disabled={drive.status === "busy"} style={{ width: "100%", justifyContent: "center" }}>{t("syncNow")}</PrimaryButton>}
+              </>
+            )}
+          </div>
+
+          {/* Settings */}
+          <div style={{ padding: "6px 16px 4px" }}>
+            <LangSelect T={T} />
+            <div style={{ margin: "10px 0 12px" }}>
+              <div style={label}>{t("themeLabel")}</div>
+              <div role="group" aria-label={t("themeLabel")} style={{ display: "flex", border: `1px solid ${T.border}`, borderRadius: 6, overflow: "hidden" }}>
+                <button onClick={() => setDarkMode(false)} aria-pressed={!darkMode} style={seg(!darkMode)}>{t("themeLight")}</button>
+                <button onClick={() => setDarkMode(true)} aria-pressed={darkMode} style={{ ...seg(darkMode), borderLeft: `1px solid ${T.border}` }}>{t("themeDark")}</button>
+              </div>
+            </div>
+            <TextSizeControl T={T} />
+          </div>
+
+          {/* Sign out */}
+          {signedIn && (
+            <div style={{ borderTop: `1px solid ${T.border}`, padding: "6px 16px 12px", marginTop: 8 }}>
+              <button onClick={() => { setOpen(false); drive.signOut(); }} style={{
+                width: "100%", display: "flex", alignItems: "center", justifyContent: "center", gap: 8, background: "transparent", border: "none", cursor: "pointer",
+                padding: "10px 0 4px", fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(13), letterSpacing: "0.06em", textTransform: "uppercase", color: T.ink,
+              }}><LogOut size={15} /> {t("signOut")}</button>
+              <p style={{ fontFamily: FONT_UI, fontSize: fs(11.5), color: T.muted, lineHeight: 1.45, margin: "4px 0 0", textAlign: "center" }}>{t("signOutHint")}</p>
+            </div>
+          )}
         </div>
       )}
     </div>
@@ -2859,7 +3303,7 @@ function QbankLibraryPanel({ library, onLaunch, onMix, onDelete, onRename, resum
     setExp(r === "cancelled" ? null : { phase: "done", n: entries.length, result: r }); // closing the share sheet is not an error
   }
   const [mixSize, setMixSize] = useState("all");
-  const [mode, setMode] = useState("timed"); // how the next Load starts: "timed" | "tutor"
+  const [mode, setMode] = useState("tutor"); // how the next Load starts: "timed" | "tutor" (Tutor is preselected)
   const [mixDiff, setMixDiff] = useState("all"); // all | easy | medium | hard | balanced
   const mixInfo = useMemo(
     () => (liveQueue.length >= 1 ? buildMixPool(liveQueue.map((id) => library.find((e) => e.id === id))) : null),
@@ -3080,13 +3524,343 @@ function QbankLibraryPanel({ library, onLaunch, onMix, onDelete, onRename, resum
 
 
 // ---------------------------------------------------------------------------
-// Past Sessions: one row per finished block, newest first. Rows are snapshots, so they stay valid after a Qbank is renamed or deleted.
+// Analytics: one row per finished block, newest first. Rows are snapshots, so they stay valid after a Qbank is renamed or deleted.
 // ---------------------------------------------------------------------------
 function sessionTitle(h, t) {
   if (h.isRetest) return `${blockLabel(h, t)} · ${t("histQ", { n: h.total })}`;
   const diff = h.mixDifficulty && h.mixDifficulty !== "all" ? ` · ${t(h.mixDifficulty === "balanced" ? "mixBalancedShort" : "dl." + h.mixDifficulty)}` : "";
   if (h.isMixed && h.mixCount > 1) return t("histMixed", { n: h.mixCount, q: h.total }) + diff;
   return t("histNamed", { name: h.blockName, q: h.total }) + diff;
+}
+
+// Shared analytics maths for the donut (Analytics page + Console). Correct = green, correct after using a hint = yellow,
+// incorrect = red. Only answered questions count (skipped ones are left out). Sessions logged before hints were tracked per
+// entry get their hint count from the saved review snapshot when one still exists; otherwise all their correct answers
+// count as plain correct.
+function overviewTotals(history) {
+  let answered = 0, correct = 0, hinted = 0;
+  history.forEach((h) => {
+    const a = Number.isFinite(h.answered) ? h.answered : (Number(h.total) || 0);
+    const c = Math.min(Number(h.correct) || 0, a);
+    let hc = Number.isFinite(h.hintCorrect) ? h.hintCorrect : null;
+    if (hc === null) {
+      hc = 0;
+      const snap = lsGet(LS_REVIEW + h.id);
+      if (snap && snap.block && snap.blockState && snap.blockState.answers) {
+        hc = snap.block.questions.filter((q) => { const x = snap.blockState.answers[q.id]; return x && x.hintUsed && x.selected === q.correctAnswer; }).length;
+      }
+    }
+    answered += a; correct += c; hinted += Math.min(hc, c);
+  });
+  return { answered, plain: correct - hinted, hinted, incorrect: answered - correct, correct };
+}
+
+function DonutRing({ totals, T, maxW = 240 }) {
+  const { t } = useI18n();
+  const pct = Math.round((totals.correct / totals.answered) * 100);
+  const R = 90, C = 2 * Math.PI * R;
+  let offset = 0;
+  const arcs = [
+    { key: "plain", n: totals.plain, color: T.green },
+    { key: "hint", n: totals.hinted, color: HINT_YELLOW },
+    { key: "wrong", n: totals.incorrect, color: T.red },
+  ].filter((x) => x.n > 0).map((x) => { const len = (x.n / totals.answered) * C; const arc = { ...x, len, start: offset }; offset += len; return arc; });
+  return (
+    <div style={{ position: "relative", width: `min(100%, ${maxW}px)`, aspectRatio: "1 / 1", flexShrink: 0, margin: "0 auto" }}>
+      <svg viewBox="0 0 200 200" width="100%" height="100%" role="img" aria-label={`${pct}% ${t("anCenter")}`}>
+        <circle cx="100" cy="100" r={R} fill="none" stroke={T.border} strokeWidth="10" />
+        {arcs.map((a) => (
+          <circle key={a.key} cx="100" cy="100" r={R} fill="none" stroke={a.color} strokeWidth="10"
+            strokeDasharray={`${a.len} ${C - a.len}`} strokeDashoffset={-a.start} transform="rotate(-90 100 100)" />
+        ))}
+      </svg>
+      <div style={{ position: "absolute", inset: 0, display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", textAlign: "center", padding: 24 }}>
+        <span style={{ fontFamily: FONT_UI, fontWeight: 800, fontSize: fs(maxW < 200 ? 32 : 40), color: T.ink, lineHeight: 1.05 }}>{pct}%</span>
+        <span style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(maxW < 200 ? 10.5 : 11.5), color: T.muted, textTransform: "uppercase", letterSpacing: "0.03em", marginTop: 4 }}>{t("anCenter")}</span>
+      </div>
+    </div>
+  );
+}
+
+function DonutLegend({ totals, T }) {
+  const { t } = useI18n();
+  const pctOf = (n) => Math.round((n / totals.answered) * 100);
+  const rows = [
+    { key: "plain", n: totals.plain, color: T.green, label: t("anCorrect") },
+    { key: "hint", n: totals.hinted, color: HINT_YELLOW, label: t("anHints") },
+    { key: "wrong", n: totals.incorrect, color: T.red, label: t("anIncorrect") },
+  ];
+  return (
+    <div style={{ flex: "1 1 220px", minWidth: 0 }}>
+      <p style={{ fontFamily: FONT_UI, fontSize: fs(15), color: T.ink, margin: "0 0 14px" }}>{t("anOverall", { n: totals.answered })}</p>
+      <div style={{ display: "grid", gap: 12 }}>
+        {rows.map((x) => (
+          <div key={x.key} style={{ display: "flex", alignItems: "center", gap: 12 }}>
+            <span aria-hidden="true" style={{ width: 40, height: 20, borderRadius: 999, background: x.color, flexShrink: 0 }} />
+            <span style={{ fontFamily: FONT_UI, fontSize: fs(14.5), color: T.ink }}>
+              <strong>{pctOf(x.n)}% {x.label}</strong> {x.n === 1 ? t("anQ1") : t("anQ", { n: x.n })}
+            </span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+// Analytics page: the donut across every logged session, above the session list.
+function AnalyticsOverview({ history, T }) {
+  const totals = useMemo(() => overviewTotals(history), [history]);
+  if (totals.answered <= 0) return null;
+  return (
+    <div style={{ display: "flex", alignItems: "center", gap: 28, flexWrap: "wrap", padding: "6px 0 22px", marginBottom: 20, borderBottom: `1px solid ${T.border}` }}>
+      <DonutRing totals={totals} T={T} />
+      <DonutLegend totals={totals} T={T} />
+    </div>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// Console: the default Home page. A dashboard over everything else: greeting, one-tap resume, headline stats,
+// the analytics donut, score trend, strongest / weakest subjects, recent sessions and a peek at the library.
+// ---------------------------------------------------------------------------
+function TrendSpark({ vals, T }) {
+  const W = 300, H = 96, PX = 10, PY = 10;
+  const x = (i) => PX + (vals.length === 1 ? 0 : (i * (W - 2 * PX)) / (vals.length - 1));
+  const y = (v) => PY + (1 - Math.max(0, Math.min(100, v)) / 100) * (H - 2 * PY);
+  const pts = vals.map((v, i) => `${x(i)},${y(v)}`).join(" ");
+  return (
+    <svg viewBox={`0 0 ${W} ${H}`} width="100%" height="auto" style={{ display: "block", maxHeight: 130 }} role="img" aria-label={vals.map((v) => `${v}%`).join(", ")}>
+      <line x1={PX} x2={W - PX} y1={y(70)} y2={y(70)} stroke={T.border} strokeWidth="1.5" strokeDasharray="4 4" />
+      <polyline points={pts} fill="none" stroke={T.blue} strokeWidth="2.5" strokeLinejoin="round" strokeLinecap="round" />
+      {vals.map((v, i) => <circle key={i} cx={x(i)} cy={y(v)} r={i === vals.length - 1 ? 4.5 : 3} fill={v >= 70 ? T.green : T.red} stroke={T.card} strokeWidth="1.5" />)}
+    </svg>
+  );
+}
+
+function ConsolePanel({ library, sessionLog, session, onResume, onOpenLobby, onReview, onNavigate, T }) {
+  const { t, lang } = useI18n();
+  const drive = useContext(DriveContext);
+  const phone = useViewport().w < 640;
+  const signedIn = !!(drive && drive.configured && drive.linked && drive.profile);
+  const firstName = signedIn ? String(drive.profile.name || (drive.profile.email || "").split("@")[0] || "").trim().split(/\s+/)[0] : "";
+  const hr = new Date().getHours();
+  const greet = t(hr < 12 ? "csGoodMorning" : hr < 18 ? "csGoodAfternoon" : "csGoodEvening");
+  const locale = lang === "es" ? "es" : "en-US";
+  const card = { background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, padding: phone ? 18 : 24 };
+  const cardHead = { display: "flex", alignItems: "center", gap: 8, marginBottom: 14, flexWrap: "wrap" };
+  const headTxt = { fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(14), color: T.ink };
+  const linkBtn = { marginLeft: "auto", fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(12.5), color: T.blue, background: "transparent", border: "none", cursor: "pointer", padding: 4 };
+
+  const data = useMemo(() => {
+    const ordered = [...sessionLog].sort((a, b) => b.finishedAt - a.finishedAt);
+    const totals = overviewTotals(sessionLog);
+    const week = sessionLog.filter((e) => e.finishedAt >= Date.now() - 7 * 864e5).length;
+    const days = new Set(sessionLog.map((e) => new Date(e.finishedAt).toDateString()));
+    let streak = 0;
+    const d = new Date();
+    if (!days.has(d.toDateString())) d.setDate(d.getDate() - 1); // today not done yet: yesterday keeps the streak alive
+    while (days.has(d.toDateString())) { streak += 1; d.setDate(d.getDate() - 1); }
+    const trend = ordered.slice(0, 10).reverse().map((e) => Number(e.pct) || 0);
+    const subj = new Map();
+    sessionLog.forEach((e) => (Array.isArray(e.bySubject) ? e.bySubject : []).forEach((x) => {
+      const cur = subj.get(x.subject) || { subject: x.subject, correct: 0, total: 0 };
+      cur.correct += Number(x.correct) || 0; cur.total += Number(x.total) || 0; subj.set(x.subject, cur);
+    }));
+    const ranked = [...subj.values()].filter((x) => x.total >= 5).map((x) => ({ ...x, pct: Math.round((x.correct / x.total) * 100) })).sort((a, b) => b.pct - a.pct || b.total - a.total);
+    const strong = ranked.slice(0, 3);
+    const weak = ranked.slice(strong.length).slice(-3).reverse(); // lowest first, never repeats a strong subject
+    return { ordered, totals, week, streak, trend, strong, weak };
+  }, [sessionLog]);
+
+  const inProg = !!(session && session.block);
+  const qTotal = inProg ? session.block.questions.length : 0;
+  const qPos = inProg ? (Number(session.bs.currentQuestionIndex) || 0) + 1 : 0;
+  const qDone = inProg ? Object.values(session.bs.answers || {}).filter((a) => a && a.selected).length : 0;
+  const recentLib = useMemo(() => [...library].sort((a, b) => (b.updatedAt || b.importDate || 0) - (a.updatedAt || a.importDate || 0)).slice(0, 3), [library]);
+  const hasSessions = sessionLog.length > 0;
+  const accuracy = data.totals.answered > 0 ? `${Math.round((data.totals.correct / data.totals.answered) * 100)}%` : "—";
+  const fmtDay = (ms) => new Date(ms).toLocaleDateString(locale, { month: "short", day: "numeric" });
+
+  const tile = (icon, label, value, sub) => (
+    <div style={{ ...card, padding: "16px 18px" }}>
+      <div style={{ display: "flex", alignItems: "center", gap: 7, fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(12), color: T.muted, textTransform: "uppercase", letterSpacing: "0.05em" }}>{icon}{label}</div>
+      <div style={{ fontFamily: FONT_UI, fontWeight: 800, fontSize: fs(30), color: T.ink, lineHeight: 1.15, marginTop: 6 }}>{value}</div>
+      <div style={{ fontFamily: FONT_UI, fontSize: fs(12), color: T.muted, minHeight: "1.3em" }}>{sub || " "}</div>
+    </div>
+  );
+  const subjectRows = (rows) => rows.map((r) => (
+    <div key={r.subject} style={{ display: "flex", alignItems: "center", gap: 8, padding: "6px 0" }}>
+      <span style={{ flex: 1, minWidth: 0, fontFamily: FONT_UI, fontSize: fs(13.5), color: T.ink, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{r.subject}</span>
+      <span style={{ fontFamily: FONT_MONO, fontSize: fs(11.5), color: T.muted }}>{r.correct}/{r.total}</span>
+      <Pill T={T} tone={r.pct >= 70 ? "green" : "red"}>{r.pct}%</Pill>
+    </div>
+  ));
+
+  return (
+    <div style={{ display: "grid", gap: 20 }}>
+      {/* Greeting */}
+      <div>
+        <h1 style={{ fontFamily: FONT_DISPLAY, fontSize: fs(phone ? 28 : 34), fontWeight: 600, color: T.ink, margin: "0 0 4px" }}>{firstName ? `${greet}, ${firstName}` : greet}</h1>
+        <p style={{ fontFamily: FONT_UI, fontSize: fs(14), color: T.muted, margin: 0 }}>
+          {new Date().toLocaleDateString(locale, { weekday: "long", month: "long", day: "numeric" })} · {data.streak > 0 ? t("csStreakLine", { n: data.streak }) : t("csReadyLine")}
+        </p>
+      </div>
+
+      {/* Resume / start */}
+      <div style={{ ...card, borderColor: session ? T.blue : T.border, display: "flex", alignItems: "center", justifyContent: "space-between", gap: 16, flexWrap: "wrap" }}>
+        {session ? (
+          <>
+            <div style={{ flex: "1 1 260px", minWidth: 0 }}>
+              <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(11.5), color: T.blue, textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 3 }}>
+                {inProg ? t("sessionInProgress") : t("examLoadedLabel")}
+              </div>
+              <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(17), color: T.ink, overflowWrap: "anywhere" }}>
+                {inProg ? blockLabel(session.block, t) : (session.examTitle || t("practiceExam"))}
+              </div>
+              {inProg && (
+                <>
+                  <div style={{ fontFamily: FONT_MONO, fontSize: fs(12), color: T.muted, margin: "4px 0 8px" }}>
+                    {t("sessionPos", { n: qPos, total: qTotal })} · {t("csProgress", { a: qDone, n: qTotal })}
+                  </div>
+                  <div style={{ height: 6, borderRadius: 999, background: T.mutedBg, overflow: "hidden", maxWidth: 420 }}>
+                    <div style={{ width: `${qTotal ? Math.round((qDone / qTotal) * 100) : 0}%`, height: "100%", background: T.blue }} />
+                  </div>
+                </>
+              )}
+            </div>
+            {inProg
+              ? <PrimaryButton T={T} onClick={onResume} icon={Play}>{t("resumeSession")}</PrimaryButton>
+              : <GhostButton T={T} onClick={onOpenLobby}>{t("openLobby")}</GhostButton>}
+          </>
+        ) : (
+          <>
+            <div style={{ flex: "1 1 260px", minWidth: 0 }}>
+              <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(16), color: T.ink }}>{t("csNoSession")}</div>
+              <div style={{ fontFamily: FONT_UI, fontSize: fs(13.5), color: T.muted, marginTop: 3 }}>{t("csNoSessionHint")}</div>
+            </div>
+            <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
+              <PrimaryButton T={T} onClick={() => onNavigate("library")} icon={BookOpen}>{t("csOpenLibrary")}</PrimaryButton>
+              <GhostButton T={T} onClick={() => onNavigate("import")} icon={Plus}>{t("csImportNew")}</GhostButton>
+            </div>
+          </>
+        )}
+      </div>
+
+      {!hasSessions ? (
+        <div style={{ ...card, textAlign: "center", padding: phone ? "28px 18px" : "40px 24px" }}>
+          <BarChart3 size={30} color={T.blue} />
+          <h2 style={{ fontFamily: FONT_DISPLAY, fontSize: fs(22), fontWeight: 600, color: T.ink, margin: "10px 0 6px" }}>{t("csFirstTitle")}</h2>
+          <p style={{ fontFamily: FONT_UI, fontSize: fs(14), color: T.muted, lineHeight: 1.6, margin: "0 auto", maxWidth: 520 }}>{t("csFirstBody")}</p>
+        </div>
+      ) : (
+        <>
+          {/* Headline stats */}
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))", gap: 14 }}>
+            {tile(<ClipboardList size={14} />, t("csStatSessions"), sessionLog.length, t("csStatWeek", { n: data.week }))}
+            {tile(<Target size={14} />, t("csStatAnswered"), data.totals.answered)}
+            {tile(<CheckCircle2 size={14} />, t("csStatAccuracy"), accuracy)}
+            {tile(<Flame size={14} />, t("csStatStreak"), data.streak, data.streak === 1 ? t("csStatDay1") : t("csStatDays", { n: data.streak }))}
+          </div>
+
+          {/* Analytics highlights */}
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 340px), 1fr))", gap: 20 }}>
+            <div style={card}>
+              <div style={cardHead}>
+                <BarChart3 size={17} color={T.ink} />
+                <span style={headTxt}>{t("csHighlights")}</span>
+                <button onClick={() => onNavigate("analytics")} style={linkBtn}>{t("csViewAll")}</button>
+              </div>
+              {data.totals.answered > 0 && (
+                <div style={{ display: "flex", alignItems: "center", gap: 22, flexWrap: "wrap" }}>
+                  <DonutRing totals={data.totals} T={T} maxW={190} />
+                  <DonutLegend totals={data.totals} T={T} />
+                </div>
+              )}
+            </div>
+
+            <div style={{ display: "grid", gap: 20, alignContent: "start" }}>
+              <div style={card}>
+                <div style={cardHead}>
+                  <TrendingUp size={17} color={T.ink} />
+                  <span style={headTxt}>{t("csTrend")}</span>
+                </div>
+                {data.trend.length >= 2 ? (
+                  <>
+                    <TrendSpark vals={data.trend} T={T} />
+                    <div style={{ fontFamily: FONT_UI, fontSize: fs(11.5), color: T.muted, marginTop: 6 }}>{t("csTrendHint", { n: data.trend.length })}</div>
+                  </>
+                ) : <p style={{ fontFamily: FONT_UI, fontSize: fs(13.5), color: T.muted, margin: 0 }}>{t("csTrendNeed")}</p>}
+              </div>
+
+              <div style={card}>
+                {data.strong.length > 0 ? (
+                  <>
+                    <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(11.5), color: T.green, textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 4 }}>{t("csStrong")}</div>
+                    {subjectRows(data.strong)}
+                    {data.weak.length > 0 && (
+                      <>
+                        <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(11.5), color: T.red, textTransform: "uppercase", letterSpacing: "0.06em", margin: "14px 0 4px" }}>{t("csWeak")}</div>
+                        {subjectRows(data.weak)}
+                      </>
+                    )}
+                  </>
+                ) : <p style={{ fontFamily: FONT_UI, fontSize: fs(13.5), color: T.muted, margin: 0 }}>{t("csSubjNeed")}</p>}
+              </div>
+            </div>
+          </div>
+
+          {/* Recent sessions */}
+          <div style={card}>
+            <div style={cardHead}>
+              <ClipboardList size={17} color={T.ink} />
+              <span style={headTxt}>{t("csRecent")}</span>
+              <button onClick={() => onNavigate("analytics")} style={linkBtn}>{t("csViewAll")}</button>
+            </div>
+            <div style={{ display: "grid", gap: 8 }}>
+              {data.ordered.slice(0, 3).map((h) => (
+                <div key={h.id} style={{ display: "flex", alignItems: "center", gap: 12, flexWrap: "wrap", padding: "12px 14px", borderRadius: 8, border: `1px solid ${T.border}` }}>
+                  <div style={{ flex: 1, minWidth: 180 }}>
+                    <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap" }}>
+                      <span style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(14), color: T.ink }}>{sessionTitle(h, t)}</span>
+                      <Pill T={T} tone={h.pct >= 70 ? "green" : "red"}>{h.pct}% ({h.correct}/{h.total})</Pill>
+                    </div>
+                    <span style={{ fontFamily: FONT_MONO, fontSize: fs(12), color: T.muted }}>{fmtDay(h.finishedAt)}{h.elapsedSec ? ` · ${fmtTime(h.elapsedSec)}` : ""}</span>
+                  </div>
+                  {hasReviewSnapshot(h.id) && <GhostButton T={T} icon={ClipboardList} onClick={() => onReview(h.id)}>{t("histReview")}</GhostButton>}
+                </div>
+              ))}
+            </div>
+          </div>
+        </>
+      )}
+
+      {/* Library peek */}
+      <div style={card}>
+        <div style={cardHead}>
+          <BookOpen size={17} color={T.ink} />
+          <span style={headTxt}>{t("csYourLibrary")}</span>
+          {library.length > 0 && <Pill T={T} tone="muted">{t("csLibSub", { n: library.length })}</Pill>}
+          <button onClick={() => onNavigate("library")} style={linkBtn}>{t("csOpenLibrary")}</button>
+        </div>
+        {recentLib.length === 0 ? (
+          <p style={{ fontFamily: FONT_UI, fontSize: fs(13.5), color: T.muted, margin: 0 }}>{t("csLibEmpty")}</p>
+        ) : (
+          <div style={{ display: "grid", gap: 8 }}>
+            {recentLib.map((e) => {
+              const ls = e.lastScore;
+              return (
+                <button key={e.id} onClick={() => onNavigate("library")} style={{ display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap", textAlign: "left", padding: "12px 14px", borderRadius: 8, border: `1px solid ${T.border}`, background: "transparent", cursor: "pointer" }}>
+                  <span style={{ flex: 1, minWidth: 160, fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(14), color: T.ink, overflowWrap: "anywhere" }}>{e.title}</span>
+                  <span style={{ fontFamily: FONT_MONO, fontSize: fs(12), color: T.muted }}>{e.questions.length} Q</span>
+                  {ls ? <Pill T={T} tone={ls.pct >= 70 ? "green" : "red"}>{t("libLastScore", { pct: ls.pct, c: ls.correct, t: ls.total })}</Pill> : <Pill T={T} tone="muted">{t("libNoScore")}</Pill>}
+                </button>
+              );
+            })}
+          </div>
+        )}
+      </div>
+    </div>
+  );
 }
 
 function SessionHistoryPanel({ history, onDelete, onClear, onReview, T }) {
@@ -3104,7 +3878,7 @@ function SessionHistoryPanel({ history, onDelete, onClear, onReview, T }) {
   return (
     <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, padding: 24, marginBottom: 20 }}>
       <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 14, flexWrap: "wrap" }}>
-        <ClipboardList size={17} color={T.ink} />
+        <BarChart3 size={17} color={T.ink} />
         <span style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(14), color: T.ink }}>{t("histTitle")}</span>
         <Pill T={T} tone="muted">{history.length}</Pill>
         {history.length > 0 && (
@@ -3131,6 +3905,8 @@ function SessionHistoryPanel({ history, onDelete, onClear, onReview, T }) {
           </span>
         </div>
       )}
+
+      <AnalyticsOverview history={history} T={T} />
 
       {history.length === 0 ? (
         <p style={{ fontFamily: FONT_UI, fontSize: fs(13.5), color: T.muted, lineHeight: 1.6, margin: 0 }}>{t("histEmpty")}</p>
@@ -3173,46 +3949,54 @@ function SessionHistoryPanel({ history, onDelete, onClear, onReview, T }) {
   );
 }
 
-// Segmented switch above the Qbank Library: Library | Past Sessions (N).
-function LibraryTabs({ tab, setTab, count, T }) {
+// Menu bar under the logo / account row: the four Home pages. Console | Library | Import | Analytics (N finished sessions).
+function PageNav({ tab, setTab, count, T }) {
   const { t } = useI18n();
+  const items = [["console", t("tabConsole"), LayoutDashboard], ["library", t("tabLibrary"), BookOpen], ["import", t("tabImport"), Plus], ["analytics", t("tabHistory"), BarChart3]];
   return (
-    <div style={{ display: "flex", justifyContent: "center", marginBottom: 14 }}>
-    <div role="tablist" style={{ display: "inline-flex", border: `1px solid ${T.border}`, borderRadius: 8, overflow: "hidden" }}>
-      {[["library", t("tabLibrary"), BookOpen], ["history", t("tabHistory"), ClipboardList]].map(([id, label, Ic]) => (
-        <button key={id} role="tab" aria-selected={tab === id} onClick={() => setTab(id)} style={{
-          display: "flex", alignItems: "center", gap: 6, fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(12.5), padding: "9px 16px", border: "none",
-          cursor: "pointer", background: tab === id ? T.blue : "transparent", color: tab === id ? T.onBlue : T.ink,
-        }}><Ic size={14} /> {label}</button>
-      ))}
-    </div>
-    </div>
+    <nav style={{ borderBottom: `1px solid ${T.border}`, marginBottom: 22, overflowX: "auto" }}>
+      <div role="tablist" style={{ display: "flex", gap: 4, minWidth: "max-content" }}>
+        {items.map(([id, label, Ic]) => {
+          const on = tab === id;
+          return (
+            <button key={id} role="tab" aria-selected={on} onClick={() => setTab(id)} style={{
+              display: "flex", alignItems: "center", gap: 7, padding: "12px 16px", background: "transparent", border: "none", cursor: "pointer",
+              borderBottom: `3px solid ${on ? T.blue : "transparent"}`, marginBottom: -1, whiteSpace: "nowrap",
+              fontFamily: FONT_UI, fontWeight: on ? 700 : 600, fontSize: fs(14), color: on ? T.blue : T.ink,
+            }}>
+              <Ic size={16} /> {label}
+              {id === "analytics" && count > 0 && <Pill T={T} tone="muted">{count}</Pill>}
+            </button>
+          );
+        })}
+      </div>
+    </nav>
   );
 }
 
 // ---------------------------------------------------------------------------
 // Import screen
 // ---------------------------------------------------------------------------
-// Quick-start guide shown from the Home screen's "How it works" button. Plain language, one idea per step, and the button /
+// Quick-start guide shown from the Home screen's "Help" button. Plain language, one idea per step, and the button /
 // feature names match the on-screen labels in each language.
 const GUIDE = {
   en: [
     { title: "Welcome to OWORLD", body: "OWORLD is a practice-exam simulator. You bring the questions, and it turns them into a realistic exam with answer tools, instant feedback and score tracking.",
       points: ["You don't need any technical skills.", "Your saved question blocks, ratings and progress are stored only in this browser."] },
     { title: "1. Get your questions", body: "A question bank (\"Qbank\") is simply a set of practice questions. You can ask an AI tool to write one for you.",
-      points: ["On Home, open Import New Qbank. AI Quick Launch at the top has one-tap links to ChatGPT, Claude, Gemini and NotebookLM, and NotebookLM Notebooks beside it opens your study notebooks by block.", "Open Question Recipe Prompt, choose a difficulty (Mixed is recommended) and copy the prompt.", "Paste it into your AI tool along with your topic or notes.", "Paste the AI's reply back into OWORLD (or upload the file) and tap Load exam.", "Tap Save to Library to keep the questions for next time."] },
-    { title: "2. Your Qbank Library", body: "Home shows your saved blocks first, so you can jump straight back in.",
-      points: ["Each card shows its status: Not attempted yet, In progress, or Completed with your score. Running a Qbank in full on its own marks its card Completed.", "Tick a block, choose how many of its questions to practice (5 to 40, Max, or any number you type), then tap Load. Tick two or more to merge them into one custom block, pick a difficulty and size, then tap Mix.", "Custom and mixed runs are saved under Past Sessions and never change your cards.", "Ticking a block shows a toolbar at the top right: Share / Export Selected, Edit Selected (rename) and Delete Selected.", "A block you left half-finished shows Resume Session."] },
+      points: ["On Home, open Import in the menu bar. AI Quick Launch at the top has one-tap links to ChatGPT, Claude, Gemini and NotebookLM, and NotebookLM Notebooks beside it opens your study notebooks by block.", "Open Question Recipe Prompt, choose a difficulty (Mixed is recommended) and copy the prompt.", "Paste it into your AI tool along with your topic or notes.", "Paste the AI's reply back into OWORLD (or upload the file) and tap Load exam.", "Tap Save to Library to keep the questions for next time."] },
+    { title: "2. Your Qbank Library", body: "The Library page holds your saved blocks, so you can jump straight back in. The Console page is your dashboard: a greeting, a one-tap Resume, and your analytics highlights.",
+      points: ["Each card shows its status: Not attempted yet, In progress, or Completed with your score. Running a Qbank in full on its own marks its card Completed.", "Tick a block, choose how many of its questions to practice (5 to 40, Max, or any number you type), then tap Load. Tick two or more to merge them into one custom block, pick a difficulty and size, then tap Mix.", "Custom and mixed runs are saved under Analytics and never change your cards.", "Ticking a block shows a toolbar at the top right: Share / Export Selected, Edit Selected (rename) and Delete Selected.", "A block you left half-finished shows Resume Session."] },
     { title: "3. Pick a mode", body: "Before you press Start block, choose how you want to practice. Tutor Mode is selected by default.",
       points: ["Tutor Mode: no timer, and you get feedback right after each answer.", "Timed Mode: a countdown like the real exam, with no feedback until the block ends. There is no Home button during a timed block, so plan to finish it.", "In Timed Mode you can switch the timer off during the block, but not back on."] },
     { title: "4. Answering questions", body: "Tap an answer choice. In Tutor Mode you see the result straight away.",
-      points: ["Key Info highlights the important clues in the story. Tutor's Tip gives you a hint. If you open either before answering, the question is tagged Hint used.", "Got it wrong? Tap Show Correct Answer when you're ready, and Why this is incorrect to see why each choice is wrong. Source References are tucked into a dropdown.", "After answering, rate how well you knew it: Again, Hard, Good or Easy. You can retest by rating later.", "Tools: Mark Question (flag it), the ab button to strike out a choice, Highlight for selected text, Notes, Lab Values and Calculator.", "On a computer, the question list on the left lets you jump anywhere. Use its arrow to collapse it."] },
+      points: ["Key Info highlights the important clues in the story. Tutor's Tip gives you a hint. If you open either before answering, the question is tagged Hint used.", "Got it wrong? Tap Show Correct Answer when you're ready, then tap any answer choice to open or close its explanation. Source References are tucked into a dropdown.", "After answering, rate how well you knew it: Again, Hard, Good or Easy. You can retest by rating later.", "Tools: Mark Question (flag it), the ab button to strike out a choice, Highlight for selected text, Notes, Lab Values and Calculator.", "On a computer, the question list on the left lets you jump anywhere. Use its arrow to collapse it."] },
     { title: "5. Results and retesting", body: "When you tap End Block you get your score, breakdowns by subject and difficulty, and a review of every question.",
       points: ["Retest Incorrects (Tutor Mode) practices only what you missed. Retest Full Block goes again. You can also retest only flagged questions, or ones you rated Again or Hard.", "Your first-attempt score is always kept as your baseline. Retests never overwrite it."] },
-    { title: "6. Past Sessions", body: "Every block you finish is logged, so you can look back at your progress and reopen any run.",
-      points: ["On Home, use the switch above the library to go from Qbank Library to Past Sessions.", "Each entry shows its title (for example Mixed: 3 blocks · 50 Questions), the date completed and your score.", "Tap Review Exam to reopen the full question-by-question breakdown with lab values and explanations.", "Tick entries to reveal Delete Selected, or use Select all. Deleting a log never touches your Qbank cards.", "The 25 most recent sessions keep their full review. Older ones keep a score summary only."] },
+    { title: "6. Analytics", body: "Every block you finish is logged, so you can look back at your progress and reopen any run.",
+      points: ["On Home, use the menu bar under the logo to go between Console, Library, Import and Analytics.", "Each entry shows its title (for example Mixed: 3 blocks · 50 Questions), the date completed and your score.", "Tap Review Exam to reopen the full question-by-question breakdown with lab values and explanations.", "Tick entries to reveal Delete Selected, or use Select all. Deleting a log never touches your Qbank cards.", "The 25 most recent sessions keep their full review. Older ones keep a score summary only."] },
     { title: "7. Pause, come back, and tidy up", body: "In Tutor Mode you can leave and pick up where you stopped.",
-      points: ["Tap Home. Your answers and place in the block are saved automatically. Back on Home, tap Resume Session.", "In the exam lobby, Remove exam clears the loaded exam without touching your saved library.", "Settings has text size, dark mode, language, and Reset All Local Data (this deletes everything saved in this browser).", "Optional: connect Google Drive Sync on Home to keep your library and Past Sessions in step across your devices."] },
+      points: ["Tap Home. Your answers and place in the block are saved automatically. Back on Home, tap Resume Session.", "In the exam lobby, Remove exam clears the loaded exam without touching your saved library.", "The profile menu (top right) holds your Google account, sync, language, theme and text size.", "Optional: sign in with Google from the profile menu to keep your library, Analytics and any test in progress in step across your devices."] },
     { title: "8. Using your phone", body: "On a phone the screen is simplified so the question gets the room.",
       points: ["The question list is hidden. Use Previous and Next at the top right, and Home at the top left (Tutor Mode).", "Lab Values, Notes, Calculator and Settings are in one row under them.", "At the bottom, Lock is on the left and End Block is on the right. A timed block also shows its countdown in the middle."] },
   ],
@@ -3220,19 +4004,19 @@ const GUIDE = {
     { title: "Bienvenido a OWORLD", body: "OWORLD es un simulador de exámenes de práctica. Tú aportas las preguntas y él las convierte en un examen realista con herramientas, retroalimentación inmediata y seguimiento de puntaje.",
       points: ["No necesitas conocimientos técnicos.", "Tus bloques guardados, calificaciones y progreso se almacenan solo en este navegador."] },
     { title: "1. Consigue tus preguntas", body: "Un banco de preguntas (\"Qbank\") es simplemente un conjunto de preguntas de práctica. Puedes pedirle a una herramienta de IA que te escriba uno.",
-      points: ["En Inicio, abre Importar nuevo Qbank. Acceso rápido a IA, arriba, tiene enlaces directos a ChatGPT, Claude, Gemini y NotebookLM, y Cuadernos de NotebookLM, a su lado, abre tus cuadernos de estudio por bloque.", "Abre Prompt de receta de preguntas, elige una dificultad (se recomienda Mixta) y copia el prompt.", "Pégalo en tu herramienta de IA junto con tu tema o tus apuntes.", "Pega la respuesta de la IA en OWORLD (o sube el archivo) y toca Cargar examen.", "Toca Guardar en la biblioteca para conservar las preguntas para la próxima vez."] },
-    { title: "2. Tu biblioteca de preguntas", body: "Inicio muestra primero tus bloques guardados, para que retomes de inmediato.",
-      points: ["Cada tarjeta muestra su estado: Sin intentos aún, En curso o Completado con tu puntaje. Hacer un Qbank completo por sí solo marca su tarjeta como Completada.", "Marca un bloque, elige cuántas de sus preguntas practicar (de 5 a 40, Máx, o el número que escribas) y toca Cargar. Marca dos o más para combinarlos en un bloque personalizado, elige dificultad y tamaño, y toca Mezclar.", "Las sesiones personalizadas y mezcladas se guardan en Sesiones anteriores y nunca cambian tus tarjetas.", "Al marcar un bloque aparece una barra arriba a la derecha: Compartir / Exportar selección, Editar selección (renombrar) y Eliminar selección.", "Un bloque que dejaste a medias muestra Reanudar sesión."] },
+      points: ["En Inicio, abre Importar en la barra de menú. Acceso rápido a IA, arriba, tiene enlaces directos a ChatGPT, Claude, Gemini y NotebookLM, y Cuadernos de NotebookLM, a su lado, abre tus cuadernos de estudio por bloque.", "Abre Prompt de receta de preguntas, elige una dificultad (se recomienda Mixta) y copia el prompt.", "Pégalo en tu herramienta de IA junto con tu tema o tus apuntes.", "Pega la respuesta de la IA en OWORLD (o sube el archivo) y toca Cargar examen.", "Toca Guardar en la biblioteca para conservar las preguntas para la próxima vez."] },
+    { title: "2. Tu biblioteca de preguntas", body: "La página Biblioteca guarda tus bloques, para que retomes de inmediato. La página Consola es tu panel: un saludo, Reanudar con un toque y el resumen de tus analíticas.",
+      points: ["Cada tarjeta muestra su estado: Sin intentos aún, En curso o Completado con tu puntaje. Hacer un Qbank completo por sí solo marca su tarjeta como Completada.", "Marca un bloque, elige cuántas de sus preguntas practicar (de 5 a 40, Máx, o el número que escribas) y toca Cargar. Marca dos o más para combinarlos en un bloque personalizado, elige dificultad y tamaño, y toca Mezclar.", "Las sesiones personalizadas y mezcladas se guardan en Analíticas y nunca cambian tus tarjetas.", "Al marcar un bloque aparece una barra arriba a la derecha: Compartir / Exportar selección, Editar selección (renombrar) y Eliminar selección.", "Un bloque que dejaste a medias muestra Reanudar sesión."] },
     { title: "3. Elige un modo", body: "Antes de pulsar Iniciar bloque, elige cómo quieres practicar. El modo tutor viene seleccionado por defecto.",
       points: ["Modo tutor: sin cronómetro y con retroalimentación justo después de cada respuesta.", "Modo cronometrado: cuenta regresiva como en el examen real, sin retroalimentación hasta terminar el bloque. No hay botón de Inicio durante un bloque cronometrado, así que planea terminarlo.", "En modo cronometrado puedes apagar el cronómetro durante el bloque, pero no volver a encenderlo."] },
     { title: "4. Responder preguntas", body: "Toca una opción de respuesta. En modo tutor ves el resultado al instante.",
-      points: ["Datos clave resalta las pistas importantes del caso. Consejo del tutor te da una pista. Si abres cualquiera antes de responder, la pregunta queda marcada como Pista usada.", "¿Fallaste? Toca Mostrar respuesta correcta cuando quieras y Por qué es incorrecta para ver por qué falla cada opción. Las fuentes están en un menú desplegable.", "Después de responder, califica qué tan bien lo sabías: Otra vez, Difícil, Bien o Fácil. Luego puedes repetir según tu calificación.", "Herramientas: Marcar pregunta, el botón ab para tachar una opción, Resaltar para el texto seleccionado, Notas, Valores de laboratorio y Calculadora.", "En computadora, la lista de preguntas a la izquierda te deja saltar a cualquiera. Usa su flecha para contraerla."] },
+      points: ["Datos clave resalta las pistas importantes del caso. Consejo del tutor te da una pista. Si abres cualquiera antes de responder, la pregunta queda marcada como Pista usada.", "¿Fallaste? Toca Mostrar respuesta correcta cuando quieras y luego toca cualquier opción para abrir o cerrar su explicación. Las fuentes están en un menú desplegable.", "Después de responder, califica qué tan bien lo sabías: Otra vez, Difícil, Bien o Fácil. Luego puedes repetir según tu calificación.", "Herramientas: Marcar pregunta, el botón ab para tachar una opción, Resaltar para el texto seleccionado, Notas, Valores de laboratorio y Calculadora.", "En computadora, la lista de preguntas a la izquierda te deja saltar a cualquiera. Usa su flecha para contraerla."] },
     { title: "5. Resultados y repetición", body: "Al tocar Terminar bloque ves tu puntaje, desgloses por materia y dificultad, y una revisión de cada pregunta.",
       points: ["Repetir falladas (modo tutor) practica solo lo que fallaste. Repetir bloque completo lo hace de nuevo. También puedes repetir solo las marcadas o las que calificaste Otra vez o Difícil.", "El puntaje de tu primer intento siempre se conserva como referencia. Las repeticiones nunca lo sobrescriben."] },
-    { title: "6. Sesiones anteriores", body: "Cada bloque que terminas queda registrado, para que veas tu progreso y reabras cualquier intento.",
-      points: ["En Inicio, usa el interruptor sobre la biblioteca para pasar de Biblioteca de preguntas a Sesiones anteriores.", "Cada entrada muestra su título (por ejemplo Mezcla: 3 bloques · 50 preguntas), la fecha y tu puntaje.", "Toca Revisar examen para reabrir el desglose completo pregunta por pregunta, con valores de laboratorio y explicaciones.", "Marca entradas para mostrar Eliminar selección, o usa Seleccionar todo. Eliminar un registro nunca toca tus tarjetas de Qbank.", "Las 25 sesiones más recientes conservan su revisión completa. Las anteriores conservan solo un resumen del puntaje."] },
+    { title: "6. Analíticas", body: "Cada bloque que terminas queda registrado, para que veas tu progreso y reabras cualquier intento.",
+      points: ["En Inicio, usa la barra de menú bajo el logotipo para moverte entre Consola, Biblioteca, Importar y Analíticas.", "Cada entrada muestra su título (por ejemplo Mezcla: 3 bloques · 50 preguntas), la fecha y tu puntaje.", "Toca Revisar examen para reabrir el desglose completo pregunta por pregunta, con valores de laboratorio y explicaciones.", "Marca entradas para mostrar Eliminar selección, o usa Seleccionar todo. Eliminar un registro nunca toca tus tarjetas de Qbank.", "Las 25 sesiones más recientes conservan su revisión completa. Las anteriores conservan solo un resumen del puntaje."] },
     { title: "7. Pausa, vuelve y ordena", body: "En modo tutor puedes salir y retomar donde lo dejaste.",
-      points: ["Toca Inicio. Tus respuestas y tu posición en el bloque se guardan automáticamente. De vuelta en Inicio, toca Reanudar sesión.", "En la sala del examen, Quitar examen borra el examen cargado sin tocar tu biblioteca guardada.", "Ajustes tiene el tamaño de texto, el modo oscuro, el idioma y Restablecer todos los datos locales (borra todo lo guardado en este navegador).", "Opcional: conecta la Sincronización con Google Drive en Inicio para mantener tu biblioteca y tus Sesiones anteriores al día entre dispositivos."] },
+      points: ["Toca Inicio. Tus respuestas y tu posición en el bloque se guardan automáticamente. De vuelta en Inicio, toca Reanudar sesión.", "En la sala del examen, Quitar examen borra el examen cargado sin tocar tu biblioteca guardada.", "El menú de perfil (arriba a la derecha) reúne tu cuenta de Google, la sincronización, el idioma, el tema, el tamaño de texto.", "Opcional: inicia sesión con Google desde el menú de perfil para mantener tu biblioteca, tus Analíticas y cualquier examen en curso al día entre dispositivos."] },
     { title: "8. Usar el teléfono", body: "En el teléfono la pantalla se simplifica para que la pregunta tenga espacio.",
       points: ["La lista de preguntas se oculta. Usa Anterior y Siguiente arriba a la derecha, e Inicio arriba a la izquierda (modo tutor).", "Valores de laboratorio, Notas, Calculadora y Ajustes están en una fila debajo.", "Abajo, Bloquear está a la izquierda y Terminar bloque a la derecha. Un bloque cronometrado también muestra su cuenta regresiva en el centro."] },
   ],
@@ -3281,7 +4065,7 @@ function HowItWorksGuide({ onClose, T }) {
       }}>
         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: phone ? "10px 8px 10px 16px" : "16px 22px", borderBottom: `1px solid ${T.border}` }}>
           <span style={{ display: "inline-flex", alignItems: "center", gap: 8, fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(14), color: T.ink }}>
-            <HelpCircle size={17} color={T.blue} /> {t("howItWorks")}
+            <QuestionMarkIcon size={17} color={T.blue} /> {t("howItWorks")}
           </span>
           <button onClick={onClose} aria-label={t("guideClose")} title={t("guideClose")}
             style={{ background: "transparent", border: "none", cursor: "pointer", color: T.muted, display: "flex", padding: phone ? 10 : 0 }}>
@@ -3356,8 +4140,7 @@ function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], dri
   const [guideOpen, setGuideOpen] = useState(false);
   const vp = useViewport();
   const phone = vp.w < 640; // phones: the header buttons drop their labels so they all fit inline in one row
-  const stacked = vp.w < 820; // on narrow screens the buttons sit in their own row above the logo instead of floating over it
-  const [importOpen, setImportOpen] = useState(false); // import area is an accordion, collapsed by default
+  const goHomePage = () => { setLibTab("console"); window.scrollTo({ top: 0, behavior: "smooth" }); }; // the logo is the Home button
   const fileRef = useRef(null);
   // Library entry (if any) that owns the in-progress block — it gets the Resume Session button.
   const resumeId = session?.block?.libraryId && library.some((e) => e.id === session.block.libraryId) ? session.block.libraryId : null;
@@ -3427,30 +4210,28 @@ function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], dri
   }
 
   return (
-    <div style={{ maxWidth: Math.round(1120 * Math.max(1, TEXT_SCALE)), margin: "0 auto", padding: "48px 20px 80px", position: "relative" }}>
+    <div style={{ maxWidth: Math.round(1120 * Math.max(1, TEXT_SCALE)), margin: "0 auto", padding: "22px 20px 80px", position: "relative" }}>
       <style>{`@import url('${FONT_IMPORT_URL}');`}</style>
 
-      <div style={stacked
-        ? { display: "flex", flexWrap: phone ? "nowrap" : "wrap", justifyContent: phone ? "center" : "flex-end", gap: 8, alignItems: "center", marginBottom: 22 }
-        : { position: "absolute", top: 48, right: 20, display: "flex", gap: 10, alignItems: "flex-start" }}>
-        <GhostButton T={T} icon={HelpCircle} onClick={() => setGuideOpen(true)} title={t("howItWorks")} style={phone ? { padding: "12px 13px" } : undefined}>{!phone && t("howItWorks")}</GhostButton>
-        <LangToggle T={T} />
-        <SettingsMenu darkMode={darkMode} setDarkMode={setDarkMode} T={T} iconOnly={phone} />
-      </div>
-      {guideOpen && <HowItWorksGuide onClose={() => setGuideOpen(false)} T={T} />}
-
-      <div style={{ textAlign: "center", marginBottom: 36 }}>
-        <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 12 }}>
-          <Activity size={stacked ? 28 : 34} color={T.blue} strokeWidth={2.5} />
-          <span style={{ fontFamily: FONT_MONO, fontSize: fs(stacked ? 34 : 44), letterSpacing: "0.1em", color: T.blue, fontWeight: 700 }}>
-            OWORLD
-          </span>
+      {/* Top bar: the OWORLD logo (the Home button) at the left, Help + the profile menu at the right. */}
+      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 12, marginBottom: 12 }}>
+        <button onClick={goHomePage} aria-label={t("homeBtn")} title={t("homeBtn")} style={{
+          display: "flex", alignItems: "center", gap: 10, background: "transparent", border: "none", padding: "4px 2px", cursor: "pointer", flexShrink: 0,
+        }}>
+          <Activity size={phone ? 24 : 30} color={T.blue} strokeWidth={2.5} />
+          <span style={{ fontFamily: FONT_MONO, fontSize: fs(phone ? 22 : 30), letterSpacing: "0.1em", color: T.blue, fontWeight: 700 }}>OWORLD</span>
+        </button>
+        <div style={{ display: "flex", alignItems: "center", gap: phone ? 8 : 10 }}>
+          <GhostButton T={T} icon={QuestionMarkIcon} onClick={() => setGuideOpen(true)} title={t("howItWorks")} style={{ padding: 0, width: 40, height: 40, borderRadius: "50%", flexShrink: 0 }} />
+          <SettingsMenu darkMode={darkMode} setDarkMode={setDarkMode} T={T} iconOnly={phone} />
         </div>
       </div>
+      {guideOpen && <HowItWorksGuide onClose={() => setGuideOpen(false)} T={T} />}
+      <PageNav tab={libTab} setTab={setLibTab} count={sessionLog.length} T={T} />
 
       {/* An exam is loaded: show the way back into it. When its in-progress block belongs to a saved library entry, the
           Resume Session button lives on that entry's row instead. */}
-      {session && !resumeId && (
+      {session && !resumeId && libTab !== "console" && (
         <div style={{
           background: T.card, border: `1px solid ${session.block ? T.blue : T.border}`, borderRadius: 10, padding: "16px 20px", marginBottom: 20,
           display: "flex", alignItems: "center", justifyContent: "space-between", gap: 14, flexWrap: "wrap",
@@ -3474,29 +4255,19 @@ function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], dri
         </div>
       )}
 
-      <LibraryTabs tab={libTab} setTab={setLibTab} count={sessionLog.length} T={T} />
-      {libTab === "history"
-        ? <SessionHistoryPanel history={sessionLog} onDelete={onDeleteSession} onClear={onClearSessions} onReview={onReviewSession} T={T} />
-        : <QbankLibraryPanel library={library} onLaunch={onLaunchLibrary} onMix={onMixLibrary} onDelete={onDeleteLibraryEntry} onRename={onRenameLibraryEntry} resumeId={resumeId} onResume={onResume} T={T} />}
+      {libTab === "analytics" && <SessionHistoryPanel history={sessionLog} onDelete={onDeleteSession} onClear={onClearSessions} onReview={onReviewSession} T={T} />}
+      {libTab === "console" && <ConsolePanel library={library} sessionLog={sessionLog} session={session} onResume={onResume} onOpenLobby={onOpenLobby} onReview={onReviewSession} onNavigate={(tab) => { setLibTab(tab); window.scrollTo({ top: 0, behavior: "smooth" }); }} T={T} />}
+      {libTab === "library" && <QbankLibraryPanel library={library} onLaunch={onLaunchLibrary} onMix={onMixLibrary} onDelete={onDeleteLibraryEntry} onRename={onRenameLibraryEntry} resumeId={resumeId} onResume={onResume} T={T} />}
 
+      {/* Import Qbank page: its own page, no longer an accordion under the library. */}
       <div style={{ marginBottom: 20 }}>
-        <button
-          aria-expanded={importOpen}
-          onClick={() => setImportOpen((v) => !v)}
-          style={{
-            width: "100%", display: "flex", alignItems: "center", justifyContent: "space-between", gap: 10,
-            background: T.card, border: `1px solid ${T.border}`, borderRadius: importOpen ? "10px 10px 0 0" : 10,
-            padding: "14px 24px", cursor: "pointer", fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(14), color: T.ink,
-          }}
-        >
-          <span style={{ display: "inline-flex", alignItems: "center", gap: 8 }}>
-            <Plus size={17} color={T.blue} /> {t("importQbank")}
-          </span>
-          {importOpen ? <ChevronUp size={17} color={T.muted} /> : <ChevronDown size={17} color={T.muted} />}
-        </button>
-        {importOpen && (
-          <div style={{ marginTop: -1 }}>
-        <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: "0 0 10px 10px", overflow: "hidden" }}>
+        {libTab === "import" && (
+          <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, padding: 24 }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 14, flexWrap: "wrap" }}>
+              <Plus size={17} color={T.ink} />
+              <span style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(14), color: T.ink }}>{t("importPageTitle")}</span>
+            </div>
+        <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, overflow: "hidden" }}>
           <button
             onClick={() => setShowSchema((v) => !v)}
             aria-expanded={showSchema}
@@ -3754,7 +4525,6 @@ function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], dri
             </div>
           )}
         </div>
-        {drive && <CloudSyncPanel drive={drive} T={T} />}
         </div>
 
         <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, padding: 24, marginTop: 12 }}>
@@ -3946,10 +4716,10 @@ function ImportReview({ examData, library, onAdd, onCancel, T, darkMode, setDark
       <style>{`@import url('${FONT_IMPORT_URL}');`}</style>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 22, gap: 16, flexWrap: "wrap" }}>
         <div style={{ flex: "1 1 320px", minWidth: 0 }}>
-          <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 6 }}>
+          <button onClick={onCancel} aria-label={t("homeBtn")} title={t("homeBtn")} style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 6, background: "transparent", border: "none", padding: 0, cursor: "pointer" }}>
             <Activity size={20} color={T.blue} strokeWidth={2.5} />
             <span style={{ fontFamily: FONT_MONO, fontSize: fs(12), letterSpacing: "0.12em", color: T.blue, fontWeight: 600 }}>OWORLD</span>
-          </div>
+          </button>
           <h1 style={{ fontFamily: FONT_DISPLAY, fontSize: fs(30), fontWeight: 600, color: T.ink, margin: "0 0 6px" }}>{t("irTitle")}</h1>
           <p style={{ fontFamily: FONT_UI, fontSize: fs(14), color: T.muted, lineHeight: 1.55, margin: 0 }}>{t("irSub", { n: examData.blocks.length })}</p>
         </div>
@@ -4067,12 +4837,12 @@ function Lobby({ examData, blockStates, library = [], onStart, onReview, onHome,
       <style>{`@import url('${FONT_IMPORT_URL}');`}</style>
       {/* Logo (same size as Home) → bundle title → the action row, all centered */}
       <div style={{ textAlign: "center", marginBottom: 28 }}>
-        <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 12 }}>
+        <button onClick={onHome} aria-label={t("homeBtn")} title={t("homeBtn")} style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 12, margin: "0 auto", background: "transparent", border: "none", padding: 0, cursor: "pointer" }}>
           <Activity size={narrow ? 28 : 34} color={T.blue} strokeWidth={2.5} />
           <span style={{ fontFamily: FONT_MONO, fontSize: fs(narrow ? 34 : 44), letterSpacing: "0.1em", color: T.blue, fontWeight: 700 }}>
             OWORLD
           </span>
-        </div>
+        </button>
         <h1 style={{ fontFamily: FONT_DISPLAY, fontSize: fs(30), fontWeight: 600, color: T.ink, margin: "14px 0 18px", overflowWrap: "anywhere" }}>
           {examData.examTitle || t("practiceExam")}
         </h1>
@@ -4381,7 +5151,65 @@ function FullPage({ T, children }) {
   );
 }
 
-function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onRate, onHome, darkMode, setDarkMode }) {
+// In-exam Qbank import. Parses the pasted/uploaded JSON with the same tolerant loader as Home and saves it to the library only —
+// the loaded exam, the active block, its timer and answers are never touched, so nothing has to be quit or restarted.
+function QbankImportModal({ onSave, onClose, T }) {
+  const { t } = useI18n();
+  const [text, setText] = useState("");
+  const [msg, setMsg] = useState(null); // { tone: "green" | "red" | "muted", text }
+  const fileRef = useRef(null);
+  const tone = (k) => (k === "green" ? T.green : k === "red" ? T.red : T.muted);
+
+  function handleFile(e) {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = (ev) => { setText(String(ev.target.result || "")); setMsg(null); };
+    reader.readAsText(file);
+    e.target.value = ""; // allow picking the same file again
+  }
+
+  function add() {
+    const result = validateExamData(text, t);
+    if (!result.valid) { setMsg({ tone: "red", text: result.error }); return; }
+    const r = onSave(result.data);
+    if (r.failed) { setMsg({ tone: "red", text: t("storageFull") }); return; }
+    const skipped = result.warnings.filter((w) => w.level === "content").map((w) => w.text).join(" ");
+    if (r.added === 0) { setMsg({ tone: "muted", text: t("libNothing") }); return; }
+    setMsg({ tone: "green", text: [t("libSaved", { n: r.added }), r.dup ? t("libDup", { d: r.dup }) : "", skipped].filter(Boolean).join(" ") });
+    setText("");
+  }
+
+  return (
+    <div role="dialog" aria-modal="true" style={{ position: "fixed", inset: 0, zIndex: 96, background: "rgba(10,15,20,0.6)", display: "flex", alignItems: "center", justifyContent: "center", padding: 16 }}>
+      <div style={{ background: T.card, color: T.ink, border: `1px solid ${T.border}`, borderRadius: 10, padding: 22, width: "100%", maxWidth: 560, maxHeight: "90vh", overflowY: "auto", boxSizing: "border-box" }}>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 6 }}>
+          <h3 style={{ fontFamily: FONT_UI, fontSize: fs(17), fontWeight: 700, margin: 0 }}>{t("impMidTitle")}</h3>
+          <button onClick={onClose} aria-label={t("impMidClose")} style={{ background: "transparent", border: "none", cursor: "pointer", color: T.muted, padding: 6 }}><X size={18} /></button>
+        </div>
+        <p style={{ fontFamily: FONT_UI, fontSize: fs(13), color: T.muted, lineHeight: 1.5, margin: "0 0 12px" }}>{t("impMidHint")}</p>
+        <textarea
+          value={text}
+          onChange={(e) => { setText(e.target.value); setMsg(null); }}
+          placeholder={t("impMidPlaceholder")}
+          spellCheck={false}
+          style={{ width: "100%", minHeight: 160, boxSizing: "border-box", resize: "vertical", fontFamily: FONT_MONO, fontSize: fs(12), border: `1px solid ${T.border}`, borderRadius: 6, padding: 10, background: T.paper, color: T.ink }}
+        />
+        {msg && <div role="status" style={{ fontFamily: FONT_UI, fontSize: fs(13), color: tone(msg.tone), margin: "10px 0 0", lineHeight: 1.5 }}>{msg.text}</div>}
+        <input ref={fileRef} type="file" accept=".json,application/json,text/plain" onChange={handleFile} style={{ display: "none" }} />
+        <div style={{ display: "flex", justifyContent: "space-between", gap: 10, flexWrap: "wrap", marginTop: 14 }}>
+          <GhostButton T={T} icon={FileJson} onClick={() => fileRef.current?.click()}>{t("impMidFile")}</GhostButton>
+          <div style={{ display: "flex", gap: 10 }}>
+            <GhostButton T={T} onClick={onClose}>{t("impMidClose")}</GhostButton>
+            <PrimaryButton T={T} icon={Upload} disabled={!text.trim()} onClick={add}>{t("impMidAdd")}</PrimaryButton>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onRate, onHome, onImportQbank, darkMode, setDarkMode }) {
   // Resume on the question the student was last viewing (clamped in case the stored value is stale).
   const [qIdx, setQIdx] = useState(() => {
     const n = Math.floor(Number(blockState.currentQuestionIndex) || 0);
@@ -4391,6 +5219,7 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onRate, o
   const [confirmTimerOff, setConfirmTimerOff] = useState(false);
   const [timeUp, setTimeUp] = useState(false);
   const [settingsOpen, setSettingsOpen] = useState(false);
+  const [importOpen, setImportOpen] = useState(false); // in-exam "Import Qbank" dialog (saves to the library, session untouched)
   // The question list can fold into a slim rail to give the question more room; the choice is remembered.
   const [navCollapsed, setNavCollapsed] = useState(() => lsGet("navCollapsed") === true);
   const toggleNav = () => setNavCollapsed((v) => { lsSet("navCollapsed", JSON.stringify(!v)); return !v; });
@@ -4400,12 +5229,13 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onRate, o
   const [locked, setLocked] = useState(false);
   const [hintsEnabled, setHintsEnabled] = useState(true);
   const [showHint, setShowHint] = useState(false);
+  const [explHidden, setExplHidden] = useState({}); // qId -> true when the correct-answer explanation is collapsed
   const [toggledDistractors, setToggledDistractors] = useState([]); // option keys flipped from their default (own wrong pick: open, others: closed)
   const [labSearch, setLabSearch] = useState("");
   const [labTab, setLabTab] = useState("Serum");
   const [siUnits, setSiUnits] = useState(false);
 
-  const { highlightsMap, pending, handleSelectionInContainer, commitPending, handleGlobalKeyDown, removeHighlight, clearPending } = useHighlighter(blockState.highlights);
+  const { highlightsMap, pending, handleSelectionInContainer, commitPending, handleGlobalKeyDown, removeHighlight, clearPending, hlColor, setHlColor } = useHighlighter(blockState.highlights);
 
   // Mirror question position and highlights into blockState so App's auto-save captures them.
   useEffect(() => {
@@ -4433,6 +5263,26 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onRate, o
   // A wrong pick does NOT disclose the correct answer: the student asks for it with a button (qState.answerRevealed).
   const isCorrectPick = revealed && qState.selected === q.correctAnswer;
   const showAnswer = revealed && (isCorrectPick || !!qState.answerRevealed);
+  // "Show / hide all explanations": enabled once the correct answer is showing. It drives the correct answer's explanation and
+  // every wrong choice's analysis together (an own wrong pick opens by default, the others closed — see analysisOpen below).
+  const distractorKeys = q.options.filter((o) => o.key !== q.correctAnswer && q.distractorAnalysis?.[o.key]).map((o) => o.key);
+  const allExplShown = showAnswer && !explHidden[q.id] && distractorKeys.every((k) => (qState.selected === k) !== toggledDistractors.includes(k));
+  function toggleAllExplanations() {
+    if (!showAnswer) return;
+    const open = !allExplShown;
+    setExplHidden((cur) => ({ ...cur, [q.id]: !open }));
+    setToggledDistractors(distractorKeys.filter((k) => (qState.selected === k) !== open));
+  }
+  const retestPill = block.isRetest ? (
+    <div style={{
+      display: "flex", alignItems: "center", gap: 6, background: T.amberLight, color: T.amber,
+      border: `1px solid ${T.amber}`, borderRadius: 999, padding: "5px 12px",
+      fontFamily: FONT_UI, fontSize: fs(12), fontWeight: 700,
+    }}>
+      <RotateCcw size={13} />
+      {t("retestMode", { type: t(RETEST_TITLE[block.retestType] || "rt.full"), n: block.retestCount, items: t(block.retestCount === 1 ? "item1" : "itemN") })}
+    </div>
+  ) : null;
   // Hint button (the question's `hint` field) is only for timed blocks once the timer has been turned off.
   const hintAvailable = hintsEnabled && !tutorMode && !!blockState.timerOff;
   const noteText = blockState.notes?.[q.id] || "";
@@ -4457,7 +5307,7 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onRate, o
     function handler(e) {
       const tag = document.activeElement?.tagName;
       const isTyping = tag === "INPUT" || tag === "TEXTAREA";
-      if (locked || confirmSubmit || confirmTimerOff || timeUp) return;
+      if (locked || confirmSubmit || confirmTimerOff || timeUp || importOpen) return;
 
       if (e.altKey) {
         const k = e.key.toLowerCase();
@@ -4484,7 +5334,7 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onRate, o
     }
     document.addEventListener("keydown", handler);
     return () => document.removeEventListener("keydown", handler);
-  }, [q, qState, locked, confirmSubmit, confirmTimerOff, timeUp, tutorMode]);
+  }, [q, qState, locked, confirmSubmit, confirmTimerOff, timeUp, tutorMode, importOpen]);
 
   const highlightBtnRef = useRef(null);
   useEffect(() => {
@@ -4526,13 +5376,14 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onRate, o
     if (revealed || qState.struck.includes(key)) return;
     if (tutorMode) {
       // Tutor mode: picking an option checks it immediately and locks the question.
-      updateQState({ selected: key, checked: true });
+      // wasIncorrect is sticky like hintUsed: a wrong pick stays on record even after Reset Question and a later correct answer.
+      updateQState({ selected: key, checked: true, ...(key !== q.correctAnswer ? { wasIncorrect: true } : {}) });
       return;
     }
     updateQState({ selected: qState.selected === key ? null : key, checked: false });
   }
   // Tutor mode: wipe this question's answer, strikeouts and feedback so it can be retried. The flag is kept.
-  // hintUsed is deliberately sticky: a hint seen before answering still counts after a reset.
+  // hintUsed and wasIncorrect are deliberately sticky: a hint seen, or a wrong pick made, before a reset still counts afterwards.
   function resetQuestion() {
     updateQState({ selected: null, struck: [], checked: false, answerRevealed: false, keyInfoOn: false, tipOpen: false });
     setShowHint(false);
@@ -4639,17 +5490,6 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onRate, o
           )}
         </div>
 
-        {block.isRetest && (
-          <div style={{
-            display: "flex", alignItems: "center", gap: 6, background: T.amberLight, color: T.amber,
-            border: `1px solid ${T.amber}`, borderRadius: 999, padding: "5px 12px", ...(narrow ? { order: 3, flexBasis: "100%", justifyContent: "center" } : {}),
-            fontFamily: FONT_UI, fontSize: fs(12), fontWeight: 700,
-          }}>
-            <RotateCcw size={13} />
-            {t("retestMode", { type: t(RETEST_TITLE[block.retestType] || "rt.full"), n: block.retestCount, items: t(block.retestCount === 1 ? "item1" : "itemN") })}
-          </div>
-        )}
-
         {prevNextEl}
 
         <div style={narrow ? { display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: 4, width: "100%", order: 4 } : { display: "flex", alignItems: "center", gap: 22 }}>
@@ -4697,6 +5537,13 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onRate, o
                 )}
                 <LangSelect T={T} />
                 <TextSizeControl T={T} />
+                {onImportQbank && (
+                  <div style={{ marginBottom: 12 }}>
+                    <GhostButton T={T} icon={Upload} onClick={() => { setSettingsOpen(false); setImportOpen(true); }} style={{ width: "100%", minHeight: narrow ? 44 : undefined }}>
+                      {t("importQbank")}
+                    </GhostButton>
+                  </div>
+                )}
                 <div style={{ borderTop: `1px solid ${T.border}`, paddingTop: 10 }}>
                   <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(11), color: T.muted, textTransform: "uppercase", letterSpacing: "0.04em", marginBottom: 6 }}>
                     {t("shortcuts")}
@@ -4773,6 +5620,9 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onRate, o
                   }}>{navChecked ? (navCorrect ? "✓" : "✕") : "●"}</span>
                   <span style={showPreview ? { minWidth: 20, fontWeight: 700 } : undefined}>{i + 1}</span>
                   {st?.flagged && <Flag size={11} color={isCurrent ? T.onBlue : T.flagRed} fill={isCurrent ? T.onBlue : T.flagRed} />}
+                  {tutorMode && st?.wasIncorrect && (
+                    <span title={t("wasIncorrectBadge")} aria-label={t("wasIncorrectBadge")} style={{ width: 9, height: 9, borderRadius: 999, background: T.red, flexShrink: 0 }} />
+                  )}
                   {tutorMode && st?.hintUsed && (
                     <span title={t("hintUsedBadge")} aria-label={t("hintUsedBadge")} style={{ width: 9, height: 9, borderRadius: 999, boxSizing: "border-box", border: `2px solid ${HINT_YELLOW}`, background: "transparent", flexShrink: 0 }} />
                   )}
@@ -4815,8 +5665,8 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onRate, o
             )}
           </div>
 
-          <p style={{ fontFamily: FONT_UI, fontSize: fs(11.5), color: T.muted, margin: "0 0 14px", display: "flex", alignItems: "center", gap: 5 }}>
-            <Highlighter size={12} /> {t("hlTip")}
+          <p style={{ fontFamily: FONT_UI, fontSize: fs(11.5), color: T.muted, margin: "0 0 14px", display: "flex", alignItems: "center", flexWrap: "wrap", gap: "4px 8px" }}>
+            <span style={{ display: "inline-flex", alignItems: "center", gap: 5 }}><Highlighter size={12} /> {t("hlTip")}</span>
           </p>
 
           {hintAvailable && showHint && (
@@ -4830,8 +5680,11 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onRate, o
             </div>
           )}
 
-          {tutorMode && qState.hintUsed && (
-            <div style={{ marginBottom: 10 }}><Pill T={T} tone="amber">{t("hintUsedBadge")}</Pill></div>
+          {tutorMode && (qState.hintUsed || qState.wasIncorrect) && (
+            <div style={{ marginBottom: 10, display: "flex", gap: 6, flexWrap: "wrap" }}>
+              {qState.hintUsed && <Pill T={T} tone="amber">{t("hintUsedBadge")}</Pill>}
+              {qState.wasIncorrect && <Pill T={T} tone="red">{t("wasIncorrectBadge")}</Pill>}
+            </div>
           )}
           <p
             data-hl-field="vignette"
@@ -4897,11 +5750,18 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onRate, o
               const isStruck = qState.struck.includes(opt.key);
               const isCorrectOpt = opt.key === q.correctAnswer;
               const showCorrect = showAnswer && isCorrectOpt;
+              const hinted = tutorMode && !!qState.hintUsed; // a hint was used: the correct answer is shown in yellow instead of green
               const showWrong = revealed && isSelected && !isCorrectOpt;
+              // Once the correct answer is showing, the remaining wrong choices get a subtle red X (no red fill, unlike a wrong pick).
+              const showOtherWrong = showAnswer && !isCorrectOpt && !showWrong;
               // Distractor dropdown: on the student's own wrong pick right away, on every wrong choice once the answer is shown
               // (offering it only on wrong choices before that would reveal the correct one by omission).
               const hasAnalysis = revealed && !isCorrectOpt && !!q.distractorAnalysis?.[opt.key] && (showAnswer || isSelected);
               const analysisOpen = hasAnalysis && (isSelected !== toggledDistractors.includes(opt.key)); // own wrong pick auto-opens
+              // Once revealed, the choice itself is the toggle: tap it to show / hide its explanation (no separate buttons).
+              const canToggle = hasAnalysis || showCorrect;
+              const expanded = showCorrect ? !explHidden[q.id] : analysisOpen;
+              const toggleExpl = () => { if (showCorrect) setExplHidden((cur) => ({ ...cur, [q.id]: !cur[q.id] })); else toggleDistractor(opt.key); };
               return (
                 <div
                   key={opt.key}
@@ -4911,11 +5771,17 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onRate, o
                     onClick={() => {
                       const sel = window.getSelection();
                       if (sel && sel.toString().trim().length > 0) return; // user was selecting text, not choosing an answer
+                      if (revealed) { if (canToggle) toggleExpl(); return; }
                       selectOption(opt.key);
                     }}
+                    {...(canToggle ? {
+                      role: "button", tabIndex: 0, "aria-expanded": expanded,
+                      title: showCorrect ? t(expanded ? "explHide" : "explShow") : t("distractorBtn"),
+                      onKeyDown: (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); toggleExpl(); } },
+                    } : {})}
                     style={{
-                      display: "flex", alignItems: "center", gap: 10, cursor: revealed ? "default" : "pointer",
-                      background: showCorrect ? T.greenStrong : showWrong ? T.redStrong : isSelected ? T.blueLight : "transparent",
+                      display: "flex", alignItems: "center", gap: 10, cursor: revealed && !canToggle ? "default" : "pointer",
+                      background: showCorrect ? (hinted ? HINT_YELLOW_STRONG : T.greenStrong) : showWrong ? T.redStrong : isSelected ? T.blueLight : "transparent",
                       padding: "10px 14px",
                     }}
                   >
@@ -4931,8 +5797,10 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onRate, o
                     >
                       {opt.key}. {renderHighlightedText(opt.text, highlightsMap[q.id]?.[`option-${opt.key}`], (hlId) => removeHighlight(q.id, `option-${opt.key}`, hlId))}
                     </span>
-                    {showCorrect && <CheckCircle2 size={18} color={T.green} style={{ flexShrink: 0 }} />}
+                    {showCorrect && <CheckCircle2 size={18} color={hinted ? T.amber : T.green} style={{ flexShrink: 0 }} />}
                     {showWrong && <XCircle size={18} color={T.red} style={{ flexShrink: 0 }} />}
+                    {showOtherWrong && <XCircle size={18} color={T.red} style={{ flexShrink: 0, opacity: 0.45 }} aria-hidden="true" />}
+                    {canToggle && (expanded ? <ChevronUp size={16} color={T.muted} style={{ flexShrink: 0 }} aria-hidden="true" /> : <ChevronDown size={16} color={T.muted} style={{ flexShrink: 0 }} aria-hidden="true" />)}
                     {!revealed && (
                       <button
                         onClick={(e) => toggleStrike(e, opt.key)}
@@ -4946,28 +5814,15 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onRate, o
                       </button>
                     )}
                   </div>
-                  {hasAnalysis && (
-                    <div style={{ padding: showWrong ? "10px 14px 12px 42px" : "0 14px 10px 42px", background: showWrong ? T.redSoft : "transparent" }}>
-                      <button
-                        aria-expanded={analysisOpen}
-                        onClick={() => toggleDistractor(opt.key)}
-                        style={{
-                          display: "inline-flex", alignItems: "center", gap: 4, padding: 0, background: "transparent", border: "none", cursor: "pointer",
-                          fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(12.5), color: T.blue,
-                        }}
-                      >
-                        {t("distractorBtn")}
-                        {analysisOpen ? <ChevronUp size={13} /> : <ChevronDown size={13} />}
-                      </button>
-                      {analysisOpen && (
-                        <div style={{ fontFamily: FONT_UI, fontSize: fs(13), color: showWrong ? T.ink : T.muted, lineHeight: 1.55, marginTop: 6 }}>
-                          {q.distractorAnalysis[opt.key]}
-                        </div>
-                      )}
+                  {analysisOpen && (
+                    <div style={{ padding: showWrong ? "10px 14px 12px 42px" : "2px 14px 12px 42px", background: showWrong ? T.redSoft : "transparent" }}>
+                      <div style={{ fontFamily: FONT_UI, fontSize: fs(13), color: showWrong ? T.ink : T.muted, lineHeight: 1.55 }}>
+                        {q.distractorAnalysis[opt.key]}
+                      </div>
                     </div>
                   )}
-                  {showCorrect && (
-                    <div style={{ background: T.greenSoft, padding: "14px 14px 14px 42px" }}>
+                  {showCorrect && !explHidden[q.id] && (
+                    <div style={{ background: hinted ? HINT_YELLOW_SOFT : T.greenSoft, padding: "12px 14px 14px 42px" }}>
                       <ExplanationPanels q={q} T={T} showTip={false} showClues={false} flat rating={q.meta?.rating ?? null} onRate={tutorMode && onRate ? (k) => onRate(q, k) : null} />
                     </div>
                   )}
@@ -4977,9 +5832,20 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onRate, o
           </div>
 
           {/* Tutor mode: a wrong pick does not disclose the answer until asked for */}
-          {revealed && !isCorrectPick && !showAnswer && (
-            <div style={{ marginTop: 12 }}>
-              <GhostButton T={T} onClick={() => updateQState({ answerRevealed: true })}>{t("showCorrectBtn")}</GhostButton>
+          {tutorMode && (showAnswer || (revealed && !isCorrectPick) || qState.selected || qState.struck.length > 0 || retestPill) && (
+            <div style={{ marginTop: 12, display: "flex", gap: 10, flexWrap: "wrap", alignItems: "center", maxWidth: 640 }}>
+              {revealed && !isCorrectPick && !showAnswer && (
+                <GhostButton T={T} onClick={() => updateQState({ answerRevealed: true })}>{t("showCorrectBtn")}</GhostButton>
+              )}
+              {showAnswer && (qState.selected || qState.struck.length > 0) && (
+                <GhostButton T={T} icon={allExplShown ? ChevronUp : ChevronDown} onClick={toggleAllExplanations}>
+                  {allExplShown ? t("explHideAll") : t("explShowAll")}
+                </GhostButton>
+              )}
+              {(qState.selected || qState.struck.length > 0) && (
+                <GhostButton T={T} icon={RotateCcw} onClick={resetQuestion} style={{ marginLeft: "auto" }}>{t("resetQ")}</GhostButton>
+              )}
+              {retestPill && <div style={{ marginLeft: (qState.selected || qState.struck.length > 0) ? 0 : "auto" }}>{retestPill}</div>}
             </div>
           )}
 
@@ -4987,9 +5853,6 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onRate, o
             <PrimaryButton T={T} onClick={goNext} style={{ background: T.blue }}>
               {qIdx < questions.length - 1 ? t("proceedNext") : t("proceedSummary")}
             </PrimaryButton>
-            {tutorMode && (qState.selected || qState.struck.length > 0) && (
-              <GhostButton T={T} icon={RotateCcw} onClick={resetQuestion} style={{ marginLeft: "auto" }}>{t("resetQ")}</GhostButton>
-            )}
           </div>
         </div>
 
@@ -5137,20 +6000,22 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onRate, o
       {/* Floating "Highlight" button — appears near a text selection instead of
           auto-highlighting, so selecting text to read it doesn't mark it up. */}
       {pending && (
-        <button
+        <div
           ref={highlightBtnRef}
-          onClick={commitPending}
+          role="toolbar"
+          aria-label={t("highlight")}
           style={{
-            position: "fixed", left: pending.x, top: pending.y - 42, transform: "translateX(-50%)",
-            zIndex: 80, display: "flex", alignItems: "center", gap: 6, background: T.ink, color: T.paper,
-            border: "none", borderRadius: 6, padding: "7px 12px", fontFamily: FONT_UI, fontWeight: 600,
-            fontSize: fs(12.5), cursor: "pointer", boxShadow: "0 4px 14px rgba(0,0,0,0.35)",
+            position: "fixed", left: Math.min(Math.max(pending.x, 100), Math.max(100, vp.w - 100)), top: Math.max(8, pending.y - 46), transform: "translateX(-50%)",
+            zIndex: 80, display: "flex", alignItems: "center", gap: 10, background: T.ink, color: T.paper,
+            borderRadius: 999, padding: "7px 14px", boxShadow: "0 4px 14px rgba(0,0,0,0.35)",
           }}
         >
-          <Highlighter size={13} />
-          {t("highlight")}
-        </button>
+          <Highlighter size={14} />
+          <HighlightSwatches value={hlColor} onPick={commitPending} T={T} t={t} size={narrow ? 26 : 20} ring={T.paper} />
+        </div>
       )}
+
+      {importOpen && <QbankImportModal onSave={onImportQbank} onClose={() => setImportOpen(false)} T={T} />}
 
       {/* Lock overlay */}
       {locked && (
@@ -5417,6 +6282,7 @@ function BlockResults({ block, blockState, blockIdx, history, onBackToLobby, onR
   const originIdx = block.isRetest ? block.retestOf : blockIdx;
   const attempts = history.filter((h) => h.originIdx === originIdx);
   const hintCount = block.questions.filter((q) => blockState.answers[q.id]?.hintUsed).length;
+  const missedBeforeCount = block.questions.filter((q) => blockState.answers[q.id]?.wasIncorrect).length;
 
   const subjectRows = useMemo(() => {
     const map = {};
@@ -5455,6 +6321,7 @@ function BlockResults({ block, blockState, blockIdx, history, onBackToLobby, onR
           {t("scoreLine", { c: score.correct, t: score.total, u: score.total - score.answered })}
         </span>
         {hintCount > 0 && <Pill T={T} tone="amber">{t("hintsUsedN", { n: hintCount })}</Pill>}
+        {missedBeforeCount > 0 && <Pill T={T} tone="red">{t("missedBeforeN", { n: missedBeforeCount })}</Pill>}
       </div>
 
       <div style={{ display: "flex", flexWrap: "wrap", gap: 10, marginBottom: 28 }}>
@@ -5527,6 +6394,7 @@ function BlockResults({ block, blockState, blockIdx, history, onBackToLobby, onR
                 <span style={{ fontFamily: FONT_MONO, fontSize: fs(12.5), color: T.muted, width: 24 }}>{i + 1}</span>
                 <span style={{ fontFamily: FONT_UI, fontSize: fs(14), color: T.ink, flex: 1 }}>{q.stem}</span>
                 {a?.hintUsed && <Pill T={T} tone="amber">{t("hintUsedBadge")}</Pill>}
+                {a?.wasIncorrect && <Pill T={T} tone="red">{t("wasIncorrectBadge")}</Pill>}
                 <Pill T={T} tone="muted">{q.subject || t("general")}</Pill>
                 {isOpen ? <ChevronUp size={16} color={T.muted} /> : <ChevronDown size={16} color={T.muted} />}
               </div>
@@ -5546,13 +6414,13 @@ function BlockResults({ block, blockState, blockIdx, history, onBackToLobby, onR
                       return (
                         <div key={opt.key} style={{
                           padding: "8px 10px", borderRadius: 6,
-                          background: isCorrectOpt ? T.greenLight : isYourPick ? T.redLight : "transparent",
+                          background: isCorrectOpt ? (a?.hintUsed ? HINT_YELLOW_SOFT : T.greenLight) : isYourPick ? T.redLight : "transparent",
                           fontFamily: FONT_UI, fontSize: fs(13.5), color: T.ink,
                         }}>
                           <div style={{ display: "flex", gap: 10, alignItems: "center" }}>
                             <span style={{ fontFamily: FONT_MONO, fontWeight: 700, fontSize: fs(12), width: 18 }}>{opt.key}</span>
                             <span style={{ flex: 1 }}>{opt.text}</span>
-                            {isCorrectOpt && <Pill T={T} tone="green">{t("correct")}</Pill>}
+                            {isCorrectOpt && <Pill T={T} tone={a?.hintUsed ? "amber" : "green"}>{t("correct")}</Pill>}
                             {isYourPick && !isCorrectOpt && <Pill T={T} tone="red">{t("yours")}</Pill>}
                           </div>
                           {reason && (
@@ -5771,7 +6639,7 @@ export default function App() {
   const [textScale, setTextScale] = useState(boot.prefs.textScale);
   TEXT_SCALE = textScale; // read by fs() while this render builds the tree
   const [library, setLibrary] = useState(boot.library); // [{ id, title, importDate, questions, lastScore }]
-  const [libTab, setLibTab] = useState("library"); // Home tab: library | history (lives here so Review Exam → Home lands back on Past Sessions)
+  const [libTab, setLibTab] = useState("console"); // Home page: console | library | import | analytics (lives here so Review Exam → Home lands back on Analytics)
   const [tombs, setTombs] = useState(loadTombs); // deletions, so a delete on one device isn't undone by another device's copy
   const [sessionLog, setSessionLog] = useState(boot.sessionLog); // independent log of every finished session, newest first
   const [restoredNotice, setRestoredNotice] = useState(!!boot.session);
@@ -5910,7 +6778,7 @@ export default function App() {
     if (block.questions.length === 0) return;
     // Running ONE Qbank in full (no size cap, no difficulty filter) is that card's own attempt, so it is linked to the card and
     // its badge flips to Completed. Anything else (a subset, a difficulty filter, several banks) is a custom session: it is
-    // only logged under Past Sessions and the source cards are left exactly as they were.
+    // only logged under Analytics and the source cards are left exactly as they were.
     if (entries.length === 1 && size == null && difficulty === "all") block.libraryId = entries[0].id;
     setExamData({ blocks: [block] });
     setBlockStates([{ ...makeInitialBlockState(block), timed: mode !== "tutor", tutor: mode === "tutor", status: "in-progress", startedAt: Date.now() }]);
@@ -5954,9 +6822,106 @@ export default function App() {
     Object.entries(m.reviews || {}).forEach(([id, snap]) => { if (top.has(id) && !hasReviewSnapshot(id)) lsSet(LS_REVIEW + id, JSON.stringify(snap)); });
     Object.keys(m.deleted.sessions || {}).forEach((id) => { if (hasReviewSnapshot(id)) lsRemove(LS_REVIEW + id); });
   }
-  const drive = useDriveSync({ library, sessionLog, tombs, onMerged: applyCloudMerge });
+  // --- Cross-device active-session sync -------------------------------------------
+  // recRef is this device's marker for the synced session ({ sessionId, updatedAt, baseAt, ended, sig }), persisted so a reload keeps it.
+  // The effect below is the snapshot hook: any answer / navigation / flag / highlight / note changes the fingerprint and bumps updatedAt.
+  const [bootRec] = useState(() => { const r = lsGet(LS_ACTIVE_SYNC); return r && typeof r.sessionId === "string" ? r : null; });
+  const recRef = useRef(bootRec);
+  const [activeStamp, setActiveStamp] = useState(bootRec ? bootRec.updatedAt : 0);
+  const [restoreNonce, setRestoreNonce] = useState(0);   // remounts the exam screen when a remote session is loaded under it
+  const [activePrompt, setActivePrompt] = useState(null); // { action: "offer" | "conflict", remote, qbanks }
+  const declinedActive = useRef("");
+  const holdRef = useRef(false);                         // a prompt is open: don't mark the remote version as agreed yet
+  const liveRef = useRef({}); liveRef.current = { examData, blockStates, library, view };
+  function setRec(next) {
+    recRef.current = next;
+    if (next) lsSet(LS_ACTIVE_SYNC, JSON.stringify(next)); else lsRemove(LS_ACTIVE_SYNC);
+    setActiveStamp(next ? next.updatedAt : 0);
+  }
+  const liveSession = syncableLive(examData, blockStates);
+  const liveSig = liveSession ? activeSig(liveSession.bs) : "";
+  const liveId = liveSession ? liveSession.bs.syncId || "" : "";
+  useEffect(() => {
+    const rec = recRef.current; const now = Date.now();
+    if (liveSession) {
+      let id = liveSession.bs.syncId;
+      if (!id) {
+        id = `as_${now.toString(36)}_${Math.random().toString(36).slice(2, 8)}`;
+        setBlockStates((prev) => (prev.length === 1 && !prev[0].syncId ? [{ ...prev[0], syncId: id }] : prev));
+      }
+      if (!rec || rec.sessionId !== id || rec.ended) setRec({ sessionId: id, updatedAt: now, baseAt: 0, ended: false, sig: liveSig });
+      else if (rec.sig !== liveSig) setRec({ ...rec, updatedAt: now, sig: liveSig });
+    } else if (rec && !rec.ended) {
+      setRec({ ...rec, ended: true, updatedAt: now }); // finished, submitted or removed: leave a tombstone so other devices let go of it
+    }
+  }, [liveSig, liveId, !!liveSession]); // eslint-disable-line
 
-  // Past Sessions → Review Exam: reopen the saved run in the normal results screen (every question, labs, explanations, notes,
+  // What this device would upload right now (the hook reads this, reconciles it with the Drive copy, and pushes if it wins).
+  function getLocalActive() {
+    const { examData: ex, blockStates: bss } = liveRef.current;
+    const rec = recRef.current; const lv = syncableLive(ex, bss);
+    const owns = !!(lv && rec && !rec.ended && rec.sessionId === lv.bs.syncId);
+    let active = null;
+    if (owns) active = buildActiveSession(lv.block, lv.bs, rec);
+    else if (rec && rec.ended) active = { sessionId: rec.sessionId, ended: true, updatedAt: rec.updatedAt };
+    return { active, baseAt: rec ? rec.baseAt || 0 : 0, block: owns ? lv.block : null, blockFileId: rec ? rec.blockFileId || null : null };
+  }
+  // The hook found something to act on after comparing remote vs local activeSession.updatedAt.
+  function handleActiveDecision({ action, remote, block }) {
+    holdRef.current = action === "offer" || action === "conflict";
+    if (action === "adopt") applyRemoteActive(remote, null, { silent: true });
+    else if (action === "end") {
+      setRec({ sessionId: remote.sessionId, updatedAt: remote.updatedAt, baseAt: remote.updatedAt, ended: true, sig: "" });
+      setExamData(null); setBlockStates([]); setHistory([]); setActiveBlockIdx(null); setView("import");
+      setFlash(tr("activeEndedElsewhere"));
+    } else if (holdRef.current) {
+      const key = `${remote.sessionId}:${remote.updatedAt}`;
+      if (declinedActive.current !== key) setActivePrompt((p) => (p && p.remote.sessionId === remote.sessionId && p.remote.updatedAt === remote.updatedAt ? p : { action, remote, block }));
+    }
+  }
+  // Push succeeded (or nothing needed pushing): both sides now hold `winner`, so it becomes the agreed baseline.
+  function activeSynced(winner) {
+    const rec = recRef.current;
+    if (!winner || !rec || holdRef.current || rec.sessionId !== winner.sessionId || (rec.baseAt || 0) === winner.updatedAt) return;
+    setRec({ ...rec, baseAt: winner.updatedAt });
+  }
+  function activeBlockSaved(sessionId, blockFileId) {
+    const rec = recRef.current;
+    if (rec && rec.sessionId === sessionId) setRec({ ...rec, blockFileId });
+  }
+  // Load a remote session. Same session already open here (silent fast-forward): keep its block and only replace the state.
+  // Otherwise the block comes from the session's block file (the exact question set, mixed blocks included).
+  function applyRemoteActive(r, block, { silent }) {
+    const lv = syncableLive(liveRef.current.examData, liveRef.current.blockStates);
+    const blk = block || (silent && lv && lv.bs.syncId === r.sessionId ? lv.block : null);
+    if (!blk) { if (!silent) setFlash(tr("activeMissing")); return false; }
+    const bs = hydrateActiveState(blk, r, silent && liveRef.current.view !== "exam");
+    setRec({ sessionId: r.sessionId, updatedAt: r.updatedAt, baseAt: r.updatedAt, ended: false, sig: activeSig(bs), blockFileId: r.blockFileId || null });
+    setExamData({ blocks: [blk] }); setBlockStates([bs]); setHistory([]); setActiveBlockIdx(0);
+    if (!silent) setView("exam");
+    setRestoreNonce((n) => n + 1); setRestoredNotice(false);
+    if (!silent) setFlash(tr("activeResumed").replace("{name}", blk.blockName || ""));
+    holdRef.current = false;
+    return true;
+  }
+  async function acceptActivePrompt() {
+    const p = activePrompt; setActivePrompt(null);
+    if (!p) return;
+    const blk = p.block || await sessionSync.fetchBlock(p.remote);
+    applyRemoteActive(p.remote, blk, { silent: false });
+  }
+  function declineActivePrompt() {
+    const p = activePrompt; setActivePrompt(null);
+    if (!p) return;
+    declinedActive.current = `${p.remote.sessionId}:${p.remote.updatedAt}`;
+    const rec = recRef.current;
+    if (p.action === "conflict" && rec && !rec.ended) { holdRef.current = false; setRec({ ...rec, updatedAt: Date.now() }); } // "keep this device's": the newest edit wins on the next sync
+  }
+
+  const drive = useDriveSync({ library, sessionLog, tombs, onMerged: applyCloudMerge });
+  const sessionSync = useSessionSync({ drive, stamp: activeStamp, getLocal: getLocalActive, onDecision: handleActiveDecision, onSynced: activeSynced, onBlockSaved: activeBlockSaved });
+
+  // Analytics → Review Exam: reopen the saved run in the normal results screen (every question, labs, explanations, notes,
   // highlights). The run is loaded as a one-block exam that is already "done", so nothing is re-scored and no new log is written.
   function reviewSession(id) {
     const snap = lsGet(LS_REVIEW + id);
@@ -5971,7 +6936,7 @@ export default function App() {
       hintsUsed: block.questions.filter((q) => bs.answers[q.id]?.hintUsed).length,
     }]);
     setActiveBlockIdx(0);
-    setLibTab("history");
+    setLibTab("analytics");
     setView("results");
   }
 
@@ -6011,7 +6976,8 @@ export default function App() {
   // Settings → "Reset All Local Data": wipes the library, the active session and preferences, then returns
   // to a clean import screen. (The save effects above then see empty/default state and keep the keys absent.)
   function resetAllData() {
-    [LS_SESSION, LS_LIBRARY, LS_PREFS, LS_HISTORY, LS_TOMBS].forEach(lsRemove);
+    [LS_SESSION, LS_LIBRARY, LS_PREFS, LS_HISTORY, LS_TOMBS, LS_ACTIVE_SYNC].forEach(lsRemove);
+    recRef.current = null; setActiveStamp(0); setActivePrompt(null); lsRemove(LS_SESSION_FILE);
     drive.disconnect(); setTombs(emptyTombs()); // Drive is left as it was; reconnect to restore from it
     failedKeys.current = {};
     setStorageError(false);
@@ -6019,6 +6985,16 @@ export default function App() {
     setExamData(null); setBlockStates([]); setHistory([]); setActiveBlockIdx(null);
     removeAllReviewSnapshots(); setLibrary([]); setSessionLog([]); setDarkMode(true); setLang("en"); setTextScale(1);
     setView("import");
+  }
+
+  // Importing from Home while a block is in progress must not end it: the Qbank goes into the library and the session is left alone.
+  function importKeepingSession(data) {
+    const r = saveImportToLibrary(data);
+    if (r.failed) { setStorageError(true); return; }
+    const msg = r.added === 0
+      ? tr("libNothing")
+      : [tr("libSaved").replace("{n}", r.added), r.dup ? tr("libDup").replace("{d}", r.dup) : ""].filter(Boolean).join(" ");
+    setFlash(`${msg} ${tr("sessionKept")}`);
   }
 
   function handleImport(data) {
@@ -6153,6 +7129,7 @@ export default function App() {
       sourceBanks: block.sourceBanks || (parent && parent.sourceBanks) || [],
       libraryId: block.isRetest ? (parent && parent.libraryId) || null : block.libraryId || null,
       bySubject: [...subj.values()].sort((a, b) => b.total - a.total),
+      hintCorrect: block.questions.filter((q) => bs.answers[q.id]?.hintUsed && bs.answers[q.id]?.selected === q.correctAnswer).length,
     };
     // Full snapshot for "Review Exam" (kept in its own key; only the newest REVIEW_MAX runs keep one, and a full disk just drops the oldest).
     const snapshot = JSON.stringify({ v: 1, block, blockState: { ...bs, status: "done", finishedAt, elapsedSec, score: { correct, total, answered, pct } } });
@@ -6236,6 +7213,7 @@ export default function App() {
     <LangContext.Provider value={{ lang, setLang }}>
     <TextScaleContext.Provider value={{ textScale, setTextScale }}>
     <DataContext.Provider value={{ resetAllData }}>
+    <DriveContext.Provider value={drive}>
     <div style={{ minHeight: "100vh", background: T.paper, fontFamily: FONT_UI, textAlign: "left" }}>
       {restoredNotice && (
         <div role="status" onClick={() => setRestoredNotice(false)} style={{
@@ -6265,6 +7243,27 @@ export default function App() {
         </div>
       )}
 
+      {activePrompt && (() => {
+        const r = activePrompt.remote;
+        const when = new Date(r.updatedAt).toLocaleTimeString(lang === "es" ? "es" : "en-US", { hour: "numeric", minute: "2-digit" });
+        const body = tr("activeBody").replace("{name}", r.blockName || "").replace("{n}", String((Number(r.currentIndex) || 0) + 1)).replace("{total}", String(r.questionCount || "?")).replace("{answered}", String(r.answeredCount || 0)).replace("{time}", when);
+        const mixLine = r.isMixed && r.sourceBanks && r.sourceBanks.length ? ` ${tr("activeMixed").replace("{banks}", r.sourceBanks.join(", "))}` : "";
+        const replaces = activePrompt.action === "conflict" || !!examData;
+        return (
+          <div role="dialog" aria-modal="true" style={{ position: "fixed", inset: 0, zIndex: 310, background: "rgba(0,0,0,0.55)", display: "flex", alignItems: "center", justifyContent: "center", padding: 20 }}>
+            <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, padding: 24, maxWidth: 440, width: "100%" }}>
+              <h3 style={{ fontFamily: FONT_UI, fontSize: fs(17), fontWeight: 700, color: T.ink, margin: "0 0 10px" }}>{tr(activePrompt.action === "conflict" ? "activeTitleConflict" : "activeTitle")}</h3>
+              <p style={{ fontFamily: FONT_UI, fontSize: fs(14), color: T.ink, lineHeight: 1.55, margin: "0 0 10px" }}>{body}{mixLine}</p>
+              {replaces && <p style={{ fontFamily: FONT_UI, fontSize: fs(13), color: T.amber, lineHeight: 1.5, margin: "0 0 18px" }}>{tr("activeReplaceWarn")}</p>}
+              <div style={{ display: "flex", justifyContent: "flex-end", gap: 10, marginTop: replaces ? 0 : 10 }}>
+                <GhostButton T={T} onClick={declineActivePrompt}>{tr(activePrompt.action === "conflict" ? "activeKeepMine" : "activeNotNow")}</GhostButton>
+                <PrimaryButton T={T} onClick={acceptActivePrompt}>{tr("activeContinue")}</PrimaryButton>
+              </div>
+            </div>
+          </div>
+        );
+      })()}
+
       {discardPrompt && (
         <div role="dialog" aria-modal="true" style={{ position: "fixed", inset: 0, zIndex: 300, background: "rgba(0,0,0,0.55)", display: "flex", alignItems: "center", justifyContent: "center", padding: 20 }}>
           <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, padding: 24, maxWidth: 420, width: "100%" }}>
@@ -6281,7 +7280,7 @@ export default function App() {
       {view === "import" && (
         <FullPage T={T}>
         <ImportScreen
-          onImport={(d) => guardNew(() => handleImport(d))}
+          onImport={(d) => (hasInProgress ? importKeepingSession(d) : handleImport(d))}
           onSaveToLibrary={saveImportToLibrary}
           library={library}
           sessionLog={sessionLog}
@@ -6314,13 +7313,14 @@ export default function App() {
 
       {view === "exam" && examData && activeBlockIdx !== null && (
         <ExamScreen
-          key={activeBlockIdx}
+          key={`${activeBlockIdx}:${restoreNonce}`}
           block={examData.blocks[activeBlockIdx]}
           blockState={blockStates[activeBlockIdx]}
           setBlockState={setActiveBlockState}
           onSubmitBlock={submitActiveBlock}
           onRate={(q, k) => rateQuestion(activeBlockIdx, q, k)}
           onHome={goHome}
+          onImportQbank={saveImportToLibrary}
           darkMode={darkMode}
           setDarkMode={setDarkMode}
         />
@@ -6350,6 +7350,7 @@ export default function App() {
         </FullPage>
       )}
     </div>
+    </DriveContext.Provider>
     </DataContext.Provider>
     </TextScaleContext.Provider>
     </LangContext.Provider>
