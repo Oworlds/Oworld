@@ -4,7 +4,7 @@ import {
   Play, CheckCircle2, XCircle, AlertTriangle, ClipboardList, Activity,
   Check, ChevronDown, ChevronUp, FileJson, FlaskConical, PencilLine,
   Calculator as CalcIcon, Settings as SettingsIcon, Lock, Unlock,
-  Search, Trash2, X, XOctagon, Lightbulb, Sun, Moon, Highlighter, BookOpen, Stethoscope, Target, Save, Shuffle, Plus, Home as HomeIcon, Pencil, Share2, ExternalLink, Sparkles, Cloud, RefreshCw, LogIn, LogOut, User as UserIcon, BarChart3, LayoutDashboard, Flame, TrendingUp
+  Search, Trash2, X, XOctagon, Lightbulb, Sun, Moon, Highlighter, BookOpen, Stethoscope, Target, Save, Shuffle, Plus, Home as HomeIcon, Pencil, Share2, ExternalLink, Sparkles, Cloud, RefreshCw, LogIn, LogOut, Bell, Database, Bookmark, User as UserIcon, BarChart3, LayoutDashboard, Flame, TrendingUp, Download, CheckSquare, SlidersHorizontal, GraduationCap, CalendarDays
 } from "lucide-react";
 import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell
@@ -250,19 +250,36 @@ const LAB_TABS = ["Serum", "Cerebrospinal", "Blood", "Urine and BMI"];
 // ---------------------------------------------------------------------------
 const STR = {
   en: {
+    tabDatabase: "Database", dbTitle: "Personal Database", dbHint: "Questions, excerpts and notes you've saved while studying.", dbAdd: "Add to database", dbSavedToast: "Saved to Database", dbAll: "All", dbQuestions: "Questions", dbExcerpts: "Excerpts", dbNotes: "Notes", dbSearch: "Search your database", dbEmpty: "Your database is empty.", dbEmptyHint: "While taking a block, select text and tap Add to database, save a question with the bookmark, or save a note from the Notes panel.", dbNoMatch: "Nothing matches.", dbSaveQ: "Save question", dbSavedQ: "Saved to Database", dbSaveNote: "Save to Database", dbUpdateNote: "Update in Database", dbShowAns: "Show answer", dbHideAns: "Hide answer", dbEdit: "Edit", dbSave: "Save", dbCancel: "Cancel", dbCopy: "Copy", dbCopied: "Copied", dbDelete: "Delete", dbConfirmDel: "Delete?", dbClearAll: "Clear all", dbClearConfirm: "Move everything in your database to Trash? You can restore it for 30 days.", dbKindQ: "Question", dbKindE: "Excerpt", dbKindN: "Note", dbCommentPh: "Add your own comment…", dbAddComment: "Add comment", dbNoteTitle: "Your note", dbCorrectTag: "Correct",
+    dbSyncSignIn: "Sign in with Google from the account menu to sync it across your devices.", dbImport: "Import", dbImported: "Imported {a} item(s); {s} already in your database.", dbImportBad: "That file isn't a Personal Database export.",
+    dbShared: "Shared {n} item(s) as one file.", dbDownloaded: "Downloaded {n} item(s) as one file.", dbExportFailed: "Export failed. Please try again.", dbShareText: "My OWORLD Personal Database ({n} items). In OWORLD, open Database and tap Import to add them.", dbDelSelQ: "Move {n} selected item(s) to Trash? You can restore them for 30 days.", dbManage: "Manage", dbExport: "Export",
+    tabTrash: "Trash", trashTitle: "Trash", trashCount: "{n} item(s)", trashHint: "Deleted Qbanks, Analytics sessions and Database items stay here for {d} days. Restore them, or delete them forever.", trashEmpty: "Trash is empty.", trashEmptyHint: "Anything you delete from the Library, Analytics or Database lands here first, so you can get it back.", trashNoneHere: "Nothing of this kind in Trash.",
+    trashAll: "All", trashQbanks: "Qbanks", trashSessions: "Analytics", trashDb: "Database", trashKindQbank: "Qbank", trashKindSession: "Session",
+    trashRestore: "Restore", trashRestoreSel: "Restore Selected", trashDeleteForever: "Delete forever", trashEmptyBtn: "Empty Trash",
+    trashPurgeQ: "Permanently delete {n} item(s)? This can't be undone.", trashEmptyQ: "Permanently delete all {n} item(s) in Trash? This can't be undone.",
+    trashMoved: "Moved to Trash", trashRestored: "Restored {n} item(s).", trashRestoredDup: "{s} already existed again, so no copy was added.", trashDeletedAgo: "Deleted {d}", trashDaysLeft: "{n} days left", trashLastDay: "Less than a day left", trashTrimmed: "Trash was full, so the oldest items were removed to make room.",
+    notifTitle: "Notifications", notifBtn: "Notifications", notifEmpty: "You're all caught up.", notifEmptyHint: "Finished blocks and sync alerts will show up here.", notifMarkAll: "Mark all read", notifClear: "Clear all", notifDismiss: "Dismiss", notifJustNow: "Just now", notifUnread: "{n} unread",
+    "nf.blockDone.t": "Block completed", "nf.blockDone.b": "{name}: {correct} of {total} correct ({pct}%).",
+    "nf.syncReauth.t": "Google Drive needs reconnecting", "nf.syncReauth.b": "Your Google session expired. Open the account menu and tap Reconnect. Local changes are kept.",
+    "nf.syncError.t": "Drive sync problem", "nf.syncError.b": "Couldn't sync with Google Drive. Your data on this device is safe.",
+    "nf.syncLinked.t": "Google Drive connected", "nf.syncLinked.b": "Your library and Analytics now sync across your devices.",
     saveToLibrary: "Save to Library", libSaved: "Saved {n} new block(s) to your library.", libDup: "{d} already in your library.", libNothing: "Already in your library — nothing new to save.",
     libTitle: "Qbank Library", libCount: "{n} saved", libEmpty: "Nothing saved yet. Paste or upload a question bank and choose \u201cSave to Library\u201d to keep it on this device.",
-    libMeta: "{q} questions · imported {d}", libLastScore: "Last score {pct}% ({c}/{t})", libNoScore: "Not attempted yet", libCompleted: "Completed · {pct}% ({c}/{t})", tabLibrary: "Library", tabHistory: "Analytics", tabImport: "Import", importPageTitle: "Import Qbank", histTitle: "Analytics", histEmpty: "No finished sessions yet. Every block you complete is logged here, including custom and mixed sessions.", histNote: "Each finished session is saved as its own log. Custom and mixed sessions never change your Qbank cards; a card is marked Completed only when you run that whole Qbank on its own. The 25 most recent sessions also keep their full question-by-question review; older ones keep a summary.", histKindBank: "Qbank", histKindCustom: "Custom", histKindRetest: "Retest", histQ: "{n} questions", histAnswered: "{a}/{n} answered", histSources: "From: {s}", histBySubject: "By subject", histDelete: "Delete this log", histClear: "Clear history", histClearQ: "Delete all {n} logged sessions? Your Qbank cards are not affected.", histClearGo: "Delete all", histToggle: "Show details", histSelectAll: "Select all", histDeselect: "Deselect all", histDeleteSelQ: "Delete {n} selected session(s)? Your Qbank cards are not affected.", histReview: "Review Exam", histNoReview: "Review unavailable", histNoReviewFlash: "The full review for this session is no longer stored.", histMixed: "Mixed: {n} blocks · {q} Questions", histNamed: "{name} · {q} Questions", histDone: "Completed {d}", anOverall: "Overall you answered {n} questions:", anCorrect: "correctly", anHints: "correctly using hints", anIncorrect: "incorrectly", anCenter: "Correct + using hints", anQ: "({n} questions)", anQ1: "(1 question)", tabConsole: "Console", csGoodMorning: "Good morning", csGoodAfternoon: "Good afternoon", csGoodEvening: "Good evening", csStreakLine: "{n}-day study streak", csReadyLine: "Ready when you are.", csNoSession: "No session in progress", csNoSessionHint: "Start a Qbank from your library, or import a new one.", csOpenLibrary: "Open Library", csImportNew: "Import a Qbank", csViewAll: "View all", csStatSessions: "Sessions", csStatWeek: "{n} this week", csStatAnswered: "Questions answered", csStatAccuracy: "Accuracy", csStatStreak: "Day streak", csStatDays: "{n} days", csStatDay1: "1 day", csHighlights: "Analytics highlights", csTrend: "Recent scores", csTrendHint: "Last {n} sessions · dashed line = 70%", csTrendNeed: "Finish 2 sessions to see your trend.", csStrong: "Strongest subjects", csWeak: "Needs work", csSubjNeed: "Answer at least 5 questions in a subject to rank it.", csRecent: "Recent sessions", csYourLibrary: "Your library", csLibSub: "{n} Qbanks saved", csLibEmpty: "Your library is empty. Import a Qbank to get started.", csFirstTitle: "Let's get your first session going", csFirstBody: "Import a Qbank (the JSON your AI tool writes), save it to your library, then run it as a timed or tutor block. Your stats will show up right here.", csProgress: "{a} of {n} answered",
+    libMeta: "{q} questions · imported {d}", libLastScore: "Last score {pct}% ({c}/{t})", libNoScore: "Not attempted yet", libCompleted: "Completed · {pct}% ({c}/{t})", tabLibrary: "Library", tabHistory: "Analytics", tabImport: "Import", importPageTitle: "Import Qbank", histTitle: "Analytics", histEmpty: "No finished sessions yet. Every block you complete is logged here, including custom and mixed sessions.", histNote: "Each finished session is saved as its own log. Custom and mixed sessions never change your Qbank cards; a card is marked Completed only when you run that whole Qbank on its own. The 25 most recent sessions also keep their full question-by-question review; older ones keep a summary.", histKindBank: "Qbank", histKindCustom: "Custom", histKindRetest: "Retest", histQ: "{n} questions", histAnswered: "{a}/{n} answered", histSources: "From: {s}", histBySubject: "By subject", histDelete: "Delete this log", histClear: "Clear history", histClearQ: "Delete all {n} logged sessions? They move to Trash for 30 days. Your Qbank cards are not affected.", histClearGo: "Delete all", histToggle: "Show details", histSelectAll: "Select all", histDeselect: "Deselect all", histDeleteSelQ: "Delete {n} selected session(s)? They move to Trash for 30 days. Your Qbank cards are not affected.", histReview: "Review Exam", histNoReview: "Review unavailable", histNoReviewFlash: "The full review for this session is no longer stored.", histMixed: "Mixed: {n} blocks · {q} Questions", histNamed: "{name} · {q} Questions", histDone: "Completed {d}", anOverall: "Overall you answered {n} questions:", anCorrect: "correctly", anHints: "correctly using hints", anIncorrect: "incorrectly", anCenter: "Correct + using hints", anQ: "({n} questions)", anQ1: "(1 question)", tabConsole: "Console", csGoodMorning: "Good morning", csGoodAfternoon: "Good afternoon", csGoodEvening: "Good evening", csStreakLine: "{n}-day study streak", csReadyLine: "Ready when you are.", csNoSession: "No session in progress", csNoSessionHint: "Start a Qbank from your library, or import a new one.", csOpenLibrary: "Open Library", csImportNew: "Import a Qbank", csViewAll: "View all", csStatSessions: "Sessions", csStatWeek: "{n} this week", csStatAnswered: "Questions answered", csStatAccuracy: "Accuracy", csStatStreak: "Day streak", csStatDays: "{n} days", csStatDay1: "1 day", csHighlights: "Analytics highlights", csTrend: "Recent scores", csTrendHint: "Last {n} sessions · dashed line = 70%", csTrendNeed: "Finish 2 sessions to see your trend.", csStrong: "Strongest subjects", csWeak: "Needs work", csSubjNeed: "Answer at least 5 questions in a subject to rank it.", csRecent: "Recent sessions", csYourLibrary: "Your library", csLibSub: "{n} Qbanks saved", csLibEmpty: "Your library is empty. Import a Qbank to get started.", csFirstTitle: "Let's get your first session going", csFirstBody: "Import a Qbank (the JSON your AI tool writes), save it to your library, then run it as a timed or tutor block. Your stats will show up right here.", csProgress: "{a} of {n} answered",
     libStart: "Start", rateTitle: "How well did you know this?", "rate.again": "Again", "rate.hard": "Hard", "rate.good": "Good", "rate.easy": "Easy",
     poolAgain: "Rated Again", poolHard: "Rated Hard", poolAgainHard: "Again + Hard",
     "rt.again": "Rated Again", "rt.hard": "Rated Hard", "rt.againhard": "Rated Again/Hard",
     sufAgain: "Retest Again", sufHard: "Retest Hard", sufAgainHard: "Retest Again/Hard",
-    textSize: "Text size", textSmaller: "Smaller text", textLarger: "Larger text", textReset: "Reset", libMixMax: "Max ({n})", libMixCustom: "Custom", libMixCustomHint: "1–{n}", libCountTitle: "Choose question count", libCountHint: "Draws a random, subject-balanced set of questions from this bank. Scores from this block never change the bank's last score.", libLoad: "Load {n} questions", libLoadOne: "Load 1 question", libShareSel: "Share / Export Selected", libExporting: "Exporting your selection ({n}) as one file…", libExportShared: "Shared your selection ({n}) as one file.", libExportDownloaded: "Downloaded your selection ({n}) as one file.", libExportFailed: "Export failed. Please try again.", bundleFound: "Bundle detected: {n} blocks ({names}). Press Import to choose which ones to add to your library.", libEditSel: "Edit Selected", libDeleteSel: "Delete Selected", libEditing: "{i} of {n}", libSelectHint: "Tick blocks to load, share, rename or delete them. Tick two or more to mix them into one custom block.", libDeleteSelQ: "Delete {n} selected Qbank(s)? This can't be undone.", libMixTitle: "Mix selected banks", libMixHint: "Merges the ticked banks into one shuffled block, with systems and disciplines spread evenly.", libMixPool: "{q} questions · {s} subjects", libMixDupes: "{d} duplicate(s) removed", libMixSize: "Questions", libMixAll: "All ({n})", libMix: "Mix {n} questions", libMixOne: "Mix 1 question", mixedName: "Mixed Qbank ({n} banks)",
+    textSize: "Text size", textSmaller: "Smaller text", textLarger: "Larger text", textReset: "Reset", libMixMax: "Max ({n})", libMixCustom: "Custom", libMixCustomHint: "1–{n}", libCountTitle: "Choose question count", libCountHint: "Draws a random, subject-balanced set of questions from this bank. Scores from this block never change the bank's last score.", libLoad: "Load {n} questions", libLoadOne: "Load 1 question", libShareSel: "Share / Export Selected", libExporting: "Exporting your selection ({n}) as one file…", libExportShared: "Shared your selection ({n}) as one file.", libExportDownloaded: "Downloaded your selection ({n}) as one file.", libExportFailed: "Export failed. Please try again.", bundleFound: "Bundle detected: {n} blocks ({names}). Press Import to choose which ones to add to your library.", libEditSel: "Edit Selected", libDeleteSel: "Delete Selected", libEditing: "{i} of {n}", libSelectHint: "Tick blocks to load, share, rename or delete them. Tick two or more to mix them into one custom block.", libDeleteSelQ: "Delete {n} selected Qbank(s)? They move to Trash, where you can restore them for 30 days.", libMixTitle: "Mix selected banks", libMixHint: "Merges the ticked banks into one shuffled block, with systems and disciplines spread evenly.", libMixPool: "{q} questions · {s} subjects", libMixDupes: "{d} duplicate(s) removed", libMixSize: "Questions", libMixAll: "All ({n})", libMix: "Mix {n} questions", libMixOne: "Mix 1 question", mixedName: "Mixed Qbank ({n} banks)",
     libDeleteQ: "Delete this block?", libDelete: "Delete", libLocalNote: "Stored only in this browser. Clearing site data removes it.",
-    resetData: "Reset All Local Data", resetDataWarn: "This permanently deletes your Qbank library, saved exam progress and preferences from this browser. It can't be undone.", resetDataConfirm: "Yes, delete everything",
+    resetData: "Reset All Local Data", resetDataWarn: "This permanently deletes your Qbank library, saved exam progress, Trash and preferences from this browser. It can't be undone.", resetDataConfirm: "Yes, delete everything",
     resumed: "Session restored — you're back where you left off.", storageFull: "Couldn't write to browser storage (it may be full or disabled). Your progress is not being backed up right now.",
     leaveConfirm: "You have a block in progress. Leaving now discards it. Continue?",
     settings: "Settings", dark: "Dark mode", lang: "Language",
+    "tabProfile": "Profile", "spTitle": "Student Profile", "spHint": "One standard file that tells Oworld where you are in your studies: your term and semester calendar, syllabus weeks, exams and plan. Your tutor uses it on the Console, in the Library and in notifications.", "spSyncLocal": "Saved on this device. Sign in with Google (profile menu) to sync it through your Drive.", "spSyncDrive": "Syncs with your Google Drive", "spBuildTitle": "Build your profile with AI", "spBuildBody": "Copy the prompt, give it to your AI tool together with your syllabi and your semester calendar (PDF, screenshot or pasted text), then paste the JSON it returns below.", "spUpdateTitle": "Update your profile", "spUpdateBody": "Give your AI tool the prompt again (with a new syllabus, schedule or semester calendar if you have one) to refresh your week, plan and strengths. Ids and ticked tasks are kept.", "spModeNew": "Start fresh", "spModeUpdate": "Update current profile", "spIncludeStats": "Include my study stats", "spIncludeStatsHint": "Adds a compact summary of your Analytics so the AI can write your strengths, gaps and pace from real results.", "spCopyPrompt": "Copy prompt", "spViewPrompt": "Preview prompt", "spHidePrompt": "Hide prompt", "spPasteLabel": "Paste the AI's JSON", "spPasteOpen": "Show box", "spPastePh": "Paste the profile JSON here…", "spLoad": "Load profile", "spUpload": "Upload .json", "spReplaceNote": "Loading replaces your current profile. Tasks you already ticked stay ticked.", "spLoaded": "Profile loaded. Your tutor is now on the Console.", "spErrParse": "That doesn't look like JSON. Paste only the AI's reply (or upload the file).", "spErrShape": "This JSON isn't a Student Profile. It needs at least a term, courses, assessments or a plan.", "spWarnTruncated": "The reply looked cut off, so only the complete part was loaded. Ask the AI to continue and update your profile.", "spWarnDates": "{n} assessment(s) had no usable date and were left out.", "spWarnDropped": "{n} incomplete item(s) were left out.", "spWarnNoStart": "No term start date was found, so the current week can't be tracked automatically.", "spTermWeek": "Week {w} of {n}", "spTermWeekNoTotal": "Week {w}", "spTermBefore": "Starts in {n} days", "spTermBefore1": "Starts tomorrow", "spTermAfter": "Term ended", "spTermUnknown": "Week unknown", "spThisWeek": "This week", "spNoFocus": "No topics mapped for this week.", "spNext": "Next assessment", "spNoNext": "No upcoming assessments.", "spToday": "Today", "spTomorrow": "Tomorrow", "spInDays": "in {n} days", "spTodayNone": "Nothing due today.", "spWeekly": "{a} of {n} questions this week", "spAssessments": "Upcoming assessments", "spTasks": "Plan", "spNoTasks": "No tasks yet.", "spCourses": "Syllabus map", "spWeekN": "Wk {n}", "spSource": "Source", "spConf": "Confidence: {c}", "spConf.high": "high", "spConf.medium": "medium", "spConf.low": "low", "spAssump": "Assumptions the AI made", "spRisk": "Risk", "spRisk.low": "low", "spRisk.medium": "medium", "spRisk.high": "high", "spStrengths": "Strengths", "spGaps": "Gaps", "spExport": "Export JSON", "spDelete": "Delete profile", "spDeleteQ": "Delete your Student Profile? It is removed from this device and from Drive sync. Your Qbanks and Analytics are not touched.", "spDeleteGo": "Delete", "spSchemaView": "View JSON schema", "spSchemaHide": "Hide JSON schema", "spSchemaTitle": "Student Profile JSON schema", "spCardTitle": "Your tutor", "spCardOpen": "Open profile", "spCardInviteTitle": "Set up your Student Profile", "spCardInviteBody": "Give Oworld your syllabi and semester calendar once and your tutor will keep track of your week, your exams and what to study next.", "spCardInviteBtn": "Set up profile", "spStartBlock": "Start a {s} block", "spLibStrip": "Tutor suggests for week {w}", "spLibStart": "{title} ({n} Q)", "sgBefore": "Your term starts {when}. Get your Qbanks ready.", "sgExam": "{title} is {when}.", "sgExamCover": "{title} is {when} and covers {coverage}.", "sgTasks": "{n} task(s) due today or overdue.", "sgPaceBehind": "You're behind this week's pace: {a} of {t} questions. A short block today closes the gap.", "sgPaceDone": "Weekly target reached ({a}/{t}). Nice work.", "sgPaceOn": "On pace: {a} of {t} questions this week.", "sgWeak": "{subject} is at {pct}% and it's on this week's list.", "sgNoFocus": "No topics are mapped for this week. Update your profile with the syllabus.", "sgStale": "Your profile is {n} days old. Update it so your tutor stays accurate.", "nf.examSoon.t": "Exam coming up", "nf.examSoon.b": "{title} is in {days} days.", "nf.examTomorrow.t": "Exam tomorrow", "nf.examTomorrow.b": "{title} is tomorrow. Do a light review and rest.", "nf.examToday.t": "Exam today", "nf.examToday.b": "{title} is today. Good luck!", "nf.weekStart.t": "Week {week} of {total}", "nf.weekStart.b": "This week: {topics}", "nf.termStart.t": "Term starts soon", "nf.termStart.b": "Your term starts in {days} day(s). Get your Qbanks ready.", "nf.paceBehind.t": "Behind this week's pace", "nf.paceBehind.b": "{a} of {t} questions so far. A short block today helps.", "nf.tasksDue.t": "Tasks due", "nf.tasksDue.b": "{n} task(s) due today or overdue. Open the Console.", "nf.profileStale.t": "Update your profile", "nf.profileStale.b": "Your Student Profile is {n} days old.", "nf.profileLoaded.t": "Student Profile ready", "nf.profileLoaded.b": "Your tutor now follows {term}.",
+    "spPromptTitle": "Student Profile — AI prompt", "spWarnCalDates": "{n} calendar event(s) had no usable date and were left out.",
+    "spEvt.holiday": "Holiday", "spEvt.break": "Break", "spEvt.exam-period": "Exam period", "spEvt.deadline": "Deadline", "spEvt.class": "Class", "spEvt.other": "Event",
+    "csCalendar": "Semester calendar", "csCalPrev": "Previous month", "csCalNext": "Next month", "csCalToday": "Today", "csCalNothing": "Nothing scheduled.", "csCalStudied": "Studied: {n} session(s) · {q} questions", "csCalLegExam": "Exam", "csCalLegTask": "Task due", "csCalLegEvent": "Calendar", "csCalLegStudy": "Studied", "csCalNoProfile": "Set up your Student Profile to see your exams, tasks and breaks here.", "csCalNoEvents": "No semester calendar loaded yet. Update your profile with it to see breaks and deadlines here.", "csCalSetup": "Set up profile", "csCalUpdate": "Update profile", "csCalMore": "+{n} more",
     tutorShort: "Tutor", modeLabel: "Test mode", modeLocked: "Locked once the block starts", modeTimedHint: "Countdown timer. You can turn it off during the exam, but not back on.", timerLabel: "Timer", timerOnHint: "You can turn the timer off, but you can't turn it back on.", timerOffNote: "Timer is off for this block and can't be turned back on.", timerOffTitle: "Turn off the timer?", timerOffBody: "The countdown will stop and this block will become untimed. This can't be undone: you won't be able to turn the timer back on for this block. Your answers and progress are kept.", keepTimer: "Keep timer on", turnOffTimer: "Turn off timer", timerOffSuffix: "timer off", modeTutorHint: "No timer. Instant feedback after each answer.", tutor: "Tutor mode", tutorHint: "Instant right/wrong feedback and explanations after each answer, plus question reset.",
     tutorCorrect: "Correct", tutorIncorrect: "Incorrect — the correct answer is {a}", tutorIncorrectHidden: "Incorrect", showCorrectBtn: "Show Correct Answer",
     resetQ: "Reset question", "sc.reset": "Reset question (Tutor mode)",
@@ -274,6 +291,7 @@ const STR = {
     intro: "Paste or upload custom question banks created with your favorite AI tools like ChatGPT, Claude, Gemini, or NotebookLM. Experience an exam-like environment complete with lab reference panels, answer strikethroughs, a built-in calculator, and detailed score analytics.",
     pasteJson: "Paste or upload question bank", upload: "Upload file",
     pastePh: "Paste your generated question bank here…",
+    anTrendTitle: "Score trend", anTrendHint: "Last {n} sessions · dashed line = 70%", anTrendNeed: "Finish 2 sessions to see your trend.", anSubjTitle: "Performance by subject", anActTitle: "Daily activity", anActHint: "Questions answered, last 14 days", anStatSessions: "Sessions", anStatAnswered: "Questions answered", anStatAccuracy: "Accuracy", anStatAvgTime: "Avg time / question", anStatBest: "Best session {n}%",
     importBundle: "Import", "warn.importN": "Import {n} question(s)",
     irTitle: "Import Qbanks", irSub: "{n} Qbanks found. Choose which ones to add to your library — anything you leave unticked is discarded.",
     irAddAll: "Add all to library ({n})", irAddSel: "Add selected to library ({n})", irDone: "Done", irCancel: "Cancel import",
@@ -389,19 +407,36 @@ const STR = {
     "err.match": "Question \"{id}\": correctAnswer \"{ans}\" doesn't match any option key.",
   },
   es: {
+    tabDatabase: "Base de datos", dbTitle: "Base de datos personal", dbHint: "Preguntas, extractos y notas que guardaste mientras estudiabas.", dbAdd: "Añadir a la base de datos", dbSavedToast: "Guardado en la base de datos", dbAll: "Todo", dbQuestions: "Preguntas", dbExcerpts: "Extractos", dbNotes: "Notas", dbSearch: "Buscar en tu base de datos", dbEmpty: "Tu base de datos está vacía.", dbEmptyHint: "Mientras haces un bloque, selecciona texto y toca Añadir a la base de datos, guarda una pregunta con el marcador o guarda una nota desde el panel de Notas.", dbNoMatch: "No hay coincidencias.", dbSaveQ: "Guardar pregunta", dbSavedQ: "Guardada en la base de datos", dbSaveNote: "Guardar en la base de datos", dbUpdateNote: "Actualizar en la base de datos", dbShowAns: "Mostrar respuesta", dbHideAns: "Ocultar respuesta", dbEdit: "Editar", dbSave: "Guardar", dbCancel: "Cancelar", dbCopy: "Copiar", dbCopied: "Copiado", dbDelete: "Eliminar", dbConfirmDel: "¿Eliminar?", dbClearAll: "Borrar todo", dbClearConfirm: "¿Mover todo el contenido de tu base de datos a la papelera? Podrás restaurarlo durante 30 días.", dbKindQ: "Pregunta", dbKindE: "Extracto", dbKindN: "Nota", dbCommentPh: "Añade tu propio comentario…", dbAddComment: "Añadir comentario", dbNoteTitle: "Tu nota", dbCorrectTag: "Correcta",
+    dbSyncSignIn: "Inicia sesión con Google desde el menú de la cuenta para sincronizarla entre tus dispositivos.", dbImport: "Importar", dbImported: "Se importaron {a} elemento(s); {s} ya estaban en tu base de datos.", dbImportBad: "Ese archivo no es una exportación de la base de datos personal.",
+    dbShared: "Compartiste {n} elemento(s) en un solo archivo.", dbDownloaded: "Descargaste {n} elemento(s) en un solo archivo.", dbExportFailed: "Error al exportar. Inténtalo de nuevo.", dbShareText: "Mi base de datos personal de OWORLD ({n} elementos). En OWORLD, abre Base de datos y toca Importar para añadirlos.", dbDelSelQ: "¿Mover {n} elemento(s) seleccionado(s) a la papelera? Podrás restaurarlos durante 30 días.", dbManage: "Administrar", dbExport: "Exportar",
+    tabTrash: "Papelera", trashTitle: "Papelera", trashCount: "{n} elemento(s)", trashHint: "Los Qbanks, sesiones de Analíticas y elementos de la base de datos eliminados permanecen aquí {d} días. Restáuralos o elimínalos para siempre.", trashEmpty: "La papelera está vacía.", trashEmptyHint: "Todo lo que elimines de la biblioteca, las Analíticas o la base de datos llega primero aquí, para que puedas recuperarlo.", trashNoneHere: "No hay nada de este tipo en la papelera.",
+    trashAll: "Todo", trashQbanks: "Qbanks", trashSessions: "Analíticas", trashDb: "Base de datos", trashKindQbank: "Qbank", trashKindSession: "Sesión",
+    trashRestore: "Restaurar", trashRestoreSel: "Restaurar selección", trashDeleteForever: "Eliminar para siempre", trashEmptyBtn: "Vaciar papelera",
+    trashPurgeQ: "¿Eliminar definitivamente {n} elemento(s)? No se puede deshacer.", trashEmptyQ: "¿Eliminar definitivamente los {n} elemento(s) de la papelera? No se puede deshacer.",
+    trashMoved: "Movido a la papelera", trashRestored: "Se restauraron {n} elemento(s).", trashRestoredDup: "{s} ya existía(n) de nuevo, así que no se añadió ninguna copia.", trashDeletedAgo: "Eliminado {d}", trashDaysLeft: "Quedan {n} días", trashLastDay: "Queda menos de un día", trashTrimmed: "La papelera estaba llena; se quitaron los elementos más antiguos para hacer espacio.",
+    notifTitle: "Notificaciones", notifBtn: "Notificaciones", notifEmpty: "Estás al día.", notifEmptyHint: "Aquí aparecerán los bloques terminados y las alertas de sincronización.", notifMarkAll: "Marcar todo como leído", notifClear: "Borrar todo", notifDismiss: "Descartar", notifJustNow: "Ahora mismo", notifUnread: "{n} sin leer",
+    "nf.blockDone.t": "Bloque completado", "nf.blockDone.b": "{name}: {correct} de {total} correctas ({pct}%).",
+    "nf.syncReauth.t": "Hay que reconectar Google Drive", "nf.syncReauth.b": "Tu sesión de Google caducó. Abre el menú de la cuenta y toca Reconectar. Los cambios locales se conservan.",
+    "nf.syncError.t": "Problema de sincronización con Drive", "nf.syncError.b": "No se pudo sincronizar con Google Drive. Tus datos en este dispositivo están a salvo.",
+    "nf.syncLinked.t": "Google Drive conectado", "nf.syncLinked.b": "Tu biblioteca y tus Analíticas ahora se sincronizan entre tus dispositivos.",
     saveToLibrary: "Guardar en la biblioteca", libSaved: "Se guardaron {n} bloque(s) nuevo(s) en tu biblioteca.", libDup: "{d} ya estaba(n) en tu biblioteca.", libNothing: "Ya está en tu biblioteca; no hay nada nuevo que guardar.",
     libTitle: "Biblioteca de preguntas", libCount: "{n} guardados", libEmpty: "Aún no hay nada guardado. Pega o sube un banco de preguntas y elige \u201cGuardar en la biblioteca\u201d para conservarlo en este dispositivo.",
-    libMeta: "{q} preguntas · importado {d}", libLastScore: "Último puntaje {pct}% ({c}/{t})", libNoScore: "Sin intentos aún", libCompleted: "Completado · {pct}% ({c}/{t})", tabLibrary: "Biblioteca", tabHistory: "Analíticas", tabImport: "Importar", importPageTitle: "Importar Qbank", histTitle: "Analíticas", histEmpty: "Aún no hay sesiones terminadas. Cada bloque que completes queda registrado aquí, incluidas las sesiones personalizadas y mezcladas.", histNote: "Cada sesión terminada se guarda como un registro independiente. Las sesiones personalizadas y mezcladas nunca cambian tus tarjetas de Qbank; una tarjeta se marca como Completada solo cuando haces ese Qbank completo por sí solo. Las 25 sesiones más recientes también conservan su revisión completa pregunta por pregunta; las anteriores conservan un resumen.", histKindBank: "Qbank", histKindCustom: "Personalizada", histKindRetest: "Repetición", histQ: "{n} preguntas", histAnswered: "{a}/{n} respondidas", histSources: "De: {s}", histBySubject: "Por materia", histDelete: "Eliminar este registro", histClear: "Borrar historial", histClearQ: "¿Eliminar las {n} sesiones registradas? Tus tarjetas de Qbank no se ven afectadas.", histClearGo: "Eliminar todo", histToggle: "Ver detalles", histSelectAll: "Seleccionar todo", histDeselect: "Deseleccionar todo", histDeleteSelQ: "¿Eliminar {n} sesión(es) seleccionada(s)? Tus tarjetas de Qbank no se ven afectadas.", histReview: "Revisar examen", histNoReview: "Revisión no disponible", histNoReviewFlash: "La revisión completa de esta sesión ya no está guardada.", histMixed: "Mezcla: {n} bloques · {q} preguntas", histNamed: "{name} · {q} preguntas", histDone: "Completado {d}", anOverall: "En total respondiste {n} preguntas:", anCorrect: "correctas", anHints: "correctas con pistas", anIncorrect: "incorrectas", anCenter: "Correctas + con pistas", anQ: "({n} preguntas)", anQ1: "(1 pregunta)", tabConsole: "Consola", csGoodMorning: "Buenos días", csGoodAfternoon: "Buenas tardes", csGoodEvening: "Buenas noches", csStreakLine: "Racha de estudio de {n} días", csReadyLine: "Listo cuando tú lo estés.", csNoSession: "Ninguna sesión en curso", csNoSessionHint: "Inicia un Qbank de tu biblioteca o importa uno nuevo.", csOpenLibrary: "Abrir biblioteca", csImportNew: "Importar un Qbank", csViewAll: "Ver todo", csStatSessions: "Sesiones", csStatWeek: "{n} esta semana", csStatAnswered: "Preguntas respondidas", csStatAccuracy: "Precisión", csStatStreak: "Racha de días", csStatDays: "{n} días", csStatDay1: "1 día", csHighlights: "Resumen de analíticas", csTrend: "Puntajes recientes", csTrendHint: "Últimas {n} sesiones · línea punteada = 70%", csTrendNeed: "Termina 2 sesiones para ver tu tendencia.", csStrong: "Materias más fuertes", csWeak: "Por mejorar", csSubjNeed: "Responde al menos 5 preguntas de una materia para clasificarla.", csRecent: "Sesiones recientes", csYourLibrary: "Tu biblioteca", csLibSub: "{n} Qbanks guardados", csLibEmpty: "Tu biblioteca está vacía. Importa un Qbank para comenzar.", csFirstTitle: "Empecemos tu primera sesión", csFirstBody: "Importa un Qbank (el JSON que escribe tu herramienta de IA), guárdalo en tu biblioteca y ejecútalo como bloque cronometrado o con tutor. Tus estadísticas aparecerán aquí.", csProgress: "{a} de {n} respondidas",
+    libMeta: "{q} preguntas · importado {d}", libLastScore: "Último puntaje {pct}% ({c}/{t})", libNoScore: "Sin intentos aún", libCompleted: "Completado · {pct}% ({c}/{t})", tabLibrary: "Biblioteca", tabHistory: "Analíticas", tabImport: "Importar", importPageTitle: "Importar Qbank", histTitle: "Analíticas", histEmpty: "Aún no hay sesiones terminadas. Cada bloque que completes queda registrado aquí, incluidas las sesiones personalizadas y mezcladas.", histNote: "Cada sesión terminada se guarda como un registro independiente. Las sesiones personalizadas y mezcladas nunca cambian tus tarjetas de Qbank; una tarjeta se marca como Completada solo cuando haces ese Qbank completo por sí solo. Las 25 sesiones más recientes también conservan su revisión completa pregunta por pregunta; las anteriores conservan un resumen.", histKindBank: "Qbank", histKindCustom: "Personalizada", histKindRetest: "Repetición", histQ: "{n} preguntas", histAnswered: "{a}/{n} respondidas", histSources: "De: {s}", histBySubject: "Por materia", histDelete: "Eliminar este registro", histClear: "Borrar historial", histClearQ: "¿Eliminar las {n} sesiones registradas? Pasan a la papelera durante 30 días. Tus tarjetas de Qbank no se ven afectadas.", histClearGo: "Eliminar todo", histToggle: "Ver detalles", histSelectAll: "Seleccionar todo", histDeselect: "Deseleccionar todo", histDeleteSelQ: "¿Eliminar {n} sesión(es) seleccionada(s)? Pasan a la papelera durante 30 días. Tus tarjetas de Qbank no se ven afectadas.", histReview: "Revisar examen", histNoReview: "Revisión no disponible", histNoReviewFlash: "La revisión completa de esta sesión ya no está guardada.", histMixed: "Mezcla: {n} bloques · {q} preguntas", histNamed: "{name} · {q} preguntas", histDone: "Completado {d}", anOverall: "En total respondiste {n} preguntas:", anCorrect: "correctas", anHints: "correctas con pistas", anIncorrect: "incorrectas", anCenter: "Correctas + con pistas", anQ: "({n} preguntas)", anQ1: "(1 pregunta)", tabConsole: "Consola", csGoodMorning: "Buenos días", csGoodAfternoon: "Buenas tardes", csGoodEvening: "Buenas noches", csStreakLine: "Racha de estudio de {n} días", csReadyLine: "Listo cuando tú lo estés.", csNoSession: "Ninguna sesión en curso", csNoSessionHint: "Inicia un Qbank de tu biblioteca o importa uno nuevo.", csOpenLibrary: "Abrir biblioteca", csImportNew: "Importar un Qbank", csViewAll: "Ver todo", csStatSessions: "Sesiones", csStatWeek: "{n} esta semana", csStatAnswered: "Preguntas respondidas", csStatAccuracy: "Precisión", csStatStreak: "Racha de días", csStatDays: "{n} días", csStatDay1: "1 día", csHighlights: "Resumen de analíticas", csTrend: "Puntajes recientes", csTrendHint: "Últimas {n} sesiones · línea punteada = 70%", csTrendNeed: "Termina 2 sesiones para ver tu tendencia.", csStrong: "Materias más fuertes", csWeak: "Por mejorar", csSubjNeed: "Responde al menos 5 preguntas de una materia para clasificarla.", csRecent: "Sesiones recientes", csYourLibrary: "Tu biblioteca", csLibSub: "{n} Qbanks guardados", csLibEmpty: "Tu biblioteca está vacía. Importa un Qbank para comenzar.", csFirstTitle: "Empecemos tu primera sesión", csFirstBody: "Importa un Qbank (el JSON que escribe tu herramienta de IA), guárdalo en tu biblioteca y ejecútalo como bloque cronometrado o con tutor. Tus estadísticas aparecerán aquí.", csProgress: "{a} de {n} respondidas",
     libStart: "Iniciar", rateTitle: "¿Qué tan bien lo sabías?", "rate.again": "Otra vez", "rate.hard": "Difícil", "rate.good": "Bien", "rate.easy": "Fácil",
     poolAgain: "Calificadas Otra vez", poolHard: "Calificadas Difícil", poolAgainHard: "Otra vez + Difícil",
     "rt.again": "Calificadas Otra vez", "rt.hard": "Calificadas Difícil", "rt.againhard": "Calificadas Otra vez/Difícil",
     sufAgain: "Repaso Otra vez", sufHard: "Repaso Difícil", sufAgainHard: "Repaso Otra vez/Difícil",
-    textSize: "Tamaño del texto", textSmaller: "Texto más pequeño", textLarger: "Texto más grande", textReset: "Restablecer", libMixMax: "Máx ({n})", libMixCustom: "Personalizado", libMixCustomHint: "1–{n}", libCountTitle: "Elegir cantidad de preguntas", libCountHint: "Toma un conjunto aleatorio y equilibrado por materia de este banco. El puntaje de este bloque nunca cambia el último puntaje del banco.", libLoad: "Cargar {n} preguntas", libLoadOne: "Cargar 1 pregunta", libShareSel: "Compartir / Exportar selección", libExporting: "Exportando tu selección ({n}) en un solo archivo…", libExportShared: "Compartiste tu selección ({n}) en un solo archivo.", libExportDownloaded: "Descargaste tu selección ({n}) en un solo archivo.", libExportFailed: "Error al exportar. Inténtalo de nuevo.", bundleFound: "Paquete detectado: {n} bloques ({names}). Pulsa Importar para elegir cuáles añadir a tu biblioteca.", libEditSel: "Editar selección", libDeleteSel: "Eliminar selección", libEditing: "{i} de {n}", libSelectHint: "Marca bloques para cargarlos, compartirlos, renombrarlos o eliminarlos. Marca dos o más para mezclarlos en un solo bloque personalizado.", libDeleteSelQ: "¿Eliminar {n} Qbank(s) seleccionado(s)? No se puede deshacer.", libMixTitle: "Mezclar bancos seleccionados", libMixHint: "Une los bancos marcados en un solo bloque mezclado, con sistemas y disciplinas repartidos de forma pareja.", libMixPool: "{q} preguntas · {s} materias", libMixDupes: "{d} duplicada(s) eliminada(s)", libMixSize: "Preguntas", libMixAll: "Todas ({n})", libMix: "Mezclar {n} preguntas", libMixOne: "Mezclar 1 pregunta", mixedName: "Qbank mezclado ({n} bancos)",
+    textSize: "Tamaño del texto", textSmaller: "Texto más pequeño", textLarger: "Texto más grande", textReset: "Restablecer", libMixMax: "Máx ({n})", libMixCustom: "Personalizado", libMixCustomHint: "1–{n}", libCountTitle: "Elegir cantidad de preguntas", libCountHint: "Toma un conjunto aleatorio y equilibrado por materia de este banco. El puntaje de este bloque nunca cambia el último puntaje del banco.", libLoad: "Cargar {n} preguntas", libLoadOne: "Cargar 1 pregunta", libShareSel: "Compartir / Exportar selección", libExporting: "Exportando tu selección ({n}) en un solo archivo…", libExportShared: "Compartiste tu selección ({n}) en un solo archivo.", libExportDownloaded: "Descargaste tu selección ({n}) en un solo archivo.", libExportFailed: "Error al exportar. Inténtalo de nuevo.", bundleFound: "Paquete detectado: {n} bloques ({names}). Pulsa Importar para elegir cuáles añadir a tu biblioteca.", libEditSel: "Editar selección", libDeleteSel: "Eliminar selección", libEditing: "{i} de {n}", libSelectHint: "Marca bloques para cargarlos, compartirlos, renombrarlos o eliminarlos. Marca dos o más para mezclarlos en un solo bloque personalizado.", libDeleteSelQ: "¿Eliminar {n} Qbank(s) seleccionado(s)? Pasan a la papelera, donde puedes restaurarlos durante 30 días.", libMixTitle: "Mezclar bancos seleccionados", libMixHint: "Une los bancos marcados en un solo bloque mezclado, con sistemas y disciplinas repartidos de forma pareja.", libMixPool: "{q} preguntas · {s} materias", libMixDupes: "{d} duplicada(s) eliminada(s)", libMixSize: "Preguntas", libMixAll: "Todas ({n})", libMix: "Mezclar {n} preguntas", libMixOne: "Mezclar 1 pregunta", mixedName: "Qbank mezclado ({n} bancos)",
     libDeleteQ: "¿Eliminar este bloque?", libDelete: "Eliminar", libLocalNote: "Se guarda solo en este navegador. Borrar los datos del sitio lo elimina.",
-    resetData: "Restablecer todos los datos locales", resetDataWarn: "Esto elimina de forma permanente tu biblioteca, el progreso guardado y tus preferencias en este navegador. No se puede deshacer.", resetDataConfirm: "Sí, eliminar todo",
+    resetData: "Restablecer todos los datos locales", resetDataWarn: "Esto elimina de forma permanente tu biblioteca, el progreso guardado, la papelera y tus preferencias en este navegador. No se puede deshacer.", resetDataConfirm: "Sí, eliminar todo",
     resumed: "Sesión restaurada: continúas donde la dejaste.", storageFull: "No se pudo escribir en el almacenamiento del navegador (puede estar lleno o desactivado). Tu progreso no se está respaldando.",
     leaveConfirm: "Tienes un bloque en curso. Si sales ahora se descartará. ¿Continuar?",
     settings: "Ajustes", dark: "Modo oscuro", lang: "Idioma",
+    "tabProfile": "Perfil", "spTitle": "Perfil del estudiante", "spHint": "Un archivo estándar que le dice a Oworld en qué punto de tus estudios estás: tu periodo y el calendario del semestre, las semanas del programa, los exámenes y tu plan. Tu tutor lo usa en la Consola, en la Biblioteca y en las notificaciones.", "spSyncLocal": "Guardado en este dispositivo. Inicia sesión con Google (menú de perfil) para sincronizarlo con tu Drive.", "spSyncDrive": "Se sincroniza con tu Google Drive", "spBuildTitle": "Crea tu perfil con IA", "spBuildBody": "Copia el prompt, dáselo a tu herramienta de IA junto con tus programas y el calendario del semestre (PDF, captura o texto pegado) y pega abajo el JSON que te devuelva.", "spUpdateTitle": "Actualiza tu perfil", "spUpdateBody": "Vuelve a darle el prompt a tu herramienta de IA (con un programa, horario o calendario del semestre nuevo si lo tienes) para refrescar tu semana, tu plan y tus fortalezas. Se conservan los ids y las tareas marcadas.", "spModeNew": "Empezar de cero", "spModeUpdate": "Actualizar perfil actual", "spIncludeStats": "Incluir mis estadísticas de estudio", "spIncludeStatsHint": "Añade un resumen compacto de tus Analíticas para que la IA escriba tus fortalezas, puntos débiles y ritmo con resultados reales.", "spCopyPrompt": "Copiar prompt", "spViewPrompt": "Ver prompt", "spHidePrompt": "Ocultar prompt", "spPasteLabel": "Pega el JSON de la IA", "spPasteOpen": "Mostrar cuadro", "spPastePh": "Pega aquí el JSON del perfil…", "spLoad": "Cargar perfil", "spUpload": "Subir .json", "spReplaceNote": "Cargar reemplaza tu perfil actual. Las tareas que ya marcaste siguen marcadas.", "spLoaded": "Perfil cargado. Tu tutor ya está en la Consola.", "spErrParse": "Eso no parece JSON. Pega solo la respuesta de la IA (o sube el archivo).", "spErrShape": "Este JSON no es un Perfil del estudiante. Necesita al menos un periodo, cursos, evaluaciones o un plan.", "spWarnTruncated": "La respuesta parecía cortada, así que solo se cargó la parte completa. Pide a la IA que continúe y actualiza tu perfil.", "spWarnDates": "{n} evaluación(es) no tenían una fecha válida y se omitieron.", "spWarnDropped": "Se omitieron {n} elemento(s) incompleto(s).", "spWarnNoStart": "No se encontró la fecha de inicio del periodo, así que la semana actual no se puede seguir automáticamente.", "spTermWeek": "Semana {w} de {n}", "spTermWeekNoTotal": "Semana {w}", "spTermBefore": "Empieza en {n} días", "spTermBefore1": "Empieza mañana", "spTermAfter": "Periodo terminado", "spTermUnknown": "Semana desconocida", "spThisWeek": "Esta semana", "spNoFocus": "No hay temas asignados a esta semana.", "spNext": "Próxima evaluación", "spNoNext": "No hay evaluaciones próximas.", "spToday": "Hoy", "spTomorrow": "Mañana", "spInDays": "en {n} días", "spTodayNone": "Nada para hoy.", "spWeekly": "{a} de {n} preguntas esta semana", "spAssessments": "Próximas evaluaciones", "spTasks": "Plan", "spNoTasks": "Aún no hay tareas.", "spCourses": "Mapa del programa", "spWeekN": "Sem {n}", "spSource": "Fuente", "spConf": "Confianza: {c}", "spConf.high": "alta", "spConf.medium": "media", "spConf.low": "baja", "spAssump": "Suposiciones de la IA", "spRisk": "Riesgo", "spRisk.low": "bajo", "spRisk.medium": "medio", "spRisk.high": "alto", "spStrengths": "Fortalezas", "spGaps": "Puntos débiles", "spExport": "Exportar JSON", "spDelete": "Eliminar perfil", "spDeleteQ": "¿Eliminar tu Perfil del estudiante? Se borra de este dispositivo y de la sincronización con Drive. Tus Qbanks y Analíticas no se tocan.", "spDeleteGo": "Eliminar", "spSchemaView": "Ver esquema JSON", "spSchemaHide": "Ocultar esquema JSON", "spSchemaTitle": "Esquema JSON del Perfil del estudiante", "spCardTitle": "Tu tutor", "spCardOpen": "Abrir perfil", "spCardInviteTitle": "Configura tu Perfil del estudiante", "spCardInviteBody": "Dale tus programas y el calendario del semestre a Oworld una sola vez y tu tutor llevará el control de tu semana, tus exámenes y qué estudiar después.", "spCardInviteBtn": "Configurar perfil", "spStartBlock": "Iniciar un bloque de {s}", "spLibStrip": "El tutor sugiere para la semana {w}", "spLibStart": "{title} ({n} P)", "sgBefore": "Tu periodo empieza {when}. Prepara tus Qbanks.", "sgExam": "{title} es {when}.", "sgExamCover": "{title} es {when} e incluye {coverage}.", "sgTasks": "{n} tarea(s) para hoy o atrasada(s).", "sgPaceBehind": "Vas por debajo del ritmo de esta semana: {a} de {t} preguntas. Un bloque corto hoy cierra la brecha.", "sgPaceDone": "Meta semanal alcanzada ({a}/{t}). Buen trabajo.", "sgPaceOn": "Buen ritmo: {a} de {t} preguntas esta semana.", "sgWeak": "{subject} está en {pct}% y está en la lista de esta semana.", "sgNoFocus": "No hay temas asignados a esta semana. Actualiza tu perfil con el programa.", "sgStale": "Tu perfil tiene {n} días. Actualízalo para que tu tutor siga siendo preciso.", "nf.examSoon.t": "Se acerca un examen", "nf.examSoon.b": "{title} es en {days} días.", "nf.examTomorrow.t": "Examen mañana", "nf.examTomorrow.b": "{title} es mañana. Haz un repaso ligero y descansa.", "nf.examToday.t": "Examen hoy", "nf.examToday.b": "{title} es hoy. ¡Mucha suerte!", "nf.weekStart.t": "Semana {week} de {total}", "nf.weekStart.b": "Esta semana: {topics}", "nf.termStart.t": "El periodo empieza pronto", "nf.termStart.b": "Tu periodo empieza en {days} día(s). Prepara tus Qbanks.", "nf.paceBehind.t": "Por debajo del ritmo semanal", "nf.paceBehind.b": "{a} de {t} preguntas hasta ahora. Un bloque corto hoy ayuda.", "nf.tasksDue.t": "Tareas pendientes", "nf.tasksDue.b": "{n} tarea(s) para hoy o atrasada(s). Abre la Consola.", "nf.profileStale.t": "Actualiza tu perfil", "nf.profileStale.b": "Tu Perfil del estudiante tiene {n} días.", "nf.profileLoaded.t": "Perfil del estudiante listo", "nf.profileLoaded.b": "Tu tutor ahora sigue {term}.",
+    "spPromptTitle": "Perfil del estudiante — prompt para IA", "spWarnCalDates": "{n} evento(s) del calendario no tenían una fecha válida y se omitieron.",
+    "spEvt.holiday": "Feriado", "spEvt.break": "Descanso", "spEvt.exam-period": "Periodo de exámenes", "spEvt.deadline": "Fecha límite", "spEvt.class": "Clase", "spEvt.other": "Evento",
+    "csCalendar": "Calendario del semestre", "csCalPrev": "Mes anterior", "csCalNext": "Mes siguiente", "csCalToday": "Hoy", "csCalNothing": "Nada programado.", "csCalStudied": "Estudiaste: {n} sesión(es) · {q} preguntas", "csCalLegExam": "Examen", "csCalLegTask": "Tarea", "csCalLegEvent": "Calendario", "csCalLegStudy": "Estudio", "csCalNoProfile": "Configura tu Perfil del estudiante para ver aquí tus exámenes, tareas y descansos.", "csCalNoEvents": "Aún no cargaste un calendario del semestre. Actualiza tu perfil con él para ver aquí descansos y fechas límite.", "csCalSetup": "Configurar perfil", "csCalUpdate": "Actualizar perfil", "csCalMore": "+{n} más",
     tutorShort: "Tutor", modeLabel: "Modo del examen", modeLocked: "Se bloquea al iniciar el bloque", modeTimedHint: "Cuenta regresiva. Puedes desactivarla durante el examen, pero no volver a activarla.", timerLabel: "Cronómetro", timerOnHint: "Puedes desactivar el cronómetro, pero no volver a activarlo.", timerOffNote: "El cronómetro está desactivado en este bloque y no se puede volver a activar.", timerOffTitle: "¿Desactivar el cronómetro?", timerOffBody: "La cuenta regresiva se detendrá y este bloque quedará sin límite de tiempo. No se puede deshacer: no podrás volver a activar el cronómetro en este bloque. Tus respuestas y tu progreso se conservan.", keepTimer: "Mantener cronómetro", turnOffTimer: "Desactivar cronómetro", timerOffSuffix: "cronómetro desactivado", modeTutorHint: "Sin cronómetro. Retroalimentación instantánea tras cada respuesta.", tutor: "Modo tutor", tutorHint: "Retroalimentación instantánea de correcto/incorrecto y explicaciones tras cada respuesta, más reinicio de pregunta.",
     tutorCorrect: "Correcto", tutorIncorrect: "Incorrecto — la respuesta correcta es {a}", tutorIncorrectHidden: "Incorrecto", showCorrectBtn: "Mostrar respuesta correcta",
     resetQ: "Reiniciar pregunta", "sc.reset": "Reiniciar pregunta (modo tutor)",
@@ -413,6 +448,7 @@ const STR = {
     intro: "Pega o sube bancos de preguntas personalizados creados con tus herramientas de IA favoritas, como ChatGPT, Claude, Gemini o NotebookLM. Vive un entorno similar al examen real, con paneles de referencia de laboratorio, tachado de respuestas, calculadora integrada y analíticas detalladas de tu puntaje.",
     pasteJson: "Pega o sube un banco de preguntas", upload: "Subir archivo",
     pastePh: "Pega aquí tu banco de preguntas generado…",
+    anTrendTitle: "Tendencia de puntaje", anTrendHint: "Últimas {n} sesiones · línea punteada = 70%", anTrendNeed: "Termina 2 sesiones para ver tu tendencia.", anSubjTitle: "Rendimiento por materia", anActTitle: "Actividad diaria", anActHint: "Preguntas respondidas, últimos 14 días", anStatSessions: "Sesiones", anStatAnswered: "Preguntas respondidas", anStatAccuracy: "Precisión", anStatAvgTime: "Tiempo prom. / pregunta", anStatBest: "Mejor sesión {n}%",
     importBundle: "Importar", "warn.importN": "Importar {n} pregunta(s)",
     irTitle: "Importar Qbanks", irSub: "Se encontraron {n} Qbanks. Elige cuáles añadir a tu biblioteca; lo que dejes sin marcar se descarta.",
     irAddAll: "Añadir todos a la biblioteca ({n})", irAddSel: "Añadir seleccionados a la biblioteca ({n})", irDone: "Listo", irCancel: "Cancelar importación",
@@ -2030,6 +2066,20 @@ const SYNC_FILE_NAME = "oword_sync_state.json";
 const LS_SYNC = "owordDriveSync";   // { linked, fileId, lastSync }
 const LS_TOMBS = "owordTombstones"; // { qbanks: {id: deletedAt}, sessions: {id: deletedAt} }
 const TOMB_TTL = 180 * 24 * 3600 * 1000;
+// A tombstone kills an item unless that item was restored from the Trash AFTER the deletion (its restoredAt is later than the
+// tombstone). Without this, another device's copy of the tombstone would delete a restored item again on the next sync.
+const isBuried = (ts, e) => !!ts && ts >= ((e && e.restoredAt) || 0);
+
+// Trash: one bin for everything deleted from the Library, Analytics and Database (kept on this device, newest first).
+//   { tid, kind: "qbank" | "session" | "dbitem", deletedAt, data: <the deleted entry>, review?: <saved Review Exam snapshot> }
+const LS_TRASH = "owordTrash";
+const TRASH_TTL = 30 * 24 * 3600 * 1000;
+const TRASH_KINDS = ["qbank", "session", "dbitem"];
+function loadTrash() {
+  const v = lsGet(LS_TRASH); const cutoff = Date.now() - TRASH_TTL;
+  if (!Array.isArray(v)) return [];
+  return v.filter((e) => e && typeof e.tid === "string" && TRASH_KINDS.includes(e.kind) && e.data && typeof e.data.id === "string" && e.deletedAt > cutoff);
+}
 
 function emptyTombs() { return { qbanks: {}, sessions: {} }; }
 function loadTombs() {
@@ -2068,9 +2118,9 @@ function mergeQbankEntry(a, b) {
 function mergeQbanks(local, remote, deleted) {
   const dead = (deleted && deleted.qbanks) || {};
   const map = new Map();
-  for (const e of local || []) if (!dead[e.id]) map.set(e.id, e);
+  for (const e of local || []) if (!isBuried(dead[e.id], e)) map.set(e.id, e);
   for (const r of remote || []) {
-    if (!validLibEntry(r) || dead[r.id]) continue;
+    if (!validLibEntry(r) || isBuried(dead[r.id], r)) continue;
     map.set(r.id, map.has(r.id) ? mergeQbankEntry(map.get(r.id), r) : r);
   }
   return [...map.values()].sort((x, y) => (x.importDate || 0) - (y.importDate || 0) || (x.id < y.id ? -1 : 1));
@@ -2078,8 +2128,8 @@ function mergeQbanks(local, remote, deleted) {
 function mergeSessions(local, remote, deleted) {
   const dead = (deleted && deleted.sessions) || {};
   const map = new Map();
-  for (const e of local || []) if (!dead[e.id]) map.set(e.id, e);
-  for (const r of remote || []) if (validSession(r) && !dead[r.id] && !map.has(r.id)) map.set(r.id, r);
+  for (const e of local || []) if (!isBuried(dead[e.id], e)) map.set(e.id, e);
+  for (const r of remote || []) if (validSession(r) && !isBuried(dead[r.id], r) && !map.has(r.id)) map.set(r.id, r);
   return [...map.values()].sort((x, y) => y.finishedAt - x.finishedAt || (x.id < y.id ? -1 : 1)).slice(0, HISTORY_MAX);
 }
 function sameList(a, b) { return a.length === b.length && a.every((x, i) => x === b[i]); }
@@ -2620,7 +2670,1755 @@ function makeLibraryEntry(block) {
 
 // Lets any Settings menu reach the app-level "wipe local data" action without prop-drilling.
 const DataContext = createContext({ resetAllData: () => {} });
+// The Trash lives in the app state; the Settings menu (profile picture, upper right) reads it from here.
+const TrashContext = createContext({ trash: [], restore: () => {}, purge: () => {} });
 const DriveContext = createContext(null); // the Google account + Drive sync, read by the profile menu on every screen
+
+// ---------------------------------------------------------------------------
+// Notifications: a small persisted in-app inbox. Entries store only a `kind` + vars, so the text is localized when shown.
+// ---------------------------------------------------------------------------
+const LS_NOTIFS = "owordNotifications";
+const NOTIF_MAX = 50;
+const NotifContext = createContext({ items: [], unread: 0, notify: () => {}, markRead: () => {}, markAllRead: () => {}, dismiss: () => {}, clearAll: () => {} });
+
+function useNotifications() {
+  const [items, setItems] = useState(() => {
+    const v = lsGet(LS_NOTIFS);
+    return Array.isArray(v) ? v.filter((n) => n && typeof n.id === "string" && typeof n.kind === "string").slice(0, NOTIF_MAX) : [];
+  });
+  useEffect(() => { lsSet(LS_NOTIFS, JSON.stringify(items)); }, [items]);
+  // `dedupe`: a newer notification with the same key replaces the older one instead of piling up.
+  const notify = useCallback(({ kind, vars, tone = "blue", dedupe }) => {
+    setItems((cur) => {
+      const rest = dedupe ? cur.filter((n) => n.dedupe !== dedupe) : cur;
+      const n = { id: `n_${Date.now().toString(36)}${Math.random().toString(36).slice(2, 6)}`, kind, vars: vars || {}, tone, ts: Date.now(), read: false, dedupe: dedupe || null };
+      return [n, ...rest].slice(0, NOTIF_MAX);
+    });
+  }, []);
+  const markRead = useCallback((id) => setItems((cur) => cur.map((n) => (n.id === id && !n.read ? { ...n, read: true } : n))), []);
+  const markAllRead = useCallback(() => setItems((cur) => (cur.some((n) => !n.read) ? cur.map((n) => ({ ...n, read: true })) : cur)), []);
+  const dismiss = useCallback((id) => setItems((cur) => cur.filter((n) => n.id !== id)), []);
+  const clearAll = useCallback(() => setItems([]), []);
+  const unread = items.filter((n) => !n.read).length;
+  return { items, unread, notify, markRead, markAllRead, dismiss, clearAll };
+}
+
+function timeAgo(ts, lang, t) {
+  const sec = Math.round((Date.now() - ts) / 1000);
+  if (sec < 45) return t("notifJustNow");
+  try {
+    const rtf = new Intl.RelativeTimeFormat(lang === "es" ? "es" : "en", { numeric: "auto" });
+    if (sec < 3600) return rtf.format(-Math.round(sec / 60), "minute");
+    if (sec < 86400) return rtf.format(-Math.round(sec / 3600), "hour");
+    return rtf.format(-Math.round(sec / 86400), "day");
+  } catch (e) { return new Date(ts).toLocaleDateString(); }
+}
+
+function NotificationBell({ T }) {
+  const { t, lang } = useI18n();
+  const { items, unread, markRead, markAllRead, dismiss, clearAll } = useContext(NotifContext);
+  const [open, setOpen] = useState(false);
+  const wrapRef = useRef(null);
+  const [place, setPlace] = useState({ right: 0 });
+  useEffect(() => {
+    if (!open) return undefined;
+    const away = (e) => { if (wrapRef.current && !wrapRef.current.contains(e.target)) setOpen(false); };
+    const esc = (e) => { if (e.key === "Escape") setOpen(false); };
+    document.addEventListener("mousedown", away); document.addEventListener("touchstart", away); document.addEventListener("keydown", esc);
+    return () => { document.removeEventListener("mousedown", away); document.removeEventListener("touchstart", away); document.removeEventListener("keydown", esc); };
+  }, [open]);
+
+  // Same placement rule as the profile menu: never let the panel run off-screen.
+  function toggle() {
+    if (!open && wrapRef.current) {
+      const r = wrapRef.current.getBoundingClientRect();
+      const vw = window.innerWidth;
+      const W = Math.min(340, vw - 16);
+      if (r.right - W >= 8) setPlace({ right: 0 });
+      else if (r.left + W <= vw - 8) setPlace({ left: 0 });
+      else setPlace({ left: 8 - r.left });
+    }
+    setOpen((v) => !v);
+  }
+  const toneOf = (tn) => ({
+    green: { fg: T.green, bg: T.greenLight, Icon: CheckCircle2 },
+    amber: { fg: T.amber, bg: T.amberLight, Icon: AlertTriangle },
+    red: { fg: T.red, bg: T.redLight, Icon: XCircle },
+  }[tn] || { fg: T.blue, bg: T.blueLight, Icon: Bell });
+  const textLink = { background: "none", border: "none", padding: 0, cursor: "pointer", fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(12.5), color: T.blue };
+
+  return (
+    <div ref={wrapRef} style={{ position: "relative", flexShrink: 0 }}>
+      <button
+        onClick={toggle} aria-haspopup="true" aria-expanded={open}
+        aria-label={unread ? `${t("notifBtn")} (${t("notifUnread", { n: unread })})` : t("notifBtn")} title={t("notifBtn")}
+        style={{
+          position: "relative", display: "inline-flex", alignItems: "center", justifyContent: "center", width: 40, height: 40, padding: 0, borderRadius: "50%", cursor: "pointer",
+          background: open ? T.blueLight : "transparent", border: `1px solid ${open ? T.blue : T.border}`, color: T.ink,
+        }}
+      >
+        <Bell size={17} />
+        {unread > 0 && (
+          <span aria-hidden="true" style={{
+            position: "absolute", top: -4, right: -4, minWidth: 18, height: 18, padding: "0 5px", boxSizing: "border-box", borderRadius: 999,
+            background: T.red, color: "#fff", border: `2px solid ${T.paper}`, display: "flex", alignItems: "center", justifyContent: "center",
+            fontFamily: FONT_UI, fontWeight: 700, fontSize: 10, lineHeight: 1,
+          }}>{unread > 9 ? "9+" : unread}</span>
+        )}
+      </button>
+      {open && (
+        <div role="dialog" aria-label={t("notifTitle")} style={{
+          position: "absolute", top: "calc(100% + 8px)", ...place, background: T.card, border: `1px solid ${T.border}`, borderRadius: 10,
+          width: "min(340px, calc(100vw - 16px))", maxHeight: "min(480px, calc(100vh - 80px))", display: "flex", flexDirection: "column", zIndex: 70, boxShadow: "0 8px 24px rgba(0,0,0,0.3)",
+        }}>
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 10, padding: "12px 14px", borderBottom: `1px solid ${T.border}` }}>
+            <span style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(14.5), color: T.ink }}>{t("notifTitle")}</span>
+            {items.length > 0 && (
+              <span style={{ display: "flex", gap: 12 }}>
+                {unread > 0 && <button onClick={markAllRead} style={textLink}>{t("notifMarkAll")}</button>}
+                <button onClick={clearAll} style={{ ...textLink, color: T.muted }}>{t("notifClear")}</button>
+              </span>
+            )}
+          </div>
+          <div style={{ overflowY: "auto" }}>
+            {items.length === 0 ? (
+              <div style={{ padding: "28px 18px", textAlign: "center" }}>
+                <Bell size={24} color={T.muted} />
+                <div style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(13.5), color: T.ink, marginTop: 8 }}>{t("notifEmpty")}</div>
+                <div style={{ fontFamily: FONT_UI, fontSize: fs(12.5), color: T.muted, marginTop: 4, lineHeight: 1.45 }}>{t("notifEmptyHint")}</div>
+              </div>
+            ) : items.map((n) => {
+              const tn = toneOf(n.tone);
+              const body = n.kind === "syncError" && n.vars && n.vars.errKey ? t(n.vars.errKey) : t(`nf.${n.kind}.b`, n.vars);
+              return (
+                <div key={n.id} onClick={() => markRead(n.id)} style={{
+                  display: "flex", gap: 10, padding: "12px 14px", borderBottom: `1px solid ${T.border}`, cursor: "pointer",
+                  background: n.read ? "transparent" : T.blueLight,
+                }}>
+                  <span style={{ width: 30, height: 30, borderRadius: "50%", background: n.read ? T.mutedBg : tn.bg, display: "inline-flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                    <tn.Icon size={16} color={tn.fg} />
+                  </span>
+                  <div style={{ minWidth: 0, flex: 1 }}>
+                    <div style={{ display: "flex", alignItems: "baseline", justifyContent: "space-between", gap: 8 }}>
+                      <span style={{ fontFamily: FONT_UI, fontWeight: n.read ? 600 : 700, fontSize: fs(13.5), color: T.ink }}>{t(`nf.${n.kind}.t`)}</span>
+                      <span style={{ fontFamily: FONT_UI, fontSize: fs(11.5), color: T.muted, whiteSpace: "nowrap", flexShrink: 0 }}>{timeAgo(n.ts, lang, t)}</span>
+                    </div>
+                    <div style={{ fontFamily: FONT_UI, fontSize: fs(12.5), color: T.muted, lineHeight: 1.45, marginTop: 2, overflowWrap: "anywhere" }}>{body}</div>
+                  </div>
+                  <button onClick={(e) => { e.stopPropagation(); dismiss(n.id); }} aria-label={t("notifDismiss")} title={t("notifDismiss")} style={{
+                    alignSelf: "flex-start", background: "none", border: "none", padding: 2, cursor: "pointer", color: T.muted, display: "flex", flexShrink: 0,
+                  }}><X size={15} /></button>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// Student Profile: ONE standardized JSON document that says where the student is in their studies (term, syllabus weeks,
+// assessments, current state, plan). Same philosophy as the Qbank JSON: an AI tool writes it from the student's own documents
+// (the syllabus), Oworld validates it tolerantly, and from then on the TUTOR is everywhere, not just a test mode:
+//   Console  → "Your tutor" card (this week, next exam, today's tasks, guidance)
+//   Library  → Qbanks that match this week's topics are suggested
+//   Import   → "Start a <subject> block" pre-fills the Question Recipe
+//   Bell     → exam countdowns, week starts, pace and task nudges (each fires once)
+// The AI writes FACTS from the syllabus (dates, weeks, exams) plus an "as of" snapshot. Anything time-dependent (current week,
+// days to the exam, pace) is recomputed by the app from the dates every day, so the profile never silently goes stale.
+// Sync: its own file in the Drive app-data folder (oword_student_profile.json), same sign-in as the Qbank library sync.
+// ---------------------------------------------------------------------------
+const LS_SP = "owordStudentProfile";           // { profile, updatedAt, clearedAt }
+const LS_SP_FILE = "owordStudentProfileFile";  // { fileId, lastSync } of the Drive file below
+const LS_SP_LEDGER = "owordNudgeLedger";       // { nudgeKey: firedAt } so each tutor notification fires once
+const SP_FILE_NAME = "oword_student_profile.json";
+const SP_TYPE = "oworld-student-profile";
+const SP_STALE_DAYS = 14;
+const SP_ASSESS_TYPES = ["exam", "quiz", "practical", "shelf", "assignment", "other"];
+const SP_TASK_KINDS = ["qbank", "reading", "review", "exam", "other"];
+const SP_STYLES = ["coach", "socratic", "direct"];
+const SP_EVENT_TYPES = ["holiday", "break", "exam-period", "deadline", "class", "other"];
+const SP_EVENT_TONE = { holiday: "blue", break: "blue", "exam-period": "red", deadline: "amber", class: "muted", other: "muted" };
+
+// Readable reference (shown in the "JSON schema" panel). // comments are for humans only; the AI prompt uses the compact form below.
+const PROFILE_SCHEMA_TEXT = `{
+  "schema": "oworld-student-profile",          // always this exact string
+  "v": 1,
+  "student": {
+    "name": "string | null",
+    "program": "string | null",                // e.g. "MD, Year 1"
+    "phase": "string | null",                  // e.g. "Preclinical", "Dedicated Step 1 prep"
+    "targetExam": { "name": "USMLE Step 1", "date": "YYYY-MM-DD | null" }
+  },
+  "term": {
+    "name": "Fall 2026",
+    "startDate": "2026-08-24",                 // week 1 starts here; weeks are 7 days
+    "endDate": "2026-12-11",
+    "totalWeeks": 16,
+    "asOf": "2026-10-15"                       // the day this profile was written
+  },
+  "courses": [
+    {
+      "id": "short-slug",                      // unique, lowercase, used by assessments[].courseId
+      "name": "Cardiovascular, Pulmonary & Renal",
+      "code": "MED 5120 | null",
+      "weeks": [
+        {
+          "week": 7,
+          "startDate": "2026-10-05 | null",
+          "topics": ["Heart failure", "Antihypertensives"],     // as the syllabus names them
+          "readings": ["Robbins Ch. 12"],
+          "qbankFocus": ["Cardiovascular", "Pharmacology"]       // 1-3 organ systems / disciplines (matches Qbank subjects)
+        }
+      ]
+    }
+  ],
+  "assessments": [
+    {
+      "id": "cpr-midterm",
+      "title": "CPR Midterm",
+      "courseId": "short-slug | null",
+      "type": "exam | quiz | practical | shelf | assignment | other",
+      "date": "2026-10-22",
+      "time": "09:00 | null",                   // 24h
+      "weightPct": 25,
+      "coverage": ["Weeks 1-7"],
+      "format": "80 MCQ, 2 h | null",
+      "status": "upcoming | done"
+    }
+  ],
+  "calendar": {                                // from the semester (academic) calendar; { "events": [] } if none was given
+    "events": [
+      {
+        "id": "fall-break",
+        "title": "Fall break",
+        "type": "holiday | break | exam-period | deadline | class | other",
+        "startDate": "2026-10-12",
+        "endDate": "2026-10-13 | null",          // null for a one-day event
+        "notes": "No classes | null"
+      }
+    ]
+  },
+  "currentState": {                            // the AI's read of "today"; the app recomputes week and countdowns itself
+    "summary": "2-3 honest sentences",
+    "currentWeek": 7,
+    "thisWeek": { "focusTopics": ["Heart failure"], "goals": ["Finish 40 cardio questions"] },
+    "nextAssessmentId": "cpr-midterm | null",
+    "strengths": ["Renal physiology"],
+    "gaps": ["Cardiac pharmacology"],
+    "risk": "low | medium | high",
+    "paceNote": "1 sentence"
+  },
+  "plan": {
+    "weeklyQuestionTarget": 80,
+    "dailyMinutes": 120,
+    "tasks": [
+      { "id": "t1", "title": "Cardio block, 20 Qs", "due": "2026-10-16 | null", "subject": "Cardiovascular | null", "kind": "qbank | reading | review | exam | other", "done": false }
+    ]
+  },
+  "tutor": { "style": "coach | socratic | direct", "examCountdownDays": [7, 3, 1] },
+  "source": { "documents": ["Syllabus.pdf", "Semester calendar.pdf"], "confidence": "high | medium | low", "assumptions": ["Week 1 assumed to start Aug 24"] }
+}`;
+
+// Field-name/type skeleton used INSIDE the generated prompt (kept short on purpose, like PROMPT_SCHEMA_TEXT for Qbanks).
+const PROFILE_PROMPT_SCHEMA = `{"schema":"oworld-student-profile","v":1,"student":{"name":"string|null","program":"string|null","phase":"string|null","targetExam":{"name":"string","date":"YYYY-MM-DD|null"}},"term":{"name":"string","startDate":"YYYY-MM-DD","endDate":"YYYY-MM-DD","totalWeeks":number,"asOf":"YYYY-MM-DD"},"courses":[{"id":"short-slug","name":"string","code":"string|null","weeks":[{"week":number,"startDate":"YYYY-MM-DD|null","topics":["string"],"readings":["string"],"qbankFocus":["organ system or discipline"]}]}],"assessments":[{"id":"short-slug","title":"string","courseId":"course id|null","type":"exam|quiz|practical|shelf|assignment|other","date":"YYYY-MM-DD","time":"HH:MM|null","weightPct":number|null,"coverage":["string"],"format":"string|null","status":"upcoming|done"}],"calendar":{"events":[{"id":"short-slug","title":"string","type":"holiday|break|exam-period|deadline|class|other","startDate":"YYYY-MM-DD","endDate":"YYYY-MM-DD|null","notes":"string|null"}]},"currentState":{"summary":"string","currentWeek":number,"thisWeek":{"focusTopics":["string"],"goals":["string"]},"nextAssessmentId":"assessment id|null","strengths":["string"],"gaps":["string"],"risk":"low|medium|high","paceNote":"string"},"plan":{"weeklyQuestionTarget":number,"dailyMinutes":number,"tasks":[{"id":"short-slug","title":"string","due":"YYYY-MM-DD|null","subject":"string|null","kind":"qbank|reading|review|exam|other","done":boolean}]},"tutor":{"style":"coach|socratic|direct","examCountdownDays":[7,3,1]},"source":{"documents":["string"],"confidence":"high|medium|low","assumptions":["string"]}}`;
+
+// ---- date helpers (all local-time, date-only) ----
+const startOfDay = (d) => { const x = new Date(d); x.setHours(0, 0, 0, 0); return x; };
+const dayDiff = (a, b) => Math.round((startOfDay(b) - startOfDay(a)) / 864e5);
+const toISODate = (d) => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+function parseISODate(s) {
+  const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(String(s || ""));
+  if (!m) return null;
+  const d = new Date(+m[1], +m[2] - 1, +m[3]);
+  return d.getFullYear() === +m[1] && d.getMonth() === +m[2] - 1 && d.getDate() === +m[3] ? d : null;
+}
+
+// ---- tolerant normaliser (same spirit as the Qbank loader: accept what is clearly meant, never guess a date) ----
+const spStr = (v, max = 300) => (typeof v === "string" || typeof v === "number" ? String(v).replace(/\s+/g, " ").trim().slice(0, max) : "");
+const spList = (v, max = 40, len = 200) => (Array.isArray(v) ? v : typeof v === "string" && v.trim() ? [v] : []).map((x) => spStr(x, len)).filter(Boolean).slice(0, max);
+const spInt = (v, lo, hi) => { if (v === null || v === undefined || v === "") return null; const n = Math.round(Number(v)); return Number.isFinite(n) && n >= lo && n <= hi ? n : null; };
+function spDate(v) {
+  const m = /^\s*(\d{4})-(\d{1,2})-(\d{1,2})/.exec(typeof v === "string" ? v : "");
+  if (!m) return null;
+  const iso = `${m[1]}-${m[2].padStart(2, "0")}-${m[3].padStart(2, "0")}`;
+  return parseISODate(iso) ? iso : null;
+}
+function spTime(v) {
+  const m = /^\s*(\d{1,2}):(\d{2})/.exec(typeof v === "string" ? v : "");
+  return m && +m[1] <= 23 && +m[2] <= 59 ? `${m[1].padStart(2, "0")}:${m[2]}` : null;
+}
+function spSlug(v, prefix, i, used) {
+  const base = spStr(v, 60).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "") || `${prefix}${i + 1}`;
+  let id = base; let n = 2;
+  while (used.has(id)) id = `${base}-${n++}`;
+  used.add(id);
+  return id;
+}
+const spObj = (v) => (v && typeof v === "object" && !Array.isArray(v) ? v : {});
+
+// -> { valid: true, data, warnings: [{ k, v }] } | { valid: false, error: i18nKey }. Warning / error texts are i18n keys.
+function normalizeProfile(raw) {
+  const parsed = tolerantParseJson(raw);
+  if (!parsed.ok) return { valid: false, error: "spErrParse" };
+  let v = parsed.value;
+  if (Array.isArray(v)) v = v.find((x) => x && typeof x === "object" && !Array.isArray(x));
+  const looksLike = (o) => !!o && typeof o === "object" && ["term", "courses", "assessments", "plan", "currentState", "student"].some((k) => o[k] != null);
+  if (v && typeof v === "object" && !looksLike(v)) {
+    const inner = v.profile || v.studentProfile || v.student_profile;
+    if (looksLike(inner)) v = inner;
+  }
+  if (!looksLike(v)) return { valid: false, error: "spErrShape" };
+
+  const warnings = [];
+  if (parsed.truncated) warnings.push({ k: "spWarnTruncated", v: {} });
+  const st = spObj(v.student); const te = spObj(st.targetExam); const tm = spObj(v.term); const cs = spObj(v.currentState);
+  const th = spObj(cs.thisWeek); const pl = spObj(v.plan); const tu = spObj(v.tutor); const so = spObj(v.source);
+  let dropped = 0; let noDate = 0; let calNoDate = 0;
+
+  const usedC = new Set();
+  const courses = (Array.isArray(v.courses) ? v.courses : []).slice(0, 30).map((c, i) => {
+    const o = spObj(c); const name = spStr(o.name || o.title, 120);
+    if (!name) { dropped++; return null; }
+    const seen = new Set();
+    const weeks = (Array.isArray(o.weeks) ? o.weeks : []).slice(0, 80).map((w, j) => {
+      const x = spObj(w); const num = spInt(x.week != null ? x.week : x.number, 1, 80) || j + 1;
+      if (seen.has(num)) return null;
+      seen.add(num);
+      return { week: num, startDate: spDate(x.startDate), topics: spList(x.topics, 20), readings: spList(x.readings, 20), qbankFocus: spList(x.qbankFocus || x.qbank_focus, 6, 60) };
+    }).filter(Boolean).sort((a, b) => a.week - b.week);
+    return { id: spSlug(o.id || name, "c", i, usedC), name, code: spStr(o.code, 30) || null, weeks };
+  }).filter(Boolean);
+
+  const usedA = new Set();
+  const assessments = (Array.isArray(v.assessments) ? v.assessments : []).slice(0, 120).map((a, i) => {
+    const o = spObj(a); const title = spStr(o.title || o.name, 160);
+    if (!title) { dropped++; return null; }
+    const date = spDate(o.date);
+    if (!date) { noDate++; return null; }
+    const ty = String(o.type || "").toLowerCase(); const w = o.weightPct != null ? o.weightPct : o.weight;
+    const wn = w === null || w === undefined || w === "" ? NaN : Number(w);
+    return {
+      id: spSlug(o.id || title, "a", i, usedA), title, courseId: spStr(o.courseId, 60) || null, type: SP_ASSESS_TYPES.includes(ty) ? ty : "other",
+      date, time: spTime(o.time), weightPct: Number.isFinite(wn) && wn >= 0 && wn <= 100 ? wn : null, coverage: spList(o.coverage, 30), format: spStr(o.format, 120) || null,
+      status: String(o.status || "").toLowerCase() === "done" ? "done" : "upcoming",
+    };
+  }).filter(Boolean).sort((a, b) => (a.date < b.date ? -1 : a.date > b.date ? 1 : 0));
+
+  const usedT = new Set();
+  const tasks = (Array.isArray(pl.tasks) ? pl.tasks : []).slice(0, 80).map((k, i) => {
+    const o = spObj(k); const title = spStr(o.title || o.name, 200);
+    if (!title) { dropped++; return null; }
+    const kind = String(o.kind || "").toLowerCase();
+    return { id: spSlug(o.id || title, "t", i, usedT), title, due: spDate(o.due), subject: spStr(o.subject, 80) || null, kind: SP_TASK_KINDS.includes(kind) ? kind : "other", done: o.done === true };
+  }).filter(Boolean);
+
+  const usedE = new Set();
+  const rawEvents = Array.isArray(v.calendar) ? v.calendar : spObj(v.calendar).events;
+  const events = (Array.isArray(rawEvents) ? rawEvents : []).slice(0, 200).map((e, i) => {
+    const o = spObj(e); const title = spStr(o.title || o.name, 160);
+    if (!title) { dropped++; return null; }
+    const startDate = spDate(o.startDate || o.start || o.date);
+    if (!startDate) { calNoDate++; return null; }
+    let endDate = spDate(o.endDate || o.end);
+    if (endDate && endDate <= startDate) endDate = null; // a one-day event, or an end before the start
+    const ty = String(o.type || "").toLowerCase().replace(/[\s_]+/g, "-");
+    return { id: spSlug(o.id || title, "e", i, usedE), title, type: SP_EVENT_TYPES.includes(ty) ? ty : "other", startDate, endDate, notes: spStr(o.notes, 200) || null };
+  }).filter(Boolean).sort((a, b) => (a.startDate < b.startDate ? -1 : a.startDate > b.startDate ? 1 : 0));
+
+  const risk = String(cs.risk || "").toLowerCase(); const style = String(tu.style || "").toLowerCase();
+  const cd = (Array.isArray(tu.examCountdownDays) ? tu.examCountdownDays : []).map((n) => spInt(n, 1, 60)).filter((n) => n !== null);
+  const conf = String(so.confidence || "").toLowerCase();
+  const data = {
+    schema: SP_TYPE, v: 1,
+    student: { name: spStr(st.name, 80) || null, program: spStr(st.program, 120) || null, phase: spStr(st.phase, 120) || null, targetExam: { name: spStr(te.name, 80) || null, date: spDate(te.date) } },
+    term: { name: spStr(tm.name, 120), startDate: spDate(tm.startDate), endDate: spDate(tm.endDate), totalWeeks: spInt(tm.totalWeeks, 1, 80), asOf: spDate(tm.asOf) },
+    courses, assessments, calendar: { events },
+    currentState: {
+      summary: spStr(cs.summary, 800), currentWeek: spInt(cs.currentWeek, 1, 80), thisWeek: { focusTopics: spList(th.focusTopics, 12), goals: spList(th.goals, 12) },
+      nextAssessmentId: spStr(cs.nextAssessmentId, 60) || null, strengths: spList(cs.strengths, 12), gaps: spList(cs.gaps, 12),
+      risk: ["low", "medium", "high"].includes(risk) ? risk : null, paceNote: spStr(cs.paceNote, 300),
+    },
+    plan: { weeklyQuestionTarget: spInt(pl.weeklyQuestionTarget, 0, 2000), dailyMinutes: spInt(pl.dailyMinutes, 0, 1440), tasks },
+    tutor: { style: SP_STYLES.includes(style) ? style : "coach", examCountdownDays: cd.length ? [...new Set(cd)].sort((a, b) => b - a) : [7, 3, 1] },
+    source: { documents: spList(so.documents, 20, 160), confidence: ["high", "medium", "low"].includes(conf) ? conf : null, assumptions: spList(so.assumptions, 20, 300) },
+  };
+  if (noDate) warnings.push({ k: "spWarnDates", v: { n: noDate } });
+  if (calNoDate) warnings.push({ k: "spWarnCalDates", v: { n: calNoDate } });
+  if (dropped) warnings.push({ k: "spWarnDropped", v: { n: dropped } });
+  if (!termStartOf(data)) warnings.push({ k: "spWarnNoStart", v: {} });
+  return { valid: true, data, warnings };
+}
+
+// ---- derived "state of studies": recomputed from the dates every time, never trusted from the AI's snapshot ----
+function termStartOf(p) {
+  const tm = spObj(p && p.term);
+  const s = parseISODate(tm.startDate);
+  if (s) return s;
+  const cw = p && p.currentState && p.currentState.currentWeek; const asOf = parseISODate(tm.asOf);
+  if (cw > 0 && asOf) { const d = new Date(asOf); d.setDate(d.getDate() - (cw - 1) * 7); d.setDate(d.getDate() - ((d.getDay() + 6) % 7)); return d; } // weeks run Monday to Sunday
+  return null;
+}
+const normTopic = (s) => String(s || "").toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
+function topicMatch(a, b) {
+  const x = normTopic(a); const y = normTopic(b);
+  if (!x || !y) return false;
+  if (x === y) return true;
+  if (Math.min(x.length, y.length) >= 4 && (x.includes(y) || y.includes(x))) return true;
+  const ty = new Set(y.split(" ").filter((w) => w.length > 3));
+  return x.split(" ").filter((w) => w.length > 3).some((w) => ty.has(w));
+}
+function weekContent(p, week) {
+  const out = { topics: [], readings: [], qbankFocus: [], courses: [] };
+  (p.courses || []).forEach((c) => {
+    const w = (c.weeks || []).find((x) => x.week === week);
+    if (!w) return;
+    out.courses.push(c.name);
+    [["topics", w.topics], ["readings", w.readings], ["qbankFocus", w.qbankFocus]].forEach(([k, list]) => (list || []).forEach((s) => { if (!out[k].includes(s)) out[k].push(s); }));
+  });
+  return out;
+}
+function studyStreak(log, now = new Date()) {
+  const days = new Set((log || []).map((e) => new Date(e.finishedAt).toDateString()));
+  let streak = 0; const d = new Date(now);
+  if (!days.has(d.toDateString())) d.setDate(d.getDate() - 1);
+  while (days.has(d.toDateString())) { streak += 1; d.setDate(d.getDate() - 1); }
+  return streak;
+}
+// Compact Analytics summary: goes into the AI prompt (so strengths / gaps are grounded in real results) and feeds the tutor brief.
+function buildStatsSnapshot(log, now = new Date()) {
+  const list = Array.isArray(log) ? log : [];
+  const ordered = [...list].sort((a, b) => b.finishedAt - a.finishedAt);
+  const sum = (arr, f) => arr.reduce((n, e) => n + (Number(f(e)) || 0), 0);
+  const ans = (e) => (e.answered != null ? e.answered : e.total);
+  const answered = sum(list, ans); const correct = sum(list, (e) => e.correct);
+  const wk = list.filter((e) => e.finishedAt >= now.getTime() - 7 * 864e5);
+  const wkAns = sum(wk, ans);
+  const subj = new Map();
+  list.forEach((e) => (Array.isArray(e.bySubject) ? e.bySubject : []).forEach((x) => {
+    const c = subj.get(x.subject) || { subject: x.subject, correct: 0, total: 0 };
+    c.correct += Number(x.correct) || 0; c.total += Number(x.total) || 0; subj.set(x.subject, c);
+  }));
+  return {
+    sessions: list.length, questionsAnswered: answered, accuracyPct: answered ? Math.round((correct / answered) * 100) : null, studyStreakDays: studyStreak(list, now),
+    last7Days: { sessions: wk.length, questionsAnswered: wkAns, accuracyPct: wkAns ? Math.round((sum(wk, (e) => e.correct) / wkAns) * 100) : null },
+    recentScores: ordered.slice(0, 10).reverse().map((e) => Number(e.pct) || 0),
+    bySubject: [...subj.values()].filter((x) => x.total >= 3).sort((a, b) => b.total - a.total).slice(0, 15).map((x) => ({ subject: x.subject, correct: x.correct, total: x.total, pct: Math.round((x.correct / x.total) * 100) })),
+  };
+}
+
+// Everything the Console card, the Library strip and the notifications need, in one place.
+function tutorBrief(p, log, now = new Date()) {
+  const today = startOfDay(now); const list = Array.isArray(log) ? log : [];
+  const start = termStartOf(p); const tm = spObj(p.term);
+  const maxWeek = Math.max(0, ...(p.courses || []).flatMap((c) => (c.weeks || []).map((w) => w.week)));
+  const endD = parseISODate(tm.endDate);
+  const total = tm.totalWeeks || (start && endD ? Math.max(1, Math.ceil((dayDiff(start, endD) + 1) / 7)) : 0) || maxWeek || 0;
+  let phase = "unknown"; let week = null; let daysToStart = 0;
+  if (start) {
+    const d = dayDiff(start, today);
+    if (d < 0) { phase = "before"; daysToStart = -d; }
+    else { week = Math.floor(d / 7) + 1; phase = (total && week > total) || (endD && dayDiff(today, endD) < 0) ? "after" : "in"; }
+  }
+  const wk = phase === "in" ? weekContent(p, week) : { topics: [], readings: [], qbankFocus: [], courses: [] };
+  let focus = wk.qbankFocus.length ? wk.qbankFocus : wk.topics.slice(0, 4);
+  const cs = spObj(p.currentState);
+  if (!focus.length && phase === "in" && cs.currentWeek === week) focus = (cs.thisWeek && cs.thisWeek.focusTopics) || [];
+
+  const upcoming = (p.assessments || []).map((a) => ({ a, d: parseISODate(a.date) }))
+    .filter((x) => x.d && x.a.status !== "done" && dayDiff(today, x.d) >= 0)
+    .map((x) => ({ ...x.a, days: dayDiff(today, x.d) })).sort((x, y) => x.days - y.days);
+  const next = upcoming[0] || null;
+  const tasks = (spObj(p.plan).tasks || []);
+  const tasksDue = tasks.filter((k) => !k.done && k.due && dayDiff(today, parseISODate(k.due) || today) <= 0 && parseISODate(k.due));
+
+  let ws = new Date(today);
+  if (phase === "in" && start) { ws = new Date(start); ws.setDate(ws.getDate() + (week - 1) * 7); } else ws.setDate(ws.getDate() - ((ws.getDay() + 6) % 7));
+  const wsMs = startOfDay(ws).getTime();
+  const answeredWeek = list.filter((e) => e.finishedAt >= wsMs).reduce((n, e) => n + (Number(e.answered != null ? e.answered : e.total) || 0), 0);
+  const target = Number(spObj(p.plan).weeklyQuestionTarget) || 0;
+  const dayIdx = Math.max(0, Math.min(6, dayDiff(ws, today)));
+  const expected = (target * (dayIdx + 1)) / 7;
+  let pace = "none";
+  if (target && phase !== "before" && phase !== "after") pace = answeredWeek >= target ? "done" : answeredWeek >= expected ? "on" : dayIdx >= 2 && answeredWeek < expected * 0.6 ? "behind" : dayIdx >= 2 ? "slight" : "early";
+
+  const subj = new Map();
+  list.forEach((e) => (Array.isArray(e.bySubject) ? e.bySubject : []).forEach((x) => {
+    const c = subj.get(x.subject) || { subject: x.subject, correct: 0, total: 0 };
+    c.correct += Number(x.correct) || 0; c.total += Number(x.total) || 0; subj.set(x.subject, c);
+  }));
+  const weakInFocus = [...subj.values()].filter((x) => x.total >= 5).map((x) => ({ ...x, pct: Math.round((x.correct / x.total) * 100) }))
+    .filter((x) => x.pct < 70 && focus.some((f) => topicMatch(f, x.subject))).sort((a, b) => a.pct - b.pct)[0] || null;
+
+  const asOf = parseISODate(tm.asOf);
+  const ageDays = asOf ? dayDiff(asOf, today) : null;
+  const stale = ageDays !== null && ageDays >= SP_STALE_DAYS;
+  const b = { phase, week, total, daysToStart, focus: focus.slice(0, 6), wk, upcoming, next, tasksDue, answeredWeek, target, pace, dayIdx, weakInFocus, ageDays, stale };
+  b.guidance = tutorGuidance(p, b);
+  return b;
+}
+// Ordered, structured guidance lines (i18n key + vars + optional action). The Console card shows the first four.
+function tutorGuidance(p, b) {
+  const g = [];
+  if (b.phase === "before") g.push({ key: "sgBefore", tone: "blue", vars: { n: b.daysToStart }, action: { type: "library" } });
+  if (b.next && b.next.days <= 7) {
+    const cover = (b.next.coverage || []).slice(0, 3).join(", ");
+    g.push({ key: cover ? "sgExamCover" : "sgExam", tone: b.next.days <= 1 ? "red" : b.next.days <= 3 ? "amber" : "blue", vars: { title: b.next.title, n: b.next.days, coverage: cover }, action: b.focus[0] ? { type: "focusBlock", value: b.focus[0] } : { type: "library" } });
+  }
+  if (b.tasksDue.length) g.push({ key: "sgTasks", tone: "amber", vars: { n: b.tasksDue.length }, action: { type: "profile" } });
+  if (b.pace === "behind") g.push({ key: "sgPaceBehind", tone: "amber", vars: { a: b.answeredWeek, t: b.target }, action: b.focus[0] ? { type: "focusBlock", value: b.focus[0] } : { type: "library" } });
+  else if (b.pace === "done") g.push({ key: "sgPaceDone", tone: "green", vars: { a: b.answeredWeek, t: b.target } });
+  else if (b.pace === "on" && b.dayIdx >= 2) g.push({ key: "sgPaceOn", tone: "green", vars: { a: b.answeredWeek, t: b.target } });
+  if (b.weakInFocus) g.push({ key: "sgWeak", tone: "amber", vars: { subject: b.weakInFocus.subject, pct: b.weakInFocus.pct }, action: { type: "focusBlock", value: b.weakInFocus.subject } });
+  if (b.phase === "in" && !b.focus.length) g.push({ key: "sgNoFocus", tone: "muted", vars: {}, action: { type: "profile" } });
+  if (b.stale) g.push({ key: "sgStale", tone: "muted", vars: { n: b.ageDays }, action: { type: "profile" } });
+  return g;
+}
+// Notifications the tutor wants to send right now. `key` is the once-only ledger key (see useTutorNudges).
+function tutorNudges(p, b, now = new Date()) {
+  const out = []; const tm = spObj(p.term);
+  const termKey = hashStr(`${tm.name || ""}|${tm.startDate || ""}|${spObj(p.currentState).currentWeek || ""}`);
+  const bands = [...new Set([0, 1, ...(spObj(p.tutor).examCountdownDays || [7, 3, 1])])].sort((x, y) => x - y);
+  b.upcoming.forEach((a) => {
+    const band = bands.find((n) => a.days <= n);
+    if (band === undefined) return;
+    const kind = a.days === 0 ? "examToday" : a.days === 1 ? "examTomorrow" : "examSoon";
+    out.push({ key: `exam:${a.id}:${band}`, kind, tone: a.days <= 1 ? "red" : a.days <= 3 ? "amber" : "blue", vars: { title: a.title, days: a.days } });
+  });
+  if (b.phase === "in" && b.week) out.push({ key: `week:${termKey}:${b.week}`, kind: "weekStart", tone: "blue", vars: { week: b.week, total: b.total || b.week, topics: (b.focus.length ? b.focus : b.wk.topics).slice(0, 3).join(", ") || "—" } });
+  if (b.phase === "before" && b.daysToStart <= 3) out.push({ key: `termstart:${termKey}`, kind: "termStart", tone: "blue", vars: { days: b.daysToStart } });
+  if (b.pace === "behind" && b.dayIdx >= 3) out.push({ key: `pace:${termKey}:${b.week || "x"}`, kind: "paceBehind", tone: "amber", vars: { a: b.answeredWeek, t: b.target } });
+  if (b.tasksDue.length) out.push({ key: `tasks:${toISODate(now)}`, kind: "tasksDue", tone: "amber", vars: { n: b.tasksDue.length } });
+  if (b.stale) out.push({ key: `stale:${toISODate(startOfDay(new Date(now.getTime() - ((now.getDay() + 6) % 7) * 864e5)))}`, kind: "profileStale", tone: "muted", vars: { n: b.ageDays } });
+  return out;
+}
+
+// ---- the AI prompt: same idea as buildQuestionRecipe, but it outputs the student's profile ----
+function buildProfileRecipe({ lang, today, stats, existing }) {
+  const parts = [];
+  parts.push(`You are building a Student Profile for OWORLD, a USMLE study app. Read the syllabi and the semester (academic) calendar I attach (and anything I paste below) and reply with ONLY valid JSON (no markdown, no commentary) matching this schema:\n${PROFILE_PROMPT_SCHEMA}`);
+  parts.push(`Today is ${today}. Week 1 starts on term.startDate and weeks are 7 days; compute currentState.currentWeek from that.`);
+  parts.push([
+    "Rules:",
+    "- Use ONLY what my documents say. Never invent dates, exams, weights or topics. Unknown value: null (or [] for lists). Any guess or inference: add one short sentence to source.assumptions.",
+    "- Dates are ISO YYYY-MM-DD, times 24h HH:MM. If the syllabus gives a week number but no date, derive the date from term.startDate and note it in source.assumptions.",
+    "- Documents: I may attach several syllabi (one per course) plus my semester calendar. Build one courses[] entry per syllabus. Take term.name, startDate, endDate and totalWeeks from the semester calendar when it states them, otherwise from the syllabi. If the calendar and a syllabus disagree, the calendar wins for term dates, breaks and holidays, and the syllabus wins for assessment dates and topics; add each disagreement to source.assumptions. Exams or graded dates that appear only on the calendar still go in assessments.",
+    "- calendar.events: every dated item in the semester calendar that changes my study time: holidays, breaks, reading and exam periods, add/drop, withdrawal and registration deadlines, classes resuming, finals week. type is one of holiday, break, exam-period, deadline, class, other. One-day events: endDate null. Skip ordinary lectures. If I attached no semester calendar, use [] and say so in source.assumptions.",
+    "- Weeks stay 7 days from term.startDate even when a break falls inside them: keep the week number, leave topics [] when the syllabus gives none, and do not put plan.tasks on holidays or break days unless an assessment is due right after.",
+    "- courses[].weeks: one entry per syllabus week, in order, topics exactly as the syllabus words them. qbankFocus: map each week's topics to 1-3 USMLE organ systems or disciplines (e.g. \"Cardiovascular\", \"Pharmacology\") so the app can match them to my Qbanks.",
+    `- assessments: every exam, quiz, practical and graded deliverable, with coverage (the topics or weeks it includes). status \"done\" only if its date is before ${today}.`,
+    "- currentState: an honest read of where I am today: summary (2-3 sentences), thisWeek.focusTopics and goals, nextAssessmentId, strengths and gaps (grounded in my stats if given), risk (low/medium/high), paceNote (1 sentence).",
+    "- plan: weeklyQuestionTarget (integer) and dailyMinutes sized to my workload and the next assessment; tasks = concrete actions for the next 7 days with due dates. Every id is a short unique slug.",
+    "- tutor.style: \"coach\" unless I say otherwise; examCountdownDays [7,3,1]. source.documents: titles of every syllabus and calendar you read; source.confidence: how complete the syllabus data was.",
+  ].join("\n"));
+  if (stats) parts.push(`My current OWORLD study stats (use them for strengths, gaps and pace):\n${JSON.stringify(stats)}`);
+  if (existing) parts.push(`UPDATE MODE. This is my current profile. Keep every id and every task done flag, refresh currentState and plan for today, and change courses, assessments or calendar.events only where the new documents say so:\n${JSON.stringify(existing)}`);
+  if (lang === "es") parts.push("Write every free-text value in Spanish. Keep all keys and enum values (low/medium/high, exam/quiz, etc.) in English.");
+  parts.push("If something is missing, still return valid JSON with null for that field. Reply with the JSON only.");
+  return parts.join("\n\n");
+}
+
+// ---- state: one profile per student. `updatedAt` / `clearedAt` let two devices agree on the newest edit and on a deletion. ----
+const ProfileContext = createContext({
+  profile: null, updatedAt: 0, setProfile: () => {}, toggleTask: () => {}, clear: () => {}, wipe: () => {}, applyMerged: () => {}, getState: () => ({}),
+  sync: { available: false, status: "idle", lastSync: 0, syncNow: () => {} }, pendingFocus: null, seedFocus: () => {}, consumeFocus: () => {},
+});
+const spCore = (m) => hashStr(JSON.stringify({ p: m.profile, u: m.updatedAt, c: m.clearedAt }));
+const validStoredProfile = (p) => !!p && typeof p === "object" && p.schema === SP_TYPE && Array.isArray(p.courses) && Array.isArray(p.assessments) && p.plan && Array.isArray(p.plan.tasks);
+
+// Newest edit wins as a whole; a task ticked on either device stays ticked; a deletion beats any older edit.
+function mergeProfileState(local, remote) {
+  const r = remote && typeof remote === "object" ? remote : {};
+  const L = { profile: validStoredProfile(local.profile) ? local.profile : null, updatedAt: Number(local.updatedAt) || 0, clearedAt: Number(local.clearedAt) || 0 };
+  const R = { profile: validStoredProfile(r.profile) ? r.profile : null, updatedAt: Number(r.updatedAt) || 0, clearedAt: Number(r.clearedAt) || 0 };
+  const clearedAt = Math.max(L.clearedAt, R.clearedAt);
+  const newer = R.updatedAt > L.updatedAt ? R : L; const older = newer === R ? L : R;
+  let profile = newer.profile;
+  if (profile && newer.updatedAt <= clearedAt) profile = null;
+  if (profile && older.profile) {
+    const doneIds = new Set(older.profile.plan.tasks.filter((k) => k.done).map((k) => k.id));
+    if (profile.plan.tasks.some((k) => !k.done && doneIds.has(k.id))) {
+      profile = { ...profile, plan: { ...profile.plan, tasks: profile.plan.tasks.map((k) => (doneIds.has(k.id) ? { ...k, done: true } : k)) } };
+    }
+  }
+  return { profile, updatedAt: Math.max(L.updatedAt, R.updatedAt), clearedAt };
+}
+
+function useStudentProfile() {
+  const [state, setState] = useState(() => {
+    const v = lsGet(LS_SP);
+    return v && typeof v === "object" ? { profile: validStoredProfile(v.profile) ? v.profile : null, updatedAt: Number(v.updatedAt) || 0, clearedAt: Number(v.clearedAt) || 0 } : { profile: null, updatedAt: 0, clearedAt: 0 };
+  });
+  const ref = useRef(state);
+  useEffect(() => { lsSet(LS_SP, JSON.stringify(state)); }, [state]);
+  const commit = (next) => { ref.current = next; setState(next); };
+  // A freshly loaded profile replaces the old one, but tasks the student already ticked (same id) stay ticked.
+  const setProfile = useCallback((p) => {
+    const cur = ref.current; const now = Date.now();
+    const done = new Set(((cur.profile && cur.profile.plan.tasks) || []).filter((k) => k.done).map((k) => k.id));
+    const profile = done.size ? { ...p, plan: { ...p.plan, tasks: p.plan.tasks.map((k) => (done.has(k.id) ? { ...k, done: true } : k)) } } : p;
+    commit({ profile, updatedAt: now, clearedAt: cur.clearedAt });
+  }, []);
+  const toggleTask = useCallback((id) => {
+    const cur = ref.current; if (!cur.profile) return;
+    commit({ ...cur, updatedAt: Date.now(), profile: { ...cur.profile, plan: { ...cur.profile.plan, tasks: cur.profile.plan.tasks.map((k) => (k.id === id ? { ...k, done: !k.done } : k)) } } });
+  }, []);
+  const clear = useCallback(() => { const now = Date.now(); commit({ profile: null, updatedAt: now, clearedAt: now }); }, []);
+  // "Reset all data": local only, no tombstone, so Drive keeps its copy and reconnecting restores it.
+  const wipe = useCallback(() => { ref.current = { profile: null, updatedAt: 0, clearedAt: 0 }; setState(ref.current); lsRemove(LS_SP); lsRemove(LS_SP_FILE); lsRemove(LS_SP_LEDGER); }, []);
+  const applyMerged = useCallback((m) => { if (spCore(m) !== spCore(ref.current)) commit(m); }, []);
+  const getState = useCallback(() => ref.current, []);
+  return { profile: state.profile, updatedAt: state.updatedAt, clearedAt: state.clearedAt, setProfile, toggleTask, clear, wipe, applyMerged, getState };
+}
+
+// Google Drive sync for the profile: own file, same sign-in and token as the library sync, same pull → merge → push cycle as the Database.
+function useProfileSync({ drive, store }) {
+  const { configured, linked, acquireToken, peekToken } = drive;
+  const latest = useRef({}); latest.current = { getState: store.getState, applyMerged: store.applyMerged };
+  const fileRef = useRef((lsGet(LS_SP_FILE) || {}).fileId || null);
+  const modRef = useRef(null); const running = useRef(false); const rerun = useRef(false);
+  const linkedRef = useRef(linked); linkedRef.current = linked;
+  const [status, setStatus] = useState("idle"); // idle | busy | done | error
+  const [lastSync, setLastSync] = useState((lsGet(LS_SP_FILE) || {}).lastSync || 0);
+
+  const run = useCallback(async ({ interactive = false } = {}) => {
+    if (!configured || !linkedRef.current) return;
+    if (running.current) { rerun.current = true; return; }
+    running.current = true; setStatus("busy");
+    try {
+      const token = await acquireToken({ interactive });
+      if (!token) { setStatus("idle"); return; }
+      let fileId = fileRef.current; let remote = null;
+      if (fileId) { try { remote = await driveDownload(token, fileId); } catch (e) { if (e.status === 404) fileId = null; else throw e; } }
+      if (!fileId) { fileId = await driveFindSyncFile(token, SP_FILE_NAME); if (fileId) remote = await driveDownload(token, fileId); }
+      const cur = latest.current.getState();
+      const merged = mergeProfileState(cur, remote);
+      latest.current.applyMerged(merged);
+      const remoteMerged = remote ? mergeProfileState({ profile: null, updatedAt: 0, clearedAt: 0 }, remote) : null;
+      if (!fileId || !remoteMerged || spCore(merged) !== spCore(remoteMerged)) {
+        const payload = JSON.stringify({ v: 1, app: "oworld", type: SP_TYPE, updatedAt: merged.updatedAt, clearedAt: merged.clearedAt, profile: merged.profile });
+        fileId = await driveUpload(token, fileId, payload, SP_FILE_NAME);
+      }
+      fileRef.current = fileId;
+      try { modRef.current = await driveModified(token, fileId); } catch (e) { /* the next poll just does a full sync */ }
+      const now = Date.now();
+      lsSet(LS_SP_FILE, JSON.stringify({ fileId, lastSync: now }));
+      setLastSync(now); setStatus("done");
+    } catch (e) { setStatus("error"); }
+    finally { running.current = false; if (rerun.current) { rerun.current = false; setTimeout(() => run(), 0); } }
+  }, [configured, acquireToken]);
+
+  useEffect(() => { if (configured && linked && drive.status === "done") run(); }, [configured, linked, drive.status]); // eslint-disable-line
+  useEffect(() => { if (!linked) { fileRef.current = null; modRef.current = null; lsRemove(LS_SP_FILE); setStatus("idle"); setLastSync(0); } }, [linked]);
+  const first = useRef(true);
+  useEffect(() => {
+    if (first.current) { first.current = false; return undefined; }
+    if (!linked) return undefined;
+    const id = setTimeout(() => run(), 3000);
+    return () => clearTimeout(id);
+  }, [store.updatedAt, store.clearedAt, linked, run]);
+  const poll = useCallback(async () => {
+    const tk = peekToken();
+    if (!configured || !linkedRef.current || running.current || !fileRef.current || !tk) return;
+    try { const mod = await driveModified(tk, fileRef.current); if (mod && modRef.current && mod !== modRef.current) run(); } catch (e) { /* ignore */ }
+  }, [configured, peekToken, run]);
+  useEffect(() => {
+    if (!configured) return undefined;
+    const onVis = () => { if (document.visibilityState === "visible") poll(); };
+    const id = setInterval(() => { if (document.visibilityState === "visible") poll(); }, 45000);
+    document.addEventListener("visibilitychange", onVis);
+    return () => { clearInterval(id); document.removeEventListener("visibilitychange", onVis); };
+  }, [configured, poll]);
+  return { available: !!(configured && linked), status, lastSync, syncNow: () => run({ interactive: true }) };
+}
+
+// The tutor's notifications. Checked when the profile or the Analytics change, when the tab comes back, and hourly (so a new day is noticed).
+// Each nudge fires ONCE (ledger in localStorage); the bell only shows what is new.
+function useTutorNudges({ profile, sessionLog, notify }) {
+  const ledgerRef = useRef(null);
+  if (ledgerRef.current === null) { const v = lsGet(LS_SP_LEDGER); ledgerRef.current = v && typeof v === "object" ? v : {}; }
+  const [tick, setTick] = useState(0);
+  useEffect(() => {
+    const bump = () => setTick((n) => n + 1);
+    const id = setInterval(bump, 3600000);
+    const onVis = () => { if (document.visibilityState === "visible") bump(); };
+    document.addEventListener("visibilitychange", onVis);
+    return () => { clearInterval(id); document.removeEventListener("visibilitychange", onVis); };
+  }, []);
+  useEffect(() => {
+    if (!profile) return;
+    const now = new Date();
+    const due = tutorNudges(profile, tutorBrief(profile, sessionLog, now), now);
+    const ledger = ledgerRef.current; const cutoff = Date.now() - 120 * 864e5; let changed = false;
+    Object.keys(ledger).forEach((k) => { if (ledger[k] < cutoff) { delete ledger[k]; changed = true; } });
+    due.forEach((n) => { if (ledger[n.key]) return; ledger[n.key] = Date.now(); changed = true; notify({ kind: n.kind, tone: n.tone, vars: n.vars }); });
+    if (changed) lsSet(LS_SP_LEDGER, JSON.stringify(ledger));
+  }, [profile, sessionLog.length, tick]); // eslint-disable-line
+}
+
+// ---- small shared bits ----
+function spWhen(days, t) { return days <= 0 ? t("spToday") : days === 1 ? t("spTomorrow") : t("spInDays", { n: days }); }
+function spWeekLabel(b, t) {
+  if (b.phase === "in") return b.total ? t("spTermWeek", { w: b.week, n: b.total }) : t("spTermWeekNoTotal", { w: b.week });
+  if (b.phase === "before") return b.daysToStart === 1 ? t("spTermBefore1") : t("spTermBefore", { n: b.daysToStart });
+  if (b.phase === "after") return t("spTermAfter");
+  return t("spTermUnknown");
+}
+const spTone = (T, tone) => ({ red: T.red, amber: T.amber, green: T.green, blue: T.blue }[tone] || T.muted);
+function TaskRow({ task, onToggle, T, t, lang }) {
+  const d = parseISODate(task.due);
+  return (
+    <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "8px 0" }}>
+      <button onClick={onToggle} role="checkbox" aria-checked={task.done} aria-label={task.title} style={{
+        width: 22, height: 22, flexShrink: 0, borderRadius: 5, cursor: "pointer", padding: 0, display: "inline-flex", alignItems: "center", justifyContent: "center",
+        background: task.done ? T.green : "transparent", border: `2px solid ${task.done ? T.green : T.border}`, color: T.onBlue,
+      }}>{task.done && <Check size={14} />}</button>
+      <span style={{ flex: 1, minWidth: 0, fontFamily: FONT_UI, fontSize: fs(13.5), color: task.done ? T.muted : T.ink, textDecoration: task.done ? "line-through" : "none", overflowWrap: "anywhere" }}>{task.title}</span>
+      {d && <span style={{ fontFamily: FONT_MONO, fontSize: fs(11.5), color: T.muted, whiteSpace: "nowrap" }}>{d.toLocaleDateString(lang === "es" ? "es" : "en-US", { month: "short", day: "numeric" })}</span>}
+    </div>
+  );
+}
+
+// ---- Console: "Your tutor" ----
+function TutorCard({ sessionLog, onNavigate, T, compact = false, fill = false }) {
+  const { t, lang } = useI18n();
+  const sp = useContext(ProfileContext);
+  const phone = useViewport().w < 640;
+  const dayKey = new Date().toDateString();
+  const brief = useMemo(() => (sp.profile ? tutorBrief(sp.profile, sessionLog, new Date()) : null), [sp.profile, sessionLog, dayKey]); // eslint-disable-line
+  const card = { background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, padding: compact ? "14px 18px" : phone ? 18 : 24 };
+  const label = { fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(11.5), color: T.muted, textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: compact ? 4 : 6 };
+  const linkBtn = { marginLeft: "auto", fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(12.5), color: T.blue, background: "transparent", border: "none", cursor: "pointer", padding: 4 };
+
+  if (!sp.profile || !brief) {
+    return (
+      <div style={{ ...card, display: "flex", alignItems: "center", justifyContent: "space-between", gap: 16, flexWrap: "wrap" }}>
+        <div style={{ flex: "1 1 260px", minWidth: 0 }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 8, fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(16), color: T.ink }}><GraduationCap size={18} color={T.blue} />{t("spCardInviteTitle")}</div>
+          <div style={{ fontFamily: FONT_UI, fontSize: fs(13.5), color: T.muted, marginTop: 4, lineHeight: 1.5 }}>{t("spCardInviteBody")}</div>
+        </div>
+        <PrimaryButton T={T} icon={Sparkles} onClick={() => onNavigate("profile")}>{t("spCardInviteBtn")}</PrimaryButton>
+      </div>
+    );
+  }
+  const run = (a) => {
+    if (!a) return;
+    if (a.type === "focusBlock") { sp.seedFocus(a.value); onNavigate("import"); } else if (a.type === "library") onNavigate("library"); else onNavigate("profile");
+  };
+  const actionLabel = (a) => (a.type === "focusBlock" ? t("spStartBlock", { s: a.value }) : a.type === "library" ? t("csOpenLibrary") : t("spCardOpen"));
+  const pct = brief.target ? Math.min(100, Math.round((brief.answeredWeek / brief.target) * 100)) : 0;
+  const todays = [...brief.tasksDue, ...(sp.profile.plan.tasks || []).filter((k) => k.done && k.due === toISODate(new Date()))];
+  const first = brief.guidance.slice(0, compact ? 2 : 4);
+
+  return (
+    <div style={{ ...card, display: "grid", gap: compact ? 12 : 18, ...(fill ? { height: "100%", boxSizing: "border-box", alignContent: "space-between" } : {}) }}>
+      <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap" }}>
+        <GraduationCap size={18} color={T.blue} />
+        <span style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(14), color: T.ink }}>{t("spCardTitle")}</span>
+        <Pill T={T} tone={brief.phase === "in" ? "blue" : "muted"}>{spWeekLabel(brief, t)}</Pill>
+        <button onClick={() => onNavigate("profile")} style={linkBtn}>{t("spCardOpen")}</button>
+      </div>
+
+      <div style={{ display: "grid", gridTemplateColumns: compact ? "repeat(auto-fit, minmax(min(100%, 140px), 1fr))" : "repeat(auto-fit, minmax(min(100%, 230px), 1fr))", gap: compact ? 12 : 18 }}>
+        <div>
+          <div style={label}>{t("spThisWeek")}</div>
+          {brief.focus.length ? (
+            <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>{brief.focus.map((f) => <Pill key={f} T={T} tone="blue">{f}</Pill>)}</div>
+          ) : <div style={{ fontFamily: FONT_UI, fontSize: fs(13), color: T.muted }}>{t("spNoFocus")}</div>}
+          {brief.target > 0 && (
+            <div style={{ marginTop: compact ? 8 : 12 }}>
+              <div style={{ height: 6, borderRadius: 999, background: T.mutedBg, overflow: "hidden" }}><div style={{ width: `${pct}%`, height: "100%", background: brief.pace === "behind" ? T.amber : T.blue }} /></div>
+              <div style={{ fontFamily: FONT_MONO, fontSize: fs(11.5), color: T.muted, marginTop: 4 }}>{t("spWeekly", { a: brief.answeredWeek, n: brief.target })}</div>
+            </div>
+          )}
+        </div>
+        <div>
+          <div style={label}>{t("spNext")}</div>
+          {brief.next ? (
+            <>
+              <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(15), color: T.ink, overflowWrap: "anywhere" }}>{brief.next.title}</div>
+              <div style={{ marginTop: 4 }}><Pill T={T} tone={brief.next.days <= 3 ? "red" : "muted"}>{spWhen(brief.next.days, t)}</Pill></div>
+            </>
+          ) : <div style={{ fontFamily: FONT_UI, fontSize: fs(13), color: T.muted }}>{t("spNoNext")}</div>}
+        </div>
+        <div>
+          <div style={label}>{t("spToday")}</div>
+          {todays.length ? todays.slice(0, 4).map((k) => <TaskRow key={k.id} task={k} onToggle={() => sp.toggleTask(k.id)} T={T} t={t} lang={lang} />) : <div style={{ fontFamily: FONT_UI, fontSize: fs(13), color: T.muted }}>{t("spTodayNone")}</div>}
+        </div>
+      </div>
+
+      {first.length > 0 && (
+        <div style={{ display: "grid", gap: compact ? 6 : 8, borderTop: `1px solid ${T.border}`, paddingTop: compact ? 10 : 14 }}>
+          {first.map((g, i) => (
+            <div key={`${g.key}${i}`} style={{ display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap" }}>
+              <span aria-hidden="true" style={{ width: 8, height: 8, borderRadius: "50%", background: spTone(T, g.tone), flexShrink: 0 }} />
+              <span style={{ flex: "1 1 220px", minWidth: 0, fontFamily: FONT_UI, fontSize: fs(13.5), color: T.ink, lineHeight: 1.45, overflowWrap: "anywhere" }}>{t(g.key, { ...g.vars, when: spWhen(g.vars.n == null ? 0 : g.vars.n, t).toLowerCase() })}</span>
+              {g.action && <GhostButton T={T} onClick={() => run(g.action)}>{actionLabel(g.action)}</GhostButton>}
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
+// ---- Library: Qbanks that match this week's topics ----
+function TutorLibraryStrip({ library, sessionLog, onLaunch, T }) {
+  const { t } = useI18n();
+  const sp = useContext(ProfileContext);
+  const dayKey = new Date().toDateString();
+  const brief = useMemo(() => (sp.profile ? tutorBrief(sp.profile, sessionLog, new Date()) : null), [sp.profile, sessionLog, dayKey]); // eslint-disable-line
+  const picks = useMemo(() => {
+    if (!brief || brief.phase !== "in" || !brief.focus.length) return [];
+    return library.map((e) => {
+      const n = e.questions.filter((q) => brief.focus.some((f) => topicMatch(f, q.subject))).length;
+      return { e, n: n || (brief.focus.some((f) => topicMatch(f, e.title)) ? e.questions.length : 0) };
+    }).filter((x) => x.n > 0).sort((a, b) => b.n - a.n).slice(0, 3);
+  }, [brief, library]);
+  if (!picks.length) return null;
+  return (
+    <div style={{ background: T.card, border: `1px solid ${T.blue}`, borderRadius: 10, padding: "16px 20px", marginBottom: 20 }}>
+      <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 10, fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(14), color: T.ink }}>
+        <GraduationCap size={17} color={T.blue} />{t("spLibStrip", { w: brief.week })}
+      </div>
+      <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
+        {picks.map(({ e, n }) => <GhostButton key={e.id} T={T} icon={Play} onClick={() => onLaunch([e.id])}>{t("spLibStart", { title: e.title, n })}</GhostButton>)}
+      </div>
+    </div>
+  );
+}
+
+// ---- Profile tab ----
+function StudentProfilePanel({ T, sessionLog }) {
+  const { t, lang } = useI18n();
+  const sp = useContext(ProfileContext);
+  const { notify } = useContext(NotifContext);
+  const drive = useContext(DriveContext);
+  const phone = useViewport().w < 640;
+  const [text, setText] = useState("");
+  const [error, setError] = useState("");
+  const [warns, setWarns] = useState([]);
+  const [loaded, setLoaded] = useState(false);
+  const [mode, setMode] = useState("new"); // new | update
+  const [withStats, setWithStats] = useState(true);
+  const [showSchema, setShowSchema] = useState(false);
+  const [copied, setCopied] = useState(""); // "" | "prompt" | "schema"
+  const [confirmDel, setConfirmDel] = useState(false);
+  const [pasteOpen, setPasteOpen] = useState(true);
+  const [promptOpen, setPromptOpen] = useState(true);
+  const fileRef = useRef(null);
+  const locale = lang === "es" ? "es" : "en-US";
+  const profile = sp.profile;
+  const brief = useMemo(() => (profile ? tutorBrief(profile, sessionLog, new Date()) : null), [profile, sessionLog]);
+  const canUpdate = !!profile;
+  const effMode = canUpdate ? mode : "new";
+  const prompt = useMemo(() => buildProfileRecipe({
+    lang, today: toISODate(new Date()), stats: withStats ? buildStatsSnapshot(sessionLog) : null, existing: effMode === "update" ? profile : null,
+  }), [lang, withStats, sessionLog, effMode, profile]);
+
+  const card = { background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, padding: phone ? 18 : 24 };
+  const cardHead = { display: "flex", alignItems: "center", gap: 8, marginBottom: 14, flexWrap: "wrap" };
+  const headTxt = { fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(14), color: T.ink };
+  const label = { fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(11.5), color: T.muted, textTransform: "uppercase", letterSpacing: "0.06em", margin: "0 0 6px" };
+  const body = { fontFamily: FONT_UI, fontSize: fs(13.5), color: T.muted, lineHeight: 1.55, margin: 0 };
+  const fmtDay = (iso) => { const d = parseISODate(iso); return d ? d.toLocaleDateString(locale, { month: "short", day: "numeric", year: "numeric" }) : "—"; };
+
+  function copy(which, str) { navigator.clipboard.writeText(str).then(() => { setCopied(which); setTimeout(() => setCopied(""), 1800); }).catch(() => {}); }
+  function load(content) {
+    const r = normalizeProfile(content);
+    if (!r.valid) { setError(t(r.error)); setWarns([]); setLoaded(false); setPasteOpen(true); return; }
+    setError(""); setWarns(r.warnings); setLoaded(true);
+    sp.setProfile(r.data);
+    setText(""); setPasteOpen(false);
+    notify({ kind: "profileLoaded", tone: "green", dedupe: "profileLoaded", vars: { term: r.data.term.name || t("spTitle") } });
+  }
+  function handleFile(e) {
+    const f = e.target.files && e.target.files[0]; if (!f) return;
+    const rd = new FileReader(); rd.onload = (ev) => { setText(String(ev.target.result || "")); load(String(ev.target.result || "")); }; rd.readAsText(f); e.target.value = "";
+  }
+  function exportJson() {
+    const json = JSON.stringify(profile, null, 2);
+    downloadBlob(new Blob([json], { type: "application/json" }), `Student Profile${profile.term.name ? ` (${profile.term.name})` : ""}.json`);
+  }
+  const syncTone = !sp.sync.available ? "muted" : sp.sync.status === "error" ? "red" : sp.sync.status === "busy" ? "blue" : "green";
+  const syncText = !sp.sync.available ? t("spSyncLocal") : sp.sync.status === "busy" ? t("syncStBusy") : sp.sync.status === "error" ? t("syncStError")
+    : sp.sync.lastSync ? t("syncStDone", { time: new Date(sp.sync.lastSync).toLocaleTimeString(locale, { hour: "numeric", minute: "2-digit" }) }) : t("spSyncDrive");
+  const ghostSm = { fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(12.5), color: T.blue, background: "transparent", border: "none", cursor: "pointer", padding: 4 };
+
+  return (
+    <div style={{ display: "grid", gap: 20 }}>
+      <div>
+        <h1 style={{ fontFamily: FONT_DISPLAY, fontSize: fs(phone ? 26 : 32), fontWeight: 600, color: T.ink, margin: "0 0 4px" }}>{t("spTitle")}</h1>
+        <p style={{ ...body, maxWidth: 680 }}>{t("spHint")}</p>
+        <div style={{ display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap", marginTop: 10 }}>
+          <Pill T={T} tone={syncTone}>{syncText}</Pill>
+          {sp.sync.available && <button onClick={sp.sync.syncNow} disabled={sp.sync.status === "busy"} style={ghostSm}>{t("syncNow")}</button>}
+        </div>
+      </div>
+
+      {profile && brief && (
+        <>
+          <div style={card}>
+            <div style={cardHead}>
+              <GraduationCap size={17} color={T.ink} />
+              <span style={headTxt}>{[profile.student.name, profile.student.program].filter(Boolean).join(" · ") || t("spTitle")}</span>
+              {profile.currentState.risk && <Pill T={T} tone={profile.currentState.risk === "high" ? "red" : profile.currentState.risk === "medium" ? "amber" : "green"}>{t("spRisk")}: {t(`spRisk.${profile.currentState.risk}`)}</Pill>}
+            </div>
+            <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(20), color: T.ink }}>{profile.term.name || "—"} · {spWeekLabel(brief, t)}</div>
+            <div style={{ fontFamily: FONT_MONO, fontSize: fs(12), color: T.muted, margin: "4px 0 10px" }}>{fmtDay(profile.term.startDate)} → {fmtDay(profile.term.endDate)}</div>
+            {brief.phase === "in" && brief.total > 0 && (
+              <div style={{ height: 6, borderRadius: 999, background: T.mutedBg, overflow: "hidden", maxWidth: 460 }}><div style={{ width: `${Math.min(100, Math.round((brief.week / brief.total) * 100))}%`, height: "100%", background: T.blue }} /></div>
+            )}
+            {profile.currentState.summary && <p style={{ ...body, color: T.ink, marginTop: 14 }}>{profile.currentState.summary}</p>}
+            {profile.currentState.paceNote && <p style={{ ...body, marginTop: 6 }}>{profile.currentState.paceNote}</p>}
+            {(profile.currentState.strengths.length > 0 || profile.currentState.gaps.length > 0) && (
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 220px), 1fr))", gap: 16, marginTop: 16 }}>
+                {[["spStrengths", profile.currentState.strengths, "green"], ["spGaps", profile.currentState.gaps, "red"]].map(([k, list, tone]) => list.length > 0 && (
+                  <div key={k}>
+                    <div style={{ ...label, color: tone === "green" ? T.green : T.red }}>{t(k)}</div>
+                    <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>{list.map((x) => <Pill key={x} T={T} tone={tone}>{x}</Pill>)}</div>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 340px), 1fr))", gap: 20, alignItems: "start" }}>
+            <div style={card}>
+              <div style={cardHead}><CalendarDays size={17} color={T.ink} /><span style={headTxt}>{t("spAssessments")}</span></div>
+              {brief.upcoming.length === 0 ? <p style={body}>{t("spNoNext")}</p> : brief.upcoming.slice(0, 6).map((a) => (
+                <div key={a.id} style={{ display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap", padding: "9px 0", borderBottom: `1px solid ${T.border}` }}>
+                  <div style={{ flex: "1 1 160px", minWidth: 0 }}>
+                    <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(14), color: T.ink, overflowWrap: "anywhere" }}>{a.title}</div>
+                    <div style={{ fontFamily: FONT_MONO, fontSize: fs(11.5), color: T.muted }}>{fmtDay(a.date)}{a.time ? ` · ${a.time}` : ""}{a.weightPct != null ? ` · ${a.weightPct}%` : ""}</div>
+                    {a.coverage.length > 0 && <div style={{ fontFamily: FONT_UI, fontSize: fs(12), color: T.muted, marginTop: 2 }}>{a.coverage.slice(0, 4).join(" · ")}</div>}
+                  </div>
+                  <Pill T={T} tone={a.days <= 3 ? "red" : a.days <= 7 ? "amber" : "muted"}>{spWhen(a.days, t)}</Pill>
+                </div>
+              ))}
+            </div>
+            <div style={card}>
+              <div style={cardHead}>
+                <ClipboardList size={17} color={T.ink} /><span style={headTxt}>{t("spTasks")}</span>
+                {profile.plan.weeklyQuestionTarget > 0 && <Pill T={T} tone="muted">{t("spWeekly", { a: brief.answeredWeek, n: profile.plan.weeklyQuestionTarget })}</Pill>}
+              </div>
+              {profile.plan.tasks.length === 0 ? <p style={body}>{t("spNoTasks")}</p> : profile.plan.tasks.map((k) => <TaskRow key={k.id} task={k} onToggle={() => sp.toggleTask(k.id)} T={T} t={t} lang={lang} />)}
+            </div>
+          </div>
+
+          {profile.calendar && profile.calendar.events.length > 0 && (
+            <div style={card}>
+              <div style={cardHead}><CalendarDays size={17} color={T.ink} /><span style={headTxt}>{t("csCalendar")}</span></div>
+              {profile.calendar.events.slice(0, 12).map((e) => (
+                <div key={e.id} style={{ display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap", padding: "9px 0", borderBottom: `1px solid ${T.border}` }}>
+                  <div style={{ flex: "1 1 160px", minWidth: 0 }}>
+                    <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(14), color: T.ink, overflowWrap: "anywhere" }}>{e.title}</div>
+                    <div style={{ fontFamily: FONT_MONO, fontSize: fs(11.5), color: T.muted }}>{fmtDay(e.startDate)}{e.endDate ? ` → ${fmtDay(e.endDate)}` : ""}</div>
+                  </div>
+                  <Pill T={T} tone={SP_EVENT_TONE[e.type] || "muted"}>{t(`spEvt.${e.type}`)}</Pill>
+                </div>
+              ))}
+              {profile.calendar.events.length > 12 && <p style={{ ...body, fontSize: fs(12.5), marginTop: 10 }}>{t("csCalMore", { n: profile.calendar.events.length - 12 })}</p>}
+            </div>
+          )}
+
+          {profile.courses.length > 0 && (
+            <div style={card}>
+              <div style={cardHead}><BookOpen size={17} color={T.ink} /><span style={headTxt}>{t("spCourses")}</span></div>
+              <div style={{ display: "grid", gap: 14 }}>
+                {profile.courses.map((c) => (
+                  <div key={c.id}>
+                    <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(14), color: T.ink }}>{c.name}{c.code ? <span style={{ fontFamily: FONT_MONO, fontWeight: 400, fontSize: fs(12), color: T.muted }}> · {c.code}</span> : null}</div>
+                    <div style={{ display: "flex", gap: 6, flexWrap: "wrap", marginTop: 8 }}>
+                      {c.weeks.map((w) => {
+                        const cur = brief.phase === "in" && w.week === brief.week;
+                        return <span key={w.week} title={w.topics.join(", ")} style={{ fontFamily: FONT_MONO, fontSize: fs(11.5), padding: "4px 8px", borderRadius: 6, border: `1px solid ${cur ? T.blue : T.border}`, background: cur ? T.blueLight : "transparent", color: cur ? T.blue : T.muted, fontWeight: cur ? 700 : 400 }}>{t("spWeekN", { n: w.week })}{w.topics[0] ? ` · ${w.topics[0].slice(0, 28)}` : ""}</span>;
+                      })}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {(profile.source.documents.length > 0 || profile.source.assumptions.length > 0 || profile.source.confidence) && (
+            <div style={card}>
+              <div style={cardHead}><FileJson size={17} color={T.ink} /><span style={headTxt}>{t("spSource")}</span>{profile.source.confidence && <Pill T={T} tone={profile.source.confidence === "high" ? "green" : profile.source.confidence === "low" ? "red" : "amber"}>{t("spConf", { c: t(`spConf.${profile.source.confidence}`) })}</Pill>}</div>
+              {profile.source.documents.length > 0 && <p style={body}>{profile.source.documents.join(" · ")}</p>}
+              {profile.source.assumptions.length > 0 && (
+                <>
+                  <div style={{ ...label, marginTop: 12 }}>{t("spAssump")}</div>
+                  <ul style={{ ...body, paddingLeft: 18 }}>{profile.source.assumptions.map((a, i) => <li key={i}>{a}</li>)}</ul>
+                </>
+              )}
+            </div>
+          )}
+        </>
+      )}
+
+      <div style={card}>
+        <div style={cardHead}><Sparkles size={17} color={T.ink} /><span style={headTxt}>{profile ? t("spUpdateTitle") : t("spBuildTitle")}</span></div>
+        <p style={body}>{profile ? t("spUpdateBody") : t("spBuildBody")}</p>
+        <div style={{ display: "flex", gap: 14, flexWrap: "wrap", alignItems: "center", margin: "14px 0" }}>
+          {canUpdate && (
+            <div role="radiogroup" style={{ display: "flex", gap: 6 }}>
+              {[["new", t("spModeNew")], ["update", t("spModeUpdate")]].map(([id, lbl]) => (
+                <button key={id} role="radio" aria-checked={effMode === id} onClick={() => setMode(id)} style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(12.5), padding: "6px 12px", borderRadius: 999, cursor: "pointer", border: `1px solid ${effMode === id ? T.blue : T.border}`, background: effMode === id ? T.blueLight : "transparent", color: effMode === id ? T.blue : T.ink }}>{lbl}</button>
+              ))}
+            </div>
+          )}
+          <label style={{ display: "inline-flex", alignItems: "center", gap: 8, fontFamily: FONT_UI, fontSize: fs(13), color: T.ink, cursor: "pointer" }}>
+            <input type="checkbox" checked={withStats} onChange={(e) => setWithStats(e.target.checked)} /> {t("spIncludeStats")}
+          </label>
+        </div>
+        <div style={{ ...body, fontSize: fs(12.5), marginBottom: 14 }}>{t("spIncludeStatsHint")}</div>
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 8 }}>
+          <button type="button" onClick={() => setPromptOpen((o) => !o)} aria-expanded={promptOpen}
+            style={{ display: "flex", alignItems: "center", gap: 8, background: "transparent", border: "none", padding: 0, cursor: "pointer", textAlign: "left" }}>
+            <span style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(12.5), color: T.ink, textTransform: "uppercase", letterSpacing: "0.05em" }}>{t("spPromptTitle")}</span>
+            {promptOpen ? <ChevronUp size={16} color={T.muted} /> : <ChevronDown size={16} color={T.muted} />}
+          </button>
+          <button
+            onClick={() => copy("prompt", prompt)}
+            style={{
+              fontFamily: FONT_UI, fontSize: fs(12.5), fontWeight: 600, color: copied === "prompt" ? T.green : T.blue,
+              background: "transparent", border: "none", cursor: "pointer", display: "flex", alignItems: "center", gap: 5,
+            }}
+          >
+            {copied === "prompt" ? <Check size={14} /> : <Copy size={14} />} {copied === "prompt" ? t("copied") : t("copy")}
+          </button>
+        </div>
+        {promptOpen && (
+        <pre style={{
+          fontFamily: FONT_MONO, fontSize: fs(11.5), color: T.ink, background: T.paper,
+          border: `1px solid ${T.border}`, borderRadius: 8, padding: 14, whiteSpace: "pre-wrap",
+          wordBreak: "break-word", lineHeight: 1.6, margin: 0, maxHeight: 360, overflowY: "auto",
+        }}>
+          {prompt}
+        </pre>
+        )}
+
+        <div style={{ borderTop: `1px solid ${T.border}`, marginTop: 18, paddingTop: 16 }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap", marginBottom: 8 }}>
+            <button type="button" onClick={() => setPasteOpen((o) => !o)} aria-expanded={pasteOpen}
+              style={{ display: "flex", alignItems: "center", gap: 8, background: "transparent", border: "none", padding: 0, cursor: "pointer", textAlign: "left" }}>
+              <FileJson size={17} color={T.ink} />
+              <span style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(13.5), color: T.ink }}>{t("spPasteLabel")}</span>
+              {pasteOpen ? <ChevronUp size={16} color={T.muted} /> : <ChevronDown size={16} color={T.muted} />}
+            </button>
+          </div>
+          {pasteOpen && (
+            <textarea value={text} onChange={(e) => { setText(e.target.value); setError(""); setLoaded(false); }} placeholder={t("spPastePh")} spellCheck={false}
+              style={{ width: "100%", boxSizing: "border-box", minHeight: 140, resize: "vertical", padding: 12, borderRadius: 8, border: `1px solid ${error ? T.red : T.border}`, background: T.paper, color: T.ink, fontFamily: FONT_MONO, fontSize: fs(12) }} />
+          )}
+          {(text.trim() || !pasteOpen) && (
+            <div style={{ display: "flex", alignItems: "center", gap: 12, marginTop: pasteOpen ? 6 : 0, fontFamily: FONT_UI, fontSize: fs(12), color: T.muted }}>
+              <span>{text.trim() ? t("pasteChars", { n: text.length.toLocaleString() }) : t("pasteEmpty")}</span>
+              {text.trim() && <button type="button" onClick={() => { setText(""); setError(""); setLoaded(false); }} style={{ fontFamily: FONT_UI, fontSize: fs(12), fontWeight: 600, color: T.blue, background: "transparent", border: "none", padding: 0, cursor: "pointer" }}>{t("pasteClear")}</button>}
+            </div>
+          )}
+          {error && <p role="alert" style={{ ...body, color: T.red, marginTop: 8 }}>{error}</p>}
+          {loaded && !error && <p role="status" style={{ ...body, color: T.green, marginTop: 8 }}>{t("spLoaded")}</p>}
+          {warns.map((w, i) => <p key={i} style={{ ...body, color: T.amber, marginTop: 6 }}>{t(w.k, w.v)}</p>)}
+          <div style={{ display: "flex", gap: 10, flexWrap: "wrap", marginTop: 12 }}>
+            <PrimaryButton T={T} icon={Check} disabled={!text.trim()} onClick={() => load(text)}>{t("spLoad")}</PrimaryButton>
+            <GhostButton T={T} icon={Upload} onClick={() => fileRef.current && fileRef.current.click()}>{t("spUpload")}</GhostButton>
+            <input ref={fileRef} type="file" accept=".json,application/json,text/plain" onChange={handleFile} style={{ display: "none" }} />
+          </div>
+          {profile && <p style={{ ...body, fontSize: fs(12.5), marginTop: 10 }}>{t("spReplaceNote")}</p>}
+        </div>
+      </div>
+
+      <div style={{ display: "flex", gap: 10, flexWrap: "wrap", alignItems: "center" }}>
+        <GhostButton T={T} icon={FileJson} onClick={() => setShowSchema((v) => !v)}>{showSchema ? t("spSchemaHide") : t("spSchemaView")}</GhostButton>
+        {profile && <GhostButton T={T} icon={Download} onClick={exportJson}>{t("spExport")}</GhostButton>}
+        {profile && !confirmDel && <GhostButton T={T} icon={Trash2} onClick={() => setConfirmDel(true)}>{t("spDelete")}</GhostButton>}
+      </div>
+      {confirmDel && (
+        <div role="alertdialog" style={{ ...card, borderColor: T.red }}>
+          <p style={{ ...body, color: T.ink }}>{t("spDeleteQ")}</p>
+          <div style={{ display: "flex", gap: 10, marginTop: 12 }}>
+            <button onClick={() => { sp.clear(); setConfirmDel(false); }} style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(13), padding: "9px 16px", borderRadius: 8, cursor: "pointer", background: T.red, color: T.onBlue, border: `1px solid ${T.red}` }}>{t("spDeleteGo")}</button>
+            <GhostButton T={T} onClick={() => setConfirmDel(false)}>{t("dbCancel")}</GhostButton>
+          </div>
+        </div>
+      )}
+      {showSchema && (
+        <div style={card}>
+          <div style={cardHead}><FileJson size={17} color={T.ink} /><span style={headTxt}>{t("spSchemaTitle")}</span><button onClick={() => copy("schema", PROFILE_SCHEMA_TEXT)} style={{ ...ghostSm, marginLeft: "auto" }}>{copied === "schema" ? t("copied") : t("copy")}</button></div>
+          <pre style={{ margin: 0, fontFamily: FONT_MONO, fontSize: fs(11.5), lineHeight: 1.5, color: T.ink, overflowX: "auto" }}>{PROFILE_SCHEMA_TEXT}</pre>
+        </div>
+      )}
+    </div>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// Database: questions, excerpts and notes the user saves while studying (kept on this device).
+//   item = { id, key, kind: "question" | "excerpt" | "note", ts, text, comment, source: { block, num, subject, field }, question: {...snapshot} }
+// `key` de-duplicates: saving the same question / excerpt / note again replaces the earlier copy instead of piling up.
+// ---------------------------------------------------------------------------
+const LS_DB = "owordDatabase";
+const LS_DB_TOMBS = "owordDbTombs";   // { itemId: deletedAt } so a deletion on one device isn't undone by another device's copy
+const LS_DB_FILE = "owordDbFile";     // { fileId, lastSync } of the Drive file below
+const DB_FILE_NAME = "oword_personal_database.json"; // its own file in the Drive app-data folder, separate from the Qbank/Analytics sync file
+const DB_SHARE_TYPE = "oworld-personal-database";
+const DB_MAX = 2000;
+const DB_KINDS_LIST = ["question", "excerpt", "note"];
+const DbContext = createContext({
+  items: [], tombs: {}, add: () => {}, update: () => {}, remove: () => {}, removeMany: () => {}, removeByKey: () => {}, clearAll: () => {},
+  wipe: () => {}, importItems: () => ({ added: 0, skipped: 0 }), restoreItems: () => ({ restored: 0, skipped: 0 }), applyMerged: () => {}, sync: { available: false, status: "idle", lastSync: 0, syncNow: () => {} },
+});
+
+const dbStamp = (n) => n.updatedAt || n.ts || 0;
+const validDbItem = (n) => !!n && typeof n.id === "string" && DB_KINDS_LIST.includes(n.kind);
+function unionDbTombs(a, b) {
+  const out = {}; const cutoff = Date.now() - TOMB_TTL;
+  for (const src of [a, b]) for (const [id, ts] of Object.entries(src || {})) if (ts > cutoff) out[id] = Math.max(out[id] || 0, ts);
+  return out;
+}
+// Non-destructive union by id (the newer edit wins). Only an explicit delete (tombstone) removes anything. Two devices that saved the
+// same question / excerpt / note separately end up with one copy (the newer), and the other id is tombstoned on both sides.
+function mergeDatabase(local, remote) {
+  const r = remote && typeof remote === "object" ? remote : {};
+  const dead = unionDbTombs(local.deleted, r.deleted);
+  const map = new Map();
+  for (const n of [...(local.items || []), ...(Array.isArray(r.items) ? r.items : [])]) {
+    if (!validDbItem(n) || isBuried(dead[n.id], n)) continue;
+    const prev = map.get(n.id);
+    if (!prev || dbStamp(n) > dbStamp(prev)) map.set(n.id, n);
+  }
+  const byKey = new Map();
+  for (const n of [...map.values()]) {
+    if (!n.key) continue;
+    const k = byKey.get(n.key);
+    if (!k) { byKey.set(n.key, n); continue; }
+    const win = dbStamp(n) > dbStamp(k) || (dbStamp(n) === dbStamp(k) && n.id > k.id) ? n : k;
+    const lose = win === n ? k : n;
+    byKey.set(n.key, win); map.delete(lose.id); dead[lose.id] = Date.now();
+  }
+  const items = [...map.values()].sort((a, b) => (b.ts || 0) - (a.ts || 0) || (a.id < b.id ? -1 : 1)).slice(0, DB_MAX);
+  return { items, deleted: dead };
+}
+const dbCore = (m) => hashStr(JSON.stringify({ i: m.items, d: Object.keys(m.deleted).sort().map((k) => [k, m.deleted[k]]) }));
+
+function useDatabase(onRemoved) {
+  const cbRef = useRef(onRemoved); cbRef.current = onRemoved; // the app moves removed items into the Trash
+  const [items, setItems] = useState(() => {
+    const v = lsGet(LS_DB);
+    return Array.isArray(v) ? v.filter(validDbItem).slice(0, DB_MAX) : [];
+  });
+  const [tombs, setTombs] = useState(() => { const v = lsGet(LS_DB_TOMBS); return v && typeof v === "object" ? unionDbTombs(v, {}) : {}; });
+  const itemsRef = useRef(items); const tombsRef = useRef(tombs);
+  useEffect(() => { lsSet(LS_DB, JSON.stringify(items)); }, [items]);
+  useEffect(() => { lsSet(LS_DB_TOMBS, JSON.stringify(tombs)); }, [tombs]);
+  const commit = (next) => { itemsRef.current = next; setItems(next); };
+  const bury = (ids) => {
+    if (!ids.length) return;
+    const now = Date.now(); const next = { ...tombsRef.current };
+    ids.forEach((id) => { next[id] = now; });
+    tombsRef.current = next; setTombs(next);
+  };
+  const newId = () => `db_${Date.now().toString(36)}${Math.random().toString(36).slice(2, 6)}`;
+
+  const add = useCallback((item) => {
+    const cur = itemsRef.current; const now = Date.now();
+    const prior = item.key ? cur.filter((n) => n.key === item.key) : [];
+    const n = { comment: (prior[0] && prior[0].comment) || "", ...item, id: newId(), ts: now, updatedAt: now };
+    bury(prior.map((x) => x.id));
+    commit([n, ...cur.filter((x) => !item.key || x.key !== item.key)].slice(0, DB_MAX));
+  }, []);
+  const update = useCallback((id, patch) => commit(itemsRef.current.map((n) => (n.id === id ? { ...n, ...patch, updatedAt: Date.now() } : n))), []);
+  // Deleting moves the items to the Trash. `{ silent: true }` is for un-saving with the bookmark toggle, which isn't a deletion.
+  const removeMany = useCallback((ids, opts) => {
+    const set = new Set(ids);
+    const goneItems = itemsRef.current.filter((n) => set.has(n.id));
+    bury(goneItems.map((n) => n.id));
+    commit(itemsRef.current.filter((n) => !set.has(n.id)));
+    if (goneItems.length && !(opts && opts.silent) && cbRef.current) cbRef.current(goneItems);
+  }, []);
+  const remove = useCallback((id) => removeMany([id]), [removeMany]);
+  const removeByKey = useCallback((key) => removeMany(itemsRef.current.filter((n) => n.key === key).map((n) => n.id), { silent: true }), [removeMany]);
+  const clearAll = useCallback(() => removeMany(itemsRef.current.map((n) => n.id)), [removeMany]);
+  // Local wipe ("Reset all data"): no tombstones, so Drive keeps its copy and reconnecting restores it.
+  const wipe = useCallback(() => { itemsRef.current = []; tombsRef.current = {}; setItems([]); setTombs({}); lsRemove(LS_DB); lsRemove(LS_DB_TOMBS); lsRemove(LS_DB_FILE); }, []);
+  // Items from a shared file: new ids; skipped when the same content is already here.
+  const importItems = useCallback((list) => {
+    const cur = itemsRef.current; const have = new Map(cur.filter((n) => n.key).map((n) => [n.key, n]));
+    const now = Date.now(); const fresh = []; let skipped = 0;
+    list.forEach((raw, i) => {
+      let key = raw.key || "";
+      const sig = hashStr(`${raw.kind}|${raw.text}|${raw.comment}`);
+      if (key && have.has(key)) {
+        const ex = have.get(key);
+        if (hashStr(`${ex.kind}|${ex.text}|${ex.comment}`) === sig) { skipped++; return; }
+        key = `${key}:i${sig}`; // same item, different content (e.g. a friend's note on the same question): keep both
+        if (have.has(key)) { skipped++; return; }
+      }
+      const n = { ...raw, key, id: newId(), ts: raw.ts || now - i, updatedAt: now };
+      if (key) have.set(key, n);
+      fresh.push(n);
+    });
+    if (fresh.length) commit([...fresh, ...cur].slice(0, DB_MAX));
+    return { added: fresh.length, skipped };
+  }, []);
+  // Items coming back from the Trash keep their id and saved date. restoredAt is later than their tombstone, so no device buries
+  // them again. If the same question / excerpt / note was saved again meanwhile: identical content is skipped, different content
+  // (e.g. a newer note) is kept alongside under its own key.
+  const restoreItems = useCallback((list) => {
+    const cur = itemsRef.current;
+    const ids = new Set(cur.map((n) => n.id));
+    const byKey = new Map(cur.filter((n) => n.key).map((n) => [n.key, n]));
+    const now = Date.now(); const fresh = []; let skipped = 0;
+    list.forEach((raw, i) => {
+      if (!validDbItem(raw) || ids.has(raw.id)) { skipped++; return; }
+      let key = raw.key || "";
+      const sig = hashStr(`${raw.kind}|${raw.text}|${raw.comment}`);
+      if (key && byKey.has(key)) {
+        const ex = byKey.get(key);
+        if (hashStr(`${ex.kind}|${ex.text}|${ex.comment}`) === sig) { skipped++; return; }
+        key = `${key}:r${sig}`;
+        if (byKey.has(key)) { skipped++; return; }
+      }
+      const at = Math.max(now + i, (tombsRef.current[raw.id] || 0) + 1);
+      const n = { ...raw, key, updatedAt: at, restoredAt: at };
+      if (key) byKey.set(key, n);
+      fresh.push(n);
+    });
+    if (fresh.length) commit([...fresh, ...cur].sort((a, b) => (b.ts || 0) - (a.ts || 0) || (a.id < b.id ? -1 : 1)).slice(0, DB_MAX));
+    return { restored: fresh.length, skipped };
+  }, []);
+  // Result of a Drive merge. Only touches state when something actually changed (avoids a sync loop).
+  const applyMerged = useCallback((m) => {
+    if (dbCore(m) === dbCore({ items: itemsRef.current, deleted: tombsRef.current })) return;
+    itemsRef.current = m.items; tombsRef.current = m.deleted; setItems(m.items); setTombs(m.deleted);
+  }, []);
+  return { items, tombs, add, update, remove, removeMany, removeByKey, clearAll, wipe, importItems, restoreItems, applyMerged };
+}
+
+// Google Drive sync for the database. Own file (DB_FILE_NAME), same sign-in as the library sync (it borrows its token).
+function useDatabaseSync({ drive, database }) {
+  const { configured, linked, acquireToken, peekToken } = drive;
+  const latest = useRef({}); latest.current = { items: database.items, tombs: database.tombs, applyMerged: database.applyMerged };
+  const fileRef = useRef((lsGet(LS_DB_FILE) || {}).fileId || null);
+  const modRef = useRef(null);
+  const running = useRef(false);
+  const rerun = useRef(false);
+  const linkedRef = useRef(linked); linkedRef.current = linked;
+  const [status, setStatus] = useState("idle"); // idle | busy | done | error
+  const [lastSync, setLastSync] = useState((lsGet(LS_DB_FILE) || {}).lastSync || 0);
+
+  const run = useCallback(async ({ interactive = false } = {}) => {
+    if (!configured || !linkedRef.current) return;
+    if (running.current) { rerun.current = true; return; }
+    running.current = true; setStatus("busy");
+    try {
+      const token = await acquireToken({ interactive });
+      if (!token) { setStatus("idle"); return; } // not signed in right now: the library sync shows Reconnect; this retries after it succeeds
+      let fileId = fileRef.current; let remote = null;
+      if (fileId) { try { remote = await driveDownload(token, fileId); } catch (e) { if (e.status === 404) fileId = null; else throw e; } }
+      if (!fileId) { fileId = await driveFindSyncFile(token, DB_FILE_NAME); if (fileId) remote = await driveDownload(token, fileId); }
+      const cur = latest.current;
+      const merged = mergeDatabase({ items: cur.items, deleted: cur.tombs }, remote);
+      cur.applyMerged(merged);
+      const remoteMerged = remote ? mergeDatabase({ items: [], deleted: {} }, remote) : null;
+      if (!fileId || !remoteMerged || dbCore(merged) !== dbCore(remoteMerged)) {
+        const payload = JSON.stringify({ v: 1, app: "oworld", type: DB_SHARE_TYPE, updatedAt: Date.now(), items: merged.items, deleted: merged.deleted });
+        fileId = await driveUpload(token, fileId, payload, DB_FILE_NAME);
+      }
+      fileRef.current = fileId;
+      try { modRef.current = await driveModified(token, fileId); } catch (e) { /* polling just does a full sync next time */ }
+      const now = Date.now();
+      lsSet(LS_DB_FILE, JSON.stringify({ fileId, lastSync: now }));
+      setLastSync(now); setStatus("done");
+    } catch (e) { setStatus("error"); }
+    finally { running.current = false; if (rerun.current) { rerun.current = false; setTimeout(() => run(), 0); } }
+  }, [configured, acquireToken]);
+
+  // After the library sync succeeds (first sign-in, reconnect, app start) the token is ready: sync the database too.
+  useEffect(() => { if (configured && linked && drive.status === "done") run(); }, [configured, linked, drive.status]); // eslint-disable-line
+  // Signing out forgets this account's file.
+  useEffect(() => { if (!linked) { fileRef.current = null; modRef.current = null; lsRemove(LS_DB_FILE); setStatus("idle"); setLastSync(0); } }, [linked]);
+  // Local changes (debounced so a burst becomes one sync).
+  const first = useRef(true);
+  useEffect(() => {
+    if (first.current) { first.current = false; return undefined; }
+    if (!linked) return undefined;
+    const id = setTimeout(() => run(), 3000);
+    return () => clearTimeout(id);
+  }, [database.items, database.tombs, linked, run]);
+  // Another device's changes: a cheap metadata check every 45 s and when the tab returns to the foreground.
+  const poll = useCallback(async () => {
+    const tk = peekToken();
+    if (!configured || !linkedRef.current || running.current || !fileRef.current || !tk) return;
+    try { const mod = await driveModified(tk, fileRef.current); if (mod && modRef.current && mod !== modRef.current) run(); } catch (e) { /* ignore */ }
+  }, [configured, peekToken, run]);
+  useEffect(() => {
+    if (!configured) return undefined;
+    const onVis = () => { if (document.visibilityState === "visible") poll(); };
+    const id = setInterval(() => { if (document.visibilityState === "visible") poll(); }, 45000);
+    document.addEventListener("visibilitychange", onVis);
+    return () => { clearInterval(id); document.removeEventListener("visibilitychange", onVis); };
+  }, [configured, poll]);
+
+  return { available: !!(configured && linked), status, lastSync, syncNow: () => run({ interactive: true }) };
+}
+
+// ---- Sharing: a selection goes out as one .json file (share sheet where available, download otherwise) and can be imported from a file.
+function serializeDatabase(list) {
+  const items = list.map((n) => ({
+    kind: n.kind, ...(n.key ? { key: n.key } : {}), text: n.text || "", comment: n.comment || "", ts: n.ts, source: n.source || {}, ...(n.question ? { question: n.question } : {}),
+  }));
+  return { json: JSON.stringify({ app: "oworld", type: DB_SHARE_TYPE, v: 1, exportedAt: Date.now(), items }, null, 2), fileName: `Personal Database (${items.length}).json` };
+}
+const dbStr = (v) => (typeof v === "string" ? v : "");
+function cleanSharedQuestion(q) {
+  if (!q || typeof q !== "object" || !Array.isArray(q.options)) return null;
+  return {
+    vignette: dbStr(q.vignette), stem: dbStr(q.stem), explanation: dbStr(q.explanation), keyLearningPoint: dbStr(q.keyLearningPoint), subject: dbStr(q.subject), correctAnswer: dbStr(q.correctAnswer),
+    options: q.options.filter((o) => o && typeof o === "object").map((o) => ({ key: dbStr(o.key), text: dbStr(o.text) })),
+  };
+}
+// -> array of items, or null when the file isn't a Personal Database export
+function parseDatabaseFile(text) {
+  let j; try { j = JSON.parse(text); } catch (e) { return null; }
+  if (!j || j.type !== DB_SHARE_TYPE || !Array.isArray(j.items)) return null;
+  return j.items.filter((n) => n && DB_KINDS_LIST.includes(n.kind)).map((n) => ({
+    kind: n.kind, key: dbStr(n.key), text: dbStr(n.text), comment: dbStr(n.comment), ts: Number(n.ts) || 0,
+    source: n.source && typeof n.source === "object" ? { block: dbStr(n.source.block), num: n.source.num || "", subject: dbStr(n.source.subject), field: dbStr(n.source.field) } : {},
+    ...(cleanSharedQuestion(n.question) ? { question: cleanSharedQuestion(n.question) } : {}),
+  })).filter((n) => n.text || n.question);
+}
+// Resolves "shared" | "downloaded" | "cancelled" | "error" and never rejects. No await before navigator.share (it needs the tap's user activation).
+async function shareJsonFile({ json, fileName, title, text }) {
+  try {
+    if (typeof navigator !== "undefined" && typeof navigator.share === "function" && typeof navigator.canShare === "function" && typeof File === "function") {
+      for (const type of ["application/json", "text/plain"]) {
+        const file = new File([json], fileName, { type });
+        if (!navigator.canShare({ files: [file] })) continue;
+        await navigator.share({ files: [file], title: title || fileName, text: text || "" });
+        return "shared";
+      }
+    }
+  } catch (err) {
+    if (err && err.name === "AbortError") return "cancelled";
+  }
+  try { downloadBlob(new Blob([json], { type: "application/json" }), fileName); return "downloaded"; } catch (e) { return "error"; }
+}
+
+// A compact copy of a question, enough to review it later without the original block.
+function snapshotQuestion(q) {
+  return {
+    vignette: q.vignette || "", stem: q.stem || "", options: (q.options || []).map((o) => ({ key: o.key, text: o.text })), correctAnswer: q.correctAnswer,
+    explanation: q.explanation || "", keyLearningPoint: q.keyLearningPoint || "", subject: q.subject || "",
+  };
+}
+
+const DB_KINDS = {
+  question: { tone: "blue", label: "dbKindQ", Icon: BookOpen },
+  excerpt: { tone: "green", label: "dbKindE", Icon: Highlighter },
+  note: { tone: "amber", label: "dbKindN", Icon: PencilLine },
+};
+
+function DatabaseCard({ item, T, onUpdate, onRemove, selected = false, onToggle }) {
+  const { t, lang } = useI18n();
+  const kind = DB_KINDS[item.kind] || DB_KINDS.note;
+  const [showAns, setShowAns] = useState(false);
+  const [editing, setEditing] = useState(false);
+  const [draft, setDraft] = useState("");
+  const [confirmDel, setConfirmDel] = useState(false);
+  const [copied, setCopied] = useState(false);
+  const isNote = item.kind === "note";
+  const qq = item.question || null;
+  const src = item.source || {};
+  const srcLine = [src.block, src.num ? `#${src.num}` : "", src.subject].filter(Boolean).join(" · ");
+  const when = new Date(item.ts).toLocaleDateString(lang === "es" ? "es" : "en-US", { month: "short", day: "numeric", year: "numeric" });
+  const small = { fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(12.5), background: "none", border: "none", padding: 0, cursor: "pointer", color: T.blue };
+
+  function startEdit() { setDraft(isNote ? item.text || "" : item.comment || ""); setEditing(true); }
+  function saveEdit() { onUpdate(item.id, isNote ? { text: draft } : { comment: draft }); setEditing(false); }
+  function copy() {
+    const parts = item.kind === "question" && qq
+      ? [qq.vignette, qq.stem, ...(qq.options || []).map((o) => `${o.key}. ${o.text}`), `${t("correct")}: ${qq.correctAnswer}`, qq.explanation].filter(Boolean)
+      : [item.text];
+    if (item.comment) parts.push(item.comment);
+    try { navigator.clipboard.writeText(parts.join("\n\n")).then(() => { setCopied(true); setTimeout(() => setCopied(false), 1400); }).catch(() => {}); } catch (e) { /* ignore */ }
+  }
+
+  return (
+    <div style={{ background: T.card, border: `1px solid ${selected ? T.blue : T.border}`, borderRadius: 10, padding: "14px 16px", display: "grid", gap: 10 }}>
+      <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap" }}>
+        {onToggle && <input type="checkbox" checked={selected} onChange={() => onToggle(item.id)} aria-label={t(kind.label)} style={{ width: 16, height: 16, margin: 0, cursor: "pointer", accentColor: T.blue }} />}
+        <Pill T={T} tone={kind.tone}>{t(kind.label)}</Pill>
+        {srcLine && <span style={{ fontFamily: FONT_UI, fontSize: fs(12), color: T.muted, minWidth: 0, overflowWrap: "anywhere" }}>{srcLine}</span>}
+        <span style={{ marginLeft: "auto", fontFamily: FONT_UI, fontSize: fs(11.5), color: T.muted, whiteSpace: "nowrap" }}>{when}</span>
+      </div>
+
+      {item.kind === "excerpt" && (
+        <blockquote style={{ margin: 0, padding: "2px 0 2px 12px", borderLeft: `3px solid ${T.green}`, fontFamily: FONT_UI, fontSize: fs(14), lineHeight: 1.55, color: T.ink, whiteSpace: "pre-wrap", overflowWrap: "anywhere" }}>{item.text}</blockquote>
+      )}
+      {isNote && !editing && (
+        <p style={{ margin: 0, fontFamily: FONT_UI, fontSize: fs(14), lineHeight: 1.55, color: T.ink, whiteSpace: "pre-wrap", overflowWrap: "anywhere" }}>{item.text}</p>
+      )}
+      {item.kind === "question" && qq && (
+        <div style={{ display: "grid", gap: 8 }}>
+          {qq.vignette && <p style={{ margin: 0, fontFamily: FONT_UI, fontSize: fs(13.5), lineHeight: 1.55, color: T.ink, whiteSpace: "pre-wrap", overflowWrap: "anywhere" }}>{qq.vignette}</p>}
+          {qq.stem && <p style={{ margin: 0, fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(14), lineHeight: 1.5, color: T.ink, overflowWrap: "anywhere" }}>{qq.stem}</p>}
+          <div style={{ display: "grid", gap: 4 }}>
+            {(qq.options || []).map((o) => {
+              const right = showAns && o.key === qq.correctAnswer;
+              return (
+                <div key={o.key} style={{
+                  display: "flex", gap: 8, alignItems: "flex-start", padding: "6px 10px", borderRadius: 6, fontFamily: FONT_UI, fontSize: fs(13), lineHeight: 1.45, color: T.ink,
+                  background: right ? T.greenLight : "transparent", border: `1px solid ${right ? T.green : T.border}`,
+                }}>
+                  <span style={{ fontWeight: 700, flexShrink: 0 }}>{o.key}.</span>
+                  <span style={{ flex: 1, overflowWrap: "anywhere" }}>{o.text}</span>
+                  {right && <span style={{ display: "inline-flex", alignItems: "center", gap: 4, color: T.green, fontWeight: 700, fontSize: fs(11.5), flexShrink: 0 }}><CheckCircle2 size={13} /> {t("dbCorrectTag")}</span>}
+                </div>
+              );
+            })}
+          </div>
+          {showAns && (qq.explanation || qq.keyLearningPoint) && (
+            <div style={{ background: T.mutedBg, borderRadius: 6, padding: "10px 12px", fontFamily: FONT_UI, fontSize: fs(13), lineHeight: 1.55, color: T.ink, whiteSpace: "pre-wrap", overflowWrap: "anywhere" }}>
+              {qq.explanation}{qq.explanation && qq.keyLearningPoint ? "\n\n" : ""}{qq.keyLearningPoint}
+            </div>
+          )}
+          <div><button onClick={() => setShowAns((v) => !v)} style={small}>{showAns ? t("dbHideAns") : t("dbShowAns")}</button></div>
+        </div>
+      )}
+
+      {editing ? (
+        <div style={{ display: "grid", gap: 8 }}>
+          <textarea
+            autoFocus value={draft} onChange={(e) => setDraft(e.target.value)} placeholder={isNote ? "" : t("dbCommentPh")}
+            style={{ width: "100%", minHeight: 90, fontFamily: FONT_UI, fontSize: fs(13), border: `1px solid ${T.border}`, borderRadius: 6, padding: 8, resize: "vertical", boxSizing: "border-box", background: T.paper, color: T.ink }}
+          />
+          <div style={{ display: "flex", gap: 8, justifyContent: "flex-end" }}>
+            <GhostButton T={T} onClick={() => setEditing(false)}>{t("dbCancel")}</GhostButton>
+            <PrimaryButton T={T} onClick={saveEdit}>{t("dbSave")}</PrimaryButton>
+          </div>
+        </div>
+      ) : (
+        !isNote && item.comment && (
+          <div style={{ background: T.blueLight, borderRadius: 6, padding: "8px 12px", fontFamily: FONT_UI, fontSize: fs(13), lineHeight: 1.5, color: T.ink, whiteSpace: "pre-wrap", overflowWrap: "anywhere" }}>{item.comment}</div>
+        )
+      )}
+
+      {!editing && (
+        <div style={{ display: "flex", alignItems: "center", gap: 14, flexWrap: "wrap" }}>
+          <button onClick={startEdit} style={small}>{isNote ? t("dbEdit") : item.comment ? t("dbEdit") : t("dbAddComment")}</button>
+          <button onClick={copy} style={small}>{copied ? t("dbCopied") : t("dbCopy")}</button>
+          <span style={{ marginLeft: "auto" }}>
+            {confirmDel ? (
+              <span style={{ display: "inline-flex", alignItems: "center", gap: 10 }}>
+                <span style={{ fontFamily: FONT_UI, fontSize: fs(12.5), fontWeight: 600, color: T.red }}>{t("dbConfirmDel")}</span>
+                <button onClick={() => onRemove(item.id)} style={{ ...small, color: T.red }}>{t("dbDelete")}</button>
+                <button onClick={() => setConfirmDel(false)} style={{ ...small, color: T.muted }}>{t("dbCancel")}</button>
+              </span>
+            ) : (
+              <button onClick={() => setConfirmDel(true)} style={{ ...small, color: T.muted, display: "inline-flex", alignItems: "center", gap: 5 }}><Trash2 size={13} /> {t("dbDelete")}</button>
+            )}
+          </span>
+        </div>
+      )}
+    </div>
+  );
+}
+
+function DatabasePanel({ T }) {
+  const { t, lang } = useI18n();
+  const db = useContext(DbContext);
+  const { items, update, remove, removeMany, clearAll, importItems, sync } = db;
+  const drive = useContext(DriveContext);
+  const [filter, setFilter] = useState("all");
+  const [query, setQuery] = useState("");
+  const [sel, setSel] = useState([]);
+  const [confirm, setConfirm] = useState(null); // null | "clear" | "delSel"
+  const [msg, setMsg] = useState(null);         // { tone, text } one-line result of an import / export
+  const [managing, setManaging] = useState(false); // Manage: reveals Select all / Export / Delete Selected / Clear all (and the tick boxes)
+  const fileRef = useRef(null);
+  const msgTimer = useRef(null);
+  useEffect(() => () => clearTimeout(msgTimer.current), []);
+  const say = (tone, text) => { setMsg({ tone, text }); clearTimeout(msgTimer.current); msgTimer.current = setTimeout(() => setMsg(null), 6000); };
+
+  const q = query.trim().toLowerCase();
+  const shown = items.filter((n) => {
+    if (filter !== "all" && n.kind !== filter) return false;
+    if (!q) return true;
+    const qq = n.question || {};
+    const hay = [n.text, n.comment, n.source && n.source.block, n.source && n.source.subject, qq.vignette, qq.stem, qq.explanation, ...(qq.options || []).map((o) => o.text)].filter(Boolean).join(" ").toLowerCase();
+    return hay.includes(q);
+  });
+  const ids = new Set(items.map((n) => n.id));
+  const liveSel = sel.filter((id) => ids.has(id));
+  const allShownSelected = shown.length > 0 && shown.every((n) => liveSel.includes(n.id));
+  const toggle = (id) => setSel((cur) => (cur.includes(id) ? cur.filter((x) => x !== id) : [...cur, id]));
+  const managingOn = managing; // Manage also holds Import, so it opens even when the database is empty
+  const toggleManage = () => { if (managing) { setSel([]); setConfirm(null); } setManaging(!managing); }; // closing Manage drops the selection
+  const danger = { color: T.red, border: `1px solid ${T.red}` }; // the border shorthand, so toggling it on a button never mixes shorthand and longhand
+  const chips = [["all", "dbAll"], ["question", "dbQuestions"], ["excerpt", "dbExcerpts"], ["note", "dbNotes"]];
+
+  async function exportSelected() {
+    const list = items.filter((n) => liveSel.includes(n.id));
+    if (!list.length) return;
+    const { json, fileName } = serializeDatabase(list); // synchronous, then straight into the share sheet
+    const r = await shareJsonFile({ json, fileName, title: t("dbTitle"), text: t("dbShareText", { n: list.length }) });
+    if (r === "cancelled") return;
+    say(r === "error" ? "red" : "green", t(r === "shared" ? "dbShared" : r === "downloaded" ? "dbDownloaded" : "dbExportFailed", { n: list.length }));
+  }
+  async function onFile(e) {
+    const file = e.target.files && e.target.files[0];
+    e.target.value = "";
+    if (!file) return;
+    let text = "";
+    try { text = await file.text(); } catch (err) { say("red", t("dbImportBad")); return; }
+    const list = parseDatabaseFile(text);
+    if (!list || list.length === 0) { say("red", t("dbImportBad")); return; }
+    const r = importItems(list);
+    say("green", t("dbImported", { a: r.added, s: r.skipped }));
+  }
+
+  const signedIn = !!(drive && drive.configured && drive.linked);
+  const syncTone = { busy: "blue", done: "green", error: "red" }[sync.status] || "muted";
+  const syncText = sync.status === "busy" ? t("syncStBusy") : sync.status === "error" ? t("syncStError")
+    : sync.status === "done" ? t("syncStDone", { time: sync.lastSync ? new Date(sync.lastSync).toLocaleTimeString(lang === "es" ? "es" : "en-US", { hour: "numeric", minute: "2-digit" }) : "" }) : t("syncStNone");
+  const toneColor = { green: T.green, red: T.red, muted: T.muted }[msg && msg.tone] || T.muted;
+
+  return (
+    <div style={{ display: "grid", gap: 14 }}>
+      <div style={{ display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap" }}>
+        <Database size={18} color={T.blue} />
+        <span style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(17), color: T.ink }}>{t("dbTitle")}</span>
+        <span style={{ marginLeft: "auto", display: "inline-flex", alignItems: "center", gap: 8, flexWrap: "wrap" }}>
+          <GhostButton T={T} icon={managingOn ? ChevronUp : SlidersHorizontal} onClick={toggleManage} title={t("dbManage")}
+            style={{ padding: "6px 10px", ...(managingOn ? { color: T.blue, border: `1px solid ${T.blue}`, background: T.blueLight } : {}) }}>{t("dbManage")}</GhostButton>
+          {signedIn && (
+            <>
+              <Cloud size={15} color={T.blue} />
+              <Pill T={T} tone={syncTone}>{syncText}</Pill>
+              <GhostButton T={T} icon={RefreshCw} onClick={sync.syncNow} disabled={sync.status === "busy"} style={{ padding: "6px 10px" }}>{t("syncNow")}</GhostButton>
+            </>
+          )}
+        </span>
+      </div>
+      <p style={{ margin: "-6px 0 0", fontFamily: FONT_UI, fontSize: fs(13), color: T.muted, lineHeight: 1.5 }}>
+        {t("dbHint")}{drive && drive.configured && !signedIn ? ` ${t("dbSyncSignIn")}` : ""}
+      </p>
+
+      {managingOn && (
+        <div role="toolbar" aria-label={t("dbManage")} style={{ display: "flex", gap: 8, flexWrap: "wrap", alignItems: "center", padding: "10px 12px", borderRadius: 8, border: `1px solid ${T.border}`, background: T.card }}>
+          <input ref={fileRef} type="file" accept=".json,application/json,text/plain" onChange={onFile} style={{ display: "none" }} />
+          <GhostButton T={T} icon={Upload} onClick={() => fileRef.current && fileRef.current.click()}>{t("dbImport")}</GhostButton>
+          {items.length > 0 && (<>
+          <GhostButton T={T} icon={CheckSquare} onClick={() => { setConfirm(null); setSel(allShownSelected ? [] : shown.map((n) => n.id)); }}>
+            {allShownSelected ? t("histDeselect") : t("histSelectAll")}
+          </GhostButton>
+          <GhostButton T={T} icon={Download} onClick={exportSelected} disabled={liveSel.length === 0} title={t("dbExport")}>
+            {t("dbExport")}{liveSel.length > 0 ? ` (${liveSel.length})` : ""}
+          </GhostButton>
+          <GhostButton T={T} icon={Trash2} onClick={() => setConfirm("delSel")} disabled={liveSel.length === 0} title={t("libDeleteSel")} style={liveSel.length > 0 ? danger : undefined}>
+            {t("libDeleteSel")}{liveSel.length > 0 ? ` (${liveSel.length})` : ""}
+          </GhostButton>
+          <GhostButton T={T} icon={Trash2} onClick={() => setConfirm("clear")} title={t("dbClearAll")} style={danger}>{t("dbClearAll")}</GhostButton>
+          </>)}
+        </div>
+      )}
+
+      {confirm === "delSel" && liveSel.length > 0 && (
+        <div role="alertdialog" style={{ display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap", background: T.redLight, border: `1px solid ${T.red}`, borderRadius: 8, padding: "10px 14px" }}>
+          <span style={{ fontFamily: FONT_UI, fontSize: fs(13), fontWeight: 600, color: T.red, flex: "1 1 200px" }}>{t("dbDelSelQ", { n: liveSel.length })}</span>
+          <GhostButton T={T} onClick={() => setConfirm(null)}>{t("dbCancel")}</GhostButton>
+          <GhostButton T={T} icon={Trash2} onClick={() => { removeMany(liveSel); setSel([]); setConfirm(null); }} style={{ color: T.red, borderColor: T.red }}>{t("dbDelete")}</GhostButton>
+        </div>
+      )}
+      {confirm === "clear" && (
+        <div role="alertdialog" style={{ display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap", background: T.redLight, border: `1px solid ${T.red}`, borderRadius: 8, padding: "10px 14px" }}>
+          <span style={{ fontFamily: FONT_UI, fontSize: fs(13), fontWeight: 600, color: T.red, flex: "1 1 200px" }}>{t("dbClearConfirm")}</span>
+          <GhostButton T={T} onClick={() => setConfirm(null)}>{t("dbCancel")}</GhostButton>
+          <GhostButton T={T} icon={Trash2} onClick={() => { clearAll(); setSel([]); setConfirm(null); }} style={{ color: T.red, borderColor: T.red }}>{t("dbClearAll")}</GhostButton>
+        </div>
+      )}
+      {msg && <div role="status" style={{ fontFamily: FONT_UI, fontSize: fs(13), fontWeight: 600, color: toneColor }}>{msg.text}</div>}
+
+      {items.length > 0 && (
+        <div style={{ display: "flex", gap: 10, flexWrap: "wrap", alignItems: "center" }}>
+          <div role="tablist" style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
+            {chips.map(([id, label]) => {
+              const on = filter === id;
+              return (
+                <button key={id} role="tab" aria-selected={on} onClick={() => setFilter(id)} style={{
+                  fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(13), padding: "7px 14px", borderRadius: 999, cursor: "pointer",
+                  border: `1px solid ${on ? T.blue : T.border}`, background: on ? T.blueLight : "transparent", color: on ? T.blue : T.ink,
+                }}>{t(label)}</button>
+              );
+            })}
+          </div>
+          <div style={{ position: "relative", flex: "1 1 200px", minWidth: 180 }}>
+            <Search size={15} color={T.muted} style={{ position: "absolute", left: 10, top: "50%", transform: "translateY(-50%)" }} />
+            <input
+              value={query} onChange={(e) => setQuery(e.target.value)} placeholder={t("dbSearch")} aria-label={t("dbSearch")}
+              style={{ width: "100%", boxSizing: "border-box", fontFamily: FONT_UI, fontSize: fs(13), padding: "8px 10px 8px 32px", borderRadius: 6, border: `1px solid ${T.border}`, background: T.card, color: T.ink }}
+            />
+          </div>
+        </div>
+      )}
+
+      {items.length === 0 ? (
+        <div style={{ background: T.card, border: `1px dashed ${T.border}`, borderRadius: 10, padding: "36px 20px", textAlign: "center" }}>
+          <Database size={28} color={T.muted} />
+          <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(15), color: T.ink, marginTop: 10 }}>{t("dbEmpty")}</div>
+          <div style={{ fontFamily: FONT_UI, fontSize: fs(13), color: T.muted, marginTop: 6, lineHeight: 1.5, maxWidth: 460, marginInline: "auto" }}>{t("dbEmptyHint")}</div>
+        </div>
+      ) : shown.length === 0 ? (
+        <div style={{ textAlign: "center", padding: "26px 10px", fontFamily: FONT_UI, fontSize: fs(13.5), color: T.muted }}>{t("dbNoMatch")}</div>
+      ) : (
+        <div style={{ display: "grid", gap: 12 }}>
+          {shown.map((n) => <DatabaseCard key={n.id} item={n} T={T} onUpdate={update} onRemove={(id) => { remove(id); setSel((c) => c.filter((x) => x !== id)); }} selected={liveSel.includes(n.id)} onToggle={managingOn ? toggle : undefined} />)}
+        </div>
+      )}
+    </div>
+  );
+}
+
+// ---------------------------------------------------------------------------
+// Trash: everything deleted from the Library, Analytics or Database waits here for TRASH_TTL, then is removed for good.
+// Restore puts an entry back where it came from; Delete forever removes it right away.
+// ---------------------------------------------------------------------------
+const trashSnippet = (str, n = 140) => { const x = String(str || "").replace(/\s+/g, " ").trim(); return x.length > n ? `${x.slice(0, n - 1)}\u2026` : x; };
+
+function TrashPanel({ trash, onRestore, onPurge, T, onClose }) {
+  const { t, lang } = useI18n();
+  const phone = useViewport().w < 640;
+  const [filter, setFilter] = useState("all");
+  const [sel, setSel] = useState([]);           // ticked tids
+  const [confirm, setConfirm] = useState(null); // null | { ids } (delete forever) | "empty"
+  const live = useMemo(() => trash.filter((e) => e.deletedAt + TRASH_TTL > Date.now()), [trash]);
+  const counts = { all: live.length, qbank: 0, session: 0, dbitem: 0 };
+  live.forEach((e) => { counts[e.kind] += 1; });
+  const shown = filter === "all" ? live : live.filter((e) => e.kind === filter);
+  const liveIds = new Set(live.map((e) => e.tid));
+  const liveSel = sel.filter((id) => liveIds.has(id));
+  const allShownSelected = shown.length > 0 && shown.every((e) => liveSel.includes(e.tid));
+  const toggle = (id) => setSel((cur) => (cur.includes(id) ? cur.filter((x) => x !== id) : [...cur, id]));
+  const loc = lang === "es" ? "es" : "en-US";
+  const fmtDate = (ms) => new Date(ms).toLocaleDateString(loc, { month: "short", day: "numeric", year: "numeric" });
+  const daysLeft = (e) => Math.max(0, Math.ceil((e.deletedAt + TRASH_TTL - Date.now()) / 86400000));
+  const chips = [["all", "trashAll"], ["qbank", "trashQbanks"], ["session", "trashSessions"], ["dbitem", "trashDb"]];
+  const danger = { color: T.red, border: `1px solid ${T.red}` }; // the border shorthand, so toggling it on a button never mixes shorthand and longhand
+  const drop = (ids) => setSel((cur) => cur.filter((x) => !ids.includes(x)));
+  const restore = (ids) => { onRestore(ids); drop(ids); setConfirm(null); };
+  const purge = (ids) => { onPurge(ids); drop(ids); setConfirm(null); };
+  const confirmIds = confirm === "empty" ? live.map((e) => e.tid) : confirm && confirm.ids ? confirm.ids.filter((id) => liveIds.has(id)) : [];
+
+  return (
+    <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, padding: 24, marginBottom: onClose ? 0 : 20 }}>
+      <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 6, flexWrap: "wrap" }}>
+        <Trash2 size={17} color={T.ink} />
+        <span style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(14), color: T.ink }}>{t("trashTitle")}</span>
+        <Pill T={T} tone="muted">{t("trashCount", { n: live.length })}</Pill>
+        {onClose && (
+          <button onClick={onClose} aria-label={t("cancel")} title={t("cancel")} style={{ marginLeft: "auto", display: "inline-flex", alignItems: "center", justifyContent: "center", width: 34, height: 34, borderRadius: 6, background: "transparent", border: `1px solid ${T.border}`, color: T.ink, cursor: "pointer" }}><X size={16} /></button>
+        )}
+      </div>
+      <p style={{ margin: "0 0 14px", fontFamily: FONT_UI, fontSize: fs(13), color: T.muted, lineHeight: 1.5 }}>{t("trashHint", { d: Math.round(TRASH_TTL / 86400000) })}</p>
+
+      {live.length > 0 && (
+        <div role="toolbar" aria-label={t("trashTitle")} style={{ display: "flex", gap: 8, flexWrap: "wrap", alignItems: "center", marginBottom: 12 }}>
+          <GhostButton T={T} icon={CheckSquare} onClick={() => { setConfirm(null); setSel(allShownSelected ? [] : shown.map((e) => e.tid)); }}>
+            {allShownSelected ? t("histDeselect") : t("histSelectAll")}
+          </GhostButton>
+          <GhostButton T={T} icon={RotateCcw} onClick={() => restore(liveSel)} disabled={liveSel.length === 0} title={t("trashRestoreSel")}>
+            {t("trashRestoreSel")}{liveSel.length > 0 ? ` (${liveSel.length})` : ""}
+          </GhostButton>
+          <GhostButton T={T} icon={Trash2} onClick={() => setConfirm({ ids: liveSel })} disabled={liveSel.length === 0} title={t("trashDeleteForever")} style={liveSel.length > 0 ? danger : undefined}>
+            {t("trashDeleteForever")}{liveSel.length > 0 ? ` (${liveSel.length})` : ""}
+          </GhostButton>
+          <span style={{ marginLeft: "auto" }}>
+            <GhostButton T={T} icon={Trash2} onClick={() => setConfirm("empty")} style={danger}>{t("trashEmptyBtn")}</GhostButton>
+          </span>
+        </div>
+      )}
+
+      {confirmIds.length > 0 && (
+        <div role="alertdialog" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 12, flexWrap: "wrap", padding: "10px 14px", marginBottom: 12, borderRadius: 8, border: `1px solid ${T.red}`, background: T.redLight }}>
+          <span style={{ fontFamily: FONT_UI, fontSize: fs(13), fontWeight: 600, color: T.red }}>{t(confirm === "empty" ? "trashEmptyQ" : "trashPurgeQ", { n: confirmIds.length })}</span>
+          <span style={{ display: "inline-flex", gap: 8 }}>
+            <button onClick={() => purge(confirmIds)} style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(12.5), padding: "7px 12px", borderRadius: 6, border: `1px solid ${T.red}`, background: T.red, color: "#fff", cursor: "pointer" }}>{t("trashDeleteForever")}</button>
+            <GhostButton T={T} onClick={() => setConfirm(null)}>{t("cancel")}</GhostButton>
+          </span>
+        </div>
+      )}
+
+      {live.length > 0 && (
+        <div role="tablist" style={{ display: "flex", gap: 6, flexWrap: "wrap", marginBottom: 12 }}>
+          {chips.map(([id, label]) => {
+            const on = filter === id;
+            return (
+              <button key={id} role="tab" aria-selected={on} onClick={() => setFilter(id)} style={{
+                fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(13), padding: "7px 14px", borderRadius: 999, cursor: "pointer",
+                border: `1px solid ${on ? T.blue : T.border}`, background: on ? T.blueLight : "transparent", color: on ? T.blue : T.ink,
+              }}>{t(label)} ({counts[id]})</button>
+            );
+          })}
+        </div>
+      )}
+
+      {live.length === 0 ? (
+        <div style={{ border: `1px dashed ${T.border}`, borderRadius: 10, padding: "36px 20px", textAlign: "center" }}>
+          <Trash2 size={28} color={T.muted} />
+          <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(15), color: T.ink, marginTop: 10 }}>{t("trashEmpty")}</div>
+          <div style={{ fontFamily: FONT_UI, fontSize: fs(13), color: T.muted, marginTop: 6, lineHeight: 1.5, maxWidth: 460, marginInline: "auto" }}>{t("trashEmptyHint")}</div>
+        </div>
+      ) : shown.length === 0 ? (
+        <div style={{ textAlign: "center", padding: "26px 10px", fontFamily: FONT_UI, fontSize: fs(13.5), color: T.muted }}>{t("trashNoneHere")}</div>
+      ) : (
+        <div style={{ display: "grid", gap: 8 }}>
+          {shown.map((e) => {
+            const d = e.data; const picked = liveSel.includes(e.tid);
+            let title, kindLabel, tone, meta, score = null;
+            if (e.kind === "qbank") {
+              title = d.title; kindLabel = t("trashKindQbank"); tone = "blue"; meta = t("histQ", { n: (d.questions || []).length });
+            } else if (e.kind === "session") {
+              title = sessionTitle(d, t); kindLabel = t("trashKindSession"); tone = "amber"; meta = t("histDone", { d: fmtDate(d.finishedAt) });
+              score = <Pill T={T} tone={d.pct >= 70 ? "green" : "red"}>{d.pct}% ({d.correct}/{d.total})</Pill>;
+            } else {
+              const k = DB_KINDS[d.kind] || DB_KINDS.note; const src = d.source || {};
+              title = trashSnippet(d.kind === "question" && d.question ? d.question.stem || d.text : d.text) || t(k.label);
+              kindLabel = t(k.label); tone = k.tone; meta = [src.block, src.subject].filter(Boolean).join(" \u00b7 ");
+            }
+            const left = daysLeft(e);
+            const leftText = left <= 1 ? t("trashLastDay") : t("trashDaysLeft", { n: left });
+            return (
+              <div key={e.tid} onClick={() => toggle(e.tid)} style={{
+                display: "flex", alignItems: "center", gap: 12, flexWrap: "wrap", padding: "12px 14px", borderRadius: 8, cursor: "pointer",
+                border: `1px solid ${picked ? T.blue : T.border}`, background: picked ? T.blueLight : "transparent",
+              }}>
+                <input type="checkbox" checked={picked} onChange={() => toggle(e.tid)} onClick={(ev) => ev.stopPropagation()} aria-label={title} style={{ cursor: "pointer", width: 18, height: 18 }} />
+                <div style={{ flex: 1, minWidth: 180 }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap" }}>
+                    <Pill T={T} tone={tone}>{kindLabel}</Pill>
+                    <span style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(14), color: T.ink, overflowWrap: "anywhere", minWidth: 0 }}>{title}</span>
+                    {score}
+                  </div>
+                  <span style={{ fontFamily: FONT_MONO, fontSize: fs(12), color: T.muted }}>
+                    {[meta, t("trashDeletedAgo", { d: fmtDate(e.deletedAt) }), leftText].filter(Boolean).join(" \u00b7 ")}
+                  </span>
+                </div>
+                <span style={{ display: "inline-flex", gap: 6 }}>
+                  <GhostButton T={T} icon={RotateCcw} onClick={(ev) => { ev.stopPropagation(); restore([e.tid]); }} title={t("trashRestore")} style={phone ? { padding: "11px 12px" } : undefined}>{!phone && t("trashRestore")}</GhostButton>
+                  <GhostButton T={T} icon={Trash2} onClick={(ev) => { ev.stopPropagation(); setConfirm({ ids: [e.tid] }); }} title={t("trashDeleteForever")} style={{ ...danger, ...(phone ? { padding: "11px 12px" } : {}) }}>{!phone && t("trashDeleteForever")}</GhostButton>
+                </span>
+              </div>
+            );
+          })}
+        </div>
+      )}
+    </div>
+  );
+}
 
 function ResetDataControl({ T }) {
   const { t } = useI18n();
@@ -2671,7 +4469,6 @@ const HL_COLORS = {
   green:  { bg: "#BBF7D0", hover: "#86EFAC", label: "hlGreen" },
   blue:   { bg: "#BFDBFE", hover: "#93C5FD", label: "hlBlue" },
   pink:   { bg: "#FBCFE8", hover: "#F9A8D4", label: "hlPink" },
-  orange: { bg: "#FED7AA", hover: "#FDBA74", label: "hlOrange" },
 };
 const HL_COLOR_KEYS = Object.keys(HL_COLORS);
 const DEFAULT_HL = "yellow"; // highlights saved before colors existed have no `color` and render as yellow
@@ -2718,10 +4515,11 @@ function mergeHighlightRanges(ranges) {
 // Adds one highlight to a field's list. Same-colored neighbours merge into one range; a different color painted over
 // existing highlights replaces just the overlapped part (the old range is trimmed or split around it).
 function insertHighlight(existing, incoming) {
-  const color = incoming.color || DEFAULT_HL;
+  const norm = (c) => (HL_COLORS[c] ? c : DEFAULT_HL); // a color that no longer exists (orange) falls back to yellow
+  const color = norm(incoming.color);
   const kept = [];
   existing.forEach((r) => {
-    const rc = r.color || DEFAULT_HL;
+    const rc = norm(r.color);
     if (rc === color || r.end <= incoming.start || r.start >= incoming.end) { kept.push(r); return; }
     if (r.start < incoming.start) kept.push({ ...r, end: incoming.start });
     if (r.end > incoming.end) kept.push({ ...r, id: `${r.id}_r${incoming.end}`, start: incoming.end });
@@ -2729,7 +4527,7 @@ function insertHighlight(existing, incoming) {
   const all = [...kept, { ...incoming, color }];
   const out = [];
   HL_COLOR_KEYS.forEach((c) => {
-    out.push(...mergeHighlightRanges(all.filter((r) => (r.color || DEFAULT_HL) === c)).map((r) => ({ ...r, color: c })));
+    out.push(...mergeHighlightRanges(all.filter((r) => norm(r.color) === c)).map((r) => ({ ...r, color: c })));
   });
   return out.sort((a, b) => a.start - b.start);
 }
@@ -3005,9 +4803,18 @@ function Avatar({ profile, size = 36, T }) {
 function SettingsMenu({ darkMode, setDarkMode, T, iconOnly = false }) {
   const { t, lang } = useI18n();
   const drive = useContext(DriveContext);
+  const trashCtx = useContext(TrashContext);
   const vp = useViewport();
   const [open, setOpen] = useState(false);
+  const [trashOpen, setTrashOpen] = useState(false);
   const wrapRef = useRef(null);
+  const trashLive = trashCtx.trash.filter((e) => e.deletedAt + TRASH_TTL > Date.now()).length;
+  useEffect(() => {
+    if (!trashOpen) return undefined;
+    const esc = (e) => { if (e.key === "Escape") setTrashOpen(false); };
+    document.addEventListener("keydown", esc);
+    return () => document.removeEventListener("keydown", esc);
+  }, [trashOpen]);
   const [place, setPlace] = useState({ right: 0 });
   useEffect(() => {
     if (!open) return undefined;
@@ -3117,9 +4924,22 @@ function SettingsMenu({ darkMode, setDarkMode, T, iconOnly = false }) {
             <TextSizeControl T={T} />
           </div>
 
+          {/* Trash Bin */}
+          <div style={{ borderTop: `1px solid ${T.border}`, padding: "10px 16px", marginTop: 8 }}>
+            <button onClick={() => { setOpen(false); setTrashOpen(true); }} style={{
+              width: "100%", display: "flex", alignItems: "center", gap: 10, background: "transparent", border: `1px solid ${T.border}`, borderRadius: 6, cursor: "pointer",
+              padding: "9px 12px", fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(13), color: T.ink, textAlign: "left",
+            }}>
+              <Trash2 size={15} color={T.muted} />
+              <span style={{ flex: 1 }}>{t("trashTitle")}</span>
+              {trashLive > 0 && <span style={{ fontFamily: FONT_MONO, fontSize: fs(11), fontWeight: 700, padding: "1px 7px", borderRadius: 999, background: T.mutedBg, color: T.muted }}>{trashLive}</span>}
+              <ChevronRight size={15} color={T.muted} />
+            </button>
+          </div>
+
           {/* Sign out */}
           {signedIn && (
-            <div style={{ borderTop: `1px solid ${T.border}`, padding: "6px 16px 12px", marginTop: 8 }}>
+            <div style={{ borderTop: `1px solid ${T.border}`, padding: "6px 16px 12px" }}>
               <button onClick={() => { setOpen(false); drive.signOut(); }} style={{
                 width: "100%", display: "flex", alignItems: "center", justifyContent: "center", gap: 8, background: "transparent", border: "none", cursor: "pointer",
                 padding: "10px 0 4px", fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(13), letterSpacing: "0.06em", textTransform: "uppercase", color: T.ink,
@@ -3127,6 +4947,14 @@ function SettingsMenu({ darkMode, setDarkMode, T, iconOnly = false }) {
               <p style={{ fontFamily: FONT_UI, fontSize: fs(11.5), color: T.muted, lineHeight: 1.45, margin: "4px 0 0", textAlign: "center" }}>{t("signOutHint")}</p>
             </div>
           )}
+        </div>
+      )}
+      {trashOpen && (
+        <div role="dialog" aria-modal="true" aria-label={t("trashTitle")} onClick={() => setTrashOpen(false)}
+          style={{ position: "fixed", inset: 0, zIndex: 120, background: "rgba(0,0,0,0.55)", display: "flex", alignItems: "center", justifyContent: "center", padding: vp.w < 640 ? 10 : 20, textAlign: "left" }}>
+          <div onClick={(e) => e.stopPropagation()} style={{ width: "100%", maxWidth: 780, maxHeight: "92vh", overflowY: "auto", borderRadius: 10, boxShadow: "0 12px 40px rgba(0,0,0,0.45)" }}>
+            <TrashPanel trash={trashCtx.trash} onRestore={trashCtx.restore} onPurge={trashCtx.purge} T={T} onClose={() => setTrashOpen(false)} />
+          </div>
         </div>
       )}
     </div>
@@ -3261,6 +5089,7 @@ function QbankLibraryPanel({ library, onLaunch, onMix, onDelete, onRename, resum
   const { t, lang } = useI18n();
   const [queue, setQueue] = useState([]); // entry ids in the order they were ticked
   const phone = useViewport().w < 640;
+  const twoCol = useViewport().w >= 900; // large displays: Qbank cards share two columns
   const liveQueue = queue.filter((id) => library.some((e) => e.id === id));
   const titleOf = (id) => library.find((e) => e.id === id)?.title || "";
 
@@ -3379,7 +5208,7 @@ function QbankLibraryPanel({ library, onLaunch, onMix, onDelete, onRename, resum
         <p style={{ fontFamily: FONT_UI, fontSize: fs(13.5), color: T.muted, lineHeight: 1.6, margin: 0 }}>{t("libEmpty")}</p>
       ) : (
         <>
-          <div style={{ display: "grid", gap: 8 }}>
+          <div style={{ display: "grid", gap: 8, gridTemplateColumns: twoCol ? "repeat(2, minmax(0, 1fr))" : "minmax(0, 1fr)" }}>
             {library.map((e) => {
               const pos = liveQueue.indexOf(e.id);
               const ls = e.lastScore;
@@ -3611,15 +5440,143 @@ function DonutLegend({ totals, T }) {
   );
 }
 
-// Analytics page: the donut across every logged session, above the session list.
-function AnalyticsOverview({ history, T }) {
-  const totals = useMemo(() => overviewTotals(history), [history]);
-  const wide = useViewport().w >= 900; // larger displays: legend on the left, donut on the right
-  if (totals.answered <= 0) return null;
+// Analytics page: a compact dashboard above the session list: headline stats, the donut, score trend, subject bars and daily activity.
+function TrendChart({ vals, labels, T }) {
+  const W = 420, H = 170, PL = 34, PR = 10, PT = 12, PB = 24;
+  const x = (i) => PL + (vals.length === 1 ? 0 : (i * (W - PL - PR)) / (vals.length - 1));
+  const y = (v) => PT + (1 - Math.max(0, Math.min(100, v)) / 100) * (H - PT - PB);
+  const pts = vals.map((v, i) => `${x(i)},${y(v)}`).join(" ");
+  const area = `${x(0)},${y(0)} ${pts} ${x(vals.length - 1)},${y(0)}`;
   return (
-    <div style={{ display: "flex", flexDirection: wide ? "row-reverse" : "row", justifyContent: wide ? "space-between" : "flex-start", alignItems: "center", gap: 28, flexWrap: "wrap", padding: "6px 0 22px", marginBottom: 20, borderBottom: `1px solid ${T.border}` }}>
-      <DonutRing totals={totals} T={T} />
-      <DonutLegend totals={totals} T={T} />
+    <svg viewBox={`0 0 ${W} ${H}`} width="100%" height="auto" style={{ display: "block" }} role="img" aria-label={vals.map((v) => `${v}%`).join(", ")}>
+      {[0, 50, 100].map((g) => (
+        <g key={g}>
+          <line x1={PL} x2={W - PR} y1={y(g)} y2={y(g)} stroke={T.border} strokeWidth="1" />
+          <text x={PL - 6} y={y(g) + 4} textAnchor="end" fontSize="10" fill={T.muted} fontFamily={FONT_MONO}>{g}</text>
+        </g>
+      ))}
+      <line x1={PL} x2={W - PR} y1={y(70)} y2={y(70)} stroke={T.muted} strokeWidth="1.2" strokeDasharray="4 4" />
+      <text x={PL - 6} y={y(70) + 4} textAnchor="end" fontSize="10" fill={T.muted} fontFamily={FONT_MONO}>70</text>
+      <polygon points={area} fill={T.blue} fillOpacity="0.08" />
+      <polyline points={pts} fill="none" stroke={T.blue} strokeWidth="2.5" strokeLinejoin="round" strokeLinecap="round" />
+      {vals.map((v, i) => <circle key={i} cx={x(i)} cy={y(v)} r={i === vals.length - 1 ? 4.5 : 3} fill={v >= 70 ? T.green : T.red} stroke={T.card} strokeWidth="1.5" />)}
+      <text x={PL} y={H - 6} fontSize="10" fill={T.muted} fontFamily={FONT_MONO}>{labels[0]}</text>
+      {vals.length > 1 && <text x={W - PR} y={H - 6} textAnchor="end" fontSize="10" fill={T.muted} fontFamily={FONT_MONO}>{labels[labels.length - 1]}</text>}
+    </svg>
+  );
+}
+
+function ActivityBars({ days, T }) {
+  const W = 420, H = 150, PL = 26, PR = 6, PT = 10, PB = 22;
+  const max = Math.max(5, ...days.map((d) => d.n));
+  const slot = (W - PL - PR) / days.length, bw = slot * 0.62;
+  const y = (n) => PT + (1 - n / max) * (H - PT - PB);
+  return (
+    <svg viewBox={`0 0 ${W} ${H}`} width="100%" height="auto" style={{ display: "block" }} role="img" aria-label={days.map((d) => d.n).join(", ")}>
+      <line x1={PL} x2={W - PR} y1={y(0)} y2={y(0)} stroke={T.border} strokeWidth="1" />
+      <line x1={PL} x2={W - PR} y1={y(max)} y2={y(max)} stroke={T.border} strokeWidth="1" strokeDasharray="3 4" />
+      <text x={PL - 5} y={y(max) + 4} textAnchor="end" fontSize="10" fill={T.muted} fontFamily={FONT_MONO}>{max}</text>
+      <text x={PL - 5} y={y(0) + 4} textAnchor="end" fontSize="10" fill={T.muted} fontFamily={FONT_MONO}>0</text>
+      {days.map((d, i) => (
+        <g key={i}>
+          <rect x={PL + i * slot + (slot - bw) / 2} y={d.n ? y(d.n) : y(0) - 2} width={bw} height={d.n ? y(0) - y(d.n) : 2} rx="2" fill={d.n ? (d.today ? T.blue : T.green) : T.border} />
+          {(i === 0 || i === Math.floor(days.length / 2) || i === days.length - 1) && <text x={PL + i * slot + slot / 2} y={H - 6} textAnchor="middle" fontSize="10" fill={T.muted} fontFamily={FONT_MONO}>{d.label}</text>}
+        </g>
+      ))}
+    </svg>
+  );
+}
+
+function AnalyticsOverview({ history, T }) {
+  const { t, lang } = useI18n();
+  const totals = useMemo(() => overviewTotals(history), [history]);
+  const locale = lang === "es" ? "es" : "en-US";
+  const data = useMemo(() => {
+    const ordered = [...history].sort((a, b) => a.finishedAt - b.finishedAt);
+    const recent = ordered.slice(-15);
+    const fmt = (ms) => new Date(ms).toLocaleDateString(locale, { month: "short", day: "numeric" });
+    const subj = new Map();
+    history.forEach((e) => (Array.isArray(e.bySubject) ? e.bySubject : []).forEach((x) => {
+      const cur = subj.get(x.subject) || { subject: x.subject, correct: 0, total: 0 };
+      cur.correct += Number(x.correct) || 0; cur.total += Number(x.total) || 0; subj.set(x.subject, cur);
+    }));
+    const subjects = [...subj.values()].filter((x) => x.total >= 3).map((x) => ({ ...x, pct: Math.round((x.correct / x.total) * 100) })).sort((a, b) => b.total - a.total).slice(0, 8);
+    const today = new Date(); today.setHours(0, 0, 0, 0);
+    const days = Array.from({ length: 14 }, (_, i) => { const d = new Date(today); d.setDate(d.getDate() - (13 - i)); return { key: d.toDateString(), label: fmt(d.getTime()), n: 0, today: i === 13 }; });
+    history.forEach((e) => { const k = new Date(e.finishedAt).toDateString(); const d = days.find((x) => x.key === k); if (d) d.n += Number(e.answered != null ? e.answered : e.total) || 0; });
+    let tSec = 0, tQ = 0;
+    history.forEach((e) => { const q = Number(e.answered != null ? e.answered : e.total) || 0; if (e.elapsedSec > 0 && q > 0) { tSec += e.elapsedSec; tQ += q; } });
+    const pcts = ordered.map((e) => Number(e.pct) || 0);
+    return { trend: recent.map((e) => Number(e.pct) || 0), trendLabels: recent.map((e) => fmt(e.finishedAt)), subjects, days, avgSec: tQ ? Math.round(tSec / tQ) : 0, best: pcts.length ? Math.max(...pcts) : 0 };
+  }, [history, locale]);
+  if (totals.answered <= 0) return null;
+
+  const card = { background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, padding: 16, minWidth: 0 };
+  const head = { fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(13.5), color: T.ink };
+  const hint = { fontFamily: FONT_UI, fontSize: fs(11.5), color: T.muted, marginTop: 6 };
+  const grid2 = { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 340px), 1fr))", gap: 14, alignItems: "stretch" };
+  const accuracy = Math.round((totals.correct / totals.answered) * 100);
+  const tiles = [
+    [t("anStatSessions"), history.length, null],
+    [t("anStatAnswered"), totals.answered.toLocaleString(), null],
+    [t("anStatAccuracy"), `${accuracy}%`, t("anStatBest", { n: data.best })],
+    [t("anStatAvgTime"), data.avgSec ? `${data.avgSec}s` : "—", null],
+  ];
+  return (
+    <div style={{ display: "grid", gap: 14, padding: "4px 0 22px", marginBottom: 20, borderBottom: `1px solid ${T.border}` }}>
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(130px, 1fr))", gap: 14 }}>
+        {tiles.map(([label, value, sub]) => (
+          <div key={label} style={{ ...card, padding: "12px 16px" }}>
+            <div style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(11.5), color: T.muted, textTransform: "uppercase", letterSpacing: "0.05em" }}>{label}</div>
+            <div style={{ fontFamily: FONT_UI, fontWeight: 800, fontSize: fs(26), color: T.ink, lineHeight: 1.15, marginTop: 4 }}>{value}</div>
+            {sub && <div style={{ fontFamily: FONT_UI, fontSize: fs(11.5), color: T.muted }}>{sub}</div>}
+          </div>
+        ))}
+      </div>
+
+      <div style={grid2}>
+        <div style={{ ...card, display: "flex", alignItems: "center", gap: 18, flexWrap: "wrap", justifyContent: "center" }}>
+          <DonutRing totals={totals} T={T} maxW={150} />
+          <DonutLegend totals={totals} T={T} />
+        </div>
+        <div style={card}>
+          <div style={{ ...head, marginBottom: 8 }}>{t("anTrendTitle")}</div>
+          {data.trend.length >= 2 ? (
+            <>
+              <TrendChart vals={data.trend} labels={data.trendLabels} T={T} />
+              <div style={hint}>{t("anTrendHint", { n: data.trend.length })}</div>
+            </>
+          ) : <p style={{ fontFamily: FONT_UI, fontSize: fs(13.5), color: T.muted, margin: 0 }}>{t("anTrendNeed")}</p>}
+        </div>
+      </div>
+
+      <div style={grid2}>
+        <div style={card}>
+          <div style={{ ...head, marginBottom: 10 }}>{t("anSubjTitle")}</div>
+          {data.subjects.length > 0 ? (
+            <div style={{ display: "grid", gap: 9 }}>
+              {data.subjects.map((r) => (
+                <div key={r.subject}>
+                  <div style={{ display: "flex", alignItems: "baseline", gap: 8, marginBottom: 3 }}>
+                    <span style={{ flex: 1, minWidth: 0, fontFamily: FONT_UI, fontSize: fs(12.5), color: T.ink, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{r.subject}</span>
+                    <span style={{ fontFamily: FONT_MONO, fontSize: fs(11), color: T.muted }}>{r.correct}/{r.total}</span>
+                    <span style={{ fontFamily: FONT_MONO, fontSize: fs(11.5), fontWeight: 700, color: r.pct >= 70 ? T.green : T.red, minWidth: 34, textAlign: "right" }}>{r.pct}%</span>
+                  </div>
+                  <div style={{ position: "relative", height: 7, borderRadius: 999, background: T.mutedBg }}>
+                    <div style={{ width: `${r.pct}%`, height: "100%", borderRadius: 999, background: r.pct >= 70 ? T.green : T.red }} />
+                    <span aria-hidden="true" style={{ position: "absolute", left: "70%", top: -2, bottom: -2, width: 1.5, background: T.muted, opacity: 0.6 }} />
+                  </div>
+                </div>
+              ))}
+            </div>
+          ) : <p style={{ fontFamily: FONT_UI, fontSize: fs(13.5), color: T.muted, margin: 0 }}>{t("csSubjNeed")}</p>}
+        </div>
+        <div style={card}>
+          <div style={{ ...head, marginBottom: 8 }}>{t("anActTitle")}</div>
+          <ActivityBars days={data.days} T={T} />
+          <div style={hint}>{t("anActHint")}</div>
+        </div>
+      </div>
     </div>
   );
 }
@@ -3639,6 +5596,169 @@ function TrendSpark({ vals, T }) {
       <polyline points={pts} fill="none" stroke={T.blue} strokeWidth="2.5" strokeLinejoin="round" strokeLinecap="round" />
       {vals.map((v, i) => <circle key={i} cx={x(i)} cy={y(v)} r={i === vals.length - 1 ? 4.5 : 3} fill={v >= 70 ? T.green : T.red} stroke={T.card} strokeWidth="1.5" />)}
     </svg>
+  );
+}
+
+// ---- Console: semester calendar. One month grid: exams, tasks, calendar events (breaks, holidays, deadlines) and study days. ----
+function ConsoleCalendar({ sessionLog, onNavigate, T, fill = false }) {
+  const { t, lang } = useI18n();
+  const sp = useContext(ProfileContext);
+  const phone = useViewport().w < 640;
+  const locale = lang === "es" ? "es" : "en-US";
+  const mondayFirst = lang === "es";
+  const profile = sp.profile;
+  const [view, setView] = useState(() => { const d = new Date(); return new Date(d.getFullYear(), d.getMonth(), 1); });
+  const [selKey, setSelKey] = useState(() => toISODate(new Date()));
+  const todayKey = toISODate(new Date());
+  const cap = (x) => x.charAt(0).toUpperCase() + x.slice(1);
+  const brief = useMemo(() => (profile ? tutorBrief(profile, sessionLog, new Date()) : null), [profile, sessionLog, todayKey]); // eslint-disable-line
+
+  const byDay = useMemo(() => {
+    const m = new Map();
+    const slot = (k) => { let x = m.get(k); if (!x) { x = { exams: [], tasks: [], events: [], sessions: [] }; m.set(k, x); } return x; };
+    if (profile) {
+      (profile.assessments || []).forEach((a) => slot(a.date).exams.push(a));
+      ((profile.plan && profile.plan.tasks) || []).forEach((k) => { if (k.due) slot(k.due).tasks.push(k); });
+      ((profile.calendar && profile.calendar.events) || []).forEach((e) => {
+        const s = parseISODate(e.startDate); if (!s) return;
+        const span = Math.min(60, Math.max(0, e.endDate && parseISODate(e.endDate) ? dayDiff(s, parseISODate(e.endDate)) : 0));
+        for (let i = 0; i <= span; i++) { const d = new Date(s); d.setDate(d.getDate() + i); slot(toISODate(d)).events.push(e); }
+      });
+    }
+    (sessionLog || []).forEach((e) => slot(toISODate(new Date(e.finishedAt))).sessions.push(e));
+    return m;
+  }, [profile, sessionLog]);
+
+  const lead = (view.getDay() - (mondayFirst ? 1 : 0) + 7) % 7;
+  const daysInMonth = new Date(view.getFullYear(), view.getMonth() + 1, 0).getDate();
+  const cells = Array.from({ length: Math.ceil((lead + daysInMonth) / 7) * 7 }, (_, i) => new Date(view.getFullYear(), view.getMonth(), 1 - lead + i));
+  const weekdays = Array.from({ length: 7 }, (_, i) => new Date(2023, 0, 1 + (mondayFirst ? 1 : 0) + i).toLocaleDateString(locale, { weekday: phone ? "narrow" : "short" }));
+  const shift = (n) => setView((v) => new Date(v.getFullYear(), v.getMonth() + n, 1));
+  const goToday = () => { const d = new Date(); setView(new Date(d.getFullYear(), d.getMonth(), 1)); setSelKey(toISODate(d)); };
+
+  const selDate = parseISODate(selKey) || new Date();
+  const sel = byDay.get(selKey) || { exams: [], tasks: [], events: [], sessions: [] };
+  const selWeek = (() => {
+    if (!profile || !brief) return null;
+    const st = termStartOf(profile); if (!st) return null;
+    const diff = dayDiff(st, selDate); if (diff < 0) return null;
+    const w = Math.floor(diff / 7) + 1;
+    const end = parseISODate(profile.term.endDate);
+    if ((end && dayDiff(selDate, end) < 0) || (brief.total && w > brief.total)) return null;
+    return brief.total ? t("spTermWeek", { w, n: brief.total }) : t("spTermWeekNoTotal", { w });
+  })();
+  const qDone = sel.sessions.reduce((n, e) => n + (Number(e.answered != null ? e.answered : e.total) || 0), 0);
+  const fmtRange = (e) => {
+    const f = (iso) => parseISODate(iso).toLocaleDateString(locale, { month: "short", day: "numeric" });
+    return e.endDate ? `${f(e.startDate)} → ${f(e.endDate)}` : f(e.startDate);
+  };
+  const hasEvents = !!(profile && profile.calendar && profile.calendar.events.length);
+
+  const dot = (color, k) => <span key={k} style={{ width: 6, height: 6, borderRadius: 999, background: color, display: "inline-block" }} />;
+  const iconBtn = { width: 30, height: 30, borderRadius: 8, border: `1px solid ${T.border}`, background: "transparent", color: T.ink, cursor: "pointer", display: "inline-flex", alignItems: "center", justifyContent: "center", padding: 0 };
+  const rowHead = { fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(13.5), color: T.ink, overflowWrap: "anywhere" };
+  const rowSub = { fontFamily: FONT_MONO, fontSize: fs(11.5), color: T.muted };
+  const itemRow = { display: "flex", alignItems: "flex-start", gap: 10, padding: "7px 0" };
+  const legend = [[T.red, "csCalLegExam"], [T.amber, "csCalLegTask"], [T.blue, "csCalLegEvent"], [T.green, "csCalLegStudy"]];
+
+  return (
+    <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, padding: phone ? 18 : 24, ...(fill ? { height: "100%", boxSizing: "border-box", display: "flex", flexDirection: "column" } : {}) }}>
+      <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 12, flexWrap: "wrap" }}>
+        <CalendarDays size={17} color={T.ink} />
+        <span style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(14), color: T.ink }}>{t("csCalendar")}</span>
+        <div style={{ marginLeft: "auto", display: "flex", gap: 6, alignItems: "center" }}>
+          <button onClick={goToday} style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(12.5), color: T.blue, background: "transparent", border: "none", cursor: "pointer", padding: 4 }}>{t("csCalToday")}</button>
+          <button onClick={() => shift(-1)} aria-label={t("csCalPrev")} style={iconBtn}><ChevronLeft size={16} /></button>
+          <button onClick={() => shift(1)} aria-label={t("csCalNext")} style={iconBtn}><ChevronRight size={16} /></button>
+        </div>
+      </div>
+      <div style={{ display: "flex", alignItems: "baseline", gap: 10, flexWrap: "wrap", marginBottom: 10 }}>
+        <span style={{ fontFamily: FONT_DISPLAY, fontWeight: 600, fontSize: fs(20), color: T.ink }}>{cap(view.toLocaleDateString(locale, { month: "long", year: "numeric" }))}</span>
+        {profile && brief && <span style={{ fontFamily: FONT_UI, fontSize: fs(12.5), color: T.muted }}>{[profile.term.name, spWeekLabel(brief, t)].filter(Boolean).join(" · ")}</span>}
+      </div>
+
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(7, minmax(0, 1fr))", gap: 2 }}>
+        {weekdays.map((w, i) => <div key={i} style={{ textAlign: "center", fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(11.5), color: T.muted, padding: "4px 0" }}>{w}</div>)}
+        {cells.map((d) => {
+          const key = toISODate(d); const info = byDay.get(key);
+          const inMonth = d.getMonth() === view.getMonth(); const isSel = key === selKey; const isToday = key === todayKey;
+          const off = !!(info && info.events.some((e) => e.type === "holiday" || e.type === "break"));
+          const dots = info ? [
+            info.exams.some((a) => a.status !== "done") && T.red,
+            info.events.length > 0 && T.blue,
+            info.tasks.some((k) => !k.done) && T.amber,
+            info.sessions.length > 0 && T.green,
+          ].filter(Boolean) : [];
+          const label = d.toLocaleDateString(locale, { weekday: "long", month: "long", day: "numeric" });
+          return (
+            <button key={key} onClick={() => { setSelKey(key); if (!inMonth) setView(new Date(d.getFullYear(), d.getMonth(), 1)); }}
+              aria-label={label} aria-pressed={isSel} aria-current={isToday ? "date" : undefined}
+              style={{
+                minHeight: phone ? 44 : 50, padding: "5px 2px 6px", borderRadius: 8, cursor: "pointer", fontFamily: FONT_UI,
+                display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "space-between", gap: 3,
+                background: off ? T.blueLight : "transparent", border: "1px solid transparent",
+                opacity: inMonth ? 1 : 0.4,
+              }}>
+              <span style={{
+                minWidth: 24, height: 24, lineHeight: "24px", borderRadius: 999, fontSize: fs(13), fontWeight: isToday || isSel ? 700 : 500,
+                background: isToday ? T.blue : "transparent", color: isToday ? T.onBlue : T.ink,
+              }}>{d.getDate()}</span>
+              <span style={{ display: "flex", gap: 3, height: 6 }}>{dots.map((c, i) => dot(c, i))}</span>
+            </button>
+          );
+        })}
+      </div>
+
+      <div style={{ display: "flex", gap: 14, flexWrap: "wrap", margin: "10px 0 0" }}>
+        {legend.map(([c, k]) => <span key={k} style={{ display: "inline-flex", alignItems: "center", gap: 6, fontFamily: FONT_UI, fontSize: fs(11.5), color: T.muted }}>{dot(c, k)}{t(k)}</span>)}
+      </div>
+
+      <div style={{ borderTop: `1px solid ${T.border}`, marginTop: 14, paddingTop: 12, ...(fill ? { flex: 1 } : {}) }} aria-live="polite">
+        <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap", marginBottom: 4 }}>
+          <span style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(14), color: T.ink }}>{cap(selDate.toLocaleDateString(locale, { weekday: "long", month: "long", day: "numeric" }))}</span>
+          {selWeek && <Pill T={T} tone="muted">{selWeek}</Pill>}
+        </div>
+        {sel.exams.map((a) => (
+          <div key={a.id} style={itemRow}>
+            <span style={{ marginTop: 6 }}>{dot(T.red)}</span>
+            <div style={{ flex: 1, minWidth: 0 }}>
+              <div style={rowHead}>{a.title}</div>
+              <div style={rowSub}>{[a.time, a.weightPct != null ? `${a.weightPct}%` : null, a.format].filter(Boolean).join(" · ")}</div>
+              {a.coverage.length > 0 && <div style={{ fontFamily: FONT_UI, fontSize: fs(12), color: T.muted, marginTop: 2 }}>{a.coverage.slice(0, 4).join(" · ")}</div>}
+            </div>
+            <Pill T={T} tone="red">{a.type}</Pill>
+          </div>
+        ))}
+        {sel.events.map((e) => (
+          <div key={e.id} style={itemRow}>
+            <span style={{ marginTop: 6 }}>{dot(T.blue)}</span>
+            <div style={{ flex: 1, minWidth: 0 }}>
+              <div style={rowHead}>{e.title}</div>
+              <div style={rowSub}>{fmtRange(e)}</div>
+              {e.notes && <div style={{ fontFamily: FONT_UI, fontSize: fs(12), color: T.muted, marginTop: 2 }}>{e.notes}</div>}
+            </div>
+            <Pill T={T} tone={SP_EVENT_TONE[e.type] || "muted"}>{t(`spEvt.${e.type}`)}</Pill>
+          </div>
+        ))}
+        {sel.tasks.map((k) => <TaskRow key={k.id} task={k} onToggle={() => sp.toggleTask(k.id)} T={T} t={t} lang={lang} />)}
+        {sel.sessions.length > 0 && (
+          <div style={itemRow}>
+            <span style={{ marginTop: 6 }}>{dot(T.green)}</span>
+            <span style={{ fontFamily: FONT_UI, fontSize: fs(13.5), color: T.ink }}>{t("csCalStudied", { n: sel.sessions.length, q: qDone })}</span>
+          </div>
+        )}
+        {!sel.exams.length && !sel.events.length && !sel.tasks.length && !sel.sessions.length && (
+          <p style={{ fontFamily: FONT_UI, fontSize: fs(13.5), color: T.muted, margin: "4px 0 0" }}>{t("csCalNothing")}</p>
+        )}
+      </div>
+
+      {(!profile || !hasEvents) && (
+        <div style={{ display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap", marginTop: 12, padding: "10px 12px", borderRadius: 8, background: T.mutedBg }}>
+          <span style={{ flex: "1 1 200px", fontFamily: FONT_UI, fontSize: fs(12.5), color: T.muted, lineHeight: 1.5 }}>{t(profile ? "csCalNoEvents" : "csCalNoProfile")}</span>
+          <GhostButton T={T} icon={Sparkles} onClick={() => onNavigate("profile")}>{t(profile ? "csCalUpdate" : "csCalSetup")}</GhostButton>
+        </div>
+      )}
+    </div>
   );
 }
 
@@ -3713,8 +5833,10 @@ function ConsolePanel({ library, sessionLog, session, onResume, onOpenLobby, onR
         </p>
       </div>
 
-      {/* Resume / start */}
-      <div style={{ ...card, borderColor: session ? T.blue : T.border, display: "flex", alignItems: "center", justifyContent: "space-between", gap: 16, flexWrap: "wrap" }}>
+      {/* Top of the Console: session + tutor (compact on large displays) with the semester calendar to their right */}
+      <div style={{ display: "grid", gridTemplateColumns: wide ? "repeat(2, minmax(0, 1fr))" : "minmax(0, 1fr)", gap: 20, alignItems: "stretch" }}>
+        <div style={{ display: "flex", flexDirection: "column", gap: wide ? 14 : 20, minWidth: 0 }}>
+      <div style={{ ...card, borderColor: session ? T.blue : T.border, display: "flex", alignItems: "center", justifyContent: "space-between", gap: wide ? 12 : 16, flexWrap: "wrap", ...(wide ? { padding: "14px 18px" } : {}) }}>
         {session ? (
           <>
             <div style={{ flex: "1 1 260px", minWidth: 0 }}>
@@ -3753,39 +5875,40 @@ function ConsolePanel({ library, sessionLog, session, onResume, onOpenLobby, onR
         )}
       </div>
 
-      {!hasSessions ? (
-        <div style={{ ...card, textAlign: "center", padding: phone ? "28px 18px" : "40px 24px" }}>
-          <BarChart3 size={30} color={T.blue} />
-          <h2 style={{ fontFamily: FONT_DISPLAY, fontSize: fs(22), fontWeight: 600, color: T.ink, margin: "10px 0 6px" }}>{t("csFirstTitle")}</h2>
-          <p style={{ fontFamily: FONT_UI, fontSize: fs(14), color: T.muted, lineHeight: 1.6, margin: "0 auto", maxWidth: 520 }}>{t("csFirstBody")}</p>
+        <div style={{ flex: wide ? "1 1 auto" : "0 0 auto", minWidth: 0 }}>
+          <TutorCard sessionLog={sessionLog} onNavigate={onNavigate} T={T} compact={wide} fill={wide} />
         </div>
-      ) : (
-        <>
-          {/* Headline stats */}
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))", gap: 14 }}>
+        {hasSessions && (
+          <div style={{ display: "grid", gridTemplateColumns: wide ? "repeat(2, minmax(0, 1fr))" : "repeat(auto-fit, minmax(160px, 1fr))", gap: 14 }}>
             {tile(<ClipboardList size={14} />, t("csStatSessions"), sessionLog.length, t("csStatWeek", { n: data.week }))}
             {tile(<Target size={14} />, t("csStatAnswered"), data.totals.answered)}
             {tile(<CheckCircle2 size={14} />, t("csStatAccuracy"), accuracy)}
             {tile(<Flame size={14} />, t("csStatStreak"), data.streak, data.streak === 1 ? t("csStatDay1") : t("csStatDays", { n: data.streak }))}
           </div>
+        )}
+        </div>
+        <ConsoleCalendar sessionLog={sessionLog} onNavigate={onNavigate} T={T} fill={wide} />
+      </div>
 
+      {hasSessions && (
+        <>
           {/* Analytics highlights */}
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 340px), 1fr))", gap: 20 }}>
-            <div style={{ ...card, ...(wide ? { order: 2 } : {}) }}>
+            <div style={{ ...card, display: "flex", flexDirection: "column", ...(wide ? { order: 2 } : {}) }}>
               <div style={cardHead}>
                 <BarChart3 size={17} color={T.ink} />
                 <span style={headTxt}>{t("csHighlights")}</span>
                 <button onClick={() => onNavigate("analytics")} style={linkBtn}>{t("csViewAll")}</button>
               </div>
               {data.totals.answered > 0 && (
-                <div style={{ display: "flex", flexDirection: wide ? "row-reverse" : "row", justifyContent: wide ? "space-between" : "flex-start", alignItems: "center", gap: 22, flexWrap: "wrap" }}>
+                <div style={{ flex: 1, display: "flex", flexDirection: wide ? "row-reverse" : "row", justifyContent: wide ? "space-around" : "flex-start", alignItems: "center", gap: 22, flexWrap: "wrap" }}>
                   <DonutRing totals={data.totals} T={T} maxW={190} />
                   <DonutLegend totals={data.totals} T={T} />
                 </div>
               )}
             </div>
 
-            <div style={{ display: "grid", gap: 20, alignContent: "start" }}>
+            <div style={{ display: "grid", gap: 20, gridTemplateRows: "auto 1fr" }}>
               <div style={card}>
                 <div style={cardHead}>
                   <TrendingUp size={17} color={T.ink} />
@@ -3815,8 +5938,12 @@ function ConsolePanel({ library, sessionLog, session, onResume, onOpenLobby, onR
               </div>
             </div>
           </div>
+        </>
+      )}
 
-          {/* Recent sessions */}
+      {/* Recent sessions (or the first-run card) beside the library, two columns on large displays */}
+      <div style={{ display: "grid", gridTemplateColumns: wide ? "repeat(2, minmax(0, 1fr))" : "minmax(0, 1fr)", gap: 20, alignItems: "stretch" }}>
+        {hasSessions ? (
           <div style={card}>
             <div style={cardHead}>
               <ClipboardList size={17} color={T.ink} />
@@ -3838,10 +5965,13 @@ function ConsolePanel({ library, sessionLog, session, onResume, onOpenLobby, onR
               ))}
             </div>
           </div>
-        </>
-      )}
-
-      {/* Library peek */}
+        ) : (
+        <div style={{ ...card, textAlign: "center", padding: phone ? "28px 18px" : "40px 24px", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
+          <BarChart3 size={30} color={T.blue} />
+          <h2 style={{ fontFamily: FONT_DISPLAY, fontSize: fs(22), fontWeight: 600, color: T.ink, margin: "10px 0 6px" }}>{t("csFirstTitle")}</h2>
+          <p style={{ fontFamily: FONT_UI, fontSize: fs(14), color: T.muted, lineHeight: 1.6, margin: "0 auto", maxWidth: 520 }}>{t("csFirstBody")}</p>
+        </div>
+        )}
       <div style={card}>
         <div style={cardHead}>
           <BookOpen size={17} color={T.ink} />
@@ -3866,6 +5996,7 @@ function ConsolePanel({ library, sessionLog, session, onResume, onOpenLobby, onR
           </div>
         )}
       </div>
+      </div>
     </div>
   );
 }
@@ -3887,7 +6018,6 @@ function SessionHistoryPanel({ history, onDelete, onClear, onReview, T }) {
       <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 14, flexWrap: "wrap" }}>
         <BarChart3 size={17} color={T.ink} />
         <span style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(14), color: T.ink }}>{t("histTitle")}</span>
-        <Pill T={T} tone="muted">{history.length}</Pill>
         {history.length > 0 && (
           <div role="toolbar" aria-label={t("histTitle")} style={{ marginLeft: "auto", display: "flex", gap: 6, flexWrap: "wrap", justifyContent: "flex-end" }}>
             <GhostButton T={T} onClick={() => { setConfirmDel(false); setSel(liveSel.length === history.length ? [] : history.map((e) => e.id)); }}>
@@ -3957,9 +6087,9 @@ function SessionHistoryPanel({ history, onDelete, onClear, onReview, T }) {
 }
 
 // Menu bar under the logo / account row: the four Home pages. Console | Library | Import | Analytics (N finished sessions).
-function PageNav({ tab, setTab, count, T }) {
+function PageNav({ tab, setTab, T }) {
   const { t } = useI18n();
-  const items = [["console", t("tabConsole"), LayoutDashboard], ["library", t("tabLibrary"), BookOpen], ["import", t("tabImport"), Plus], ["analytics", t("tabHistory"), BarChart3]];
+  const items = [["console", t("tabConsole"), LayoutDashboard], ["library", t("tabLibrary"), BookOpen], ["import", t("tabImport"), Plus], ["analytics", t("tabHistory"), BarChart3], ["database", t("tabDatabase"), Database], ["profile", t("tabProfile"), GraduationCap]];
   return (
     <nav style={{ borderBottom: `1px solid ${T.border}`, marginBottom: 22, overflowX: "auto" }}>
       <div role="tablist" style={{ display: "flex", gap: 4, minWidth: "max-content" }}>
@@ -3972,7 +6102,6 @@ function PageNav({ tab, setTab, count, T }) {
               fontFamily: FONT_UI, fontWeight: on ? 700 : 600, fontSize: fs(14), color: on ? T.blue : T.ink,
             }}>
               <Ic size={16} /> {label}
-              {id === "analytics" && count > 0 && <Pill T={T} tone="muted">{count}</Pill>}
             </button>
           );
         })}
@@ -3993,7 +6122,7 @@ const GUIDE = {
     { title: "1. Get your questions", body: "A question bank (\"Qbank\") is simply a set of practice questions. You can ask an AI tool to write one for you.",
       points: ["On Home, open Import in the menu bar. AI Quick Launch at the top has one-tap links to ChatGPT, Claude, Gemini and NotebookLM, and NotebookLM Notebooks beside it opens your study notebooks by block.", "Open Question Recipe Prompt, choose a difficulty (Mixed is recommended) and copy the prompt.", "Paste it into your AI tool along with your topic or notes.", "Paste the AI's reply back into OWORLD (or upload the file) and tap Load exam.", "Tap Save to Library to keep the questions for next time."] },
     { title: "2. Your Qbank Library", body: "The Library page holds your saved blocks, so you can jump straight back in. The Console page is your dashboard: a greeting, a one-tap Resume, and your analytics highlights.",
-      points: ["Each card shows its status: Not attempted yet, In progress, or Completed with your score. Running a Qbank in full on its own marks its card Completed.", "Tick a block, choose how many of its questions to practice (5 to 40, Max, or any number you type), then tap Load. Tick two or more to merge them into one custom block, pick a difficulty and size, then tap Mix.", "Custom and mixed runs are saved under Analytics and never change your cards.", "Ticking a block shows a toolbar at the top right: Share / Export Selected, Edit Selected (rename) and Delete Selected.", "A block you left half-finished shows Resume Session."] },
+      points: ["Each card shows its status: Not attempted yet, In progress, or Completed with your score. Running a Qbank in full on its own marks its card Completed.", "Tick a block, choose how many of its questions to practice (5 to 40, Max, or any number you type), then tap Load. Tick two or more to merge them into one custom block, pick a difficulty and size, then tap Mix.", "Custom and mixed runs are saved under Analytics and never change your cards.", "Ticking a block shows a toolbar at the top right: Share / Export Selected, Edit Selected (rename) and Delete Selected. Anything you delete lands in the Trash for 30 days. Open it from the Settings menu (your profile picture, upper right), where you can restore it or delete it forever.", "A block you left half-finished shows Resume Session."] },
     { title: "3. Pick a mode", body: "Before you press Start block, choose how you want to practice. Tutor Mode is selected by default.",
       points: ["Tutor Mode: no timer, and you get feedback right after each answer.", "Timed Mode: a countdown like the real exam, with no feedback until the block ends. There is no Home button during a timed block, so plan to finish it.", "In Timed Mode you can switch the timer off during the block, but not back on."] },
     { title: "4. Answering questions", body: "Tap an answer choice. In Tutor Mode you see the result straight away.",
@@ -4006,6 +6135,8 @@ const GUIDE = {
       points: ["Tap Home. Your answers and place in the block are saved automatically. Back on Home, tap Resume Session.", "In the exam lobby, Remove exam clears the loaded exam without touching your saved library.", "The profile menu (top right) holds your Google account, sync, language, theme and text size.", "Optional: sign in with Google from the profile menu to keep your library, Analytics and any test in progress in step across your devices."] },
     { title: "8. Using your phone", body: "On a phone the screen is simplified so the question gets the room.",
       points: ["The question list is hidden. Use Previous and Next at the top right, and Home at the top left (Tutor Mode).", "Lab Values, Notes, Calculator and Settings are in one row under them.", "At the bottom, Lock is on the left and End Block is on the right. A timed block also shows its countdown in the middle."] },
+    { title: "9. Your Student Profile and tutor", body: "Give OWORLD your syllabus once and your tutor follows along: it knows your week, your exams and what to study next.",
+      points: ["Open Profile in the menu bar, tap Copy prompt, and give it to your AI tool together with your syllabus. Paste the JSON it returns and tap Load profile.", "The Console then shows Your tutor: this week's topics, your next exam, today's tasks and a few lines of guidance. Tap Start a block to pre-fill the Question Recipe for a topic.", "In the Library, Qbanks that match this week's topics are suggested at the top.", "Exam countdowns, new weeks and pace alerts arrive in the bell. Each one appears once.", "Your profile syncs through Google Drive like your Qbanks. Tap Update current profile any time to refresh it."] },
   ],
   es: [
     { title: "Bienvenido a OWORLD", body: "OWORLD es un simulador de exámenes de práctica. Tú aportas las preguntas y él las convierte en un examen realista con herramientas, retroalimentación inmediata y seguimiento de puntaje.",
@@ -4013,7 +6144,7 @@ const GUIDE = {
     { title: "1. Consigue tus preguntas", body: "Un banco de preguntas (\"Qbank\") es simplemente un conjunto de preguntas de práctica. Puedes pedirle a una herramienta de IA que te escriba uno.",
       points: ["En Inicio, abre Importar en la barra de menú. Acceso rápido a IA, arriba, tiene enlaces directos a ChatGPT, Claude, Gemini y NotebookLM, y Cuadernos de NotebookLM, a su lado, abre tus cuadernos de estudio por bloque.", "Abre Prompt de receta de preguntas, elige una dificultad (se recomienda Mixta) y copia el prompt.", "Pégalo en tu herramienta de IA junto con tu tema o tus apuntes.", "Pega la respuesta de la IA en OWORLD (o sube el archivo) y toca Cargar examen.", "Toca Guardar en la biblioteca para conservar las preguntas para la próxima vez."] },
     { title: "2. Tu biblioteca de preguntas", body: "La página Biblioteca guarda tus bloques, para que retomes de inmediato. La página Consola es tu panel: un saludo, Reanudar con un toque y el resumen de tus analíticas.",
-      points: ["Cada tarjeta muestra su estado: Sin intentos aún, En curso o Completado con tu puntaje. Hacer un Qbank completo por sí solo marca su tarjeta como Completada.", "Marca un bloque, elige cuántas de sus preguntas practicar (de 5 a 40, Máx, o el número que escribas) y toca Cargar. Marca dos o más para combinarlos en un bloque personalizado, elige dificultad y tamaño, y toca Mezclar.", "Las sesiones personalizadas y mezcladas se guardan en Analíticas y nunca cambian tus tarjetas.", "Al marcar un bloque aparece una barra arriba a la derecha: Compartir / Exportar selección, Editar selección (renombrar) y Eliminar selección.", "Un bloque que dejaste a medias muestra Reanudar sesión."] },
+      points: ["Cada tarjeta muestra su estado: Sin intentos aún, En curso o Completado con tu puntaje. Hacer un Qbank completo por sí solo marca su tarjeta como Completada.", "Marca un bloque, elige cuántas de sus preguntas practicar (de 5 a 40, Máx, o el número que escribas) y toca Cargar. Marca dos o más para combinarlos en un bloque personalizado, elige dificultad y tamaño, y toca Mezclar.", "Las sesiones personalizadas y mezcladas se guardan en Analíticas y nunca cambian tus tarjetas.", "Al marcar un bloque aparece una barra arriba a la derecha: Compartir / Exportar selección, Editar selección (renombrar) y Eliminar selección. Todo lo que elimines pasa a la Papelera durante 30 días. Ábrela desde el menú de Ajustes (tu foto de perfil, arriba a la derecha), donde puedes restaurarlo o eliminarlo para siempre.", "Un bloque que dejaste a medias muestra Reanudar sesión."] },
     { title: "3. Elige un modo", body: "Antes de pulsar Iniciar bloque, elige cómo quieres practicar. El modo tutor viene seleccionado por defecto.",
       points: ["Modo tutor: sin cronómetro y con retroalimentación justo después de cada respuesta.", "Modo cronometrado: cuenta regresiva como en el examen real, sin retroalimentación hasta terminar el bloque. No hay botón de Inicio durante un bloque cronometrado, así que planea terminarlo.", "En modo cronometrado puedes apagar el cronómetro durante el bloque, pero no volver a encenderlo."] },
     { title: "4. Responder preguntas", body: "Toca una opción de respuesta. En modo tutor ves el resultado al instante.",
@@ -4026,6 +6157,8 @@ const GUIDE = {
       points: ["Toca Inicio. Tus respuestas y tu posición en el bloque se guardan automáticamente. De vuelta en Inicio, toca Reanudar sesión.", "En la sala del examen, Quitar examen borra el examen cargado sin tocar tu biblioteca guardada.", "El menú de perfil (arriba a la derecha) reúne tu cuenta de Google, la sincronización, el idioma, el tema, el tamaño de texto.", "Opcional: inicia sesión con Google desde el menú de perfil para mantener tu biblioteca, tus Analíticas y cualquier examen en curso al día entre dispositivos."] },
     { title: "8. Usar el teléfono", body: "En el teléfono la pantalla se simplifica para que la pregunta tenga espacio.",
       points: ["La lista de preguntas se oculta. Usa Anterior y Siguiente arriba a la derecha, e Inicio arriba a la izquierda (modo tutor).", "Valores de laboratorio, Notas, Calculadora y Ajustes están en una fila debajo.", "Abajo, Bloquear está a la izquierda y Terminar bloque a la derecha. Un bloque cronometrado también muestra su cuenta regresiva en el centro."] },
+    { title: "9. Tu Perfil del estudiante y tu tutor", body: "Dale tu programa a OWORLD una sola vez y tu tutor te acompaña: conoce tu semana, tus exámenes y qué estudiar después.",
+      points: ["Abre Perfil en la barra de menú, toca Copiar prompt y dáselo a tu herramienta de IA junto con tu programa. Pega el JSON que te devuelva y toca Cargar perfil.", "La Consola muestra entonces Tu tutor: los temas de la semana, tu próximo examen, las tareas de hoy y algunas líneas de guía. Toca Iniciar un bloque para rellenar la receta de preguntas de un tema.", "En la Biblioteca, los Qbanks que coinciden con los temas de esta semana se sugieren arriba.", "Las cuentas regresivas de exámenes, las semanas nuevas y las alertas de ritmo llegan a la campana. Cada una aparece una sola vez.", "Tu perfil se sincroniza con Google Drive como tus Qbanks. Toca Actualizar perfil actual cuando quieras refrescarlo."] },
   ],
 };
 
@@ -4149,6 +6282,11 @@ function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], dri
   const phone = vp.w < 640; // phones: the header buttons drop their labels so they all fit inline in one row
   const goHomePage = () => { setLibTab("console"); window.scrollTo({ top: 0, behavior: "smooth" }); }; // the logo is the Home button
   const fileRef = useRef(null);
+  const spCtx = useContext(ProfileContext);
+  useEffect(() => { // the tutor's "Start a <subject> block": pre-fill the Question Recipe
+    if (!spCtx.pendingFocus) return;
+    setRecipeFocusMode("systems"); setRecipeFocusValue(spCtx.pendingFocus); spCtx.consumeFocus();
+  }, [spCtx.pendingFocus]); // eslint-disable-line
   // Library entry (if any) that owns the in-progress block — it gets the Resume Session button.
   const resumeId = session?.block?.libraryId && library.some((e) => e.id === session.block.libraryId) ? session.block.libraryId : null;
 
@@ -4230,15 +6368,16 @@ function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], dri
         </button>
         <div style={{ display: "flex", alignItems: "center", gap: phone ? 8 : 10 }}>
           <GhostButton T={T} icon={QuestionMarkIcon} onClick={() => setGuideOpen(true)} title={t("howItWorks")} style={{ padding: 0, width: 40, height: 40, borderRadius: "50%", flexShrink: 0 }} />
+          <NotificationBell T={T} />
           <SettingsMenu darkMode={darkMode} setDarkMode={setDarkMode} T={T} iconOnly={phone} />
         </div>
       </div>
       {guideOpen && <HowItWorksGuide onClose={() => setGuideOpen(false)} T={T} />}
-      <PageNav tab={libTab} setTab={setLibTab} count={sessionLog.length} T={T} />
+      <PageNav tab={libTab} setTab={setLibTab} T={T} />
 
       {/* An exam is loaded: show the way back into it. When its in-progress block belongs to a saved library entry, the
           Resume Session button lives on that entry's row instead. */}
-      {session && !resumeId && libTab !== "console" && (
+      {session && !resumeId && libTab === "library" && (
         <div style={{
           background: T.card, border: `1px solid ${session.block ? T.blue : T.border}`, borderRadius: 10, padding: "16px 20px", marginBottom: 20,
           display: "flex", alignItems: "center", justifyContent: "space-between", gap: 14, flexWrap: "wrap",
@@ -4262,8 +6401,11 @@ function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], dri
         </div>
       )}
 
+      {libTab === "database" && <DatabasePanel T={T} />}
+      {libTab === "profile" && <StudentProfilePanel T={T} sessionLog={sessionLog} />}
       {libTab === "analytics" && <SessionHistoryPanel history={sessionLog} onDelete={onDeleteSession} onClear={onClearSessions} onReview={onReviewSession} T={T} />}
       {libTab === "console" && <ConsolePanel library={library} sessionLog={sessionLog} session={session} onResume={onResume} onOpenLobby={onOpenLobby} onReview={onReviewSession} onNavigate={(tab) => { setLibTab(tab); window.scrollTo({ top: 0, behavior: "smooth" }); }} T={T} />}
+      {libTab === "library" && <TutorLibraryStrip library={library} sessionLog={sessionLog} onLaunch={onLaunchLibrary} T={T} />}
       {libTab === "library" && <QbankLibraryPanel library={library} onLaunch={onLaunchLibrary} onMix={onMixLibrary} onDelete={onDeleteLibraryEntry} onRename={onRenameLibraryEntry} resumeId={resumeId} onResume={onResume} T={T} />}
 
       {/* Import Qbank page: its own page, no longer an accordion under the library. */}
@@ -5243,6 +7385,8 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onRate, o
   const [siUnits, setSiUnits] = useState(false);
 
   const { highlightsMap, pending, handleSelectionInContainer, commitPending, handleGlobalKeyDown, removeHighlight, clearPending, hlColor, setHlColor } = useHighlighter(blockState.highlights);
+  const db = useContext(DbContext);
+  const [dbFlash, setDbFlash] = useState(false); // the highlight popup briefly confirms "Saved to Database"
 
   // Mirror question position and highlights into blockState so App's auto-save captures them.
   useEffect(() => {
@@ -5414,6 +7558,31 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onRate, o
     updateQState({ struck, selected });
   }
   function toggleFlag() { updateQState({ flagged: !qState.flagged }); }
+
+  // --- Database: excerpts (from the highlight popup), the whole question (bookmark) and this question's note ---
+  const dbSource = (field) => ({ block: blockLabel(block, t), num: qIdx + 1, subject: q.subject || "", field: field || "" });
+  const qDbKey = `q:${q.id}`;
+  const noteDbKey = `n:${q.id}`;
+  const questionSaved = db.items.some((n) => n.key === qDbKey);
+  const noteSaved = db.items.some((n) => n.key === noteDbKey);
+  function toggleSaveQuestion() {
+    if (questionSaved) { db.removeByKey(qDbKey); return; }
+    db.add({ key: qDbKey, kind: "question", text: q.stem || "", source: dbSource(""), question: snapshotQuestion(q) });
+  }
+  function saveNoteToDb() {
+    const text = (noteText || "").trim();
+    if (!text) return;
+    db.add({ key: noteDbKey, kind: "note", text, source: dbSource(""), question: snapshotQuestion(q) });
+  }
+  function addPendingToDb() {
+    if (!pending || dbFlash) return;
+    const text = pending.range.toString().replace(/\s+/g, " ").trim();
+    if (!text) { clearPending(); return; }
+    db.add({ key: `e:${q.id}:${pending.field}:${text.slice(0, 80)}`, kind: "excerpt", text, source: dbSource(pending.field), question: snapshotQuestion(q) });
+    window.getSelection()?.removeAllRanges();
+    setDbFlash(true);
+    setTimeout(() => { setDbFlash(false); clearPending(); }, 900);
+  }
   function goNext() {
     if (qIdx < questions.length - 1) setQIdx((i) => i + 1);
     else setConfirmSubmit(true);
@@ -5656,6 +7825,16 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onRate, o
               <Flag size={16} color={T.flagRed} fill={T.flagRed} />
               <span style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(14), color: T.ink }}>{t("mark")}</span>
             </label>
+            <button
+              onClick={toggleSaveQuestion} aria-pressed={questionSaved} title={questionSaved ? t("dbSavedQ") : t("dbSaveQ")}
+              style={{
+                display: "inline-flex", alignItems: "center", gap: 6, background: "transparent", border: "none", padding: 0, cursor: "pointer",
+                fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(14), color: questionSaved ? T.blue : T.ink,
+              }}
+            >
+              <Bookmark size={16} color={T.blue} fill={questionSaved ? T.blue : "none"} />
+              {questionSaved ? t("dbSavedQ") : t("dbSaveQ")}
+            </button>
 
             {hintAvailable && (
               <button
@@ -5994,6 +8173,9 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onRate, o
               borderRadius: 6, padding: 8, resize: "vertical", boxSizing: "border-box", background: T.paper, color: T.ink,
             }}
           />
+          <GhostButton T={T} icon={Database} disabled={!noteText.trim()} onClick={saveNoteToDb} style={{ width: "100%", marginTop: 10 }}>
+            {noteSaved ? t("dbUpdateNote") : t("dbSaveNote")}
+          </GhostButton>
           <div style={{ display: "flex", justifyContent: "space-between", marginTop: 10 }}>
             <GhostButton T={T} icon={Trash2} onClick={() => setNote("")}>{t("delNote")}</GhostButton>
             <PrimaryButton T={T} onClick={() => setNotesOpen(false)}>{t("saveClose")}</PrimaryButton>
@@ -6017,8 +8199,26 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onRate, o
             borderRadius: 999, padding: "7px 14px", boxShadow: "0 4px 14px rgba(0,0,0,0.35)",
           }}
         >
-          <Highlighter size={14} />
-          <HighlightSwatches value={hlColor} onPick={commitPending} T={T} t={t} size={narrow ? 26 : 20} ring={T.paper} />
+          {dbFlash ? (
+            <span style={{ display: "inline-flex", alignItems: "center", gap: 6, fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(13), padding: "2px 4px" }}>
+              <Check size={15} /> {t("dbSavedToast")}
+            </span>
+          ) : (
+            <>
+              <HighlightSwatches value={hlColor} onPick={commitPending} T={T} t={t} size={narrow ? 26 : 20} ring={T.paper} />
+              <span aria-hidden="true" style={{ width: 1, alignSelf: "stretch", background: "currentColor", opacity: 0.3 }} />
+              <button
+                type="button" onMouseDown={(e) => e.preventDefault()} onClick={addPendingToDb} title={t("dbAdd")} aria-label={t("dbAdd")}
+                style={{
+                  display: "inline-flex", alignItems: "center", gap: 6, background: "transparent", border: "none", padding: narrow ? "4px 2px" : 0, cursor: "pointer",
+                  color: "inherit", fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(12.5), whiteSpace: "nowrap",
+                }}
+              >
+                <Database size={narrow ? 18 : 15} />
+                {!narrow && t("dbAdd")}
+              </button>
+            </>
+          )}
         </div>
       )}
 
@@ -6649,6 +8849,7 @@ export default function App() {
   const [libTab, setLibTab] = useState("console"); // Home page: console | library | import | analytics (lives here so Review Exam → Home lands back on Analytics)
   const [tombs, setTombs] = useState(loadTombs); // deletions, so a delete on one device isn't undone by another device's copy
   const [sessionLog, setSessionLog] = useState(boot.sessionLog); // independent log of every finished session, newest first
+  const [trash, setTrash] = useState(loadTrash); // recently deleted Qbanks, Analytics sessions and Database items (restorable for TRASH_TTL)
   const [restoredNotice, setRestoredNotice] = useState(!!boot.session);
   const [storageError, setStorageError] = useState(false);
   const [flash, setFlash] = useState(null); // one-line confirmation toast (e.g. after a bundle import)
@@ -6687,6 +8888,25 @@ export default function App() {
   useEffect(() => { persist(LS_LIBRARY, library.length ? JSON.stringify(library) : null); }, [library]);
   useEffect(() => { persist(LS_TOMBS, (Object.keys(tombs.qbanks).length || Object.keys(tombs.sessions).length) ? JSON.stringify(tombs) : null); }, [tombs]);
   useEffect(() => { persist(LS_HISTORY, sessionLog.length ? JSON.stringify(sessionLog) : null); }, [sessionLog]);
+  // Declared after the library / history effects on purpose: a delete frees that space first, then the Trash copy is written.
+  // If storage is still full, the oldest Trash entries make room (the newest deletion is the one most likely to be restored).
+  useEffect(() => {
+    if (!trash.length) { persist(LS_TRASH, null); return; }
+    let list = trash;
+    let ok = lsSet(LS_TRASH, JSON.stringify(list));
+    while (!ok && list.length > 1) {
+      list = list.slice(0, Math.max(1, list.length - Math.ceil(list.length * 0.1)));
+      ok = lsSet(LS_TRASH, JSON.stringify(list));
+    }
+    failedKeys.current[LS_TRASH] = !ok;
+    setStorageError(Object.values(failedKeys.current).some(Boolean));
+    if (list.length < trash.length) { setTrash(list); setFlash(tr("trashTrimmed")); }
+  }, [trash]); // eslint-disable-line
+  // Entries older than TRASH_TTL are removed for good (on load, and on page changes; the Trash window also hides expired ones).
+  useEffect(() => {
+    const cut = Date.now() - TRASH_TTL;
+    setTrash((cur) => { const keep = cur.filter((e) => e.deletedAt > cut); return keep.length === cur.length ? cur : keep; });
+  }, [libTab]);
   useEffect(() => {
     const isDefault = darkMode === true && lang === "en" && textScale === 1;
     persist(LS_PREFS, isDefault ? null : JSON.stringify({ darkMode, lang, textScale }));
@@ -6817,8 +9037,75 @@ export default function App() {
   }
 
   const addTombs = (kind, ids) => setTombs((t0) => ({ ...t0, [kind]: { ...t0[kind], ...Object.fromEntries(ids.map((i) => [i, Date.now()])) } }));
-  function deleteSessionLog(id) { lsRemove(LS_REVIEW + id); addTombs("sessions", [id]); setSessionLog((log) => log.filter((e) => e.id !== id)); }
-  function clearSessionLog() { addTombs("sessions", sessionLog.map((e) => e.id)); removeAllReviewSnapshots(); setSessionLog([]); }
+  // --- Trash ------------------------------------------------------------------
+  // Deleting anything from the Library, Analytics or Database moves it here first. The tombstone is still written at once, so
+  // Drive sync behaves exactly as before; restoring stamps the entry with restoredAt so that tombstone no longer applies to it.
+  // items: [{ kind: "qbank" | "session" | "dbitem", data, review? }]
+  function trashPush(items) {
+    if (!items.length) return;
+    const now = Date.now();
+    const fresh = items.map((it, i) => ({ tid: `tr_${now.toString(36)}${i}${Math.random().toString(36).slice(2, 6)}`, kind: it.kind, deletedAt: now, data: it.data, ...(it.review ? { review: it.review } : {}) }));
+    setTrash((cur) => [...fresh, ...cur.filter((e) => !fresh.some((f) => f.kind === e.kind && f.data.id === e.data.id))]);
+    setFlash(tr("trashMoved"));
+  }
+  const trashDbItems = (list) => trashPush(list.map((n) => ({ kind: "dbitem", data: n })));
+  const sessionTrashItem = (e) => ({ kind: "session", data: e, review: lsGet(LS_REVIEW + e.id) || undefined });
+
+  function restoreTrash(tids) {
+    const picked = trash.filter((e) => tids.includes(e.tid));
+    if (!picked.length) return;
+    let restored = 0, skipped = 0;
+    const done = new Set();
+
+    const qb = picked.filter((e) => e.kind === "qbank");
+    if (qb.length) {
+      const haveId = new Set(library.map((e) => e.id));
+      const haveSig = new Set(library.map((e) => blockSignature(e.title, e.questions)));
+      const add = [];
+      qb.forEach((e) => {
+        done.add(e.tid);
+        const sig = blockSignature(e.data.title, e.data.questions);
+        if (haveId.has(e.data.id) || haveSig.has(sig)) { skipped++; return; } // the same Qbank is already back in the library: never store it twice
+        const at = Math.max(Date.now(), (((tombs.qbanks || {})[e.data.id]) || 0) + 1);
+        add.push({ ...e.data, updatedAt: at, restoredAt: at });
+        haveSig.add(sig); restored++;
+      });
+      if (add.length) setLibrary((lib) => [...lib, ...add].sort((x, y) => (x.importDate || 0) - (y.importDate || 0) || (x.id < y.id ? -1 : 1)));
+    }
+
+    const se = picked.filter((e) => e.kind === "session");
+    if (se.length) {
+      const have = new Set(sessionLog.map((e) => e.id));
+      const add = [];
+      se.forEach((e) => {
+        done.add(e.tid);
+        if (have.has(e.data.id)) { skipped++; return; }
+        const at = Math.max(Date.now(), (((tombs.sessions || {})[e.data.id]) || 0) + 1);
+        add.push({ ...e.data, restoredAt: at });
+        if (e.review) lsSet(LS_REVIEW + e.data.id, JSON.stringify(e.review)); // brings "Review Exam" back too
+        restored++;
+      });
+      if (add.length) setSessionLog((log) => [...log, ...add].sort((a, b) => b.finishedAt - a.finishedAt || (a.id < b.id ? -1 : 1)).slice(0, HISTORY_MAX));
+    }
+
+    const dbi = picked.filter((e) => e.kind === "dbitem");
+    if (dbi.length) {
+      const r = database.restoreItems(dbi.map((e) => e.data));
+      dbi.forEach((e) => done.add(e.tid));
+      restored += r.restored; skipped += r.skipped;
+    }
+
+    setTrash((cur) => cur.filter((e) => !done.has(e.tid)));
+    setFlash([restored ? tr("trashRestored").replace("{n}", restored) : "", skipped ? tr("trashRestoredDup").replace("{s}", skipped) : ""].filter(Boolean).join(" "));
+  }
+  function purgeTrash(tids) { const gone = new Set(tids); setTrash((cur) => cur.filter((e) => !gone.has(e.tid))); }
+
+  function deleteSessionLog(id) {
+    const e = sessionLog.find((x) => x.id === id);
+    if (e) trashPush([sessionTrashItem(e)]);
+    lsRemove(LS_REVIEW + id); addTombs("sessions", [id]); setSessionLog((log) => log.filter((x) => x.id !== id));
+  }
+  function clearSessionLog() { trashPush(sessionLog.map(sessionTrashItem)); addTombs("sessions", sessionLog.map((e) => e.id)); removeAllReviewSnapshots(); setSessionLog([]); }
 
   // Fold what Google Drive had into local state. Pure unions + explicit deletes only, so nothing local is ever lost.
   function applyCloudMerge(m) {
@@ -6926,6 +9213,32 @@ export default function App() {
   }
 
   const drive = useDriveSync({ library, sessionLog, tombs, onMerged: applyCloudMerge });
+  const notifs = useNotifications();
+  const database = useDatabase(trashDbItems);
+  const dbSync = useDatabaseSync({ drive, database });
+  const dbCtx = { ...database, sync: dbSync };
+  const studentProfile = useStudentProfile();
+  const profileSync = useProfileSync({ drive, store: studentProfile });
+  const [pendingFocus, setPendingFocus] = useState(null); // set by the tutor's "Start a <subject> block", consumed by the Import screen
+  const profileCtx = { ...studentProfile, sync: profileSync, pendingFocus, seedFocus: setPendingFocus, consumeFocus: () => setPendingFocus(null) };
+  useTutorNudges({ profile: studentProfile.profile, sessionLog, notify: notifs.notify });
+  // Drive sync alerts: only on a real change of state (reconnect needed / error / first successful link), never on every poll.
+  const prevSync = useRef(drive.status);
+  useEffect(() => {
+    const prev = prevSync.current; prevSync.current = drive.status;
+    if (prev === drive.status) return;
+    if (drive.status === "reauth") notifs.notify({ kind: "syncReauth", tone: "amber", dedupe: "sync" });
+    else if (drive.status === "error") notifs.notify({ kind: "syncError", tone: "red", dedupe: "sync", vars: { errKey: drive.errKey || "" } });
+    else if (drive.status === "done" && (prev === "reauth" || prev === "error" || prev === "none" || prev === "busy") && notifs.items.some((n) => n.dedupe === "sync")) notifs.markRead(notifs.items.find((n) => n.dedupe === "sync").id);
+  }, [drive.status]); // eslint-disable-line
+  const wasLinked = useRef(drive.linked);
+  const awaitingLink = useRef(false); // set when the user links Drive; the "connected" notice fires once that first sync succeeds
+  useEffect(() => {
+    if (drive.linked && !wasLinked.current) awaitingLink.current = true;
+    if (!drive.linked) awaitingLink.current = false;
+    wasLinked.current = drive.linked;
+    if (awaitingLink.current && drive.status === "done") { awaitingLink.current = false; notifs.notify({ kind: "syncLinked", tone: "green", dedupe: "linked" }); }
+  }, [drive.linked, drive.status]); // eslint-disable-line
   const sessionSync = useSessionSync({ drive, stamp: activeStamp, getLocal: getLocalActive, onDecision: handleActiveDecision, onSynced: activeSynced, onBlockSaved: activeBlockSaved });
 
   // Analytics → Review Exam: reopen the saved run in the normal results screen (every question, labs, explanations, notes,
@@ -6947,7 +9260,11 @@ export default function App() {
     setView("results");
   }
 
-  function deleteLibraryEntry(id) { addTombs("qbanks", [id]); setLibrary((lib) => lib.filter((e) => e.id !== id)); }
+  function deleteLibraryEntry(id) {
+    const e = library.find((x) => x.id === id);
+    if (e) trashPush([{ kind: "qbank", data: e }]);
+    addTombs("qbanks", [id]); setLibrary((lib) => lib.filter((x) => x.id !== id));
+  }
 
   // Rename a saved Qbank. A loaded exam keeps showing the old name unless its blocks are updated too, so do both.
   function renameLibraryEntry(id, title) {
@@ -6983,14 +9300,14 @@ export default function App() {
   // Settings → "Reset All Local Data": wipes the library, the active session and preferences, then returns
   // to a clean import screen. (The save effects above then see empty/default state and keep the keys absent.)
   function resetAllData() {
-    [LS_SESSION, LS_LIBRARY, LS_PREFS, LS_HISTORY, LS_TOMBS, LS_ACTIVE_SYNC].forEach(lsRemove);
+    [LS_SESSION, LS_LIBRARY, LS_PREFS, LS_HISTORY, LS_TOMBS, LS_ACTIVE_SYNC, LS_TRASH].forEach(lsRemove);
     recRef.current = null; setActiveStamp(0); setActivePrompt(null); lsRemove(LS_SESSION_FILE);
     drive.disconnect(); setTombs(emptyTombs()); // Drive is left as it was; reconnect to restore from it
     failedKeys.current = {};
     setStorageError(false);
     setRestoredNotice(false);
     setExamData(null); setBlockStates([]); setHistory([]); setActiveBlockIdx(null);
-    removeAllReviewSnapshots(); setLibrary([]); setSessionLog([]); setDarkMode(true); setLang("en"); setTextScale(1);
+    removeAllReviewSnapshots(); notifs.clearAll(); database.wipe(); studentProfile.wipe(); setLibrary([]); setSessionLog([]); setTrash([]); setDarkMode(true); setLang("en"); setTextScale(1);
     setView("import");
   }
 
@@ -7154,6 +9471,7 @@ export default function App() {
     });
     // Finishing a first-pass block updates its library entry; retests are subsets and never overwrite it.
     if (block.libraryId && !block.isRetest) recordLibraryScore(block.libraryId, { correct, total, pct }, finishedAt);
+    notifs.notify({ kind: "blockDone", tone: pct >= 60 ? "green" : "amber", vars: { name: blockLabel(block, (k, v) => { let x = STR[lang]?.[k] ?? STR.en[k] ?? k; if (v) for (const q in v) x = x.split(`{${q}}`).join(String(v[q])); return x; }), correct, total, pct } });
     setView("results");
   }
 
@@ -7220,7 +9538,11 @@ export default function App() {
     <LangContext.Provider value={{ lang, setLang }}>
     <TextScaleContext.Provider value={{ textScale, setTextScale }}>
     <DataContext.Provider value={{ resetAllData }}>
+    <TrashContext.Provider value={{ trash, restore: restoreTrash, purge: purgeTrash }}>
     <DriveContext.Provider value={drive}>
+    <NotifContext.Provider value={notifs}>
+    <DbContext.Provider value={dbCtx}>
+    <ProfileContext.Provider value={profileCtx}>
     <div style={{ minHeight: "100vh", background: T.paper, fontFamily: FONT_UI, textAlign: "left" }}>
       {restoredNotice && (
         <div role="status" onClick={() => setRestoredNotice(false)} style={{
@@ -7357,7 +9679,11 @@ export default function App() {
         </FullPage>
       )}
     </div>
+    </ProfileContext.Provider>
+    </DbContext.Provider>
+    </NotifContext.Provider>
     </DriveContext.Provider>
+    </TrashContext.Provider>
     </DataContext.Provider>
     </TextScaleContext.Provider>
     </LangContext.Provider>
