@@ -37,6 +37,8 @@ const LIGHT = {
   redSoft: "#F8E8E6",
   amber: "#9C6510",
   amberLight: "#F5E7CE",
+  purple: "#7B3FB8",
+  purpleLight: "#EBDDF6",
   flagRed: "#C0392B",
 };
 
@@ -63,6 +65,8 @@ const DARK = {
   redSoft: "#431A1A",
   amber: "#F5B84D",
   amberLight: "#3A2B0E",
+  purple: "#C39BF0",
+  purpleLight: "#2E1D45",
   flagRed: "#FF6B5B",
 };
 
@@ -365,7 +369,7 @@ const STR = {
     timesUpBody: "The allotted time for this block has lapsed. You answered {a} of {n} questions. The block will now be submitted automatically and you can review your results.",
     viewResults: "View results",
     siIntervals: "SI Reference Intervals", siHdr: "SI Reference Interval", refRange: "Reference Range",
-    search: "Search…", noMatches: "No matches in {tab}.", searchTitle: "Search", searchPh: "Search Qbanks, questions, notes and sessions…", searchHint: "Type at least 2 letters. Searches your Library, Calendar (events, dates, times, classes, exams, tasks), Database and Analytics. Try “Oct 20”, “Tuesday” or “9:00”.", searchGrpCal: "Calendar", searchGoDate: "Go to {d}", searchNone: "No results for “{q}”.", searchGrpLib: "Library", searchGrpDb: "Database", searchGrpHist: "Analytics", searchQsMatch: "{n} matching question(s)", searchClose: "Close search",
+    search: "Search…", noMatches: "No matches in {tab}.", searchTitle: "Search", searchPh: "Search Qbanks, questions, notes and sessions…", searchHint: "Type at least 2 letters. Searches your Library, Calendar (events, dates, times, classes, exams, tasks), Database (questions, excerpts, notes, comments) and Analytics. Try “Oct 20”, “Tuesday” or “9:00”.", searchGrpCal: "Calendar", searchGoDate: "Go to {d}", searchNone: "No results for “{q}”.", searchGrpLib: "Library", searchGrpDb: "Database", searchGrpHist: "Analytics", searchQsMatch: "{n} matching question(s)", searchClose: "Close search",
     "tab.Serum": "Serum", "tab.Cerebrospinal": "Cerebrospinal", "tab.Blood": "Blood", "tab.Urine and BMI": "Urine and BMI",
     back: "Back to blocks", results: "{name} — results",
     scoreLine: "{c} correct out of {t} · {u} unanswered",
@@ -4104,6 +4108,14 @@ const DB_KINDS = {
   note: { tone: "amber", label: "dbKindN", Icon: PencilLine },
 };
 
+// Every searchable text field of a Database item (used by the Database page filter and by the global search).
+function dbItemFields(n) {
+  const qq = n.question || {}; const src = n.source || {};
+  const right = (qq.options || []).find((o) => o.key === qq.correctAnswer);
+  const when = n.ts ? new Date(n.ts).toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" }) : "";
+  return [n.text, n.comment, src.block, src.subject, src.num ? `#${src.num}` : "", qq.vignette, qq.stem, ...(qq.options || []).map((o) => o.text), right ? right.text : qq.correctAnswer, qq.explanation, qq.keyLearningPoint, qq.subject, when].filter(Boolean);
+}
+
 function DatabaseCard({ item, T, onUpdate, onRemove, selected = false, onToggle }) {
   const { t, lang } = useI18n();
   const kind = DB_KINDS[item.kind] || DB_KINDS.note;
@@ -4210,13 +4222,13 @@ function DatabaseCard({ item, T, onUpdate, onRemove, selected = false, onToggle 
   );
 }
 
-function DatabasePanel({ T }) {
+function DatabasePanel({ T, initialQuery = "" }) {
   const { t, lang } = useI18n();
   const db = useContext(DbContext);
   const { items, update, remove, removeMany, clearAll, importItems, sync } = db;
   const drive = useContext(DriveContext);
   const [filter, setFilter] = useState("all");
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useState(initialQuery);
   const [sel, setSel] = useState([]);
   const [confirm, setConfirm] = useState(null); // null | "clear" | "delSel"
   const [msg, setMsg] = useState(null);         // { tone, text } one-line result of an import / export
@@ -4230,9 +4242,7 @@ function DatabasePanel({ T }) {
   const shown = items.filter((n) => {
     if (filter !== "all" && n.kind !== filter) return false;
     if (!q) return true;
-    const qq = n.question || {};
-    const hay = [n.text, n.comment, n.source && n.source.block, n.source && n.source.subject, qq.vignette, qq.stem, qq.explanation, ...(qq.options || []).map((o) => o.text)].filter(Boolean).join(" ").toLowerCase();
-    return hay.includes(q);
+    return dbItemFields(n).join(" ").toLowerCase().includes(q);
   });
   const ids = new Set(items.map((n) => n.id));
   const liveSel = sel.filter((id) => ids.has(id));
@@ -5841,6 +5851,14 @@ function ConsoleCalendar({ sessionLog, onNavigate, T, fill = false }) {
       .sort((p, q) => ((p.m.start || "99") < (q.m.start || "99") ? -1 : (p.m.start || "99") > (q.m.start || "99") ? 1 : 0));
   })();
   const hasMeetings = !!(profile && (profile.courses || []).some((c) => (c.meetings || []).length));
+  // Does any class meet on this day? (inside the term, not on a holiday / break) — drives the purple dot in the month grid.
+  const termSt = profile ? termStartOf(profile) : null; const termEn = profile ? parseISODate(profile.term && profile.term.endDate) : null;
+  const hasClassOn = (d, info) => {
+    if (!profile || !hasMeetings) return false;
+    if ((termSt && dayDiff(termSt, d) < 0) || (termEn && dayDiff(d, termEn) < 0)) return false;
+    if (info && info.events.some((e) => e.type === "holiday" || e.type === "break")) return false;
+    return (profile.courses || []).some((c) => (c.meetings || []).some((m) => m.days.includes(d.getDay())));
+  };
   // Scheduled exams/events for the selected day are tickable plan items; ticking one saves it as a plan task.
   const planTasks = (profile && profile.plan && profile.plan.tasks) || [];
   const sched = [
@@ -5873,7 +5891,7 @@ function ConsoleCalendar({ sessionLog, onNavigate, T, fill = false }) {
   const rowHead = { fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(13.5), color: T.ink, overflowWrap: "anywhere" };
   const rowSub = { fontFamily: FONT_MONO, fontSize: fs(11.5), color: T.muted };
   const itemRow = { display: "flex", alignItems: "flex-start", gap: 10, padding: "7px 0" };
-  const legend = [[T.red, "csCalLegExam"], [T.amber, "csCalLegTask"], [T.blue, "csCalLegEvent"], [T.green, "csCalLegStudy"]];
+  const legend = [[T.red, "csCalLegExam"], [T.purple, "csClasses"], [T.amber, "csCalLegTask"], [T.blue, "csCalLegEvent"], [T.green, "csCalLegStudy"]];
 
   return (
     <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, padding: phone ? 18 : 24, ...(fill ? { height: "100%", boxSizing: "border-box", display: "flex", flexDirection: "column" } : {}) }}>
@@ -5898,12 +5916,13 @@ function ConsoleCalendar({ sessionLog, onNavigate, T, fill = false }) {
           const key = toISODate(d); const info = byDay.get(key);
           const inMonth = d.getMonth() === view.getMonth(); const isSel = key === selKey; const isToday = key === todayKey;
           const off = !!(info && info.events.some((e) => e.type === "holiday" || e.type === "break"));
-          const dots = info ? [
-            info.exams.some((a) => a.status !== "done") && T.red,
-            info.events.length > 0 && T.blue,
-            info.tasks.some((k) => !k.done && !String(k.id).startsWith("cal-")) && T.amber,
-            info.sessions.length > 0 && T.green,
-          ].filter(Boolean) : [];
+          const dots = [
+            info && info.exams.some((a) => a.status !== "done") && T.red,
+            hasClassOn(d, info) && T.purple,
+            info && info.events.length > 0 && T.blue,
+            info && info.tasks.some((k) => !k.done && !String(k.id).startsWith("cal-")) && T.amber,
+            info && info.sessions.length > 0 && T.green,
+          ].filter(Boolean);
           const label = d.toLocaleDateString(locale, { weekday: "long", month: "long", day: "numeric" });
           return (
             <button key={key} onClick={() => { setSelKey(key); if (!inMonth) setView(new Date(d.getFullYear(), d.getMonth(), 1)); }}
@@ -5936,7 +5955,7 @@ function ConsoleCalendar({ sessionLog, onNavigate, T, fill = false }) {
         {profile && (
           <div style={{ marginBottom: 6 }}>
             <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-              <span style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(11.5), color: T.muted, textTransform: "uppercase", letterSpacing: "0.06em" }}>{t("csClasses")}</span>
+              <span style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(11.5), color: T.purple, textTransform: "uppercase", letterSpacing: "0.06em" }}>{t("csClasses")}</span>
               <GhostButton T={T} icon={editClasses ? Check : Pencil} onClick={() => setEditClasses((v) => !v)} style={{ marginLeft: "auto", padding: "4px 10px" }}>{editClasses ? t("csClassDone") : t("csClassEdit")}</GhostButton>
             </div>
             {editClasses
@@ -5944,6 +5963,7 @@ function ConsoleCalendar({ sessionLog, onNavigate, T, fill = false }) {
               : selClasses.length > 0
                 ? selClasses.map(({ c, m }) => (
                   <div key={`${c.id}-${m.id}`} style={{ ...itemRow, padding: "5px 0", alignItems: "center" }}>
+                    <span aria-hidden="true" style={{ width: 3, alignSelf: "stretch", borderRadius: 2, background: T.purple, flexShrink: 0 }} />
                     <span style={{ fontFamily: FONT_MONO, fontSize: fs(11.5), color: T.muted, minWidth: 92 }}>{m.start ? `${fmtClock(m.start, locale)}${m.end ? ` – ${fmtClock(m.end, locale)}` : ""}` : "—"}</span>
                     <span style={{ ...rowHead, flex: 1, minWidth: 0 }}>{c.name}</span>
                     {m.location && <span style={{ fontFamily: FONT_UI, fontSize: fs(12), color: T.muted }}>{m.location}</span>}
@@ -6038,7 +6058,7 @@ function CalendarPage({ sessionLog, onNavigate, T, focusDate }) {
   const termEnd = profile ? parseISODate(profile.term && profile.term.endDate) : null;
 
   // [accent, tint] per kind of item
-  const KIND = { key: [T.ink, T.mutedBg], exam: [T.red, T.redLight], class: [T.muted, T.mutedBg], event: [T.blue, T.blueLight], task: [T.amber, T.amberLight], study: [T.green, T.greenLight] };
+  const KIND = { key: [T.ink, T.mutedBg], exam: [T.red, T.redLight], class: [T.purple, T.purpleLight], event: [T.blue, T.blueLight], task: [T.amber, T.amberLight], study: [T.green, T.greenLight] };
   const EMPTY = { exams: [], tasks: [], events: [], sessions: [], keys: [] };
 
   const byDay = useMemo(() => {
@@ -6335,7 +6355,7 @@ function CalendarPage({ sessionLog, onNavigate, T, focusDate }) {
           {profile && (
             <div style={{ marginBottom: 6 }}>
               <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-                <span style={sect}>{t("csClasses")}</span>
+                <span style={{ ...sect, color: T.purple }}>{t("csClasses")}</span>
                 <GhostButton T={T} icon={editClasses ? Check : Pencil} onClick={() => setEditClasses((v) => !v)} style={{ marginLeft: "auto", padding: "4px 10px" }}>{editClasses ? t("csClassDone") : t("csClassEdit")}</GhostButton>
               </div>
               {editClasses
@@ -6343,6 +6363,7 @@ function CalendarPage({ sessionLog, onNavigate, T, focusDate }) {
                 : selClasses.length > 0
                   ? selClasses.map(({ c, m }) => (
                     <div key={`${c.id}-${m.id}`} style={{ ...itemRow, padding: "5px 0", alignItems: "center", flexWrap: "wrap" }}>
+                      <span aria-hidden="true" style={{ width: 3, alignSelf: "stretch", borderRadius: 2, background: T.purple, flexShrink: 0 }} />
                       <span style={{ fontFamily: FONT_MONO, fontSize: fs(11.5), color: T.muted, minWidth: 92 }}>{m.start ? `${fmtClock(m.start, locale)}${m.end ? ` – ${fmtClock(m.end, locale)}` : ""}` : "—"}</span>
                       <span style={{ ...rowHead, flex: 1, minWidth: 0 }}>{c.name}</span>
                       {m.location && <span style={{ fontFamily: FONT_UI, fontSize: fs(12), color: T.muted }}>{m.location}</span>}
@@ -6848,19 +6869,23 @@ function GlobalSearch({ library, sessionLog, onGo, onClose, T }) {
       const hits = (e.questions || []).filter((x) => [x.vignette, x.stem, x.subject, x.explanation, ...(x.options || []).map((o) => o.text)].filter(Boolean).join(" ").toLowerCase().includes(needle));
       if (titleHit || hits.length) lib.push({ id: e.id, title: e.title, n: hits.length, sample: hits[0] ? snip(hits[0].stem || hits[0].vignette) : "" });
     });
-    const dbHits = ((db && db.items) || []).filter((n) => {
-      const qq = n.question || {};
-      return [n.text, n.comment, n.source && n.source.block, n.source && n.source.subject, qq.vignette, qq.stem, qq.explanation, ...(qq.options || []).map((o) => o.text)].filter(Boolean).join(" ").toLowerCase().includes(needle);
-    }).map((n) => ({ id: n.id, text: snip(n.text || (n.question && (n.question.stem || n.question.vignette)) || n.comment) }));
+    const dbHits = [];
+    ((db && db.items) || []).forEach((n) => {
+      const fields = dbItemFields(n);
+      const hit = fields.find((f) => String(f).toLowerCase().includes(needle));
+      if (!hit) return;
+      const qq = n.question || {}; const src = n.source || {};
+      dbHits.push({ id: n.id, kind: n.kind, title: snip(n.text || qq.stem || qq.vignette || n.comment || hit), match: hit === n.text || hit === qq.stem || hit === qq.vignette ? "" : snip(hit), src: [src.block, src.num ? `#${src.num}` : "", src.subject].filter(Boolean).join(" · ") });
+    });
     const hist = (sessionLog || []).filter((h) => String(h.title || h.blockName || "").toLowerCase().includes(needle)).map((h) => ({ id: h.id, title: h.title || h.blockName }));
     const nn = norm(q);
     const cal = calIndex.filter((r) => r.hay.includes(nn)).sort((a, b) => String(a.date || "9999").localeCompare(String(b.date || "9999"))).slice(0, 10);
-    return { lib: lib.slice(0, 8), db: dbHits.slice(0, 8), hist: hist.slice(0, 6), cal };
+    return { lib: lib.slice(0, 8), db: dbHits.slice(0, 10), hist: hist.slice(0, 6), cal };
   }, [needle, library, sessionLog, db && db.items, calIndex]); // eslint-disable-line
   const total = res.lib.length + res.db.length + res.hist.length + res.cal.length + (jumpDate ? 1 : 0);
   const grp = { fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(11), color: T.muted, textTransform: "uppercase", letterSpacing: "0.05em", margin: "14px 0 4px" };
   const row = { width: "100%", textAlign: "left", display: "block", background: "transparent", border: "none", borderBottom: `1px solid ${T.border}`, padding: "10px 4px", cursor: "pointer", fontFamily: FONT_UI, color: T.ink };
-  const go = (tab, dateKey) => { onGo(tab, dateKey); onClose(); };
+  const go = (tab, dateKey, query) => { onGo(tab, dateKey, query); onClose(); };
   return (
     <div role="dialog" aria-modal="true" aria-label={t("searchTitle")} onClick={onClose}
       style={{ position: "fixed", inset: 0, zIndex: 120, background: "rgba(0,0,0,0.55)", display: "flex", alignItems: phone ? "flex-start" : "flex-start", justifyContent: "center", padding: phone ? 10 : "8vh 20px 20px" }}>
@@ -6896,7 +6921,11 @@ function GlobalSearch({ library, sessionLog, onGo, onClose, T }) {
         ))}
         {res.db.length > 0 && <div style={grp}>{t("searchGrpDb")}</div>}
         {res.db.map((r) => (
-          <button key={r.id} onClick={() => go("database")} style={row}><div style={{ fontSize: fs(13), overflowWrap: "anywhere" }}>{r.text}</div></button>
+          <button key={r.id} onClick={() => go("database", null, q.trim())} style={row}>
+            <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(10.5), color: (DB_KINDS[r.kind] ? T[DB_KINDS[r.kind].tone] : T.muted) || T.muted, textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: 2 }}>{DB_KINDS[r.kind] ? t(DB_KINDS[r.kind].label) : ""}</div>
+            <div style={{ fontSize: fs(13), overflowWrap: "anywhere" }}>{r.title}</div>
+            {(r.match || r.src) && <div style={{ fontSize: fs(12), color: T.muted, marginTop: 2, overflowWrap: "anywhere" }}>{[r.match, r.src].filter(Boolean).join(" · ")}</div>}
+          </button>
         ))}
         {res.hist.length > 0 && <div style={grp}>{t("searchGrpHist")}</div>}
         {res.hist.map((r) => (
@@ -7073,10 +7102,11 @@ function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], dri
   const [review, setReview] = useState(null); // { result, action: "load" | "save" } — confirm when the tolerant loader left something out
   const [guideOpen, setGuideOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
+  const [dbFocus, setDbFocus] = useState(null); // { q, n }: the Database page opens filtered by a Search result
   const [calFocus, setCalFocus] = useState(null); // { key, n }: a day picked in Search, shown on the Calendar page
   const vp = useViewport();
   const phone = vp.w < 640; // phones: the header buttons drop their labels so they all fit inline in one row
-  useEffect(() => { if (libTab !== "calendar") setCalFocus(null); }, [libTab]);
+  useEffect(() => { if (libTab !== "calendar") setCalFocus(null); if (libTab !== "database") setDbFocus(null); }, [libTab]);
   const goHomePage = () => { setLibTab("console"); window.scrollTo({ top: 0, behavior: "smooth" }); }; // the logo is the Home button
   const fileRef = useRef(null);
   const spCtx = useContext(ProfileContext);
@@ -7169,14 +7199,14 @@ function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], dri
           <SettingsMenu darkMode={darkMode} setDarkMode={setDarkMode} T={T} iconOnly={phone} onHelp={() => setGuideOpen(true)} />
         </div>
       </div>
-      {searchOpen && <GlobalSearch library={library} sessionLog={sessionLog} onGo={(tab, key) => { if (key) setCalFocus({ key, n: Date.now() }); setLibTab(tab); window.scrollTo({ top: 0, behavior: "smooth" }); }} onClose={() => setSearchOpen(false)} T={T} />}
+      {searchOpen && <GlobalSearch library={library} sessionLog={sessionLog} onGo={(tab, key, query) => { if (key) setCalFocus({ key, n: Date.now() }); if (query) setDbFocus({ q: query, n: Date.now() }); setLibTab(tab); window.scrollTo({ top: 0, behavior: "smooth" }); }} onClose={() => setSearchOpen(false)} T={T} />}
       {guideOpen && <HowItWorksGuide onClose={() => setGuideOpen(false)} T={T} />}
       <PageNav tab={libTab} setTab={setLibTab} T={T} />
 
       {/* Library top row: compact active-session widget (Resume lives here) with the Qhub placeholder to its right. */}
       {libTab === "library" && <LibraryTopRow session={session} resumeId={resumeId} library={library} onResume={onResume} onOpenLobby={onOpenLobby} T={T} />}
 
-      {libTab === "database" && <DatabasePanel T={T} />}
+      {libTab === "database" && <DatabasePanel key={dbFocus ? dbFocus.n : "db"} initialQuery={dbFocus ? dbFocus.q : ""} T={T} />}
       {libTab === "profile" && <StudentProfilePanel T={T} sessionLog={sessionLog} />}
       {libTab === "calendar" && <CalendarPage focusDate={calFocus} sessionLog={sessionLog} onNavigate={(tab) => { setLibTab(tab); window.scrollTo({ top: 0, behavior: "smooth" }); }} T={T} />}
       {libTab === "analytics" && <SessionHistoryPanel history={sessionLog} onDelete={onDeleteSession} onClear={onClearSessions} onReview={onReviewSession} T={T} />}
@@ -8990,8 +9020,10 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onRate, o
                   color: "inherit", fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(12.5), whiteSpace: "nowrap",
                 }}
               >
-                <Database size={narrow ? 18 : 15} />
-                {!narrow && t("dbAdd")}
+                <span style={{ position: "relative", display: "inline-flex" }}>
+                  <Database size={narrow ? 18 : 15} />
+                  <Check size={narrow ? 11 : 9} strokeWidth={4} color={T.green} style={{ position: "absolute", right: narrow ? -5 : -4, bottom: narrow ? -4 : -3 }} />
+                </span>
               </button>
             </>
           )}
@@ -10361,15 +10393,23 @@ export default function App() {
         const mixLine = r.isMixed && r.sourceBanks && r.sourceBanks.length ? ` ${tr("activeMixed").replace("{banks}", r.sourceBanks.join(", "))}` : "";
         const replaces = activePrompt.action === "conflict" || !!examData;
         return (
-          <div role="dialog" aria-modal="true" style={{ position: "fixed", inset: 0, zIndex: 310, background: "rgba(0,0,0,0.55)", display: "flex", alignItems: "center", justifyContent: "center", padding: 20 }}>
-            <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, padding: 24, maxWidth: 440, width: "100%" }}>
-              <h3 style={{ fontFamily: FONT_UI, fontSize: fs(17), fontWeight: 700, color: T.ink, margin: "0 0 10px" }}>{tr(activePrompt.action === "conflict" ? "activeTitleConflict" : "activeTitle")}</h3>
-              <p style={{ fontFamily: FONT_UI, fontSize: fs(14), color: T.ink, lineHeight: 1.55, margin: "0 0 10px" }}>{body}{mixLine}</p>
-              {replaces && <p style={{ fontFamily: FONT_UI, fontSize: fs(13), color: T.amber, lineHeight: 1.5, margin: "0 0 18px" }}>{tr("activeReplaceWarn")}</p>}
-              <div style={{ display: "flex", justifyContent: "flex-end", gap: 10, marginTop: replaces ? 0 : 10 }}>
-                <GhostButton T={T} onClick={declineActivePrompt}>{tr(activePrompt.action === "conflict" ? "activeKeepMine" : "activeNotNow")}</GhostButton>
-                <PrimaryButton T={T} onClick={acceptActivePrompt}>{tr("activeContinue")}</PrimaryButton>
+          // A corner notification, not a modal: the screen stays usable underneath. Continue acts on it; the X / Not now dismisses it.
+          <div role="status" aria-live="polite" style={{
+            position: "fixed", right: 14, bottom: "calc(90px + env(safe-area-inset-bottom, 0px))", zIndex: 310, width: "min(400px, calc(100vw - 28px))", boxSizing: "border-box",
+            background: T.card, border: `1px solid ${T.blue}`, borderRadius: 12, padding: "14px 14px 12px", boxShadow: "0 10px 30px rgba(0,0,0,0.35)",
+          }}>
+            <div style={{ display: "flex", alignItems: "flex-start", gap: 10 }}>
+              <Cloud size={18} color={T.blue} style={{ flexShrink: 0, marginTop: 2 }} />
+              <div style={{ flex: 1, minWidth: 0 }}>
+                <div style={{ fontFamily: FONT_UI, fontSize: fs(14), fontWeight: 700, color: T.ink, lineHeight: 1.35 }}>{tr(activePrompt.action === "conflict" ? "activeTitleConflict" : "activeTitle")}</div>
+                <p style={{ fontFamily: FONT_UI, fontSize: fs(12.5), color: T.muted, lineHeight: 1.5, margin: "4px 0 0", overflowWrap: "anywhere" }}>{body}{mixLine}</p>
+                {replaces && <p style={{ fontFamily: FONT_UI, fontSize: fs(12), color: T.amber, lineHeight: 1.45, margin: "6px 0 0" }}>{tr("activeReplaceWarn")}</p>}
               </div>
+              <button onClick={declineActivePrompt} aria-label={tr("activeNotNow")} title={tr("activeNotNow")} style={{ background: "transparent", border: "none", cursor: "pointer", color: T.muted, padding: 4, margin: "-4px -4px 0 0", flexShrink: 0, display: "inline-flex" }}><X size={16} /></button>
+            </div>
+            <div style={{ display: "flex", justifyContent: "flex-end", gap: 8, marginTop: 12, flexWrap: "wrap" }}>
+              <GhostButton T={T} onClick={declineActivePrompt}>{tr(activePrompt.action === "conflict" ? "activeKeepMine" : "activeNotNow")}</GhostButton>
+              <PrimaryButton T={T} onClick={acceptActivePrompt}>{tr("activeContinue")}</PrimaryButton>
             </div>
           </div>
         );
