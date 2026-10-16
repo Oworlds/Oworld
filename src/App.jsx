@@ -365,7 +365,7 @@ const STR = {
     timesUpBody: "The allotted time for this block has lapsed. You answered {a} of {n} questions. The block will now be submitted automatically and you can review your results.",
     viewResults: "View results",
     siIntervals: "SI Reference Intervals", siHdr: "SI Reference Interval", refRange: "Reference Range",
-    search: "Search…", noMatches: "No matches in {tab}.",
+    search: "Search…", noMatches: "No matches in {tab}.", searchTitle: "Search", searchPh: "Search Qbanks, questions, notes and sessions…", searchHint: "Type at least 2 letters. Searches your Library, Calendar (events, dates, times, classes, exams, tasks), Database and Analytics. Try “Oct 20”, “Tuesday” or “9:00”.", searchGrpCal: "Calendar", searchGoDate: "Go to {d}", searchNone: "No results for “{q}”.", searchGrpLib: "Library", searchGrpDb: "Database", searchGrpHist: "Analytics", searchQsMatch: "{n} matching question(s)", searchClose: "Close search",
     "tab.Serum": "Serum", "tab.Cerebrospinal": "Cerebrospinal", "tab.Blood": "Blood", "tab.Urine and BMI": "Urine and BMI",
     back: "Back to blocks", results: "{name} — results",
     scoreLine: "{c} correct out of {t} · {u} unanswered",
@@ -527,7 +527,7 @@ const STR = {
     timesUpBody: "El tiempo asignado para este bloque ha terminado. Respondiste {a} de {n} preguntas. El bloque se enviará automáticamente y podrás revisar tus resultados.",
     viewResults: "Ver resultados",
     siIntervals: "Intervalos de referencia SI", siHdr: "Intervalo de referencia SI", refRange: "Rango de referencia",
-    search: "Buscar…", noMatches: "Sin coincidencias en {tab}.",
+    search: "Buscar…", noMatches: "Sin coincidencias en {tab}.", searchTitle: "Buscar", searchPh: "Busca Qbanks, preguntas, notas y sesiones…", searchHint: "Escribe al menos 2 letras. Busca en tu Biblioteca, Calendario (eventos, fechas, horas, clases, exámenes, tareas), Base de datos y Analíticas. Prueba “20 oct”, “martes” o “9:00”.", searchGrpCal: "Calendario", searchGoDate: "Ir a {d}", searchNone: "Sin resultados para “{q}”.", searchGrpLib: "Biblioteca", searchGrpDb: "Base de datos", searchGrpHist: "Analíticas", searchQsMatch: "{n} pregunta(s) coinciden", searchClose: "Cerrar búsqueda",
     "tab.Serum": "Suero", "tab.Cerebrospinal": "Líquido cefalorraquídeo", "tab.Blood": "Sangre", "tab.Urine and BMI": "Orina e IMC",
     back: "Volver a los bloques", results: "{name} — resultados",
     scoreLine: "{c} correctas de {t} · {u} sin responder",
@@ -4882,7 +4882,7 @@ function Avatar({ profile, size = 36, T }) {
 
 // One menu behind the profile picture (upper right of every screen): Google account + Drive sync status, then the app settings.
 // Signed in: round photo, plus the user's name on larger displays. Signed out: a generic account icon.
-function SettingsMenu({ darkMode, setDarkMode, T, iconOnly = false }) {
+function SettingsMenu({ darkMode, setDarkMode, T, iconOnly = false, onHelp }) {
   const { t, lang } = useI18n();
   const drive = useContext(DriveContext);
   const trashCtx = useContext(TrashContext);
@@ -5015,6 +5015,16 @@ function SettingsMenu({ darkMode, setDarkMode, T, iconOnly = false }) {
               }}>
                 <GraduationCap size={15} color={T.muted} />
                 <span style={{ flex: 1 }}>{t("spTitle")}</span>
+                <ChevronRight size={15} color={T.muted} />
+              </button>
+            )}
+            {onHelp && (
+              <button onClick={() => { setOpen(false); onHelp(); }} style={{
+                width: "100%", display: "flex", alignItems: "center", gap: 10, background: "transparent", border: `1px solid ${T.border}`, borderRadius: 6, cursor: "pointer",
+                padding: "9px 12px", fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(13), color: T.ink, textAlign: "left",
+              }}>
+                <QuestionMarkIcon size={15} color={T.muted} />
+                <span style={{ flex: 1 }}>{t("howItWorks")}</span>
                 <ChevronRight size={15} color={T.muted} />
               </button>
             )}
@@ -6001,7 +6011,7 @@ function ConsoleCalendar({ sessionLog, onNavigate, T, fill = false }) {
 
 // ---- Calendar page: the whole term on one big calendar. Month | Week | Agenda, with every layer (key dates, classes, exams,
 // breaks and holidays, tasks, study days) switchable, and a day panel to tick, add and edit things. ----
-function CalendarPage({ sessionLog, onNavigate, T }) {
+function CalendarPage({ sessionLog, onNavigate, T, focusDate }) {
   const { t, lang } = useI18n();
   const sp = useContext(ProfileContext);
   const vw = useViewport().w;
@@ -6017,6 +6027,10 @@ function CalendarPage({ sessionLog, onNavigate, T }) {
   const [layers, setLayers] = useState({ key: true, class: true, exam: true, event: true, task: true, study: true });
   const [newTitle, setNewTitle] = useState("");
   const [editClasses, setEditClasses] = useState(false);
+  useEffect(() => { // a day chosen in Search: open the calendar on it
+    const d = focusDate && parseISODate(focusDate.key); if (!d) return;
+    setSelKey(focusDate.key); setAnchor(startOfDay(d));
+  }, [focusDate && focusDate.n]); // eslint-disable-line
   const cap = (x) => x.charAt(0).toUpperCase() + x.slice(1);
   const addDays = (d, n) => { const x = new Date(d); x.setDate(x.getDate() + n); return x; };
   const brief = useMemo(() => (profile ? tutorBrief(profile, sessionLog, new Date()) : null), [profile, sessionLog, todayKey]); // eslint-disable-line
@@ -6247,13 +6261,13 @@ function CalendarPage({ sessionLog, onNavigate, T }) {
 
   return (
     <div style={{ display: "grid", gap: 18 }}>
-      <div>
+      <div style={wide ? undefined : { display: "none" }}>
         <h1 style={{ fontFamily: FONT_DISPLAY, fontSize: fs(phone ? 26 : 32), fontWeight: 600, color: T.ink, margin: "0 0 4px" }}>{t("calTitle")}</h1>
         <p style={{ fontFamily: FONT_UI, fontSize: fs(13.5), color: T.muted, lineHeight: 1.55, margin: 0, maxWidth: 680 }}>{t("calHint")}</p>
       </div>
 
       {tiles && (
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 200px), 1fr))", gap: 12 }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 200px), 1fr))", gap: 12, ...(wide ? {} : { order: 3 }) }}>
           {tiles.map(([label, value, sub]) => (
             <div key={label} style={{ ...card, padding: phone ? 14 : 16 }}>
               <div style={sect}>{label}</div>
@@ -6264,8 +6278,8 @@ function CalendarPage({ sessionLog, onNavigate, T }) {
         </div>
       )}
 
-      <div style={{ display: "grid", gridTemplateColumns: wide ? "minmax(0, 1fr) 360px" : "minmax(0, 1fr)", gap: 18, alignItems: "start" }}>
-        <div style={card}>
+      <div style={wide ? { display: "grid", gridTemplateColumns: "minmax(0, 1fr) 360px", gap: 18, alignItems: "start" } : { display: "contents" }}>
+        <div style={{ ...card, ...(wide ? {} : { order: 1 }) }}>
           <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap", marginBottom: 12 }}>
             <CalendarDays size={18} color={T.ink} />
             <span style={{ fontFamily: FONT_DISPLAY, fontWeight: 600, fontSize: fs(phone ? 18 : 22), color: T.ink }}>{rangeLabel}</span>
@@ -6308,7 +6322,7 @@ function CalendarPage({ sessionLog, onNavigate, T }) {
           )}
         </div>
 
-        <div style={{ ...card, ...(wide ? { position: "sticky", top: 12 } : {}) }} aria-live="polite">
+        <div style={{ ...card, ...(wide ? { position: "sticky", top: 12 } : { order: 2 }) }} aria-live="polite">
           <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap", marginBottom: 6 }}>
             <span style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(15), color: T.ink }}>{cap(longDay(selDate))}</span>
             {selWk && <Pill T={T} tone="muted">{brief && brief.total ? t("spTermWeek", { w: selWk.w, n: brief.total }) : t("spTermWeekNoTotal", { w: selWk.w })}</Pill>}
@@ -6746,6 +6760,153 @@ function PageNav({ tab, setTab, T }) {
 // ---------------------------------------------------------------------------
 // Import screen
 // ---------------------------------------------------------------------------
+// Global search (the magnifier in the top bar): Qbank titles + their questions, Database items and finished sessions.
+// Choosing a result opens the page that holds it.
+function GlobalSearch({ library, sessionLog, onGo, onClose, T }) {
+  const { t, lang } = useI18n();
+  const db = useContext(DbContext);
+  const sp = useContext(ProfileContext);
+  const profile = sp.profile;
+  const phone = useViewport().w < 640;
+  const [q, setQ] = useState("");
+  const inputRef = useRef(null);
+  useEffect(() => {
+    if (inputRef.current) inputRef.current.focus();
+    const esc = (e) => { if (e.key === "Escape") onClose(); };
+    document.addEventListener("keydown", esc);
+    return () => document.removeEventListener("keydown", esc);
+  }, []); // eslint-disable-line
+  const needle = q.trim().toLowerCase();
+  const on = needle.length >= 2;
+  const snip = (text) => {
+    const str = String(text || "").replace(/\s+/g, " ").trim();
+    const i = str.toLowerCase().indexOf(needle);
+    if (i < 0) return str.slice(0, 90);
+    const a = Math.max(0, i - 36);
+    return (a > 0 ? "…" : "") + str.slice(a, i + needle.length + 56) + (i + needle.length + 56 < str.length ? "…" : "");
+  };
+  // ---- calendar: dates, times, events, exams, tasks, classes and syllabus weeks of the Student Profile ----
+  const LOCS = ["en-US", "es"];
+  const norm = (x) => String(x || "").toLowerCase().replace(/[,.]/g, "").replace(/\s+/g, " ").trim();
+  const dateHay = (d) => (d ? [toISODate(d), ...LOCS.flatMap((l) => [
+    d.toLocaleDateString(l, { weekday: "long", month: "long", day: "numeric", year: "numeric" }),
+    d.toLocaleDateString(l, { month: "short", day: "numeric" }), d.toLocaleDateString(l, { month: "long", day: "numeric" }),
+  ])].join(" ") : "");
+  const timeHay = (tm) => {
+    const m = /^(\d{1,2}):(\d{2})/.exec(tm || ""); if (!m) return tm || "";
+    const h = +m[1]; const h12 = ((h + 11) % 12) + 1; const ap = h < 12 ? "am" : "pm";
+    return `${tm} ${h12}:${m[2]} ${ap} ${h12}${ap} ${h12} ${ap}`;
+  };
+  const dayName = (n, l, w = "long") => new Date(2024, 0, 7 + n).toLocaleDateString(l, { weekday: w });
+  const uiLoc = lang === "es" ? "es" : "en-US";
+  const longDate = (d) => d.toLocaleDateString(uiLoc, { weekday: "long", month: "long", day: "numeric", year: "numeric" });
+  const shortDate = (d) => d.toLocaleDateString(uiLoc, { month: "short", day: "numeric" });
+  const jumpDate = useMemo(() => { // "2026-10-20", "Oct 20", "October 20 2026", "20 de octubre"
+    const x = norm(q); let m;
+    const monthOf = (w) => { if (!w || w.length < 3) return -1; for (let i = 0; i < 12; i++) if (LOCS.some((l) => new Date(2024, i, 1).toLocaleDateString(l, { month: "long" }).toLowerCase().startsWith(w))) return i; return -1; };
+    const mk = (y, mo, d) => { const dt = new Date(y, mo, d); return dt.getMonth() === mo && dt.getDate() === d ? dt : null; };
+    const yr = new Date().getFullYear();
+    if ((m = /^(\d{4})-(\d{1,2})-(\d{1,2})$/.exec(x))) return mk(+m[1], +m[2] - 1, +m[3]);
+    if ((m = /^([a-záéíóú]+) (\d{1,2})(?: (\d{4}))?$/.exec(x)) && monthOf(m[1]) >= 0) return mk(m[3] ? +m[3] : yr, monthOf(m[1]), +m[2]);
+    if ((m = /^(\d{1,2}) (?:de )?([a-záéíóú]+)(?: (?:de )?(\d{4}))?$/.exec(x)) && monthOf(m[2]) >= 0) return mk(m[3] ? +m[3] : yr, monthOf(m[2]), +m[1]);
+    return null;
+  }, [q]); // eslint-disable-line
+  const calIndex = useMemo(() => {
+    if (!profile) return [];
+    const out = []; const courseName = (id) => { const c = (profile.courses || []).find((k) => k.id === id); return c ? c.name : ""; };
+    const today = startOfDay(new Date());
+    (profile.assessments || []).forEach((a) => { const d = parseISODate(a.date); if (!d) return;
+      out.push({ key: "a" + a.id + a.date, title: a.title, sub: [longDate(d), a.time, a.type, courseName(a.courseId)].filter(Boolean).join(" · "), date: toISODate(d), hay: [a.title, a.type, a.format, courseName(a.courseId), (a.coverage || []).join(" "), dateHay(d), timeHay(a.time)].join(" ") }); });
+    ((profile.plan && profile.plan.tasks) || []).forEach((k) => { const d = parseISODate(k.due); if (!d) return;
+      out.push({ key: "k" + k.id, title: k.title, sub: [longDate(d), k.subject, k.kind].filter(Boolean).join(" · "), date: toISODate(d), hay: [k.title, k.subject, k.kind, dateHay(d)].join(" ") }); });
+    ((profile.calendar && profile.calendar.events) || []).forEach((e) => { const d = parseISODate(e.startDate); if (!d) return; const d2 = parseISODate(e.endDate);
+      out.push({ key: "e" + e.id + e.startDate, title: e.title, sub: [d2 ? `${shortDate(d)} → ${shortDate(d2)}` : longDate(d), e.type, e.notes].filter(Boolean).join(" · "), date: toISODate(d), hay: [e.title, e.type, e.notes, dateHay(d), dateHay(d2)].join(" ") }); });
+    const tm = profile.term || {};
+    const te = profile.student && profile.student.targetExam;
+    [[tm.startDate, t("calTermStart")], [tm.endDate, t("calTermEnd")], [te && te.date, (te && te.name) || t("calTargetExam")]].forEach(([iso, title], i) => {
+      const d = parseISODate(iso); if (!d) return;
+      out.push({ key: "t" + i, title: `${title}${i < 2 && tm.name ? ` · ${tm.name}` : ""}`, sub: longDate(d), date: toISODate(d), hay: [title, tm.name, dateHay(d)].join(" ") });
+    });
+    (profile.courses || []).forEach((c) => {
+      (c.meetings || []).forEach((m, mi) => {
+        const days = (m.days || []).filter((n) => typeof n === "number");
+        let next = null; for (let i = 0; i < 14 && !next; i++) { const d = new Date(today); d.setDate(d.getDate() + i); if (days.includes(d.getDay())) next = d; }
+        out.push({ key: "c" + c.id + mi, title: [c.code, c.name].filter(Boolean).join(" · "), sub: [days.map((n) => dayName(n, uiLoc, "short")).join(", "), [m.start, m.end].filter(Boolean).join("–"), m.location].filter(Boolean).join(" · "), date: next ? toISODate(next) : null,
+          hay: [c.name, c.code, m.location, days.map((n) => LOCS.map((l) => dayName(n, l) + " " + dayName(n, l, "short")).join(" ")).join(" "), timeHay(m.start), timeHay(m.end)].join(" ") });
+      });
+      (c.weeks || []).forEach((w) => { const d = parseISODate(w.startDate); const topics = (w.topics || []).join(", ");
+        if (!topics && !(w.readings || []).length) return;
+        out.push({ key: "w" + c.id + w.week, title: `${c.name} · ${t("spWeekN", { n: w.week })}`, sub: [d ? shortDate(d) : "", topics].filter(Boolean).join(" · "), date: d ? toISODate(d) : null, hay: [c.name, c.code, `week ${w.week} semana ${w.week} wk ${w.week}`, topics, (w.readings || []).join(" "), (w.qbankFocus || []).join(" "), dateHay(d)].join(" ") }); });
+    });
+    return out.map((r) => ({ ...r, hay: norm(r.hay) }));
+  }, [profile, lang]); // eslint-disable-line
+  const res = useMemo(() => {
+    if (!on) return { lib: [], db: [], hist: [], cal: [] };
+    const lib = [];
+    (library || []).forEach((e) => {
+      const titleHit = String(e.title || "").toLowerCase().includes(needle);
+      const hits = (e.questions || []).filter((x) => [x.vignette, x.stem, x.subject, x.explanation, ...(x.options || []).map((o) => o.text)].filter(Boolean).join(" ").toLowerCase().includes(needle));
+      if (titleHit || hits.length) lib.push({ id: e.id, title: e.title, n: hits.length, sample: hits[0] ? snip(hits[0].stem || hits[0].vignette) : "" });
+    });
+    const dbHits = ((db && db.items) || []).filter((n) => {
+      const qq = n.question || {};
+      return [n.text, n.comment, n.source && n.source.block, n.source && n.source.subject, qq.vignette, qq.stem, qq.explanation, ...(qq.options || []).map((o) => o.text)].filter(Boolean).join(" ").toLowerCase().includes(needle);
+    }).map((n) => ({ id: n.id, text: snip(n.text || (n.question && (n.question.stem || n.question.vignette)) || n.comment) }));
+    const hist = (sessionLog || []).filter((h) => String(h.title || h.blockName || "").toLowerCase().includes(needle)).map((h) => ({ id: h.id, title: h.title || h.blockName }));
+    const nn = norm(q);
+    const cal = calIndex.filter((r) => r.hay.includes(nn)).sort((a, b) => String(a.date || "9999").localeCompare(String(b.date || "9999"))).slice(0, 10);
+    return { lib: lib.slice(0, 8), db: dbHits.slice(0, 8), hist: hist.slice(0, 6), cal };
+  }, [needle, library, sessionLog, db && db.items, calIndex]); // eslint-disable-line
+  const total = res.lib.length + res.db.length + res.hist.length + res.cal.length + (jumpDate ? 1 : 0);
+  const grp = { fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(11), color: T.muted, textTransform: "uppercase", letterSpacing: "0.05em", margin: "14px 0 4px" };
+  const row = { width: "100%", textAlign: "left", display: "block", background: "transparent", border: "none", borderBottom: `1px solid ${T.border}`, padding: "10px 4px", cursor: "pointer", fontFamily: FONT_UI, color: T.ink };
+  const go = (tab, dateKey) => { onGo(tab, dateKey); onClose(); };
+  return (
+    <div role="dialog" aria-modal="true" aria-label={t("searchTitle")} onClick={onClose}
+      style={{ position: "fixed", inset: 0, zIndex: 120, background: "rgba(0,0,0,0.55)", display: "flex", alignItems: phone ? "flex-start" : "flex-start", justifyContent: "center", padding: phone ? 10 : "8vh 20px 20px" }}>
+      <div onClick={(e) => e.stopPropagation()} style={{ width: "100%", maxWidth: 640, maxHeight: phone ? "92vh" : "80vh", overflowY: "auto", background: T.card, border: `1px solid ${T.border}`, borderRadius: 12, padding: 16, boxShadow: "0 12px 40px rgba(0,0,0,0.45)", boxSizing: "border-box" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+          <div style={{ position: "relative", flex: 1, minWidth: 0 }}>
+            <Search size={16} color={T.muted} style={{ position: "absolute", left: 11, top: "50%", transform: "translateY(-50%)" }} />
+            <input ref={inputRef} value={q} onChange={(e) => setQ(e.target.value)} placeholder={t("searchPh")} aria-label={t("searchTitle")}
+              style={{ width: "100%", boxSizing: "border-box", fontFamily: FONT_UI, fontSize: Math.max(16, fs(14)), color: T.ink, background: T.paper, border: `1px solid ${T.border}`, borderRadius: 8, padding: "10px 12px 10px 34px", outline: "none" }} />
+          </div>
+          <button onClick={onClose} aria-label={t("searchClose")} title={t("searchClose")} style={{ width: 40, height: 40, borderRadius: 8, border: `1px solid ${T.border}`, background: "transparent", color: T.ink, cursor: "pointer", display: "inline-flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}><X size={16} /></button>
+        </div>
+        {!on && <p style={{ fontFamily: FONT_UI, fontSize: fs(12.5), color: T.muted, margin: "12px 2px 2px", lineHeight: 1.5 }}>{t("searchHint")}</p>}
+        {on && total === 0 && <p style={{ fontFamily: FONT_UI, fontSize: fs(13.5), color: T.muted, margin: "14px 2px 2px" }}>{t("searchNone", { q: q.trim() })}</p>}
+        {(res.cal.length > 0 || jumpDate) && <div style={grp}>{t("searchGrpCal")}</div>}
+        {jumpDate && (
+          <button onClick={() => go("calendar", toISODate(jumpDate))} style={row}>
+            <div style={{ fontWeight: 700, fontSize: fs(13.5), color: T.blue }}>{t("searchGoDate", { d: longDate(jumpDate) })}</div>
+          </button>
+        )}
+        {res.cal.map((r) => (
+          <button key={r.key} onClick={() => go("calendar", r.date)} style={row}>
+            <div style={{ fontWeight: 700, fontSize: fs(13.5), overflowWrap: "anywhere" }}>{r.title}</div>
+            {r.sub && <div style={{ fontSize: fs(12), color: T.muted, marginTop: 2, overflowWrap: "anywhere" }}>{r.sub}</div>}
+          </button>
+        ))}
+        {res.lib.length > 0 && <div style={grp}>{t("searchGrpLib")}</div>}
+        {res.lib.map((r) => (
+          <button key={r.id} onClick={() => go("library")} style={row}>
+            <div style={{ fontWeight: 700, fontSize: fs(13.5), overflowWrap: "anywhere" }}>{r.title}</div>
+            {r.n > 0 && <div style={{ fontSize: fs(12), color: T.muted, marginTop: 2, overflowWrap: "anywhere" }}>{t("searchQsMatch", { n: r.n })}{r.sample ? ` · ${r.sample}` : ""}</div>}
+          </button>
+        ))}
+        {res.db.length > 0 && <div style={grp}>{t("searchGrpDb")}</div>}
+        {res.db.map((r) => (
+          <button key={r.id} onClick={() => go("database")} style={row}><div style={{ fontSize: fs(13), overflowWrap: "anywhere" }}>{r.text}</div></button>
+        ))}
+        {res.hist.length > 0 && <div style={grp}>{t("searchGrpHist")}</div>}
+        {res.hist.map((r) => (
+          <button key={r.id} onClick={() => go("analytics")} style={row}><div style={{ fontWeight: 600, fontSize: fs(13.5), overflowWrap: "anywhere" }}>{r.title}</div></button>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 // Quick-start guide shown from the Home screen's "Help" button. Plain language, one idea per step, and the button /
 // feature names match the on-screen labels in each language.
 const GUIDE = {
@@ -6911,8 +7072,11 @@ function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], dri
   const [saveMsg, setSaveMsg] = useState(null); // { tone: "green" | "red" | "muted", text }
   const [review, setReview] = useState(null); // { result, action: "load" | "save" } — confirm when the tolerant loader left something out
   const [guideOpen, setGuideOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
+  const [calFocus, setCalFocus] = useState(null); // { key, n }: a day picked in Search, shown on the Calendar page
   const vp = useViewport();
   const phone = vp.w < 640; // phones: the header buttons drop their labels so they all fit inline in one row
+  useEffect(() => { if (libTab !== "calendar") setCalFocus(null); }, [libTab]);
   const goHomePage = () => { setLibTab("console"); window.scrollTo({ top: 0, behavior: "smooth" }); }; // the logo is the Home button
   const fileRef = useRef(null);
   const spCtx = useContext(ProfileContext);
@@ -6991,7 +7155,7 @@ function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], dri
     <div style={{ maxWidth: Math.round(1120 * Math.max(1, TEXT_SCALE)), margin: "0 auto", padding: "22px 20px 80px", position: "relative" }}>
       <style>{`@import url('${FONT_IMPORT_URL}');`}</style>
 
-      {/* Top bar: the OWORLD logo (the Home button) at the left, Help + the profile menu at the right. */}
+      {/* Top bar: the OWORLD logo (the Home button) at the left, Search + notifications + the profile menu (which holds Help) at the right. */}
       <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 12, marginBottom: 12 }}>
         <button onClick={goHomePage} aria-label={t("homeBtn")} title={t("homeBtn")} style={{
           display: "flex", alignItems: "center", gap: 10, background: "transparent", border: "none", padding: "4px 2px", cursor: "pointer", flexShrink: 0,
@@ -7000,11 +7164,12 @@ function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], dri
           <span style={{ fontFamily: FONT_MONO, fontSize: fs(phone ? 22 : 30), letterSpacing: "0.1em", color: T.blue, fontWeight: 700 }}>OWORLD</span>
         </button>
         <div style={{ display: "flex", alignItems: "center", gap: phone ? 8 : 10 }}>
-          <GhostButton T={T} icon={QuestionMarkIcon} onClick={() => setGuideOpen(true)} title={t("howItWorks")} style={{ padding: 0, width: 40, height: 40, borderRadius: "50%", flexShrink: 0 }} />
+          <GhostButton T={T} icon={Search} onClick={() => setSearchOpen(true)} title={t("searchTitle")} style={{ padding: 0, width: 40, height: 40, borderRadius: "50%", flexShrink: 0 }} />
           <NotificationBell T={T} />
-          <SettingsMenu darkMode={darkMode} setDarkMode={setDarkMode} T={T} iconOnly={phone} />
+          <SettingsMenu darkMode={darkMode} setDarkMode={setDarkMode} T={T} iconOnly={phone} onHelp={() => setGuideOpen(true)} />
         </div>
       </div>
+      {searchOpen && <GlobalSearch library={library} sessionLog={sessionLog} onGo={(tab, key) => { if (key) setCalFocus({ key, n: Date.now() }); setLibTab(tab); window.scrollTo({ top: 0, behavior: "smooth" }); }} onClose={() => setSearchOpen(false)} T={T} />}
       {guideOpen && <HowItWorksGuide onClose={() => setGuideOpen(false)} T={T} />}
       <PageNav tab={libTab} setTab={setLibTab} T={T} />
 
@@ -7013,7 +7178,7 @@ function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], dri
 
       {libTab === "database" && <DatabasePanel T={T} />}
       {libTab === "profile" && <StudentProfilePanel T={T} sessionLog={sessionLog} />}
-      {libTab === "calendar" && <CalendarPage sessionLog={sessionLog} onNavigate={(tab) => { setLibTab(tab); window.scrollTo({ top: 0, behavior: "smooth" }); }} T={T} />}
+      {libTab === "calendar" && <CalendarPage focusDate={calFocus} sessionLog={sessionLog} onNavigate={(tab) => { setLibTab(tab); window.scrollTo({ top: 0, behavior: "smooth" }); }} T={T} />}
       {libTab === "analytics" && <SessionHistoryPanel history={sessionLog} onDelete={onDeleteSession} onClear={onClearSessions} onReview={onReviewSession} T={T} />}
       {libTab === "console" && <ConsolePanel library={library} sessionLog={sessionLog} session={session} onResume={onResume} onOpenLobby={onOpenLobby} onReview={onReviewSession} onNavigate={(tab) => { setLibTab(tab); window.scrollTo({ top: 0, behavior: "smooth" }); }} T={T} />}
       {libTab === "library" && <TutorLibraryStrip library={library} sessionLog={sessionLog} onLaunch={onLaunchLibrary} T={T} />}
