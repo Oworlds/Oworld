@@ -280,6 +280,7 @@ const STR = {
     "spPromptTitle": "Student Profile — AI prompt", "spWarnCalDates": "{n} calendar event(s) had no usable date and were left out.",
     "spEvt.holiday": "Holiday", "spEvt.break": "Break", "spEvt.exam-period": "Exam period", "spEvt.deadline": "Deadline", "spEvt.class": "Class", "spEvt.other": "Event",
     "csCalendar": "Semester calendar", "csCalPrev": "Previous month", "csCalNext": "Next month", "csCalToday": "Today", "csCalNothing": "Nothing scheduled.", "csCalStudied": "Studied: {n} session(s) · {q} questions", "csCalLegExam": "Exam", "csCalLegTask": "Task due", "csCalLegEvent": "Calendar", "csCalLegStudy": "Studied", "csCalNoProfile": "Set up your Student Profile to see your exams, tasks and breaks here.", "csCalNoEvents": "No semester calendar loaded yet. Update your profile with it to see breaks and deadlines here.", "csCalSetup": "Set up profile", "csCalUpdate": "Update profile", "csCalMore": "+{n} more",
+    "tabCalendar": "Calendar", "calTitle": "Calendar", "calHint": "Your whole term on one calendar: classes, exams, tasks, breaks and the days you studied. Tap a day to see and edit it.", "calMonth": "Month", "calWeek": "Week", "calAgenda": "Agenda", "calPrev": "Previous", "calNext": "Next", "calLayerKey": "Key dates", "calTermStart": "Term starts", "calTermEnd": "Term ends", "calTargetExam": "Target exam", "calClassesN": "{n} classes", "calStatTerm": "Term", "calStatOpen": "Open tasks", "calStatWeekQ": "Questions this week", "calAgendaEmpty": "Nothing scheduled in this stretch.", "calOpenFull": "Full calendar", "spMapNote": "Showing the weeks around today. Expand to see the full syllabus map.",
     tutorShort: "Tutor", modeLabel: "Test mode", modeLocked: "Locked once the block starts", modeTimedHint: "Countdown timer. You can turn it off during the exam, but not back on.", timerLabel: "Timer", timerOnHint: "You can turn the timer off, but you can't turn it back on.", timerOffNote: "Timer is off for this block and can't be turned back on.", timerOffTitle: "Turn off the timer?", timerOffBody: "The countdown will stop and this block will become untimed. This can't be undone: you won't be able to turn the timer back on for this block. Your answers and progress are kept.", keepTimer: "Keep timer on", turnOffTimer: "Turn off timer", timerOffSuffix: "timer off", modeTutorHint: "No timer. Instant feedback after each answer.", tutor: "Tutor mode", tutorHint: "Instant right/wrong feedback and explanations after each answer, plus question reset.",
     tutorCorrect: "Correct", tutorIncorrect: "Incorrect — the correct answer is {a}", tutorIncorrectHidden: "Incorrect", showCorrectBtn: "Show Correct Answer",
     resetQ: "Reset question", "sc.reset": "Reset question (Tutor mode)",
@@ -295,6 +296,7 @@ const STR = {
     csCalPlan: "Plan checklist", csCalPlanCount: "{d}/{n} done",
     csPlanAddPh: "Add to your plan…", csPlanAdd: "Add", csPlanAddFor: "Added for {d}", csPlanRemove: "Remove from plan",
     qhubTitle: "Qhub", qhubSoon: "Coming soon", qhubBody: "A shared, validated Qbank repository. Browse and import vetted blocks.",
+    csClasses: "Classes", csClassEdit: "Edit", csClassDone: "Done", csClassNone: "No class times yet. Use Edit to add them.", csClassName: "Class name", csClassLoc: "Room / location", csClassAddMeeting: "Add meeting time", csClassNew: "New class name…", csClassAdd: "Add class",
     importBundle: "Import", "warn.importN": "Import {n} question(s)",
     irTitle: "Import Qbanks", irSub: "{n} Qbanks found. Choose which ones to add to your library — anything you leave unticked is discarded.",
     irAddAll: "Add all to library ({n})", irAddSel: "Add selected to library ({n})", irDone: "Done", irCancel: "Cancel import",
@@ -440,6 +442,7 @@ const STR = {
     "spPromptTitle": "Perfil del estudiante — prompt para IA", "spWarnCalDates": "{n} evento(s) del calendario no tenían una fecha válida y se omitieron.",
     "spEvt.holiday": "Feriado", "spEvt.break": "Descanso", "spEvt.exam-period": "Periodo de exámenes", "spEvt.deadline": "Fecha límite", "spEvt.class": "Clase", "spEvt.other": "Evento",
     "csCalendar": "Calendario del semestre", "csCalPrev": "Mes anterior", "csCalNext": "Mes siguiente", "csCalToday": "Hoy", "csCalNothing": "Nada programado.", "csCalStudied": "Estudiaste: {n} sesión(es) · {q} preguntas", "csCalLegExam": "Examen", "csCalLegTask": "Tarea", "csCalLegEvent": "Calendario", "csCalLegStudy": "Estudio", "csCalNoProfile": "Configura tu Perfil del estudiante para ver aquí tus exámenes, tareas y descansos.", "csCalNoEvents": "Aún no cargaste un calendario del semestre. Actualiza tu perfil con él para ver aquí descansos y fechas límite.", "csCalSetup": "Configurar perfil", "csCalUpdate": "Actualizar perfil", "csCalMore": "+{n} más",
+    "tabCalendar": "Calendario", "calTitle": "Calendario", "calHint": "Todo tu periodo en un solo calendario: clases, exámenes, tareas, descansos y los días que estudiaste. Toca un día para verlo y editarlo.", "calMonth": "Mes", "calWeek": "Semana", "calAgenda": "Agenda", "calPrev": "Anterior", "calNext": "Siguiente", "calLayerKey": "Fechas clave", "calTermStart": "Inicio del periodo", "calTermEnd": "Fin del periodo", "calTargetExam": "Examen objetivo", "calClassesN": "{n} clases", "calStatTerm": "Periodo", "calStatOpen": "Tareas abiertas", "calStatWeekQ": "Preguntas esta semana", "calAgendaEmpty": "No hay nada programado en este lapso.", "calOpenFull": "Calendario completo", "spMapNote": "Se muestran las semanas cercanas a hoy. Expande para ver el mapa completo del programa.",
     tutorShort: "Tutor", modeLabel: "Modo del examen", modeLocked: "Se bloquea al iniciar el bloque", modeTimedHint: "Cuenta regresiva. Puedes desactivarla durante el examen, pero no volver a activarla.", timerLabel: "Cronómetro", timerOnHint: "Puedes desactivar el cronómetro, pero no volver a activarlo.", timerOffNote: "El cronómetro está desactivado en este bloque y no se puede volver a activar.", timerOffTitle: "¿Desactivar el cronómetro?", timerOffBody: "La cuenta regresiva se detendrá y este bloque quedará sin límite de tiempo. No se puede deshacer: no podrás volver a activar el cronómetro en este bloque. Tus respuestas y tu progreso se conservan.", keepTimer: "Mantener cronómetro", turnOffTimer: "Desactivar cronómetro", timerOffSuffix: "cronómetro desactivado", modeTutorHint: "Sin cronómetro. Retroalimentación instantánea tras cada respuesta.", tutor: "Modo tutor", tutorHint: "Retroalimentación instantánea de correcto/incorrecto y explicaciones tras cada respuesta, más reinicio de pregunta.",
     tutorCorrect: "Correcto", tutorIncorrect: "Incorrecto — la respuesta correcta es {a}", tutorIncorrectHidden: "Incorrecto", showCorrectBtn: "Mostrar respuesta correcta",
     resetQ: "Reiniciar pregunta", "sc.reset": "Reiniciar pregunta (modo tutor)",
@@ -455,6 +458,7 @@ const STR = {
     csCalPlan: "Lista del plan", csCalPlanCount: "{d}/{n} hechas",
     csPlanAddPh: "Agregar a tu plan…", csPlanAdd: "Agregar", csPlanAddFor: "Se agrega para {d}", csPlanRemove: "Quitar del plan",
     qhubTitle: "Qhub", qhubSoon: "Próximamente", qhubBody: "Un repositorio compartido y validado de Qbanks. Explora e importa bloques verificados.",
+    csClasses: "Clases", csClassEdit: "Editar", csClassDone: "Listo", csClassNone: "Aún no hay horarios de clase. Usa Editar para agregarlos.", csClassName: "Nombre de la clase", csClassLoc: "Salón / lugar", csClassAddMeeting: "Agregar horario", csClassNew: "Nombre de la nueva clase…", csClassAdd: "Agregar clase",
     importBundle: "Importar", "warn.importN": "Importar {n} pregunta(s)",
     irTitle: "Importar Qbanks", irSub: "Se encontraron {n} Qbanks. Elige cuáles añadir a tu biblioteca; lo que dejes sin marcar se descarta.",
     irAddAll: "Añadir todos a la biblioteca ({n})", irAddSel: "Añadir seleccionados a la biblioteca ({n})", irDone: "Listo", irCancel: "Cancelar importación",
@@ -2678,6 +2682,8 @@ function makeLibraryEntry(block) {
 const DataContext = createContext({ resetAllData: () => {} });
 // The Trash lives in the app state; the Settings menu (profile picture, upper right) reads it from here.
 const TrashContext = createContext({ trash: [], restore: () => {}, purge: () => {} });
+// Lets the account menu (on every screen) open a Home page such as the Student Profile. locked = a timed block can't be left.
+const NavContext = createContext({ open: null, locked: false });
 const DriveContext = createContext(null); // the Google account + Drive sync, read by the profile menu on every screen
 
 // ---------------------------------------------------------------------------
@@ -2870,6 +2876,9 @@ const PROFILE_SCHEMA_TEXT = `{
       "id": "short-slug",                      // unique, lowercase, used by assessments[].courseId
       "name": "Cardiovascular, Pulmonary & Renal",
       "code": "MED 5120 | null",
+      "meetings": [                            // weekly class times if the syllabus gives them, else []
+        { "days": ["mon", "wed"], "start": "09:00", "end": "10:15", "location": "Room 204 | null" }   // 24h; days: mon|tue|wed|thu|fri|sat|sun
+      ],
       "weeks": [
         {
           "week": 7,
@@ -2929,7 +2938,7 @@ const PROFILE_SCHEMA_TEXT = `{
 }`;
 
 // Field-name/type skeleton used INSIDE the generated prompt (kept short on purpose, like PROMPT_SCHEMA_TEXT for Qbanks).
-const PROFILE_PROMPT_SCHEMA = `{"schema":"oworld-student-profile","v":1,"student":{"name":"string|null","program":"string|null","phase":"string|null","targetExam":{"name":"string","date":"YYYY-MM-DD|null"}},"term":{"name":"string","startDate":"YYYY-MM-DD","endDate":"YYYY-MM-DD","totalWeeks":number,"asOf":"YYYY-MM-DD"},"courses":[{"id":"short-slug","name":"string","code":"string|null","weeks":[{"week":number,"startDate":"YYYY-MM-DD|null","topics":["string"],"readings":["string"],"qbankFocus":["organ system or discipline"]}]}],"assessments":[{"id":"short-slug","title":"string","courseId":"course id|null","type":"exam|quiz|practical|shelf|assignment|other","date":"YYYY-MM-DD","time":"HH:MM|null","weightPct":number|null,"coverage":["string"],"format":"string|null","status":"upcoming|done"}],"calendar":{"events":[{"id":"short-slug","title":"string","type":"holiday|break|exam-period|deadline|class|other","startDate":"YYYY-MM-DD","endDate":"YYYY-MM-DD|null","notes":"string|null"}]},"currentState":{"summary":"string","currentWeek":number,"thisWeek":{"focusTopics":["string"],"goals":["string"]},"nextAssessmentId":"assessment id|null","strengths":["string"],"gaps":["string"],"risk":"low|medium|high","paceNote":"string"},"plan":{"weeklyQuestionTarget":number,"dailyMinutes":number,"tasks":[{"id":"short-slug","title":"string","due":"YYYY-MM-DD|null","subject":"string|null","kind":"qbank|reading|review|exam|other","done":boolean}]},"tutor":{"style":"coach|socratic|direct","examCountdownDays":[7,3,1]},"source":{"documents":["string"],"confidence":"high|medium|low","assumptions":["string"]}}`;
+const PROFILE_PROMPT_SCHEMA = `{"schema":"oworld-student-profile","v":1,"student":{"name":"string|null","program":"string|null","phase":"string|null","targetExam":{"name":"string","date":"YYYY-MM-DD|null"}},"term":{"name":"string","startDate":"YYYY-MM-DD","endDate":"YYYY-MM-DD","totalWeeks":number,"asOf":"YYYY-MM-DD"},"courses":[{"id":"short-slug","name":"string","code":"string|null","meetings":[{"days":["mon|tue|wed|thu|fri|sat|sun"],"start":"HH:MM|null","end":"HH:MM|null","location":"string|null"}],"weeks":[{"week":number,"startDate":"YYYY-MM-DD|null","topics":["string"],"readings":["string"],"qbankFocus":["organ system or discipline"]}]}],"assessments":[{"id":"short-slug","title":"string","courseId":"course id|null","type":"exam|quiz|practical|shelf|assignment|other","date":"YYYY-MM-DD","time":"HH:MM|null","weightPct":number|null,"coverage":["string"],"format":"string|null","status":"upcoming|done"}],"calendar":{"events":[{"id":"short-slug","title":"string","type":"holiday|break|exam-period|deadline|class|other","startDate":"YYYY-MM-DD","endDate":"YYYY-MM-DD|null","notes":"string|null"}]},"currentState":{"summary":"string","currentWeek":number,"thisWeek":{"focusTopics":["string"],"goals":["string"]},"nextAssessmentId":"assessment id|null","strengths":["string"],"gaps":["string"],"risk":"low|medium|high","paceNote":"string"},"plan":{"weeklyQuestionTarget":number,"dailyMinutes":number,"tasks":[{"id":"short-slug","title":"string","due":"YYYY-MM-DD|null","subject":"string|null","kind":"qbank|reading|review|exam|other","done":boolean}]},"tutor":{"style":"coach|socratic|direct","examCountdownDays":[7,3,1]},"source":{"documents":["string"],"confidence":"high|medium|low","assumptions":["string"]}}`;
 
 // ---- date helpers (all local-time, date-only) ----
 const startOfDay = (d) => { const x = new Date(d); x.setHours(0, 0, 0, 0); return x; };
@@ -2966,6 +2975,16 @@ function spSlug(v, prefix, i, used) {
 const spObj = (v) => (v && typeof v === "object" && !Array.isArray(v) ? v : {});
 
 // -> { valid: true, data, warnings: [{ k, v }] } | { valid: false, error: i18nKey }. Warning / error texts are i18n keys.
+const SP_DAYS = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"]; // index = Date.getDay()
+function spMeetings(raw) {
+  return (Array.isArray(raw) ? raw : []).slice(0, 14).map((m, i) => {
+    const o = spObj(m);
+    const dRaw = Array.isArray(o.days) ? o.days : (o.day != null ? [o.day] : []);
+    const days = [...new Set(dRaw.map((d) => (typeof d === "number" ? (d >= 0 && d <= 6 ? Math.floor(d) : -1) : SP_DAYS.indexOf(String(d).trim().slice(0, 3).toLowerCase()))).filter((d) => d >= 0))].sort();
+    if (!days.length) return null;
+    return { id: spStr(o.id, 40) || `m${i + 1}`, days, start: spTime(o.start || o.startTime), end: spTime(o.end || o.endTime), location: spStr(o.location || o.room, 80) || null };
+  }).filter(Boolean);
+}
 function normalizeProfile(raw) {
   const parsed = tolerantParseJson(raw);
   if (!parsed.ok) return { valid: false, error: "spErrParse" };
@@ -2995,7 +3014,7 @@ function normalizeProfile(raw) {
       seen.add(num);
       return { week: num, startDate: spDate(x.startDate), topics: spList(x.topics, 20), readings: spList(x.readings, 20), qbankFocus: spList(x.qbankFocus || x.qbank_focus, 6, 60) };
     }).filter(Boolean).sort((a, b) => a.week - b.week);
-    return { id: spSlug(o.id || name, "c", i, usedC), name, code: spStr(o.code, 30) || null, weeks };
+    return { id: spSlug(o.id || name, "c", i, usedC), name, code: spStr(o.code, 30) || null, meetings: spMeetings(o.meetings || o.schedule || o.classTimes), weeks };
   }).filter(Boolean);
 
   const usedA = new Set();
@@ -3205,7 +3224,7 @@ function tutorNudges(p, b, now = new Date()) {
 function buildProfileRecipe({ lang, today, stats, existing }) {
   const parts = [];
   parts.push(`You are building a Student Profile for OWORLD, a USMLE study app. Read the syllabi and the semester (academic) calendar I attach (and anything I paste below) and reply with ONLY valid JSON (no markdown, no commentary) matching this schema:\n${PROFILE_PROMPT_SCHEMA}`);
-  parts.push(`Today is ${today}. Week 1 starts on term.startDate and weeks are 7 days; compute currentState.currentWeek from that.`);
+  parts.push(`Today is ${today}. Week 1 starts on term.startDate and weeks are 7 days; compute currentState.currentWeek from that. When a syllabus or schedule gives weekly class meeting times, put them in courses[].meetings (24h times); use [] when none are given.`);
   parts.push([
     "Rules:",
     "- Use ONLY what my documents say. Never invent dates, exams, weights or topics. Unknown value: null (or [] for lists). Any guess or inference: add one short sentence to source.assumptions.",
@@ -3228,7 +3247,7 @@ function buildProfileRecipe({ lang, today, stats, existing }) {
 
 // ---- state: one profile per student. `updatedAt` / `clearedAt` let two devices agree on the newest edit and on a deletion. ----
 const ProfileContext = createContext({
-  profile: null, updatedAt: 0, setProfile: () => {}, toggleTask: () => {}, addTask: () => {}, removeTask: () => {}, clear: () => {}, wipe: () => {}, applyMerged: () => {}, getState: () => ({}),
+  profile: null, updatedAt: 0, setProfile: () => {}, toggleTask: () => {}, addTask: () => {}, removeTask: () => {}, updateCourses: () => {}, clear: () => {}, wipe: () => {}, applyMerged: () => {}, getState: () => ({}),
   sync: { available: false, status: "idle", lastSync: 0, syncNow: () => {} }, pendingFocus: null, seedFocus: () => {}, consumeFocus: () => {},
 });
 const spCore = (m) => hashStr(JSON.stringify({ p: m.profile, u: m.updatedAt, c: m.clearedAt }));
@@ -3269,6 +3288,15 @@ function useStudentProfile() {
     const have = new Set(profile.plan.tasks.map((k) => k.id));
     const carry = ((cur.profile && cur.profile.plan.tasks) || []).filter((k) => /^(cal|usr)-/.test(String(k.id)) && !have.has(k.id));
     if (carry.length) profile = { ...profile, plan: { ...profile.plan, tasks: [...profile.plan.tasks, ...carry] } };
+    // class times the student edited survive a re-import: keep them when the new profile has none for that course, and keep classes they added
+    const oldC = (cur.profile && cur.profile.courses) || [];
+    if (oldC.length) {
+      const ids = new Set(profile.courses.map((c) => c.id));
+      profile = { ...profile, courses: [
+        ...profile.courses.map((c) => { const o = oldC.find((x) => x.id === c.id); return o && (!c.meetings || !c.meetings.length) && o.meetings && o.meetings.length ? { ...c, meetings: o.meetings } : c; }),
+        ...oldC.filter((c) => String(c.id).startsWith("usr-") && !ids.has(c.id)),
+      ] };
+    }
     commit({ profile, updatedAt: now, clearedAt: cur.clearedAt });
   }, []);
   const toggleTask = useCallback((id) => {
@@ -3280,6 +3308,10 @@ function useStudentProfile() {
     const cur = ref.current; if (!cur.profile || cur.profile.plan.tasks.some((k) => k.id === task.id)) return;
     commit({ ...cur, updatedAt: Date.now(), profile: { ...cur.profile, plan: { ...cur.profile.plan, tasks: [...cur.profile.plan.tasks, task] } } });
   }, []);
+  const updateCourses = useCallback((courses) => {
+    const cur = ref.current; if (!cur.profile) return;
+    commit({ ...cur, updatedAt: Date.now(), profile: { ...cur.profile, courses } });
+  }, []);
   const removeTask = useCallback((id) => {
     const cur = ref.current; if (!cur.profile) return;
     commit({ ...cur, updatedAt: Date.now(), profile: { ...cur.profile, plan: { ...cur.profile.plan, tasks: cur.profile.plan.tasks.filter((k) => k.id !== id) } } });
@@ -3289,7 +3321,7 @@ function useStudentProfile() {
   const wipe = useCallback(() => { ref.current = { profile: null, updatedAt: 0, clearedAt: 0 }; setState(ref.current); lsRemove(LS_SP); lsRemove(LS_SP_FILE); lsRemove(LS_SP_LEDGER); }, []);
   const applyMerged = useCallback((m) => { if (spCore(m) !== spCore(ref.current)) commit(m); }, []);
   const getState = useCallback(() => ref.current, []);
-  return { profile: state.profile, updatedAt: state.updatedAt, clearedAt: state.clearedAt, setProfile, toggleTask, addTask, removeTask, clear, wipe, applyMerged, getState };
+  return { profile: state.profile, updatedAt: state.updatedAt, clearedAt: state.clearedAt, setProfile, toggleTask, addTask, removeTask, updateCourses, clear, wipe, applyMerged, getState };
 }
 
 // Google Drive sync for the profile: own file, same sign-in and token as the library sync, same pull → merge → push cycle as the Database.
@@ -3528,9 +3560,13 @@ function StudentProfilePanel({ T, sessionLog }) {
   const [confirmDel, setConfirmDel] = useState(false);
   const [pasteOpen, setPasteOpen] = useState(true);
   const [promptOpen, setPromptOpen] = useState(true);
+  const [mapOpen, setMapOpen] = useState(false);   // Syllabus map: collapsed = only the weeks around today
+  const [srcOpen, setSrcOpen] = useState(false);   // Source: collapsed by default
+  const [updOpen, setUpdOpen] = useState(null);    // Update your profile: collapsed once a profile exists (null = automatic); open while building the first one
   const fileRef = useRef(null);
   const locale = lang === "es" ? "es" : "en-US";
   const profile = sp.profile;
+  const updShown = updOpen === null ? !profile : updOpen;
   const brief = useMemo(() => (profile ? tutorBrief(profile, sessionLog, new Date()) : null), [profile, sessionLog]);
   const canUpdate = !!profile;
   const effMode = canUpdate ? mode : "new";
@@ -3551,7 +3587,7 @@ function StudentProfilePanel({ T, sessionLog }) {
     if (!r.valid) { setError(t(r.error)); setWarns([]); setLoaded(false); setPasteOpen(true); return; }
     setError(""); setWarns(r.warnings); setLoaded(true);
     sp.setProfile(r.data);
-    setText(""); setPasteOpen(false);
+    setText(""); setPasteOpen(false); setUpdOpen(true); // stay open so the result and any warnings are visible
     notify({ kind: "profileLoaded", tone: "green", dedupe: "profileLoaded", vars: { term: r.data.term.name || t("spTitle") } });
   }
   function handleFile(e) {
@@ -3566,6 +3602,20 @@ function StudentProfilePanel({ T, sessionLog }) {
   const syncText = !sp.sync.available ? t("spSyncLocal") : sp.sync.status === "busy" ? t("syncStBusy") : sp.sync.status === "error" ? t("syncStError")
     : sp.sync.lastSync ? t("syncStDone", { time: new Date(sp.sync.lastSync).toLocaleTimeString(locale, { hour: "numeric", minute: "2-digit" }) }) : t("spSyncDrive");
   const ghostSm = { fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(12.5), color: T.blue, background: "transparent", border: "none", cursor: "pointer", padding: 4 };
+  // Card header that doubles as the expand / collapse button.
+  const collHead = (Icon, title, open, toggle, extra) => (
+    <button type="button" onClick={toggle} aria-expanded={open} style={{ display: "flex", alignItems: "center", gap: 8, width: "100%", background: "transparent", border: "none", padding: 0, margin: open ? "0 0 14px" : 0, cursor: "pointer", textAlign: "left", flexWrap: "wrap" }}>
+      <Icon size={17} color={T.ink} /><span style={headTxt}>{title}</span>{extra}
+      <span style={{ marginLeft: "auto", display: "inline-flex" }}>{open ? <ChevronUp size={16} color={T.muted} /> : <ChevronDown size={16} color={T.muted} />}</span>
+    </button>
+  );
+  // Collapsed syllabus map: only the weeks that matter right now.
+  const relevantWeeks = (c) => {
+    if (!brief) return [];
+    if (brief.phase === "in") return c.weeks.filter((w) => w.week === brief.week || w.week === brief.week + 1);
+    if (brief.phase === "after") return c.weeks.slice(-1);
+    return c.weeks.slice(0, 2);
+  };
 
   return (
     <div style={{ display: "grid", gap: 20 }}>
@@ -3646,31 +3696,41 @@ function StudentProfilePanel({ T, sessionLog }) {
 
           {profile.courses.length > 0 && (
             <div style={card}>
-              <div style={cardHead}><BookOpen size={17} color={T.ink} /><span style={headTxt}>{t("spCourses")}</span></div>
-              <div style={{ display: "grid", gap: 14 }}>
-                {profile.courses.map((c) => (
-                  <div key={c.id}>
-                    <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(14), color: T.ink }}>{c.name}{c.code ? <span style={{ fontFamily: FONT_MONO, fontWeight: 400, fontSize: fs(12), color: T.muted }}> · {c.code}</span> : null}</div>
-                    <div style={{ display: "flex", gap: 6, flexWrap: "wrap", marginTop: 8 }}>
-                      {c.weeks.map((w) => {
-                        const cur = brief.phase === "in" && w.week === brief.week;
-                        return <span key={w.week} title={w.topics.join(", ")} style={{ fontFamily: FONT_MONO, fontSize: fs(11.5), padding: "4px 8px", borderRadius: 6, border: `1px solid ${cur ? T.blue : T.border}`, background: cur ? T.blueLight : "transparent", color: cur ? T.blue : T.muted, fontWeight: cur ? 700 : 400 }}>{t("spWeekN", { n: w.week })}{w.topics[0] ? ` · ${w.topics[0].slice(0, 28)}` : ""}</span>;
-                      })}
+              {collHead(BookOpen, t("spCourses"), mapOpen, () => setMapOpen((o) => !o))}
+              <div style={{ display: "grid", gap: 14, marginTop: mapOpen ? 0 : 12 }}>
+                {profile.courses.map((c) => {
+                  const shown = mapOpen ? c.weeks : relevantWeeks(c);
+                  return (
+                    <div key={c.id}>
+                      <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(14), color: T.ink }}>{c.name}{c.code ? <span style={{ fontFamily: FONT_MONO, fontWeight: 400, fontSize: fs(12), color: T.muted }}> · {c.code}</span> : null}</div>
+                      <div style={{ display: "flex", gap: 6, flexWrap: "wrap", marginTop: 8 }}>
+                        {shown.map((w) => {
+                          const cur = brief.phase === "in" && w.week === brief.week;
+                          const topics = mapOpen ? (w.topics[0] ? ` · ${w.topics[0].slice(0, 28)}` : "") : (w.topics.length ? ` · ${w.topics.slice(0, 3).join(", ").slice(0, 90)}` : "");
+                          return <span key={w.week} title={w.topics.join(", ")} style={{ fontFamily: FONT_MONO, fontSize: fs(11.5), padding: "4px 8px", borderRadius: 6, border: `1px solid ${cur ? T.blue : T.border}`, background: cur ? T.blueLight : "transparent", color: cur ? T.blue : T.muted, fontWeight: cur ? 700 : 400 }}>{t("spWeekN", { n: w.week })}{topics}</span>;
+                        })}
+                        {shown.length === 0 && <span style={{ ...body, fontSize: fs(12.5) }}>{t("spNoFocus")}</span>}
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
+              {!mapOpen && <p style={{ ...body, fontSize: fs(12.5), marginTop: 12 }}>{t("spMapNote")}</p>}
             </div>
           )}
 
           {(profile.source.documents.length > 0 || profile.source.assumptions.length > 0 || profile.source.confidence) && (
             <div style={card}>
-              <div style={cardHead}><FileJson size={17} color={T.ink} /><span style={headTxt}>{t("spSource")}</span>{profile.source.confidence && <Pill T={T} tone={profile.source.confidence === "high" ? "green" : profile.source.confidence === "low" ? "red" : "amber"}>{t("spConf", { c: t(`spConf.${profile.source.confidence}`) })}</Pill>}</div>
-              {profile.source.documents.length > 0 && <p style={body}>{profile.source.documents.join(" · ")}</p>}
-              {profile.source.assumptions.length > 0 && (
+              {collHead(FileJson, t("spSource"), srcOpen, () => setSrcOpen((o) => !o), profile.source.confidence ? <Pill T={T} tone={profile.source.confidence === "high" ? "green" : profile.source.confidence === "low" ? "red" : "amber"}>{t("spConf", { c: t(`spConf.${profile.source.confidence}`) })}</Pill> : null)}
+              {srcOpen && (
                 <>
-                  <div style={{ ...label, marginTop: 12 }}>{t("spAssump")}</div>
-                  <ul style={{ ...body, paddingLeft: 18 }}>{profile.source.assumptions.map((a, i) => <li key={i}>{a}</li>)}</ul>
+                  {profile.source.documents.length > 0 && <p style={body}>{profile.source.documents.join(" · ")}</p>}
+                  {profile.source.assumptions.length > 0 && (
+                    <>
+                      <div style={{ ...label, marginTop: 12 }}>{t("spAssump")}</div>
+                      <ul style={{ ...body, paddingLeft: 18 }}>{profile.source.assumptions.map((a, i) => <li key={i}>{a}</li>)}</ul>
+                    </>
+                  )}
                 </>
               )}
             </div>
@@ -3679,7 +3739,8 @@ function StudentProfilePanel({ T, sessionLog }) {
       )}
 
       <div style={card}>
-        <div style={cardHead}><Sparkles size={17} color={T.ink} /><span style={headTxt}>{profile ? t("spUpdateTitle") : t("spBuildTitle")}</span></div>
+        {collHead(Sparkles, profile ? t("spUpdateTitle") : t("spBuildTitle"), updShown, () => setUpdOpen(!updShown))}
+        {updShown && (<div>
         <p style={body}>{profile ? t("spUpdateBody") : t("spBuildBody")}</p>
         <div style={{ display: "flex", gap: 14, flexWrap: "wrap", alignItems: "center", margin: "14px 0" }}>
           {canUpdate && (
@@ -3749,6 +3810,7 @@ function StudentProfilePanel({ T, sessionLog }) {
           </div>
           {profile && <p style={{ ...body, fontSize: fs(12.5), marginTop: 10 }}>{t("spReplaceNote")}</p>}
         </div>
+        </div>)}
       </div>
 
       <div style={{ display: "flex", gap: 10, flexWrap: "wrap", alignItems: "center" }}>
@@ -4824,6 +4886,7 @@ function SettingsMenu({ darkMode, setDarkMode, T, iconOnly = false }) {
   const { t, lang } = useI18n();
   const drive = useContext(DriveContext);
   const trashCtx = useContext(TrashContext);
+  const nav = useContext(NavContext);
   const vp = useViewport();
   const [open, setOpen] = useState(false);
   const [trashOpen, setTrashOpen] = useState(false);
@@ -4941,11 +5004,20 @@ function SettingsMenu({ darkMode, setDarkMode, T, iconOnly = false }) {
                 <button onClick={() => setDarkMode(true)} aria-pressed={darkMode} style={{ ...seg(darkMode), borderLeft: `1px solid ${T.border}` }}>{t("themeDark")}</button>
               </div>
             </div>
-            <TextSizeControl T={T} />
           </div>
 
-          {/* Trash Bin */}
-          <div style={{ borderTop: `1px solid ${T.border}`, padding: "10px 16px", marginTop: 8 }}>
+          {/* Student Profile + Trash Bin */}
+          <div style={{ borderTop: `1px solid ${T.border}`, padding: "10px 16px", marginTop: 8, display: "grid", gap: 8 }}>
+            {nav.open && (
+              <button onClick={() => { setOpen(false); nav.open("profile"); }} disabled={nav.locked} style={{
+                width: "100%", display: "flex", alignItems: "center", gap: 10, background: "transparent", border: `1px solid ${T.border}`, borderRadius: 6, cursor: nav.locked ? "not-allowed" : "pointer",
+                padding: "9px 12px", fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(13), color: T.ink, textAlign: "left", opacity: nav.locked ? 0.5 : 1,
+              }}>
+                <GraduationCap size={15} color={T.muted} />
+                <span style={{ flex: 1 }}>{t("spTitle")}</span>
+                <ChevronRight size={15} color={T.muted} />
+              </button>
+            )}
             <button onClick={() => { setOpen(false); setTrashOpen(true); }} style={{
               width: "100%", display: "flex", alignItems: "center", gap: 10, background: "transparent", border: `1px solid ${T.border}`, borderRadius: 6, cursor: "pointer",
               padding: "9px 12px", fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(13), color: T.ink, textAlign: "left",
@@ -5652,6 +5724,53 @@ function TrendSpark({ vals, T }) {
   );
 }
 
+const fmtClock = (hhmm, locale) => { const m = /^(\d{2}):(\d{2})$/.exec(hhmm || ""); return m ? new Date(2023, 0, 1, +m[1], +m[2]).toLocaleTimeString(locale, { hour: "numeric", minute: "2-digit" }) : ""; };
+const newLocalId = (p) => `${p}-${Date.now().toString(36)}${Math.random().toString(36).slice(2, 6)}`;
+
+// Edit class names, meeting days/times and locations after import. Every change is saved straight into the profile.
+function ClassEditor({ courses, onChange, mondayFirst, locale, defaultDay, T, t }) {
+  const [newName, setNewName] = useState("");
+  const order = mondayFirst ? [1, 2, 3, 4, 5, 6, 0] : [0, 1, 2, 3, 4, 5, 6];
+  const dayLbl = (d) => new Date(2023, 0, 1 + d).toLocaleDateString(locale, { weekday: "short" }).slice(0, 3);
+  const inp = { fontFamily: FONT_UI, fontSize: fs(13), color: T.ink, background: T.paper, border: `1px solid ${T.border}`, borderRadius: 6, padding: "6px 8px", outline: "none", minWidth: 0 };
+  const setCourse = (id, fn) => onChange(courses.map((c) => (c.id === id ? fn(c) : c)));
+  const setMeet = (cid, mid, patch) => setCourse(cid, (c) => ({ ...c, meetings: (c.meetings || []).map((m) => (m.id === mid ? { ...m, ...patch } : m)) }));
+  const addClass = () => { const name = newName.trim().slice(0, 120); if (!name) return; onChange([...courses, { id: newLocalId("usr"), name, code: null, meetings: [{ id: newLocalId("m"), days: [defaultDay], start: "09:00", end: "10:00", location: null }], weeks: [] }]); setNewName(""); };
+  return (
+    <div style={{ display: "grid", gap: 10, margin: "6px 0 4px" }}>
+      {courses.length === 0 && <p style={{ fontFamily: FONT_UI, fontSize: fs(13), color: T.muted, margin: 0 }}>{t("csClassNone")}</p>}
+      {courses.map((c) => (
+        <div key={c.id} style={{ border: `1px solid ${T.border}`, borderRadius: 8, padding: 10, display: "grid", gap: 8 }}>
+          <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
+            <input value={c.name} maxLength={120} aria-label={t("csClassName")} onChange={(e) => setCourse(c.id, (x) => ({ ...x, name: e.target.value }))} style={{ ...inp, flex: 1, fontWeight: 700 }} />
+            {String(c.id).startsWith("usr-") && <button onClick={() => onChange(courses.filter((x) => x.id !== c.id))} title={t("csPlanRemove")} aria-label={t("csPlanRemove")} style={{ background: "transparent", border: "none", cursor: "pointer", color: T.muted, padding: 4, display: "flex" }}><Trash2 size={15} /></button>}
+          </div>
+          {(c.meetings || []).map((m) => (
+            <div key={m.id} style={{ display: "flex", gap: 6, alignItems: "center", flexWrap: "wrap" }}>
+              <span role="group" style={{ display: "inline-flex", gap: 3 }}>
+                {order.map((d) => { const on = m.days.includes(d); return (
+                  <button key={d} onClick={() => setMeet(c.id, m.id, { days: on ? m.days.filter((x) => x !== d) : [...m.days, d].sort() })} aria-pressed={on}
+                    style={{ fontFamily: FONT_UI, fontSize: fs(11), fontWeight: 600, padding: "5px 6px", borderRadius: 5, cursor: "pointer", border: `1px solid ${on ? T.blue : T.border}`, background: on ? T.blue : "transparent", color: on ? T.onBlue : T.muted }}>{dayLbl(d)}</button>
+                ); })}
+              </span>
+              <input type="time" value={m.start || ""} aria-label="start" onChange={(e) => setMeet(c.id, m.id, { start: e.target.value || null })} style={{ ...inp, width: 104 }} />
+              <span style={{ color: T.muted }}>–</span>
+              <input type="time" value={m.end || ""} aria-label="end" onChange={(e) => setMeet(c.id, m.id, { end: e.target.value || null })} style={{ ...inp, width: 104 }} />
+              <input value={m.location || ""} maxLength={80} placeholder={t("csClassLoc")} aria-label={t("csClassLoc")} onChange={(e) => setMeet(c.id, m.id, { location: e.target.value || null })} style={{ ...inp, flex: "1 1 90px" }} />
+              <button onClick={() => setCourse(c.id, (x) => ({ ...x, meetings: x.meetings.filter((q) => q.id !== m.id) }))} title={t("csPlanRemove")} aria-label={t("csPlanRemove")} style={{ background: "transparent", border: "none", cursor: "pointer", color: T.muted, padding: 4, display: "flex" }}><X size={15} /></button>
+            </div>
+          ))}
+          <div><GhostButton T={T} icon={Plus} onClick={() => setCourse(c.id, (x) => ({ ...x, meetings: [...(x.meetings || []), { id: newLocalId("m"), days: [defaultDay], start: "09:00", end: "10:00", location: null }] }))} style={{ padding: "5px 10px" }}>{t("csClassAddMeeting")}</GhostButton></div>
+        </div>
+      ))}
+      <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
+        <input value={newName} maxLength={120} placeholder={t("csClassNew")} aria-label={t("csClassNew")} onChange={(e) => setNewName(e.target.value)} onKeyDown={(e) => { if (e.key === "Enter") addClass(); }} style={{ ...inp, flex: "1 1 160px" }} />
+        <GhostButton T={T} icon={Plus} onClick={addClass} disabled={!newName.trim()} style={{ padding: "6px 12px" }}>{t("csClassAdd")}</GhostButton>
+      </div>
+    </div>
+  );
+}
+
 // ---- Console: semester calendar. One month grid: exams, tasks, calendar events (breaks, holidays, deadlines) and study days. ----
 function ConsoleCalendar({ sessionLog, onNavigate, T, fill = false }) {
   const { t, lang } = useI18n();
@@ -5664,6 +5783,7 @@ function ConsoleCalendar({ sessionLog, onNavigate, T, fill = false }) {
   const [selKey, setSelKey] = useState(() => toISODate(new Date()));
   const todayKey = toISODate(new Date());
   const [newTitle, setNewTitle] = useState("");
+  const [editClasses, setEditClasses] = useState(false);
   const cap = (x) => x.charAt(0).toUpperCase() + x.slice(1);
   const brief = useMemo(() => (profile ? tutorBrief(profile, sessionLog, new Date()) : null), [profile, sessionLog, todayKey]); // eslint-disable-line
 
@@ -5701,6 +5821,16 @@ function ConsoleCalendar({ sessionLog, onNavigate, T, fill = false }) {
     if ((end && dayDiff(selDate, end) < 0) || (brief.total && w > brief.total)) return null;
     return brief.total ? t("spTermWeek", { w, n: brief.total }) : t("spTermWeekNoTotal", { w });
   })();
+  // Class meetings for the selected day: inside the term and not on a holiday/break.
+  const selClasses = (() => {
+    if (!profile) return [];
+    const st = termStartOf(profile); const en = parseISODate(profile.term && profile.term.endDate);
+    if ((st && dayDiff(st, selDate) < 0) || (en && dayDiff(selDate, en) < 0)) return [];
+    if (sel.events.some((e) => e.type === "holiday" || e.type === "break")) return [];
+    return (profile.courses || []).flatMap((c) => (c.meetings || []).filter((m) => m.days.includes(selDate.getDay())).map((m) => ({ c, m })))
+      .sort((p, q) => ((p.m.start || "99") < (q.m.start || "99") ? -1 : (p.m.start || "99") > (q.m.start || "99") ? 1 : 0));
+  })();
+  const hasMeetings = !!(profile && (profile.courses || []).some((c) => (c.meetings || []).length));
   // Scheduled exams/events for the selected day are tickable plan items; ticking one saves it as a plan task.
   const planTasks = (profile && profile.plan && profile.plan.tasks) || [];
   const sched = [
@@ -5741,6 +5871,7 @@ function ConsoleCalendar({ sessionLog, onNavigate, T, fill = false }) {
         <CalendarDays size={17} color={T.ink} />
         <span style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(14), color: T.ink }}>{t("csCalendar")}</span>
         <div style={{ marginLeft: "auto", display: "flex", gap: 6, alignItems: "center" }}>
+          <button onClick={() => onNavigate("calendar")} style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(12.5), color: T.blue, background: "transparent", border: "none", cursor: "pointer", padding: 4 }}>{t("calOpenFull")}</button>
           <button onClick={goToday} style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(12.5), color: T.blue, background: "transparent", border: "none", cursor: "pointer", padding: 4 }}>{t("csCalToday")}</button>
           <button onClick={() => shift(-1)} aria-label={t("csCalPrev")} style={iconBtn}><ChevronLeft size={16} /></button>
           <button onClick={() => shift(1)} aria-label={t("csCalNext")} style={iconBtn}><ChevronRight size={16} /></button>
@@ -5768,13 +5899,13 @@ function ConsoleCalendar({ sessionLog, onNavigate, T, fill = false }) {
             <button key={key} onClick={() => { setSelKey(key); if (!inMonth) setView(new Date(d.getFullYear(), d.getMonth(), 1)); }}
               aria-label={label} aria-pressed={isSel} aria-current={isToday ? "date" : undefined}
               style={{
-                minHeight: phone ? 44 : 50, padding: "5px 2px 6px", borderRadius: 8, cursor: "pointer", fontFamily: FONT_UI,
+                minHeight: phone ? 52 : 60, padding: "5px 2px 6px", borderRadius: 8, cursor: "pointer", fontFamily: FONT_UI,
                 display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "space-between", gap: 3,
                 background: off ? T.blueLight : "transparent", border: "1px solid transparent",
                 opacity: inMonth ? 1 : 0.4,
               }}>
               <span style={{
-                minWidth: 24, height: 24, lineHeight: "24px", borderRadius: 999, fontSize: fs(13), fontWeight: isToday || isSel ? 700 : 500,
+                minWidth: 30, height: 30, lineHeight: "30px", borderRadius: 999, fontSize: fs(16), fontWeight: isToday || isSel ? 700 : 500,
                 background: isToday ? T.blue : "transparent", color: isToday ? T.onBlue : T.ink,
               }}>{d.getDate()}</span>
               <span style={{ display: "flex", gap: 3, height: 6 }}>{dots.map((c, i) => dot(c, i))}</span>
@@ -5792,6 +5923,25 @@ function ConsoleCalendar({ sessionLog, onNavigate, T, fill = false }) {
           <span style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(14), color: T.ink }}>{cap(selDate.toLocaleDateString(locale, { weekday: "long", month: "long", day: "numeric" }))}</span>
           {selWeek && <Pill T={T} tone="muted">{selWeek}</Pill>}
         </div>
+        {profile && (
+          <div style={{ marginBottom: 6 }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+              <span style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(11.5), color: T.muted, textTransform: "uppercase", letterSpacing: "0.06em" }}>{t("csClasses")}</span>
+              <GhostButton T={T} icon={editClasses ? Check : Pencil} onClick={() => setEditClasses((v) => !v)} style={{ marginLeft: "auto", padding: "4px 10px" }}>{editClasses ? t("csClassDone") : t("csClassEdit")}</GhostButton>
+            </div>
+            {editClasses
+              ? <ClassEditor courses={profile.courses || []} onChange={sp.updateCourses} mondayFirst={mondayFirst} locale={locale} defaultDay={selDate.getDay()} T={T} t={t} />
+              : selClasses.length > 0
+                ? selClasses.map(({ c, m }) => (
+                  <div key={`${c.id}-${m.id}`} style={{ ...itemRow, padding: "5px 0", alignItems: "center" }}>
+                    <span style={{ fontFamily: FONT_MONO, fontSize: fs(11.5), color: T.muted, minWidth: 92 }}>{m.start ? `${fmtClock(m.start, locale)}${m.end ? ` – ${fmtClock(m.end, locale)}` : ""}` : "—"}</span>
+                    <span style={{ ...rowHead, flex: 1, minWidth: 0 }}>{c.name}</span>
+                    {m.location && <span style={{ fontFamily: FONT_UI, fontSize: fs(12), color: T.muted }}>{m.location}</span>}
+                  </div>
+                ))
+                : !hasMeetings && <p style={{ fontFamily: FONT_UI, fontSize: fs(12.5), color: T.muted, margin: "2px 0 0" }}>{t("csClassNone")}</p>}
+          </div>
+        )}
         {sched.map((x) => {
           const a = x.item; const isExam = x.src === "exam"; const tone = isExam ? T.red : T.blue;
           return (
@@ -5848,6 +5998,393 @@ function ConsoleCalendar({ sessionLog, onNavigate, T, fill = false }) {
     </div>
   );
 }
+
+// ---- Calendar page: the whole term on one big calendar. Month | Week | Agenda, with every layer (key dates, classes, exams,
+// breaks and holidays, tasks, study days) switchable, and a day panel to tick, add and edit things. ----
+function CalendarPage({ sessionLog, onNavigate, T }) {
+  const { t, lang } = useI18n();
+  const sp = useContext(ProfileContext);
+  const vw = useViewport().w;
+  const phone = vw < 640;
+  const wide = vw >= 1180;
+  const locale = lang === "es" ? "es" : "en-US";
+  const mondayFirst = lang === "es";
+  const profile = sp.profile;
+  const todayKey = toISODate(new Date());
+  const [mode, setMode] = useState("month"); // month | week | agenda
+  const [anchor, setAnchor] = useState(() => startOfDay(new Date())); // the day the visible month / week / agenda is built around
+  const [selKey, setSelKey] = useState(todayKey);
+  const [layers, setLayers] = useState({ key: true, class: true, exam: true, event: true, task: true, study: true });
+  const [newTitle, setNewTitle] = useState("");
+  const [editClasses, setEditClasses] = useState(false);
+  const cap = (x) => x.charAt(0).toUpperCase() + x.slice(1);
+  const addDays = (d, n) => { const x = new Date(d); x.setDate(x.getDate() + n); return x; };
+  const brief = useMemo(() => (profile ? tutorBrief(profile, sessionLog, new Date()) : null), [profile, sessionLog, todayKey]); // eslint-disable-line
+  const termStart = profile ? termStartOf(profile) : null;
+  const termEnd = profile ? parseISODate(profile.term && profile.term.endDate) : null;
+
+  // [accent, tint] per kind of item
+  const KIND = { key: [T.ink, T.mutedBg], exam: [T.red, T.redLight], class: [T.muted, T.mutedBg], event: [T.blue, T.blueLight], task: [T.amber, T.amberLight], study: [T.green, T.greenLight] };
+  const EMPTY = { exams: [], tasks: [], events: [], sessions: [], keys: [] };
+
+  const byDay = useMemo(() => {
+    const m = new Map();
+    const slot = (k) => { let x = m.get(k); if (!x) { x = { exams: [], tasks: [], events: [], sessions: [], keys: [] }; m.set(k, x); } return x; };
+    if (profile) {
+      (profile.assessments || []).forEach((a) => slot(a.date).exams.push(a));
+      ((profile.plan && profile.plan.tasks) || []).forEach((k) => { if (k.due) slot(k.due).tasks.push(k); });
+      ((profile.calendar && profile.calendar.events) || []).forEach((e) => {
+        const s = parseISODate(e.startDate); if (!s) return;
+        const span = Math.min(60, Math.max(0, e.endDate && parseISODate(e.endDate) ? dayDiff(s, parseISODate(e.endDate)) : 0));
+        for (let i = 0; i <= span; i++) { const d = new Date(s); d.setDate(d.getDate() + i); slot(toISODate(d)).events.push(e); }
+      });
+      const tm = profile.term || {};
+      if (parseISODate(tm.startDate)) slot(tm.startDate).keys.push({ id: "start", title: t("calTermStart") });
+      if (parseISODate(tm.endDate)) slot(tm.endDate).keys.push({ id: "end", title: t("calTermEnd") });
+      const te = profile.student && profile.student.targetExam;
+      if (te && parseISODate(te.date)) slot(te.date).keys.push({ id: "target", title: te.name || t("calTargetExam") });
+    }
+    (sessionLog || []).forEach((e) => slot(toISODate(new Date(e.finishedAt))).sessions.push(e));
+    return m;
+  }, [profile, sessionLog, lang]); // eslint-disable-line
+  const infoOf = (key) => byDay.get(key) || EMPTY;
+  const isOff = (info) => info.events.some((e) => e.type === "holiday" || e.type === "break");
+
+  const termWeekOf = (d) => {
+    if (!termStart || !brief) return null;
+    const diff = dayDiff(termStart, d); if (diff < 0) return null;
+    const w = Math.floor(diff / 7) + 1;
+    if ((termEnd && dayDiff(d, termEnd) < 0) || (brief.total && w > brief.total)) return null;
+    return { w, first: diff % 7 === 0 };
+  };
+  // Class meetings on a day: inside the term and not on a holiday / break.
+  const classesOn = (d, info) => {
+    if (!profile) return [];
+    if ((termStart && dayDiff(termStart, d) < 0) || (termEnd && dayDiff(d, termEnd) < 0)) return [];
+    if (isOff(info)) return [];
+    return (profile.courses || []).flatMap((c) => (c.meetings || []).filter((m) => m.days.includes(d.getDay())).map((m) => ({ c, m })))
+      .sort((p, q) => ((p.m.start || "99") < (q.m.start || "99") ? -1 : (p.m.start || "99") > (q.m.start || "99") ? 1 : 0));
+  };
+  const shortClock = (x) => String(x || "").replace(/:00\s?([AP])M/i, (m, c) => c.toLowerCase()).replace(/\s?([AP])M/i, (m, c) => c.toLowerCase()); // "9:00 AM" -> "9a", "1:30 PM" -> "1:30p"
+  const qOf = (sessions) => sessions.reduce((n, e) => n + (Number(e.answered != null ? e.answered : e.total) || 0), 0);
+  // Everything on a day that the visible layers allow. group = true folds several classes into one line (month cells).
+  const itemsOf = (d, group = false) => {
+    const info = infoOf(toISODate(d)); const out = [];
+    if (layers.key) info.keys.forEach((k) => out.push({ id: `k-${k.id}`, kind: "key", title: k.title }));
+    if (layers.exam) info.exams.forEach((a) => out.push({ id: `x-${a.id}`, kind: "exam", title: a.title, time: a.time ? shortClock(fmtClock(a.time, locale)) : null, done: a.status === "done" }));
+    if (layers.class) {
+      const cl = classesOn(d, info);
+      if (group && cl.length > 1) out.push({ id: "c-all", kind: "class", title: t("calClassesN", { n: cl.length }) });
+      else cl.forEach(({ c, m }) => out.push({ id: `c-${c.id}-${m.id}`, kind: "class", title: c.name, time: m.start ? shortClock(fmtClock(m.start, locale)) : null }));
+    }
+    if (layers.event) info.events.forEach((e) => out.push({ id: `e-${e.id}`, kind: "event", title: e.title }));
+    if (layers.task) info.tasks.filter((k) => !String(k.id).startsWith("cal-")).forEach((k) => out.push({ id: `t-${k.id}`, kind: "task", title: k.title, done: k.done }));
+    if (layers.study && info.sessions.length) out.push({ id: "s", kind: "study", title: t("csCalStudied", { n: info.sessions.length, q: qOf(info.sessions) }) });
+    return out;
+  };
+
+  // ---- navigation ----
+  const monthStart = new Date(anchor.getFullYear(), anchor.getMonth(), 1);
+  const weekStart = (() => { const d = startOfDay(anchor); return addDays(d, -((d.getDay() - (mondayFirst ? 1 : 0) + 7) % 7)); })();
+  const agendaDays = Array.from({ length: 30 }, (_, i) => addDays(startOfDay(anchor), i));
+  const shift = (n) => setAnchor((a) => (mode === "month" ? new Date(a.getFullYear(), a.getMonth() + n, 1) : addDays(a, n * (mode === "week" ? 7 : 30))));
+  const goToday = () => { const d = startOfDay(new Date()); setAnchor(d); setSelKey(toISODate(d)); };
+  const inView = (d) => (mode === "month" ? d.getMonth() === monthStart.getMonth() && d.getFullYear() === monthStart.getFullYear()
+    : mode === "week" ? dayDiff(weekStart, d) >= 0 && dayDiff(weekStart, d) <= 6 : dayDiff(anchor, d) >= 0 && dayDiff(anchor, d) < 30);
+  const changeMode = (m) => { if (m === mode) return; const s = parseISODate(selKey); if (s && inView(s)) setAnchor(s); setMode(m); };
+  const selectDay = (d) => { setSelKey(toISODate(d)); if (mode === "month" && d.getMonth() !== monthStart.getMonth()) setAnchor(new Date(d.getFullYear(), d.getMonth(), 1)); };
+  const fmtShort = (d) => d.toLocaleDateString(locale, { month: "short", day: "numeric" });
+  const fmtLong = (d) => d.toLocaleDateString(locale, { month: "short", day: "numeric", year: "numeric" });
+  const rangeLabel = mode === "month" ? cap(monthStart.toLocaleDateString(locale, { month: "long", year: "numeric" }))
+    : mode === "week" ? `${fmtShort(weekStart)} – ${fmtLong(addDays(weekStart, 6))}`
+      : `${fmtShort(anchor)} – ${fmtLong(addDays(anchor, 29))}`;
+  const lead = (monthStart.getDay() - (mondayFirst ? 1 : 0) + 7) % 7;
+  const dim = new Date(monthStart.getFullYear(), monthStart.getMonth() + 1, 0).getDate();
+  const monthCells = Array.from({ length: Math.ceil((lead + dim) / 7) * 7 }, (_, i) => addDays(monthStart, i - lead));
+  const weekdayName = (style) => Array.from({ length: 7 }, (_, i) => new Date(2023, 0, 1 + (mondayFirst ? 1 : 0) + i).toLocaleDateString(locale, { weekday: style }));
+  const longDay = (d) => d.toLocaleDateString(locale, { weekday: "long", month: "long", day: "numeric" });
+
+  // ---- selected day ----
+  const selDate = parseISODate(selKey) || new Date();
+  const sel = infoOf(selKey);
+  const selWk = termWeekOf(selDate);
+  const selClasses = classesOn(selDate, sel);
+  const hasMeetings = !!(profile && (profile.courses || []).some((c) => (c.meetings || []).length));
+  const planTasks = (profile && profile.plan && profile.plan.tasks) || [];
+  const sched = [
+    ...sel.exams.map((a) => ({ id: `cal-exam-${a.id}`, src: "exam", item: a, title: a.title, kind: "exam" })),
+    ...sel.events.map((e) => ({ id: `cal-event-${e.id}-${selKey}`, src: "event", item: e, title: e.title, kind: "other" })),
+  ].map((x) => ({ ...x, done: !!(planTasks.find((k) => k.id === x.id) || {}).done }));
+  const schedIds = new Set(sched.map((x) => x.id));
+  const selTasks = sel.tasks.filter((k) => !schedIds.has(k.id) && !String(k.id).startsWith("cal-"));
+  const tickSched = (x) => {
+    if (planTasks.some((k) => k.id === x.id)) sp.toggleTask(x.id);
+    else sp.addTask({ id: x.id, title: x.title, due: selKey, subject: null, kind: x.kind, done: true });
+  };
+  const isMine = (k) => String(k.id).startsWith("usr-");
+  const submitNew = () => {
+    const title = newTitle.trim().slice(0, 200); if (!title || !profile) return;
+    sp.addTask({ id: `usr-${Date.now().toString(36)}${Math.random().toString(36).slice(2, 6)}`, title, due: selKey, subject: null, kind: "other", done: false });
+    setNewTitle("");
+  };
+  const fmtRange = (e) => (e.endDate ? `${fmtShort(parseISODate(e.startDate))} → ${fmtShort(parseISODate(e.endDate))}` : fmtShort(parseISODate(e.startDate)));
+  const hasEvents = !!(profile && profile.calendar && profile.calendar.events.length);
+
+  // ---- shared styles ----
+  const card = { background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, padding: phone ? 14 : 22, minWidth: 0 };
+  const iconBtn = { width: 32, height: 32, borderRadius: 8, border: `1px solid ${T.border}`, background: "transparent", color: T.ink, cursor: "pointer", display: "inline-flex", alignItems: "center", justifyContent: "center", padding: 0 };
+  const rowHead = { fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(13.5), color: T.ink, overflowWrap: "anywhere" };
+  const rowSub = { fontFamily: FONT_MONO, fontSize: fs(11.5), color: T.muted };
+  const itemRow = { display: "flex", alignItems: "flex-start", gap: 10, padding: "7px 0" };
+  const sect = { fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(11.5), color: T.muted, textTransform: "uppercase", letterSpacing: "0.06em" };
+  const dot = (color, k) => <span key={k} style={{ width: 6, height: 6, borderRadius: 999, background: color, display: "inline-block" }} />;
+
+  const chipEl = (it, wrap) => {
+    const [c, bg] = KIND[it.kind];
+    return (
+      <span key={it.id} title={[it.time, it.title].filter(Boolean).join(" ")} style={{
+        display: "block", boxSizing: "border-box", maxWidth: "100%", textAlign: "left", borderLeft: `3px solid ${c}`, background: bg, color: T.ink, borderRadius: 4,
+        padding: "2px 6px", fontFamily: FONT_UI, fontSize: fs(11.5), lineHeight: 1.35, fontWeight: it.kind === "exam" || it.kind === "key" ? 700 : 500,
+        textDecoration: it.done ? "line-through" : "none", opacity: it.done ? 0.65 : 1,
+        ...(wrap ? { overflowWrap: "break-word", wordBreak: "normal" } : { overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }),
+      }}>
+        {it.time && <span style={{ fontFamily: FONT_MONO, fontSize: fs(10.5), color: T.muted }}>{it.time} </span>}{it.title}
+      </span>
+    );
+  };
+  const dayNum = (d, isToday, isSel) => (
+    <span style={{
+      minWidth: 30, height: 30, lineHeight: "30px", textAlign: "center", borderRadius: 999, fontSize: fs(16), fontWeight: isToday || isSel ? 700 : 500,
+      background: isToday ? T.blue : "transparent", color: isToday ? T.onBlue : T.ink, display: "inline-block",
+    }}>{d.getDate()}</span>
+  );
+  const keyActivate = (fn) => (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); fn(); } };
+
+  // ---- views ----
+  const monthView = (
+    <div style={{ display: "grid", gridTemplateColumns: "repeat(7, minmax(0, 1fr))", gap: phone ? 2 : 4 }}>
+      {weekdayName(phone ? "narrow" : "short").map((w, i) => <div key={i} style={{ textAlign: "center", fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(12), color: T.muted, padding: "4px 0" }}>{w}</div>)}
+      {monthCells.map((d) => {
+        const key = toISODate(d); const inMonth = d.getMonth() === monthStart.getMonth();
+        const isSel = key === selKey; const isToday = key === todayKey;
+        const items = itemsOf(d, true); const max = wide ? 3 : 2; const wk = termWeekOf(d);
+        const kinds = [...new Set(items.map((i) => i.kind))];
+        return (
+          <button key={key} onClick={() => selectDay(d)} aria-label={longDay(d)} aria-pressed={isSel} aria-current={isToday ? "date" : undefined} style={{
+            minHeight: phone ? 54 : 122, minWidth: 0, boxSizing: "border-box", padding: phone ? "5px 2px" : "6px 6px 7px", borderRadius: 8, cursor: "pointer", fontFamily: FONT_UI,
+            display: "flex", flexDirection: "column", alignItems: phone ? "center" : "stretch", justifyContent: "flex-start", gap: 4, textAlign: "left",
+            background: isOff(infoOf(key)) ? T.blueLight : "transparent", border: `1px solid ${isSel ? T.blue : T.border}`, boxShadow: isSel ? `0 0 0 1px ${T.blue}` : "none",
+            opacity: inMonth ? 1 : 0.42,
+          }}>
+            <span style={{ display: "flex", alignItems: "center", gap: 6, justifyContent: phone ? "center" : "flex-start" }}>
+              {dayNum(d, isToday, isSel)}
+              {!phone && wk && wk.first && <span style={{ fontFamily: FONT_MONO, fontSize: fs(10.5), color: T.muted }}>{t("spWeekN", { n: wk.w })}</span>}
+            </span>
+            {phone
+              ? <span style={{ display: "flex", gap: 3, height: 6 }}>{kinds.slice(0, 4).map((k, i) => dot(KIND[k][0], i))}</span>
+              : <span style={{ display: "grid", gap: 3, minWidth: 0 }}>
+                {items.slice(0, max).map((it) => chipEl(it, false))}
+                {items.length > max && <span style={{ fontFamily: FONT_UI, fontSize: fs(11), color: T.muted, paddingLeft: 3 }}>{t("csCalMore", { n: items.length - max })}</span>}
+              </span>}
+          </button>
+        );
+      })}
+    </div>
+  );
+
+  const weekView = (
+    <div style={{ display: "grid", gridTemplateColumns: vw >= 900 ? "repeat(7, minmax(0, 1fr))" : "minmax(0, 1fr)", gap: 8, alignItems: "stretch" }}>
+      {Array.from({ length: 7 }, (_, i) => addDays(weekStart, i)).map((d) => {
+        const key = toISODate(d); const isSel = key === selKey; const isToday = key === todayKey;
+        const items = itemsOf(d); const wk = termWeekOf(d);
+        return (
+          <div key={key} role="button" tabIndex={0} aria-pressed={isSel} aria-label={longDay(d)} onClick={() => selectDay(d)} onKeyDown={keyActivate(() => selectDay(d))} style={{
+            minHeight: vw >= 900 ? 220 : 0, minWidth: 0, boxSizing: "border-box", padding: 8, borderRadius: 8, cursor: "pointer", display: "flex", flexDirection: "column", gap: 6,
+            background: isOff(infoOf(key)) ? T.blueLight : "transparent", border: `1px solid ${isSel ? T.blue : T.border}`, boxShadow: isSel ? `0 0 0 1px ${T.blue}` : "none",
+          }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 6, flexWrap: "wrap" }}>
+              {dayNum(d, isToday, isSel)}
+              <span style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(12), color: T.muted, textTransform: "uppercase", letterSpacing: "0.05em" }}>{d.toLocaleDateString(locale, { weekday: "short" })}</span>
+              {wk && wk.first && <span style={{ fontFamily: FONT_MONO, fontSize: fs(10.5), color: T.muted }}>{t("spWeekN", { n: wk.w })}</span>}
+            </div>
+            <div style={{ display: "grid", gap: 4, minWidth: 0 }}>{items.map((it) => chipEl(it, true))}</div>
+          </div>
+        );
+      })}
+    </div>
+  );
+
+  const agendaRows = agendaDays.map((d) => ({ d, items: itemsOf(d) })).filter((x) => x.items.length > 0);
+  const agendaView = agendaRows.length === 0
+    ? <p style={{ fontFamily: FONT_UI, fontSize: fs(13.5), color: T.muted, margin: "8px 0" }}>{t("calAgendaEmpty")}</p>
+    : (
+      <div style={{ display: "grid" }}>
+        {agendaRows.map(({ d, items }) => {
+          const key = toISODate(d); const isSel = key === selKey; const isToday = key === todayKey; const wk = termWeekOf(d);
+          return (
+            <div key={key} role="button" tabIndex={0} aria-pressed={isSel} aria-label={longDay(d)} onClick={() => selectDay(d)} onKeyDown={keyActivate(() => selectDay(d))} style={{
+              display: "grid", gridTemplateColumns: phone ? "56px minmax(0, 1fr)" : "92px minmax(0, 1fr)", gap: 12, padding: "10px 8px", borderBottom: `1px solid ${T.border}`, cursor: "pointer",
+              background: isSel ? T.blueLight : "transparent", borderRadius: isSel ? 8 : 0,
+            }}>
+              <div>
+                <div style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(11.5), color: isToday ? T.blue : T.muted, textTransform: "uppercase", letterSpacing: "0.05em" }}>{d.toLocaleDateString(locale, { weekday: "short" })}</div>
+                {dayNum(d, isToday, false)}
+                <div style={{ fontFamily: FONT_MONO, fontSize: fs(10.5), color: T.muted }}>{fmtShort(d)}{wk && !phone ? ` · ${t("spWeekN", { n: wk.w })}` : ""}</div>
+              </div>
+              <div style={{ display: "grid", gap: 4, alignContent: "start", minWidth: 0 }}>{items.map((it) => chipEl(it, true))}</div>
+            </div>
+          );
+        })}
+      </div>
+    );
+
+  const tiles = profile && brief ? [
+    [t("calStatTerm"), profile.term.name || "—", spWeekLabel(brief, t)],
+    [t("spNext"), brief.next ? brief.next.title : t("spNoNext"), brief.next ? spWhen(brief.next.days, t) : ""],
+    [t("calStatOpen"), String(planTasks.filter((k) => !k.done).length), brief.tasksDue.length ? t("sgTasks", { n: brief.tasksDue.length }) : ""],
+    [t("calStatWeekQ"), brief.target ? `${brief.answeredWeek} / ${brief.target}` : String(brief.answeredWeek), ""],
+  ] : null;
+
+  return (
+    <div style={{ display: "grid", gap: 18 }}>
+      <div>
+        <h1 style={{ fontFamily: FONT_DISPLAY, fontSize: fs(phone ? 26 : 32), fontWeight: 600, color: T.ink, margin: "0 0 4px" }}>{t("calTitle")}</h1>
+        <p style={{ fontFamily: FONT_UI, fontSize: fs(13.5), color: T.muted, lineHeight: 1.55, margin: 0, maxWidth: 680 }}>{t("calHint")}</p>
+      </div>
+
+      {tiles && (
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 200px), 1fr))", gap: 12 }}>
+          {tiles.map(([label, value, sub]) => (
+            <div key={label} style={{ ...card, padding: phone ? 14 : 16 }}>
+              <div style={sect}>{label}</div>
+              <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(16), color: T.ink, marginTop: 4, overflowWrap: "anywhere" }}>{value}</div>
+              {sub && <div style={{ fontFamily: FONT_UI, fontSize: fs(12), color: T.muted, marginTop: 2 }}>{sub}</div>}
+            </div>
+          ))}
+        </div>
+      )}
+
+      <div style={{ display: "grid", gridTemplateColumns: wide ? "minmax(0, 1fr) 360px" : "minmax(0, 1fr)", gap: 18, alignItems: "start" }}>
+        <div style={card}>
+          <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap", marginBottom: 12 }}>
+            <CalendarDays size={18} color={T.ink} />
+            <span style={{ fontFamily: FONT_DISPLAY, fontWeight: 600, fontSize: fs(phone ? 18 : 22), color: T.ink }}>{rangeLabel}</span>
+            <div style={{ marginLeft: "auto", display: "flex", gap: 6, alignItems: "center", flexWrap: "wrap" }}>
+              <button onClick={goToday} style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(12.5), color: T.blue, background: "transparent", border: "none", cursor: "pointer", padding: 4 }}>{t("csCalToday")}</button>
+              <button onClick={() => shift(-1)} aria-label={t("calPrev")} style={iconBtn}><ChevronLeft size={16} /></button>
+              <button onClick={() => shift(1)} aria-label={t("calNext")} style={iconBtn}><ChevronRight size={16} /></button>
+              <div role="group" aria-label={t("calTitle")} style={{ display: "flex", border: `1px solid ${T.border}`, borderRadius: 8, overflow: "hidden" }}>
+                {[["month", "calMonth"], ["week", "calWeek"], ["agenda", "calAgenda"]].map(([id, k], i) => (
+                  <button key={id} onClick={() => changeMode(id)} aria-pressed={mode === id} style={{
+                    fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(13), padding: "7px 13px", cursor: "pointer", border: "none", borderLeft: i ? `1px solid ${T.border}` : "none",
+                    background: mode === id ? T.blueLight : "transparent", color: mode === id ? T.blue : T.ink,
+                  }}>{t(k)}</button>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginBottom: 14 }}>
+            {CAL_LAYERS.map(([id, k]) => {
+              const on = layers[id];
+              return (
+                <button key={id} onClick={() => setLayers((l) => ({ ...l, [id]: !l[id] }))} aria-pressed={on} style={{
+                  display: "inline-flex", alignItems: "center", gap: 6, fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(12), cursor: "pointer", padding: "4px 11px", borderRadius: 999,
+                  border: `1px solid ${on ? KIND[id][0] : T.border}`, background: on ? KIND[id][1] : "transparent", color: on ? T.ink : T.muted, opacity: on ? 1 : 0.7,
+                }}>{dot(KIND[id][0])}{t(k)}</button>
+              );
+            })}
+          </div>
+
+          {mode === "month" && monthView}
+          {mode === "week" && weekView}
+          {mode === "agenda" && agendaView}
+
+          {(!profile || !hasEvents) && (
+            <div style={{ display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap", marginTop: 14, padding: "10px 12px", borderRadius: 8, background: T.mutedBg }}>
+              <span style={{ flex: "1 1 220px", fontFamily: FONT_UI, fontSize: fs(12.5), color: T.muted, lineHeight: 1.5 }}>{t(profile ? "csCalNoEvents" : "csCalNoProfile")}</span>
+              <GhostButton T={T} icon={Sparkles} onClick={() => onNavigate("profile")}>{t(profile ? "csCalUpdate" : "csCalSetup")}</GhostButton>
+            </div>
+          )}
+        </div>
+
+        <div style={{ ...card, ...(wide ? { position: "sticky", top: 12 } : {}) }} aria-live="polite">
+          <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap", marginBottom: 6 }}>
+            <span style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(15), color: T.ink }}>{cap(longDay(selDate))}</span>
+            {selWk && <Pill T={T} tone="muted">{brief && brief.total ? t("spTermWeek", { w: selWk.w, n: brief.total }) : t("spTermWeekNoTotal", { w: selWk.w })}</Pill>}
+          </div>
+
+          {sel.keys.length > 0 && (
+            <div style={{ display: "flex", gap: 6, flexWrap: "wrap", margin: "4px 0 8px" }}>{sel.keys.map((k) => <Pill key={k.id} T={T} tone="blue">{k.title}</Pill>)}</div>
+          )}
+
+          {profile && (
+            <div style={{ marginBottom: 6 }}>
+              <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                <span style={sect}>{t("csClasses")}</span>
+                <GhostButton T={T} icon={editClasses ? Check : Pencil} onClick={() => setEditClasses((v) => !v)} style={{ marginLeft: "auto", padding: "4px 10px" }}>{editClasses ? t("csClassDone") : t("csClassEdit")}</GhostButton>
+              </div>
+              {editClasses
+                ? <ClassEditor courses={profile.courses || []} onChange={sp.updateCourses} mondayFirst={mondayFirst} locale={locale} defaultDay={selDate.getDay()} T={T} t={t} />
+                : selClasses.length > 0
+                  ? selClasses.map(({ c, m }) => (
+                    <div key={`${c.id}-${m.id}`} style={{ ...itemRow, padding: "5px 0", alignItems: "center", flexWrap: "wrap" }}>
+                      <span style={{ fontFamily: FONT_MONO, fontSize: fs(11.5), color: T.muted, minWidth: 92 }}>{m.start ? `${fmtClock(m.start, locale)}${m.end ? ` – ${fmtClock(m.end, locale)}` : ""}` : "—"}</span>
+                      <span style={{ ...rowHead, flex: 1, minWidth: 0 }}>{c.name}</span>
+                      {m.location && <span style={{ fontFamily: FONT_UI, fontSize: fs(12), color: T.muted }}>{m.location}</span>}
+                    </div>
+                  ))
+                  : !hasMeetings && <p style={{ fontFamily: FONT_UI, fontSize: fs(12.5), color: T.muted, margin: "2px 0 0" }}>{t("csClassNone")}</p>}
+            </div>
+          )}
+
+          {sched.map((x) => {
+            const a = x.item; const isExam = x.src === "exam"; const tone = isExam ? T.red : T.blue;
+            return (
+              <div key={x.id} style={itemRow}>
+                <button onClick={() => tickSched(x)} role="checkbox" aria-checked={x.done} aria-label={x.title} style={{
+                  width: 22, height: 22, flexShrink: 0, borderRadius: 5, cursor: "pointer", padding: 0, marginTop: 1, display: "inline-flex", alignItems: "center", justifyContent: "center",
+                  background: x.done ? T.green : "transparent", border: `2px solid ${x.done ? T.green : tone}`, color: T.onBlue,
+                }}>{x.done && <Check size={14} />}</button>
+                <div style={{ flex: 1, minWidth: 0, opacity: x.done ? 0.6 : 1 }}>
+                  <div style={{ ...rowHead, textDecoration: x.done ? "line-through" : "none" }}>{x.title}</div>
+                  <div style={rowSub}>{isExam ? [a.time, a.weightPct != null ? `${a.weightPct}%` : null, a.format].filter(Boolean).join(" · ") : fmtRange(a)}</div>
+                  {isExam && a.coverage.length > 0 && <div style={{ fontFamily: FONT_UI, fontSize: fs(12), color: T.muted, marginTop: 2 }}>{a.coverage.slice(0, 4).join(" · ")}</div>}
+                  {!isExam && a.notes && <div style={{ fontFamily: FONT_UI, fontSize: fs(12), color: T.muted, marginTop: 2 }}>{a.notes}</div>}
+                </div>
+                <Pill T={T} tone={isExam ? "red" : (SP_EVENT_TONE[a.type] || "muted")}>{isExam ? a.type : t(`spEvt.${a.type}`)}</Pill>
+              </div>
+            );
+          })}
+          {selTasks.map((k) => <TaskRow key={k.id} task={k} onToggle={() => sp.toggleTask(k.id)} onRemove={isMine(k) ? () => sp.removeTask(k.id) : undefined} T={T} t={t} lang={lang} />)}
+          {sel.sessions.map((e) => (
+            <div key={e.id} style={itemRow}>
+              <span style={{ marginTop: 6 }}>{dot(T.green)}</span>
+              <div style={{ flex: 1, minWidth: 0 }}>
+                <div style={rowHead}>{sessionTitle(e, t)}</div>
+                <div style={rowSub}>{new Date(e.finishedAt).toLocaleTimeString(locale, { hour: "numeric", minute: "2-digit" })} · {t("histAnswered", { a: e.answered != null ? e.answered : e.total, n: e.total })}</div>
+              </div>
+            </div>
+          ))}
+          {!sched.length && !selTasks.length && !sel.sessions.length && !sel.keys.length && !selClasses.length && (
+            <p style={{ fontFamily: FONT_UI, fontSize: fs(13.5), color: T.muted, margin: "4px 0 0" }}>{t("csCalNothing")}</p>
+          )}
+
+          {profile && (
+            <div style={{ display: "flex", alignItems: "center", gap: 8, marginTop: 12, flexWrap: "wrap" }}>
+              <input value={newTitle} maxLength={200} onChange={(e) => setNewTitle(e.target.value)} onKeyDown={(e) => { if (e.key === "Enter") submitNew(); }}
+                placeholder={t("csPlanAddPh")} aria-label={t("csPlanAddPh")}
+                style={{ flex: "1 1 160px", minWidth: 0, fontFamily: FONT_UI, fontSize: fs(13.5), color: T.ink, background: T.paper, border: `1px solid ${T.border}`, borderRadius: 8, padding: "8px 10px", outline: "none" }} />
+              <GhostButton T={T} icon={Plus} onClick={submitNew} disabled={!newTitle.trim()} style={{ padding: "7px 12px" }}>{t("csPlanAdd")}</GhostButton>
+              <span style={{ flexBasis: "100%", fontFamily: FONT_UI, fontSize: fs(11.5), color: T.muted }}>{t("csPlanAddFor", { d: selDate.toLocaleDateString(locale, { weekday: "short", month: "short", day: "numeric" }) })}</span>
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
+const CAL_LAYERS = [["key", "calLayerKey"], ["class", "csClasses"], ["exam", "csCalLegExam"], ["event", "csCalLegEvent"], ["task", "csCalLegTask"], ["study", "csCalLegStudy"]];
 
 function ConsolePanel({ library, sessionLog, session, onResume, onOpenLobby, onReview, onNavigate, T }) {
   const { t, lang } = useI18n();
@@ -6185,9 +6722,9 @@ function SessionHistoryPanel({ history, onDelete, onClear, onReview, T }) {
 // Menu bar under the logo / account row: the four Home pages. Console | Library | Import | Analytics (N finished sessions).
 function PageNav({ tab, setTab, T }) {
   const { t } = useI18n();
-  const items = [["console", t("tabConsole"), LayoutDashboard], ["library", t("tabLibrary"), BookOpen], ["import", t("tabImport"), Plus], ["analytics", t("tabHistory"), BarChart3], ["database", t("tabDatabase"), Database], ["profile", t("tabProfile"), GraduationCap]];
+  const items = [["console", t("tabConsole"), LayoutDashboard], ["library", t("tabLibrary"), BookOpen], ["import", t("tabImport"), Plus], ["analytics", t("tabHistory"), BarChart3], ["database", t("tabDatabase"), Database], ["calendar", t("tabCalendar"), CalendarDays]];
   return (
-    <nav style={{ borderBottom: `1px solid ${T.border}`, marginBottom: 22, overflowX: "auto" }}>
+    <nav style={{ borderBottom: `1px solid ${T.border}`, marginBottom: 22, overflowX: "auto", overflowY: "hidden", touchAction: "pan-x", overscrollBehaviorY: "none" }}>
       <div role="tablist" style={{ display: "flex", gap: 4, minWidth: "max-content" }}>
         {items.map(([id, label, Ic]) => {
           const on = tab === id;
@@ -6232,7 +6769,7 @@ const GUIDE = {
     { title: "8. Using your phone", body: "On a phone the screen is simplified so the question gets the room.",
       points: ["The question list is hidden. Use Previous and Next at the top right, and Home at the top left (Tutor Mode).", "Lab Values, Notes, Calculator and Settings are in one row under them.", "At the bottom, Lock is on the left and End Block is on the right. A timed block also shows its countdown in the middle."] },
     { title: "9. Your Student Profile and tutor", body: "Give OWORLD your syllabus once and your tutor follows along: it knows your week, your exams and what to study next.",
-      points: ["Open Profile in the menu bar, tap Copy prompt, and give it to your AI tool together with your syllabus. Paste the JSON it returns and tap Load profile.", "The Console then shows Your tutor: this week's topics, your next exam, today's tasks and a few lines of guidance. Tap Start a block to pre-fill the Question Recipe for a topic.", "In the Library, Qbanks that match this week's topics are suggested at the top.", "Exam countdowns, new weeks and pace alerts arrive in the bell. Each one appears once.", "Your profile syncs through Google Drive like your Qbanks. Tap Update current profile any time to refresh it."] },
+      points: ["Open the profile menu (your picture, upper right), tap Student Profile, tap Copy prompt, and give it to your AI tool together with your syllabus. Paste the JSON it returns and tap Load profile.", "The Console then shows Your tutor: this week's topics, your next exam, today's tasks and a few lines of guidance. Tap Start a block to pre-fill the Question Recipe for a topic.", "In the Library, Qbanks that match this week's topics are suggested at the top.", "Exam countdowns, new weeks and pace alerts arrive in the bell. Each one appears once.", "Your profile syncs through Google Drive like your Qbanks. Tap Update current profile any time to refresh it.", "The Calendar page (menu bar) puts your whole term on one calendar: classes, exams, tasks, breaks and the days you studied. Switch between Month, Week and Agenda, and tap a day to tick things off or add a task."] },
   ],
   es: [
     { title: "Bienvenido a OWORLD", body: "OWORLD es un simulador de exámenes de práctica. Tú aportas las preguntas y él las convierte en un examen realista con herramientas, retroalimentación inmediata y seguimiento de puntaje.",
@@ -6254,7 +6791,7 @@ const GUIDE = {
     { title: "8. Usar el teléfono", body: "En el teléfono la pantalla se simplifica para que la pregunta tenga espacio.",
       points: ["La lista de preguntas se oculta. Usa Anterior y Siguiente arriba a la derecha, e Inicio arriba a la izquierda (modo tutor).", "Valores de laboratorio, Notas, Calculadora y Ajustes están en una fila debajo.", "Abajo, Bloquear está a la izquierda y Terminar bloque a la derecha. Un bloque cronometrado también muestra su cuenta regresiva en el centro."] },
     { title: "9. Tu Perfil del estudiante y tu tutor", body: "Dale tu programa a OWORLD una sola vez y tu tutor te acompaña: conoce tu semana, tus exámenes y qué estudiar después.",
-      points: ["Abre Perfil en la barra de menú, toca Copiar prompt y dáselo a tu herramienta de IA junto con tu programa. Pega el JSON que te devuelva y toca Cargar perfil.", "La Consola muestra entonces Tu tutor: los temas de la semana, tu próximo examen, las tareas de hoy y algunas líneas de guía. Toca Iniciar un bloque para rellenar la receta de preguntas de un tema.", "En la Biblioteca, los Qbanks que coinciden con los temas de esta semana se sugieren arriba.", "Las cuentas regresivas de exámenes, las semanas nuevas y las alertas de ritmo llegan a la campana. Cada una aparece una sola vez.", "Tu perfil se sincroniza con Google Drive como tus Qbanks. Toca Actualizar perfil actual cuando quieras refrescarlo."] },
+      points: ["Abre el menú de perfil (tu foto, arriba a la derecha), toca Perfil del estudiante, toca Copiar prompt y dáselo a tu herramienta de IA junto con tu programa. Pega el JSON que te devuelva y toca Cargar perfil.", "La Consola muestra entonces Tu tutor: los temas de la semana, tu próximo examen, las tareas de hoy y algunas líneas de guía. Toca Iniciar un bloque para rellenar la receta de preguntas de un tema.", "En la Biblioteca, los Qbanks que coinciden con los temas de esta semana se sugieren arriba.", "Las cuentas regresivas de exámenes, las semanas nuevas y las alertas de ritmo llegan a la campana. Cada una aparece una sola vez.", "Tu perfil se sincroniza con Google Drive como tus Qbanks. Toca Actualizar perfil actual cuando quieras refrescarlo.", "La página Calendario (barra de menú) reúne todo tu periodo en un solo calendario: clases, exámenes, tareas, descansos y los días que estudiaste. Cambia entre Mes, Semana y Agenda, y toca un día para marcar cosas o agregar una tarea."] },
   ],
 };
 
@@ -6476,6 +7013,7 @@ function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], dri
 
       {libTab === "database" && <DatabasePanel T={T} />}
       {libTab === "profile" && <StudentProfilePanel T={T} sessionLog={sessionLog} />}
+      {libTab === "calendar" && <CalendarPage sessionLog={sessionLog} onNavigate={(tab) => { setLibTab(tab); window.scrollTo({ top: 0, behavior: "smooth" }); }} T={T} />}
       {libTab === "analytics" && <SessionHistoryPanel history={sessionLog} onDelete={onDeleteSession} onClear={onClearSessions} onReview={onReviewSession} T={T} />}
       {libTab === "console" && <ConsolePanel library={library} sessionLog={sessionLog} session={session} onResume={onResume} onOpenLobby={onOpenLobby} onReview={onReviewSession} onNavigate={(tab) => { setLibTab(tab); window.scrollTo({ top: 0, behavior: "smooth" }); }} T={T} />}
       {libTab === "library" && <TutorLibraryStrip library={library} sessionLog={sessionLog} onLaunch={onLaunchLibrary} T={T} />}
@@ -9293,6 +9831,11 @@ export default function App() {
   const studentProfile = useStudentProfile();
   const profileSync = useProfileSync({ drive, store: studentProfile });
   const [pendingFocus, setPendingFocus] = useState(null); // set by the tutor's "Start a <subject> block", consumed by the Import screen
+  const navLockBs = view === "exam" && activeBlockIdx !== null ? blockStates[activeBlockIdx] : null;
+  const navCtx = {
+    locked: !!(navLockBs && navLockBs.status === "in-progress" && !navLockBs.tutor),
+    open: (tab) => { setLibTab(tab); if (view !== "import") goHome(); window.scrollTo({ top: 0, behavior: "smooth" }); },
+  };
   const profileCtx = { ...studentProfile, sync: profileSync, pendingFocus, seedFocus: setPendingFocus, consumeFocus: () => setPendingFocus(null) };
   useTutorNudges({ profile: studentProfile.profile, sessionLog, notify: notifs.notify });
   // Drive sync alerts: only on a real change of state (reconnect needed / error / first successful link), never on every poll.
@@ -9612,6 +10155,7 @@ export default function App() {
     <TextScaleContext.Provider value={{ textScale, setTextScale }}>
     <DataContext.Provider value={{ resetAllData }}>
     <TrashContext.Provider value={{ trash, restore: restoreTrash, purge: purgeTrash }}>
+    <NavContext.Provider value={navCtx}>
     <DriveContext.Provider value={drive}>
     <NotifContext.Provider value={notifs}>
     <DbContext.Provider value={dbCtx}>
@@ -9756,6 +10300,7 @@ export default function App() {
     </DbContext.Provider>
     </NotifContext.Provider>
     </DriveContext.Provider>
+    </NavContext.Provider>
     </TrashContext.Provider>
     </DataContext.Provider>
     </TextScaleContext.Provider>
