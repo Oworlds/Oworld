@@ -4,7 +4,7 @@ import {
   Play, CheckCircle2, XCircle, AlertTriangle, ClipboardList, Activity,
   Check, ChevronDown, ChevronUp, FileJson, FlaskConical, PencilLine,
   Calculator as CalcIcon, Settings as SettingsIcon, Lock, Unlock,
-  Search, Trash2, X, XOctagon, Lightbulb, Sun, Moon, Highlighter, BookOpen, Stethoscope, Target, Save, Shuffle, Plus, Home as HomeIcon, Pencil, Share2, ExternalLink, Sparkles, Cloud, RefreshCw, LogIn, LogOut, Bell, Database, Bookmark, User as UserIcon, BarChart3, LayoutDashboard, Flame, TrendingUp, Download, CheckSquare, SlidersHorizontal, GraduationCap, CalendarDays
+  Search, Trash2, X, XOctagon, Lightbulb, Sun, Moon, Highlighter, BookOpen, Stethoscope, Target, Save, Shuffle, Plus, Home as HomeIcon, Pencil, Share2, ExternalLink, Sparkles, Cloud, RefreshCw, LogIn, LogOut, Bell, Database, Bookmark, User as UserIcon, BarChart3, LayoutDashboard, Flame, TrendingUp, Download, CheckSquare, SlidersHorizontal, GraduationCap, CalendarDays, Globe, ShieldCheck
 } from "lucide-react";
 import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell
@@ -292,6 +292,9 @@ const STR = {
     pasteJson: "Paste or upload question bank", upload: "Upload file",
     pastePh: "Paste your generated question bank here…",
     anTrendTitle: "Score trend", anTrendHint: "Last {n} sessions · dashed line = 70%", anTrendNeed: "Finish 2 sessions to see your trend.", anSubjTitle: "Performance by subject", anActTitle: "Daily activity", anActHint: "Questions answered, last 14 days", anStatSessions: "Sessions", anStatAnswered: "Questions answered", anStatAccuracy: "Accuracy", anStatAvgTime: "Avg time / question", anStatBest: "Best session {n}%",
+    csCalPlan: "Plan checklist", csCalPlanCount: "{d}/{n} done",
+    csPlanAddPh: "Add to your plan…", csPlanAdd: "Add", csPlanAddFor: "Added for {d}", csPlanRemove: "Remove from plan",
+    qhubTitle: "Qhub", qhubSoon: "Coming soon", qhubBody: "A shared, validated Qbank repository. Browse and import vetted blocks.",
     importBundle: "Import", "warn.importN": "Import {n} question(s)",
     irTitle: "Import Qbanks", irSub: "{n} Qbanks found. Choose which ones to add to your library — anything you leave unticked is discarded.",
     irAddAll: "Add all to library ({n})", irAddSel: "Add selected to library ({n})", irDone: "Done", irCancel: "Cancel import",
@@ -449,6 +452,9 @@ const STR = {
     pasteJson: "Pega o sube un banco de preguntas", upload: "Subir archivo",
     pastePh: "Pega aquí tu banco de preguntas generado…",
     anTrendTitle: "Tendencia de puntaje", anTrendHint: "Últimas {n} sesiones · línea punteada = 70%", anTrendNeed: "Termina 2 sesiones para ver tu tendencia.", anSubjTitle: "Rendimiento por materia", anActTitle: "Actividad diaria", anActHint: "Preguntas respondidas, últimos 14 días", anStatSessions: "Sesiones", anStatAnswered: "Preguntas respondidas", anStatAccuracy: "Precisión", anStatAvgTime: "Tiempo prom. / pregunta", anStatBest: "Mejor sesión {n}%",
+    csCalPlan: "Lista del plan", csCalPlanCount: "{d}/{n} hechas",
+    csPlanAddPh: "Agregar a tu plan…", csPlanAdd: "Agregar", csPlanAddFor: "Se agrega para {d}", csPlanRemove: "Quitar del plan",
+    qhubTitle: "Qhub", qhubSoon: "Próximamente", qhubBody: "Un repositorio compartido y validado de Qbanks. Explora e importa bloques verificados.",
     importBundle: "Importar", "warn.importN": "Importar {n} pregunta(s)",
     irTitle: "Importar Qbanks", irSub: "Se encontraron {n} Qbanks. Elige cuáles añadir a tu biblioteca; lo que dejes sin marcar se descarta.",
     irAddAll: "Añadir todos a la biblioteca ({n})", irAddSel: "Añadir seleccionados a la biblioteca ({n})", irDone: "Listo", irCancel: "Cancelar importación",
@@ -635,15 +641,15 @@ function TextSizeControl({ T, bar = false }) {
   }
   return (
     <div style={{ margin: "10px 0 12px" }}>
-      <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: 11, color: T.muted, textTransform: "uppercase", letterSpacing: "0.04em", marginBottom: 6 }}>
+      <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: 11, color: T.muted, textTransform: "uppercase", letterSpacing: "0.04em", marginBottom: 6, textAlign: "center" }}>
         {t("textSize")}
       </div>
-      <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
+      <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 6, flexWrap: "wrap" }}>
         {mk("A−", -1, atMin, t("textSmaller"), 12)}
         <span style={{ fontFamily: FONT_MONO, fontSize: 12.5, color: T.ink, minWidth: 44, textAlign: "center" }}>{pct}%</span>
         {mk("A+", 1, atMax, t("textLarger"), 15)}
         {textScale !== 1 && (
-          <button onClick={() => setTextScale(1)} style={{ marginLeft: "auto", fontFamily: FONT_UI, fontSize: 12, fontWeight: 600, background: "transparent", border: "none", color: T.blue, cursor: "pointer", padding: 4 }}>
+          <button onClick={() => setTextScale(1)} style={{ flexBasis: "100%", fontFamily: FONT_UI, fontSize: 12, fontWeight: 600, background: "transparent", border: "none", color: T.blue, cursor: "pointer", padding: 4 }}>
             {t("textReset")}
           </button>
         )}
@@ -3222,7 +3228,7 @@ function buildProfileRecipe({ lang, today, stats, existing }) {
 
 // ---- state: one profile per student. `updatedAt` / `clearedAt` let two devices agree on the newest edit and on a deletion. ----
 const ProfileContext = createContext({
-  profile: null, updatedAt: 0, setProfile: () => {}, toggleTask: () => {}, clear: () => {}, wipe: () => {}, applyMerged: () => {}, getState: () => ({}),
+  profile: null, updatedAt: 0, setProfile: () => {}, toggleTask: () => {}, addTask: () => {}, removeTask: () => {}, clear: () => {}, wipe: () => {}, applyMerged: () => {}, getState: () => ({}),
   sync: { available: false, status: "idle", lastSync: 0, syncNow: () => {} }, pendingFocus: null, seedFocus: () => {}, consumeFocus: () => {},
 });
 const spCore = (m) => hashStr(JSON.stringify({ p: m.profile, u: m.updatedAt, c: m.clearedAt }));
@@ -3258,19 +3264,32 @@ function useStudentProfile() {
   const setProfile = useCallback((p) => {
     const cur = ref.current; const now = Date.now();
     const done = new Set(((cur.profile && cur.profile.plan.tasks) || []).filter((k) => k.done).map((k) => k.id));
-    const profile = done.size ? { ...p, plan: { ...p.plan, tasks: p.plan.tasks.map((k) => (done.has(k.id) ? { ...k, done: true } : k)) } } : p;
+    let profile = done.size ? { ...p, plan: { ...p.plan, tasks: p.plan.tasks.map((k) => (done.has(k.id) ? { ...k, done: true } : k)) } } : p;
+    // exams/events ticked from the Console calendar ("cal-") and items the student added ("usr-") live in the plan; keep them across a reload
+    const have = new Set(profile.plan.tasks.map((k) => k.id));
+    const carry = ((cur.profile && cur.profile.plan.tasks) || []).filter((k) => /^(cal|usr)-/.test(String(k.id)) && !have.has(k.id));
+    if (carry.length) profile = { ...profile, plan: { ...profile.plan, tasks: [...profile.plan.tasks, ...carry] } };
     commit({ profile, updatedAt: now, clearedAt: cur.clearedAt });
   }, []);
   const toggleTask = useCallback((id) => {
     const cur = ref.current; if (!cur.profile) return;
     commit({ ...cur, updatedAt: Date.now(), profile: { ...cur.profile, plan: { ...cur.profile.plan, tasks: cur.profile.plan.tasks.map((k) => (k.id === id ? { ...k, done: !k.done } : k)) } } });
   }, []);
+  // A scheduled exam/event ticked from the calendar becomes a real plan task (same id = never duplicated).
+  const addTask = useCallback((task) => {
+    const cur = ref.current; if (!cur.profile || cur.profile.plan.tasks.some((k) => k.id === task.id)) return;
+    commit({ ...cur, updatedAt: Date.now(), profile: { ...cur.profile, plan: { ...cur.profile.plan, tasks: [...cur.profile.plan.tasks, task] } } });
+  }, []);
+  const removeTask = useCallback((id) => {
+    const cur = ref.current; if (!cur.profile) return;
+    commit({ ...cur, updatedAt: Date.now(), profile: { ...cur.profile, plan: { ...cur.profile.plan, tasks: cur.profile.plan.tasks.filter((k) => k.id !== id) } } });
+  }, []);
   const clear = useCallback(() => { const now = Date.now(); commit({ profile: null, updatedAt: now, clearedAt: now }); }, []);
   // "Reset all data": local only, no tombstone, so Drive keeps its copy and reconnecting restores it.
   const wipe = useCallback(() => { ref.current = { profile: null, updatedAt: 0, clearedAt: 0 }; setState(ref.current); lsRemove(LS_SP); lsRemove(LS_SP_FILE); lsRemove(LS_SP_LEDGER); }, []);
   const applyMerged = useCallback((m) => { if (spCore(m) !== spCore(ref.current)) commit(m); }, []);
   const getState = useCallback(() => ref.current, []);
-  return { profile: state.profile, updatedAt: state.updatedAt, clearedAt: state.clearedAt, setProfile, toggleTask, clear, wipe, applyMerged, getState };
+  return { profile: state.profile, updatedAt: state.updatedAt, clearedAt: state.clearedAt, setProfile, toggleTask, addTask, removeTask, clear, wipe, applyMerged, getState };
 }
 
 // Google Drive sync for the profile: own file, same sign-in and token as the library sync, same pull → merge → push cycle as the Database.
@@ -3367,7 +3386,7 @@ function spWeekLabel(b, t) {
   return t("spTermUnknown");
 }
 const spTone = (T, tone) => ({ red: T.red, amber: T.amber, green: T.green, blue: T.blue }[tone] || T.muted);
-function TaskRow({ task, onToggle, T, t, lang }) {
+function TaskRow({ task, onToggle, onRemove, T, t, lang }) {
   const d = parseISODate(task.due);
   return (
     <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "8px 0" }}>
@@ -3377,6 +3396,7 @@ function TaskRow({ task, onToggle, T, t, lang }) {
       }}>{task.done && <Check size={14} />}</button>
       <span style={{ flex: 1, minWidth: 0, fontFamily: FONT_UI, fontSize: fs(13.5), color: task.done ? T.muted : T.ink, textDecoration: task.done ? "line-through" : "none", overflowWrap: "anywhere" }}>{task.title}</span>
       {d && <span style={{ fontFamily: FONT_MONO, fontSize: fs(11.5), color: T.muted, whiteSpace: "nowrap" }}>{d.toLocaleDateString(lang === "es" ? "es" : "en-US", { month: "short", day: "numeric" })}</span>}
+      {onRemove && <button onClick={onRemove} title={t("csPlanRemove")} aria-label={t("csPlanRemove")} style={{ background: "transparent", border: "none", cursor: "pointer", color: T.muted, padding: 4, display: "flex" }}><X size={15} /></button>}
     </div>
   );
 }
@@ -5082,6 +5102,49 @@ function ExportShareButton({ getBlock, T, style, fullWidth = false, wrapStyle })
   );
 }
 
+// Library page, top row: the active-session widget (compact) with the Qhub placeholder inline on its right.
+function LibraryTopRow({ session, resumeId, library, onResume, onOpenLobby, T }) {
+  const { t } = useI18n();
+  const wide = useViewport().w >= 760;
+  const inLib = resumeId ? library.find((e) => e.id === resumeId) : null;
+  const active = !!(session || inLib);
+  const canResume = !!((session && session.block) || inLib);
+  const title = inLib ? inLib.title : session ? (session.block ? blockLabel(session.block, t) : (session.examTitle || t("practiceExam"))) : "";
+  const pos = session && session.block && session.bs ? t("sessionPos", { n: (Number(session.bs.currentQuestionIndex) || 0) + 1, total: session.block.questions.length }) : "";
+  const box = { borderRadius: 10, padding: "10px 14px", display: "flex", alignItems: "center", gap: 12, minWidth: 0 };
+  const tiny = { fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(10.5), textTransform: "uppercase", letterSpacing: "0.06em" };
+  return (
+    <div style={{ display: "grid", gridTemplateColumns: wide && active ? "minmax(0, 1fr) minmax(0, 1fr)" : "minmax(0, 1fr)", gap: 14, marginBottom: 20 }}>
+      {active && (
+        <div style={{ ...box, background: T.card, border: `1px solid ${canResume ? T.blue : T.border}` }}>
+          <div style={{ flex: 1, minWidth: 0 }}>
+            <div style={{ ...tiny, color: T.blue }}>{canResume ? t("sessionInProgress") : t("examLoadedLabel")}</div>
+            <div style={{ display: "flex", alignItems: "baseline", gap: 8, minWidth: 0 }}>
+              <span style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(14), color: T.ink, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{title}</span>
+              {pos && <span style={{ fontFamily: FONT_MONO, fontSize: fs(11.5), color: T.muted, whiteSpace: "nowrap" }}>{pos}</span>}
+            </div>
+          </div>
+          {canResume
+            ? <PrimaryButton T={T} onClick={onResume} icon={Play} style={{ padding: "7px 12px", fontSize: fs(13) }}>{t("resumeSession")}</PrimaryButton>
+            : <GhostButton T={T} onClick={onOpenLobby} style={{ padding: "7px 12px" }}>{t("openLobby")}</GhostButton>}
+        </div>
+      )}
+      <div style={{ ...box, border: `1px dashed ${T.border}`, background: "transparent" }} aria-label={t("qhubTitle")}>
+        <Globe size={20} color={T.muted} style={{ flexShrink: 0 }} />
+        <div style={{ flex: 1, minWidth: 0 }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap" }}>
+            <span style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(14), color: T.ink }}>{t("qhubTitle")}</span>
+            <Pill T={T} tone="muted">{t("qhubSoon")}</Pill>
+          </div>
+          <div style={{ display: "flex", alignItems: "center", gap: 6, fontFamily: FONT_UI, fontSize: fs(12), color: T.muted, lineHeight: 1.4 }}>
+            <ShieldCheck size={13} style={{ flexShrink: 0 }} /><span>{t("qhubBody")}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 // ---------------------------------------------------------------------------
 // Qbank library panel — saved blocks; start one, or tick several to run them as a queue
 // ---------------------------------------------------------------------------
@@ -5174,15 +5237,6 @@ function QbankLibraryPanel({ library, onLaunch, onMix, onDelete, onRename, resum
           </div>
         )}
       </div>
-
-      {resumeId && (
-        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 12, flexWrap: "wrap", padding: "10px 14px", marginBottom: 12, borderRadius: 8, border: `1px solid ${T.amber}`, background: T.amberLight }}>
-          <span style={{ fontFamily: FONT_UI, fontSize: fs(13), color: T.ink }}>
-            <strong style={{ color: T.amber }}>{t("sessionInProgress")}:</strong> {titleOf(resumeId)}
-          </span>
-          <PrimaryButton T={T} onClick={onResume} icon={Play}>{t("resumeSession")}</PrimaryButton>
-        </div>
-      )}
 
       {confirmDel && (
         <div role="alertdialog" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 12, flexWrap: "wrap", padding: "10px 14px", marginBottom: 12, borderRadius: 8, border: `1px solid ${T.red}`, background: T.redLight }}>
@@ -5448,7 +5502,7 @@ function TrendChart({ vals, labels, T }) {
   const pts = vals.map((v, i) => `${x(i)},${y(v)}`).join(" ");
   const area = `${x(0)},${y(0)} ${pts} ${x(vals.length - 1)},${y(0)}`;
   return (
-    <svg viewBox={`0 0 ${W} ${H}`} width="100%" height="auto" style={{ display: "block" }} role="img" aria-label={vals.map((v) => `${v}%`).join(", ")}>
+    <svg viewBox={`0 0 ${W} ${H}`} width="100%" style={{ display: "block", height: "auto" }} role="img" aria-label={vals.map((v) => `${v}%`).join(", ")}>
       {[0, 50, 100].map((g) => (
         <g key={g}>
           <line x1={PL} x2={W - PR} y1={y(g)} y2={y(g)} stroke={T.border} strokeWidth="1" />
@@ -5472,9 +5526,8 @@ function ActivityBars({ days, T }) {
   const slot = (W - PL - PR) / days.length, bw = slot * 0.62;
   const y = (n) => PT + (1 - n / max) * (H - PT - PB);
   return (
-    <svg viewBox={`0 0 ${W} ${H}`} width="100%" height="auto" style={{ display: "block" }} role="img" aria-label={days.map((d) => d.n).join(", ")}>
+    <svg viewBox={`0 0 ${W} ${H}`} width="100%" style={{ display: "block", height: "auto" }} role="img" aria-label={days.map((d) => d.n).join(", ")}>
       <line x1={PL} x2={W - PR} y1={y(0)} y2={y(0)} stroke={T.border} strokeWidth="1" />
-      <line x1={PL} x2={W - PR} y1={y(max)} y2={y(max)} stroke={T.border} strokeWidth="1" strokeDasharray="3 4" />
       <text x={PL - 5} y={y(max) + 4} textAnchor="end" fontSize="10" fill={T.muted} fontFamily={FONT_MONO}>{max}</text>
       <text x={PL - 5} y={y(0) + 4} textAnchor="end" fontSize="10" fill={T.muted} fontFamily={FONT_MONO}>0</text>
       {days.map((d, i) => (
@@ -5610,6 +5663,7 @@ function ConsoleCalendar({ sessionLog, onNavigate, T, fill = false }) {
   const [view, setView] = useState(() => { const d = new Date(); return new Date(d.getFullYear(), d.getMonth(), 1); });
   const [selKey, setSelKey] = useState(() => toISODate(new Date()));
   const todayKey = toISODate(new Date());
+  const [newTitle, setNewTitle] = useState("");
   const cap = (x) => x.charAt(0).toUpperCase() + x.slice(1);
   const brief = useMemo(() => (profile ? tutorBrief(profile, sessionLog, new Date()) : null), [profile, sessionLog, todayKey]); // eslint-disable-line
 
@@ -5647,6 +5701,26 @@ function ConsoleCalendar({ sessionLog, onNavigate, T, fill = false }) {
     if ((end && dayDiff(selDate, end) < 0) || (brief.total && w > brief.total)) return null;
     return brief.total ? t("spTermWeek", { w, n: brief.total }) : t("spTermWeekNoTotal", { w });
   })();
+  // Scheduled exams/events for the selected day are tickable plan items; ticking one saves it as a plan task.
+  const planTasks = (profile && profile.plan && profile.plan.tasks) || [];
+  const sched = [
+    ...sel.exams.map((a) => ({ id: `cal-exam-${a.id}`, src: "exam", item: a, title: a.title, kind: "exam" })),
+    ...sel.events.map((e) => ({ id: `cal-event-${e.id}-${selKey}`, src: "event", item: e, title: e.title, kind: "other" })),
+  ].map((x) => ({ ...x, done: !!(planTasks.find((k) => k.id === x.id) || {}).done }));
+  const schedIds = new Set(sched.map((x) => x.id));
+  const selTasks = sel.tasks.filter((k) => !schedIds.has(k.id) && !String(k.id).startsWith("cal-"));
+  const tickSched = (x) => {
+    if (planTasks.some((k) => k.id === x.id)) sp.toggleTask(x.id);
+    else sp.addTask({ id: x.id, title: x.title, due: selKey, subject: null, kind: x.kind, done: true });
+  };
+  const planList = [...planTasks.filter((k) => !k.done).sort((p, q) => (p.due || "9999") < (q.due || "9999") ? -1 : (p.due || "9999") > (q.due || "9999") ? 1 : 0), ...planTasks.filter((k) => k.done)].slice(0, 6);
+  const planDone = planTasks.filter((k) => k.done).length;
+  const isMine = (k) => String(k.id).startsWith("usr-");
+  const submitNew = () => {
+    const title = newTitle.trim().slice(0, 200); if (!title || !profile) return;
+    sp.addTask({ id: `usr-${Date.now().toString(36)}${Math.random().toString(36).slice(2, 6)}`, title, due: selKey, subject: null, kind: "other", done: false });
+    setNewTitle("");
+  };
   const qDone = sel.sessions.reduce((n, e) => n + (Number(e.answered != null ? e.answered : e.total) || 0), 0);
   const fmtRange = (e) => {
     const f = (iso) => parseISODate(iso).toLocaleDateString(locale, { month: "short", day: "numeric" });
@@ -5686,7 +5760,7 @@ function ConsoleCalendar({ sessionLog, onNavigate, T, fill = false }) {
           const dots = info ? [
             info.exams.some((a) => a.status !== "done") && T.red,
             info.events.length > 0 && T.blue,
-            info.tasks.some((k) => !k.done) && T.amber,
+            info.tasks.some((k) => !k.done && !String(k.id).startsWith("cal-")) && T.amber,
             info.sessions.length > 0 && T.green,
           ].filter(Boolean) : [];
           const label = d.toLocaleDateString(locale, { weekday: "long", month: "long", day: "numeric" });
@@ -5718,37 +5792,50 @@ function ConsoleCalendar({ sessionLog, onNavigate, T, fill = false }) {
           <span style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(14), color: T.ink }}>{cap(selDate.toLocaleDateString(locale, { weekday: "long", month: "long", day: "numeric" }))}</span>
           {selWeek && <Pill T={T} tone="muted">{selWeek}</Pill>}
         </div>
-        {sel.exams.map((a) => (
-          <div key={a.id} style={itemRow}>
-            <span style={{ marginTop: 6 }}>{dot(T.red)}</span>
-            <div style={{ flex: 1, minWidth: 0 }}>
-              <div style={rowHead}>{a.title}</div>
-              <div style={rowSub}>{[a.time, a.weightPct != null ? `${a.weightPct}%` : null, a.format].filter(Boolean).join(" · ")}</div>
-              {a.coverage.length > 0 && <div style={{ fontFamily: FONT_UI, fontSize: fs(12), color: T.muted, marginTop: 2 }}>{a.coverage.slice(0, 4).join(" · ")}</div>}
+        {sched.map((x) => {
+          const a = x.item; const isExam = x.src === "exam"; const tone = isExam ? T.red : T.blue;
+          return (
+            <div key={x.id} style={{ ...itemRow, alignItems: "flex-start" }}>
+              <button onClick={() => tickSched(x)} role="checkbox" aria-checked={x.done} aria-label={x.title} style={{
+                width: 22, height: 22, flexShrink: 0, borderRadius: 5, cursor: "pointer", padding: 0, marginTop: 1, display: "inline-flex", alignItems: "center", justifyContent: "center",
+                background: x.done ? T.green : "transparent", border: `2px solid ${x.done ? T.green : tone}`, color: T.onBlue,
+              }}>{x.done && <Check size={14} />}</button>
+              <div style={{ flex: 1, minWidth: 0, opacity: x.done ? 0.6 : 1 }}>
+                <div style={{ ...rowHead, textDecoration: x.done ? "line-through" : "none" }}>{x.title}</div>
+                <div style={rowSub}>{isExam ? [a.time, a.weightPct != null ? `${a.weightPct}%` : null, a.format].filter(Boolean).join(" · ") : fmtRange(a)}</div>
+                {isExam && a.coverage.length > 0 && <div style={{ fontFamily: FONT_UI, fontSize: fs(12), color: T.muted, marginTop: 2 }}>{a.coverage.slice(0, 4).join(" · ")}</div>}
+                {!isExam && a.notes && <div style={{ fontFamily: FONT_UI, fontSize: fs(12), color: T.muted, marginTop: 2 }}>{a.notes}</div>}
+              </div>
+              <Pill T={T} tone={isExam ? "red" : (SP_EVENT_TONE[a.type] || "muted")}>{isExam ? a.type : t(`spEvt.${a.type}`)}</Pill>
             </div>
-            <Pill T={T} tone="red">{a.type}</Pill>
-          </div>
-        ))}
-        {sel.events.map((e) => (
-          <div key={e.id} style={itemRow}>
-            <span style={{ marginTop: 6 }}>{dot(T.blue)}</span>
-            <div style={{ flex: 1, minWidth: 0 }}>
-              <div style={rowHead}>{e.title}</div>
-              <div style={rowSub}>{fmtRange(e)}</div>
-              {e.notes && <div style={{ fontFamily: FONT_UI, fontSize: fs(12), color: T.muted, marginTop: 2 }}>{e.notes}</div>}
-            </div>
-            <Pill T={T} tone={SP_EVENT_TONE[e.type] || "muted"}>{t(`spEvt.${e.type}`)}</Pill>
-          </div>
-        ))}
-        {sel.tasks.map((k) => <TaskRow key={k.id} task={k} onToggle={() => sp.toggleTask(k.id)} T={T} t={t} lang={lang} />)}
+          );
+        })}
+        {selTasks.map((k) => <TaskRow key={k.id} task={k} onToggle={() => sp.toggleTask(k.id)} onRemove={isMine(k) ? () => sp.removeTask(k.id) : undefined} T={T} t={t} lang={lang} />)}
         {sel.sessions.length > 0 && (
           <div style={itemRow}>
             <span style={{ marginTop: 6 }}>{dot(T.green)}</span>
             <span style={{ fontFamily: FONT_UI, fontSize: fs(13.5), color: T.ink }}>{t("csCalStudied", { n: sel.sessions.length, q: qDone })}</span>
           </div>
         )}
-        {!sel.exams.length && !sel.events.length && !sel.tasks.length && !sel.sessions.length && (
+        {!sched.length && !selTasks.length && !sel.sessions.length && (planList.length > 0 ? (
+          <div style={{ marginTop: 6 }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 2 }}>
+              <span style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(11.5), color: T.muted, textTransform: "uppercase", letterSpacing: "0.06em" }}>{t("csCalPlan")}</span>
+              <Pill T={T} tone="muted">{t("csCalPlanCount", { d: planDone, n: planTasks.length })}</Pill>
+            </div>
+            {planList.map((k) => <TaskRow key={k.id} task={k} onToggle={() => sp.toggleTask(k.id)} onRemove={isMine(k) ? () => sp.removeTask(k.id) : undefined} T={T} t={t} lang={lang} />)}
+          </div>
+        ) : (
           <p style={{ fontFamily: FONT_UI, fontSize: fs(13.5), color: T.muted, margin: "4px 0 0" }}>{t("csCalNothing")}</p>
+        ))}
+        {profile && (
+          <div style={{ display: "flex", alignItems: "center", gap: 8, marginTop: 10, flexWrap: "wrap" }}>
+            <input value={newTitle} maxLength={200} onChange={(e) => setNewTitle(e.target.value)} onKeyDown={(e) => { if (e.key === "Enter") submitNew(); }}
+              placeholder={t("csPlanAddPh")} aria-label={t("csPlanAddPh")}
+              style={{ flex: "1 1 160px", minWidth: 0, fontFamily: FONT_UI, fontSize: fs(13.5), color: T.ink, background: T.paper, border: `1px solid ${T.border}`, borderRadius: 8, padding: "8px 10px", outline: "none" }} />
+            <GhostButton T={T} icon={Plus} onClick={submitNew} disabled={!newTitle.trim()} style={{ padding: "7px 12px" }}>{t("csPlanAdd")}</GhostButton>
+            <span style={{ flexBasis: "100%", fontFamily: FONT_UI, fontSize: fs(11.5), color: T.muted }}>{t("csPlanAddFor", { d: selDate.toLocaleDateString(locale, { weekday: "short", month: "short", day: "numeric" }) })}</span>
+          </div>
         )}
       </div>
 
@@ -5769,7 +5856,16 @@ function ConsolePanel({ library, sessionLog, session, onResume, onOpenLobby, onR
   const phone = vw < 640;
   const wide = vw >= 900; // larger displays: legend on the left, donut on the right (same as the Analytics page)
   const signedIn = !!(drive && drive.configured && drive.linked && drive.profile);
-  const firstName = signedIn ? String(drive.profile.name || (drive.profile.email || "").split("@")[0] || "").trim().split(/\s+/)[0] : "";
+  const spCtx = useContext(ProfileContext);
+  const firstName = (() => {
+    // Google name first; with no Google account (or no name on it) fall back to the student profile's name, then the email prefix
+    const pr = signedIn ? drive.profile : null;
+    const sName = spCtx && spCtx.profile && spCtx.profile.student && spCtx.profile.student.name;
+    const full = (pr && pr.name) || sName || "";
+    const raw = String(full).trim().split(/\s+/)[0] || (pr ? String((pr.email || "").split("@")[0] || "").trim().split(/[._-]+/)[0] : "");
+    // Requirement: the first letter is always capitalized, whatever the source (skips leading quotes/punctuation, leaves the rest as written)
+    return raw.replace(/\p{L}/u, (ch) => ch.toLocaleUpperCase());
+  })();
   const hr = new Date().getHours();
   const greet = t(hr < 12 ? "csGoodMorning" : hr < 18 ? "csGoodAfternoon" : "csGoodEvening");
   const locale = lang === "es" ? "es" : "en-US";
@@ -6375,31 +6471,8 @@ function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], dri
       {guideOpen && <HowItWorksGuide onClose={() => setGuideOpen(false)} T={T} />}
       <PageNav tab={libTab} setTab={setLibTab} T={T} />
 
-      {/* An exam is loaded: show the way back into it. When its in-progress block belongs to a saved library entry, the
-          Resume Session button lives on that entry's row instead. */}
-      {session && !resumeId && libTab === "library" && (
-        <div style={{
-          background: T.card, border: `1px solid ${session.block ? T.blue : T.border}`, borderRadius: 10, padding: "16px 20px", marginBottom: 20,
-          display: "flex", alignItems: "center", justifyContent: "space-between", gap: 14, flexWrap: "wrap",
-        }}>
-          <div>
-            <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(11.5), color: T.blue, textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 3 }}>
-              {session.block ? t("sessionInProgress") : t("examLoadedLabel")}
-            </div>
-            <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(15), color: T.ink }}>
-              {session.block ? blockLabel(session.block, t) : (session.examTitle || t("practiceExam"))}
-            </div>
-            {session.block && (
-              <span style={{ fontFamily: FONT_MONO, fontSize: fs(12), color: T.muted }}>
-                {t("sessionPos", { n: (Number(session.bs.currentQuestionIndex) || 0) + 1, total: session.block.questions.length })}
-              </span>
-            )}
-          </div>
-          {session.block
-            ? <PrimaryButton T={T} onClick={onResume} icon={Play}>{t("resumeSession")}</PrimaryButton>
-            : <GhostButton T={T} onClick={onOpenLobby}>{t("openLobby")}</GhostButton>}
-        </div>
-      )}
+      {/* Library top row: compact active-session widget (Resume lives here) with the Qhub placeholder to its right. */}
+      {libTab === "library" && <LibraryTopRow session={session} resumeId={resumeId} library={library} onResume={onResume} onOpenLobby={onOpenLobby} T={T} />}
 
       {libTab === "database" && <DatabasePanel T={T} />}
       {libTab === "profile" && <StudentProfilePanel T={T} sessionLog={sessionLog} />}
