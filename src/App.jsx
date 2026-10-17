@@ -3618,10 +3618,20 @@ function useNativeFeel() {
   useEffect(() => {
     const id = "oworld-native-feel";
     if (document.getElementById(id)) return undefined;
+    // The page must be laid out at the device width and never be locked to a zoom level. A viewport tag with maximum-scale / user-scalable=no
+    // (or a missing one) is what makes a phone render the app wider than the screen with no way to pinch it back. Input zoom is prevented by
+    // the 16px field rule below instead, so pinch-zoom stays available.
+    let meta = document.querySelector('meta[name="viewport"]');
+    if (!meta) { meta = document.createElement("meta"); meta.name = "viewport"; document.head.appendChild(meta); }
+    meta.setAttribute("content", "width=device-width, initial-scale=1, viewport-fit=cover");
     const el = document.createElement("style");
     el.id = id;
     el.textContent = `
       html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+      html, body { max-width: 100%; overflow-x: hidden; overflow-x: clip; }
+      /* A single-column grid with no column template sizes its column to its widest child's minimum width, so one long unbroken label can
+         stretch the whole page past the screen. Give those grids a column that is allowed to shrink. */
+      [style*="display: grid"]:not([style*="grid-template-columns"]):not([style*="grid-auto-flow"]):not([style*="grid-template-areas"]) { grid-template-columns: minmax(0, 1fr); }
       @media (hover: none) and (pointer: coarse) {
         input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="color"]):not([type="file"]),
         textarea, select, [contenteditable=""], [contenteditable="true"] { font-size: 16px !important; }
@@ -3759,7 +3769,7 @@ function TutorCard({ sessionLog, onNavigate, T, compact = false, fill = false })
   const exams = brief.exams.slice(0, compact ? 3 : 4);
 
   return (
-    <div style={{ ...card, display: "grid", gap: compact ? 12 : 18, ...(fill ? { height: "100%", boxSizing: "border-box", alignContent: "space-between" } : {}) }}>
+    <div style={{ ...card, display: "grid", gridTemplateColumns: "minmax(0, 1fr)", gap: compact ? 12 : 18, ...(fill ? { height: "100%", boxSizing: "border-box", alignContent: "space-between" } : {}) }}>
       <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap" }}>
         <GraduationCap size={18} color={T.blue} />
         <span style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(14), color: T.ink }}>{t("spCardTitle")}</span>
@@ -6935,7 +6945,7 @@ function ConsolePanel({ library, sessionLog, session, onResume, onOpenLobby, onR
   );
 
   return (
-    <div style={{ display: "grid", gap: 20 }}>
+    <div style={{ display: "grid", gridTemplateColumns: "minmax(0, 1fr)", gap: 20 }}>
       {/* Greeting */}
       <div>
         <h1 style={{ fontFamily: FONT_DISPLAY, fontSize: fs(phone ? 28 : 34), fontWeight: 600, color: T.ink, margin: "0 0 4px" }}>{firstName ? `${greet}, ${firstName}` : greet}</h1>
@@ -7611,7 +7621,7 @@ function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], dri
   }
 
   return (
-    <div style={{ maxWidth: Math.round(1120 * Math.max(1, TEXT_SCALE)), margin: "0 auto", padding: "22px 20px 80px", position: "relative" }}>
+    <div style={{ maxWidth: Math.round(1120 * Math.max(1, TEXT_SCALE)), width: "100%", boxSizing: "border-box", margin: "0 auto", padding: "22px 20px 80px", position: "relative" }}>
       <style>{`@import url('${FONT_IMPORT_URL}');`}</style>
 
       {/* Top bar: the OWORLD logo (the Home button) at the left, Search + notifications + the profile menu (which holds Help) at the right. */}
@@ -8563,7 +8573,7 @@ function vignettePreview(q) {
 // they are not boxed in by whatever container the app is mounted in.
 function FullPage({ T, children }) {
   return (
-    <div style={{ position: "fixed", inset: 0, overflowY: "auto", background: T.paper, textAlign: "left" }}>
+    <div style={{ position: "fixed", inset: 0, overflowY: "auto", overflowX: "hidden", background: T.paper, textAlign: "left" }}>
       {children}
     </div>
   );
