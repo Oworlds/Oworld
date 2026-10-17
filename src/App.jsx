@@ -288,6 +288,7 @@ const STR = {
     "spEvt.holiday": "Holiday", "spEvt.break": "Break", "spEvt.exam-period": "Exam period", "spEvt.deadline": "Deadline", "spEvt.class": "Class", "spEvt.other": "Event",
     "csCalendar": "Semester calendar", "csCalPrev": "Previous month", "csCalNext": "Next month", "csCalToday": "Today", "csCalNothing": "Nothing scheduled.", "csCalStudied": "Studied: {n} session(s) · {q} questions", "csCalLegExam": "Exam", "csCalLegTask": "Task due", "csCalLegEvent": "Calendar", "csCalLegStudy": "Studied", "csCalNoProfile": "Set up your Student Profile to see your exams, tasks and breaks here.", "csCalSetup": "Set up profile", "csCalMore": "+{n} more",
     "tabCalendar": "Calendar", "calTitle": "Calendar", "calHint": "Your whole term on one calendar: classes, exams, tasks, breaks and the days you studied. Tap a day to see and edit it.", "calMonth": "Month", "calWeek": "Week", "calAgenda": "Agenda", "calPrev": "Previous", "calNext": "Next", "calLayerKey": "Key dates", "calTermStart": "Term starts", "calTermEnd": "Term ends", "calTargetExam": "Target exam", "calClassesN": "{n} classes", "calStatTerm": "Term", "calStatOpen": "Open tasks", "calStatWeekQ": "Questions this week", "calAgendaEmpty": "Nothing scheduled in this stretch.", "calOpenFull": "Full calendar", "spMapNote": "Showing the weeks around today. Expand to see the full syllabus map.",
+    tbGapTitle: "Gap analysis", tbGapHint: "Your logged blocks grouped by subject tag and compared with the blueprint: exam weight, your share of practice, your accuracy and the gap to target (points).", tbColExam: "Exam", tbColPractice: "You", tbColAcc: "Acc.", tbColGap: "Gap", tbGapWorst: "Largest accuracy gap: {a} ({n} pts below target).", tbGapUnder: "Most under-practiced: {b}.", tbGapNone: "Finish a block to see your gaps.", tbUnmapped: "Not mapped to the blueprint", tbUnmappedHint: "These subject tags in your results match no blueprint item. Add them to a match list.", tbBpPrompt: "Blueprint — AI prompt", tbBpSchema: "Blueprint — JSON template", tbScale: "Scale weights to 100%", tbScaleHint: "Overlapping ranges (a question can count toward several disciplines) can add up to more than 100%. This rescales each group and keeps the original numbers as the official range. Comparisons already use the scaled shares.", tbConf: "Source confidence", "tbConfLvl.high": "High", "tbConfLvl.medium": "Medium", "tbConfLvl.low": "Low", "tbCg.official": "Cites official sources ({h}).", "tbCg.version": "Outline edition recorded: {v}.", "tbCg.fresh": "Retrieved {n} days ago.", "tbCg.weights": "Weights add up to about 100% in every group.", "tbCf.noSource": "No source cited.", "tbCf.unofficial": "The cited pages are not official USMLE, NBME or FSMB sites.", "tbCf.noVersion": "No outline edition recorded.", "tbCf.noDate": "No retrieval date recorded.", "tbCf.old": "Last checked {n} days ago, longer than a semester.", "tbCf.weights": "{g} weights add up to {n}%, not 100%.", "tbCf.noWeights": "No exam weights given.", "tbCf.template": "Template with placeholder weights, not the official outline.", tbCadence: "Update your blueprint at least once every semester: the outline can change and your tutor plans from it.", tbDueOn: "Next update due by {d}.", tbUpdate: "Update blueprint", tbDue: "Your blueprint was last checked {n} days ago. Update it at least once a semester.", tbDueTerm: "A new term started since your blueprint was last checked. Update it so your tutor follows the current outline.", tbSoon: "Your blueprint is {n} days old. Plan an update this semester.", "nf.bpDue.t": "Update your blueprint", "nf.bpDue.b": "It was last checked {n} days ago. Refresh it at least once a semester so your tutor follows the current USMLE outline.", "nf.bpDueTerm.t": "New semester: update your blueprint", "nf.bpDueTerm.b": "Your term started after your blueprint was last checked. Re-run the AI prompt to confirm the current USMLE outline.", tbSource: "Source: {v} {u}", tbNoSource: "No official source recorded: re-run the AI prompt so it can search the current USMLE outline.", tabTutor: "Tutor", tbTitle: "Tutor Dashboard", tbOpenTutor: "Open Tutor", tbBpTitle: "Blueprint", tbBpBody: "A blueprint is one JSON file with your exam's test domains, system weights and target competencies. Give the prompt to an AI tool that can browse the web: it looks up the latest official USMLE outline (usmle.org, NBME, FSMB) and returns the JSON to paste here. The built-in template is only a placeholder. The tutor ranks what to study by weight, your accuracy and this week's syllabus.", tbTemplate: "Use USMLE template", tbCopyPrompt: "Copy AI prompt", tbCopySchema: "Copy template JSON", tbCopied: "Copied", tbPaste: "Paste the blueprint JSON here…", tbLoad: "Load blueprint", tbRemove: "Remove blueprint", tbErrParse: "That doesn't look like JSON. Paste only the blueprint (or upload the file).", tbErrShape: "This JSON has no domains, systems or competencies.", tbReady: "Blueprint readiness", tbCoverage: "Coverage", tbCoverageSub: "items with 5+ answers", tbCountdown: "Days to exam", tbTarget: "target {n}%", tbPriority: "Priority targets", tbPriorityHint: "Ranked by exam weight, the gap to your target and this week's topics. Tick items to build one block, or tap a name to start it.", tbBuild: "Build block from {n} selected", tbShareLine: "{n} answered · {share}% of your practice vs {w}% of the exam · target {target}%", tbMatches: "Qbanks that match", tbNoMatches: "No Qbank in your library matches these topics yet.", tbSystems: "Systems", tbDomains: "Test domains", tbComps: "Competencies", tbLegend: "Bar = your accuracy, black tick = target. Weights are a study guide: check them against the current official outline.", tbNoBpTitle: "No blueprint loaded", tbNoBpBody: "Load a blueprint to see priorities by exam weight.", "nf.blueprintLoaded.t": "Blueprint loaded", "nf.blueprintLoaded.b": "Your tutor now plans around {exam}.",
     tutorShort: "Tutor", modeLabel: "Test mode", modeLocked: "Locked once the block starts", modeTimedHint: "Countdown timer. You can turn it off during the exam, but not back on.", timerLabel: "Timer", timerOnHint: "You can turn the timer off, but you can't turn it back on.", timerOffNote: "Timer is off for this block and can't be turned back on.", timerOffTitle: "Turn off the timer?", timerOffBody: "The countdown will stop and this block will become untimed. This can't be undone: you won't be able to turn the timer back on for this block. Your answers and progress are kept.", keepTimer: "Keep timer on", turnOffTimer: "Turn off timer", timerOffSuffix: "timer off", modeTutorHint: "No timer. Instant feedback after each answer.", tutor: "Tutor mode", tutorHint: "Instant right/wrong feedback and explanations after each answer, plus question reset.",
     tutorCorrect: "Correct", tutorIncorrect: "Incorrect — the correct answer is {a}", tutorIncorrectHidden: "Incorrect", showCorrectBtn: "Show Correct Answer",
     resetQ: "Reset question", "sc.reset": "Reset question (Tutor mode)",
@@ -453,6 +454,7 @@ const STR = {
     "spEvt.holiday": "Feriado", "spEvt.break": "Descanso", "spEvt.exam-period": "Periodo de exámenes", "spEvt.deadline": "Fecha límite", "spEvt.class": "Clase", "spEvt.other": "Evento",
     "csCalendar": "Calendario del semestre", "csCalPrev": "Mes anterior", "csCalNext": "Mes siguiente", "csCalToday": "Hoy", "csCalNothing": "Nada programado.", "csCalStudied": "Estudiaste: {n} sesión(es) · {q} preguntas", "csCalLegExam": "Examen", "csCalLegTask": "Tarea", "csCalLegEvent": "Calendario", "csCalLegStudy": "Estudio", "csCalNoProfile": "Configura tu Perfil del estudiante para ver aquí tus exámenes, tareas y descansos.", "csCalSetup": "Configurar perfil", "csCalMore": "+{n} más",
     "tabCalendar": "Calendario", "calTitle": "Calendario", "calHint": "Todo tu periodo en un solo calendario: clases, exámenes, tareas, descansos y los días que estudiaste. Toca un día para verlo y editarlo.", "calMonth": "Mes", "calWeek": "Semana", "calAgenda": "Agenda", "calPrev": "Anterior", "calNext": "Siguiente", "calLayerKey": "Fechas clave", "calTermStart": "Inicio del periodo", "calTermEnd": "Fin del periodo", "calTargetExam": "Examen objetivo", "calClassesN": "{n} clases", "calStatTerm": "Periodo", "calStatOpen": "Tareas abiertas", "calStatWeekQ": "Preguntas esta semana", "calAgendaEmpty": "No hay nada programado en este lapso.", "calOpenFull": "Calendario completo", "spMapNote": "Se muestran las semanas cercanas a hoy. Expande para ver el mapa completo del programa.",
+    tbGapTitle: "Análisis de brechas", tbGapHint: "Tus bloques registrados agrupados por etiqueta de materia y comparados con el blueprint: peso en el examen, tu parte de la práctica, tu precisión y la brecha con la meta (puntos).", tbColExam: "Examen", tbColPractice: "Tú", tbColAcc: "Prec.", tbColGap: "Brecha", tbGapWorst: "Mayor brecha de precisión: {a} ({n} pts bajo la meta).", tbGapUnder: "Menos practicado: {b}.", tbGapNone: "Termina un bloque para ver tus brechas.", tbUnmapped: "Sin asignar al blueprint", tbUnmappedHint: "Estas etiquetas de materia de tus resultados no coinciden con ningún ítem del blueprint. Agrégalas a una lista de coincidencias.", tbBpPrompt: "Blueprint — prompt para IA", tbBpSchema: "Blueprint — plantilla JSON", tbScale: "Escalar pesos a 100%", tbScaleHint: "Los rangos que se superponen (una pregunta puede contar para varias disciplinas) pueden sumar más de 100%. Esto reescala cada grupo y conserva los números originales como rango oficial. Las comparaciones ya usan las proporciones escaladas.", tbConf: "Confianza en la fuente", "tbConfLvl.high": "Alta", "tbConfLvl.medium": "Media", "tbConfLvl.low": "Baja", "tbCg.official": "Cita fuentes oficiales ({h}).", "tbCg.version": "Edición del esquema registrada: {v}.", "tbCg.fresh": "Consultado hace {n} días.", "tbCg.weights": "Los pesos suman cerca de 100% en cada grupo.", "tbCf.noSource": "No cita ninguna fuente.", "tbCf.unofficial": "Las páginas citadas no son sitios oficiales de USMLE, NBME ni FSMB.", "tbCf.noVersion": "No se registró la edición del esquema.", "tbCf.noDate": "No se registró la fecha de consulta.", "tbCf.old": "Última revisión hace {n} días, más de un semestre.", "tbCf.weights": "Los pesos de {g} suman {n}%, no 100%.", "tbCf.noWeights": "No hay pesos del examen.", "tbCf.template": "Plantilla con pesos de ejemplo, no es el esquema oficial.", tbCadence: "Actualiza tu blueprint al menos una vez por semestre: el esquema puede cambiar y tu tutor planifica con él.", tbDueOn: "Próxima actualización antes del {d}.", tbUpdate: "Actualizar blueprint", tbDue: "Tu blueprint se revisó por última vez hace {n} días. Actualízalo al menos una vez por semestre.", tbDueTerm: "Empezó un nuevo periodo desde la última revisión de tu blueprint. Actualízalo para que tu tutor siga el esquema vigente.", tbSoon: "Tu blueprint tiene {n} días. Planea una actualización este semestre.", "nf.bpDue.t": "Actualiza tu blueprint", "nf.bpDue.b": "Se revisó por última vez hace {n} días. Renuévalo al menos una vez por semestre para que tu tutor siga el esquema USMLE vigente.", "nf.bpDueTerm.t": "Nuevo semestre: actualiza tu blueprint", "nf.bpDueTerm.b": "Tu periodo empezó después de la última revisión de tu blueprint. Vuelve a usar el prompt de IA para confirmar el esquema USMLE vigente.", tbSource: "Fuente: {v} {u}", tbNoSource: "Sin fuente oficial registrada: vuelve a usar el prompt de IA para que busque el esquema USMLE vigente.", tabTutor: "Tutor", tbTitle: "Panel del tutor", tbOpenTutor: "Abrir Tutor", tbBpTitle: "Blueprint", tbBpBody: "Un blueprint es un archivo JSON con los dominios de la prueba, el peso de cada sistema y las competencias objetivo de tu examen. Dale el prompt a una herramienta de IA con acceso a internet: busca el esquema oficial más reciente de USMLE (usmle.org, NBME, FSMB) y te devuelve el JSON para pegar aquí. La plantilla incluida es solo un ejemplo. El tutor ordena qué estudiar según el peso, tu precisión y el programa de esta semana.", tbTemplate: "Usar plantilla USMLE", tbCopyPrompt: "Copiar prompt de IA", tbCopySchema: "Copiar JSON de plantilla", tbCopied: "Copiado", tbPaste: "Pega aquí el JSON del blueprint…", tbLoad: "Cargar blueprint", tbRemove: "Quitar blueprint", tbErrParse: "Eso no parece JSON. Pega solo el blueprint (o sube el archivo).", tbErrShape: "Este JSON no tiene dominios, sistemas ni competencias.", tbReady: "Preparación del blueprint", tbCoverage: "Cobertura", tbCoverageSub: "ítems con 5+ respuestas", tbCountdown: "Días al examen", tbTarget: "meta {n}%", tbPriority: "Objetivos prioritarios", tbPriorityHint: "Ordenados por peso en el examen, la brecha con tu meta y los temas de esta semana. Marca ítems para armar un bloque, o toca un nombre para iniciarlo.", tbBuild: "Armar bloque con {n} seleccionados", tbShareLine: "{n} respondidas · {share}% de tu práctica vs {w}% del examen · meta {target}%", tbMatches: "Qbanks que coinciden", tbNoMatches: "Ningún Qbank de tu biblioteca coincide con estos temas todavía.", tbSystems: "Sistemas", tbDomains: "Dominios de la prueba", tbComps: "Competencias", tbLegend: "Barra = tu precisión, marca negra = meta. Los pesos son una guía de estudio: verifícalos con el esquema oficial vigente.", tbNoBpTitle: "Sin blueprint cargado", tbNoBpBody: "Carga un blueprint para ver prioridades según el peso en el examen.", "nf.blueprintLoaded.t": "Blueprint cargado", "nf.blueprintLoaded.b": "Tu tutor ahora planifica con {exam}.",
     tutorShort: "Tutor", modeLabel: "Modo del examen", modeLocked: "Se bloquea al iniciar el bloque", modeTimedHint: "Cuenta regresiva. Puedes desactivarla durante el examen, pero no volver a activarla.", timerLabel: "Cronómetro", timerOnHint: "Puedes desactivar el cronómetro, pero no volver a activarlo.", timerOffNote: "El cronómetro está desactivado en este bloque y no se puede volver a activar.", timerOffTitle: "¿Desactivar el cronómetro?", timerOffBody: "La cuenta regresiva se detendrá y este bloque quedará sin límite de tiempo. No se puede deshacer: no podrás volver a activar el cronómetro en este bloque. Tus respuestas y tu progreso se conservan.", keepTimer: "Mantener cronómetro", turnOffTimer: "Desactivar cronómetro", timerOffSuffix: "cronómetro desactivado", modeTutorHint: "Sin cronómetro. Retroalimentación instantánea tras cada respuesta.", tutor: "Modo tutor", tutorHint: "Retroalimentación instantánea de correcto/incorrecto y explicaciones tras cada respuesta, más reinicio de pregunta.",
     tutorCorrect: "Correcto", tutorIncorrect: "Incorrecto — la respuesta correcta es {a}", tutorIncorrectHidden: "Incorrecto", showCorrectBtn: "Mostrar respuesta correcta",
     resetQ: "Reiniciar pregunta", "sc.reset": "Reiniciar pregunta (modo tutor)",
@@ -3461,6 +3463,7 @@ function buildProfileRecipe({ lang, today, stats, existing }) {
 const ProfileContext = createContext({
   profile: null, updatedAt: 0, setProfile: () => {}, toggleTask: () => {}, addTask: () => {}, removeTask: () => {}, updateCourses: () => {}, updateAssessment: () => {}, removeAssessment: () => {}, clear: () => {}, wipe: () => {}, applyMerged: () => {}, getState: () => ({}),
   sync: { available: false, status: "idle", lastSync: 0, syncNow: () => {} }, pendingFocus: null, seedFocus: () => {}, consumeFocus: () => {},
+  bpStore: { bp: null, save: () => {}, sync: { available: false, status: "idle", lastSync: 0, syncNow: () => {} } },
 });
 const spCore = (m) => hashStr(JSON.stringify({ p: m.profile, u: m.updatedAt, c: m.clearedAt }));
 const validStoredProfile = (p) => !!p && typeof p === "object" && p.schema === SP_TYPE && Array.isArray(p.courses) && Array.isArray(p.assessments) && p.plan && Array.isArray(p.plan.tasks);
@@ -3774,7 +3777,8 @@ function TutorCard({ sessionLog, onNavigate, T, compact = false, fill = false })
         <GraduationCap size={18} color={T.blue} />
         <span style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(14), color: T.ink }}>{t("spCardTitle")}</span>
         <Pill T={T} tone={brief.phase === "in" ? "blue" : "muted"}>{spWeekLabel(brief, t)}</Pill>
-        <button onClick={() => onNavigate("profile")} style={linkBtn}>{t("spCardOpen")}</button>
+        <button onClick={() => onNavigate("tutor")} style={linkBtn}>{t("tbOpenTutor")}</button>
+        <button onClick={() => onNavigate("profile")} style={{ ...linkBtn, marginLeft: 0 }}>{t("spCardOpen")}</button>
       </div>
 
       <div>
@@ -3906,8 +3910,443 @@ function TutorLibraryStrip({ library, sessionLog, onLaunch, T }) {
   );
 }
 
+// ---------------------------------------------------------------------------
+// Tutor Dashboard + JSON Blueprint (USMLE content outline recipe)
+// ---------------------------------------------------------------------------
+// The blueprint is one JSON file: test domains, system weights and target competencies. Each item has a weight (% of the exam), a target accuracy and
+// `match` names that are matched to your Qbank subjects. The dashboard fuses it with your Analytics and your Student Profile (this week, exams) to rank what to study.
+const LS_BP = "owordBlueprint";
+const BP_TEMPLATE = {
+  schema: "oworld-usmle-blueprint", v: 1, exam: "USMLE Step 1", version: "template", targetDate: null, targetPct: 70,
+  note: "Placeholder weights. Replace them with the current USMLE content outline (ask your AI tool with the prompt).",
+  domains: [
+    { id: "path", name: "Pathology", weightPct: 25, targetPct: 70, match: ["Pathology"] }, { id: "phys", name: "Physiology", weightPct: 20, match: ["Physiology"] },
+    { id: "pharm", name: "Pharmacology", weightPct: 15, match: ["Pharmacology"] }, { id: "micro", name: "Microbiology", weightPct: 10, match: ["Microbiology"] },
+    { id: "bio", name: "Biochemistry & Nutrition", weightPct: 10, match: ["Biochemistry", "Nutrition"] }, { id: "anat", name: "Anatomy & Embryology", weightPct: 8, match: ["Anatomy", "Embryology"] },
+    { id: "beh", name: "Behavioral Science & Biostatistics", weightPct: 8, match: ["Behavioral Science", "Biostatistics", "Ethics"] }, { id: "imm", name: "Immunology", weightPct: 4, match: ["Immunology"] },
+  ],
+  systems: [
+    { id: "gp", name: "General Principles", weightPct: 7, match: ["General Principles", "Genetics"] }, { id: "cv", name: "Cardiovascular", weightPct: 9, match: ["Cardiovascular"] },
+    { id: "resp", name: "Respiratory", weightPct: 8, match: ["Respiratory"] }, { id: "ren", name: "Renal & Urinary", weightPct: 7, match: ["Renal", "Urinary"] },
+    { id: "gi", name: "Gastrointestinal", weightPct: 8, match: ["Gastrointestinal"] }, { id: "heme", name: "Hematology & Oncology", weightPct: 8, match: ["Hematology", "Oncology"] },
+    { id: "imm", name: "Immune System", weightPct: 5, match: ["Immune", "Immunology"] }, { id: "msk", name: "Musculoskeletal & Skin", weightPct: 8, match: ["Musculoskeletal", "Dermatology", "Integumentary"] },
+    { id: "neuro", name: "Nervous System & Special Senses", weightPct: 12, match: ["Neurology", "Neuroscience"] }, { id: "endo", name: "Endocrine", weightPct: 6, match: ["Endocrine"] },
+    { id: "repro", name: "Reproductive", weightPct: 7, match: ["Reproductive", "Obstetrics"] }, { id: "psych", name: "Behavioral Health", weightPct: 8, match: ["Psychiatry", "Behavioral Health"] },
+    { id: "multi", name: "Multisystem", weightPct: 7, match: ["Multisystem", "Biostatistics", "Epidemiology"] },
+  ],
+  competencies: [
+    { id: "dx", name: "Pathophysiology & diagnosis", weightPct: 40, targetPct: 75, match: ["Pathology", "Physiology"] },
+    { id: "rx", name: "Pharmacotherapy & mechanisms", weightPct: 20, targetPct: 70, match: ["Pharmacology"] },
+    { id: "sci", name: "Foundational science mechanisms", weightPct: 25, targetPct: 70, match: ["Biochemistry", "Microbiology", "Immunology", "Genetics", "Anatomy"] },
+    { id: "ebm", name: "Evidence, biostatistics & ethics", weightPct: 15, targetPct: 70, match: ["Biostatistics", "Epidemiology", "Ethics", "Behavioral Science"] },
+  ],
+};
+const BP_SCHEMA = `{"schema":"oworld-usmle-blueprint","v":1,"exam":"string","version":"outline edition or effective date","targetDate":"YYYY-MM-DD|null","targetPct":70,"note":"string","source":{"urls":["official page URLs you used"],"outlineVersion":"string","retrievedOn":"YYYY-MM-DD"},"domains":[{"id":"slug","name":"string","weightPct":number,"officialRange":"string|null","targetPct":number|null,"match":["Qbank subject names"]}],"systems":[same shape],"competencies":[same shape]}`;
+const BP_PROMPT = `You are building a study blueprint for my USMLE tutor. Return ONE JSON object and nothing else, matching this schema:\n${BP_SCHEMA}\n\nSTEP 1, find the current standard. Search the internet now. Use only official channels: usmle.org (the USMLE Content Description and Specifications, "Content Outline" PDFs for Step 1, Step 2 CK and Step 3), NBME (nbme.org) and the FSMB. Ask which Step I am preparing for if I did not say; default to Step 1. Find the edition in force today, check its effective date and any announced changes, and prefer it over older copies, blogs, prep-company summaries and forum posts. If you cannot browse, say so plainly and ask me to paste the outline. Never fill weights from memory.\nSTEP 2, build the blueprint from that document.\n- domains: the disciplines tested (Pathology, Pharmacology...). systems: the organ systems / content areas. competencies: the physician tasks or competencies.\n- weightPct: each item's share of its group, so the numbers in every group add up to 100 (between 98 and 102). Official outlines publish percentage ranges, and disciplines and competencies overlap (one question counts toward several), so the raw midpoints can add up to far more than 100. When they do, scale every midpoint by 100 divided by the sum of the midpoints, round to one decimal and make the group total exactly 100. Put the official published range in each item's officialRange (e.g. "44-52%") and say in "note" that you scaled. Before you reply, add up each group and fix it if it is not 100.\n- targetPct: the accuracy I should reach (default 70; higher for heavily weighted items).\n- match: 1-5 short names a Qbank would use as the "subject" of a question (e.g. "Cardiovascular", "Heme/Onc", "Pharmacology").\n- source: the official URLs you used, the outline edition/effective date, and today's date as retrievedOn.\n- targetDate: my exam date if I give one, else null.`;
+const bpNum = (v) => { if (v == null || v === "") return null; const n = Number(String(v).replace("%", "")); return Number.isFinite(n) && n >= 0 ? n : null; };
+function bpGroup(raw, prefix) {
+  const arr = Array.isArray(raw) ? raw : raw && typeof raw === "object" ? Object.entries(raw).map(([name, v]) => (v && typeof v === "object" ? { name, ...v } : { name, weightPct: v })) : [];
+  const list = (v) => (Array.isArray(v) ? v : typeof v === "string" ? v.split(",") : []).map((s) => String(s).trim()).filter(Boolean);
+  return arr.map((x, i) => {
+    const name = String((x && (x.name || x.title || x.label)) || "").trim(); if (!name) return null;
+    return { id: String(x.id || `${prefix}-${i + 1}`), name, weightPct: bpNum(x.weightPct ?? x.weight ?? x.pct), officialRange: x.officialRange ? String(x.officialRange).slice(0, 30) : null, targetPct: bpNum(x.targetPct ?? x.target ?? x.targetAccuracy), match: [...new Set([name, ...list(x.match ?? x.aliases ?? x.keywords ?? x.qbankFocus)])] };
+  }).filter(Boolean);
+}
+// Tolerant: accepts code fences, extra prose around the JSON, arrays or {name: weight} maps, and a few alternative key names.
+function parseBlueprint(text) {
+  const s = String(text || "").trim(); const a = s.indexOf("{"); const b = s.lastIndexOf("}");
+  if (a < 0 || b <= a) return { error: "tbErrParse" };
+  let o; try { o = JSON.parse(s.slice(a, b + 1)); } catch (e) { return { error: "tbErrParse" }; }
+  const bp = {
+    schema: "oworld-usmle-blueprint", v: 1, exam: String(o.exam || o.name || "USMLE").slice(0, 80), version: String(o.version || "").slice(0, 40),
+    targetDate: /^\d{4}-\d{2}-\d{2}$/.test(o.targetDate || "") ? o.targetDate : null, targetPct: bpNum(o.targetPct ?? o.targetScorePct) ?? 70, note: String(o.note || "").slice(0, 400),
+    source: o.source && typeof o.source === "object" ? { urls: (Array.isArray(o.source.urls) ? o.source.urls : []).map((u) => String(u).slice(0, 200)).slice(0, 5), outlineVersion: String(o.source.outlineVersion || "").slice(0, 80), retrievedOn: /^\d{4}-\d{2}-\d{2}$/.test(o.source.retrievedOn || "") ? o.source.retrievedOn : "" } : null,
+    domains: bpGroup(o.domains ?? o.testDomains, "d"), systems: bpGroup(o.systems ?? o.systemWeights, "s"), competencies: bpGroup(o.competencies ?? o.targetCompetencies, "c"),
+  };
+  return bp.domains.length || bp.systems.length || bp.competencies.length ? { bp } : { error: "tbErrShape" };
+}
+const LS_BP_FILE = "owordBlueprintFile";   // { fileId, lastSync } of the Drive file below
+const LS_BP_LEDGER = "owordBpNudgeLedger"; // { nudgeKey: firedAt }
+const BP_FILE_NAME = "oword_blueprint.json";
+const BP_TYPE = "oworld-usmle-blueprint";
+const BP_REFRESH_DAYS = 120; // about one semester: past this (or once a new term starts) the tutor asks for an update
+const BP_SOON_DAYS = 90;
+const validBp = (b) => !!b && typeof b === "object" && b.schema === BP_TYPE && ["domains", "systems", "competencies"].every((k) => Array.isArray(b[k]));
+const bpCore = (m) => hashStr(JSON.stringify({ b: m.bp, u: m.updatedAt, c: m.clearedAt }));
+// Newest edit wins as a whole; a deletion beats any older edit (same rules as the Student Profile).
+function mergeBpState(local, remote) {
+  const r = remote && typeof remote === "object" ? remote : {};
+  const L = { bp: validBp(local.bp) ? local.bp : null, updatedAt: Number(local.updatedAt) || 0, clearedAt: Number(local.clearedAt) || 0 };
+  const R = { bp: validBp(r.bp) ? r.bp : null, updatedAt: Number(r.updatedAt) || 0, clearedAt: Number(r.clearedAt) || 0 };
+  const clearedAt = Math.max(L.clearedAt, R.clearedAt); const newer = R.updatedAt > L.updatedAt ? R : L;
+  return { bp: newer.bp && newer.updatedAt > clearedAt ? newer.bp : null, updatedAt: Math.max(L.updatedAt, R.updatedAt), clearedAt };
+}
+function useBlueprintStore() {
+  const [state, setState] = useState(() => {
+    const v = lsGet(LS_BP);
+    if (validBp(v)) return { bp: v, updatedAt: Number(v.loadedAt) || 1, clearedAt: 0 }; // first version stored the bare blueprint
+    return v && typeof v === "object" ? { bp: validBp(v.bp) ? v.bp : null, updatedAt: Number(v.updatedAt) || 0, clearedAt: Number(v.clearedAt) || 0 } : { bp: null, updatedAt: 0, clearedAt: 0 };
+  });
+  const ref = useRef(state);
+  useEffect(() => { lsSet(LS_BP, JSON.stringify(state)); }, [state]);
+  const commit = (n) => { ref.current = n; setState(n); };
+  const save = useCallback((bp, keepLoaded) => { const now = Date.now(); const cur = ref.current; commit(bp ? { bp: { ...bp, loadedAt: keepLoaded && bp.loadedAt ? bp.loadedAt : now }, updatedAt: now, clearedAt: cur.clearedAt } : { bp: null, updatedAt: now, clearedAt: now }); }, []);
+  const wipe = useCallback(() => { ref.current = { bp: null, updatedAt: 0, clearedAt: 0 }; setState(ref.current); lsRemove(LS_BP); lsRemove(LS_BP_FILE); lsRemove(LS_BP_LEDGER); }, []);
+  const applyMerged = useCallback((m) => { if (bpCore(m) !== bpCore(ref.current)) commit(m); }, []);
+  const getState = useCallback(() => ref.current, []);
+  return { bp: state.bp, updatedAt: state.updatedAt, clearedAt: state.clearedAt, save, wipe, applyMerged, getState };
+}
+// Google Drive sync for the blueprint: own file (oword_blueprint.json), same sign-in and token, same pull -> merge -> push cycle as the profile.
+function useBlueprintSync({ drive, store }) {
+  const { configured, linked, acquireToken, peekToken } = drive;
+  const latest = useRef({}); latest.current = { getState: store.getState, applyMerged: store.applyMerged };
+  const fileRef = useRef((lsGet(LS_BP_FILE) || {}).fileId || null);
+  const modRef = useRef(null); const running = useRef(false); const rerun = useRef(false);
+  const linkedRef = useRef(linked); linkedRef.current = linked;
+  const [status, setStatus] = useState("idle"); const [lastSync, setLastSync] = useState((lsGet(LS_BP_FILE) || {}).lastSync || 0);
+  const run = useCallback(async ({ interactive = false } = {}) => {
+    if (!configured || !linkedRef.current) return;
+    if (running.current) { rerun.current = true; return; }
+    running.current = true; setStatus("busy");
+    try {
+      const token = await acquireToken({ interactive });
+      if (!token) { setStatus("idle"); return; }
+      let fileId = fileRef.current; let remote = null;
+      if (fileId) { try { remote = await driveDownload(token, fileId); } catch (e) { if (e.status === 404) fileId = null; else throw e; } }
+      if (!fileId) { fileId = await driveFindSyncFile(token, BP_FILE_NAME); if (fileId) remote = await driveDownload(token, fileId); }
+      const merged = mergeBpState(latest.current.getState(), remote);
+      latest.current.applyMerged(merged);
+      const remoteMerged = remote ? mergeBpState({ bp: null, updatedAt: 0, clearedAt: 0 }, remote) : null;
+      if (!fileId || !remoteMerged || bpCore(merged) !== bpCore(remoteMerged)) {
+        fileId = await driveUpload(token, fileId, JSON.stringify({ v: 1, app: "oworld", type: BP_TYPE, updatedAt: merged.updatedAt, clearedAt: merged.clearedAt, bp: merged.bp }), BP_FILE_NAME);
+      }
+      fileRef.current = fileId;
+      try { modRef.current = await driveModified(token, fileId); } catch (e) { /* the next poll just does a full sync */ }
+      const now = Date.now(); lsSet(LS_BP_FILE, JSON.stringify({ fileId, lastSync: now })); setLastSync(now); setStatus("done");
+    } catch (e) { setStatus("error"); }
+    finally { running.current = false; if (rerun.current) { rerun.current = false; setTimeout(() => run(), 0); } }
+  }, [configured, acquireToken]);
+  useEffect(() => { if (configured && linked && drive.status === "done") run(); }, [configured, linked, drive.status]); // eslint-disable-line
+  useEffect(() => { if (!linked) { fileRef.current = null; modRef.current = null; lsRemove(LS_BP_FILE); setStatus("idle"); setLastSync(0); } }, [linked]);
+  const first = useRef(true);
+  useEffect(() => {
+    if (first.current) { first.current = false; return undefined; }
+    if (!linked) return undefined;
+    const id = setTimeout(() => run(), 3000); return () => clearTimeout(id);
+  }, [store.updatedAt, store.clearedAt, linked, run]);
+  const poll = useCallback(async () => {
+    const tk = peekToken();
+    if (!configured || !linkedRef.current || running.current || !fileRef.current || !tk) return;
+    try { const mod = await driveModified(tk, fileRef.current); if (mod && modRef.current && mod !== modRef.current) run(); } catch (e) { /* ignore */ }
+  }, [configured, peekToken, run]);
+  useEffect(() => {
+    if (!configured) return undefined;
+    const onVis = () => { if (document.visibilityState === "visible") poll(); };
+    const id = setInterval(() => { if (document.visibilityState === "visible") poll(); }, 45000);
+    document.addEventListener("visibilitychange", onVis);
+    return () => { clearInterval(id); document.removeEventListener("visibilitychange", onVis); };
+  }, [configured, poll]);
+  return { available: !!(configured && linked), status, lastSync, syncNow: () => run({ interactive: true }) };
+}
+// One-tap fix for groups whose weights don't add up to 100: scales them, keeps what the file said as officialRange, and the load date stays (a rescale is not a refresh).
+function scaleBp(bp) {
+  const fix = (items) => {
+    const sum = items.reduce((n, i) => n + (i.weightPct || 0), 0); if (!sum || (sum >= 97 && sum <= 103)) return items;
+    const out = items.map((i) => ({ ...i, officialRange: i.officialRange || (i.weightPct != null ? `${i.weightPct}%` : null), weightPct: i.weightPct != null ? Math.round(((i.weightPct * 100) / sum) * 10) / 10 : null }));
+    const drift = Math.round((100 - out.reduce((n, i) => n + (i.weightPct || 0), 0)) * 10) / 10; const big = out.reduce((b, i, k) => ((i.weightPct || 0) > (out[b].weightPct || 0) ? k : b), 0);
+    out[big] = { ...out[big], weightPct: Math.round((out[big].weightPct + drift) * 10) / 10 }; return out;
+  };
+  return { ...bp, domains: fix(bp.domains), systems: fix(bp.systems), competencies: fix(bp.competencies), note: [bp.note, "Weights scaled to 100% in Oworld."].filter(Boolean).join(" ").slice(0, 400) };
+}
+// How fresh is the blueprint? Its content date is the AI's retrievedOn, else the day it was loaded. Due after a semester, or once a new term has started since.
+function bpFreshness(bp, profile, now = new Date()) {
+  const base = parseISODate(bp.source && bp.source.retrievedOn) || (bp.loadedAt ? startOfDay(new Date(bp.loadedAt)) : null);
+  if (!base) return { ageDays: null, due: false, soon: false, newTerm: false, dueOn: null };
+  const today = startOfDay(now); const ageDays = Math.max(0, dayDiff(base, today)); const ts = profile ? termStartOf(profile) : null;
+  const newTerm = !!(ts && dayDiff(base, ts) > 0 && dayDiff(ts, today) >= 0);
+  return { ageDays, newTerm, due: ageDays >= BP_REFRESH_DAYS || newTerm, soon: ageDays >= BP_SOON_DAYS, dueOn: new Date(base.getFullYear(), base.getMonth(), base.getDate() + BP_REFRESH_DAYS) };
+}
+// The tutor's gauge of how far to trust the blueprint, scored locally from what the file itself proves (the AI's own claims are not taken at face value).
+const BP_OFFICIAL = /(^|\.)(usmle\.org|nbme\.org|fsmb\.org)$/i;
+const bpHost = (u) => { try { return new URL(/^https?:/i.test(u) ? u : `https://${u}`).hostname.replace(/^www\./, ""); } catch (e) { return ""; } };
+function bpConfidence(bp, now = new Date()) {
+  const good = []; const flags = []; let score = 0; const src = bp.source;
+  const hosts = [...new Set(((src && src.urls) || []).map(bpHost).filter(Boolean))]; const off = hosts.filter((h) => BP_OFFICIAL.test(h));
+  if (off.length) { score += 35; good.push({ k: "official", v: { h: off.join(", ") } }); } else if (hosts.length) { score += 8; flags.push({ k: "unofficial" }); } else flags.push({ k: "noSource" });
+  if (src && src.outlineVersion) { score += 15; good.push({ k: "version", v: { v: src.outlineVersion } }); } else flags.push({ k: "noVersion" });
+  const rd = parseISODate(src && src.retrievedOn);
+  if (rd) {
+    score += 10; const age = Math.max(0, dayDiff(rd, startOfDay(now)));
+    if (age <= BP_SOON_DAYS) { score += 15; good.push({ k: "fresh", v: { n: age } }); } else if (age <= BP_REFRESH_DAYS) score += 8; else flags.push({ k: "old", v: { n: age } });
+  } else flags.push({ k: "noDate" });
+  const groups = [["systems", "tbSystems"], ["domains", "tbDomains"], ["competencies", "tbComps"]].map(([k, g]) => ({ g, items: bp[k] })).filter((x) => x.items.some((i) => i.weightPct != null));
+  if (groups.length) {
+    let ok = 0; groups.forEach((x) => { const sum = Math.round(x.items.reduce((n, i) => n + (i.weightPct || 0), 0)); if (sum >= 97 && sum <= 103) ok++; else flags.push({ k: "weights", v: { g: x.g, n: sum } }); });
+    score += Math.round((25 * ok) / groups.length); if (ok === groups.length) good.push({ k: "weights" });
+  } else flags.push({ k: "noWeights" });
+  if (bp.version === "template") { score = Math.min(score, 25); flags.unshift({ k: "template" }); }
+  return { score, level: score >= 75 ? "high" : score >= 45 ? "medium" : "low", good, flags };
+}
+// Once per blueprint and reason: the tutor asks for an update after a semester, or when a new term starts.
+function useBlueprintNudges({ bp, profile, notify }) {
+  const [tick, setTick] = useState(0);
+  useEffect(() => { const id = setInterval(() => setTick((n) => n + 1), 3600000); return () => clearInterval(id); }, []);
+  useEffect(() => {
+    if (!bp) return;
+    const fr = bpFreshness(bp, profile, new Date()); if (!fr.due) return;
+    const key = `bpDue:${bp.loadedAt || 0}:${fr.newTerm ? "term" : "age"}`; const ledger = lsGet(LS_BP_LEDGER) || {}; if (ledger[key]) return;
+    ledger[key] = Date.now(); lsSet(LS_BP_LEDGER, JSON.stringify(ledger));
+    notify({ kind: fr.newTerm ? "bpDueTerm" : "bpDue", tone: "amber", vars: { n: fr.ageDays } });
+  }, [bp, profile, tick]); // eslint-disable-line
+}
+// Blueprint x Analytics x tutor: per item, accuracy from your logged answers (>= 5 questions), share of your practice vs its exam weight, and a priority score.
+function bpStats(bp, log, focus = []) {
+  const m = new Map();
+  (Array.isArray(log) ? log : []).forEach((e) => (Array.isArray(e.bySubject) ? e.bySubject : []).forEach((x) => {
+    const c = m.get(x.subject) || { subject: x.subject, correct: 0, total: 0 }; c.correct += Number(x.correct) || 0; c.total += Number(x.total) || 0; m.set(x.subject, c);
+  }));
+  const subs = [...m.values()]; const all = subs.reduce((n, x) => n + x.total, 0);
+  const grp = (items, kind) => { const sum = items.reduce((n, i) => n + (i.weightPct || 0), 0); return items.map((it) => {
+    const raw = it.weightPct != null ? it.weightPct : sum ? 0 : 100 / items.length; const w = sum > 0 ? (raw * 100) / sum : raw;
+    const hit = subs.filter((x) => it.match.some((k) => topicMatch(k, x.subject)));
+    const total = hit.reduce((n, x) => n + x.total, 0); const correct = hit.reduce((n, x) => n + x.correct, 0);
+    const pct = total >= 5 ? Math.round((correct / total) * 100) : null; const target = it.targetPct != null ? it.targetPct : bp.targetPct;
+    const share = all ? (total / all) * 100 : 0; const thisWeek = focus.some((f) => it.match.some((k) => topicMatch(k, f)));
+    const urg = pct == null ? 0.5 : Math.max(0, Math.min(1, (target - pct) / target)); const under = w > 0 ? Math.max(0, Math.min(1, (w - share) / w)) : 0;
+    return { ...it, kind, w, total, pct, target, share, thisWeek, score: w * (0.7 * urg + 0.3 * under) * (thisWeek ? 1.25 : 1) };
+  }); };
+  const systems = grp(bp.systems, "systems"); const domains = grp(bp.domains, "domains"); const comps = grp(bp.competencies, "competencies");
+  const base = systems.length ? systems : domains.length ? domains : comps; const kw = base.filter((x) => x.pct != null); const ww = kw.reduce((n, x) => n + x.w, 0);
+  const priorities = []; [...systems, ...domains, ...comps].filter((x) => x.score > 0).sort((a, b) => b.score - a.score).forEach((x) => { if (!priorities.some((p) => topicMatch(p.match[0], x.match[0]))) priorities.push(x); });
+  const unmapped = subs.filter((x) => ![...systems, ...domains, ...comps].some((it) => it.match.some((k) => topicMatch(k, x.subject)))).sort((a, b) => b.total - a.total);
+  return { systems, domains, comps, all, unmapped, ready: ww ? Math.round(kw.reduce((n, x) => n + x.pct * x.w, 0) / ww) : null, covered: base.length ? Math.round((kw.length / base.length) * 100) : 0, priorities };
+}
+function BpRows({ rows, T, t, picked, onPick, onStudy }) {
+  return (
+    <div style={{ display: "grid", gap: 12 }}>
+      {rows.map((r) => {
+        const col = r.pct == null ? T.muted : r.pct >= r.target ? T.green : r.pct >= r.target - 10 ? T.amber : T.red; const top = r.match[0];
+        return (
+          <div key={r.id}>
+            <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap" }}>
+              <input type="checkbox" checked={picked.includes(top)} onChange={() => onPick(top)} aria-label={r.name} style={{ margin: 0 }} />
+              <button onClick={() => onStudy(top)} title={t("spStartBlock", { s: top })} style={{ flex: "1 1 140px", minWidth: 0, textAlign: "left", background: "transparent", border: "none", padding: 0, cursor: "pointer", fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(13.5), color: T.ink, overflowWrap: "anywhere" }}>{r.name}</button>
+              {r.thisWeek && <Pill T={T} tone="blue">{t("spThisWeek")}</Pill>}
+              <Pill T={T} tone={r.pct == null ? "muted" : r.pct >= r.target ? "green" : r.pct >= r.target - 10 ? "amber" : "red"}>{r.pct == null ? t("tuNoData") : `${r.pct}%`}</Pill>
+            </div>
+            <div style={{ position: "relative", height: 8, borderRadius: 999, background: T.mutedBg, marginTop: 6 }}>
+              <div style={{ width: `${Math.min(100, r.pct || 0)}%`, height: "100%", borderRadius: 999, background: col }} />
+              <div title={t("tbTarget", { n: r.target })} style={{ position: "absolute", top: -3, bottom: -3, left: `${Math.min(99, r.target)}%`, width: 2, background: T.ink }} />
+            </div>
+            <div style={{ fontFamily: FONT_MONO, fontSize: fs(11.5), color: T.muted, marginTop: 3 }}>{t("tbShareLine", { n: r.total, share: Math.round(r.share), w: Math.round(r.w), target: r.target })}</div>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+function GapTable({ st, kind, setKind, T, t, onStudy }) {
+  const kinds = [["systems", "tbSystems"], ["domains", "tbDomains"], ["comps", "tbComps"]].filter(([k]) => st[k].length);
+  const k = st[kind] && st[kind].length ? kind : kinds[0] && kinds[0][0]; if (!k) return null;
+  const gapOf = (r) => (r.pct == null ? null : r.target - r.pct);
+  const rows = [...st[k]].sort((a, b) => (gapOf(b) == null ? -999 : gapOf(b)) - (gapOf(a) == null ? -999 : gapOf(a)));
+  const worst = rows.find((r) => gapOf(r) > 0); const under = st.all ? [...st[k]].filter((r) => r.w > 0).sort((a, b) => (b.w - b.share) - (a.w - a.share))[0] : null;
+  const cols = "minmax(130px, 2.2fr) repeat(4, minmax(58px, 1fr))"; const cell = { fontFamily: FONT_MONO, fontSize: fs(12), color: T.ink, textAlign: "right" };
+  const headC = { ...cell, fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(11), color: T.muted, textTransform: "uppercase", letterSpacing: "0.04em" };
+  return (
+    <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, padding: 20, minWidth: 0 }}>
+      <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 6, flexWrap: "wrap", fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(15), color: T.ink }}>
+        <TrendingUp size={17} color={T.blue} />{t("tbGapTitle")}
+        <span style={{ marginLeft: "auto", display: "flex", gap: 6, flexWrap: "wrap" }}>
+          {kinds.map(([id, lab]) => <button key={id} onClick={() => setKind(id)} aria-pressed={k === id} style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(12), color: k === id ? T.onBlue : T.ink, background: k === id ? T.blue : "transparent", border: `1px solid ${k === id ? T.blue : T.border}`, borderRadius: 999, padding: "4px 12px", cursor: "pointer" }}>{t(lab)}</button>)}
+        </span>
+      </div>
+      <div style={{ fontFamily: FONT_UI, fontSize: fs(12.5), color: T.muted, lineHeight: 1.5, marginBottom: 12 }}>{t("tbGapHint")}</div>
+      {st.all === 0 ? <div style={{ fontFamily: FONT_UI, fontSize: fs(13), color: T.muted }}>{t("tbGapNone")}</div> : (
+        <>
+          {(worst || under) && <div style={{ fontFamily: FONT_UI, fontSize: fs(13), color: T.ink, lineHeight: 1.5, marginBottom: 12 }}>{[worst ? t("tbGapWorst", { a: worst.name, n: gapOf(worst) }) : "", under && under.w - under.share > 1 ? t("tbGapUnder", { b: under.name }) : ""].filter(Boolean).join(" ")}</div>}
+          <div style={{ overflowX: "auto" }}>
+            <div style={{ minWidth: 460, display: "grid", gap: 0 }}>
+              <div style={{ display: "grid", gridTemplateColumns: cols, gap: 8, padding: "0 0 6px", borderBottom: `1px solid ${T.border}` }}>
+                <span style={{ ...headC, textAlign: "left" }}>{t(kinds.find(([id]) => id === k)[1])}</span><span style={headC}>{t("tbColExam")}</span><span style={headC}>{t("tbColPractice")}</span><span style={headC}>{t("tbColAcc")}</span><span style={headC}>{t("tbColGap")}</span>
+              </div>
+              {rows.map((r) => { const g = gapOf(r); const dp = Math.round(r.share - r.w); return (
+                <div key={r.id} style={{ display: "grid", gridTemplateColumns: cols, gap: 8, alignItems: "center", padding: "8px 0", borderBottom: `1px solid ${T.border}` }}>
+                  <button onClick={() => onStudy(r.match[0])} title={t("spStartBlock", { s: r.match[0] })} style={{ textAlign: "left", background: "transparent", border: "none", padding: 0, cursor: "pointer", fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(13), color: T.ink, overflowWrap: "anywhere" }}>{r.name}</button>
+                  <span style={cell}>{Math.round(r.w)}%</span>
+                  <span style={{ ...cell, color: st.all && dp <= -3 ? T.amber : T.ink }}>{Math.round(r.share)}%</span>
+                  <span style={cell}>{r.pct == null ? "—" : `${r.pct}%`}</span>
+                  <span style={{ ...cell, fontWeight: 700, color: g == null ? T.muted : g > 10 ? T.red : g > 0 ? T.amber : T.green }}>{g == null ? "—" : g > 0 ? `−${g}` : `+${-g}`}</span>
+                </div>
+              ); })}
+            </div>
+          </div>
+        </>
+      )}
+      {st.unmapped.length > 0 && (
+        <div style={{ marginTop: 14 }}>
+          <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(11.5), color: T.muted, textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 4 }}>{t("tbUnmapped")}</div>
+          <div style={{ fontFamily: FONT_UI, fontSize: fs(12), color: T.muted, marginBottom: 6 }}>{t("tbUnmappedHint")}</div>
+          <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>{st.unmapped.slice(0, 12).map((x) => <Pill key={x.subject} T={T} tone="muted">{`${x.subject} · ${x.total}`}</Pill>)}</div>
+        </div>
+      )}
+    </div>
+  );
+}
+function TutorDashboard({ library, sessionLog, onLaunch, onNavigate, T }) {
+  const { t, lang } = useI18n(); const sp = useContext(ProfileContext); const { notify } = useContext(NotifContext);
+  const bpStore = sp.bpStore; const bp = bpStore.bp; const saveBp = bpStore.save; const locale = lang === "es" ? "es" : "en-US"; const [text, setText] = useState(""); const [err, setErr] = useState(""); const [open, setOpen] = useState(false); const [showP, setShowP] = useState(false); const [showS, setShowS] = useState(false); const [gapKind, setGapKind] = useState("systems"); const panelRef = useRef(null);
+  const [picked, setPicked] = useState([]); const [copied, setCopied] = useState(""); const fileRef = useRef(null);
+  const dayKey = new Date().toDateString();
+  const brief = useMemo(() => (sp.profile ? tutorBrief(sp.profile, sessionLog, new Date()) : null), [sp.profile, sessionLog, dayKey]); // eslint-disable-line
+  const fr = useMemo(() => (bp ? bpFreshness(bp, sp.profile, new Date()) : null), [bp, sp.profile, dayKey]); // eslint-disable-line
+  const conf = useMemo(() => (bp ? bpConfidence(bp, new Date()) : null), [bp, dayKey]); // eslint-disable-line
+  const confTone = conf ? (conf.level === "high" ? "green" : conf.level === "medium" ? "amber" : "red") : "muted";
+  const cv = (v) => (v && v.g ? { ...v, g: t(v.g) } : v);
+  const st = useMemo(() => (bp ? bpStats(bp, sessionLog, brief ? brief.studyFocus : []) : null), [bp, sessionLog, brief]);
+  const card = { background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, padding: 20, minWidth: 0 };
+  const head = (Ic, label, extra) => <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 12, fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(15), color: T.ink }}><Ic size={17} color={T.blue} />{label}{extra}</div>;
+  const hint = { fontFamily: FONT_UI, fontSize: fs(12.5), color: T.muted, lineHeight: 1.5 };
+  const grid = (min) => ({ display: "grid", gridTemplateColumns: `repeat(auto-fit, minmax(min(100%, ${min}px), 1fr))`, gap: 16, alignItems: "start" });
+  const openPanel = () => { setOpen(true); setTimeout(() => panelRef.current && panelRef.current.scrollIntoView({ behavior: "smooth", block: "start" }), 50); };
+  const load = (raw) => {
+    const r = parseBlueprint(raw); if (r.error) { setErr(t(r.error)); return; }
+    saveBp(r.bp); setErr(""); setText(""); setOpen(false); setPicked([]);
+    notify({ kind: "blueprintLoaded", tone: "green", dedupe: "blueprintLoaded", vars: { exam: r.bp.exam } });
+  };
+  const copy = (k, s) => { try { navigator.clipboard.writeText(s); setCopied(k); setTimeout(() => setCopied(""), 1500); } catch (e) { /* ignore */ } };
+  const study = (topics) => { sp.seedFocus(Array.isArray(topics) ? topics.join(", ") : topics); onNavigate("import"); };
+  const pick = (n) => setPicked((p) => (p.includes(n) ? p.filter((x) => x !== n) : [...p, n]));
+  const exp = () => { const a = document.createElement("a"); a.href = URL.createObjectURL(new Blob([JSON.stringify(bp, null, 2)], { type: "application/json" })); a.download = "oword_blueprint.json"; a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 1000); };
+  const daysTo = bp && bp.targetDate ? dayDiff(startOfDay(new Date()), parseISODate(bp.targetDate) || new Date()) : brief && brief.next ? brief.next.days : null;
+  const topics = picked.length ? picked : st ? st.priorities.slice(0, 4).map((x) => x.match[0]) : brief ? brief.studyFocus : [];
+  const matches = useMemo(() => library.map((e) => ({ e, n: e.questions.filter((q) => topics.some((f) => topicMatch(f, q.subject))).length })).filter((x) => x.n > 0).sort((a, b) => b.n - a.n).slice(0, 6), [library, topics.join("|")]); // eslint-disable-line
+  const tile = (label, value, sub) => <div style={{ ...card, padding: "14px 16px" }}><div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(11.5), color: T.muted, textTransform: "uppercase", letterSpacing: "0.06em" }}>{label}</div><div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(24), color: T.ink, marginTop: 4 }}>{value}</div>{sub && <div style={{ ...hint, fontSize: fs(11.5) }}>{sub}</div>}</div>;
+
+  return (
+    <div style={{ display: "grid", gap: 16 }}>
+      <div style={{ display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap" }}>
+        <GraduationCap size={22} color={T.blue} />
+        <h2 style={{ margin: 0, fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(22), color: T.ink }}>{t("tbTitle")}</h2>
+        {brief && <Pill T={T} tone={brief.phase === "in" ? "blue" : "muted"}>{spWeekLabel(brief, t)}</Pill>}
+        {bp && <Pill T={T} tone="muted">{bp.exam}</Pill>}
+        <span style={{ marginLeft: "auto", display: "flex", gap: 8, flexWrap: "wrap" }}>
+          <GhostButton T={T} icon={Target} onClick={openPanel}>{t("tbBpTitle")}</GhostButton>
+          <GhostButton T={T} icon={UserIcon} onClick={() => onNavigate("profile")}>{t("tabProfile")}</GhostButton>
+        </span>
+      </div>
+
+      {bp && fr && (fr.due || fr.soon) && (
+        <div role="status" style={{ ...card, padding: "14px 18px", borderColor: fr.due ? T.amber : T.blue, display: "flex", alignItems: "center", gap: 12, flexWrap: "wrap" }}>
+          <AlertTriangle size={18} color={fr.due ? T.amber : T.blue} />
+          <span style={{ flex: "1 1 240px", minWidth: 0, fontFamily: FONT_UI, fontSize: fs(13.5), color: T.ink, lineHeight: 1.45 }}>{fr.newTerm ? t("tbDueTerm") : fr.due ? t("tbDue", { n: fr.ageDays }) : t("tbSoon", { n: fr.ageDays })}</span>
+          <GhostButton T={T} icon={RefreshCw} onClick={openPanel}>{t("tbUpdate")}</GhostButton>
+        </div>
+      )}
+
+      {st && (
+        <div style={grid(150)}>
+          {tile(t("tbReady"), st.ready == null ? "—" : `${st.ready}%`, t("tbTarget", { n: bp.targetPct }))}
+          {tile(t("tbCoverage"), `${st.covered}%`, t("tbCoverageSub"))}
+          {tile(t("csStatAnswered"), st.all)}
+          {tile(t("tbCountdown"), daysTo == null ? "—" : daysTo <= 0 ? t("spToday") : daysTo, bp.targetDate || (brief && brief.next ? brief.next.title : ""))}
+          {brief && tile(t("csStatStreak"), brief.streak, brief.studiedToday ? t("tuGoalMet") : "")}
+          {conf && tile(t("tbConf"), t(`tbConfLvl.${conf.level}`), `${conf.score}/100`)}
+        </div>
+      )}
+
+      <div style={grid(360)}>
+        <TutorCard sessionLog={sessionLog} onNavigate={onNavigate} T={T} />
+        {st ? (
+          <div style={card}>
+            {head(Flame, t("tbPriority"))}
+            <div style={{ ...hint, marginBottom: 12 }}>{t("tbPriorityHint")}</div>
+            <BpRows rows={st.priorities.slice(0, 6)} T={T} t={t} picked={picked} onPick={pick} onStudy={study} />
+            <div style={{ marginTop: 14 }}><PrimaryButton T={T} icon={Play} disabled={!picked.length} onClick={() => study(picked)}>{t("tbBuild", { n: picked.length })}</PrimaryButton></div>
+          </div>
+        ) : (
+          <div style={card}>{head(Target, t("tbNoBpTitle"))}<div style={hint}>{t("tbNoBpBody")}</div><div style={{ marginTop: 12 }}><PrimaryButton T={T} icon={Target} onClick={openPanel}>{t("tbBpTitle")}</PrimaryButton></div></div>
+        )}
+      </div>
+
+      {(matches.length > 0 || library.length > 0) && (
+        <div style={card}>
+          {head(BookOpen, t("tbMatches"))}
+          {matches.length ? (
+            <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>{matches.map(({ e, n }) => <GhostButton key={e.id} T={T} icon={Play} onClick={() => onLaunch([e.id])}>{t("spLibStart", { title: e.title, n })}</GhostButton>)}</div>
+          ) : <div style={hint}>{t("tbNoMatches")}</div>}
+          <div style={{ ...hint, marginTop: 8 }}>{(topics || []).join(" · ")}</div>
+        </div>
+      )}
+
+      {st && <GapTable st={st} kind={gapKind} setKind={setGapKind} T={T} t={t} onStudy={study} />}
+
+      {st && (
+        <div style={grid(340)}>
+          {[["systems", "tbSystems"], ["domains", "tbDomains"], ["comps", "tbComps"]].filter(([k]) => st[k].length).map(([k, label]) => (
+            <div key={k} style={card}>{head(BarChart3, t(label))}<BpRows rows={st[k]} T={T} t={t} picked={picked} onPick={pick} onStudy={study} /></div>
+          ))}
+        </div>
+      )}
+      {st && <div style={hint}>{t("tbLegend")}{bp.note ? ` ${bp.note}` : ""}{bp.source && (bp.source.urls.length || bp.source.outlineVersion) ? ` ${t("tbSource", { v: [bp.source.outlineVersion, bp.source.retrievedOn].filter(Boolean).join(", "), u: bp.source.urls.join(" ") })}` : ` ${t("tbNoSource")}`}</div>}
+
+      {bp && conf && (
+        <div style={card}>
+          {head(ShieldCheck, t("tbConf"), <Pill T={T} tone={confTone}>{`${t(`tbConfLvl.${conf.level}`)} · ${conf.score}/100`}</Pill>)}
+          <div style={{ display: "grid", gap: 6 }}>
+            {conf.good.map((g) => <div key={g.k} style={{ display: "flex", gap: 8, alignItems: "flex-start", fontFamily: FONT_UI, fontSize: fs(13), color: T.ink, lineHeight: 1.45 }}><Check size={14} color={T.green} style={{ flexShrink: 0, marginTop: 2 }} /><span>{t(`tbCg.${g.k}`, cv(g.v))}</span></div>)}
+            {conf.flags.map((g, i) => <div key={`${g.k}${i}`} style={{ display: "flex", gap: 8, alignItems: "flex-start", fontFamily: FONT_UI, fontSize: fs(13), color: T.ink, lineHeight: 1.45 }}><AlertTriangle size={14} color={T.amber} style={{ flexShrink: 0, marginTop: 2 }} /><span>{t(`tbCf.${g.k}`, cv(g.v))}</span></div>)}
+          </div>
+          {conf.flags.some((g) => g.k === "weights") && <div style={{ marginTop: 10 }}><GhostButton T={T} icon={SlidersHorizontal} onClick={() => saveBp(scaleBp(bp), true)}>{t("tbScale")}</GhostButton><div style={{ ...hint, marginTop: 4 }}>{t("tbScaleHint")}</div></div>}
+          <div style={{ ...hint, marginTop: 10 }}>{t("tbCadence")}{fr && fr.dueOn ? ` ${t("tbDueOn", { d: fr.dueOn.toLocaleDateString(locale, { month: "short", day: "numeric", year: "numeric" }) })}` : ""}</div>
+          <div style={{ marginTop: 10 }}><GhostButton T={T} icon={RefreshCw} onClick={openPanel}>{t("tbUpdate")}</GhostButton></div>
+        </div>
+      )}
+
+      <div ref={panelRef} style={card}>
+        <button onClick={() => setOpen(!open)} aria-expanded={open} style={{ display: "flex", alignItems: "center", gap: 8, width: "100%", background: "transparent", border: "none", padding: 0, cursor: "pointer", textAlign: "left" }}>
+          <Target size={17} color={T.blue} /><span style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(15), color: T.ink }}>{t("tbBpTitle")}</span>
+          {bp && <Pill T={T} tone="muted">{bp.exam}{bp.version ? ` · ${bp.version}` : ""}</Pill>}
+          {conf && <Pill T={T} tone={confTone}>{t(`tbConfLvl.${conf.level}`)}</Pill>}
+          <span style={{ marginLeft: "auto", display: "flex" }}>{open ? <ChevronUp size={16} color={T.muted} /> : <ChevronDown size={16} color={T.muted} />}</span>
+        </button>
+        {open && (
+          <div style={{ marginTop: 12, display: "grid", gap: 14 }}>
+            <div style={hint}>{t("tbBpBody")} {t("tbCadence")}</div>
+            <div style={{ display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap" }}>
+              {bpStore.sync.available ? <Pill T={T} tone="green">{t("spSyncDrive")}</Pill> : <span style={hint}>{t("spSyncLocal")}</span>}
+              {bpStore.sync.available && <button onClick={bpStore.sync.syncNow} disabled={bpStore.sync.status === "busy"} style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(12.5), color: T.blue, background: "transparent", border: "none", cursor: "pointer", padding: 4 }}>{t("syncNow")}</button>}
+            </div>
+            {[["p", t("tbBpPrompt"), BP_PROMPT, showP, setShowP], ["s", t("tbBpSchema"), JSON.stringify(BP_TEMPLATE, null, 2), showS, setShowS]].map(([key, label, body, shown, setShown]) => (
+              <div key={key}>
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 8, gap: 8 }}>
+                  <button onClick={() => setShown(!shown)} aria-expanded={shown} style={{ display: "flex", alignItems: "center", gap: 6, background: "transparent", border: "none", padding: 0, cursor: "pointer", fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(12.5), color: T.ink, textTransform: "uppercase", letterSpacing: "0.05em", textAlign: "left" }}>{label}{shown ? <ChevronUp size={15} color={T.muted} /> : <ChevronDown size={15} color={T.muted} />}</button>
+                  <button onClick={() => copy(key, body)} style={{ fontFamily: FONT_UI, fontSize: fs(12.5), fontWeight: 600, color: copied === key ? T.green : T.blue, background: "transparent", border: "none", cursor: "pointer", display: "flex", alignItems: "center", gap: 5 }}>
+                    {copied === key ? <Check size={14} /> : <Copy size={14} />} {copied === key ? t("copied") : t("copy")}
+                  </button>
+                </div>
+                {shown && <pre style={{ fontFamily: FONT_MONO, fontSize: fs(11.5), color: T.ink, background: T.paper, border: `1px solid ${T.border}`, borderRadius: 8, padding: 14, whiteSpace: "pre-wrap", wordBreak: "break-word", lineHeight: 1.6, margin: 0, maxHeight: 220, overflow: "auto" }}>{body}</pre>}
+              </div>
+            ))}
+            <textarea value={text} onChange={(e) => setText(e.target.value)} placeholder={t("tbPaste")} rows={5} style={{ width: "100%", boxSizing: "border-box", fontFamily: FONT_MONO, fontSize: fs(12), color: T.ink, background: T.mutedBg, border: `1px solid ${T.border}`, borderRadius: 8, padding: 10 }} />
+            {err && <div role="alert" style={{ fontFamily: FONT_UI, fontSize: fs(13), color: T.red }}>{err}</div>}
+            <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
+              <PrimaryButton T={T} onClick={() => load(text)} disabled={!text.trim()}>{t("tbLoad")}</PrimaryButton>
+              <GhostButton T={T} icon={Sparkles} onClick={() => load(JSON.stringify(BP_TEMPLATE))}>{t("tbTemplate")}</GhostButton>
+              <GhostButton T={T} icon={Upload} onClick={() => fileRef.current && fileRef.current.click()}>{t("spUpload")}</GhostButton>
+              <input ref={fileRef} type="file" accept=".json,application/json" style={{ display: "none" }} onChange={async (e) => { const f = e.target.files && e.target.files[0]; e.target.value = ""; if (f) load(await f.text()); }} />
+              {bp && <GhostButton T={T} icon={Download} onClick={exp}>{t("spExport")}</GhostButton>}
+              {bp && <GhostButton T={T} icon={Trash2} onClick={() => { saveBp(null); setPicked([]); setOpen(true); }}>{t("tbRemove")}</GhostButton>}
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
 // ---- Profile tab ----
-function StudentProfilePanel({ T, sessionLog }) {
+function StudentProfilePanel({ T, sessionLog, onNavigate }) {
   const { t, lang } = useI18n();
   const sp = useContext(ProfileContext);
   const { notify } = useContext(NotifContext);
@@ -3992,7 +4431,10 @@ function StudentProfilePanel({ T, sessionLog }) {
   return (
     <div style={{ display: "grid", gap: 20 }}>
       <div>
-        <h1 style={{ fontFamily: FONT_DISPLAY, fontSize: fs(phone ? 26 : 32), fontWeight: 600, color: T.ink, margin: "0 0 4px" }}>{t("spTitle")}</h1>
+        <div style={{ display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap" }}>
+          <h1 style={{ fontFamily: FONT_DISPLAY, fontSize: fs(phone ? 26 : 32), fontWeight: 600, color: T.ink, margin: "0 0 4px" }}>{t("spTitle")}</h1>
+          {onNavigate && <span style={{ marginLeft: "auto", display: "flex", gap: 8, flexWrap: "wrap" }}><GhostButton T={T} icon={Target} onClick={() => onNavigate("tutor")}>{t("tabTutor")}</GhostButton></span>}
+        </div>
         <p style={{ ...body, maxWidth: 680 }}>{t("spHint")}</p>
         <div style={{ display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap", marginTop: 10 }}>
           <Pill T={T} tone={syncTone}>{syncText}</Pill>
@@ -5410,12 +5852,22 @@ function SettingsMenu({ darkMode, setDarkMode, T, iconOnly = false, onHelp }) {
           {/* Student Profile + Trash Bin */}
           <div style={{ borderTop: `1px solid ${T.border}`, padding: "10px 16px", marginTop: 8, display: "grid", gap: 8 }}>
             {nav.open && (
+              <button onClick={() => { setOpen(false); nav.open("tutor"); }} disabled={nav.locked} style={{
+                width: "100%", display: "flex", alignItems: "center", gap: 10, background: "transparent", border: `1px solid ${T.border}`, borderRadius: 6, cursor: nav.locked ? "not-allowed" : "pointer",
+                padding: "9px 12px", fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(13), color: T.ink, textAlign: "left", opacity: nav.locked ? 0.5 : 1,
+              }}>
+                <Target size={15} color={T.muted} />
+                <span style={{ flex: 1 }}>{t("tabTutor")}</span>
+                <ChevronRight size={15} color={T.muted} />
+              </button>
+            )}
+            {nav.open && (
               <button onClick={() => { setOpen(false); nav.open("profile"); }} disabled={nav.locked} style={{
                 width: "100%", display: "flex", alignItems: "center", gap: 10, background: "transparent", border: `1px solid ${T.border}`, borderRadius: 6, cursor: nav.locked ? "not-allowed" : "pointer",
                 padding: "9px 12px", fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(13), color: T.ink, textAlign: "left", opacity: nav.locked ? 0.5 : 1,
               }}>
                 <GraduationCap size={15} color={T.muted} />
-                <span style={{ flex: 1 }}>{t("spTitle")}</span>
+                <span style={{ flex: 1 }}>{t("tabProfile")}</span>
                 <ChevronRight size={15} color={T.muted} />
               </button>
             )}
@@ -7657,10 +8109,11 @@ function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], dri
       {libTab === "library" && <LibraryTopRow session={session} resumeId={resumeId} library={library} onResume={onResume} onOpenLobby={onOpenLobby} T={T} />}
 
       {libTab === "database" && <DatabasePanel key={dbFocus ? dbFocus.n : "db"} initialQuery={dbFocus ? dbFocus.q : ""} T={T} />}
-      {libTab === "profile" && <StudentProfilePanel T={T} sessionLog={sessionLog} />}
+      {libTab === "profile" && <StudentProfilePanel T={T} sessionLog={sessionLog} onNavigate={(tab) => { setLibTab(tab); window.scrollTo({ top: 0, behavior: "smooth" }); }} />}
       {libTab === "calendar" && <CalendarPage focusDate={calFocus} sessionLog={sessionLog} onNavigate={(tab) => { setLibTab(tab); window.scrollTo({ top: 0, behavior: "smooth" }); }} T={T} />}
       {libTab === "analytics" && <SessionHistoryPanel history={sessionLog} onDelete={onDeleteSession} onClear={onClearSessions} onReview={onReviewSession} T={T} />}
       {libTab === "console" && <ConsolePanel library={library} sessionLog={sessionLog} session={session} onResume={onResume} onOpenLobby={onOpenLobby} onReview={onReviewSession} onNavigate={(tab) => { setLibTab(tab); window.scrollTo({ top: 0, behavior: "smooth" }); }} T={T} />}
+      {libTab === "tutor" && <TutorDashboard library={library} sessionLog={sessionLog} onLaunch={onLaunchLibrary} onNavigate={(tab) => { setLibTab(tab); window.scrollTo({ top: 0, behavior: "smooth" }); }} T={T} />}
       {libTab === "library" && <TutorLibraryStrip library={library} sessionLog={sessionLog} onLaunch={onLaunchLibrary} T={T} />}
       {libTab === "library" && <QbankLibraryPanel library={library} onLaunch={onLaunchLibrary} onMix={onMixLibrary} onDelete={onDeleteLibraryEntry} onRename={onRenameLibraryEntry} resumeId={resumeId} onResume={onResume} sessionLog={sessionLog} T={T} />}
 
@@ -10500,13 +10953,16 @@ export default function App() {
   const dbCtx = { ...database, sync: dbSync };
   const studentProfile = useStudentProfile();
   const profileSync = useProfileSync({ drive, store: studentProfile });
+  const blueprintStore = useBlueprintStore();
+  const blueprintSync = useBlueprintSync({ drive, store: blueprintStore });
+  useBlueprintNudges({ bp: blueprintStore.bp, profile: studentProfile.profile, notify: notifs.notify });
   const [pendingFocus, setPendingFocus] = useState(null); // set by the tutor's "Start a <subject> block", consumed by the Import screen
   const navLockBs = view === "exam" && activeBlockIdx !== null ? blockStates[activeBlockIdx] : null;
   const navCtx = {
     locked: !!(navLockBs && navLockBs.status === "in-progress" && !navLockBs.tutor),
     open: (tab) => { setLibTab(tab); if (view !== "import") goHome(); window.scrollTo({ top: 0, behavior: "smooth" }); },
   };
-  const profileCtx = { ...studentProfile, sync: profileSync, pendingFocus, seedFocus: setPendingFocus, consumeFocus: () => setPendingFocus(null) };
+  const profileCtx = { ...studentProfile, bpStore: { ...blueprintStore, sync: blueprintSync }, sync: profileSync, pendingFocus, seedFocus: setPendingFocus, consumeFocus: () => setPendingFocus(null) };
   useNativeFeel();
   useTutorNudges({ profile: studentProfile.profile, sessionLog, notify: notifs.notify });
   // Drive sync alerts: only on a real change of state (reconnect needed / error / first successful link), never on every poll.
@@ -10594,7 +11050,7 @@ export default function App() {
     setStorageError(false);
     setRestoredNotice(false);
     setExamData(null); setBlockStates([]); setHistory([]); setActiveBlockIdx(null);
-    removeAllReviewSnapshots(); notifs.clearAll(); database.wipe(); studentProfile.wipe(); setLibrary([]); setSessionLog([]); setTrash([]); setDarkMode(true); setLang("en"); setTextScale(1);
+    removeAllReviewSnapshots(); notifs.clearAll(); database.wipe(); studentProfile.wipe(); blueprintStore.wipe(); setLibrary([]); setSessionLog([]); setTrash([]); setDarkMode(true); setLang("en"); setTextScale(1);
     setView("import");
   }
 
