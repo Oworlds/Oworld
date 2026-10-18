@@ -299,7 +299,7 @@ const STR = {
     intro: "Paste or upload custom question banks created with your favorite AI tools like ChatGPT, Claude, Gemini, or NotebookLM. Experience an exam-like environment complete with lab reference panels, answer strikethroughs, a built-in calculator, and detailed score analytics.",
     pasteJson: "Paste or upload question bank", upload: "Upload file",
     pastePh: "Paste your generated question bank here…",
-    anTrendTitle: "Score trend", anTrendHint: "Last {n} sessions · dashed line = 70%", anTrendNeed: "Finish 2 sessions to see your trend.", anSubjTitle: "Performance by subject", anActTitle: "Daily activity", anActHint: "Questions answered, last 14 days", anStatSessions: "Sessions", anStatAnswered: "Questions answered", anStatAccuracy: "Accuracy", anStatAvgTime: "Avg time / question", anStatBest: "Best session {n}%",
+    anTrendTitle: "Score trend", anTrendHint: "Last {n} sessions · dashed line = 70%", anTrendNeed: "Finish 2 sessions to see your trend.", anSubjTitle: "Performance by subject", anActTitle: "Daily activity", anActHint: "Questions answered, last 14 days", anStatSessions: "Sessions", anStatAnswered: "Questions answered", anStatAccuracy: "Accuracy", anStatAvgTime: "Time / question", anStatCorrectPct: "Answered correctly", anStatTotalTime: "Total time", anStatBanks: "{n} Qbanks added", anStatBank1: "1 Qbank added", anStatBest: "Best session {n}%",
     csCalPlan: "Plan checklist", csCalPlanCount: "{d}/{n} done",
     csPlanAddPh: "Add to your plan…", csPlanAdd: "Add", csPlanShowAll: "Show all ({n})", csClassNoneHere: "No class times yet. Add them on the Calendar page.", spPlanDueOpt: "Due date (optional)", csPlanAddFor: "Added for {d}", csPlanRemove: "Remove from plan",
     "plTally": "{d} of {n} completed", "plTallyEmpty": "Add your first task to start the tally.", "plDoneToday": "{n} completed today",
@@ -473,7 +473,7 @@ const STR = {
     intro: "Pega o sube bancos de preguntas personalizados creados con tus herramientas de IA favoritas, como ChatGPT, Claude, Gemini o NotebookLM. Vive un entorno similar al examen real, con paneles de referencia de laboratorio, tachado de respuestas, calculadora integrada y analíticas detalladas de tu puntaje.",
     pasteJson: "Pega o sube un banco de preguntas", upload: "Subir archivo",
     pastePh: "Pega aquí tu banco de preguntas generado…",
-    anTrendTitle: "Tendencia de puntaje", anTrendHint: "Últimas {n} sesiones · línea punteada = 70%", anTrendNeed: "Termina 2 sesiones para ver tu tendencia.", anSubjTitle: "Rendimiento por materia", anActTitle: "Actividad diaria", anActHint: "Preguntas respondidas, últimos 14 días", anStatSessions: "Sesiones", anStatAnswered: "Preguntas respondidas", anStatAccuracy: "Precisión", anStatAvgTime: "Tiempo prom. / pregunta", anStatBest: "Mejor sesión {n}%",
+    anTrendTitle: "Tendencia de puntaje", anTrendHint: "Últimas {n} sesiones · línea punteada = 70%", anTrendNeed: "Termina 2 sesiones para ver tu tendencia.", anSubjTitle: "Rendimiento por materia", anActTitle: "Actividad diaria", anActHint: "Preguntas respondidas, últimos 14 días", anStatSessions: "Sesiones", anStatAnswered: "Preguntas respondidas", anStatAccuracy: "Precisión", anStatAvgTime: "Tiempo / pregunta", anStatCorrectPct: "Respondidas correctamente", anStatTotalTime: "Tiempo total", anStatBanks: "{n} Qbanks añadidos", anStatBank1: "1 Qbank añadido", anStatBest: "Mejor sesión {n}%",
     csCalPlan: "Lista del plan", csCalPlanCount: "{d}/{n} hechas",
     csPlanAddPh: "Agregar a tu plan…", csPlanAdd: "Agregar", csPlanShowAll: "Ver todo ({n})", csClassNoneHere: "Aún no hay horarios de clase. Agrégalos en la página Calendario.", spPlanDueOpt: "Fecha límite (opcional)", csPlanAddFor: "Se agrega para {d}", csPlanRemove: "Quitar del plan",
     "plTally": "{d} de {n} completadas", "plTallyEmpty": "Agrega tu primera tarea para empezar el conteo.", "plDoneToday": "{n} completadas hoy",
@@ -1787,6 +1787,9 @@ subject: sistema/disciplina específica. Cada id único. difficultyRating: enter
 Enfoque: ${focusLine}`;
 }
 
+const pad2 = (n) => String(n).padStart(2, "0");
+const fmtMinSec = (sec) => { const s = Math.max(0, Math.round(sec)); return `${pad2(Math.floor(s / 60))}m ${pad2(s % 60)}s`; }; // 00m 00s
+const fmtHourMin = (sec) => { const m = Math.floor(Math.max(0, sec) / 60); return `${pad2(Math.floor(m / 60))}h ${pad2(m % 60)}m`; }; // 00h 00m
 function fmtTime(totalSeconds) {
   const s = Math.max(0, totalSeconds);
   const m = Math.floor(s / 60);
@@ -3649,6 +3652,8 @@ const ProfileContext = createContext({
   sync: { available: false, status: "idle", lastSync: 0, syncNow: () => {} }, pendingFocus: null, seedFocus: () => {}, consumeFocus: () => {},
   bpStore: { bp: null, save: () => {}, sync: { available: false, status: "idle", lastSync: 0, syncNow: () => {} } },
 });
+// An exam is tethered to its course by id, so renaming the class (calendar editor) renames it everywhere: tutor, calendar, planner.
+const spCourseOf = (p, id) => (id && p && Array.isArray(p.courses) ? p.courses.find((c) => c.id === id) || null : null);
 const spCore = (m) => hashStr(JSON.stringify({ p: m.profile, u: m.updatedAt, c: m.clearedAt }));
 const validStoredProfile = (p) => !!p && typeof p === "object" && p.schema === SP_TYPE && Array.isArray(p.courses) && Array.isArray(p.assessments) && p.plan && Array.isArray(p.plan.tasks);
 
@@ -3692,13 +3697,19 @@ function useStudentProfile() {
     if (oldC.length) {
       const ids = new Set(profile.courses.map((c) => c.id));
       profile = { ...profile, courses: [
-        ...profile.courses.map((c) => { const o = oldC.find((x) => x.id === c.id); const base = o && o.priority ? { ...c, priority: true } : c; return o && (!c.meetings || !c.meetings.length) && o.meetings && o.meetings.length ? { ...base, meetings: o.meetings } : base; }),
+        ...profile.courses.map((c) => {
+          const o = oldC.find((x) => x.id === c.id)
+            || oldC.find((x) => !String(x.id).startsWith("usr-") && ((x.code && c.code && normTopic(x.code) === normTopic(c.code)) || normTopic(x.name) === normTopic(c.name))); // same class under a new id
+          let base = o && o.priority ? { ...c, priority: true } : c;
+          if (o && o.nameEdited && o.name) base = { ...base, name: o.name, nameEdited: true }; // the student's own class name wins over the AI's
+          return o && (!c.meetings || !c.meetings.length) && o.meetings && o.meetings.length ? { ...base, meetings: o.meetings } : base;
+        }),
         ...oldC.filter((c) => String(c.id).startsWith("usr-") && !ids.has(c.id)),
       ] };
     }
     // exam dates the student corrected survive a re-import (matched by id)
     const fixed = ((cur.profile && cur.profile.assessments) || []).filter((x) => x.edited);
-    if (fixed.length) profile = { ...profile, assessments: profile.assessments.map((x) => { const o = fixed.find((e) => e.id === x.id && normTopic(e.title) === normTopic(x.title)); return o ? { ...x, date: o.date, time: o.time, status: o.status, edited: true } : x; }).sort((p, q) => (p.date < q.date ? -1 : p.date > q.date ? 1 : 0)) };
+    if (fixed.length) profile = { ...profile, assessments: profile.assessments.map((x) => { const o = fixed.find((e) => e.id === x.id && (e.titleEdited || normTopic(e.title) === normTopic(x.title))); return o ? { ...x, date: o.date, time: o.time, status: o.status, edited: true, ...(o.titleEdited ? { title: o.title, titleEdited: true } : {}), ...(o.courseEdited ? { courseId: o.courseId || null, courseEdited: true } : {}) } : x; }).sort((p, q) => (p.date < q.date ? -1 : p.date > q.date ? 1 : 0)) };
     // what the student added by hand in the calendar (ids start with usr-) survives a re-import
     if (cur.profile) {
       const oc = cur.profile; const keep = (old, fresh) => [...fresh, ...(old || []).filter((x) => String(x.id).startsWith("usr-") && !fresh.some((y) => y.id === x.id))];
@@ -3728,7 +3739,9 @@ function useStudentProfile() {
   }, []);
   const updateCourses = useCallback((courses) => {
     const cur = ref.current; if (!cur.profile) return;
-    commit({ ...cur, updatedAt: Date.now(), profile: { ...cur.profile, courses } });
+    const live = new Set(courses.map((c) => c.id));
+    const assessments = (cur.profile.assessments || []).map((a) => (a.courseId && !live.has(a.courseId) ? { ...a, courseId: null } : a));
+    commit({ ...cur, updatedAt: Date.now(), profile: { ...cur.profile, courses, assessments } });
   }, []);
   const removeTask = useCallback((id) => {
     const cur = ref.current; if (!cur.profile) return;
@@ -3985,13 +3998,15 @@ function TutorCard({ sessionLog, onNavigate, T, compact = false, fill = false, h
           const r = a.ready; const known = r ? r.rows.filter((x) => x.pct != null) : [];
           const weakest = known.slice().sort((x, y) => x.pct - y.pct)[0];
           const untested = r ? r.rows.filter((x) => x.pct == null).length : 0;
+          const crs = spCourseOf(sp.profile, a.courseId);
           const d = parseISODate(a.date);
           const meta = [d ? d.toLocaleDateString(locale, { weekday: "short", month: "short", day: "numeric" }) : a.date, a.time ? fmtClock(a.time, locale) : null, a.weightPct != null ? t("tuWeight", { n: a.weightPct }) : null].filter(Boolean).join(" · ");
           const sub = [weakest ? t("tuWeakest", { topic: weakest.topic, pct: weakest.pct }) : null, untested ? t("tuUntestedN", { n: untested }) : null].filter(Boolean).join(" · ");
           return (
             <div key={a.id} style={{ padding: compact ? "8px 0" : "10px 0", borderTop: i ? `1px solid ${T.border}` : "none" }}>
               <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap" }}>
-                <span style={{ ...rowHead, fontSize: fs(i === 0 ? 15 : 13.5), flex: "1 1 140px", minWidth: 0, overflowWrap: "anywhere" }}>{a.title}</span>
+                <span style={{ ...rowHead, fontSize: fs(i === 0 ? 15 : 13.5), flex: "1 1 140px", minWidth: 0, overflowWrap: "anywhere" }}>{crs && crs.priority && <Star size={13} color={T.amber} fill={T.amber} aria-label={t("tbCourses")} style={{ marginRight: 5, verticalAlign: "-2px" }} />}{a.title}</span>
+                {crs && <Pill T={T} tone="purple">{crs.name}</Pill>}
                 <Pill T={T} tone={a.days <= 3 ? "red" : a.days <= 7 ? "amber" : "muted"}>{spWhen(a.days, t)}</Pill>
                 {r && <Pill T={T} tone={rdPill(r.overall)}>{r.overall == null ? t("tuNoData") : t("tuReadyPct", { n: r.overall })}</Pill>}
               </div>
@@ -7219,6 +7234,21 @@ function sessionTitle(h, t) {
 // incorrect = red. Only answered questions count (skipped ones are left out). Sessions logged before hints were tracked per
 // entry get their hint count from the saved review snapshot when one still exists; otherwise all their correct answers
 // count as plain correct.
+// Shared by the Analysis page and the Console stat boxes.
+// Time per question counts timed sessions only; total time counts every session (timed and tutor).
+function sessionTimeStats(history) {
+  let tSec = 0, tQ = 0, allSec = 0;
+  history.forEach((e) => {
+    const q = Number(e.answered != null ? e.answered : e.total) || 0;
+    if (e.elapsedSec > 0) allSec += e.elapsedSec;
+    if (e.mode !== "tutor" && e.elapsedSec > 0 && q > 0) { tSec += e.elapsedSec; tQ += q; }
+  });
+  return { avgSec: tQ ? Math.round(tSec / tQ) : 0, totalSec: allSec };
+}
+const libraryQuestionCount = (library) => (library || []).reduce((n, e) => n + ((e && e.questions && e.questions.length) || 0), 0);
+// "answered/total": questions answered so far over every question in the added Qbanks
+const fmtAnsweredOf = (answered, total) => `${Number(answered).toLocaleString()}/${Number(total).toLocaleString()}`;
+
 function overviewTotals(history) {
   let answered = 0, correct = 0, hinted = 0;
   history.forEach((h) => {
@@ -7335,7 +7365,7 @@ function ActivityBars({ days, T }) {
   );
 }
 
-function AnalyticsOverview({ history, T }) {
+function AnalyticsOverview({ history, qbankCount = 0, qbankQuestions = 0, T }) {
   const { t, lang } = useI18n();
   const totals = useMemo(() => overviewTotals(history), [history]);
   const locale = lang === "es" ? "es" : "en-US";
@@ -7352,36 +7382,37 @@ function AnalyticsOverview({ history, T }) {
     const today = new Date(); today.setHours(0, 0, 0, 0);
     const days = Array.from({ length: 14 }, (_, i) => { const d = new Date(today); d.setDate(d.getDate() - (13 - i)); return { key: d.toDateString(), label: fmt(d.getTime()), n: 0, today: i === 13 }; });
     history.forEach((e) => { const k = new Date(e.finishedAt).toDateString(); const d = days.find((x) => x.key === k); if (d) d.n += Number(e.answered != null ? e.answered : e.total) || 0; });
-    let tSec = 0, tQ = 0;
-    history.forEach((e) => { const q = Number(e.answered != null ? e.answered : e.total) || 0; if (e.elapsedSec > 0 && q > 0) { tSec += e.elapsedSec; tQ += q; } });
+    const ts = sessionTimeStats(history);
     const pcts = ordered.map((e) => Number(e.pct) || 0);
-    return { trend: recent.map((e) => Number(e.pct) || 0), trendLabels: recent.map((e) => fmt(e.finishedAt)), subjects, days, avgSec: tQ ? Math.round(tSec / tQ) : 0, best: pcts.length ? Math.max(...pcts) : 0 };
+    return { trend: recent.map((e) => Number(e.pct) || 0), trendLabels: recent.map((e) => fmt(e.finishedAt)), subjects, days, avgSec: ts.avgSec, totalSec: ts.totalSec, best: pcts.length ? Math.max(...pcts) : 0 };
   }, [history, locale]);
-  if (totals.answered <= 0) return null;
+  const noAnswers = totals.answered <= 0;
+  if (noAnswers && !qbankQuestions) return null; // nothing answered and no Qbank added yet
 
   const card = { background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, padding: 16, minWidth: 0 };
   const head = { fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(13.5), color: T.ink };
   const hint = { fontFamily: FONT_UI, fontSize: fs(11.5), color: T.muted, marginTop: 6 };
   const grid2 = { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 340px), 1fr))", gap: 14, alignItems: "stretch" };
-  const accuracy = Math.round((totals.correct / totals.answered) * 100);
+  const accuracy = noAnswers ? 0 : Math.round((totals.correct / totals.answered) * 100);
   const tiles = [
-    [t("anStatSessions"), history.length, null],
-    [t("anStatAnswered"), totals.answered.toLocaleString(), null],
-    [t("anStatAccuracy"), `${accuracy}%`, t("anStatBest", { n: data.best })],
-    [t("anStatAvgTime"), data.avgSec ? fmtTime(data.avgSec) : "—", data.avgSec ? (lang === "es" ? "min:seg" : "min:sec") : null],
+    [t("anStatAnswered"), fmtAnsweredOf(totals.answered, qbankQuestions), t(qbankCount === 1 ? "anStatBank1" : "anStatBanks", { n: qbankCount })],
+    [t("anStatCorrectPct"), `${accuracy}%`, t("anStatBest", { n: data.best })],
+    [t("anStatAvgTime"), fmtMinSec(data.avgSec), null],
+    [t("anStatTotalTime"), fmtHourMin(data.totalSec), null],
   ];
   return (
     <div style={{ display: "grid", gap: 14, padding: "4px 0 22px", marginBottom: 20, borderBottom: `1px solid ${T.border}` }}>
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(130px, 1fr))", gap: 14 }}>
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 150px), 1fr))", gap: 14 }}>
         {tiles.map(([label, value, sub]) => (
-          <div key={label} style={{ ...card, padding: "12px 16px" }}>
+          <div key={label} style={{ ...card, padding: "12px 16px", minHeight: 96, boxSizing: "border-box", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
             <div style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(11.5), color: T.muted, textTransform: "uppercase", letterSpacing: "0.05em" }}>{label}</div>
-            <div style={{ fontFamily: FONT_UI, fontWeight: 800, fontSize: fs(26), color: T.ink, lineHeight: 1.15, marginTop: 4 }}>{value}</div>
-            {sub && <div style={{ fontFamily: FONT_UI, fontSize: fs(11.5), color: T.muted }}>{sub}</div>}
+            <div style={{ fontFamily: FONT_UI, fontWeight: 800, fontSize: String(value).length > 9 ? fs(21) : fs(26), color: T.ink, lineHeight: 1.15, marginTop: 4, whiteSpace: "nowrap" }}>{value}</div>
+            <div style={{ fontFamily: FONT_UI, fontSize: fs(11.5), color: T.muted, minHeight: "1.3em" }}>{sub || " "}</div>
           </div>
         ))}
       </div>
 
+      {!noAnswers && (<>
       <div style={grid2}>
         <div style={{ ...card, display: "flex", alignItems: "center", gap: 18, flexWrap: "wrap", justifyContent: "center" }}>
           <DonutRing totals={totals} T={T} maxW={150} />
@@ -7419,12 +7450,15 @@ function AnalyticsOverview({ history, T }) {
             </div>
           ) : <p style={{ fontFamily: FONT_UI, fontSize: fs(13.5), color: T.muted, margin: 0 }}>{t("csSubjNeed")}</p>}
         </div>
-        <div style={card}>
+        <div style={{ ...card, display: "flex", flexDirection: "column" }}>
           <div style={{ ...head, marginBottom: 8 }}>{t("anActTitle")}</div>
-          <ActivityBars days={data.days} T={T} />
-          <div style={hint}>{t("anActHint")}</div>
+          <div style={{ marginTop: "auto" }}>{/* the chart and its caption stay on the bottom edge however tall the box gets */}
+            <ActivityBars days={data.days} T={T} />
+            <div style={hint}>{t("anActHint")}</div>
+          </div>
         </div>
       </div>
+      </>)}
     </div>
   );
 }
@@ -7498,7 +7532,7 @@ function ClassEditor({ courses, onChange, mondayFirst, locale, defaultDay, T, t 
       {courses.map((c) => (
         <div key={c.id} style={{ border: `1px solid ${T.border}`, borderRadius: 8, padding: 10, display: "grid", gap: 8 }}>
           <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
-            <input value={c.name} maxLength={120} aria-label={t("csClassName")} onChange={(e) => setCourse(c.id, (x) => ({ ...x, name: e.target.value }))} style={{ ...inp, flex: 1, fontWeight: 700 }} />
+            <input value={c.name} maxLength={120} aria-label={t("csClassName")} onChange={(e) => setCourse(c.id, (x) => ({ ...x, name: e.target.value, nameEdited: true }))} style={{ ...inp, flex: 1, fontWeight: 700 }} />
             {String(c.id).startsWith("usr-") && <button onClick={() => onChange(courses.filter((x) => x.id !== c.id))} title={t("csPlanRemove")} aria-label={t("csPlanRemove")} style={{ background: "transparent", border: "none", cursor: "pointer", color: T.muted, padding: 4, display: "flex" }}><Trash2 size={15} /></button>}
           </div>
           {(c.meetings || []).map((m) => (
@@ -7709,7 +7743,7 @@ function ConsoleCalendar({ sessionLog, onNavigate, T, fill = false }) {
               }}>{x.done && <Check size={14} />}</button>
               <div style={{ flex: 1, minWidth: 0, opacity: x.done ? 0.6 : 1 }}>
                 <div style={{ ...rowHead, textDecoration: x.done ? "line-through" : "none" }}>{x.title}</div>
-                <div style={rowSub}>{isExam ? [a.time, a.weightPct != null ? `${a.weightPct}%` : null, a.format].filter(Boolean).join(" · ") : fmtRange(a)}</div>
+                <div style={rowSub}>{isExam ? [spCourseOf(profile, a.courseId) ? spCourseOf(profile, a.courseId).name : null, a.time, a.weightPct != null ? `${a.weightPct}%` : null, a.format].filter(Boolean).join(" · ") : fmtRange(a)}</div>
                 {isExam && a.coverage.length > 0 && <div style={{ fontFamily: FONT_UI, fontSize: fs(12), color: T.muted, marginTop: 2 }}>{a.coverage.slice(0, 4).join(" · ")}</div>}
                 {!isExam && a.notes && <div style={{ fontFamily: FONT_UI, fontSize: fs(12), color: T.muted, marginTop: 2 }}>{a.notes}</div>}
               </div>
@@ -7938,7 +7972,8 @@ function CalendarPage({ sessionLog, onNavigate, T, focusDate }) {
       commitCal({ tasks: ed.id ? planTasks.map((x) => (x.id === id ? tk : x)) : [...planTasks, tk] });
     } else {
       const old = assessments.find((x) => x.id === id) || {}; const w = d.weight === "" ? null : Number(d.weight);
-      const ex = { coverageWeeks: [], qbankFocus: [], durationMin: null, format: null, ...old, id, title, type: d.type, date: d.date, time: d.time || null, location: d.place.trim().slice(0, 80) || null, weightPct: w != null && Number.isFinite(w) && w >= 0 && w <= 100 ? w : null, coverage: d.topics.split(",").map((x) => x.trim()).filter(Boolean).slice(0, 30), courseId: d.courseId || null, status: d.done ? "done" : "upcoming", notes, edited: true };
+      const ex = { coverageWeeks: [], qbankFocus: [], durationMin: null, format: null, ...old, id, title, type: d.type, date: d.date, time: d.time || null, location: d.place.trim().slice(0, 80) || null, weightPct: w != null && Number.isFinite(w) && w >= 0 && w <= 100 ? w : null, coverage: d.topics.split(",").map((x) => x.trim()).filter(Boolean).slice(0, 30), courseId: d.courseId || null, status: d.done ? "done" : "upcoming", notes, edited: true,
+        ...(old.title && old.title !== title ? { titleEdited: true } : {}), ...((old.courseId || null) !== (d.courseId || null) ? { courseEdited: true } : {}) };
       commitCal({ assessments: (ed.id ? assessments.map((x) => (x.id === id ? ex : x)) : [...assessments, ex]).sort(byDate("date")) });
     }
     setEd(null); selectDay(parseISODate(d.date));
@@ -7998,7 +8033,7 @@ function CalendarPage({ sessionLog, onNavigate, T, focusDate }) {
   const agenda = profile ? Array.from({ length: 8 }, (_, i) => addDays(startOfDay(new Date()), i)).flatMap((d) => {
     const dk = toISODate(d); const info = infoOf(dk); const wk = termWeekOf(d);
     return [
-      ...info.exams.map((a) => ({ id: `cal-exam-${a.id}`, src: "exam", title: a.title, date: dk, time: a.time || "", sub: [a.weightPct != null ? `${a.weightPct}%` : null, a.location].filter(Boolean).join(" · "), ref: a, topics: ((a.qbankFocus && a.qbankFocus.length ? a.qbankFocus : a.coverage) || []).slice(0, 4), examDone: a.status === "done" })),
+      ...info.exams.map((a) => ({ id: `cal-exam-${a.id}`, src: "exam", title: a.title, date: dk, time: a.time || "", sub: [spCourseOf(profile, a.courseId) ? spCourseOf(profile, a.courseId).name : null, a.weightPct != null ? `${a.weightPct}%` : null, a.location].filter(Boolean).join(" · "), ref: a, topics: ((a.qbankFocus && a.qbankFocus.length ? a.qbankFocus : a.coverage) || []).slice(0, 4), examDone: a.status === "done" })),
       ...info.events.filter((e) => e.type !== "holiday" && e.type !== "break").map((e) => ({ id: `cal-event-${e.id}-${dk}`, src: "event", title: e.title, date: dk, time: e.time || "", sub: "", ref: e, topics: [] })),
       ...(dk === todayKey ? classesOn(d, info) : []).map(({ c, m }) => { const cw = wk ? (c.weeks || []).find((w) => w.week === wk.w) : null; return { id: `cal-class-${c.id}-${m.id}-${dk}`, src: "class", title: c.name, date: dk, time: m.start || "", sub: [m.location].filter(Boolean).join(" · "), ref: { c, m }, topics: cw ? [...(cw.qbankFocus || []), ...(cw.topics || [])].slice(0, 3) : [] }; }),
     ];
@@ -8229,7 +8264,7 @@ function CalendarPage({ sessionLog, onNavigate, T, focusDate }) {
                 }}>{x.done && <Check size={14} />}</button>
                 <div style={{ flex: 1, minWidth: 0, opacity: x.done ? 0.6 : 1 }}>
                   <div style={{ ...rowHead, textDecoration: x.done ? "line-through" : "none" }}>{x.title}</div>
-                  <div style={rowSub}>{isExam ? [a.time, a.weightPct != null ? `${a.weightPct}%` : null, a.format].filter(Boolean).join(" · ") : [fmtRange(a), a.time ? fmtClock(a.time, locale) : null, a.repeat ? t("calRepeats", { r: t(`calRep.${a.repeat}`).toLowerCase() }) : null].filter(Boolean).join(" · ")}</div>
+                  <div style={rowSub}>{isExam ? [spCourseOf(profile, a.courseId) ? spCourseOf(profile, a.courseId).name : null, a.time, a.weightPct != null ? `${a.weightPct}%` : null, a.format].filter(Boolean).join(" · ") : [fmtRange(a), a.time ? fmtClock(a.time, locale) : null, a.repeat ? t("calRepeats", { r: t(`calRep.${a.repeat}`).toLowerCase() }) : null].filter(Boolean).join(" · ")}</div>
                   {isExam && a.coverage.length > 0 && <div style={{ fontFamily: FONT_UI, fontSize: fs(12), color: T.muted, marginTop: 2 }}>{a.coverage.slice(0, 4).join(" · ")}</div>}
                   {!isExam && a.notes && <div style={{ fontFamily: FONT_UI, fontSize: fs(12), color: T.muted, marginTop: 2 }}>{a.notes}</div>}
                 </div>
@@ -8331,13 +8366,15 @@ function ConsolePanel({ library, sessionLog, session, onResume, onOpenLobby, onR
   const qDone = inProg ? Object.values(session.bs.answers || {}).filter((a) => a && a.selected).length : 0;
   const recentLib = useMemo(() => [...library].sort((a, b) => (b.updatedAt || b.importDate || 0) - (a.updatedAt || a.importDate || 0)).slice(0, 3), [library]);
   const hasSessions = sessionLog.length > 0;
-  const accuracy = data.totals.answered > 0 ? `${Math.round((data.totals.correct / data.totals.answered) * 100)}%` : "—";
+  const accuracy = data.totals.answered > 0 ? `${Math.round((data.totals.correct / data.totals.answered) * 100)}%` : "0%";
+  const qbankQs = useMemo(() => libraryQuestionCount(library), [library]);
+  const bestPct = sessionLog.reduce((m, e) => Math.max(m, Number(e.pct) || 0), 0);
   const fmtDay = (ms) => new Date(ms).toLocaleDateString(locale, { month: "short", day: "numeric" });
 
   const tile = (icon, label, value, sub) => (
-    <div style={{ ...card, padding: "16px 18px" }}>
+    <div style={{ ...card, padding: "16px 18px", minHeight: 112, boxSizing: "border-box", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
       <div style={{ display: "flex", alignItems: "center", gap: 7, fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(12), color: T.muted, textTransform: "uppercase", letterSpacing: "0.05em" }}>{icon}{label}</div>
-      <div style={{ fontFamily: FONT_UI, fontWeight: 800, fontSize: fs(30), color: T.ink, lineHeight: 1.15, marginTop: 6 }}>{value}</div>
+      <div style={{ fontFamily: FONT_UI, fontWeight: 800, fontSize: String(value).length > 9 ? fs(24) : fs(30), color: T.ink, lineHeight: 1.15, marginTop: 6, whiteSpace: "nowrap" }}>{value}</div>
       <div style={{ fontFamily: FONT_UI, fontSize: fs(12), color: T.muted, minHeight: "1.3em" }}>{sub || " "}</div>
     </div>
   );
@@ -8428,11 +8465,11 @@ function ConsolePanel({ library, sessionLog, session, onResume, onOpenLobby, onR
         <div style={{ flex: wide ? "1 1 auto" : "0 0 auto", minWidth: 0 }}>
           <TutorCard sessionLog={sessionLog} onNavigate={onNavigate} T={T} compact={wide} fill={wide} />
         </div>
-        {hasSessions && (
-          <div style={{ display: "grid", gridTemplateColumns: wide ? "repeat(2, minmax(0, 1fr))" : "repeat(auto-fit, minmax(160px, 1fr))", gap: 14 }}>
+        {(hasSessions || qbankQs > 0) && (
+          <div style={{ display: "grid", gridTemplateColumns: wide ? "repeat(2, minmax(0, 1fr))" : "repeat(auto-fit, minmax(min(100%, 160px), 1fr))", gridAutoRows: "1fr", gap: 14 }}>
+            {tile(<Target size={14} />, t("anStatAnswered"), fmtAnsweredOf(data.totals.answered, qbankQs), t(library.length === 1 ? "anStatBank1" : "anStatBanks", { n: library.length }))}
+            {tile(<CheckCircle2 size={14} />, t("anStatCorrectPct"), accuracy, hasSessions ? t("anStatBest", { n: bestPct }) : null)}
             {tile(<ClipboardList size={14} />, t("csStatSessions"), sessionLog.length, t("csStatWeek", { n: data.week }))}
-            {tile(<Target size={14} />, t("csStatAnswered"), data.totals.answered)}
-            {tile(<CheckCircle2 size={14} />, t("csStatAccuracy"), accuracy)}
             {tile(<Flame size={14} />, t("csStatStreak"), data.streak, data.streak === 1 ? t("csStatDay1") : t("csStatDays", { n: data.streak }))}
           </div>
         )}
@@ -8454,7 +8491,7 @@ function ConsolePanel({ library, sessionLog, session, onResume, onOpenLobby, onR
   );
 }
 
-function SessionHistoryPanel({ history, onDelete, onClear, onReview, T }) {
+function SessionHistoryPanel({ history, qbankCount = 0, qbankQuestions = 0, onDelete, onClear, onReview, T }) {
   const { t, lang } = useI18n();
   const vpw = useViewport().w;
   const phone = vpw < 640;
@@ -8475,7 +8512,7 @@ function SessionHistoryPanel({ history, onDelete, onClear, onReview, T }) {
         <span style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(14), color: T.ink }}>{t("histTitle")}</span>
       </div>
 
-      <AnalyticsOverview history={history} T={T} />
+      <AnalyticsOverview history={history} qbankCount={qbankCount} qbankQuestions={qbankQuestions} T={T} />
 
         {history.length > 0 && (
           <div role="toolbar" aria-label={t("histTitle")} style={{ display: "flex", gap: 6, flexWrap: "wrap", justifyContent: "flex-end", marginBottom: 12 }}>
@@ -9054,7 +9091,7 @@ function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], dri
 
       {libTab === "database" && <DatabasePanel key={dbFocus ? dbFocus.n : "db"} initialQuery={dbFocus ? dbFocus.q : ""} T={T} />}
       {libTab === "calendar" && <CalendarPage focusDate={calFocus} sessionLog={sessionLog} onNavigate={(tab) => { setLibTab(tab); window.scrollTo({ top: 0, behavior: "smooth" }); }} T={T} />}
-      {libTab === "analytics" && <SessionHistoryPanel history={sessionLog} onDelete={onDeleteSession} onClear={onClearSessions} onReview={onReviewSession} T={T} />}
+      {libTab === "analytics" && <SessionHistoryPanel history={sessionLog} qbankCount={library.length} qbankQuestions={libraryQuestionCount(library)} onDelete={onDeleteSession} onClear={onClearSessions} onReview={onReviewSession} T={T} />}
       {libTab === "console" && <ConsolePanel library={library} sessionLog={sessionLog} session={session} onResume={onResume} onOpenLobby={onOpenLobby} onReview={onReviewSession} onNavigate={(tab) => { setLibTab(tab); window.scrollTo({ top: 0, behavior: "smooth" }); }} T={T} />}
       {libTab === "studyhub" && <StudyHub library={library} sessionLog={sessionLog} onLaunch={onLaunchLibrary} onNavigate={(tab, key) => { if (key) setCalFocus({ key, n: Date.now() }); setLibTab(tab); if (tab !== "profile") window.scrollTo({ top: 0, behavior: "smooth" }); }} T={T} />}
       {libTab === "library" && <TutorLibraryStrip library={library} sessionLog={sessionLog} onLaunch={onLaunchLibrary} T={T} />}
