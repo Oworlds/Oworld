@@ -279,15 +279,15 @@ const STR = {
     resumed: "Session restored — you're back where you left off.", storageFull: "Couldn't write to browser storage (it may be full or disabled). Your progress is not being backed up right now.",
     leaveConfirm: "You have a block in progress. Leaving now discards it. Continue?",
     settings: "Settings", dark: "Dark mode", lang: "Language",
-    "tabProfile": "Profile", "spTitle": "Student Profile", "spHint": "One standard file that tells Oworld where you are in your studies: your term and semester calendar, syllabus weeks, class schedule, exams and plan. Your tutor uses it on the Console, in the Library and in notifications.", "spSyncLocal": "Saved on this device. Sign in with Google (profile menu) to sync it through your Drive.", "spSyncDrive": "Syncs with your Google Drive", "spBuildTitle": "Build your profile with AI", "spBuildBody": "Copy the prompt, give it to your AI tool together with your syllabi, semester calendar, class timetable and exam schedule (PDF, screenshot or pasted text; send what you have), then paste the JSON it returns below.", "spUpdateTitle": "Update your profile", "spUpdateBody": "Give your AI tool the prompt again (with a new syllabus, schedule or semester calendar if you have one) to refresh your week, plan and strengths. Ids and ticked tasks are kept.", "spModeNew": "Start fresh", "spModeUpdate": "Update current profile", "spIncludeStats": "Include my study stats", "spIncludeStatsHint": "Adds a compact summary of your Analytics so the AI can write your strengths, gaps and pace from real results.", "spCopyPrompt": "Copy prompt", "spViewPrompt": "Preview prompt", "spHidePrompt": "Hide prompt", "spPasteLabel": "Paste the AI's JSON", "spPasteOpen": "Show box", "spPastePh": "Paste the profile JSON here…", "spLoad": "Load profile", "spUpload": "Upload .json", "spReplaceNote": "Loading replaces your current profile. Tasks you already ticked stay ticked.", "spLoaded": "Profile loaded. Your tutor is now on the Console.", "spErrParse": "That doesn't look like JSON. Paste only the AI's reply (or upload the file).", "spErrShape": "This JSON isn't a Student Profile. It needs at least a term, courses, assessments or a plan.", "spWarnTruncated": "The reply looked cut off, so only the complete part was loaded. Ask the AI to continue and update your profile.", "spWarnDates": "{n} assessment(s) had no usable date and were left out: {titles}.", "spWarnDropped": "{n} incomplete item(s) were left out.", "spWarnNoStart": "No term start date was found, so the current week can't be tracked automatically.", "spTermWeek": "Week {w} of {n}", "spTermWeekNoTotal": "Week {w}", "spTermBefore": "Starts in {n} days", "spTermBefore1": "Starts tomorrow", "spTermAfter": "Term ended", "spTermUnknown": "Week unknown", "spThisWeek": "This week", "spNoFocus": "No topics mapped for this week.", "spNext": "Next assessment", "spNoNext": "No upcoming assessments.", "spToday": "Today", "spTomorrow": "Tomorrow", "spInDays": "in {n} days", "spTodayNone": "Nothing due today.", "spWeekly": "{a} of {n} questions this week", "spAssessments": "Upcoming assessments", "spTasks": "Plan", "spNoTasks": "No tasks yet.", "spCourses": "Syllabus map", "spWeekN": "Wk {n}", "spSource": "Source", "spConf": "Confidence: {c}", "spConf.high": "high", "spConf.medium": "medium", "spConf.low": "low", "spAssump": "Assumptions the AI made", "spRisk": "Risk", "spRisk.low": "low", "spRisk.medium": "medium", "spRisk.high": "high", "spStrengths": "Strengths", "spGaps": "Gaps", "spExport": "Export JSON", "spDelete": "Delete profile", "spDeleteQ": "Delete your Student Profile? It is removed from this device and from Drive sync. Your Qbanks and Analytics are not touched.", "spDeleteGo": "Delete", "spSchemaView": "View JSON schema", "spSchemaHide": "Hide JSON schema", "spSchemaTitle": "Student Profile JSON schema", "spCardTitle": "Your tutor", "spCardOpen": "Open profile", "spCardInviteTitle": "Set up your Student Profile", "spCardInviteBody": "Give Oworld your syllabi, calendar, class timetable and exam schedule once and your tutor will keep track of your week, your classes, your exams and what to study next.", "spCardInviteBtn": "Set up profile", "spStartBlock": "Start a {s} block", "spLibStrip": "Tutor suggests for week {w}", "spLibStart": "{title} ({n} Q)", "sgBefore": "Your term starts {when}. Get your Qbanks ready.", "sgExam": "{title} is {when}.", "sgExamCover": "{title} is {when} and covers {coverage}.", "sgTasks": "{n} task(s) due today or overdue.", "sgPaceBehind": "You're behind this week's pace: {a} of {t} questions. A short block today closes the gap.", "sgPaceDone": "Weekly target reached ({a}/{t}). Nice work.", "sgPaceOn": "On pace: {a} of {t} questions this week.", "sgWeak": "{subject} is at {pct}% and it's on this week's list.", "sgNoFocus": "No topics are mapped for this week. Update your profile with the syllabus.", "sgStale": "Your profile is {n} days old. Update it so your tutor stays accurate.", "nf.examSoon.t": "Exam coming up", "nf.examSoon.b": "{title} is in {days} days.", "nf.examTomorrow.t": "Exam tomorrow", "nf.examTomorrow.b": "{title} is tomorrow. Do a light review and rest.", "nf.examToday.t": "Exam today", "nf.examToday.b": "{title} is today. Good luck!", "nf.weekStart.t": "Week {week} of {total}", "nf.weekStart.b": "This week: {topics}", "nf.termStart.t": "Term starts soon", "nf.termStart.b": "Your term starts in {days} day(s). Get your Qbanks ready.", "nf.paceBehind.t": "Behind this week's pace", "nf.paceBehind.b": "{a} of {t} questions so far. A short block today helps.", "nf.tasksDue.t": "Tasks due", "nf.tasksDue.b": "{n} task(s) due today or overdue. Open the Console.", "nf.profileStale.t": "Update your profile", "nf.profileStale.b": "Your Student Profile is {n} days old.", "nf.profileLoaded.t": "Student Profile ready", "nf.profileLoaded.b": "Your tutor now follows {term}.",
-    "spPromptTitle": "Student Profile — AI prompt",
+    "tabProfile": "Study Profile", "menuProfile": "Profile", "tutorSrcTitle": "Tutor suggested sources", "tutorSrcHint": "This block draws on the references below. Have them open so you can study along as you answer.", "tutorSrcQ": "{n} question(s)", "tutorSrcCount": "{n} source(s)", "tutorSrcStart": "Continue", "tutorSrcBtn": "Sources", "syncShort": "Sync", "acctSave": "Save", "acctSaved": "Saved", "spTitle": "Study Profile", "spHint": "One standard file that tells Oworld where you are in your studies: your term and semester calendar, syllabus weeks, class schedule, exams and plan. Your tutor uses it on the Console, in the Library and in notifications.", "spSyncLocal": "Saved on this device. Sign in with Google (profile menu) to sync it through your Drive.", "spSyncDrive": "Syncs with your Google Drive", "spBuildTitle": "Build your profile with AI", "spBuildBody": "Copy the prompt, give it to your AI tool together with your syllabi, semester calendar, class timetable and exam schedule (PDF, screenshot or pasted text; send what you have), then paste the JSON it returns below.", "spUpdateTitle": "Update your profile", "spUpdateBody": "Give your AI tool the prompt again (with a new syllabus, schedule or semester calendar if you have one) to refresh your week, plan and strengths. Ids and ticked tasks are kept.", "spModeNew": "Start fresh", "spModeUpdate": "Update current profile", "spIncludeStats": "Include my study stats", "spIncludeStatsHint": "Adds a compact summary of your Analytics so the AI can write your strengths, gaps and pace from real results.", "spCopyPrompt": "Copy prompt", "spViewPrompt": "Preview prompt", "spHidePrompt": "Hide prompt", "spPasteLabel": "Paste the AI's JSON", "spPasteOpen": "Show box", "spPastePh": "Paste the profile JSON here…", "spLoad": "Load profile", "spUpload": "Upload .json", "spReplaceNote": "Loading replaces your current profile. Tasks you already ticked stay ticked.", "spLoaded": "Profile loaded. Your tutor is now on the Console.", "spErrParse": "That doesn't look like JSON. Paste only the AI's reply (or upload the file).", "spErrShape": "This JSON isn't a Study Profile. It needs at least a term, courses, assessments or a plan.", "spWarnTruncated": "The reply looked cut off, so only the complete part was loaded. Ask the AI to continue and update your profile.", "spWarnDates": "{n} assessment(s) had no usable date and were left out: {titles}.", "spWarnDropped": "{n} incomplete item(s) were left out.", "spWarnNoStart": "No term start date was found, so the current week can't be tracked automatically.", "spTermWeek": "Week {w} of {n}", "spTermWeekNoTotal": "Week {w}", "spTermBefore": "Starts in {n} days", "spTermBefore1": "Starts tomorrow", "spTermAfter": "Term ended", "spTermUnknown": "Week unknown", "spThisWeek": "This week", "spNoFocus": "No topics mapped for this week.", "spNext": "Next assessment", "spNoNext": "No upcoming assessments.", "spToday": "Today", "spTomorrow": "Tomorrow", "spInDays": "in {n} days", "spTodayNone": "Nothing due today.", "spWeekly": "{a} of {n} questions this week", "spAssessments": "Upcoming assessments", "spTasks": "Plan", "spNoTasks": "No tasks yet.", "spCourses": "Syllabus map", "spWeekN": "Wk {n}", "spSource": "Source", "spConf": "Confidence: {c}", "spConf.high": "high", "spConf.medium": "medium", "spConf.low": "low", "spAssump": "Assumptions the AI made", "spRisk": "Risk", "spRisk.low": "low", "spRisk.medium": "medium", "spRisk.high": "high", "spStrengths": "Strengths", "spGaps": "Gaps", "spExport": "Export JSON", "spDelete": "Delete profile", "spDeleteQ": "Delete your Study Profile? It is removed from this device and from Drive sync. Your Qbanks and Analytics are not touched.", "spDeleteGo": "Delete", "spSchemaView": "View JSON schema", "spSchemaHide": "Hide JSON schema", "spSchemaTitle": "Study Profile JSON schema", "spCardTitle": "Your tutor", "spCardOpen": "Open profile", "spCardInviteTitle": "Set up your Study Profile", "spCardInviteBody": "Give Oworld your syllabi, calendar, class timetable and exam schedule once and your tutor will keep track of your week, your classes, your exams and what to study next.", "spCardInviteBtn": "Set up profile", "spStartBlock": "Start a {s} block", "spLibStrip": "Tutor suggests for week {w}", "spLibStart": "{title} ({n} Q)", "sgBefore": "Your term starts {when}. Get your Qbanks ready.", "sgExam": "{title} is {when}.", "sgExamCover": "{title} is {when} and covers {coverage}.", "sgTasks": "{n} task(s) due today or overdue.", "sgPaceBehind": "You're behind this week's pace: {a} of {t} questions. A short block today closes the gap.", "sgPaceDone": "Weekly target reached ({a}/{t}). Nice work.", "sgPaceOn": "On pace: {a} of {t} questions this week.", "sgWeak": "{subject} is at {pct}% and it's on this week's list.", "sgNoFocus": "No topics are mapped for this week. Update your profile with the syllabus.", "sgStale": "Your profile is {n} days old. Update it so your tutor stays accurate.", "nf.examSoon.t": "Exam coming up", "nf.examSoon.b": "{title} is in {days} days.", "nf.examTomorrow.t": "Exam tomorrow", "nf.examTomorrow.b": "{title} is tomorrow. Do a light review and rest.", "nf.examToday.t": "Exam today", "nf.examToday.b": "{title} is today. Good luck!", "nf.weekStart.t": "Week {week} of {total}", "nf.weekStart.b": "This week: {topics}", "nf.termStart.t": "Term starts soon", "nf.termStart.b": "Your term starts in {days} day(s). Get your Qbanks ready.", "nf.paceBehind.t": "Behind this week's pace", "nf.paceBehind.b": "{a} of {t} questions so far. A short block today helps.", "nf.tasksDue.t": "Tasks due", "nf.tasksDue.b": "{n} task(s) due today or overdue. Open the Console.", "nf.profileStale.t": "Update your profile", "nf.profileStale.b": "Your Study Profile is {n} days old.", "nf.profileLoaded.t": "Study Profile ready", "nf.profileLoaded.b": "Your tutor now follows {term}.",
+    "spPromptTitle": "Study Profile — AI prompt",
     "sgEve": "{title} is tomorrow. Keep it light: review your weakest topic, then rest.", "sgDeadline": "Deadline: {title} is {when}.", "sgBreakNow": "{title}: no classes today. Classes resume {when}. A good time to close gaps.", "sgBreakSoon": "{title} starts {when}. Fit a heavier study block in before it.", "sgStreak": "No practice yet today. A short block keeps your {n}-day streak alive.", "sgUntested": "{n} of {total} topics for {title} have no practice data yet.",
     "nf.breakSoon.t": "Break starts tomorrow", "nf.breakSoon.b": "{title} starts tomorrow. Plan your study before it.", "nf.deadlineSoon.t": "Deadline coming up", "nf.deadlineSoon.b": "{title} is due in {days} day(s).", "nf.deadlineToday.t": "Deadline today", "nf.deadlineToday.b": "{title} is due today.",
     "tuWindow": "Free {from} – {to}: about {qs} questions fit", "tuNoData": "no data", "tuReadyHint": "Tap a topic to start a block on it.", "tuExams": "Upcoming exams", "tuWeight": "{n}% of grade", "tuReadyPct": "{n}% ready", "tuWeakest": "Weakest: {topic} {pct}%", "tuUntestedN": "{n} topic(s) not practiced yet", "tuDeadline": "Deadline", "tuTodayQs": "{a} of {n} questions today", "tuGoalMet": "Daily goal met", "tuStreak": "{n}-day streak", "spEdit": "Edit", "spExamDate": "Exam date", "spExamTime": "Exam time", "spSave": "Save", "spMarkDone": "Already happened", "spMarkUpcoming": "Mark as upcoming", "spPastAssess": "Past and completed ({n})", "spDoneTag": "Done", "spFixDateHint": "Wrong date? Fix it here and your tutor will follow it, even after you update your profile.", "spWarnCalDates": "{n} calendar event(s) had no usable date and were left out.",
     "spEvt.holiday": "Holiday", "spEvt.break": "Break", "spEvt.exam-period": "Exam period", "spEvt.deadline": "Deadline", "spEvt.class": "Class", "spEvt.other": "Event",
-    "csCalendar": "Semester calendar", "csCalPrev": "Previous month", "csCalNext": "Next month", "csCalToday": "Today", "csCalNothing": "Nothing scheduled.", "csCalStudied": "Studied: {n} session(s) · {q} questions", "csCalLegExam": "Exam", "csCalLegTask": "Task due", "csCalLegEvent": "Calendar", "csCalLegStudy": "Studied", "csCalNoProfile": "Set up your Student Profile to see your exams, tasks and breaks here.", "csCalSetup": "Set up profile", "csCalMore": "+{n} more",
-    "tabCalendar": "Calendar", "calTitle": "Calendar", "calHint": "Your whole term on one calendar: classes, exams, tasks, breaks and the days you studied. Tap a day to see and edit it.", "calMonth": "Month", "calWeek": "Week", "calAgenda": "Agenda", "calPrev": "Previous", "calNext": "Next", "calLayerKey": "Key dates", "calTermStart": "Term starts", "calTermEnd": "Term ends", "calTargetExam": "Target exam", "calClassesN": "{n} classes", "calStatTerm": "Term", "calStatOpen": "Open tasks", "calStatWeekQ": "Questions this week", "calAgendaEmpty": "Nothing scheduled in this stretch.", "calOpenFull": "Full calendar", "spMapNote": "Showing the weeks around today. Expand to see the full syllabus map.",
-    tbGapTitle: "Gap analysis", tbGapHint: "Your logged blocks grouped by subject tag and compared with the blueprint: exam weight, your share of practice, your accuracy and the gap to target (points).", tbColExam: "Exam", tbColPractice: "You", tbColAcc: "Acc.", tbColGap: "Gap", tbGapWorst: "Largest accuracy gap: {a} ({n} pts below target).", tbGapUnder: "Most under-practiced: {b}.", tbGapNone: "Finish a block to see your gaps.", tbUnmapped: "Not mapped to the blueprint", tbUnmappedHint: "These subject tags in your results match no blueprint item. Add them to a match list.", tbBpPrompt: "Blueprint — AI prompt", tbBpSchema: "Blueprint — JSON template", tbCourses: "Priority course", tbStarOn: "Make {c} your priority course", tbStarOff: "Remove priority course", tbStarHint: "The starred course is studied first: its topics lead this week's focus and its blueprint items rank higher.", "calNew.task": "New task", "calNew.event": "New event", "calNew.exam": "New exam", "calEdit.task": "Edit task", "calEdit.event": "Edit event", "calEdit.exam": "Edit exam", "calAdd.task": "Task", "calAdd.event": "Event", "calAdd.exam": "Exam", "calF.title": "Title", "calF.date": "Date", "calF.time": "Time", "calF.endDate": "Ends on", "calF.endTime": "Ends at", "calF.type": "Type", "calF.repeat": "Repeats", "calF.until": "Repeat until", "calF.subject": "Subject", "calF.weight": "Weight %", "calF.place": "Location", "calF.course": "Course", "calF.topics": "Topics (comma separated)", "calF.notes": "Notes", "calF.done": "Already happened", "calRep.none": "Does not repeat", "calRep.daily": "Daily", "calRep.weekly": "Weekly", "calRep.monthly": "Monthly", calRepeats: "repeats {r}", calSave: "Save", calCancel: "Cancel", calDelete: "Delete", calEdit: "Edit", calDeleted: "Deleted “{s}”.", calMoved: "Moved “{s}” to {d}.", calUndo: "Undo", calFind: "Find in calendar", calJump: "Go to date", calExport: "Export .ics", tbScale: "Scale weights to 100%", tbScaleHint: "Overlapping ranges (a question can count toward several disciplines) can add up to more than 100%. This rescales each group and keeps the original numbers as the official range. Comparisons already use the scaled shares.", tbConf: "Source confidence", "tbConfLvl.high": "High", "tbConfLvl.medium": "Medium", "tbConfLvl.low": "Low", "tbCg.official": "Cites official sources ({h}).", "tbCg.version": "Outline edition recorded: {v}.", "tbCg.fresh": "Retrieved {n} days ago.", "tbCg.weights": "Weights add up to about 100% in every group.", "tbCf.noSource": "No source cited.", "tbCf.unofficial": "The cited pages are not official USMLE, NBME or FSMB sites.", "tbCf.noVersion": "No outline edition recorded.", "tbCf.noDate": "No retrieval date recorded.", "tbCf.old": "Last checked {n} days ago, longer than a semester.", "tbCf.weights": "{g} weights add up to {n}%, not 100%.", "tbCf.noWeights": "No exam weights given.", "tbCf.template": "Template with placeholder weights, not the official outline.", tbCadence: "Update your blueprint at least once every semester: the outline can change and your tutor plans from it.", tbDueOn: "Next update due by {d}.", tbUpdate: "Update blueprint", tbDue: "Your blueprint was last checked {n} days ago. Update it at least once a semester.", tbDueTerm: "A new term started since your blueprint was last checked. Update it so your tutor follows the current outline.", tbSoon: "Your blueprint is {n} days old. Plan an update this semester.", "nf.bpDue.t": "Update your blueprint", "nf.bpDue.b": "It was last checked {n} days ago. Refresh it at least once a semester so your tutor follows the current USMLE outline.", "nf.bpDueTerm.t": "New semester: update your blueprint", "nf.bpDueTerm.b": "Your term started after your blueprint was last checked. Re-run the AI prompt to confirm the current USMLE outline.", tbSource: "Source: {v} {u}", tbNoSource: "No official source recorded: re-run the AI prompt so it can search the current USMLE outline.", tabTutor: "Tutor", tbTitle: "Tutor Dashboard", tbOpenTutor: "Open Tutor", tbBpTitle: "Blueprint", tbBpBody: "A blueprint is one JSON file with your exam's test domains, system weights and target competencies. Give the prompt to an AI tool that can browse the web: it looks up the latest official USMLE outline (usmle.org, NBME, FSMB) and returns the JSON to paste here. The built-in template is only a placeholder. The tutor ranks what to study by weight, your accuracy and this week's syllabus.", tbTemplate: "Use USMLE template", tbCopyPrompt: "Copy AI prompt", tbCopySchema: "Copy template JSON", tbCopied: "Copied", tbPaste: "Paste the blueprint JSON here…", tbLoad: "Load blueprint", tbRemove: "Remove blueprint", tbErrParse: "That doesn't look like JSON. Paste only the blueprint (or upload the file).", tbErrShape: "This JSON has no domains, systems or competencies.", tbReady: "Blueprint readiness", tbCoverage: "Coverage", tbCoverageSub: "items with 5+ answers", tbCountdown: "Days to exam", tbTarget: "target {n}%", tbPriority: "Priority targets", tbPriorityHint: "Ranked by exam weight, the gap to your target and this week's topics. Tick items to build one block, or tap a name to start it.", tbBuild: "Build block from {n} selected", tbShareLine: "{n} answered · {share}% of your practice vs {w}% of the exam · target {target}%", tbMatches: "Qbanks that match", tbNoMatches: "No Qbank in your library matches these topics yet.", tbSystems: "Systems", tbDomains: "Test domains", tbComps: "Competencies", tbLegend: "Bar = your accuracy, black tick = target. Weights are a study guide: check them against the current official outline.", tbNoBpTitle: "No blueprint loaded", tbNoBpBody: "Load a blueprint to see priorities by exam weight.", "nf.blueprintLoaded.t": "Blueprint loaded", "nf.blueprintLoaded.b": "Your tutor now plans around {exam}.",
+    "csCalendar": "Semester calendar", "csCalPrev": "Previous month", "csCalNext": "Next month", "csCalToday": "Today", "csCalNothing": "Nothing scheduled.", "csCalStudied": "Studied: {n} session(s) · {q} questions", "csCalLegExam": "Exam", "csCalLegTask": "Task due", "csCalLegEvent": "Calendar", "csCalLegStudy": "Studied", "csCalNoProfile": "Set up your Study Profile to see your exams, tasks and breaks here.", "csCalSetup": "Set up profile", "csCalMore": "+{n} more",
+    "tabCalendar": "Schedule", "calTitle": "Schedule", "calHint": "Your whole term on one calendar: classes, exams, tasks, breaks and the days you studied. Tap a day to see and edit it.", "calMonth": "Month", "calWeek": "Week", "calAgenda": "Agenda", "calPrev": "Previous", "calNext": "Next", "calLayerKey": "Key dates", "calTermStart": "Term starts", "calTermEnd": "Term ends", "calTargetExam": "Target exam", "calClassesN": "{n} classes", "calStatTerm": "Term", "calStatOpen": "Open tasks", "calStatWeekQ": "Questions this week", "calAgendaEmpty": "Nothing scheduled in this stretch.", "calOpenFull": "Full schedule", "spMapNote": "Showing the weeks around today. Expand to see the full syllabus map.",
+    tbGapTitle: "Gap analysis", tbGapHint: "Your logged blocks grouped by subject tag and compared with the blueprint: exam weight, your share of practice, your accuracy and the gap to target (points).", tbColExam: "Exam", tbColPractice: "You", tbColAcc: "Acc.", tbColGap: "Gap", tbGapWorst: "Largest accuracy gap: {a} ({n} pts below target).", tbGapUnder: "Most under-practiced: {b}.", tbGapNone: "Finish a block to see your gaps.", tbUnmapped: "Not mapped to the blueprint", tbUnmappedHint: "These subject tags in your results match no blueprint item. Add them to a match list.", tbBpPrompt: "Blueprint — AI prompt", tbBpSchema: "Blueprint — JSON template", tbCourses: "Priority course", tbStarOn: "Make {c} your priority course", tbStarOff: "Remove priority course", tbStarHint: "The starred course is studied first: its topics lead this week's focus and its blueprint items rank higher.", "calNew.task": "New task", "calNew.event": "New event", "calNew.exam": "New exam", "calEdit.task": "Edit task", "calEdit.event": "Edit event", "calEdit.exam": "Edit exam", "calAdd.task": "Task", "calAdd.event": "Event", "calAdd.exam": "Exam", "calF.title": "Title", "calF.date": "Date", "calF.time": "Time", "calF.endDate": "Ends on", "calF.endTime": "Ends at", "calF.type": "Type", "calF.repeat": "Repeats", "calF.until": "Repeat until", "calF.subject": "Subject", "calF.weight": "Weight %", "calF.place": "Location", "calF.course": "Course", "calF.topics": "Topics (comma separated)", "calF.notes": "Notes", "calF.done": "Already happened", "calRep.none": "Does not repeat", "calRep.daily": "Daily", "calRep.weekly": "Weekly", "calRep.monthly": "Monthly", calRepeats: "repeats {r}", calSave: "Save", calCancel: "Cancel", calDelete: "Delete", calEdit: "Edit", calDeleted: "Deleted “{s}”.", calMoved: "Moved “{s}” to {d}.", calUndo: "Undo", calFind: "Find in calendar", calJump: "Go to date", calExport: "Export .ics", tbScale: "Scale weights to 100%", tbScaleHint: "Overlapping ranges (a question can count toward several disciplines) can add up to more than 100%. This rescales each group and keeps the original numbers as the official range. Comparisons already use the scaled shares.", tbConf: "Source confidence", "tbConfLvl.high": "High", "tbConfLvl.medium": "Medium", "tbConfLvl.low": "Low", "tbCg.official": "Cites official sources ({h}).", "tbCg.version": "Outline edition recorded: {v}.", "tbCg.fresh": "Retrieved {n} days ago.", "tbCg.weights": "Weights add up to about 100% in every group.", "tbCf.noSource": "No source cited.", "tbCf.unofficial": "The cited pages are not official USMLE, NBME or FSMB sites.", "tbCf.noVersion": "No outline edition recorded.", "tbCf.noDate": "No retrieval date recorded.", "tbCf.old": "Last checked {n} days ago, longer than a semester.", "tbCf.weights": "{g} weights add up to {n}%, not 100%.", "tbCf.noWeights": "No exam weights given.", "tbCf.template": "Template with placeholder weights, not the official outline.", tbCadence: "Update your blueprint at least once every semester: the outline can change and your tutor plans from it.", tbDueOn: "Next update due by {d}.", tbUpdate: "Update blueprint", tbDue: "Your blueprint was last checked {n} days ago. Update it at least once a semester.", tbDueTerm: "A new term started since your blueprint was last checked. Update it so your tutor follows the current outline.", tbSoon: "Your blueprint is {n} days old. Plan an update this semester.", "nf.bpDue.t": "Update your blueprint", "nf.bpDue.b": "It was last checked {n} days ago. Refresh it at least once a semester so your tutor follows the current USMLE outline.", "nf.bpDueTerm.t": "New semester: update your blueprint", "nf.bpDueTerm.b": "Your term started after your blueprint was last checked. Re-run the AI prompt to confirm the current USMLE outline.", tbSource: "Source: {v} {u}", tbNoSource: "No official source recorded: re-run the AI prompt so it can search the current USMLE outline.", tabTutor: "Tutor", tbTitle: "Tutor Dashboard", tbOpenTutor: "Open Study Hub", tabStudyHub: "Study Hub", shTitle: "Study Hub", shSub: "Your tutor, blueprint and Study Profile in one place: where you are in your term, what to study next and how ready you are.", shNavOverview: "Overview", shNavPriorities: "Priorities", shNavBlueprint: "Blueprint", shNavProfile: "Study Profile", shJumpTo: "Jump to section", shSetupCta: "Set up your Study Profile", "plAddAs": "Add as…", "plSrc.exam": "Exam", "plSrc.event": "Event", "plSrc.class": "Class", "plAct.study": "Study", "plAct.task": "Add task", "plAct.skip": "Skip class", "plAct.editClass": "Edit classes", "plPrepTitle": "Prepare: {s}", "plReviewTitle": "Review: {s}", "plTaskAdded": "Added task “{s}”.", "plSkipped": "Skipped “{s}” on {d}.", plAgendaHint: "Exams, classes and events in the next 7 days appear here with their own actions.", tbBpTitle: "Blueprint", tbBpBody: "A blueprint is one JSON file with your exam's test domains, system weights and target competencies. Give the prompt to an AI tool that can browse the web: it looks up the latest official USMLE outline (usmle.org, NBME, FSMB) and returns the JSON to paste here. The built-in template is only a placeholder. The tutor ranks what to study by weight, your accuracy and this week's syllabus.", tbTemplate: "Use USMLE template", tbCopyPrompt: "Copy AI prompt", tbCopySchema: "Copy template JSON", tbCopied: "Copied", tbPaste: "Paste the blueprint JSON here…", tbLoad: "Load blueprint", tbRemove: "Remove blueprint", tbErrParse: "That doesn't look like JSON. Paste only the blueprint (or upload the file).", tbErrShape: "This JSON has no domains, systems or competencies.", tbReady: "Blueprint readiness", tbCoverage: "Coverage", tbCoverageSub: "items with 5+ answers", tbCountdown: "Days to exam", tbTarget: "target {n}%", tbPriority: "Priority targets", tbPriorityHint: "Ranked by exam weight, the gap to your target and this week's topics. Tick items to build one block, or tap a name to start it.", tbBuild: "Build block from {n} selected", tbShareLine: "{n} answered · {share}% of your practice vs {w}% of the exam · target {target}%", tbMatches: "Qbanks that match", tbNoMatches: "No Qbank in your library matches these topics yet.", tbSystems: "Systems", tbDomains: "Test domains", tbComps: "Competencies", tbLegend: "Bar = your accuracy, black tick = target. Weights are a study guide: check them against the current official outline.", tbNoBpTitle: "No blueprint loaded", tbNoBpBody: "Load a blueprint to see priorities by exam weight.", "nf.blueprintLoaded.t": "Blueprint loaded", "nf.blueprintLoaded.b": "Your tutor now plans around {exam}.",
     tutorShort: "Tutor", modeLabel: "Test mode", modeLocked: "Locked once the block starts", modeTimedHint: "Countdown timer. You can turn it off during the exam, but not back on.", timerLabel: "Timer", timerOnHint: "You can turn the timer off, but you can't turn it back on.", timerOffNote: "Timer is off for this block and can't be turned back on.", timerOffTitle: "Turn off the timer?", timerOffBody: "The countdown will stop and this block will become untimed. This can't be undone: you won't be able to turn the timer back on for this block. Your answers and progress are kept.", keepTimer: "Keep timer on", turnOffTimer: "Turn off timer", timerOffSuffix: "timer off", modeTutorHint: "No timer. Instant feedback after each answer.", tutor: "Tutor mode", tutorHint: "Instant right/wrong feedback and explanations after each answer, plus question reset.",
     tutorCorrect: "Correct", tutorIncorrect: "Incorrect — the correct answer is {a}", tutorIncorrectHidden: "Incorrect", showCorrectBtn: "Show Correct Answer",
     resetQ: "Reset question", "sc.reset": "Reset question (Tutor mode)",
@@ -302,6 +302,14 @@ const STR = {
     anTrendTitle: "Score trend", anTrendHint: "Last {n} sessions · dashed line = 70%", anTrendNeed: "Finish 2 sessions to see your trend.", anSubjTitle: "Performance by subject", anActTitle: "Daily activity", anActHint: "Questions answered, last 14 days", anStatSessions: "Sessions", anStatAnswered: "Questions answered", anStatAccuracy: "Accuracy", anStatAvgTime: "Avg time / question", anStatBest: "Best session {n}%",
     csCalPlan: "Plan checklist", csCalPlanCount: "{d}/{n} done",
     csPlanAddPh: "Add to your plan…", csPlanAdd: "Add", csPlanShowAll: "Show all ({n})", csClassNoneHere: "No class times yet. Add them on the Calendar page.", spPlanDueOpt: "Due date (optional)", csPlanAddFor: "Added for {d}", csPlanRemove: "Remove from plan",
+    "plTally": "{d} of {n} completed", "plTallyEmpty": "Add your first task to start the tally.", "plDoneToday": "{n} completed today",
+    "plF.all": "All", "plF.open": "Open", "plF.overdue": "Overdue", "plF.today": "Due today", "plF.upcoming": "Upcoming", "plF.nodate": "No date", "plF.done": "Done",
+    "plG.overdue": "Overdue", "plG.today": "Due today", "plG.upcoming": "Upcoming", "plG.nodate": "No date", "plG.done": "Completed",
+    "plSearch": "Search tasks", "plKindAll": "All types", "plKind.qbank": "Qbank", "plKind.reading": "Reading", "plKind.review": "Review", "plKind.exam": "Exams", "plKind.class": "Classes", "plKind.other": "Other",
+    "plPriority": "Priority", "plPri.high": "High", "plPri.normal": "Normal", "plPri.low": "Low", "plOptions": "Options", "plOverdueBy": "{n}d overdue", "plFromCal": "Calendar",
+    "plOpenCal": "Show in calendar", "plOpenCalBtn": "Open schedule", "plSetDate": "Set a date", "plEditTask": "Edit task", "plClearDone": "Clear completed ({n})", "plClearedN": "Cleared {n} completed task(s).",
+    "plMoveOverdue": "Move {n} overdue to today", "plMovedN": "Moved {n} overdue task(s) to today.", "plShowDone": "Show completed ({n})", "plHideDone": "Hide completed", "plNoMatch": "No tasks match these filters.",
+    "calF.priority": "Priority", "calF.taskDone": "Completed", "calStatDone": "Completed", "calUnscheduled": "Unscheduled tasks ({n})", "calScheduleHere": "Schedule here", "calDayDone": "{d}/{n} done",
     qhubTitle: "Qhub", qhubSoon: "Coming soon", qhubBody: "A shared, validated Qbank repository. Browse and import vetted blocks.",
     csClasses: "Classes", csClassEdit: "Edit", csClassDone: "Done", csClassNone: "No class times yet. Use Edit to add them.", csClassName: "Class name", csClassLoc: "Room / location", csClassAddMeeting: "Add meeting time", csClassNew: "New class name…", csClassAdd: "Add class",
     importBundle: "Import", "warn.importN": "Import {n} question(s)",
@@ -323,7 +331,7 @@ const STR = {
     activeResumed: "Picked up “{name}” from another device.", activeEndedElsewhere: "This test was finished on another device.",
     activeMissing: "Couldn't load that test from Google Drive. Check your connection and try again.", activeMixed: "Mixed from {banks}.",
     themeLabel: "Theme", themeLight: "Light", themeDark: "Dark",
-    accountBtn: "Account", viewAccount: "View account", signIn: "Sign in with Google", signOut: "Sign out", signedInAs: "Signed in with Google", signInHint: "Sign in to sync your library and Analytics across devices through your Google Drive.", signOutHint: "Signing out stops syncing on this device. Your data stays here and in your Drive.", signedOutNote: "Not signed in",
+    accountBtn: "Account", viewAccount: "Manage account", signIn: "Sign in with Google", signOut: "Sign out", signedInAs: "Signed in with Google", signInHint: "Sign in to sync your library and Analytics across devices through your Google Drive.", signOutHint: "Signing out stops syncing on this device. Your data stays here and in your Drive.", signedOutNote: "Not signed in", "cpTitle": "Career & study profile", "cpHint": "Tell Oworld who you are and what you're preparing for. Your tutor uses it to set goals and to build your Study Profile.", "cpAbout": "About you", "cpStatus": "Current status", "cpStatus.pick": "Select…", "cpStatus.student": "Medical student", "cpStatus.graduate": "Medical graduate (IMG)", "cpStatus.resident": "Resident", "cpStatus.other": "Other", "cpGradYear": "Graduation year", "cpCountry": "Country", "cpCity": "City", "cpUniversity": "University", "cpSchool": "School or faculty", "cpPhCountry": "Dominican Republic", "cpPhCity": "Santo Domingo", "cpPhUniversity": "Universidad Iberoamericana (UNIBE)", "cpPhSchool": "School of Medicine", "cpObjective": "Study objective", "cpCoursework": "Medical school studies", "cpCourseworkHint": "Pick everything you're studying for right now.", "cpWork.generals": "Generals", "cpWork.preclinical": "Preclinical", "cpWork.clinical": "Clinical studies", "cpUsmle": "USMLE", "cpUsmleHint": "Pick the steps you're preparing for. Add a target date if you have one.", "cpStep.step1": "Step 1", "cpStep.step2ck": "Step 2 CK", "cpStep.step3": "Step 3", "cpTargetDate": "Target date", "cpClassOf": "Class of {y}", "cpNext": "Next target: {step}, {when} ({date})", "cpSavedLocal": "Saved on this device.", "acctSettings": "Account Settings", "acctName": "Name", "acctEmail": "Email", "acctLinked": "Linked via", "acctCreated": "Account created", "acctNone": "Not available", "acctLinkedGoogle": "Google", "acctSignedOutHint": "Sign in with Google to see your account details here.", "dzTitle": "Danger Zone", "dzDesc": "Deleting your account permanently removes your Qbanks, Analytics, Personal Database, Study Profile and settings from this device and signs you out.", "dzDelete": "Delete my account", "dzDownloadFirst": "Download all your files before you delete your account. This can't be undone.", "dzDownload": "Download all files", "dzDownloaded": "Downloaded. Your files are saved.", "dzDownloadFailed": "Download failed. Please try again.", "dzConfirmGo": "Delete permanently", "dzSkip": "Delete without downloading", "dzDriveNote": "A copy synced to your Google Drive stays there until you remove it from Drive.", "dzFileName": "oworld-account-backup-{d}.json", "spCareerEdit": "Edit in account", "spCareerAdd": "Add details", "spCareerEmpty": "Add your university, graduation year and USMLE targets in your account and they will show up here. Your tutor uses them too.", "spNoDate": "No target date",
     syncTitle: "Cloud Sync", syncHint: "Keeps your Qbank library and Analytics in step across your devices through a private app folder in your own Google Drive. Share / Export to a friend still works separately.", syncOff: "Cloud sync isn't set up in this version of the app.", syncConnect: "Connect Google Drive", syncNow: "Sync now", syncDisconnect: "Disconnect", syncReconnect: "Reconnect", syncStNone: "Not connected", syncStBusy: "Syncing…", syncStDone: "Synced {time}", syncStReauth: "Reconnect needed", syncStError: "Sync problem", syncBlocked: "Google sign-in couldn't load here (blocked or offline).", syncDenied: "Drive access wasn't granted. Allow the app-data permission to sync.", syncGenericErr: "Couldn't sync with Google Drive. Your data on this device is safe.", syncReauthHint: "Your Google session expired. Tap Reconnect; local changes are kept and will sync.", syncGuide: "Google Drive sync (profile menu, top right) keeps your library and Analytics in step across devices. Share / Export is still the way to send a block to someone else.", homeBtn: "Home", removeExam: "Remove exam", removeTitle: "Remove this exam?", removeBody: "This clears the loaded exam and any progress or results in it. Your saved Qbank Library is not affected.", removeBodyUnsaved: "This clears the loaded exam and any progress or results in it. Some of its blocks are not saved to your Library and would be gone for good. Cancel and tap Save to Library first if you want to keep them.", removeGo: "Remove", libRename: "Rename Qbank", libRenameSave: "Save name", howItWorks: "Help", guideStep: "Step {n} of {total}", guideBack: "Back", guideNext: "Next", guideDone: "Got it", guideClose: "Close guide", navCollapse: "Collapse question list", navExpand: "Expand question list", resumeSession: "Resume Session", sessionInProgress: "Session in progress", sessionPos: "Question {n} of {total}", examLoadedLabel: "Exam loaded", openLobby: "Open exam lobby", inProgressTag: "In progress", discardTitle: "Discard in-progress session?", discardBody: "Starting something new replaces your in-progress block, and its answers will be lost.", discardGo: "Discard and continue", hide: "Hide", recipe: "Question Recipe Prompt",
     recipeIntro: "Configure a block below, then copy the generated recipe into the AI tool of your choice (add your source material if it supports it). It returns questions in the exact shape this app expects.",
     blockSize: "Block size", focus: "Focus",
@@ -372,7 +380,7 @@ const STR = {
     timesUpBody: "The allotted time for this block has lapsed. You answered {a} of {n} questions. The block will now be submitted automatically and you can review your results.",
     viewResults: "View results",
     siIntervals: "SI Reference Intervals", siHdr: "SI Reference Interval", refRange: "Reference Range",
-    search: "Search…", noMatches: "No matches in {tab}.", searchTitle: "Search", searchPh: "Search Qbanks, questions, notes and sessions…", searchHint: "Type at least 2 letters. Searches your Library, Calendar (events, dates, times, classes, exams, tasks), Database (questions, excerpts, notes, comments) and Analytics. Try “Oct 20”, “Tuesday” or “9:00”.", searchGrpCal: "Calendar", searchGoDate: "Go to {d}", searchNone: "No results for “{q}”.", searchGrpLib: "Library", searchGrpDb: "Database", searchGrpHist: "Analytics", searchQsMatch: "{n} matching question(s)", searchClose: "Close search",
+    search: "Search…", noMatches: "No matches in {tab}.", searchTitle: "Search", searchPh: "Search Qbanks, questions, notes and sessions…", searchHint: "Type at least 2 letters. Searches your Library, Calendar (events, dates, times, classes, exams, tasks), Database (questions, excerpts, notes, comments) and Analytics. Try “Oct 20”, “Tuesday” or “9:00”.", searchGrpCal: "Schedule", searchGoDate: "Go to {d}", searchNone: "No results for “{q}”.", searchGrpLib: "Library", searchGrpDb: "Database", searchGrpHist: "Analytics", searchQsMatch: "{n} matching question(s)", searchClose: "Close search",
     "tab.Serum": "Serum", "tab.Cerebrospinal": "Cerebrospinal", "tab.Blood": "Blood", "tab.Urine and BMI": "Urine and BMI",
     back: "Back to blocks", results: "{name} — results",
     scoreLine: "{c} correct out of {t} · {u} unanswered",
@@ -445,15 +453,15 @@ const STR = {
     resumed: "Sesión restaurada: continúas donde la dejaste.", storageFull: "No se pudo escribir en el almacenamiento del navegador (puede estar lleno o desactivado). Tu progreso no se está respaldando.",
     leaveConfirm: "Tienes un bloque en curso. Si sales ahora se descartará. ¿Continuar?",
     settings: "Ajustes", dark: "Modo oscuro", lang: "Idioma",
-    "tabProfile": "Perfil", "spTitle": "Perfil del estudiante", "spHint": "Un archivo estándar que le dice a Oworld en qué punto de tus estudios estás: tu periodo y el calendario del semestre, las semanas del programa, el horario de clases, los exámenes y tu plan. Tu tutor lo usa en la Consola, en la Biblioteca y en las notificaciones.", "spSyncLocal": "Guardado en este dispositivo. Inicia sesión con Google (menú de perfil) para sincronizarlo con tu Drive.", "spSyncDrive": "Se sincroniza con tu Google Drive", "spBuildTitle": "Crea tu perfil con IA", "spBuildBody": "Copia el prompt, dáselo a tu herramienta de IA junto con tus programas, el calendario del semestre, tu horario de clases y el calendario de exámenes (PDF, captura o texto pegado; envía lo que tengas) y pega abajo el JSON que te devuelva.", "spUpdateTitle": "Actualiza tu perfil", "spUpdateBody": "Vuelve a darle el prompt a tu herramienta de IA (con un programa, horario o calendario del semestre nuevo si lo tienes) para refrescar tu semana, tu plan y tus fortalezas. Se conservan los ids y las tareas marcadas.", "spModeNew": "Empezar de cero", "spModeUpdate": "Actualizar perfil actual", "spIncludeStats": "Incluir mis estadísticas de estudio", "spIncludeStatsHint": "Añade un resumen compacto de tus Analíticas para que la IA escriba tus fortalezas, puntos débiles y ritmo con resultados reales.", "spCopyPrompt": "Copiar prompt", "spViewPrompt": "Ver prompt", "spHidePrompt": "Ocultar prompt", "spPasteLabel": "Pega el JSON de la IA", "spPasteOpen": "Mostrar cuadro", "spPastePh": "Pega aquí el JSON del perfil…", "spLoad": "Cargar perfil", "spUpload": "Subir .json", "spReplaceNote": "Cargar reemplaza tu perfil actual. Las tareas que ya marcaste siguen marcadas.", "spLoaded": "Perfil cargado. Tu tutor ya está en la Consola.", "spErrParse": "Eso no parece JSON. Pega solo la respuesta de la IA (o sube el archivo).", "spErrShape": "Este JSON no es un Perfil del estudiante. Necesita al menos un periodo, cursos, evaluaciones o un plan.", "spWarnTruncated": "La respuesta parecía cortada, así que solo se cargó la parte completa. Pide a la IA que continúe y actualiza tu perfil.", "spWarnDates": "{n} evaluación(es) no tenían una fecha válida y se omitieron: {titles}.", "spWarnDropped": "Se omitieron {n} elemento(s) incompleto(s).", "spWarnNoStart": "No se encontró la fecha de inicio del periodo, así que la semana actual no se puede seguir automáticamente.", "spTermWeek": "Semana {w} de {n}", "spTermWeekNoTotal": "Semana {w}", "spTermBefore": "Empieza en {n} días", "spTermBefore1": "Empieza mañana", "spTermAfter": "Periodo terminado", "spTermUnknown": "Semana desconocida", "spThisWeek": "Esta semana", "spNoFocus": "No hay temas asignados a esta semana.", "spNext": "Próxima evaluación", "spNoNext": "No hay evaluaciones próximas.", "spToday": "Hoy", "spTomorrow": "Mañana", "spInDays": "en {n} días", "spTodayNone": "Nada para hoy.", "spWeekly": "{a} de {n} preguntas esta semana", "spAssessments": "Próximas evaluaciones", "spTasks": "Plan", "spNoTasks": "Aún no hay tareas.", "spCourses": "Mapa del programa", "spWeekN": "Sem {n}", "spSource": "Fuente", "spConf": "Confianza: {c}", "spConf.high": "alta", "spConf.medium": "media", "spConf.low": "baja", "spAssump": "Suposiciones de la IA", "spRisk": "Riesgo", "spRisk.low": "bajo", "spRisk.medium": "medio", "spRisk.high": "alto", "spStrengths": "Fortalezas", "spGaps": "Puntos débiles", "spExport": "Exportar JSON", "spDelete": "Eliminar perfil", "spDeleteQ": "¿Eliminar tu Perfil del estudiante? Se borra de este dispositivo y de la sincronización con Drive. Tus Qbanks y Analíticas no se tocan.", "spDeleteGo": "Eliminar", "spSchemaView": "Ver esquema JSON", "spSchemaHide": "Ocultar esquema JSON", "spSchemaTitle": "Esquema JSON del Perfil del estudiante", "spCardTitle": "Tu tutor", "spCardOpen": "Abrir perfil", "spCardInviteTitle": "Configura tu Perfil del estudiante", "spCardInviteBody": "Dale a Oworld tus programas, el calendario, tu horario de clases y el calendario de exámenes una sola vez y tu tutor llevará el control de tu semana, tus clases, tus exámenes y qué estudiar después.", "spCardInviteBtn": "Configurar perfil", "spStartBlock": "Iniciar un bloque de {s}", "spLibStrip": "El tutor sugiere para la semana {w}", "spLibStart": "{title} ({n} P)", "sgBefore": "Tu periodo empieza {when}. Prepara tus Qbanks.", "sgExam": "{title} es {when}.", "sgExamCover": "{title} es {when} e incluye {coverage}.", "sgTasks": "{n} tarea(s) para hoy o atrasada(s).", "sgPaceBehind": "Vas por debajo del ritmo de esta semana: {a} de {t} preguntas. Un bloque corto hoy cierra la brecha.", "sgPaceDone": "Meta semanal alcanzada ({a}/{t}). Buen trabajo.", "sgPaceOn": "Buen ritmo: {a} de {t} preguntas esta semana.", "sgWeak": "{subject} está en {pct}% y está en la lista de esta semana.", "sgNoFocus": "No hay temas asignados a esta semana. Actualiza tu perfil con el programa.", "sgStale": "Tu perfil tiene {n} días. Actualízalo para que tu tutor siga siendo preciso.", "nf.examSoon.t": "Se acerca un examen", "nf.examSoon.b": "{title} es en {days} días.", "nf.examTomorrow.t": "Examen mañana", "nf.examTomorrow.b": "{title} es mañana. Haz un repaso ligero y descansa.", "nf.examToday.t": "Examen hoy", "nf.examToday.b": "{title} es hoy. ¡Mucha suerte!", "nf.weekStart.t": "Semana {week} de {total}", "nf.weekStart.b": "Esta semana: {topics}", "nf.termStart.t": "El periodo empieza pronto", "nf.termStart.b": "Tu periodo empieza en {days} día(s). Prepara tus Qbanks.", "nf.paceBehind.t": "Por debajo del ritmo semanal", "nf.paceBehind.b": "{a} de {t} preguntas hasta ahora. Un bloque corto hoy ayuda.", "nf.tasksDue.t": "Tareas pendientes", "nf.tasksDue.b": "{n} tarea(s) para hoy o atrasada(s). Abre la Consola.", "nf.profileStale.t": "Actualiza tu perfil", "nf.profileStale.b": "Tu Perfil del estudiante tiene {n} días.", "nf.profileLoaded.t": "Perfil del estudiante listo", "nf.profileLoaded.b": "Tu tutor ahora sigue {term}.",
-    "spPromptTitle": "Perfil del estudiante — prompt para IA",
+    "tabProfile": "Perfil de estudio", "menuProfile": "Perfil", "tutorSrcTitle": "Fuentes sugeridas por el tutor", "tutorSrcHint": "Este bloque se apoya en las referencias de abajo. Tenlas abiertas para estudiar mientras respondes.", "tutorSrcQ": "{n} pregunta(s)", "tutorSrcCount": "{n} fuente(s)", "tutorSrcStart": "Continuar", "tutorSrcBtn": "Fuentes", "syncShort": "Sincronizar", "acctSave": "Guardar", "acctSaved": "Guardado", "spTitle": "Perfil de estudio", "spHint": "Un archivo estándar que le dice a Oworld en qué punto de tus estudios estás: tu periodo y el calendario del semestre, las semanas del programa, el horario de clases, los exámenes y tu plan. Tu tutor lo usa en la Consola, en la Biblioteca y en las notificaciones.", "spSyncLocal": "Guardado en este dispositivo. Inicia sesión con Google (menú de perfil) para sincronizarlo con tu Drive.", "spSyncDrive": "Se sincroniza con tu Google Drive", "spBuildTitle": "Crea tu perfil con IA", "spBuildBody": "Copia el prompt, dáselo a tu herramienta de IA junto con tus programas, el calendario del semestre, tu horario de clases y el calendario de exámenes (PDF, captura o texto pegado; envía lo que tengas) y pega abajo el JSON que te devuelva.", "spUpdateTitle": "Actualiza tu perfil", "spUpdateBody": "Vuelve a darle el prompt a tu herramienta de IA (con un programa, horario o calendario del semestre nuevo si lo tienes) para refrescar tu semana, tu plan y tus fortalezas. Se conservan los ids y las tareas marcadas.", "spModeNew": "Empezar de cero", "spModeUpdate": "Actualizar perfil actual", "spIncludeStats": "Incluir mis estadísticas de estudio", "spIncludeStatsHint": "Añade un resumen compacto de tus Analíticas para que la IA escriba tus fortalezas, puntos débiles y ritmo con resultados reales.", "spCopyPrompt": "Copiar prompt", "spViewPrompt": "Ver prompt", "spHidePrompt": "Ocultar prompt", "spPasteLabel": "Pega el JSON de la IA", "spPasteOpen": "Mostrar cuadro", "spPastePh": "Pega aquí el JSON del perfil…", "spLoad": "Cargar perfil", "spUpload": "Subir .json", "spReplaceNote": "Cargar reemplaza tu perfil actual. Las tareas que ya marcaste siguen marcadas.", "spLoaded": "Perfil cargado. Tu tutor ya está en la Consola.", "spErrParse": "Eso no parece JSON. Pega solo la respuesta de la IA (o sube el archivo).", "spErrShape": "Este JSON no es un Perfil de estudio. Necesita al menos un periodo, cursos, evaluaciones o un plan.", "spWarnTruncated": "La respuesta parecía cortada, así que solo se cargó la parte completa. Pide a la IA que continúe y actualiza tu perfil.", "spWarnDates": "{n} evaluación(es) no tenían una fecha válida y se omitieron: {titles}.", "spWarnDropped": "Se omitieron {n} elemento(s) incompleto(s).", "spWarnNoStart": "No se encontró la fecha de inicio del periodo, así que la semana actual no se puede seguir automáticamente.", "spTermWeek": "Semana {w} de {n}", "spTermWeekNoTotal": "Semana {w}", "spTermBefore": "Empieza en {n} días", "spTermBefore1": "Empieza mañana", "spTermAfter": "Periodo terminado", "spTermUnknown": "Semana desconocida", "spThisWeek": "Esta semana", "spNoFocus": "No hay temas asignados a esta semana.", "spNext": "Próxima evaluación", "spNoNext": "No hay evaluaciones próximas.", "spToday": "Hoy", "spTomorrow": "Mañana", "spInDays": "en {n} días", "spTodayNone": "Nada para hoy.", "spWeekly": "{a} de {n} preguntas esta semana", "spAssessments": "Próximas evaluaciones", "spTasks": "Plan", "spNoTasks": "Aún no hay tareas.", "spCourses": "Mapa del programa", "spWeekN": "Sem {n}", "spSource": "Fuente", "spConf": "Confianza: {c}", "spConf.high": "alta", "spConf.medium": "media", "spConf.low": "baja", "spAssump": "Suposiciones de la IA", "spRisk": "Riesgo", "spRisk.low": "bajo", "spRisk.medium": "medio", "spRisk.high": "alto", "spStrengths": "Fortalezas", "spGaps": "Puntos débiles", "spExport": "Exportar JSON", "spDelete": "Eliminar perfil", "spDeleteQ": "¿Eliminar tu Perfil de estudio? Se borra de este dispositivo y de la sincronización con Drive. Tus Qbanks y Analíticas no se tocan.", "spDeleteGo": "Eliminar", "spSchemaView": "Ver esquema JSON", "spSchemaHide": "Ocultar esquema JSON", "spSchemaTitle": "Esquema JSON del Perfil de estudio", "spCardTitle": "Tu tutor", "spCardOpen": "Abrir perfil", "spCardInviteTitle": "Configura tu Perfil de estudio", "spCardInviteBody": "Dale a Oworld tus programas, el calendario, tu horario de clases y el calendario de exámenes una sola vez y tu tutor llevará el control de tu semana, tus clases, tus exámenes y qué estudiar después.", "spCardInviteBtn": "Configurar perfil", "spStartBlock": "Iniciar un bloque de {s}", "spLibStrip": "El tutor sugiere para la semana {w}", "spLibStart": "{title} ({n} P)", "sgBefore": "Tu periodo empieza {when}. Prepara tus Qbanks.", "sgExam": "{title} es {when}.", "sgExamCover": "{title} es {when} e incluye {coverage}.", "sgTasks": "{n} tarea(s) para hoy o atrasada(s).", "sgPaceBehind": "Vas por debajo del ritmo de esta semana: {a} de {t} preguntas. Un bloque corto hoy cierra la brecha.", "sgPaceDone": "Meta semanal alcanzada ({a}/{t}). Buen trabajo.", "sgPaceOn": "Buen ritmo: {a} de {t} preguntas esta semana.", "sgWeak": "{subject} está en {pct}% y está en la lista de esta semana.", "sgNoFocus": "No hay temas asignados a esta semana. Actualiza tu perfil con el programa.", "sgStale": "Tu perfil tiene {n} días. Actualízalo para que tu tutor siga siendo preciso.", "nf.examSoon.t": "Se acerca un examen", "nf.examSoon.b": "{title} es en {days} días.", "nf.examTomorrow.t": "Examen mañana", "nf.examTomorrow.b": "{title} es mañana. Haz un repaso ligero y descansa.", "nf.examToday.t": "Examen hoy", "nf.examToday.b": "{title} es hoy. ¡Mucha suerte!", "nf.weekStart.t": "Semana {week} de {total}", "nf.weekStart.b": "Esta semana: {topics}", "nf.termStart.t": "El periodo empieza pronto", "nf.termStart.b": "Tu periodo empieza en {days} día(s). Prepara tus Qbanks.", "nf.paceBehind.t": "Por debajo del ritmo semanal", "nf.paceBehind.b": "{a} de {t} preguntas hasta ahora. Un bloque corto hoy ayuda.", "nf.tasksDue.t": "Tareas pendientes", "nf.tasksDue.b": "{n} tarea(s) para hoy o atrasada(s). Abre la Consola.", "nf.profileStale.t": "Actualiza tu perfil", "nf.profileStale.b": "Tu Perfil de estudio tiene {n} días.", "nf.profileLoaded.t": "Perfil de estudio listo", "nf.profileLoaded.b": "Tu tutor ahora sigue {term}.",
+    "spPromptTitle": "Perfil de estudio — prompt para IA",
     "sgEve": "{title} es mañana. Hazlo ligero: repasa tu tema más débil y descansa.", "sgDeadline": "Fecha límite: {title} es {when}.", "sgBreakNow": "{title}: hoy no hay clases. Las clases se reanudan {when}. Buen momento para cerrar brechas.", "sgBreakSoon": "{title} empieza {when}. Mete un bloque de estudio más fuerte antes.", "sgStreak": "Aún no practicas hoy. Un bloque corto mantiene tu racha de {n} días.", "sgUntested": "{n} de {total} temas de {title} aún no tienen datos de práctica.",
     "nf.breakSoon.t": "El descanso empieza mañana", "nf.breakSoon.b": "{title} empieza mañana. Planea tu estudio antes.", "nf.deadlineSoon.t": "Se acerca una fecha límite", "nf.deadlineSoon.b": "{title} vence en {days} día(s).", "nf.deadlineToday.t": "Fecha límite hoy", "nf.deadlineToday.b": "{title} vence hoy.",
     "tuWindow": "Libre {from} – {to}: caben unas {qs} preguntas", "tuNoData": "sin datos", "tuReadyHint": "Toca un tema para iniciar un bloque.", "tuExams": "Próximos exámenes", "tuWeight": "{n}% de la nota", "tuReadyPct": "{n}% listo", "tuWeakest": "Más débil: {topic} {pct}%", "tuUntestedN": "{n} tema(s) sin practicar", "tuDeadline": "Fecha límite", "tuTodayQs": "{a} de {n} preguntas hoy", "tuGoalMet": "Meta diaria cumplida", "tuStreak": "Racha de {n} días", "spEdit": "Editar", "spExamDate": "Fecha del examen", "spExamTime": "Hora del examen", "spSave": "Guardar", "spMarkDone": "Ya ocurrió", "spMarkUpcoming": "Marcar como próximo", "spPastAssess": "Pasadas y completadas ({n})", "spDoneTag": "Hecha", "spFixDateHint": "¿Fecha incorrecta? Corrígela aquí y tu tutor la seguirá, incluso después de actualizar tu perfil.", "spWarnCalDates": "{n} evento(s) del calendario no tenían una fecha válida y se omitieron.",
     "spEvt.holiday": "Feriado", "spEvt.break": "Descanso", "spEvt.exam-period": "Periodo de exámenes", "spEvt.deadline": "Fecha límite", "spEvt.class": "Clase", "spEvt.other": "Evento",
-    "csCalendar": "Calendario del semestre", "csCalPrev": "Mes anterior", "csCalNext": "Mes siguiente", "csCalToday": "Hoy", "csCalNothing": "Nada programado.", "csCalStudied": "Estudiaste: {n} sesión(es) · {q} preguntas", "csCalLegExam": "Examen", "csCalLegTask": "Tarea", "csCalLegEvent": "Calendario", "csCalLegStudy": "Estudio", "csCalNoProfile": "Configura tu Perfil del estudiante para ver aquí tus exámenes, tareas y descansos.", "csCalSetup": "Configurar perfil", "csCalMore": "+{n} más",
-    "tabCalendar": "Calendario", "calTitle": "Calendario", "calHint": "Todo tu periodo en un solo calendario: clases, exámenes, tareas, descansos y los días que estudiaste. Toca un día para verlo y editarlo.", "calMonth": "Mes", "calWeek": "Semana", "calAgenda": "Agenda", "calPrev": "Anterior", "calNext": "Siguiente", "calLayerKey": "Fechas clave", "calTermStart": "Inicio del periodo", "calTermEnd": "Fin del periodo", "calTargetExam": "Examen objetivo", "calClassesN": "{n} clases", "calStatTerm": "Periodo", "calStatOpen": "Tareas abiertas", "calStatWeekQ": "Preguntas esta semana", "calAgendaEmpty": "No hay nada programado en este lapso.", "calOpenFull": "Calendario completo", "spMapNote": "Se muestran las semanas cercanas a hoy. Expande para ver el mapa completo del programa.",
-    tbGapTitle: "Análisis de brechas", tbGapHint: "Tus bloques registrados agrupados por etiqueta de materia y comparados con el blueprint: peso en el examen, tu parte de la práctica, tu precisión y la brecha con la meta (puntos).", tbColExam: "Examen", tbColPractice: "Tú", tbColAcc: "Prec.", tbColGap: "Brecha", tbGapWorst: "Mayor brecha de precisión: {a} ({n} pts bajo la meta).", tbGapUnder: "Menos practicado: {b}.", tbGapNone: "Termina un bloque para ver tus brechas.", tbUnmapped: "Sin asignar al blueprint", tbUnmappedHint: "Estas etiquetas de materia de tus resultados no coinciden con ningún ítem del blueprint. Agrégalas a una lista de coincidencias.", tbBpPrompt: "Blueprint — prompt para IA", tbBpSchema: "Blueprint — plantilla JSON", tbCourses: "Curso prioritario", tbStarOn: "Hacer de {c} tu curso prioritario", tbStarOff: "Quitar curso prioritario", tbStarHint: "El curso con estrella se estudia primero: sus temas encabezan el enfoque de la semana y sus ítems del blueprint suben en el ranking.", "calNew.task": "Nueva tarea", "calNew.event": "Nuevo evento", "calNew.exam": "Nuevo examen", "calEdit.task": "Editar tarea", "calEdit.event": "Editar evento", "calEdit.exam": "Editar examen", "calAdd.task": "Tarea", "calAdd.event": "Evento", "calAdd.exam": "Examen", "calF.title": "Título", "calF.date": "Fecha", "calF.time": "Hora", "calF.endDate": "Termina el", "calF.endTime": "Termina a las", "calF.type": "Tipo", "calF.repeat": "Se repite", "calF.until": "Repetir hasta", "calF.subject": "Materia", "calF.weight": "Peso %", "calF.place": "Lugar", "calF.course": "Curso", "calF.topics": "Temas (separados por comas)", "calF.notes": "Notas", "calF.done": "Ya ocurrió", "calRep.none": "No se repite", "calRep.daily": "Cada día", "calRep.weekly": "Cada semana", "calRep.monthly": "Cada mes", calRepeats: "se repite: {r}", calSave: "Guardar", calCancel: "Cancelar", calDelete: "Eliminar", calEdit: "Editar", calDeleted: "Se eliminó «{s}».", calMoved: "«{s}» se movió al {d}.", calUndo: "Deshacer", calFind: "Buscar en el calendario", calJump: "Ir a la fecha", calExport: "Exportar .ics", tbScale: "Escalar pesos a 100%", tbScaleHint: "Los rangos que se superponen (una pregunta puede contar para varias disciplinas) pueden sumar más de 100%. Esto reescala cada grupo y conserva los números originales como rango oficial. Las comparaciones ya usan las proporciones escaladas.", tbConf: "Confianza en la fuente", "tbConfLvl.high": "Alta", "tbConfLvl.medium": "Media", "tbConfLvl.low": "Baja", "tbCg.official": "Cita fuentes oficiales ({h}).", "tbCg.version": "Edición del esquema registrada: {v}.", "tbCg.fresh": "Consultado hace {n} días.", "tbCg.weights": "Los pesos suman cerca de 100% en cada grupo.", "tbCf.noSource": "No cita ninguna fuente.", "tbCf.unofficial": "Las páginas citadas no son sitios oficiales de USMLE, NBME ni FSMB.", "tbCf.noVersion": "No se registró la edición del esquema.", "tbCf.noDate": "No se registró la fecha de consulta.", "tbCf.old": "Última revisión hace {n} días, más de un semestre.", "tbCf.weights": "Los pesos de {g} suman {n}%, no 100%.", "tbCf.noWeights": "No hay pesos del examen.", "tbCf.template": "Plantilla con pesos de ejemplo, no es el esquema oficial.", tbCadence: "Actualiza tu blueprint al menos una vez por semestre: el esquema puede cambiar y tu tutor planifica con él.", tbDueOn: "Próxima actualización antes del {d}.", tbUpdate: "Actualizar blueprint", tbDue: "Tu blueprint se revisó por última vez hace {n} días. Actualízalo al menos una vez por semestre.", tbDueTerm: "Empezó un nuevo periodo desde la última revisión de tu blueprint. Actualízalo para que tu tutor siga el esquema vigente.", tbSoon: "Tu blueprint tiene {n} días. Planea una actualización este semestre.", "nf.bpDue.t": "Actualiza tu blueprint", "nf.bpDue.b": "Se revisó por última vez hace {n} días. Renuévalo al menos una vez por semestre para que tu tutor siga el esquema USMLE vigente.", "nf.bpDueTerm.t": "Nuevo semestre: actualiza tu blueprint", "nf.bpDueTerm.b": "Tu periodo empezó después de la última revisión de tu blueprint. Vuelve a usar el prompt de IA para confirmar el esquema USMLE vigente.", tbSource: "Fuente: {v} {u}", tbNoSource: "Sin fuente oficial registrada: vuelve a usar el prompt de IA para que busque el esquema USMLE vigente.", tabTutor: "Tutor", tbTitle: "Panel del tutor", tbOpenTutor: "Abrir Tutor", tbBpTitle: "Blueprint", tbBpBody: "Un blueprint es un archivo JSON con los dominios de la prueba, el peso de cada sistema y las competencias objetivo de tu examen. Dale el prompt a una herramienta de IA con acceso a internet: busca el esquema oficial más reciente de USMLE (usmle.org, NBME, FSMB) y te devuelve el JSON para pegar aquí. La plantilla incluida es solo un ejemplo. El tutor ordena qué estudiar según el peso, tu precisión y el programa de esta semana.", tbTemplate: "Usar plantilla USMLE", tbCopyPrompt: "Copiar prompt de IA", tbCopySchema: "Copiar JSON de plantilla", tbCopied: "Copiado", tbPaste: "Pega aquí el JSON del blueprint…", tbLoad: "Cargar blueprint", tbRemove: "Quitar blueprint", tbErrParse: "Eso no parece JSON. Pega solo el blueprint (o sube el archivo).", tbErrShape: "Este JSON no tiene dominios, sistemas ni competencias.", tbReady: "Preparación del blueprint", tbCoverage: "Cobertura", tbCoverageSub: "ítems con 5+ respuestas", tbCountdown: "Días al examen", tbTarget: "meta {n}%", tbPriority: "Objetivos prioritarios", tbPriorityHint: "Ordenados por peso en el examen, la brecha con tu meta y los temas de esta semana. Marca ítems para armar un bloque, o toca un nombre para iniciarlo.", tbBuild: "Armar bloque con {n} seleccionados", tbShareLine: "{n} respondidas · {share}% de tu práctica vs {w}% del examen · meta {target}%", tbMatches: "Qbanks que coinciden", tbNoMatches: "Ningún Qbank de tu biblioteca coincide con estos temas todavía.", tbSystems: "Sistemas", tbDomains: "Dominios de la prueba", tbComps: "Competencias", tbLegend: "Barra = tu precisión, marca negra = meta. Los pesos son una guía de estudio: verifícalos con el esquema oficial vigente.", tbNoBpTitle: "Sin blueprint cargado", tbNoBpBody: "Carga un blueprint para ver prioridades según el peso en el examen.", "nf.blueprintLoaded.t": "Blueprint cargado", "nf.blueprintLoaded.b": "Tu tutor ahora planifica con {exam}.",
+    "csCalendar": "Calendario del semestre", "csCalPrev": "Mes anterior", "csCalNext": "Mes siguiente", "csCalToday": "Hoy", "csCalNothing": "Nada programado.", "csCalStudied": "Estudiaste: {n} sesión(es) · {q} preguntas", "csCalLegExam": "Examen", "csCalLegTask": "Tarea", "csCalLegEvent": "Calendario", "csCalLegStudy": "Estudio", "csCalNoProfile": "Configura tu Perfil de estudio para ver aquí tus exámenes, tareas y descansos.", "csCalSetup": "Configurar perfil", "csCalMore": "+{n} más",
+    "tabCalendar": "Horario", "calTitle": "Horario", "calHint": "Todo tu periodo en un solo calendario: clases, exámenes, tareas, descansos y los días que estudiaste. Toca un día para verlo y editarlo.", "calMonth": "Mes", "calWeek": "Semana", "calAgenda": "Agenda", "calPrev": "Anterior", "calNext": "Siguiente", "calLayerKey": "Fechas clave", "calTermStart": "Inicio del periodo", "calTermEnd": "Fin del periodo", "calTargetExam": "Examen objetivo", "calClassesN": "{n} clases", "calStatTerm": "Periodo", "calStatOpen": "Tareas abiertas", "calStatWeekQ": "Preguntas esta semana", "calAgendaEmpty": "No hay nada programado en este lapso.", "calOpenFull": "Horario completo", "spMapNote": "Se muestran las semanas cercanas a hoy. Expande para ver el mapa completo del programa.",
+    tbGapTitle: "Análisis de brechas", tbGapHint: "Tus bloques registrados agrupados por etiqueta de materia y comparados con el blueprint: peso en el examen, tu parte de la práctica, tu precisión y la brecha con la meta (puntos).", tbColExam: "Examen", tbColPractice: "Tú", tbColAcc: "Prec.", tbColGap: "Brecha", tbGapWorst: "Mayor brecha de precisión: {a} ({n} pts bajo la meta).", tbGapUnder: "Menos practicado: {b}.", tbGapNone: "Termina un bloque para ver tus brechas.", tbUnmapped: "Sin asignar al blueprint", tbUnmappedHint: "Estas etiquetas de materia de tus resultados no coinciden con ningún ítem del blueprint. Agrégalas a una lista de coincidencias.", tbBpPrompt: "Blueprint — prompt para IA", tbBpSchema: "Blueprint — plantilla JSON", tbCourses: "Curso prioritario", tbStarOn: "Hacer de {c} tu curso prioritario", tbStarOff: "Quitar curso prioritario", tbStarHint: "El curso con estrella se estudia primero: sus temas encabezan el enfoque de la semana y sus ítems del blueprint suben en el ranking.", "calNew.task": "Nueva tarea", "calNew.event": "Nuevo evento", "calNew.exam": "Nuevo examen", "calEdit.task": "Editar tarea", "calEdit.event": "Editar evento", "calEdit.exam": "Editar examen", "calAdd.task": "Tarea", "calAdd.event": "Evento", "calAdd.exam": "Examen", "calF.title": "Título", "calF.date": "Fecha", "calF.time": "Hora", "calF.endDate": "Termina el", "calF.endTime": "Termina a las", "calF.type": "Tipo", "calF.repeat": "Se repite", "calF.until": "Repetir hasta", "calF.subject": "Materia", "calF.weight": "Peso %", "calF.place": "Lugar", "calF.course": "Curso", "calF.topics": "Temas (separados por comas)", "calF.notes": "Notas", "calF.done": "Ya ocurrió", "calRep.none": "No se repite", "calRep.daily": "Cada día", "calRep.weekly": "Cada semana", "calRep.monthly": "Cada mes", calRepeats: "se repite: {r}", calSave: "Guardar", calCancel: "Cancelar", calDelete: "Eliminar", calEdit: "Editar", calDeleted: "Se eliminó «{s}».", calMoved: "«{s}» se movió al {d}.", calUndo: "Deshacer", calFind: "Buscar en el calendario", calJump: "Ir a la fecha", calExport: "Exportar .ics", tbScale: "Escalar pesos a 100%", tbScaleHint: "Los rangos que se superponen (una pregunta puede contar para varias disciplinas) pueden sumar más de 100%. Esto reescala cada grupo y conserva los números originales como rango oficial. Las comparaciones ya usan las proporciones escaladas.", tbConf: "Confianza en la fuente", "tbConfLvl.high": "Alta", "tbConfLvl.medium": "Media", "tbConfLvl.low": "Baja", "tbCg.official": "Cita fuentes oficiales ({h}).", "tbCg.version": "Edición del esquema registrada: {v}.", "tbCg.fresh": "Consultado hace {n} días.", "tbCg.weights": "Los pesos suman cerca de 100% en cada grupo.", "tbCf.noSource": "No cita ninguna fuente.", "tbCf.unofficial": "Las páginas citadas no son sitios oficiales de USMLE, NBME ni FSMB.", "tbCf.noVersion": "No se registró la edición del esquema.", "tbCf.noDate": "No se registró la fecha de consulta.", "tbCf.old": "Última revisión hace {n} días, más de un semestre.", "tbCf.weights": "Los pesos de {g} suman {n}%, no 100%.", "tbCf.noWeights": "No hay pesos del examen.", "tbCf.template": "Plantilla con pesos de ejemplo, no es el esquema oficial.", tbCadence: "Actualiza tu blueprint al menos una vez por semestre: el esquema puede cambiar y tu tutor planifica con él.", tbDueOn: "Próxima actualización antes del {d}.", tbUpdate: "Actualizar blueprint", tbDue: "Tu blueprint se revisó por última vez hace {n} días. Actualízalo al menos una vez por semestre.", tbDueTerm: "Empezó un nuevo periodo desde la última revisión de tu blueprint. Actualízalo para que tu tutor siga el esquema vigente.", tbSoon: "Tu blueprint tiene {n} días. Planea una actualización este semestre.", "nf.bpDue.t": "Actualiza tu blueprint", "nf.bpDue.b": "Se revisó por última vez hace {n} días. Renuévalo al menos una vez por semestre para que tu tutor siga el esquema USMLE vigente.", "nf.bpDueTerm.t": "Nuevo semestre: actualiza tu blueprint", "nf.bpDueTerm.b": "Tu periodo empezó después de la última revisión de tu blueprint. Vuelve a usar el prompt de IA para confirmar el esquema USMLE vigente.", tbSource: "Fuente: {v} {u}", tbNoSource: "Sin fuente oficial registrada: vuelve a usar el prompt de IA para que busque el esquema USMLE vigente.", tabTutor: "Tutor", tbTitle: "Panel del tutor", tbOpenTutor: "Abrir Centro de estudio", tabStudyHub: "Centro de estudio", shTitle: "Centro de estudio", shSub: "Tu tutor, el blueprint y tu Perfil de estudio en un solo lugar: en qué punto de tu periodo estás, qué estudiar después y qué tan listo estás.", shNavOverview: "Resumen", shNavPriorities: "Prioridades", shNavBlueprint: "Blueprint", shNavProfile: "Perfil de estudio", shJumpTo: "Ir a la sección", shSetupCta: "Configura tu Perfil de estudio", "plAddAs": "Añadir como…", "plSrc.exam": "Examen", "plSrc.event": "Evento", "plSrc.class": "Clase", "plAct.study": "Estudiar", "plAct.task": "Añadir tarea", "plAct.skip": "Omitir clase", "plAct.editClass": "Editar clases", "plPrepTitle": "Preparar: {s}", "plReviewTitle": "Repasar: {s}", "plTaskAdded": "Se añadió la tarea «{s}».", "plSkipped": "Se omitió «{s}» el {d}.", plAgendaHint: "Los exámenes, clases y eventos de los próximos 7 días aparecen aquí con sus propias acciones.", tbBpTitle: "Blueprint", tbBpBody: "Un blueprint es un archivo JSON con los dominios de la prueba, el peso de cada sistema y las competencias objetivo de tu examen. Dale el prompt a una herramienta de IA con acceso a internet: busca el esquema oficial más reciente de USMLE (usmle.org, NBME, FSMB) y te devuelve el JSON para pegar aquí. La plantilla incluida es solo un ejemplo. El tutor ordena qué estudiar según el peso, tu precisión y el programa de esta semana.", tbTemplate: "Usar plantilla USMLE", tbCopyPrompt: "Copiar prompt de IA", tbCopySchema: "Copiar JSON de plantilla", tbCopied: "Copiado", tbPaste: "Pega aquí el JSON del blueprint…", tbLoad: "Cargar blueprint", tbRemove: "Quitar blueprint", tbErrParse: "Eso no parece JSON. Pega solo el blueprint (o sube el archivo).", tbErrShape: "Este JSON no tiene dominios, sistemas ni competencias.", tbReady: "Preparación del blueprint", tbCoverage: "Cobertura", tbCoverageSub: "ítems con 5+ respuestas", tbCountdown: "Días al examen", tbTarget: "meta {n}%", tbPriority: "Objetivos prioritarios", tbPriorityHint: "Ordenados por peso en el examen, la brecha con tu meta y los temas de esta semana. Marca ítems para armar un bloque, o toca un nombre para iniciarlo.", tbBuild: "Armar bloque con {n} seleccionados", tbShareLine: "{n} respondidas · {share}% de tu práctica vs {w}% del examen · meta {target}%", tbMatches: "Qbanks que coinciden", tbNoMatches: "Ningún Qbank de tu biblioteca coincide con estos temas todavía.", tbSystems: "Sistemas", tbDomains: "Dominios de la prueba", tbComps: "Competencias", tbLegend: "Barra = tu precisión, marca negra = meta. Los pesos son una guía de estudio: verifícalos con el esquema oficial vigente.", tbNoBpTitle: "Sin blueprint cargado", tbNoBpBody: "Carga un blueprint para ver prioridades según el peso en el examen.", "nf.blueprintLoaded.t": "Blueprint cargado", "nf.blueprintLoaded.b": "Tu tutor ahora planifica con {exam}.",
     tutorShort: "Tutor", modeLabel: "Modo del examen", modeLocked: "Se bloquea al iniciar el bloque", modeTimedHint: "Cuenta regresiva. Puedes desactivarla durante el examen, pero no volver a activarla.", timerLabel: "Cronómetro", timerOnHint: "Puedes desactivar el cronómetro, pero no volver a activarlo.", timerOffNote: "El cronómetro está desactivado en este bloque y no se puede volver a activar.", timerOffTitle: "¿Desactivar el cronómetro?", timerOffBody: "La cuenta regresiva se detendrá y este bloque quedará sin límite de tiempo. No se puede deshacer: no podrás volver a activar el cronómetro en este bloque. Tus respuestas y tu progreso se conservan.", keepTimer: "Mantener cronómetro", turnOffTimer: "Desactivar cronómetro", timerOffSuffix: "cronómetro desactivado", modeTutorHint: "Sin cronómetro. Retroalimentación instantánea tras cada respuesta.", tutor: "Modo tutor", tutorHint: "Retroalimentación instantánea de correcto/incorrecto y explicaciones tras cada respuesta, más reinicio de pregunta.",
     tutorCorrect: "Correcto", tutorIncorrect: "Incorrecto — la respuesta correcta es {a}", tutorIncorrectHidden: "Incorrecto", showCorrectBtn: "Mostrar respuesta correcta",
     resetQ: "Reiniciar pregunta", "sc.reset": "Reiniciar pregunta (modo tutor)",
@@ -468,6 +476,14 @@ const STR = {
     anTrendTitle: "Tendencia de puntaje", anTrendHint: "Últimas {n} sesiones · línea punteada = 70%", anTrendNeed: "Termina 2 sesiones para ver tu tendencia.", anSubjTitle: "Rendimiento por materia", anActTitle: "Actividad diaria", anActHint: "Preguntas respondidas, últimos 14 días", anStatSessions: "Sesiones", anStatAnswered: "Preguntas respondidas", anStatAccuracy: "Precisión", anStatAvgTime: "Tiempo prom. / pregunta", anStatBest: "Mejor sesión {n}%",
     csCalPlan: "Lista del plan", csCalPlanCount: "{d}/{n} hechas",
     csPlanAddPh: "Agregar a tu plan…", csPlanAdd: "Agregar", csPlanShowAll: "Ver todo ({n})", csClassNoneHere: "Aún no hay horarios de clase. Agrégalos en la página Calendario.", spPlanDueOpt: "Fecha límite (opcional)", csPlanAddFor: "Se agrega para {d}", csPlanRemove: "Quitar del plan",
+    "plTally": "{d} de {n} completadas", "plTallyEmpty": "Agrega tu primera tarea para empezar el conteo.", "plDoneToday": "{n} completadas hoy",
+    "plF.all": "Todas", "plF.open": "Abiertas", "plF.overdue": "Atrasadas", "plF.today": "Para hoy", "plF.upcoming": "Próximas", "plF.nodate": "Sin fecha", "plF.done": "Hechas",
+    "plG.overdue": "Atrasadas", "plG.today": "Para hoy", "plG.upcoming": "Próximas", "plG.nodate": "Sin fecha", "plG.done": "Completadas",
+    "plSearch": "Buscar tareas", "plKindAll": "Todos los tipos", "plKind.qbank": "Qbank", "plKind.reading": "Lectura", "plKind.review": "Repaso", "plKind.exam": "Exámenes", "plKind.class": "Clases", "plKind.other": "Otro",
+    "plPriority": "Prioridad", "plPri.high": "Alta", "plPri.normal": "Normal", "plPri.low": "Baja", "plOptions": "Opciones", "plOverdueBy": "{n} d de atraso", "plFromCal": "Calendario",
+    "plOpenCal": "Ver en el calendario", "plOpenCalBtn": "Abrir horario", "plSetDate": "Poner fecha", "plEditTask": "Editar tarea", "plClearDone": "Quitar completadas ({n})", "plClearedN": "Se quitaron {n} tarea(s) completada(s).",
+    "plMoveOverdue": "Mover {n} atrasada(s) a hoy", "plMovedN": "Se movieron {n} tarea(s) atrasada(s) a hoy.", "plShowDone": "Ver completadas ({n})", "plHideDone": "Ocultar completadas", "plNoMatch": "Ninguna tarea coincide con estos filtros.",
+    "calF.priority": "Prioridad", "calF.taskDone": "Completada", "calStatDone": "Completadas", "calUnscheduled": "Tareas sin fecha ({n})", "calScheduleHere": "Programar aquí", "calDayDone": "{d}/{n} hechas",
     qhubTitle: "Qhub", qhubSoon: "Próximamente", qhubBody: "Un repositorio compartido y validado de Qbanks. Explora e importa bloques verificados.",
     csClasses: "Clases", csClassEdit: "Editar", csClassDone: "Listo", csClassNone: "Aún no hay horarios de clase. Usa Editar para agregarlos.", csClassName: "Nombre de la clase", csClassLoc: "Salón / lugar", csClassAddMeeting: "Agregar horario", csClassNew: "Nombre de la nueva clase…", csClassAdd: "Agregar clase",
     importBundle: "Importar", "warn.importN": "Importar {n} pregunta(s)",
@@ -489,7 +505,7 @@ const STR = {
     activeResumed: "Retomaste «{name}» desde otro dispositivo.", activeEndedElsewhere: "Este examen se terminó en otro dispositivo.",
     activeMissing: "No se pudo cargar ese examen desde Google Drive. Revisa tu conexión e inténtalo de nuevo.", activeMixed: "Mezcla de {banks}.",
     themeLabel: "Tema", themeLight: "Claro", themeDark: "Oscuro",
-    accountBtn: "Cuenta", viewAccount: "Ver cuenta", signIn: "Iniciar sesión con Google", signOut: "Cerrar sesión", signedInAs: "Sesión iniciada con Google", signInHint: "Inicia sesión para sincronizar tu biblioteca y tus Analíticas entre dispositivos mediante tu Google Drive.", signOutHint: "Al cerrar sesión se detiene la sincronización en este dispositivo. Tus datos se conservan aquí y en tu Drive.", signedOutNote: "Sin sesión iniciada",
+    accountBtn: "Cuenta", viewAccount: "Administrar cuenta", signIn: "Iniciar sesión con Google", signOut: "Cerrar sesión", signedInAs: "Sesión iniciada con Google", signInHint: "Inicia sesión para sincronizar tu biblioteca y tus Analíticas entre dispositivos mediante tu Google Drive.", signOutHint: "Al cerrar sesión se detiene la sincronización en este dispositivo. Tus datos se conservan aquí y en tu Drive.", signedOutNote: "Sin sesión iniciada", "cpTitle": "Perfil profesional y de estudio", "cpHint": "Cuéntale a Oworld quién eres y para qué te estás preparando. Tu tutor lo usa para fijar metas y crear tu Perfil de estudio.", "cpAbout": "Sobre ti", "cpStatus": "Situación actual", "cpStatus.pick": "Seleccionar…", "cpStatus.student": "Estudiante de medicina", "cpStatus.graduate": "Médico graduado (IMG)", "cpStatus.resident": "Residente", "cpStatus.other": "Otro", "cpGradYear": "Año de graduación", "cpCountry": "País", "cpCity": "Ciudad", "cpUniversity": "Universidad", "cpSchool": "Escuela o facultad", "cpPhCountry": "República Dominicana", "cpPhCity": "Santo Domingo", "cpPhUniversity": "Universidad Iberoamericana (UNIBE)", "cpPhSchool": "Escuela de Medicina", "cpObjective": "Objetivo de estudio", "cpCoursework": "Estudios de la carrera", "cpCourseworkHint": "Elige todo lo que estás estudiando ahora.", "cpWork.generals": "Generales", "cpWork.preclinical": "Preclínicas", "cpWork.clinical": "Estudios clínicos", "cpUsmle": "USMLE", "cpUsmleHint": "Elige los pasos para los que te preparas. Añade una fecha objetivo si la tienes.", "cpStep.step1": "Step 1", "cpStep.step2ck": "Step 2 CK", "cpStep.step3": "Step 3", "cpTargetDate": "Fecha objetivo", "cpClassOf": "Promoción {y}", "cpNext": "Próximo objetivo: {step}, {when} ({date})", "cpSavedLocal": "Guardado en este dispositivo.", "acctSettings": "Ajustes de la cuenta", "acctName": "Nombre", "acctEmail": "Correo", "acctLinked": "Vinculada con", "acctCreated": "Cuenta creada", "acctNone": "No disponible", "acctLinkedGoogle": "Google", "acctSignedOutHint": "Inicia sesión con Google para ver aquí los datos de tu cuenta.", "dzTitle": "Zona de peligro", "dzDesc": "Eliminar tu cuenta borra de forma permanente tus Qbanks, Analíticas, Base de datos personal, Perfil de estudio y ajustes de este dispositivo, y cierra tu sesión.", "dzDelete": "Eliminar mi cuenta", "dzDownloadFirst": "Descarga todos tus archivos antes de eliminar tu cuenta. Esto no se puede deshacer.", "dzDownload": "Descargar todos los archivos", "dzDownloaded": "Descargado. Tus archivos están guardados.", "dzDownloadFailed": "Error al descargar. Inténtalo de nuevo.", "dzConfirmGo": "Eliminar definitivamente", "dzSkip": "Eliminar sin descargar", "dzDriveNote": "La copia sincronizada en tu Google Drive permanece allí hasta que la elimines de Drive.", "dzFileName": "oworld-copia-cuenta-{d}.json", "spCareerEdit": "Editar en la cuenta", "spCareerAdd": "Añadir datos", "spCareerEmpty": "Añade tu universidad, año de graduación y objetivos de USMLE en tu cuenta y aparecerán aquí. Tu tutor también los usa.", "spNoDate": "Sin fecha objetivo",
     syncTitle: "Sincronización en la nube", syncHint: "Mantiene tu biblioteca de Qbank y tus Analíticas al día en todos tus dispositivos mediante una carpeta privada de la app en tu propio Google Drive. Compartir / Exportar a un amigo sigue funcionando por separado.", syncOff: "La sincronización en la nube no está configurada en esta versión de la app.", syncConnect: "Conectar Google Drive", syncNow: "Sincronizar ahora", syncDisconnect: "Desconectar", syncReconnect: "Reconectar", syncStNone: "Sin conexión", syncStBusy: "Sincronizando…", syncStDone: "Sincronizado {time}", syncStReauth: "Hay que reconectar", syncStError: "Problema de sincronización", syncBlocked: "No se pudo cargar el inicio de sesión de Google aquí (bloqueado o sin conexión).", syncDenied: "No se concedió acceso a Drive. Permite el permiso de datos de la app para sincronizar.", syncGenericErr: "No se pudo sincronizar con Google Drive. Tus datos en este dispositivo están a salvo.", syncReauthHint: "Tu sesión de Google caducó. Toca Reconectar; los cambios locales se conservan y se sincronizarán.", syncGuide: "La sincronización con Google Drive (menú de perfil, arriba a la derecha) mantiene tu biblioteca y tus Analíticas al día entre dispositivos. Compartir / Exportar sigue siendo la forma de enviar un bloque a otra persona.", homeBtn: "Inicio", removeExam: "Quitar examen", removeTitle: "¿Quitar este examen?", removeBody: "Esto borra el examen cargado y su progreso o resultados. Tu biblioteca de preguntas guardada no se ve afectada.", removeBodyUnsaved: "Esto borra el examen cargado y su progreso o resultados. Algunos de sus bloques no están guardados en tu biblioteca y se perderían para siempre. Cancela y toca Guardar en la biblioteca primero si quieres conservarlos.", removeGo: "Quitar", libRename: "Renombrar Qbank", libRenameSave: "Guardar nombre", howItWorks: "Ayuda", guideStep: "Paso {n} de {total}", guideBack: "Atrás", guideNext: "Siguiente", guideDone: "Entendido", guideClose: "Cerrar guía", navCollapse: "Contraer lista de preguntas", navExpand: "Expandir lista de preguntas", resumeSession: "Reanudar sesión", sessionInProgress: "Sesión en curso", sessionPos: "Pregunta {n} de {total}", examLoadedLabel: "Examen cargado", openLobby: "Abrir sala del examen", inProgressTag: "En curso", discardTitle: "¿Descartar la sesión en curso?", discardBody: "Iniciar algo nuevo reemplaza tu bloque en curso y se perderán sus respuestas.", discardGo: "Descartar y continuar", hide: "Ocultar", recipe: "Prompt de receta de preguntas",
     recipeIntro: "Configura un bloque abajo y luego copia la receta generada en la herramienta de IA que prefieras (agrega tu material de estudio si lo permite). Devuelve las preguntas en el formato exacto que esta app espera.",
     blockSize: "Tamaño del bloque", focus: "Enfoque",
@@ -538,7 +554,7 @@ const STR = {
     timesUpBody: "El tiempo asignado para este bloque ha terminado. Respondiste {a} de {n} preguntas. El bloque se enviará automáticamente y podrás revisar tus resultados.",
     viewResults: "Ver resultados",
     siIntervals: "Intervalos de referencia SI", siHdr: "Intervalo de referencia SI", refRange: "Rango de referencia",
-    search: "Buscar…", noMatches: "Sin coincidencias en {tab}.", searchTitle: "Buscar", searchPh: "Busca Qbanks, preguntas, notas y sesiones…", searchHint: "Escribe al menos 2 letras. Busca en tu Biblioteca, Calendario (eventos, fechas, horas, clases, exámenes, tareas), Base de datos y Analíticas. Prueba “20 oct”, “martes” o “9:00”.", searchGrpCal: "Calendario", searchGoDate: "Ir a {d}", searchNone: "Sin resultados para “{q}”.", searchGrpLib: "Biblioteca", searchGrpDb: "Base de datos", searchGrpHist: "Analíticas", searchQsMatch: "{n} pregunta(s) coinciden", searchClose: "Cerrar búsqueda",
+    search: "Buscar…", noMatches: "Sin coincidencias en {tab}.", searchTitle: "Buscar", searchPh: "Busca Qbanks, preguntas, notas y sesiones…", searchHint: "Escribe al menos 2 letras. Busca en tu Biblioteca, Calendario (eventos, fechas, horas, clases, exámenes, tareas), Base de datos y Analíticas. Prueba “20 oct”, “martes” o “9:00”.", searchGrpCal: "Horario", searchGoDate: "Ir a {d}", searchNone: "Sin resultados para “{q}”.", searchGrpLib: "Biblioteca", searchGrpDb: "Base de datos", searchGrpHist: "Analíticas", searchQsMatch: "{n} pregunta(s) coinciden", searchClose: "Cerrar búsqueda",
     "tab.Serum": "Suero", "tab.Cerebrospinal": "Líquido cefalorraquídeo", "tab.Blood": "Sangre", "tab.Urine and BMI": "Orina e IMC",
     back: "Volver a los bloques", results: "{name} — resultados",
     scoreLine: "{c} correctas de {t} · {u} sin responder",
@@ -2693,9 +2709,177 @@ function makeLibraryEntry(block) {
 const DataContext = createContext({ resetAllData: () => {} });
 // The Trash lives in the app state; the Settings menu (profile picture, upper right) reads it from here.
 const TrashContext = createContext({ trash: [], restore: () => {}, purge: () => {} });
-// Lets the account menu (on every screen) open a Home page such as the Student Profile. locked = a timed block can't be left.
+// Lets the account menu (on every screen) open a Home page such as the Study Profile. locked = a timed block can't be left.
 const NavContext = createContext({ open: null, locked: false });
 const DriveContext = createContext(null); // the Google account + Drive sync, read by the profile menu on every screen
+
+// ---------------------------------------------------------------------------
+// Career & Study profile (Account window): who the student is (status, graduation year, school) and what they are
+// preparing for (medical school phases + USMLE steps with optional target dates). One small JSON document, local first,
+// synced through its own file in the Drive app-data folder (same sign-in, same newest-edit-wins merge as the Study Profile).
+// The AI prompt on the Study Profile page reads it, so the tutor never has to ask these things again.
+// ---------------------------------------------------------------------------
+const LS_CAREER = "owordCareerProfile";           // { career, updatedAt, clearedAt }
+const LS_CAREER_FILE = "owordCareerProfileFile";   // { fileId, lastSync } of the Drive file below
+const CAREER_FILE_NAME = "oword_career_profile.json";
+const CAREER_TYPE = "oworld-career-profile";
+const CAREER_STATUSES = ["student", "graduate", "resident", "other"];
+const CAREER_COURSEWORK = ["generals", "preclinical", "clinical"];
+const CAREER_STEPS = ["step1", "step2ck", "step3"];
+const CAREER_EMPTY = { status: "", gradYear: null, country: "", university: "", school: "", city: "", coursework: [], usmle: [], stepDates: {} };
+
+// Tolerant: keeps only values the form could have produced, so a hand-edited or older file can never break the window.
+function normalizeCareer(raw) {
+  const r = raw && typeof raw === "object" ? raw : {};
+  const str = (v) => (typeof v === "string" ? v.slice(0, 120) : "");
+  const yr = Number(r.gradYear);
+  const stepDates = {};
+  CAREER_STEPS.forEach((k) => { const d = r.stepDates && r.stepDates[k]; if (typeof d === "string" && parseISODate(d)) stepDates[k] = d; });
+  return {
+    status: CAREER_STATUSES.includes(r.status) ? r.status : "",
+    gradYear: Number.isInteger(yr) && yr >= 1990 && yr <= 2100 ? yr : null,
+    country: str(r.country), university: str(r.university), school: str(r.school), city: str(r.city),
+    coursework: CAREER_COURSEWORK.filter((k) => Array.isArray(r.coursework) && r.coursework.includes(k)),
+    usmle: CAREER_STEPS.filter((k) => Array.isArray(r.usmle) && r.usmle.includes(k)),
+    stepDates,
+  };
+}
+const careerIsEmpty = (c) => !c || (!c.status && !c.gradYear && !c.country && !c.university && !c.city && !c.coursework.length && !c.usmle.length);
+const careerCore = (m) => hashStr(JSON.stringify({ c: m.career, u: m.updatedAt, k: m.clearedAt }));
+
+// One-line identity for headers: "Medical student · UNIBE · Class of 2028". An acronym in parentheses wins over the long university name.
+function careerLine(c, t) {
+  if (careerIsEmpty(c)) return "";
+  const acr = /\(([^)]{2,14})\)\s*$/.exec(c.university || "");
+  const uni = acr ? acr[1] : c.university;
+  return [c.status ? t(`cpStatus.${c.status}`) : "", uni, c.gradYear ? t("cpClassOf", { y: c.gradYear }) : ""].filter(Boolean).join(" · ");
+}
+
+// The soonest USMLE step that has a target date today or later.
+function careerNextStep(c, now) {
+  const today = startOfDay(now); let best = null;
+  (c.usmle || []).forEach((k) => {
+    const d = parseISODate(c.stepDates && c.stepDates[k]); if (!d) return;
+    const days = Math.round((d - today) / 864e5);
+    if (days >= 0 && (!best || days < best.days)) best = { key: k, days, date: d };
+  });
+  return best;
+}
+
+// Plain English block for the AI prompt (the prompt is English even when the app is Spanish).
+function careerForPrompt(c) {
+  if (careerIsEmpty(c)) return null;
+  const STATUS = { student: "medical student", graduate: "medical graduate (IMG)", resident: "resident", other: "other" };
+  const WORK = { generals: "Generals", preclinical: "Preclinical", clinical: "Clinical studies" };
+  const STEP = { step1: "USMLE Step 1", step2ck: "USMLE Step 2 CK", step3: "USMLE Step 3" };
+  const L = [];
+  if (c.status) L.push(`Status: ${STATUS[c.status]}`);
+  if (c.gradYear) L.push(`Graduation year: ${c.gradYear}`);
+  const where = [c.city, c.country].filter(Boolean).join(", "); if (where) L.push(`Location: ${where}`);
+  if (c.university) L.push(`School: ${c.university}`);
+  if (c.coursework.length) L.push(`Medical school studies in progress: ${c.coursework.map((k) => WORK[k]).join(", ")}`);
+  if (c.usmle.length) L.push(`USMLE exams I am preparing for: ${c.usmle.map((k) => STEP[k] + (c.stepDates[k] ? ` (target date ${c.stepDates[k]})` : "")).join(", ")}`);
+  return L.join("\n");
+}
+
+// Newest edit wins as a whole; a clear beats any older edit.
+function mergeCareerState(local, remote) {
+  const r = remote && typeof remote === "object" ? remote : {};
+  const L = { career: local.career ? normalizeCareer(local.career) : null, updatedAt: Number(local.updatedAt) || 0, clearedAt: Number(local.clearedAt) || 0 };
+  const R = { career: r.career ? normalizeCareer(r.career) : null, updatedAt: Number(r.updatedAt) || 0, clearedAt: Number(r.clearedAt) || 0 };
+  const clearedAt = Math.max(L.clearedAt, R.clearedAt);
+  const newer = R.updatedAt > L.updatedAt ? R : L;
+  let career = newer.career;
+  if (career && newer.updatedAt <= clearedAt) career = null;
+  return { career, updatedAt: Math.max(L.updatedAt, R.updatedAt), clearedAt };
+}
+
+function useCareerProfile() {
+  const [state, setState] = useState(() => {
+    const v = lsGet(LS_CAREER);
+    return v && typeof v === "object" ? { career: v.career ? normalizeCareer(v.career) : null, updatedAt: Number(v.updatedAt) || 0, clearedAt: Number(v.clearedAt) || 0 } : { career: null, updatedAt: 0, clearedAt: 0 };
+  });
+  const ref = useRef(state);
+  useEffect(() => { lsSet(LS_CAREER, JSON.stringify(state)); }, [state]);
+  const commit = (n) => { ref.current = n; setState(n); };
+  const set = useCallback((patch) => {
+    const cur = ref.current;
+    commit({ career: normalizeCareer({ ...(cur.career || CAREER_EMPTY), ...patch }), updatedAt: Date.now(), clearedAt: cur.clearedAt });
+  }, []);
+  const clear = useCallback(() => { const now = Date.now(); commit({ career: null, updatedAt: now, clearedAt: now }); }, []);
+  // "Reset all data": local only, no tombstone, so Drive keeps its copy and reconnecting restores it.
+  const wipe = useCallback(() => { ref.current = { career: null, updatedAt: 0, clearedAt: 0 }; setState(ref.current); lsRemove(LS_CAREER); lsRemove(LS_CAREER_FILE); }, []);
+  const applyMerged = useCallback((m) => { if (careerCore(m) !== careerCore(ref.current)) commit(m); }, []);
+  const getState = useCallback(() => ref.current, []);
+  const career = state.career || CAREER_EMPTY;
+  return { career, hasData: !careerIsEmpty(career), updatedAt: state.updatedAt, clearedAt: state.clearedAt, set, clear, wipe, applyMerged, getState };
+}
+
+// Google Drive sync for the career profile: own file, same sign-in and token as the other syncs, same pull -> merge -> push cycle.
+function useCareerSync({ drive, store }) {
+  const { configured, linked, acquireToken, peekToken } = drive;
+  const latest = useRef({}); latest.current = { getState: store.getState, applyMerged: store.applyMerged };
+  const fileRef = useRef((lsGet(LS_CAREER_FILE) || {}).fileId || null);
+  const modRef = useRef(null); const running = useRef(false); const rerun = useRef(false);
+  const linkedRef = useRef(linked); linkedRef.current = linked;
+  const [status, setStatus] = useState("idle"); // idle | busy | done | error
+  const [lastSync, setLastSync] = useState((lsGet(LS_CAREER_FILE) || {}).lastSync || 0);
+
+  const run = useCallback(async ({ interactive = false } = {}) => {
+    if (!configured || !linkedRef.current) return;
+    if (running.current) { rerun.current = true; return; }
+    running.current = true; setStatus("busy");
+    try {
+      const token = await acquireToken({ interactive });
+      if (!token) { setStatus("idle"); return; }
+      let fileId = fileRef.current; let remote = null;
+      if (fileId) { try { remote = await driveDownload(token, fileId); } catch (e) { if (e.status === 404) fileId = null; else throw e; } }
+      if (!fileId) { fileId = await driveFindSyncFile(token, CAREER_FILE_NAME); if (fileId) remote = await driveDownload(token, fileId); }
+      const cur = latest.current.getState();
+      const merged = mergeCareerState(cur, remote);
+      latest.current.applyMerged(merged);
+      const remoteMerged = remote ? mergeCareerState({ career: null, updatedAt: 0, clearedAt: 0 }, remote) : null;
+      if (!fileId || !remoteMerged || careerCore(merged) !== careerCore(remoteMerged)) {
+        const payload = JSON.stringify({ v: 1, app: "oworld", type: CAREER_TYPE, updatedAt: merged.updatedAt, clearedAt: merged.clearedAt, career: merged.career });
+        fileId = await driveUpload(token, fileId, payload, CAREER_FILE_NAME);
+      }
+      fileRef.current = fileId;
+      try { modRef.current = await driveModified(token, fileId); } catch (e) { /* the next poll just does a full sync */ }
+      const now = Date.now();
+      lsSet(LS_CAREER_FILE, JSON.stringify({ fileId, lastSync: now }));
+      setLastSync(now); setStatus("done");
+    } catch (e) { setStatus("error"); }
+    finally { running.current = false; if (rerun.current) { rerun.current = false; setTimeout(() => run(), 0); } }
+  }, [configured, acquireToken]);
+
+  useEffect(() => { if (configured && linked && drive.status === "done") run(); }, [configured, linked, drive.status]); // eslint-disable-line
+  useEffect(() => { if (!linked) { fileRef.current = null; modRef.current = null; lsRemove(LS_CAREER_FILE); setStatus("idle"); setLastSync(0); } }, [linked]);
+  const first = useRef(true);
+  useEffect(() => {
+    if (first.current) { first.current = false; return undefined; }
+    if (!linked) return undefined;
+    const id = setTimeout(() => run(), 3000);
+    return () => clearTimeout(id);
+  }, [store.updatedAt, store.clearedAt, linked, run]);
+  const poll = useCallback(async () => {
+    const tk = peekToken();
+    if (!configured || !linkedRef.current || running.current || !fileRef.current || !tk) return;
+    try { const mod = await driveModified(tk, fileRef.current); if (mod && modRef.current && mod !== modRef.current) run(); } catch (e) { /* ignore */ }
+  }, [configured, peekToken, run]);
+  useEffect(() => {
+    if (!configured) return undefined;
+    const onVis = () => { if (document.visibilityState === "visible") poll(); };
+    const id = setInterval(() => { if (document.visibilityState === "visible") poll(); }, 45000);
+    document.addEventListener("visibilitychange", onVis);
+    return () => { clearInterval(id); document.removeEventListener("visibilitychange", onVis); };
+  }, [configured, poll]);
+  return { available: !!(configured && linked), status, lastSync, syncNow: () => run({ interactive: true }) };
+}
+
+const CareerContext = createContext({
+  career: CAREER_EMPTY, hasData: false, updatedAt: 0, clearedAt: 0, set: () => {}, clear: () => {}, wipe: () => {}, applyMerged: () => {}, getState: () => ({}),
+  sync: { available: false, status: "idle", lastSync: 0, syncNow: () => {} },
+});
 
 // ---------------------------------------------------------------------------
 // Notifications: a small persisted in-app inbox. Entries store only a `kind` + vars, so the text is localized when shown.
@@ -2842,7 +3026,7 @@ function NotificationBell({ T }) {
 }
 
 // ---------------------------------------------------------------------------
-// Student Profile: ONE standardized JSON document that says where the student is in their studies (term, syllabus weeks,
+// Study Profile: ONE standardized JSON document that says where the student is in their studies (term, syllabus weeks,
 // assessments, current state, plan). Same philosophy as the Qbank JSON: an AI tool writes it from the student's own documents
 // (the syllabus), Oworld validates it tolerantly, and from then on the TUTOR is everywhere, not just a test mode:
 //   Console  → "Your tutor" card (this week, next exam, today's tasks, guidance)
@@ -2964,7 +3148,7 @@ const PROFILE_SCHEMA_TEXT = `{
 }`;
 
 // Field-name/type skeleton used INSIDE the generated prompt (kept short on purpose, like PROMPT_SCHEMA_TEXT for Qbanks).
-const PROFILE_PROMPT_SCHEMA = `{"schema":"oworld-student-profile","v":1,"student":{"name":"string|null","program":"string|null","phase":"string|null","targetExam":{"name":"string","date":"YYYY-MM-DD|null"}},"term":{"name":"string","startDate":"YYYY-MM-DD","endDate":"YYYY-MM-DD","totalWeeks":number,"asOf":"YYYY-MM-DD"},"calendar":{"events":[{"id":"short-slug","title":"string","type":"holiday|break|exam-period|deadline|class|other","startDate":"YYYY-MM-DD","endDate":"YYYY-MM-DD|null","notes":"string|null"}]},"assessments":[{"id":"short-slug","title":"string","courseId":"course id|null","type":"exam|quiz|practical|shelf|assignment|other","date":"YYYY-MM-DD","time":"HH:MM|null","durationMin":number|null,"location":"string|null","weightPct":number|null,"format":"string|null","coverage":["string"],"coverageWeeks":[number],"qbankFocus":["organ system or discipline"],"status":"upcoming|done"}],"currentState":{"summary":"string","currentWeek":number,"thisWeek":{"focusTopics":["string"],"goals":["string"]},"nextAssessmentId":"assessment id|null","strengths":["string"],"gaps":["string"],"risk":"low|medium|high","paceNote":"string"},"plan":{"weeklyQuestionTarget":number,"dailyMinutes":number,"tasks":[{"id":"short-slug","title":"string","due":"YYYY-MM-DD|null","subject":"string|null","kind":"qbank|reading|review|exam|other","done":boolean}]},"tutor":{"style":"coach|socratic|direct","examCountdownDays":[7,3,1]},"source":{"documents":["string"],"confidence":"high|medium|low","assumptions":["string"]},"courses":[{"id":"short-slug","name":"string","code":"string|null","instructor":"string|null","syllabus":"file name|null","meetings":[{"type":"lecture|lab|small-group|clinical|review|other","days":["mon|tue|wed|thu|fri|sat|sun"],"start":"HH:MM|null","end":"HH:MM|null","location":"string|null","startDate":"YYYY-MM-DD|null","endDate":"YYYY-MM-DD|null","except":["YYYY-MM-DD"]}],"weeks":[{"week":number,"topics":["string"],"qbankFocus":["subject"]}]}]}`;
+const PROFILE_PROMPT_SCHEMA = `{"schema":"oworld-student-profile","v":1,"student":{"name":"string|null","program":"string|null","phase":"string|null","targetExam":{"name":"string","date":"YYYY-MM-DD|null"}},"term":{"name":"string","startDate":"YYYY-MM-DD","endDate":"YYYY-MM-DD","totalWeeks":number,"asOf":"YYYY-MM-DD"},"calendar":{"events":[{"id":"short-slug","title":"string","type":"holiday|break|exam-period|deadline|class|other","startDate":"YYYY-MM-DD","endDate":"YYYY-MM-DD|null","notes":"string|null"}]},"assessments":[{"id":"short-slug","title":"string","courseId":"course id|null","type":"exam|quiz|practical|shelf|assignment|other","date":"YYYY-MM-DD","time":"HH:MM|null","durationMin":number|null,"location":"string|null","weightPct":number|null,"format":"string|null","coverage":["string"],"coverageWeeks":[number],"qbankFocus":["organ system or discipline"],"status":"upcoming|done"}],"currentState":{"summary":"string","currentWeek":number,"thisWeek":{"focusTopics":["string"],"goals":["string"]},"nextAssessmentId":"assessment id|null","strengths":["string"],"gaps":["string"],"risk":"low|medium|high","paceNote":"string"},"plan":{"weeklyQuestionTarget":number,"dailyMinutes":number,"tasks":[{"id":"short-slug","title":"string","due":"YYYY-MM-DD|null","subject":"string|null","kind":"qbank|reading|review|exam|other","priority":"high|normal|low","done":boolean}]},"tutor":{"style":"coach|socratic|direct","examCountdownDays":[7,3,1]},"source":{"documents":["string"],"confidence":"high|medium|low","assumptions":["string"]},"courses":[{"id":"short-slug","name":"string","code":"string|null","instructor":"string|null","syllabus":"file name|null","meetings":[{"type":"lecture|lab|small-group|clinical|review|other","days":["mon|tue|wed|thu|fri|sat|sun"],"start":"HH:MM|null","end":"HH:MM|null","location":"string|null","startDate":"YYYY-MM-DD|null","endDate":"YYYY-MM-DD|null","except":["YYYY-MM-DD"]}],"weeks":[{"week":number,"topics":["string"],"qbankFocus":["subject"]}]}]}`;
 
 // ---- date helpers (all local-time, date-only) ----
 const startOfDay = (d) => { const x = new Date(d); x.setHours(0, 0, 0, 0); return x; };
@@ -3112,7 +3296,7 @@ function normalizeProfile(raw) {
     const o = spObj(k); const title = spStr(o.title || o.name, 200);
     if (!title) { dropped++; return null; }
     const kind = String(o.kind || "").toLowerCase();
-    return { id: spSlug(o.id || title, "t", i, usedT), title, due: spDate(o.due), subject: spStr(o.subject, 80) || null, kind: SP_TASK_KINDS.includes(kind) ? kind : "other", done: o.done === true, time: spTime(o.time), notes: spStr(o.notes, 200) || null };
+    return { id: spSlug(o.id || title, "t", i, usedT), title, due: spDate(o.due), subject: spStr(o.subject, 80) || null, kind: SP_TASK_KINDS.includes(kind) ? kind : "other", priority: ["high", "low"].includes(String(o.priority || "").toLowerCase()) ? String(o.priority).toLowerCase() : "normal", done: o.done === true, doneAt: o.done === true && Number(o.doneAt) > 0 ? Number(o.doneAt) : null, time: spTime(o.time), notes: spStr(o.notes, 200) || null };
   }).filter(Boolean);
 
   const usedE = new Set();
@@ -3351,7 +3535,7 @@ function tutorGuidance(p, b) {
     }
   }
   (b.deadlines || []).filter((d) => d.days <= 3).slice(0, 1).forEach((d) => g.push({ key: "sgDeadline", tone: d.days <= 1 ? "red" : "amber", vars: { title: d.title, n: d.days } }));
-  if (b.tasksDue.length) g.push({ key: "sgTasks", tone: "amber", vars: { n: b.tasksDue.length }, action: { type: "profile" } });
+  if (b.tasksDue.length) g.push({ key: "sgTasks", tone: "amber", vars: { n: b.tasksDue.length }, action: { type: "calendar" } });
   if (b.offToday && b.resumeDays) g.push({ key: "sgBreakNow", tone: "blue", vars: { title: b.offToday.title, n: b.resumeDays }, action: block });
   else if (b.breakSoon && b.breakSoon.days <= 7) g.push({ key: "sgBreakSoon", tone: "blue", vars: { title: b.breakSoon.title, n: b.breakSoon.days }, action: block });
   if (b.pace === "behind") g.push({ key: "sgPaceBehind", tone: "amber", vars: { a: b.answeredWeek, t: b.target }, action: block });
@@ -3387,9 +3571,9 @@ function tutorNudges(p, b, now = new Date()) {
 }
 
 // ---- the AI prompt: same idea as buildQuestionRecipe, but it outputs the student's profile ----
-function buildProfileRecipe({ lang, today, stats, existing }) {
+function buildProfileRecipe({ lang, today, stats, existing, career }) {
   const parts = [];
-  parts.push(`You are building a Student Profile for OWORLD, a USMLE study app. I will attach some or all of these: course syllabi, my semester (academic) calendar, my class timetable and my exam schedule (PDF, screenshot or pasted text). Read every one of them, plus anything I paste below, and reply with ONLY valid JSON (no markdown, no commentary) matching this schema:\n${PROFILE_PROMPT_SCHEMA}`);
+  parts.push(`You are building a Study Profile for OWORLD, a USMLE study app. I will attach some or all of these: course syllabi, my semester (academic) calendar, my class timetable and my exam schedule (PDF, screenshot or pasted text). Read every one of them, plus anything I paste below, and reply with ONLY valid JSON (no markdown, no commentary) matching this schema:\n${PROFILE_PROMPT_SCHEMA}`);
   parts.push(`Today is ${today}. Week 1 starts on term.startDate and weeks are 7 days; compute currentState.currentWeek from that. Dates are ISO YYYY-MM-DD, times are 24h HH:MM (convert AM/PM).`);
   parts.push([
     "GROUND RULES",
@@ -3451,6 +3635,7 @@ function buildProfileRecipe({ lang, today, stats, existing }) {
     "- Every assessments[].courseId exists in courses[]. nextAssessmentId points to a real assessment. Ids are unique. No week number is above term.totalWeeks, and totalWeeks matches term.startDate to term.endDate.",
     "- No class meeting, exam or task falls on a holiday or break unless a document says so. If one does, re-read the document and note it in source.assumptions.",
   ].join("\n"));
+  if (career) parts.push(`ABOUT ME (I entered this in the app, so treat it as true and do not list it as an assumption). Use it for student.program, student.phase and student.targetExam: phase is the stage that matches my current studies; targetExam is my soonest USMLE exam that has a date, otherwise the earliest exam listed.\n${career}`);
   if (stats) parts.push(`My current OWORLD study stats (use them for strengths, gaps, pace and the order of study tasks):\n${JSON.stringify(stats)}`);
   if (existing) parts.push(`UPDATE MODE. This is my current profile. Keep every id and every task's done flag. Treat the attached documents as newer: change a course, week, class meeting, assessment or calendar event only where a document says something different about it (match by id, then by title or code), keep everything else, and add anything new. Mark assessments 'done' once their date has passed. Refresh term.asOf, currentState and plan for today. If I attach nothing new, only refresh currentState and plan.\n${JSON.stringify(existing)}`);
   if (lang === "es") parts.push("Write every free-text value in Spanish. Keep all keys and enum values (low/medium/high, exam/quiz, lecture/lab, etc.) and the qbankFocus subject names in English.");
@@ -3524,7 +3709,7 @@ function useStudentProfile() {
   }, []);
   const toggleTask = useCallback((id) => {
     const cur = ref.current; if (!cur.profile) return;
-    commit({ ...cur, updatedAt: Date.now(), profile: { ...cur.profile, plan: { ...cur.profile.plan, tasks: cur.profile.plan.tasks.map((k) => (k.id === id ? { ...k, done: !k.done } : k)) } } });
+    commit({ ...cur, updatedAt: Date.now(), profile: { ...cur.profile, plan: { ...cur.profile.plan, tasks: cur.profile.plan.tasks.map((k) => (k.id === id ? { ...k, done: !k.done, doneAt: !k.done ? Date.now() : null } : k)) } } });
   }, []);
   // A scheduled exam/event ticked from the calendar becomes a real plan task (same id = never duplicated).
   const addTask = useCallback((task) => {
@@ -3740,7 +3925,7 @@ function AssessmentRow({ a, right, onSave, onRemove, T, t, children }) {
 }
 
 // ---- Console: "Your tutor" ----
-function TutorCard({ sessionLog, onNavigate, T, compact = false, fill = false }) {
+function TutorCard({ sessionLog, onNavigate, T, compact = false, fill = false, hideLinks = false }) {
   const { t, lang } = useI18n();
   const sp = useContext(ProfileContext);
   const phone = useViewport().w < 640;
@@ -3766,13 +3951,13 @@ function TutorCard({ sessionLog, onNavigate, T, compact = false, fill = false })
   }
   const run = (a) => {
     if (!a) return;
-    if (a.type === "focusBlock") { sp.seedFocus(a.value); onNavigate("import"); } else if (a.type === "library") onNavigate("library"); else onNavigate("profile");
+    if (a.type === "focusBlock") { sp.seedFocus(a.value); onNavigate("import"); } else if (a.type === "library") onNavigate("library"); else if (a.type === "calendar") onNavigate("calendar"); else onNavigate("profile");
   };
   const actionLabel = (a) => (a.type === "focusBlock" ? t("spStartBlock", { s: a.value }) : a.type === "library" ? t("csOpenLibrary") : t("spCardOpen"));
   const pct = brief.target ? Math.min(100, Math.round((brief.answeredWeek / brief.target) * 100)) : 0;
   const courseList = (sp.profile.courses || []).slice(0, compact ? 4 : 8);
   const setPriority = (id) => sp.updateCourses((sp.profile.courses || []).map((c) => ({ ...c, priority: c.id === id ? !c.priority : false })));
-  const first = brief.guidance.slice(0, compact ? 3 : 5);
+  const first = brief.guidance.filter((g) => g.key !== "sgTasks" && g.key !== "sgPaceDone").slice(0, compact ? 3 : 5);
   const leadIdx = first.findIndex((g) => g.action && g.action.type === "focusBlock");
   const block = brief.studyFocus[0] ? { type: "focusBlock", value: brief.studyFocus[0] } : { type: "library" };
   const hm = (m) => `${String(Math.floor(m / 60)).padStart(2, "0")}:${String(m % 60).padStart(2, "0")}`;
@@ -3790,8 +3975,7 @@ function TutorCard({ sessionLog, onNavigate, T, compact = false, fill = false })
         <GraduationCap size={18} color={T.blue} />
         <span style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(14), color: T.ink }}>{t("spCardTitle")}</span>
         <Pill T={T} tone={brief.phase === "in" ? "blue" : "muted"}>{spWeekLabel(brief, t)}</Pill>
-        <button onClick={() => onNavigate("tutor")} style={linkBtn}>{t("tbOpenTutor")}</button>
-        <button onClick={() => onNavigate("profile")} style={{ ...linkBtn, marginLeft: 0 }}>{t("spCardOpen")}</button>
+        {!hideLinks && <button onClick={() => onNavigate("studyhub")} style={linkBtn}>{t("tbOpenTutor")}</button>}
       </div>
 
       <div>
@@ -3933,7 +4117,7 @@ function TutorLibraryStrip({ library, sessionLog, onLaunch, T }) {
 // Tutor Dashboard + JSON Blueprint (USMLE content outline recipe)
 // ---------------------------------------------------------------------------
 // The blueprint is one JSON file: test domains, system weights and target competencies. Each item has a weight (% of the exam), a target accuracy and
-// `match` names that are matched to your Qbank subjects. The dashboard fuses it with your Analytics and your Student Profile (this week, exams) to rank what to study.
+// `match` names that are matched to your Qbank subjects. The dashboard fuses it with your Analytics and your Study Profile (this week, exams) to rank what to study.
 const LS_BP = "owordBlueprint";
 const BP_TEMPLATE = {
   schema: "oworld-usmle-blueprint", v: 1, exam: "USMLE Step 1", version: "template", targetDate: null, targetPct: 70,
@@ -3992,7 +4176,7 @@ const BP_REFRESH_DAYS = 120; // about one semester: past this (or once a new ter
 const BP_SOON_DAYS = 90;
 const validBp = (b) => !!b && typeof b === "object" && b.schema === BP_TYPE && ["domains", "systems", "competencies"].every((k) => Array.isArray(b[k]));
 const bpCore = (m) => hashStr(JSON.stringify({ b: m.bp, u: m.updatedAt, c: m.clearedAt }));
-// Newest edit wins as a whole; a deletion beats any older edit (same rules as the Student Profile).
+// Newest edit wins as a whole; a deletion beats any older edit (same rules as the Study Profile).
 function mergeBpState(local, remote) {
   const r = remote && typeof remote === "object" ? remote : {};
   const L = { bp: validBp(local.bp) ? local.bp : null, updatedAt: Number(local.updatedAt) || 0, clearedAt: Number(local.clearedAt) || 0 };
@@ -4215,7 +4399,75 @@ function GapTable({ st, kind, setKind, T, t, onStudy, open, setOpen }) {
     </div>
   );
 }
-function TutorDashboard({ library, sessionLog, onLaunch, onNavigate, T }) {
+// Tutor page = the tutor dashboard (blueprint, readiness, priorities) with the Study Profile (term, plan inputs, syllabus, AI profile) as its second section.
+// Study Hub: the tutor dashboard (readiness, priorities, blueprint) and the Study Profile (term, exams, syllabus, plan, setup)
+// on ONE page, with one header and a sticky section bar. Anything that used to open "Tutor" or "Profile" lands here.
+function StudyHub({ library, sessionLog, onLaunch, onNavigate, T }) {
+  const { t, lang } = useI18n(); const sp = useContext(ProfileContext); const careerCtx = useContext(CareerContext);
+  const phone = useViewport().w < 640;
+  const dayKey = new Date().toDateString();
+  const brief = useMemo(() => (sp.profile ? tutorBrief(sp.profile, sessionLog, new Date()) : null), [sp.profile, sessionLog, dayKey]); // eslint-disable-line
+  const bp = sp.bpStore && sp.bpStore.bp;
+  const sections = [["sh-profile", t("shNavProfile"), UserIcon], ["sh-priorities", t("shNavPriorities"), Flame], ["sh-blueprint", t("shNavBlueprint"), Target]];
+  const [active, setActive] = useState("sh-profile");
+  const jump = useCallback((id) => {
+    let el = document.getElementById(id);
+    if (!el && id !== "sh-profile") el = document.getElementById("sh-priorities") || document.getElementById("sh-profile"); // no blueprint yet: the anchors below still exist
+    if (el) { setActive(id); el.scrollIntoView({ behavior: "smooth", block: "start" }); }
+  }, []);
+  useEffect(() => { // "profile" navigation from anywhere (tutor card, calendar, notifications) lands on the Study Profile section
+    const go = () => jump("sh-profile");
+    window.addEventListener("oworld-profile-jump", go);
+    return () => window.removeEventListener("oworld-profile-jump", go);
+  }, [jump]);
+  useEffect(() => { // highlight the section being read
+    if (typeof IntersectionObserver === "undefined") return undefined;
+    const seen = new Map();
+    const io = new IntersectionObserver((es) => {
+      es.forEach((e) => seen.set(e.target.id, e.isIntersecting ? e.boundingClientRect.top : null));
+      const vis = [...seen.entries()].filter(([, top]) => top != null).sort((x, y) => Math.abs(x[1]) - Math.abs(y[1]));
+      if (vis.length) setActive(vis[0][0]);
+    }, { rootMargin: `-${56 + (parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--oworld-sticky-h")) || 0)}px 0px -55% 0px`, threshold: 0 });
+    sections.forEach(([id]) => { const el = document.getElementById(id); if (el) io.observe(el); });
+    return () => io.disconnect();
+  }, [!!bp, !!sp.profile]); // eslint-disable-line
+  const line = careerCtx.hasData ? careerLine(careerCtx.career, t) : "";
+  return (
+    <div style={{ display: "grid", gap: 20 }}>
+      <div>
+        <div style={{ display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap" }}>
+          <GraduationCap size={phone ? 24 : 28} color={T.blue} />
+          <h1 style={{ margin: 0, fontFamily: FONT_DISPLAY, fontSize: fs(phone ? 26 : 32), fontWeight: 600, color: T.ink }}>{t("shTitle")}</h1>
+          {brief && <Pill T={T} tone={brief.phase === "in" ? "blue" : "muted"}>{spWeekLabel(brief, t)}</Pill>}
+          {bp && <Pill T={T} tone="muted">{bp.exam}</Pill>}
+        </div>
+        <p style={{ margin: "6px 0 0", maxWidth: 680, fontFamily: FONT_UI, fontSize: fs(13.5), color: T.muted, lineHeight: 1.55 }}>{t("shSub")}{line ? ` ${line}` : ""}</p>
+      </div>
+
+      <nav aria-label={t("shJumpTo")} style={{ position: "sticky", top: "var(--oworld-sticky-h, 0px)", zIndex: 5, background: T.paper, borderBottom: `1px solid ${T.border}`, margin: "0 -4px", padding: "8px 4px", overflowX: "auto", overflowY: "hidden", touchAction: "pan-x" }}>
+        <div style={{ display: "flex", gap: 6, width: "max-content" }}>
+          {sections.map(([id, label, Ic]) => {
+            const on = active === id;
+            return (
+              <button key={id} onClick={() => jump(id)} aria-current={on ? "true" : undefined} style={{
+                display: "flex", alignItems: "center", gap: 6, padding: "7px 13px", borderRadius: 999, cursor: "pointer", whiteSpace: "nowrap",
+                background: on ? T.blue : "transparent", color: on ? "#fff" : T.ink, border: `1px solid ${on ? T.blue : T.border}`,
+                fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(13),
+              }}><Ic size={14} />{label}</button>
+            );
+          })}
+        </div>
+      </nav>
+
+      <div id="sh-profile" style={{ borderBottom: `1px solid ${T.border}`, paddingBottom: 28, scrollMarginTop: "calc(var(--oworld-sticky-h, 0px) + 64px)", display: "grid", gap: 16 }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 8, fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(20), color: T.ink }}><UserIcon size={20} color={T.blue} />{t("shNavProfile")}</div>
+        <StudentProfilePanel embedded T={T} sessionLog={sessionLog} onNavigate={onNavigate} />
+      </div>
+      <TutorDashboard embedded library={library} sessionLog={sessionLog} onLaunch={onLaunch} onNavigate={onNavigate} T={T} />
+    </div>
+  );
+}
+function TutorDashboard({ library, sessionLog, onLaunch, onNavigate, T, embedded = false }) {
   const { t, lang } = useI18n(); const sp = useContext(ProfileContext); const { notify } = useContext(NotifContext);
   const bpStore = sp.bpStore; const bp = bpStore.bp; const saveBp = bpStore.save; const locale = lang === "es" ? "es" : "en-US"; const [text, setText] = useState(""); const [err, setErr] = useState(""); const [open, setOpen] = useState(false); const [showP, setShowP] = useState(false); const [showS, setShowS] = useState(false); const [gapKind, setGapKind] = useState("systems"); const [gapOpen, setGapOpen] = useState(false); const [confOpen, setConfOpen] = useState(false); const [mapsOpen, setMapsOpen] = useState({}); const panelRef = useRef(null);
   const [picked, setPicked] = useState([]); const [copied, setCopied] = useState(""); const fileRef = useRef(null);
@@ -4250,16 +4502,16 @@ function TutorDashboard({ library, sessionLog, onLaunch, onNavigate, T }) {
 
   return (
     <div style={{ display: "grid", gap: 16 }}>
-      <div style={{ display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap" }}>
+      {!embedded && <div style={{ display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap" }}>
         <GraduationCap size={22} color={T.blue} />
         <h2 style={{ margin: 0, fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(22), color: T.ink }}>{t("tbTitle")}</h2>
         {brief && <Pill T={T} tone={brief.phase === "in" ? "blue" : "muted"}>{spWeekLabel(brief, t)}</Pill>}
         {bp && <Pill T={T} tone="muted">{bp.exam}</Pill>}
         <span style={{ marginLeft: "auto", display: "flex", gap: 8, flexWrap: "wrap" }}>
           <GhostButton T={T} icon={Target} onClick={openPanel}>{t("tbBpTitle")}</GhostButton>
-          <GhostButton T={T} icon={UserIcon} onClick={() => onNavigate("profile")}>{t("tabProfile")}</GhostButton>
+          <GhostButton T={T} icon={UserIcon} onClick={() => { const el = document.getElementById("study-profile"); if (el) el.scrollIntoView({ behavior: "smooth", block: "start" }); }}>{t("tabProfile")}</GhostButton>
         </span>
-      </div>
+      </div>}
 
       {bp && fr && (fr.due || fr.soon) && (
         <div role="status" style={{ ...card, padding: "14px 18px", borderColor: fr.due ? T.amber : T.blue, display: "flex", alignItems: "center", gap: 12, flexWrap: "wrap" }}>
@@ -4269,19 +4521,9 @@ function TutorDashboard({ library, sessionLog, onLaunch, onNavigate, T }) {
         </div>
       )}
 
-      {st && (
-        <div style={{ ...grid(150), alignItems: "stretch" }}>
-          {tile(t("tbReady"), st.ready == null ? "—" : `${st.ready}%`, t("tbTarget", { n: bp.targetPct }))}
-          {tile(t("tbCoverage"), `${st.covered}%`, t("tbCoverageSub"))}
-          {tile(t("csStatAnswered"), st.all)}
-          {tile(t("tbCountdown"), daysTo == null ? "—" : daysTo <= 0 ? t("spToday") : daysTo, bp.targetDate || (brief && brief.next ? brief.next.title : ""))}
-          {brief && tile(t("csStatStreak"), brief.streak, brief.studiedToday ? t("tuGoalMet") : "")}
-          {conf && tile(t("tbConf"), t(`tbConfLvl.${conf.level}`), `${conf.score}/100`)}
-        </div>
-      )}
 
-      <div style={grid(360)}>
-        <TutorCard sessionLog={sessionLog} onNavigate={onNavigate} T={T} />
+      <div id="sh-priorities" style={{ ...grid(360), scrollMarginTop: "calc(var(--oworld-sticky-h, 0px) + 64px)" }}>
+        <TutorCard sessionLog={sessionLog} onNavigate={onNavigate} T={T} hideLinks={embedded} />
         {st ? (
           <div style={card}>
             {head(Flame, t("tbPriority"))}
@@ -4333,7 +4575,7 @@ function TutorDashboard({ library, sessionLog, onLaunch, onNavigate, T }) {
         </div>
       )}
 
-      <div ref={panelRef} style={card}>
+      <div ref={panelRef} id="sh-blueprint" style={{ ...card, scrollMarginTop: "calc(var(--oworld-sticky-h, 0px) + 64px)" }}>
         <button onClick={() => setOpen(!open)} aria-expanded={open} style={{ display: "flex", alignItems: "center", gap: 8, width: "100%", background: "transparent", border: "none", padding: 0, cursor: "pointer", textAlign: "left" }}>
           <Target size={17} color={T.blue} /><span style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(15), color: T.ink }}>{t("tbBpTitle")}</span>
           {bp && <Pill T={T} tone="muted">{bp.exam}{bp.version ? ` · ${bp.version}` : ""}</Pill>}
@@ -4375,12 +4617,277 @@ function TutorDashboard({ library, sessionLog, onLaunch, onNavigate, T }) {
   );
 }
 
+// ---- Plan manager (Study Profile): the whole task list with a completed tally, filters, grouping, inline editing and live calendar links ----
+const PLAN_PRIORITIES = ["high", "normal", "low"];
+const PLAN_BLANK = { title: "", due: "", time: "", kind: "other", subject: "", priority: "normal", notes: "" };
+const PLAN_PRI_RANK = { high: 0, normal: 1, low: 2 };
+const PLAN_GROUPS = ["overdue", "today", "upcoming", "nodate", "done"];
+const planNewId = () => `usr-${Date.now().toString(36)}${Math.random().toString(36).slice(2, 6)}`;
+
+function PlanManager({ profile, sp, brief, T, t, lang, phone, onNavigate, inline = false, agenda = [], api = null, query = null, children = null, headExtra = null }) {
+  const locale = lang === "es" ? "es" : "en-US";
+  const tasks = (profile && profile.plan && profile.plan.tasks) || [];
+  const today = startOfDay(new Date()); const todayKey = toISODate(today);
+  const [draft, setDraft] = useState(PLAN_BLANK);
+  const [moreOpts, setMoreOpts] = useState(false);
+  const [typeOpen, setTypeOpen] = useState(false); // the Task / Event / Exam picker only shows after Add is pressed
+  const [filter, setFilter] = useState("all");
+  const [kindF, setKindF] = useState("all");
+  const [qLocal, setQLocal] = useState("");
+  const q = query != null ? query : qLocal; // the Schedule page passes its own search box down, so one search drives the calendar and the plan
+  const [doneOpen, setDoneOpen] = useState(false);
+  const [upOpen, setUpOpen] = useState(false); // Upcoming starts collapsed; the chevron opens it
+  const [editId, setEditId] = useState(null);
+  const [edit, setEdit] = useState(PLAN_BLANK);
+  const [toast, setToast] = useState(null);
+  useEffect(() => { if (!toast) return undefined; const id = setTimeout(() => setToast(null), 7000); return () => clearTimeout(id); }, [toast]);
+
+  const isCal = (k) => String(k.id).startsWith("cal-"); // an exam / event ticked from the calendar: it lives in the plan so it counts, but its details belong to the calendar
+  const bucketOf = (k) => {
+    if (k.done) return "done";
+    const d = parseISODate(k.due); if (!d) return "nodate";
+    const n = dayDiff(today, d); return n < 0 ? "overdue" : n === 0 ? "today" : "upcoming";
+  };
+  const counts = { overdue: 0, today: 0, upcoming: 0, nodate: 0, done: 0 };
+  tasks.forEach((k) => { counts[bucketOf(k)] += 1; });
+  const total = tasks.length; const done = counts.done; const open = total - done;
+  const pct = total ? Math.round((done / total) * 100) : 0;
+  const doneToday = tasks.filter((k) => k.done && k.doneAt && toISODate(new Date(k.doneAt)) === todayKey).length;
+  const clearable = tasks.filter((k) => k.done && !isCal(k));
+  const lateOnes = tasks.filter((k) => bucketOf(k) === "overdue" && !isCal(k));
+  // Exams, classes and events of the next days sit in the same list; they have their own actions and don't change the task tally.
+  const agendaRows = (agenda || []).map((a) => ({ ...a, due: a.date, kind: a.src === "exam" ? "exam" : a.src === "class" ? "class" : "other" }));
+  const allRows = [...tasks, ...agendaRows];
+
+  // Every change goes through here: one atomic update and (with a message) an Undo that restores the previous list.
+  const commit = (next, msg) => { const before = tasks; sp.setCal({ tasks: next }); if (msg) setToast({ msg, undo: () => sp.setCal({ tasks: before }) }); };
+
+  function addItem() {
+    const title = draft.title.trim().slice(0, 200); if (!title) return;
+    sp.addTask({ id: planNewId(), title, due: parseISODate(draft.due) ? draft.due : null, time: draft.time || null, subject: draft.subject.trim().slice(0, 80) || null, kind: draft.kind, priority: draft.priority, notes: null, done: false });
+    setDraft(PLAN_BLANK);
+  }
+  function startEdit(k) {
+    setEditId(k.id);
+    setEdit({ title: k.title, due: k.due || "", time: k.time || "", kind: k.kind || "other", subject: k.subject || "", priority: k.priority || "normal", notes: k.notes || "" });
+  }
+  function saveEdit() {
+    const title = edit.title.trim().slice(0, 200); if (!title) return;
+    commit(tasks.map((k) => (k.id === editId ? { ...k, title, due: parseISODate(edit.due) ? edit.due : null, time: edit.time || null, subject: edit.subject.trim().slice(0, 80) || null, kind: edit.kind, priority: edit.priority, notes: edit.notes.trim().slice(0, 200) || null } : k)));
+    setEditId(null);
+  }
+  const removeOne = (k) => { commit(tasks.filter((x) => x.id !== k.id), t("calDeleted", { s: k.title })); if (editId === k.id) setEditId(null); };
+  const clearDone = () => { const ids = new Set(clearable.map((k) => k.id)); commit(tasks.filter((k) => !ids.has(k.id)), t("plClearedN", { n: ids.size })); };
+  const moveLate = () => { const ids = new Set(lateOnes.map((k) => k.id)); commit(tasks.map((k) => (ids.has(k.id) ? { ...k, due: todayKey } : k)), t("plMovedN", { n: ids.size })); };
+
+  // ---- filtering and ordering ----
+  const ql = q.trim().toLowerCase();
+  const shown = allRows.filter((k) => (filter === "all" || (filter === "open" ? !k.done : bucketOf(k) === filter))
+    && (kindF === "all" || (k.kind || "other") === kindF)
+    && (!ql || [k.title, k.subject, k.notes].filter(Boolean).join(" ").toLowerCase().includes(ql)));
+  const byDue = (a, b) => ((a.due || "9999") < (b.due || "9999") ? -1 : (a.due || "9999") > (b.due || "9999") ? 1 : 0)
+    || ((a.time || "99") < (b.time || "99") ? -1 : (a.time || "99") > (b.time || "99") ? 1 : 0)
+    || (PLAN_PRI_RANK[a.priority || "normal"] - PLAN_PRI_RANK[b.priority || "normal"]);
+  const groupItems = (g) => shown.filter((k) => bucketOf(k) === g).sort(g === "done" ? (a, b) => (Number(b.doneAt) || 0) - (Number(a.doneAt) || 0) : byDue);
+
+  // ---- styles ----
+  const headTxt = { fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(14), color: T.ink };
+  const sect = { fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(11.5), color: T.muted, textTransform: "uppercase", letterSpacing: "0.06em" };
+  const inp = { fontFamily: FONT_UI, fontSize: fs(13), color: T.ink, background: T.paper, border: `1px solid ${T.border}`, borderRadius: 8, padding: "7px 9px", outline: "none", minWidth: 0, boxSizing: "border-box" };
+  const iconBtn = { background: "transparent", border: "none", cursor: "pointer", color: T.muted, padding: 4, display: "flex" };
+  const FILTERS = [["all", T.ink, T.mutedBg, total], ["open", T.blue, T.blueLight, open], ["overdue", T.red, T.redLight, counts.overdue], ["today", T.amber, T.amberLight, counts.today], ["upcoming", T.amber, T.amberLight, counts.upcoming], ["nodate", T.muted, T.mutedBg, counts.nodate], ["done", T.green, T.greenLight, done]];
+  const kinds = [...new Set([...tasks.map((k) => k.kind || "other"), "exam", "class"])];
+  const field = (label, node, full) => <label style={{ display: "grid", gap: 3, minWidth: 0, ...(full ? { gridColumn: "1 / -1" } : {}) }}><span style={{ ...sect, fontSize: fs(11) }}>{label}</span>{node}</label>;
+  const kindSel = (value, onChange) => <select value={value} onChange={(e) => onChange(e.target.value)} style={inp}>{SP_TASK_KINDS.map((x) => <option key={x} value={x}>{t(`plKind.${x}`)}</option>)}</select>;
+  const priSel = (value, onChange) => <select value={value} onChange={(e) => onChange(e.target.value)} style={inp}>{PLAN_PRIORITIES.map((x) => <option key={x} value={x}>{t(`plPri.${x}`)}</option>)}</select>;
+  const fmtDue = (d) => d.toLocaleDateString(locale, { weekday: "short", month: "short", day: "numeric" });
+
+  // ---- one scheduled item (exam / class / event) ----
+  const renderAgendaRow = (k) => {
+    const tone = k.src === "exam" ? T.red : k.src === "class" ? T.purple : T.blue; const d = parseISODate(k.due);
+    const meta = [d ? fmtDue(d) : null, k.time, k.sub].filter(Boolean).join(" · ");
+    return (
+      <div key={k.id} style={{ display: "flex", alignItems: "flex-start", gap: 10, padding: "9px 0", borderBottom: `1px solid ${T.border}` }}>
+        <span aria-hidden="true" style={{ width: 3, alignSelf: "stretch", borderRadius: 2, background: tone, flexShrink: 0 }} />
+        <button onClick={() => api && api.tick(k)} role="checkbox" aria-checked={!!k.done} aria-label={k.title} style={{
+          width: 22, height: 22, flexShrink: 0, marginTop: 1, borderRadius: 5, cursor: "pointer", padding: 0, display: "inline-flex", alignItems: "center", justifyContent: "center",
+          background: k.done ? T.green : "transparent", border: `2px solid ${k.done ? T.green : tone}`, color: T.onBlue,
+        }}>{k.done && <Check size={14} />}</button>
+        <div style={{ flex: 1, minWidth: 0, opacity: k.done ? 0.6 : 1 }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 6, flexWrap: "wrap" }}>
+            <span style={{ fontFamily: FONT_UI, fontSize: fs(13.5), color: T.ink, textDecoration: k.done ? "line-through" : "none", overflowWrap: "anywhere", lineHeight: 1.4 }}>{k.title}</span>
+            <Pill T={T} tone={k.src === "exam" ? "red" : k.src === "class" ? "purple" : "blue"}>{t(`plSrc.${k.src}`)}</Pill>
+          </div>
+          {meta && <div style={{ fontFamily: FONT_UI, fontSize: fs(11.5), color: T.muted, marginTop: 3 }}>{d && <span style={{ fontWeight: 700, color: T.ink }}>{fmtDue(d)}</span>}{[k.time ? fmtClock(k.time, locale) : null, k.sub].filter(Boolean).map((x) => ` · ${x}`).join("")}</div>}
+          {k.topics && k.topics.length > 0 && <div style={{ fontFamily: FONT_UI, fontSize: fs(12), color: T.muted, marginTop: 2 }}>{k.topics.join(" · ")}</div>}
+        </div>
+      </div>
+    );
+  };
+
+  // ---- one task ----
+  const renderRow = (k) => {
+    if (k.src) return renderAgendaRow(k);
+    if (editId === k.id) {
+      const valid = edit.title.trim().length > 0; const set = (key, v) => setEdit((e) => ({ ...e, [key]: v }));
+      return (
+        <div key={k.id} role="group" aria-label={t("plEditTask")} onKeyDown={(e) => { if (e.key === "Escape") setEditId(null); }} style={{ border: `1px solid ${T.border}`, borderLeft: `4px solid ${T.amber}`, borderRadius: 8, padding: 12, margin: "8px 0", background: T.mutedBg, display: "grid", gap: 10 }}>
+          <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(13.5), color: T.ink }}>{t("plEditTask")}</div>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(120px, 1fr))", gap: 10 }}>
+            {field(t("calF.title"), <input autoFocus value={edit.title} maxLength={200} onChange={(e) => set("title", e.target.value)} onKeyDown={(e) => { if (e.key === "Enter" && valid) saveEdit(); }} style={{ ...inp, width: "100%" }} />, true)}
+            {field(t("calF.date"), <input type="date" value={edit.due} onChange={(e) => set("due", e.target.value)} style={{ ...inp, width: "100%" }} />)}
+            {field(t("calF.time"), <input type="time" value={edit.time} onChange={(e) => set("time", e.target.value)} style={{ ...inp, width: "100%" }} />)}
+            {field(t("calF.type"), kindSel(edit.kind, (v) => set("kind", v)))}
+            {field(t("plPriority"), priSel(edit.priority, (v) => set("priority", v)))}
+            {field(t("calF.subject"), <input value={edit.subject} maxLength={80} onChange={(e) => set("subject", e.target.value)} style={{ ...inp, width: "100%" }} />, true)}
+            {field(t("calF.notes"), <input value={edit.notes} maxLength={200} onChange={(e) => set("notes", e.target.value)} style={{ ...inp, width: "100%" }} />, true)}
+          </div>
+          <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
+            <PrimaryButton T={T} icon={Check} onClick={saveEdit} disabled={!valid}>{t("calSave")}</PrimaryButton>
+            <GhostButton T={T} icon={X} onClick={() => setEditId(null)}>{t("calCancel")}</GhostButton>
+            <GhostButton T={T} icon={Trash2} onClick={() => removeOne(k)} style={{ marginLeft: "auto" }}>{t("calDelete")}</GhostButton>
+          </div>
+        </div>
+      );
+    }
+    const b = bucketOf(k); const d = parseISODate(k.due); const cal = isCal(k);
+    const late = b === "overdue" ? Math.max(1, -dayDiff(today, d)) : 0;
+    const accent = k.done ? T.green : late ? T.red : T.amber; // calendar: task = amber, overdue = red, done = green
+    const dueColor = accent;
+    return (
+      <div key={k.id} style={{ display: "flex", alignItems: "flex-start", gap: 10, padding: "9px 0", borderBottom: `1px solid ${T.border}` }}>
+        <span aria-hidden="true" style={{ width: 3, alignSelf: "stretch", borderRadius: 2, background: accent, flexShrink: 0 }} />
+        <button onClick={() => sp.toggleTask(k.id)} role="checkbox" aria-checked={!!k.done} aria-label={k.title} style={{
+          width: 22, height: 22, flexShrink: 0, marginTop: 1, borderRadius: 5, cursor: "pointer", padding: 0, display: "inline-flex", alignItems: "center", justifyContent: "center",
+          background: k.done ? T.green : "transparent", border: `2px solid ${accent}`, color: T.onBlue,
+        }}>{k.done && <Check size={14} />}</button>
+        <div style={{ flex: 1, minWidth: 0 }}>
+          <div style={{ display: "flex", alignItems: "flex-start", gap: 6 }}>
+            {k.priority === "high" && !k.done && <span title={t("plPri.high")} aria-label={t("plPri.high")} style={{ display: "inline-flex", marginTop: 2 }}><Flag size={14} color={T.red} /></span>}
+            <span style={{ fontFamily: FONT_UI, fontSize: fs(13.5), color: k.done ? T.muted : T.ink, textDecoration: k.done ? "line-through" : "none", overflowWrap: "anywhere", lineHeight: 1.4 }}>{k.title}</span>
+          </div>
+          <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap", marginTop: 3 }}>
+            {d
+              ? <button onClick={() => onNavigate("calendar", k.due)} title={t("plOpenCal")} aria-label={`${t("plOpenCal")}: ${fmtDue(d)}`} style={{ display: "inline-flex", alignItems: "center", gap: 4, background: "transparent", border: "none", padding: 0, cursor: "pointer", fontFamily: FONT_MONO, fontSize: fs(11.5), color: k.done ? T.muted : dueColor, fontWeight: 700 }}><CalendarDays size={12} />{fmtDue(d)}{k.time ? ` · ${fmtClock(k.time, locale)}` : ""}{late > 0 ? ` · ${t("plOverdueBy", { n: late })}` : ""}</button>
+              : !k.done && !cal && <button onClick={() => startEdit(k)} style={{ background: "transparent", border: "none", padding: 0, cursor: "pointer", fontFamily: FONT_UI, fontSize: fs(11.5), fontWeight: 600, color: T.blue }}>{t("plSetDate")}</button>}
+            {k.kind && k.kind !== "other" && !cal && <Pill T={T} tone="muted">{t(`plKind.${k.kind}`)}</Pill>}
+            {cal && <Pill T={T} tone="blue">{t("plFromCal")}</Pill>}
+            {k.priority === "low" && !k.done && <Pill T={T} tone="muted">{t("plPri.low")}</Pill>}
+            {k.subject && <span style={{ fontFamily: FONT_UI, fontSize: fs(11.5), color: T.muted }}>{k.subject}</span>}
+          </div>
+          {k.notes && <div style={{ fontFamily: FONT_UI, fontSize: fs(12), color: T.muted, marginTop: 3, overflowWrap: "anywhere" }}>{k.notes}</div>}
+        </div>
+        {!cal && <button onClick={() => startEdit(k)} title={t("plEditTask")} aria-label={`${t("plEditTask")}: ${k.title}`} style={iconBtn}><Pencil size={14} /></button>}
+        <button onClick={() => removeOne(k)} title={t("csPlanRemove")} aria-label={`${t("csPlanRemove")}: ${k.title}`} style={iconBtn}><X size={15} /></button>
+      </div>
+    );
+  };
+
+  if (!profile) return <div>{children}</div>; // no Study Profile yet: only the day view
+
+  return (
+    <div>
+      <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 12, flexWrap: "wrap" }}>
+        <ClipboardList size={17} color={T.ink} />
+        <span style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(13), color: T.ink }}>{today.toLocaleDateString(locale, { weekday: "long", month: "long", day: "numeric" })}</span>
+        {brief && brief.phase === "in" && <Pill T={T} tone="blue">{spWeekLabel(brief, t)}</Pill>}
+        {profile.plan.weeklyQuestionTarget > 0 && brief && <Pill T={T} tone="muted">{t("spWeekly", { a: brief.answeredWeek, n: profile.plan.weeklyQuestionTarget })}</Pill>}
+        {headExtra}
+        {!inline && <GhostButton T={T} icon={CalendarDays} onClick={() => onNavigate("calendar", todayKey)} style={{ marginLeft: "auto", padding: "4px 10px" }}>{t("plOpenCalBtn")}</GhostButton>}
+      </div>
+
+      {children && <div style={{ borderBottom: `1px solid ${T.border}`, paddingBottom: 16, marginBottom: 16 }}>{children}</div>}
+
+      {/* The list, grouped by when it is due */}
+      {allRows.length > 0 && shown.length === 0 && <p style={{ fontFamily: FONT_UI, fontSize: fs(13.5), color: T.muted, margin: "14px 0 0" }}>{t("plNoMatch")}</p>}
+      {PLAN_GROUPS.map((g) => {
+        const items = groupItems(g); if (!items.length) return null;
+        const isDone = g === "done"; const isUp = g === "upcoming";
+        const forced = (isDone && filter === "done") || (isUp && (filter === "upcoming" || !!ql)); // an explicit filter or search always shows the rows
+        const open2 = isDone ? (forced || doneOpen) : isUp ? (forced || upOpen) : true;
+        const collapsible = (isDone || isUp) && !forced;
+        const isOpenNow = isDone ? doneOpen : upOpen;
+        const headColor = g === "overdue" ? T.red : g === "today" || isUp ? T.amber : isDone ? T.green : T.muted;
+        return (
+          <div key={g} style={{ marginTop: 14 }}>
+            {collapsible
+              ? <button onClick={() => (isDone ? setDoneOpen((o) => !o) : setUpOpen((o) => !o))} aria-expanded={isOpenNow} style={{ display: "inline-flex", alignItems: "center", gap: 6, background: "transparent", border: "none", padding: 0, cursor: "pointer", ...sect, color: headColor }}>
+                {isDone ? (doneOpen ? t("plHideDone") : t("plShowDone", { n: items.length })) : <>{t(`plG.${g}`)}<span style={{ fontFamily: FONT_MONO, fontSize: fs(11), color: T.muted }}>{items.length}</span></>}
+                {isOpenNow ? <ChevronUp size={14} /> : <ChevronDown size={14} />}
+              </button>
+              : <div style={{ display: "flex", alignItems: "center", gap: 8 }}><span style={{ ...sect, color: headColor }}>{t(`plG.${g}`)}</span><span style={{ fontFamily: FONT_MONO, fontSize: fs(11), color: T.muted }}>{items.length}</span></div>}
+            {open2 && <div style={{ borderTop: `1px solid ${T.border}`, marginTop: 6 }}>{items.map(renderRow)}</div>}
+          </div>
+        );
+      })}
+
+      {/* Type scroller with the Add button inline on its right; the add form opens right below */}
+      <div style={{ display: "flex", gap: 8, flexWrap: "wrap", alignItems: "center", marginTop: 14 }}>
+        <select value={kindF} onChange={(e) => setKindF(e.target.value)} aria-label={t("calF.type")} style={inp}>
+          <option value="all">{t("plKindAll")}</option>
+          {kinds.map((x) => <option key={x} value={x}>{t(`plKind.${x}`)}</option>)}
+        </select>
+          <GhostButton T={T} icon={typeOpen ? X : Plus} onClick={() => setTypeOpen((o) => !o)} style={{ padding: "7px 12px", marginLeft: "auto" }}>{t("csPlanAdd")}</GhostButton>
+      </div>
+      {typeOpen && (
+        <div style={{ marginTop: 10, display: "grid", gap: 8 }}>
+      <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap" }}>
+        <input value={draft.title} maxLength={200} onChange={(e) => setDraft({ ...draft, title: e.target.value })} onKeyDown={(e) => { if (e.key === "Enter") addItem(); }}
+          placeholder={t("csPlanAddPh")} aria-label={t("csPlanAddPh")} style={{ ...inp, flex: "1 1 180px", fontSize: fs(13.5), padding: "8px 10px" }} />
+        <input type="date" value={draft.due} onChange={(e) => setDraft({ ...draft, due: e.target.value })} aria-label={t("spPlanDueOpt")} title={t("spPlanDueOpt")} style={{ ...inp, padding: "7px 8px" }} />
+      </div>
+      <div style={{ display: "flex", alignItems: "center", gap: 6, flexWrap: "wrap", marginTop: 8 }}>
+        {[[t("spToday"), todayKey], [t("spTomorrow"), toISODate(new Date(today.getFullYear(), today.getMonth(), today.getDate() + 1))]].map(([label, key]) => (
+          <button key={key} onClick={() => setDraft({ ...draft, due: key })} aria-pressed={draft.due === key} style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(12), cursor: "pointer", padding: "3px 10px", borderRadius: 999, border: `1px solid ${draft.due === key ? T.blue : T.border}`, background: draft.due === key ? T.blueLight : "transparent", color: draft.due === key ? T.blueDeep : T.muted }}>{label}</button>
+        ))}
+        <button onClick={() => setMoreOpts((o) => !o)} aria-expanded={moreOpts} style={{ display: "inline-flex", alignItems: "center", gap: 4, fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(12.5), color: T.blue, background: "transparent", border: "none", cursor: "pointer", padding: 4 }}>{t("plOptions")}{moreOpts ? <ChevronUp size={14} /> : <ChevronDown size={14} />}</button>
+      </div>
+      {moreOpts && (
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(120px, 1fr))", gap: 10, marginTop: 8 }}>
+          {field(t("calF.time"), <input type="time" value={draft.time} onChange={(e) => setDraft({ ...draft, time: e.target.value })} style={{ ...inp, width: "100%" }} />)}
+          {field(t("calF.type"), kindSel(draft.kind, (v) => setDraft({ ...draft, kind: v })))}
+          {field(t("plPriority"), priSel(draft.priority, (v) => setDraft({ ...draft, priority: v })))}
+          {field(t("calF.subject"), <input value={draft.subject} maxLength={80} onChange={(e) => setDraft({ ...draft, subject: e.target.value })} style={{ ...inp, width: "100%" }} />)}
+        </div>
+      )}
+          <div>
+          <select value="" aria-label={t("plAddAs")} onChange={(e) => {
+            const kind = e.target.value; if (!kind) return;
+            if (kind === "task" && draft.title.trim()) addItem(); else if (api && api.create) { api.create(kind, draft.title.trim().slice(0, 160), draft.due); setDraft(PLAN_BLANK); }
+            setTypeOpen(false);
+          }} style={{ ...inp, width: "100%", padding: "8px 10px", fontSize: fs(13.5) }}>
+            <option value="" disabled>{t("plAddAs")}</option>
+            {["task", "event", "exam"].map((k) => <option key={k} value={k}>{t(`calAdd.${k}`)}</option>)}
+          </select>
+          </div>
+        </div>
+      )}
+
+
+      {/* Bulk actions */}
+      {lateOnes.length > 0 && (
+        <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginTop: 14 }}>
+          {lateOnes.length > 0 && <GhostButton T={T} icon={CalendarDays} onClick={moveLate} style={{ padding: "6px 12px" }}>{t("plMoveOverdue", { n: lateOnes.length })}</GhostButton>}
+        </div>
+      )}
+
+      {toast && (
+        <div role="status" style={{ display: "flex", alignItems: "center", gap: 10, marginTop: 12, padding: "9px 12px", borderRadius: 8, background: T.ink, color: T.paper, fontFamily: FONT_UI, fontSize: fs(13) }}>
+          <span style={{ flex: 1, minWidth: 0, overflowWrap: "anywhere" }}>{toast.msg}</span>
+          <button onClick={() => { toast.undo(); setToast(null); }} style={{ background: "transparent", border: "none", color: T.paper, fontWeight: 700, textDecoration: "underline", cursor: "pointer", fontFamily: FONT_UI, fontSize: fs(13) }}>{t("calUndo")}</button>
+        </div>
+      )}
+    </div>
+  );
+}
+
 // ---- Profile tab ----
-function StudentProfilePanel({ T, sessionLog, onNavigate }) {
+function StudentProfilePanel({ T, sessionLog, onNavigate, embedded = false }) {
   const { t, lang } = useI18n();
   const sp = useContext(ProfileContext);
   const { notify } = useContext(NotifContext);
   const drive = useContext(DriveContext);
+  const careerCtx = useContext(CareerContext);
   const phone = useViewport().w < 640;
   const [text, setText] = useState("");
   const [error, setError] = useState("");
@@ -4396,8 +4903,6 @@ function StudentProfilePanel({ T, sessionLog, onNavigate }) {
   const [mapOpen, setMapOpen] = useState(false);   // Syllabus map: collapsed = only the weeks around today
   const [srcOpen, setSrcOpen] = useState(false);   // Source: collapsed by default
   const [pastOpen, setPastOpen] = useState(false);  // Past and completed exams: collapsed by default
-  const [newTask, setNewTask] = useState("");
-  const [newDue, setNewDue] = useState("");
   const [updOpen, setUpdOpen] = useState(null);    // Update your profile: collapsed once a profile exists (null = automatic); open while building the first one
   const fileRef = useRef(null);
   const locale = lang === "es" ? "es" : "en-US";
@@ -4408,7 +4913,8 @@ function StudentProfilePanel({ T, sessionLog, onNavigate }) {
   const effMode = canUpdate ? mode : "new";
   const prompt = useMemo(() => buildProfileRecipe({
     lang, today: toISODate(new Date()), stats: withStats ? buildStatsSnapshot(sessionLog) : null, existing: effMode === "update" ? profile : null,
-  }), [lang, withStats, sessionLog, effMode, profile]);
+    career: careerForPrompt(careerCtx.career),
+  }), [lang, withStats, sessionLog, effMode, profile, careerCtx.career]);
 
   const card = { background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, padding: phone ? 18 : 24 };
   const cardHead = { display: "flex", alignItems: "center", gap: 8, marginBottom: 14, flexWrap: "wrap" };
@@ -4430,14 +4936,9 @@ function StudentProfilePanel({ T, sessionLog, onNavigate }) {
     const f = e.target.files && e.target.files[0]; if (!f) return;
     const rd = new FileReader(); rd.onload = (ev) => { setText(String(ev.target.result || "")); load(String(ev.target.result || "")); }; rd.readAsText(f); e.target.value = "";
   }
-  function addPlanItem() {
-    const title = newTask.trim().slice(0, 200); if (!title) return;
-    sp.addTask({ id: `usr-${Date.now().toString(36)}${Math.random().toString(36).slice(2, 6)}`, title, due: parseISODate(newDue) ? newDue : null, subject: null, kind: "other", done: false });
-    setNewTask(""); setNewDue("");
-  }
   function exportJson() {
     const json = JSON.stringify(profile, null, 2);
-    downloadBlob(new Blob([json], { type: "application/json" }), `Student Profile${profile.term.name ? ` (${profile.term.name})` : ""}.json`);
+    downloadBlob(new Blob([json], { type: "application/json" }), `Study Profile${profile.term.name ? ` (${profile.term.name})` : ""}.json`);
   }
   const syncTone = !sp.sync.available ? "muted" : sp.sync.status === "error" ? "red" : sp.sync.status === "busy" ? "blue" : "green";
   const syncText = !sp.sync.available ? t("spSyncLocal") : sp.sync.status === "busy" ? t("syncStBusy") : sp.sync.status === "error" ? t("syncStError")
@@ -4450,6 +4951,42 @@ function StudentProfilePanel({ T, sessionLog, onNavigate }) {
       <span style={{ marginLeft: "auto", display: "inline-flex" }}>{open ? <ChevronUp size={16} color={T.muted} /> : <ChevronDown size={16} color={T.muted} />}</span>
     </button>
   );
+  // Medical school studies + USMLE steps (with target dates). Shared by the combined profile card and the no-profile fallback.
+  const careerStudiesBlock = () => {
+    const c = careerCtx.career; const today0 = startOfDay(new Date());
+    if (!(c.coursework.length > 0 || c.usmle.length > 0)) return null;
+    return (
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 220px), 1fr))", gap: 16, marginTop: 16 }}>
+        {c.coursework.length > 0 && (
+          <div>
+            <div style={label}>{t("cpCoursework")}</div>
+            <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>{c.coursework.map((k) => <Pill key={k} T={T} tone="blue">{t(`cpWork.${k}`)}</Pill>)}</div>
+          </div>
+        )}
+        {c.usmle.length > 0 && (
+          <div>
+            <div style={label}>{t("cpUsmle")}</div>
+            <div style={{ display: "grid", gap: 8 }}>
+              {c.usmle.map((k) => {
+                const d = parseISODate(c.stepDates[k]); const days = d ? Math.round((d - today0) / 864e5) : null;
+                return (
+                  <div key={k} style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap" }}>
+                    <span style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(14), color: T.ink }}>{t(`cpStep.${k}`)}</span>
+                    {d ? (
+                      <>
+                        <span style={{ fontFamily: FONT_MONO, fontSize: fs(11.5), color: T.muted }}>{fmtDay(c.stepDates[k])}</span>
+                        {days >= 0 && <Pill T={T} tone={days <= 14 ? "amber" : "muted"}>{spWhen(days, t)}</Pill>}
+                      </>
+                    ) : <span style={{ fontFamily: FONT_UI, fontSize: fs(12), color: T.muted }}>{t("spNoDate")}</span>}
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        )}
+      </div>
+    );
+  };
   // Collapsed syllabus map: only the weeks that matter right now.
   const relevantWeeks = (c) => {
     if (!brief) return [];
@@ -4461,10 +4998,12 @@ function StudentProfilePanel({ T, sessionLog, onNavigate }) {
   return (
     <div style={{ display: "grid", gap: 20 }}>
       <div>
-        <div style={{ display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap" }}>
-          <h1 style={{ fontFamily: FONT_DISPLAY, fontSize: fs(phone ? 26 : 32), fontWeight: 600, color: T.ink, margin: "0 0 4px" }}>{t("spTitle")}</h1>
-          {onNavigate && <span style={{ marginLeft: "auto", display: "flex", gap: 8, flexWrap: "wrap" }}><GhostButton T={T} icon={Target} onClick={() => onNavigate("tutor")}>{t("tabTutor")}</GhostButton></span>}
-        </div>
+        {!embedded && <div style={{ display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap" }}>
+          {embedded
+            ? <><UserIcon size={22} color={T.blue} /><h2 style={{ margin: "0 0 4px", fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(22), color: T.ink }}>{t("spTitle")}</h2></>
+            : <h1 style={{ fontFamily: FONT_DISPLAY, fontSize: fs(phone ? 26 : 32), fontWeight: 600, color: T.ink, margin: "0 0 4px" }}>{t("spTitle")}</h1>}
+          {onNavigate && !embedded && <span style={{ marginLeft: "auto", display: "flex", gap: 8, flexWrap: "wrap" }}><GhostButton T={T} icon={Target} onClick={() => onNavigate("studyhub")}>{t("tabStudyHub")}</GhostButton></span>}
+        </div>}
         <p style={{ ...body, maxWidth: 680 }}>{t("spHint")}</p>
         <div style={{ display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap", marginTop: 10 }}>
           <Pill T={T} tone={syncTone}>{syncText}</Pill>
@@ -4472,14 +5011,37 @@ function StudentProfilePanel({ T, sessionLog, onNavigate }) {
         </div>
       </div>
 
+      {!(profile && brief) && (() => {
+        const c = careerCtx.career; const empty = !careerCtx.hasData;
+        const line = careerLine(c, t);
+        const sub = [c.university, [c.city, c.country].filter(Boolean).join(", ")].filter(Boolean).join(" · ");
+        return (
+          <div style={card}>
+            <div style={cardHead}>
+              <GraduationCap size={17} color={T.ink} />
+              <span style={headTxt}>{t("cpTitle")}</span>
+              <span style={{ marginLeft: "auto" }}><GhostButton T={T} icon={Pencil} onClick={openAccountWindow}>{empty ? t("spCareerAdd") : t("spCareerEdit")}</GhostButton></span>
+            </div>
+            {empty ? <p style={body}>{t("spCareerEmpty")}</p> : (
+              <>
+                {line && <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(20), color: T.ink, overflowWrap: "anywhere" }}>{line}</div>}
+                {sub && <div style={{ ...body, marginTop: 4, overflowWrap: "anywhere" }}>{sub}</div>}
+                {careerStudiesBlock()}
+              </>
+            )}
+          </div>
+        );
+      })()}
+
       {profile && brief && (
         <>
           <div style={card}>
             <div style={cardHead}>
               <GraduationCap size={17} color={T.ink} />
-              <span style={headTxt}>{[profile.student.name, profile.student.program].filter(Boolean).join(" · ") || t("spTitle")}</span>
-              {profile.currentState.risk && <Pill T={T} tone={profile.currentState.risk === "high" ? "red" : profile.currentState.risk === "medium" ? "amber" : "green"}>{t("spRisk")}: {t(`spRisk.${profile.currentState.risk}`)}</Pill>}
+              <span style={headTxt}>{[profile.student.name, careerLine(careerCtx.career, t) || profile.student.program].filter(Boolean).join(" · ") || t("spTitle")}</span>
+              <span style={{ marginLeft: "auto" }}><GhostButton T={T} icon={Pencil} onClick={openAccountWindow}>{careerCtx.hasData ? t("spCareerEdit") : t("spCareerAdd")}</GhostButton></span>
             </div>
+            {[careerCtx.career.city, careerCtx.career.country].filter(Boolean).length > 0 && <div style={{ ...body, marginBottom: 8, overflowWrap: "anywhere" }}>{[careerCtx.career.city, careerCtx.career.country].filter(Boolean).join(", ")}</div>}
             <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(20), color: T.ink }}>{profile.term.name || "—"} · {spWeekLabel(brief, t)}</div>
             <div style={{ fontFamily: FONT_MONO, fontSize: fs(12), color: T.muted, margin: "4px 0 10px" }}>{fmtDay(profile.term.startDate)} → {fmtDay(profile.term.endDate)}</div>
             {brief.phase === "in" && brief.total > 0 && (
@@ -4487,19 +5049,11 @@ function StudentProfilePanel({ T, sessionLog, onNavigate }) {
             )}
             {profile.currentState.summary && <p style={{ ...body, color: T.ink, marginTop: 14 }}>{profile.currentState.summary}</p>}
             {profile.currentState.paceNote && <p style={{ ...body, marginTop: 6 }}>{profile.currentState.paceNote}</p>}
-            {(profile.currentState.strengths.length > 0 || profile.currentState.gaps.length > 0) && (
-              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 220px), 1fr))", gap: 16, marginTop: 16 }}>
-                {[["spStrengths", profile.currentState.strengths, "green"], ["spGaps", profile.currentState.gaps, "red"]].map(([k, list, tone]) => list.length > 0 && (
-                  <div key={k}>
-                    <div style={{ ...label, color: tone === "green" ? T.green : T.red }}>{t(k)}</div>
-                    <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>{list.map((x) => <Pill key={x} T={T} tone={tone}>{x}</Pill>)}</div>
-                  </div>
-                ))}
-              </div>
-            )}
+            {careerStudiesBlock()}
           </div>
 
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 340px), 1fr))", gap: 20, alignItems: "start" }}>
+            <div style={{ display: "grid", gap: 20, minWidth: 0, alignContent: "start" }}>
             <div style={card}>
               <div style={cardHead}><CalendarDays size={17} color={T.ink} /><span style={headTxt}>{t("spAssessments")}</span></div>
               {brief.upcoming.length === 0 ? <p style={body}>{t("spNoNext")}</p> : brief.upcoming.slice(0, 6).map((a) => (
@@ -4528,20 +5082,32 @@ function StudentProfilePanel({ T, sessionLog, onNavigate }) {
                 );
               })()}
             </div>
-            <div style={card}>
-              <div style={cardHead}>
-                <ClipboardList size={17} color={T.ink} /><span style={headTxt}>{t("spTasks")}</span>
-                {profile.plan.weeklyQuestionTarget > 0 && <Pill T={T} tone="muted">{t("spWeekly", { a: brief.answeredWeek, n: profile.plan.weeklyQuestionTarget })}</Pill>}
-              </div>
-              {profile.plan.tasks.length === 0 ? <p style={body}>{t("spNoTasks")}</p> : profile.plan.tasks.map((k) => <TaskRow key={k.id} task={k} onToggle={() => sp.toggleTask(k.id)} onRemove={String(k.id).startsWith("usr-") ? () => sp.removeTask(k.id) : undefined} T={T} t={t} lang={lang} />)}
-              <div style={{ display: "flex", alignItems: "center", gap: 8, marginTop: 12, flexWrap: "wrap" }}>
-                <input value={newTask} maxLength={200} onChange={(e) => setNewTask(e.target.value)} onKeyDown={(e) => { if (e.key === "Enter") addPlanItem(); }}
-                  placeholder={t("csPlanAddPh")} aria-label={t("csPlanAddPh")}
-                  style={{ flex: "1 1 180px", minWidth: 0, fontFamily: FONT_UI, fontSize: fs(13.5), color: T.ink, background: T.paper, border: `1px solid ${T.border}`, borderRadius: 8, padding: "8px 10px", outline: "none" }} />
-                <input type="date" value={newDue} onChange={(e) => setNewDue(e.target.value)} aria-label={t("spPlanDueOpt")} title={t("spPlanDueOpt")}
-                  style={{ fontFamily: FONT_UI, fontSize: fs(13), color: T.ink, background: T.paper, border: `1px solid ${T.border}`, borderRadius: 8, padding: "7px 8px", outline: "none" }} />
-                <GhostButton T={T} icon={Plus} onClick={addPlanItem} disabled={!newTask.trim()} style={{ padding: "7px 12px" }}>{t("csPlanAdd")}</GhostButton>
-              </div>
+            </div>
+            <div style={{ display: "grid", gap: 20, minWidth: 0, alignContent: "start" }}>
+              {profile.courses.length > 0 && (
+                <div style={card}>
+                  {collHead(BookOpen, t("spCourses"), mapOpen, () => setMapOpen((o) => !o))}
+                  <div style={{ display: "grid", gap: 14, marginTop: mapOpen ? 0 : 12 }}>
+                    {profile.courses.map((c) => {
+                      const shown = mapOpen ? c.weeks : relevantWeeks(c);
+                      return (
+                        <div key={c.id}>
+                          <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(14), color: T.ink }}>{c.name}{c.code ? <span style={{ fontFamily: FONT_MONO, fontWeight: 400, fontSize: fs(12), color: T.muted }}> · {c.code}</span> : null}</div>
+                          <div style={{ display: "flex", gap: 6, flexWrap: "wrap", marginTop: 8 }}>
+                            {shown.map((w) => {
+                              const cur = brief.phase === "in" && w.week === brief.week;
+                              const topics = mapOpen ? (w.topics[0] ? ` · ${w.topics[0].slice(0, 28)}` : "") : (w.topics.length ? ` · ${w.topics.slice(0, 3).join(", ").slice(0, 90)}` : "");
+                              return <span key={w.week} title={w.topics.join(", ")} style={{ fontFamily: FONT_MONO, fontSize: fs(11.5), padding: "4px 8px", borderRadius: 6, border: `1px solid ${cur ? T.blue : T.border}`, background: cur ? T.blueLight : "transparent", color: cur ? T.blue : T.muted, fontWeight: cur ? 700 : 400 }}>{t("spWeekN", { n: w.week })}{topics}</span>;
+                            })}
+                            {shown.length === 0 && <span style={{ ...body, fontSize: fs(12.5) }}>{t("spNoFocus")}</span>}
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                  {!mapOpen && <p style={{ ...body, fontSize: fs(12.5), marginTop: 12 }}>{t("spMapNote")}</p>}
+                </div>
+              )}
             </div>
           </div>
 
@@ -4558,31 +5124,6 @@ function StudentProfilePanel({ T, sessionLog, onNavigate }) {
                 </div>
               ))}
               {profile.calendar.events.length > 12 && <p style={{ ...body, fontSize: fs(12.5), marginTop: 10 }}>{t("csCalMore", { n: profile.calendar.events.length - 12 })}</p>}
-            </div>
-          )}
-
-          {profile.courses.length > 0 && (
-            <div style={card}>
-              {collHead(BookOpen, t("spCourses"), mapOpen, () => setMapOpen((o) => !o))}
-              <div style={{ display: "grid", gap: 14, marginTop: mapOpen ? 0 : 12 }}>
-                {profile.courses.map((c) => {
-                  const shown = mapOpen ? c.weeks : relevantWeeks(c);
-                  return (
-                    <div key={c.id}>
-                      <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(14), color: T.ink }}>{c.name}{c.code ? <span style={{ fontFamily: FONT_MONO, fontWeight: 400, fontSize: fs(12), color: T.muted }}> · {c.code}</span> : null}</div>
-                      <div style={{ display: "flex", gap: 6, flexWrap: "wrap", marginTop: 8 }}>
-                        {shown.map((w) => {
-                          const cur = brief.phase === "in" && w.week === brief.week;
-                          const topics = mapOpen ? (w.topics[0] ? ` · ${w.topics[0].slice(0, 28)}` : "") : (w.topics.length ? ` · ${w.topics.slice(0, 3).join(", ").slice(0, 90)}` : "");
-                          return <span key={w.week} title={w.topics.join(", ")} style={{ fontFamily: FONT_MONO, fontSize: fs(11.5), padding: "4px 8px", borderRadius: 6, border: `1px solid ${cur ? T.blue : T.border}`, background: cur ? T.blueLight : "transparent", color: cur ? T.blue : T.muted, fontWeight: cur ? 700 : 400 }}>{t("spWeekN", { n: w.week })}{topics}</span>;
-                        })}
-                        {shown.length === 0 && <span style={{ ...body, fontSize: fs(12.5) }}>{t("spNoFocus")}</span>}
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-              {!mapOpen && <p style={{ ...body, fontSize: fs(12.5), marginTop: 12 }}>{t("spMapNote")}</p>}
             </div>
           )}
 
@@ -5673,8 +6214,9 @@ function Pill({ children, tone = "muted", T = LIGHT }) {
     green: { bg: T.greenLight, fg: T.green },
     red: { bg: T.redLight, fg: T.red },
     amber: { bg: T.amberLight, fg: T.amber },
+    purple: { bg: T.purpleLight, fg: T.purple },
   };
-  const t = tones[tone];
+  const t = tones[tone] || tones.muted;
   return (
     <span
       style={{
@@ -5753,6 +6295,237 @@ function Avatar({ profile, size = 36, T }) {
   );
 }
 
+// Any screen can ask for the Account window; the menu that is on screen answers.
+const OPEN_ACCOUNT_EVENT = "oworld:open-account";
+const openAccountWindow = () => { try { window.dispatchEvent(new Event(OPEN_ACCOUNT_EVENT)); } catch (e) { /* ignore */ } };
+
+// Account settings + deletion. The creation date is the day this device first saw the signed-in account.
+const LS_ACCOUNT_CREATED = "owordAccountCreated";
+const ACCOUNT_DATA_KEYS = [LS_SESSION, LS_LIBRARY, LS_PREFS, LS_HISTORY, LS_TOMBS, LS_TRASH, LS_CAREER, LS_NOTIFS, LS_SP, LS_BP, LS_DB, LS_DB_TOMBS];
+const ACCOUNT_SYNC_KEYS = [LS_SYNC, LS_CAREER_FILE, LS_SP_FILE, LS_SP_LEDGER, LS_BP_FILE, LS_BP_LEDGER, LS_DB_FILE, LS_ACTIVE_SYNC, LS_SESSION_FILE, LS_ACCOUNT_CREATED];
+function accountStoredKeys() {
+  const keys = [...ACCOUNT_DATA_KEYS];
+  try { for (let i = 0; i < window.localStorage.length; i++) { const k = window.localStorage.key(i); if (k && k.indexOf(LS_REVIEW) === 0) keys.push(k); } } catch (e) { /* ignore */ }
+  return keys;
+}
+// One JSON file with everything stored for this account on this device. Resolves true when the download started.
+function downloadAccountFiles(fileName, account) {
+  try {
+    const data = {};
+    accountStoredKeys().forEach((k) => { const v = lsGet(k); if (v != null) data[k] = v; });
+    const bundle = { app: "OWORLD", kind: "account-backup", exportedAt: new Date().toISOString(), account, data };
+    downloadBlob(new Blob([JSON.stringify(bundle, null, 2)], { type: "application/json" }), fileName);
+    return true;
+  } catch (e) { return false; }
+}
+function wipeAccountData() {
+  accountStoredKeys().forEach(lsRemove);
+  ACCOUNT_SYNC_KEYS.forEach(lsRemove);
+}
+
+// Career & study form inside the Account window. Every change saves at once (no Save button) and syncs through Drive when signed in.
+function CareerStudyForm({ T }) {
+  const { t, lang } = useI18n();
+  const cp = useContext(CareerContext);
+  const drive = useContext(DriveContext);
+  const vp = useViewport();
+  const narrow = vp.w < 560;
+  const c = cp.career;
+  const locale = lang === "es" ? "es" : "en-US";
+  const [deleting, setDeleting] = useState(false);
+  const [saved, setSaved] = useState(true); // changes already save as you type; this just tells the student so
+  const firstRun = useRef(true);
+  useEffect(() => { if (firstRun.current) { firstRun.current = false; return; } setSaved(false); }, [cp.career]);
+  const [objOpen, setObjOpen] = useState(false);   // Study objective: collapsed until opened
+  const [acctOpen, setAcctOpen] = useState(false); // Account Settings: collapsed until opened
+  const [dl, setDl] = useState("idle"); // idle | done | error
+  const linked = !!(drive && drive.configured && drive.linked);
+  const acct = linked && drive.profile ? drive.profile : null;
+  const [created, setCreated] = useState(() => { const v = lsGet(LS_ACCOUNT_CREATED); return typeof v === "number" ? v : 0; });
+  useEffect(() => {
+    if (!acct || created) return;
+    const now = Date.now(); lsSet(LS_ACCOUNT_CREATED, JSON.stringify(now)); setCreated(now);
+  }, [acct, created]);
+  const thisYear = new Date().getFullYear();
+  const years = []; for (let y = thisYear - 3; y <= thisYear + 10; y++) years.push(y);
+  if (c.gradYear && !years.includes(c.gradYear)) { years.push(c.gradYear); years.sort((a, b) => a - b); }
+  const next = careerNextStep(c, new Date());
+  const when = next ? (next.days === 0 ? t("spToday").toLowerCase() : next.days === 1 ? t("spTomorrow").toLowerCase() : t("spInDays", { n: next.days })) : "";
+  const toggle = (field, key) => cp.set({ [field]: c[field].includes(key) ? c[field].filter((k) => k !== key) : [...c[field], key] });
+  const setStepDate = (key, v) => { const d = { ...c.stepDates }; if (v) d[key] = v; else delete d[key]; cp.set({ stepDates: d }); };
+
+  const head = { fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(14), color: T.ink, margin: 0 };
+  const sub = { fontFamily: FONT_UI, fontSize: fs(12.5), color: T.muted, lineHeight: 1.5, margin: "3px 0 0" };
+  const lab = { display: "block", fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(12.5), color: T.ink, marginBottom: 5 };
+  const field = { width: "100%", boxSizing: "border-box", fontFamily: FONT_UI, fontSize: fs(13.5), padding: "8px 10px", borderRadius: 6, border: `1px solid ${T.border}`, background: T.paper, color: T.ink };
+  const grid2 = { display: "grid", gridTemplateColumns: narrow ? "1fr" : "1fr 1fr", gap: 12 };
+  const chip = (on) => ({
+    display: "flex", alignItems: "center", gap: 8, width: "100%", boxSizing: "border-box", textAlign: "left", cursor: "pointer", minHeight: 40,
+    padding: "8px 12px", borderRadius: 6, fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(13.5),
+    border: `1px solid ${on ? T.blue : T.border}`, background: on ? T.blueLight : T.card, color: on ? T.blue : T.ink,
+  });
+  const tick = (on) => (
+    <span aria-hidden="true" style={{ width: 16, height: 16, borderRadius: 4, flexShrink: 0, display: "inline-flex", alignItems: "center", justifyContent: "center", border: `1.5px solid ${on ? T.blue : T.muted}`, background: on ? T.blue : "transparent" }}>
+      {on && <Check size={11} color={T.onBlue} strokeWidth={3} />}
+    </span>
+  );
+  const foldHead = (Icon, title, open, toggle) => (
+    <button type="button" onClick={toggle} aria-expanded={open} style={{ display: "flex", alignItems: "center", gap: 8, width: "100%", background: "transparent", border: "none", padding: 0, cursor: "pointer", textAlign: "left" }}>
+      {Icon && <Icon size={16} color={T.ink} />}
+      <h3 style={{ ...head, flex: 1 }}>{title}</h3>
+      {open ? <ChevronUp size={16} color={T.muted} /> : <ChevronDown size={16} color={T.muted} />}
+    </button>
+  );
+  const text = (id, key, ph, list) => (
+    <div>
+      <label htmlFor={id} style={lab}>{t(`cp${key[0].toUpperCase()}${key.slice(1)}`)}</label>
+      <input id={id} type="text" value={c[key]} placeholder={ph} list={list} maxLength={120} autoComplete="off" onChange={(e) => cp.set({ [key]: e.target.value })} style={field} />
+    </div>
+  );
+
+  return (
+    <div style={{ display: "grid", gap: 22 }}>
+      <div>
+        <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+          <GraduationCap size={17} color={T.ink} />
+          <h3 style={head}>{t("cpTitle")}</h3>
+        </div>
+        <p style={sub}>{t("cpHint")}</p>
+      </div>
+
+      <section aria-label={t("cpAbout")} style={{ display: "grid", gap: 12 }}>
+        <div style={grid2}>
+          <div>
+            <label htmlFor="cp-status" style={lab}>{t("cpStatus")}</label>
+            <select id="cp-status" value={c.status} onChange={(e) => cp.set({ status: e.target.value })} style={field}>
+              <option value="">{t("cpStatus.pick")}</option>
+              {CAREER_STATUSES.map((k) => <option key={k} value={k}>{t(`cpStatus.${k}`)}</option>)}
+            </select>
+          </div>
+          <div>
+            <label htmlFor="cp-year" style={lab}>{t("cpGradYear")}</label>
+            <select id="cp-year" value={c.gradYear || ""} onChange={(e) => cp.set({ gradYear: e.target.value ? Number(e.target.value) : null })} style={field}>
+              <option value="">{t("cpStatus.pick")}</option>
+              {years.map((y) => <option key={y} value={y}>{y}</option>)}
+            </select>
+          </div>
+        </div>
+        <div style={grid2}>
+          {text("cp-country", "country", t("cpPhCountry"), "cp-countries")}
+          {text("cp-city", "city", t("cpPhCity"))}
+        </div>
+        {text("cp-university", "university", t("cpPhUniversity"))}
+        <datalist id="cp-countries">
+          {["Dominican Republic", "United States", "Puerto Rico", "Mexico", "Colombia", "Venezuela", "Haiti", "Canada", "Spain"].map((n) => <option key={n} value={n} />)}
+        </datalist>
+      </section>
+
+      <section aria-label={t("cpObjective")} style={{ display: "grid", gap: 16 }}>
+        {foldHead(null, t("cpObjective"), objOpen, () => setObjOpen((v) => !v))}
+        {objOpen && (
+          <>
+
+        <div role="group" aria-labelledby="cp-work-h">
+          <div id="cp-work-h" style={lab}>{t("cpCoursework")}</div>
+          <p style={{ ...sub, margin: "0 0 8px" }}>{t("cpCourseworkHint")}</p>
+          <div style={{ display: "grid", gridTemplateColumns: narrow ? "1fr" : "repeat(3, minmax(0, 1fr))", gap: 8 }}>
+            {CAREER_COURSEWORK.map((k) => {
+              const on = c.coursework.includes(k);
+              return <button key={k} type="button" aria-pressed={on} onClick={() => toggle("coursework", k)} style={chip(on)}>{tick(on)}<span>{t(`cpWork.${k}`)}</span></button>;
+            })}
+          </div>
+        </div>
+
+        <div role="group" aria-labelledby="cp-usmle-h">
+          <div id="cp-usmle-h" style={lab}>{t("cpUsmle")}</div>
+          <p style={{ ...sub, margin: "0 0 8px" }}>{t("cpUsmleHint")}</p>
+          <div style={{ display: "grid", gridTemplateColumns: narrow ? "1fr" : "repeat(3, minmax(0, 1fr))", gap: 8, alignItems: "start" }}>
+            {CAREER_STEPS.map((k) => {
+              const on = c.usmle.includes(k);
+              return (
+                <div key={k} style={{ display: "grid", gap: 6 }}>
+                  <button type="button" aria-pressed={on} onClick={() => toggle("usmle", k)} style={chip(on)}>{tick(on)}<span>{t(`cpStep.${k}`)}</span></button>
+                  {on && (
+                    <input type="date" aria-label={`${t(`cpStep.${k}`)}: ${t("cpTargetDate")}`} value={c.stepDates[k] || ""} onChange={(e) => setStepDate(k, e.target.value)} style={field} />
+                  )}
+                </div>
+              );
+            })}
+          </div>
+          {next && (
+            <p style={{ ...sub, margin: "10px 0 0", color: T.ink }}>
+              {t("cpNext", { step: t(`cpStep.${next.key}`), when, date: next.date.toLocaleDateString(locale, { month: "short", day: "numeric", year: "numeric" }) })}
+            </p>
+          )}
+        </div>
+          </>
+        )}
+      </section>
+
+      <div style={{ display: "flex", justifyContent: "flex-end" }}>
+        {saved
+          ? <GhostButton T={T} icon={Check} disabled style={{ color: T.green, border: `1px solid ${T.green}`, cursor: "default" }}>{t("acctSaved")}</GhostButton>
+          : <PrimaryButton T={T} icon={Save} onClick={() => { try { if (cp.sync && cp.sync.available) cp.sync.syncNow(); } catch (e) { /* ignore */ } setSaved(true); }}>{t("acctSave")}</PrimaryButton>}
+        <span role="status" aria-live="polite" style={{ position: "absolute", width: 1, height: 1, overflow: "hidden", clip: "rect(0 0 0 0)" }}>{saved ? t("acctSaved") : ""}</span>
+      </div>
+
+      <section aria-label={t("acctSettings")} style={{ display: "grid", gap: 10, borderTop: `1px solid ${T.border}`, paddingTop: 16 }}>
+        {foldHead(UserIcon, t("acctSettings"), acctOpen, () => setAcctOpen((v) => !v))}
+        {acctOpen && (
+          <>
+        {!acct && <p style={sub}>{t("acctSignedOutHint")}</p>}
+        <dl style={{ margin: 0, display: "grid", gridTemplateColumns: narrow ? "1fr" : "150px 1fr", gap: narrow ? "2px 0" : "8px 12px", fontFamily: FONT_UI, fontSize: fs(13.5) }}>
+          {[
+            [t("acctName"), acct && acct.name],
+            [t("acctEmail"), acct && acct.email],
+            [t("acctLinked"), acct && t("acctLinkedGoogle")],
+            [t("acctCreated"), acct && created ? new Date(created).toLocaleDateString(locale, { year: "numeric", month: "long", day: "numeric" }) : ""],
+          ].map(([k, v]) => (
+            <React.Fragment key={k}>
+              <dt style={{ color: T.muted, fontWeight: 600, marginTop: narrow ? 8 : 0 }}>{k}</dt>
+              <dd style={{ margin: 0, color: v ? T.ink : T.muted, overflowWrap: "anywhere" }}>{v || t("acctNone")}</dd>
+            </React.Fragment>
+          ))}
+        </dl>
+          <section aria-label={t("dzTitle")} style={{ border: `1px solid ${T.red}`, borderRadius: 8, padding: 14, display: "grid", gap: 10 }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+              <AlertTriangle size={16} color={T.red} />
+              <h3 style={{ ...head, color: T.red }}>{t("dzTitle")}</h3>
+            </div>
+            <p style={sub}>{t("dzDesc")}</p>
+            {!deleting && (
+              <button type="button" onClick={() => { setDl("idle"); setDeleting(true); }}
+                style={{ justifySelf: "start", display: "inline-flex", alignItems: "center", gap: 6, fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(13), padding: "9px 14px", borderRadius: 6, cursor: "pointer", background: T.red, color: T.onBlue, border: `1px solid ${T.red}` }}>
+                <Trash2 size={14} />{t("dzDelete")}
+              </button>
+            )}
+            {deleting && (
+              <div role="alert" style={{ background: T.redLight, border: `1px solid ${T.red}`, borderRadius: 6, padding: 12, display: "grid", gap: 10 }}>
+                <p style={{ fontFamily: FONT_UI, fontSize: fs(12.5), color: T.ink, lineHeight: 1.5, margin: 0 }}>{t("dzDownloadFirst")}{linked ? ` ${t("dzDriveNote")}` : ""}</p>
+                <button type="button" onClick={() => setDl(downloadAccountFiles(t("dzFileName", { d: new Date().toISOString().slice(0, 10) }), acct ? { name: acct.name, email: acct.email, linkedVia: "Google", created: created || null } : null) ? "done" : "error")}
+                  style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", gap: 6, fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(13), padding: "9px 12px", borderRadius: 6, cursor: "pointer", background: T.blue, color: T.onBlue, border: `1px solid ${T.blue}` }}>
+                  <Download size={14} />{t("dzDownload")}
+                </button>
+                {dl !== "idle" && <span role="status" style={{ fontFamily: FONT_UI, fontSize: fs(12), color: dl === "done" ? T.ink : T.red }}>{dl === "done" ? t("dzDownloaded") : t("dzDownloadFailed")}</span>}
+                <div style={{ display: "flex", gap: 8 }}>
+                  <button type="button" onClick={() => setDeleting(false)} style={{ flex: 1, fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(13), padding: "8px 10px", borderRadius: 6, cursor: "pointer", background: "transparent", color: T.ink, border: `1px solid ${T.border}` }}>{t("cancel")}</button>
+                  <button type="button" disabled={dl !== "done"} onClick={() => { try { if (linked) drive.signOut(); } catch (e) { /* ignore */ } wipeAccountData(); setTimeout(() => { wipeAccountData(); window.location.reload(); }, 60); }}
+                    style={{ flex: 1, fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(13), padding: "8px 10px", borderRadius: 6, cursor: dl === "done" ? "pointer" : "not-allowed", opacity: dl === "done" ? 1 : 0.5, background: T.red, color: T.onBlue, border: `1px solid ${T.red}` }}>{t("dzConfirmGo")}</button>
+                </div>
+                {dl !== "done" && (
+                  <button type="button" onClick={() => { try { if (linked) drive.signOut(); } catch (e) { /* ignore */ } wipeAccountData(); setTimeout(() => { wipeAccountData(); window.location.reload(); }, 60); }}
+                    style={{ justifySelf: "center", background: "none", border: "none", padding: 4, cursor: "pointer", fontFamily: FONT_UI, fontSize: fs(12), color: T.muted, textDecoration: "underline" }}>{t("dzSkip")}</button>
+                )}
+              </div>
+            )}
+          </section>
+          </>
+        )}
+      </section>
+    </div>
+  );
+}
+
 // One menu behind the profile picture (upper right of every screen): Google account + Drive sync status, then the app settings.
 // Signed in: round photo, plus the user's name on larger displays. Signed out: a generic account icon.
 function SettingsMenu({ darkMode, setDarkMode, T, iconOnly = false, onHelp }) {
@@ -5760,6 +6533,7 @@ function SettingsMenu({ darkMode, setDarkMode, T, iconOnly = false, onHelp }) {
   const drive = useContext(DriveContext);
   const trashCtx = useContext(TrashContext);
   const nav = useContext(NavContext);
+  const cp = useContext(CareerContext);
   const vp = useViewport();
   const [open, setOpen] = useState(false);
   const [popup, setPopup] = useState(null); // null | "trash" | "account" | "settings"
@@ -5773,6 +6547,11 @@ function SettingsMenu({ darkMode, setDarkMode, T, iconOnly = false, onHelp }) {
   }, [popup]);
   const [place, setPlace] = useState({ right: 0 });
   useEffect(() => {
+    const onOpen = () => { if (wrapRef.current && wrapRef.current.getClientRects().length) { setOpen(false); setPopup("account"); } };
+    window.addEventListener(OPEN_ACCOUNT_EVENT, onOpen);
+    return () => window.removeEventListener(OPEN_ACCOUNT_EVENT, onOpen);
+  }, []);
+  useEffect(() => {
     if (!open) return undefined;
     const away = (e) => { if (wrapRef.current && !wrapRef.current.contains(e.target)) setOpen(false); };
     const esc = (e) => { if (e.key === "Escape") setOpen(false); };
@@ -5783,6 +6562,11 @@ function SettingsMenu({ darkMode, setDarkMode, T, iconOnly = false, onHelp }) {
   const signedIn = !!(drive && drive.configured && drive.linked);
   const profile = signedIn ? drive.profile : null;
   const displayName = profile ? (profile.name || (profile.email || "").split("@")[0]) : "";
+  const careerText = careerLine(cp.career, t);
+  const objectiveItems = [
+    ...(cp.career.coursework || []).map((k) => ({ k: `w-${k}`, label: t(`cpWork.${k}`) })),
+    ...(cp.career.usmle || []).map((k) => ({ k: `s-${k}`, label: t(`cpStep.${k}`) })),
+  ];
   const reauth = signedIn && drive.status === "reauth";
   const stText = drive ? {
     busy: t("syncStBusy"), reauth: t("syncStReauth"), error: t("syncStError"), none: t("syncStNone"), off: t("syncOff"),
@@ -5841,15 +6625,23 @@ function SettingsMenu({ darkMode, setDarkMode, T, iconOnly = false, onHelp }) {
                 <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(15), color: T.ink, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
                   {signedIn ? (displayName || "Google") : t("signedOutNote")}
                 </div>
-                {signedIn && profile && profile.name && profile.email && <div style={{ fontFamily: FONT_UI, fontSize: fs(12.5), color: T.muted, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{profile.email}</div>}
+                {careerText && <div title={careerText} style={{ fontFamily: FONT_UI, fontSize: fs(12.5), color: T.ink, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", marginTop: 2 }}>{careerText}</div>}
               </div>
-              {signedIn && (
-                <button onClick={() => { setOpen(false); setPopup("account"); }} style={{
-                  flexShrink: 0, background: T.card, border: `1px solid ${T.border}`, borderRadius: 6, cursor: "pointer", whiteSpace: "nowrap",
-                  padding: "5px 9px", fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(12), color: T.blue,
-                }}>{t("viewAccount")}</button>
-              )}
             </div>
+            {objectiveItems.length > 0 && (
+              <div style={{ display: "grid", gap: 4 }}>
+                <div style={{ display: "flex", alignItems: "center", gap: 6, fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(11), color: T.muted, textTransform: "uppercase", letterSpacing: "0.04em" }}>
+                  <Target size={12} color={T.muted} />{t("cpObjective")}
+                </div>
+                <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
+                  {objectiveItems.map((x) => <span key={x.k} style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(12), color: T.blueDeep, background: T.card, border: `1px solid ${T.border}`, borderRadius: 999, padding: "2px 9px" }}>{x.label}</span>)}
+                </div>
+              </div>
+            )}
+            <button onClick={() => { setOpen(false); setPopup("account"); }} style={{
+              width: "100%", background: T.card, border: `1px solid ${T.border}`, borderRadius: 6, cursor: "pointer", whiteSpace: "nowrap",
+              padding: "8px 12px", fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(13), color: T.blue,
+            }}>{t("viewAccount")}</button>
             {drive && drive.configured && !signedIn && (
               <>
                 <p style={{ fontFamily: FONT_UI, fontSize: fs(12.5), color: T.muted, lineHeight: 1.5, margin: 0 }}>{t("signInHint")}</p>
@@ -5863,17 +6655,18 @@ function SettingsMenu({ darkMode, setDarkMode, T, iconOnly = false, onHelp }) {
                   <Cloud size={15} color={T.blue} />
                   <span style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(12.5), color: T.ink }}>{t("syncTitle")}</span>
                   <Pill T={T} tone={tone}>{stText}</Pill>
+                  {drive.status !== "reauth" && (
+                    <button onClick={drive.syncNow} disabled={drive.status === "busy"} style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(12.5), color: T.blue, background: "transparent", border: "none", cursor: drive.status === "busy" ? "default" : "pointer", opacity: drive.status === "busy" ? 0.5 : 1, padding: 4 }}>{t("syncShort")}</button>
+                  )}
                 </div>
                 {drive.status === "reauth" && <p style={{ fontFamily: FONT_UI, fontSize: fs(12), color: T.amber, lineHeight: 1.45, margin: 0 }}>{t("syncReauthHint")}</p>}
                 {drive.errKey && <p role="alert" style={{ fontFamily: FONT_UI, fontSize: fs(12), color: T.red, lineHeight: 1.45, margin: 0 }}>{t(drive.errKey)}</p>}
-                {drive.status === "reauth"
-                  ? <PrimaryButton T={T} icon={Cloud} onClick={drive.reconnect} style={{ width: "100%", justifyContent: "center" }}>{t("syncReconnect")}</PrimaryButton>
-                  : <PrimaryButton T={T} icon={RefreshCw} onClick={drive.syncNow} disabled={drive.status === "busy"} style={{ width: "100%", justifyContent: "center" }}>{t("syncNow")}</PrimaryButton>}
+                {drive.status === "reauth" && <PrimaryButton T={T} icon={Cloud} onClick={drive.reconnect} style={{ width: "100%", justifyContent: "center" }}>{t("syncReconnect")}</PrimaryButton>}
               </>
             )}
           </div>
 
-          {/* Settings, Student Profile, Help, Trash Bin */}
+          {/* Settings, Study Profile, Help, Trash Bin */}
           <div style={{ borderTop: `1px solid ${T.border}`, padding: "10px 16px", display: "grid", gap: 8 }}>
             <button onClick={() => { setOpen(false); setPopup("settings"); }} style={{
               width: "100%", display: "flex", alignItems: "center", gap: 10, background: "transparent", border: `1px solid ${T.border}`, borderRadius: 6, cursor: "pointer",
@@ -5884,22 +6677,12 @@ function SettingsMenu({ darkMode, setDarkMode, T, iconOnly = false, onHelp }) {
               <ChevronRight size={15} color={T.muted} />
             </button>
             {nav.open && (
-              <button onClick={() => { setOpen(false); nav.open("tutor"); }} disabled={nav.locked} style={{
-                width: "100%", display: "flex", alignItems: "center", gap: 10, background: "transparent", border: `1px solid ${T.border}`, borderRadius: 6, cursor: nav.locked ? "not-allowed" : "pointer",
-                padding: "9px 12px", fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(13), color: T.ink, textAlign: "left", opacity: nav.locked ? 0.5 : 1,
-              }}>
-                <Target size={15} color={T.muted} />
-                <span style={{ flex: 1 }}>{t("tabTutor")}</span>
-                <ChevronRight size={15} color={T.muted} />
-              </button>
-            )}
-            {nav.open && (
-              <button onClick={() => { setOpen(false); nav.open("profile"); }} disabled={nav.locked} style={{
+              <button onClick={() => { setOpen(false); nav.open("studyhub"); }} disabled={nav.locked} style={{
                 width: "100%", display: "flex", alignItems: "center", gap: 10, background: "transparent", border: `1px solid ${T.border}`, borderRadius: 6, cursor: nav.locked ? "not-allowed" : "pointer",
                 padding: "9px 12px", fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(13), color: T.ink, textAlign: "left", opacity: nav.locked ? 0.5 : 1,
               }}>
                 <GraduationCap size={15} color={T.muted} />
-                <span style={{ flex: 1 }}>{t("tabProfile")}</span>
+                <span style={{ flex: 1 }}>{t("tabStudyHub")}</span>
                 <ChevronRight size={15} color={T.muted} />
               </button>
             )}
@@ -5929,7 +6712,7 @@ function SettingsMenu({ darkMode, setDarkMode, T, iconOnly = false, onHelp }) {
       {popup && (
         <div role="dialog" aria-modal="true" aria-label={popup === "trash" ? t("trashTitle") : popup === "account" ? t("accountBtn") : t("settings")} onClick={() => setPopup(null)}
           style={{ position: "fixed", inset: 0, zIndex: 120, background: "rgba(0,0,0,0.55)", display: "flex", alignItems: "center", justifyContent: "center", padding: vp.w < 640 ? 10 : 20, textAlign: "left" }}>
-          <div onClick={(e) => e.stopPropagation()} style={{ width: "100%", maxWidth: popup === "trash" ? 780 : 420, maxHeight: "92vh", overflowY: "auto", borderRadius: 10, boxShadow: "0 12px 40px rgba(0,0,0,0.45)" }}>
+          <div onClick={(e) => e.stopPropagation()} style={{ width: "100%", maxWidth: popup === "trash" ? 780 : popup === "account" ? 600 : 420, maxHeight: "92vh", overflowY: "auto", borderRadius: 10, boxShadow: "0 12px 40px rgba(0,0,0,0.45)" }}>
             {popup === "trash" && <TrashPanel trash={trashCtx.trash} onRestore={trashCtx.restore} onPurge={trashCtx.purge} T={T} onClose={() => setPopup(null)} />}
             {popup === "account" && (
               <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, padding: 24 }}>
@@ -5944,13 +6727,23 @@ function SettingsMenu({ darkMode, setDarkMode, T, iconOnly = false, onHelp }) {
                   <div style={{ minWidth: 0 }}>
                     <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(17), color: T.ink, overflowWrap: "anywhere" }}>{signedIn ? (displayName || "Google") : t("signedOutNote")}</div>
                     {signedIn && profile && profile.email && <div style={{ fontFamily: FONT_UI, fontSize: fs(13), color: T.muted, overflowWrap: "anywhere", marginTop: 2 }}>{profile.email}</div>}
+                    {careerText && <div style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(13.5), color: T.ink, overflowWrap: "anywhere", marginTop: 6 }}>{careerText}</div>}
                     {signedIn && <div style={{ marginTop: 8 }}><Pill T={T} tone="green">{t("signedInAs")}</Pill></div>}
                   </div>
                 </div>
+                <div style={{ borderTop: `1px solid ${T.border}`, marginTop: 20, paddingTop: 20 }}>
+                  <CareerStudyForm T={T} />
+                </div>
                 {signedIn && (
-                  <div style={{ borderTop: `1px solid ${T.border}`, marginTop: 20, paddingTop: 16 }}>
+                  <div style={{ borderTop: `1px solid ${T.border}`, marginTop: 22, paddingTop: 16 }}>
                     <GhostButton T={T} icon={LogOut} onClick={() => { setPopup(null); drive.signOut(); }} style={{ width: "100%", justifyContent: "center" }}>{t("signOut")}</GhostButton>
                     <p style={{ fontFamily: FONT_UI, fontSize: fs(11.5), color: T.muted, lineHeight: 1.45, margin: "8px 0 0", textAlign: "center" }}>{t("signOutHint")}</p>
+                  </div>
+                )}
+                {!signedIn && drive && drive.configured && (
+                  <div style={{ borderTop: `1px solid ${T.border}`, marginTop: 22, paddingTop: 16, display: "grid", gap: 10 }}>
+                    <p style={{ fontFamily: FONT_UI, fontSize: fs(12.5), color: T.muted, lineHeight: 1.5, margin: 0 }}>{t("signInHint")}</p>
+                    <PrimaryButton T={T} icon={LogIn} onClick={() => { setPopup(null); drive.signIn(); }} style={{ width: "100%", justifyContent: "center" }}>{t("signIn")}</PrimaryButton>
                   </div>
                 )}
               </div>
@@ -6807,7 +7600,7 @@ function ConsoleCalendar({ sessionLog, onNavigate, T, fill = false }) {
     if (planTasks.some((k) => k.id === x.id)) sp.toggleTask(x.id);
     else sp.addTask({ id: x.id, title: x.title, due: selKey, subject: null, kind: x.kind, done: true });
   };
-  const planList = [...planTasks.filter((k) => !k.done).sort((p, q) => (p.due || "9999") < (q.due || "9999") ? -1 : (p.due || "9999") > (q.due || "9999") ? 1 : 0), ...planTasks.filter((k) => k.done)].slice(0, 4); // the Console surfaces 4 plan items; Show all opens the Student Profile for the rest
+  const planList = [...planTasks.filter((k) => !k.done).sort((p, q) => (p.due || "9999") < (q.due || "9999") ? -1 : (p.due || "9999") > (q.due || "9999") ? 1 : 0), ...planTasks.filter((k) => k.done)].slice(0, 4); // the Console surfaces 4 plan items; Show all opens the Study Profile for the rest
   const planDone = planTasks.filter((k) => k.done).length;
   const shownPlanIds = new Set(planList.map((k) => k.id));
   const selTasks = sel.tasks.filter((k) => !schedIds.has(k.id) && !String(k.id).startsWith("cal-") && !shownPlanIds.has(k.id));
@@ -6900,7 +7693,7 @@ function ConsoleCalendar({ sessionLog, onNavigate, T, fill = false }) {
               <span style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(11.5), color: T.muted, textTransform: "uppercase", letterSpacing: "0.06em" }}>{t("csCalPlan")}</span>
               <Pill T={T} tone="muted">{t("csCalPlanCount", { d: planDone, n: planTasks.length })}</Pill>
               {planTasks.length > planList.length && (
-                <button onClick={() => onNavigate("profile")} style={{ marginLeft: "auto", fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(12.5), color: T.blue, background: "transparent", border: "none", cursor: "pointer", padding: 4 }}>{t("csPlanShowAll", { n: planTasks.length })}</button>
+                <button onClick={() => onNavigate("calendar")} style={{ marginLeft: "auto", fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(12.5), color: T.blue, background: "transparent", border: "none", cursor: "pointer", padding: 4 }}>{t("csPlanShowAll", { n: planTasks.length })}</button>
               )}
             </div>
             {planList.map((k) => <TaskRow key={k.id} task={k} onToggle={() => sp.toggleTask(k.id)} onRemove={isMine(k) ? () => sp.removeTask(k.id) : undefined} T={T} t={t} lang={lang} />)}
@@ -6964,7 +7757,7 @@ function eventDayKeys(e, limit) {
   const out = []; starts.forEach((st) => { for (let i = 0; i <= span; i++) out.push(toISODate(new Date(st.getFullYear(), st.getMonth(), st.getDate() + i))); });
   return out;
 }
-const CAL_BLANK = { title: "", date: "", endDate: "", time: "", endTime: "", type: "other", notes: "", repeat: "none", until: "", kindT: "other", subject: "", weight: "", place: "", topics: "", courseId: "", done: false };
+const CAL_BLANK = { priority: "normal", taskDone: false, title: "", date: "", endDate: "", time: "", endTime: "", type: "other", notes: "", repeat: "none", until: "", kindT: "other", subject: "", weight: "", place: "", topics: "", courseId: "", done: false };
 // Add / edit form for a task, an event or an exam (same form, the fields follow the kind).
 function CalItemEditor({ ed, setEd, onSave, onDelete, onCancel, courses, T, t }) {
   const d = ed.draft; const set = (k, v) => setEd({ ...ed, draft: { ...d, [k]: v } });
@@ -6989,6 +7782,7 @@ function CalItemEditor({ ed, setEd, onSave, onDelete, onCancel, courses, T, t })
         {ed.kind === "event" && d.repeat !== "none" && field(t("calF.until"), <input type="date" value={d.until} min={d.date} onChange={(e) => set("until", e.target.value)} style={inp} />)}
         {ed.kind === "task" && field(t("calF.type"), sel("kindT", SP_TASK_KINDS.map((x) => [x, cap(x)])))}
         {ed.kind === "task" && field(t("calF.subject"), <input value={d.subject} maxLength={80} onChange={(e) => set("subject", e.target.value)} style={inp} />)}
+        {ed.kind === "task" && field(t("calF.priority"), sel("priority", PLAN_PRIORITIES.map((x) => [x, t(`plPri.${x}`)])))}
         {ed.kind === "exam" && field(t("calF.type"), sel("type", SP_ASSESS_TYPES.map((x) => [x, cap(x)])))}
         {ed.kind === "exam" && field(t("calF.weight"), <input type="number" min={0} max={100} value={d.weight} onChange={(e) => set("weight", e.target.value)} style={inp} />)}
         {ed.kind === "exam" && field(t("calF.place"), <input value={d.place} maxLength={80} onChange={(e) => set("place", e.target.value)} style={inp} />)}
@@ -6997,6 +7791,7 @@ function CalItemEditor({ ed, setEd, onSave, onDelete, onCancel, courses, T, t })
         {field(t("calF.notes"), <input value={d.notes} maxLength={200} onChange={(e) => set("notes", e.target.value)} style={inp} />, true)}
       </div>
       {ed.kind === "exam" && <label style={{ display: "flex", alignItems: "center", gap: 8, fontFamily: FONT_UI, fontSize: fs(13), color: T.ink }}><input type="checkbox" checked={d.done} onChange={(e) => set("done", e.target.checked)} />{t("calF.done")}</label>}
+      {ed.kind === "task" && <label style={{ display: "flex", alignItems: "center", gap: 8, fontFamily: FONT_UI, fontSize: fs(13), color: T.ink }}><input type="checkbox" checked={d.taskDone} onChange={(e) => set("taskDone", e.target.checked)} />{t("calF.taskDone")}</label>}
       <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
         <PrimaryButton T={T} icon={Check} onClick={onSave} disabled={!valid}>{t("calSave")}</PrimaryButton>
         <GhostButton T={T} icon={X} onClick={onCancel}>{t("calCancel")}</GhostButton>
@@ -7084,7 +7879,7 @@ function CalendarPage({ sessionLog, onNavigate, T, focusDate }) {
       else cl.forEach(({ c, m }) => out.push({ id: `c-${c.id}-${m.id}`, kind: "class", title: c.name, t24: m.start || "", time: m.start ? shortClock(fmtClock(m.start, locale)) : null }));
     }
     if (layers.event) info.events.forEach((e) => out.push({ id: `e-${e.id}`, kind: "event", title: e.title, t24: e.time || "", time: e.time ? shortClock(fmtClock(e.time, locale)) : null, drag: { kind: "event", id: e.id, src: dk }, edit: { kind: "event", id: e.id } }));
-    if (layers.task) info.tasks.filter((k) => !String(k.id).startsWith("cal-")).forEach((k) => out.push({ id: `t-${k.id}`, kind: "task", title: k.title, done: k.done, t24: k.time || "", time: k.time ? shortClock(fmtClock(k.time, locale)) : null, drag: { kind: "task", id: k.id, src: dk }, edit: { kind: "task", id: k.id } }));
+    if (layers.task) info.tasks.filter((k) => !String(k.id).startsWith("cal-")).forEach((k) => out.push({ id: `t-${k.id}`, kind: "task", title: k.title, done: k.done, high: k.priority === "high" && !k.done, late: !k.done && dk < todayKey, t24: k.time || "", time: k.time ? shortClock(fmtClock(k.time, locale)) : null, drag: { kind: "task", id: k.id, src: dk }, edit: { kind: "task", id: k.id } }));
     if (layers.study && info.sessions.length) out.push({ id: "s", kind: "study", title: t("csCalStudied", { n: info.sessions.length, q: qOf(info.sessions) }) });
     const ql = q.trim().toLowerCase(); const hit = ql ? out.filter((i) => i.title.toLowerCase().includes(ql)) : out;
     return hit.map((i, n) => ({ i, n })).sort((x, y) => ((x.i.kind === "key" ? 0 : 1) - (y.i.kind === "key" ? 0 : 1)) || ((x.i.t24 || "99") < (y.i.t24 || "99") ? -1 : (x.i.t24 || "99") > (y.i.t24 || "99") ? 1 : 0) || x.n - y.n).map((x) => x.i);
@@ -7128,7 +7923,7 @@ function CalendarPage({ sessionLog, onNavigate, T, focusDate }) {
   const openNew = (kind, key) => setEd({ kind, id: null, draft: { ...CAL_BLANK, date: key || selKey, type: kind === "exam" ? "exam" : "other" } });
   const openEdit = (kind, id) => {
     if (kind === "event") { const e = events.find((x) => x.id === id); if (e) setEd({ kind, id, draft: { ...CAL_BLANK, title: e.title, date: e.startDate, endDate: e.endDate || "", time: e.time || "", endTime: e.endTime || "", type: e.type, notes: e.notes || "", repeat: e.repeat || "none", until: e.until || "" } }); }
-    else if (kind === "task") { const k = planTasks.find((x) => x.id === id); if (k) setEd({ kind, id, draft: { ...CAL_BLANK, title: k.title, date: k.due || selKey, time: k.time || "", kindT: k.kind || "other", subject: k.subject || "", notes: k.notes || "" } }); }
+    else if (kind === "task") { const k = planTasks.find((x) => x.id === id); if (k) setEd({ kind, id, draft: { ...CAL_BLANK, title: k.title, date: k.due || selKey, time: k.time || "", kindT: k.kind || "other", subject: k.subject || "", notes: k.notes || "", priority: k.priority || "normal", taskDone: !!k.done } }); }
     else { const a = assessments.find((x) => x.id === id); if (a) setEd({ kind: "exam", id, draft: { ...CAL_BLANK, title: a.title, date: a.date, time: a.time || "", type: a.type, weight: a.weightPct == null ? "" : String(a.weightPct), place: a.location || "", topics: (a.coverage || []).join(", "), courseId: a.courseId || "", done: a.status === "done", notes: a.notes || "" } }); }
   };
   const saveEd = () => {
@@ -7139,7 +7934,7 @@ function CalendarPage({ sessionLog, onNavigate, T, focusDate }) {
       commitCal({ events: (ed.id ? events.map((x) => (x.id === id ? { ...x, ...ev } : x)) : [...events, ev]).sort(byDate("startDate")) });
     } else if (ed.kind === "task") {
       const old = planTasks.find((x) => x.id === id);
-      const tk = { ...(old || {}), id, title, due: d.date, time: d.time || null, subject: d.subject.trim().slice(0, 80) || null, kind: d.kindT, notes, done: old ? old.done : false };
+      const tk = { ...(old || {}), id, title, due: d.date, time: d.time || null, subject: d.subject.trim().slice(0, 80) || null, kind: d.kindT, notes, priority: d.priority, done: !!d.taskDone, doneAt: d.taskDone ? ((old && old.done && old.doneAt) || Date.now()) : null };
       commitCal({ tasks: ed.id ? planTasks.map((x) => (x.id === id ? tk : x)) : [...planTasks, tk] });
     } else {
       const old = assessments.find((x) => x.id === id) || {}; const w = d.weight === "" ? null : Number(d.weight);
@@ -7195,9 +7990,28 @@ function CalendarPage({ sessionLog, onNavigate, T, focusDate }) {
   const selTasks = sel.tasks.filter((k) => !schedIds.has(k.id) && !String(k.id).startsWith("cal-"));
   const tickSched = (x) => {
     if (planTasks.some((k) => k.id === x.id)) sp.toggleTask(x.id);
-    else sp.addTask({ id: x.id, title: x.title, due: selKey, subject: null, kind: x.kind, done: true });
+    else sp.addTask({ id: x.id, title: x.title, due: selKey, subject: null, kind: x.kind, done: true, doneAt: Date.now() });
   };
-  const isMine = (k) => String(k.id).startsWith("usr-");
+  const isMine = (k) => !String(k.id).startsWith("cal-");
+  const dupToday = selKey === todayKey; // today's tasks, exams, events and classes are already listed in the plan right below, so the day view skips them
+  // Exams, events and classes of the next 7 days, handed to the task manager with actions of their own.
+  const agenda = profile ? Array.from({ length: 8 }, (_, i) => addDays(startOfDay(new Date()), i)).flatMap((d) => {
+    const dk = toISODate(d); const info = infoOf(dk); const wk = termWeekOf(d);
+    return [
+      ...info.exams.map((a) => ({ id: `cal-exam-${a.id}`, src: "exam", title: a.title, date: dk, time: a.time || "", sub: [a.weightPct != null ? `${a.weightPct}%` : null, a.location].filter(Boolean).join(" · "), ref: a, topics: ((a.qbankFocus && a.qbankFocus.length ? a.qbankFocus : a.coverage) || []).slice(0, 4), examDone: a.status === "done" })),
+      ...info.events.filter((e) => e.type !== "holiday" && e.type !== "break").map((e) => ({ id: `cal-event-${e.id}-${dk}`, src: "event", title: e.title, date: dk, time: e.time || "", sub: "", ref: e, topics: [] })),
+      ...(dk === todayKey ? classesOn(d, info) : []).map(({ c, m }) => { const cw = wk ? (c.weeks || []).find((w) => w.week === wk.w) : null; return { id: `cal-class-${c.id}-${m.id}-${dk}`, src: "class", title: c.name, date: dk, time: m.start || "", sub: [m.location].filter(Boolean).join(" · "), ref: { c, m }, topics: cw ? [...(cw.qbankFocus || []), ...(cw.topics || [])].slice(0, 3) : [] }; }),
+    ];
+  }).map((x) => ({ ...x, done: !!x.examDone || !!(planTasks.find((k) => k.id === x.id) || {}).done })) : [];
+  const agendaApi = {
+    create: (kind, title, date) => {
+      setEd({ kind, id: null, draft: { ...CAL_BLANK, title: title || "", date: parseISODate(date) ? date : selKey, type: kind === "exam" ? "exam" : "other" } });
+      setTimeout(() => { const el = document.getElementById("schedule-day"); if (el) el.scrollIntoView({ behavior: "smooth", block: "start" }); }, 60);
+    },
+    tick: (x) => { if (planTasks.some((k) => k.id === x.id)) sp.toggleTask(x.id); else sp.addTask({ id: x.id, title: x.title, due: x.date, subject: null, kind: x.src === "exam" ? "exam" : "other", done: true, doneAt: Date.now() }); },
+  };
+  const dayTasks = [...sched, ...selTasks]; const dayDone = dayTasks.filter((k) => k.done).length;
+  const unscheduled = planTasks.filter((k) => !k.due && !k.done && !String(k.id).startsWith("cal-"));
   const submitNew = () => {
     const title = newTitle.trim().slice(0, 200); if (!title || !profile) return;
     sp.addTask({ id: `usr-${Date.now().toString(36)}${Math.random().toString(36).slice(2, 6)}`, title, due: selKey, subject: null, kind: "other", done: false });
@@ -7215,7 +8029,7 @@ function CalendarPage({ sessionLog, onNavigate, T, focusDate }) {
   const dot = (color, k) => <span key={k} style={{ width: 6, height: 6, borderRadius: 999, background: color, display: "inline-block" }} />;
 
   const chipEl = (it, wrap) => {
-    const [c, bg] = KIND[it.kind];
+    const [c, bg] = it.late ? [T.red, T.redLight] : KIND[it.kind];
     return (
       <span key={it.id} title={[it.time, it.title].filter(Boolean).join(" ")} draggable={!!it.drag} onDragStart={it.drag ? (e) => { dragRef.current = it.drag; e.dataTransfer.effectAllowed = "move"; try { e.dataTransfer.setData("text/plain", it.title); } catch (x) { /* ignore */ } } : undefined} onDragEnd={() => { dragRef.current = null; }} onDoubleClick={it.edit ? (e) => { e.stopPropagation(); openEdit(it.edit.kind, it.edit.id); } : undefined} style={{
         display: "block", boxSizing: "border-box", maxWidth: "100%", textAlign: "left", borderLeft: `3px solid ${c}`, background: bg, color: T.ink, borderRadius: 4,
@@ -7223,7 +8037,7 @@ function CalendarPage({ sessionLog, onNavigate, T, focusDate }) {
         textDecoration: it.done ? "line-through" : "none", opacity: it.done ? 0.65 : 1,
         ...(wrap ? { overflowWrap: "break-word", wordBreak: "normal" } : { overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }),
       }}>
-        {it.time && <span style={{ fontFamily: FONT_MONO, fontSize: fs(10.5), color: T.muted }}>{it.time} </span>}{it.title}
+        {it.time && <span style={{ fontFamily: FONT_MONO, fontSize: fs(10.5), color: T.muted }}>{it.time} </span>}{it.high ? "! " : ""}{it.title}
       </span>
     );
   };
@@ -7313,12 +8127,6 @@ function CalendarPage({ sessionLog, onNavigate, T, focusDate }) {
       </div>
     );
 
-  const tiles = profile && brief ? [
-    [t("calStatTerm"), profile.term.name || "—", spWeekLabel(brief, t)],
-    [t("spNext"), brief.next ? brief.next.title : t("spNoNext"), brief.next ? spWhen(brief.next.days, t) : ""],
-    [t("calStatOpen"), String(planTasks.filter((k) => !k.done).length), brief.tasksDue.length ? t("sgTasks", { n: brief.tasksDue.length }) : ""],
-    [t("calStatWeekQ"), brief.target ? `${brief.answeredWeek} / ${brief.target}` : String(brief.answeredWeek), ""],
-  ] : null;
 
   return (
     <div style={{ display: "grid", gap: 18 }}>
@@ -7327,19 +8135,7 @@ function CalendarPage({ sessionLog, onNavigate, T, focusDate }) {
         <p style={{ fontFamily: FONT_UI, fontSize: fs(13.5), color: T.muted, lineHeight: 1.55, margin: 0, maxWidth: 680 }}>{t("calHint")}</p>
       </div>
 
-      {tiles && (
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 200px), 1fr))", gap: 12, ...(wide ? {} : { order: 3 }) }}>
-          {tiles.map(([label, value, sub]) => (
-            <div key={label} style={{ ...card, padding: phone ? 14 : 16 }}>
-              <div style={sect}>{label}</div>
-              <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(16), color: T.ink, marginTop: 4, overflowWrap: "anywhere" }}>{value}</div>
-              {sub && <div style={{ fontFamily: FONT_UI, fontSize: fs(12), color: T.muted, marginTop: 2 }}>{sub}</div>}
-            </div>
-          ))}
-        </div>
-      )}
-
-      <div style={wide ? { display: "grid", gridTemplateColumns: "minmax(0, 1fr) 360px", gap: 18, alignItems: "start" } : { display: "contents" }}>
+      <div style={wide ? { display: "grid", gridTemplateColumns: "minmax(0, 1fr)", gap: 18, alignItems: "start" } : { display: "contents" }}>
         <div style={{ ...card, ...(wide ? {} : { order: 1 }) }}>
           <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap", marginBottom: 12 }}>
             <CalendarDays size={18} color={T.ink} />
@@ -7395,11 +8191,14 @@ function CalendarPage({ sessionLog, onNavigate, T, focusDate }) {
           )}
         </div>
 
-        <div style={{ ...card, ...(wide ? { position: "sticky", top: 12 } : { order: 2 }) }} aria-live="polite">
-          <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap", marginBottom: 6 }}>
-            <span style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(15), color: T.ink }}>{cap(longDay(selDate))}</span>
-            {selWk && <Pill T={T} tone="muted">{brief && brief.total ? t("spTermWeek", { w: selWk.w, n: brief.total }) : t("spTermWeekNoTotal", { w: selWk.w })}</Pill>}
-          </div>
+        <div id="schedule-day" style={{ ...card, ...(wide ? { scrollMarginTop: "calc(var(--oworld-sticky-h, 0px) + 12px)" } : { order: 2 }) }}>
+          <PlanManager inline profile={profile} sp={sp} brief={brief} T={T} t={t} lang={lang} phone={phone} agenda={agenda} api={agendaApi} query={q}
+            headExtra={dayTasks.length > 0 ? <Pill T={T} tone={dayDone === dayTasks.length ? "green" : "amber"}>{t("calDayDone", { d: dayDone, n: dayTasks.length })}</Pill> : null}
+            onNavigate={(tab, key) => { const d = parseISODate(key); if (d) { setSelKey(key); setAnchor(startOfDay(d)); window.scrollTo({ top: 0, behavior: "smooth" }); } }}>
+          {!dupToday && <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap", marginBottom: 6 }}>
+            {!dupToday && <span style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(15), color: T.ink }}>{cap(longDay(selDate))}</span>}
+            {selWk && selKey !== todayKey && <Pill T={T} tone="muted">{brief && brief.total ? t("spTermWeek", { w: selWk.w, n: brief.total }) : t("spTermWeekNoTotal", { w: selWk.w })}</Pill>}
+          </div>}
 
           {ed && profile && <CalItemEditor ed={ed} setEd={setEd} onSave={saveEd} onDelete={delEd} onCancel={() => setEd(null)} courses={profile.courses || []} T={T} t={t} />}
           {sel.keys.length > 0 && (
@@ -7414,13 +8213,13 @@ function CalendarPage({ sessionLog, onNavigate, T, focusDate }) {
               </div>
               {editClasses
                 ? <ClassEditor courses={profile.courses || []} onChange={sp.updateCourses} mondayFirst={mondayFirst} locale={locale} defaultDay={selDate.getDay()} T={T} t={t} />
-                : selClasses.length > 0
+                : dupToday ? null : selClasses.length > 0
                   ? selClasses.map(({ c, m }) => <ClassRow key={`${c.id}-${m.id}`} name={c.name} m={m} locale={locale} head={rowHead} T={T} />)
                   : !hasMeetings && <p style={{ fontFamily: FONT_UI, fontSize: fs(12.5), color: T.muted, margin: "2px 0 0" }}>{t("csClassNone")}</p>}
             </div>
           )}
 
-          {sched.map((x) => {
+          {(dupToday ? [] : sched).map((x) => {
             const a = x.item; const isExam = x.src === "exam"; const tone = isExam ? T.red : T.blue;
             return (
               <div key={x.id} style={itemRow}>
@@ -7439,7 +8238,18 @@ function CalendarPage({ sessionLog, onNavigate, T, focusDate }) {
               </div>
             );
           })}
-          {selTasks.map((k) => <TaskRow key={k.id} task={k} onToggle={() => sp.toggleTask(k.id)} onRemove={isMine(k) ? () => sp.removeTask(k.id) : undefined} onEdit={() => openEdit("task", k.id)} T={T} t={t} lang={lang} />)}
+          {(dupToday ? [] : selTasks).map((k) => <TaskRow key={k.id} task={k} onToggle={() => sp.toggleTask(k.id)} onRemove={isMine(k) ? () => sp.removeTask(k.id) : undefined} onEdit={() => openEdit("task", k.id)} T={T} t={t} lang={lang} />)}
+          {profile && unscheduled.length > 0 && (
+            <div style={{ marginTop: 10 }}>
+              <div style={sect}>{t("calUnscheduled", { n: unscheduled.length })}</div>
+              {unscheduled.map((k) => (
+                <div key={k.id} style={{ display: "flex", alignItems: "center", gap: 8, padding: "6px 0" }}>
+                  <span style={{ flex: 1, minWidth: 0, fontFamily: FONT_UI, fontSize: fs(13.5), color: T.ink, overflowWrap: "anywhere" }}>{k.title}</span>
+                  <GhostButton T={T} icon={CalendarDays} onClick={() => commitCal({ tasks: planTasks.map((x) => (x.id === k.id ? { ...x, due: selKey } : x)) }, t("calMoved", { s: k.title, d: fmtShort(selDate) }))} style={{ padding: "4px 10px" }}>{t("calScheduleHere")}</GhostButton>
+                </div>
+              ))}
+            </div>
+          )}
           {sel.sessions.map((e) => (
             <div key={e.id} style={itemRow}>
               <span style={{ marginTop: 6 }}>{dot(T.green)}</span>
@@ -7449,34 +8259,21 @@ function CalendarPage({ sessionLog, onNavigate, T, focusDate }) {
               </div>
             </div>
           ))}
-          {!sched.length && !selTasks.length && !sel.sessions.length && !sel.keys.length && !selClasses.length && (
+          {!dupToday && !sched.length && !selTasks.length && !sel.sessions.length && !sel.keys.length && !selClasses.length && (
             <p style={{ fontFamily: FONT_UI, fontSize: fs(13.5), color: T.muted, margin: "4px 0 0" }}>{t("csCalNothing")}</p>
           )}
 
-          {profile && !ed && (
-            <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginTop: 12 }}>
-              <GhostButton T={T} icon={Plus} onClick={() => openNew("task")}>{t("calAdd.task")}</GhostButton>
-              <GhostButton T={T} icon={Plus} onClick={() => openNew("event")}>{t("calAdd.event")}</GhostButton>
-              <GhostButton T={T} icon={Plus} onClick={() => openNew("exam")}>{t("calAdd.exam")}</GhostButton>
-            </div>
-          )}
-          {profile && (
-            <div style={{ display: "flex", alignItems: "center", gap: 8, marginTop: 12, flexWrap: "wrap" }}>
-              <input value={newTitle} maxLength={200} onChange={(e) => setNewTitle(e.target.value)} onKeyDown={(e) => { if (e.key === "Enter") submitNew(); }}
-                placeholder={t("csPlanAddPh")} aria-label={t("csPlanAddPh")}
-                style={{ flex: "1 1 160px", minWidth: 0, fontFamily: FONT_UI, fontSize: fs(13.5), color: T.ink, background: T.paper, border: `1px solid ${T.border}`, borderRadius: 8, padding: "8px 10px", outline: "none" }} />
-              <GhostButton T={T} icon={Plus} onClick={submitNew} disabled={!newTitle.trim()} style={{ padding: "7px 12px" }}>{t("csPlanAdd")}</GhostButton>
-              <span style={{ flexBasis: "100%", fontFamily: FONT_UI, fontSize: fs(11.5), color: T.muted }}>{t("csPlanAddFor", { d: selDate.toLocaleDateString(locale, { weekday: "short", month: "short", day: "numeric" }) })}</span>
-            </div>
-          )}
           {toast && (
             <div role="status" style={{ display: "flex", alignItems: "center", gap: 10, marginTop: 12, padding: "9px 12px", borderRadius: 8, background: T.ink, color: T.paper, fontFamily: FONT_UI, fontSize: fs(13) }}>
               <span style={{ flex: 1, minWidth: 0, overflowWrap: "anywhere" }}>{toast.msg}</span>
               <button onClick={() => { toast.undo(); setToast(null); }} style={{ background: "transparent", border: "none", color: T.paper, fontWeight: 700, textDecoration: "underline", cursor: "pointer", fontFamily: FONT_UI, fontSize: fs(13) }}>{t("calUndo")}</button>
             </div>
           )}
+
+          </PlanManager>
         </div>
       </div>
+
     </div>
   );
 }
@@ -7745,12 +8542,12 @@ function SessionHistoryPanel({ history, onDelete, onClear, onReview, T }) {
   );
 }
 
-// Menu bar under the logo / account row: the Home pages. Console | Qbank | Analysis | Database | Calendar.
+// Menu bar under the logo / account row: the Home pages. Console | Qbank | Analysis | Schedule | Database.
 function PageNav({ tab, setTab, T }) {
   const { t } = useI18n();
-  const items = [["console", t("tabConsole"), LayoutDashboard], ["library", t("tabLibrary"), BookOpen], ["analytics", t("tabHistory"), BarChart3], ["database", t("tabDatabase"), Database], ["calendar", t("tabCalendar"), CalendarDays]];
+  const items = [["console", t("tabConsole"), LayoutDashboard], ["library", t("tabLibrary"), BookOpen], ["analytics", t("tabHistory"), BarChart3], ["calendar", t("tabCalendar"), CalendarDays], ["database", t("tabDatabase"), Database]];
   return (
-    <nav style={{ borderBottom: `1px solid ${T.border}`, marginBottom: 22, overflowX: "auto", overflowY: "hidden", touchAction: "pan-x", overscrollBehaviorY: "none" }}>
+    <nav style={{ borderBottom: `1px solid ${T.border}`, marginBottom: 0, overflowX: "auto", overflowY: "hidden", touchAction: "pan-x", overscrollBehaviorY: "none" }}>
       <div role="tablist" style={{ display: "flex", gap: 4, width: "max-content", margin: "0 auto" }}>{/* auto margins center the tabs; when they are wider than the screen the margins collapse and the row scrolls from its start */}
         {items.map(([id, label, Ic]) => {
           const on = tab === id;
@@ -7797,7 +8594,7 @@ function GlobalSearch({ library, sessionLog, onGo, onClose, T }) {
     const a = Math.max(0, i - 36);
     return (a > 0 ? "…" : "") + str.slice(a, i + needle.length + 56) + (i + needle.length + 56 < str.length ? "…" : "");
   };
-  // ---- calendar: dates, times, events, exams, tasks, classes and syllabus weeks of the Student Profile ----
+  // ---- calendar: dates, times, events, exams, tasks, classes and syllabus weeks of the Study Profile ----
   const LOCS = ["en-US", "es"];
   const norm = (x) => String(x || "").toLowerCase().replace(/[,.]/g, "").replace(/\s+/g, " ").trim();
   const dateHay = (d) => (d ? [toISODate(d), ...LOCS.flatMap((l) => [
@@ -7945,11 +8742,11 @@ const GUIDE = {
     { title: "6. Analytics", body: "Every block you finish is logged, so you can look back at your progress and reopen any run.",
       points: ["On Home, use the menu bar under the logo to go between Console, Library, Import, Analytics, Database and Calendar.", "Each entry shows its title (for example Mixed: 3 blocks · 50 Questions), the date completed and your score.", "Tap Review Exam to reopen the full question-by-question breakdown with lab values and explanations.", "Tick entries to reveal Delete Selected, or use Select all. Deleted logs go to the Trash for 30 days, and deleting a log never touches your Qbank cards.", "The 25 most recent sessions keep their full review. Older ones keep a score summary only."] },
     { title: "7. Pause, come back, and tidy up", body: "In Tutor Mode you can leave and pick up where you stopped.",
-      points: ["Tap Home. Your answers and place in the block are saved automatically. Back on Home, tap Resume Session.", "In the exam lobby, Remove exam clears the loaded exam without touching your saved library.", "The profile menu (top right) holds your Google account, sync, language, theme, text size and the Trash.", "Optional: sign in with Google from the profile menu to keep your library, Analytics, Student Profile and any test in progress in step across your devices. Start a test on one device and Continue here on another; if the two versions differ, you choose which to keep.", "The Trash (profile menu) now holds deleted Qbanks, Analytics sessions and Database items for 30 days. Restore them, or delete them forever."] },
+      points: ["Tap Home. Your answers and place in the block are saved automatically. Back on Home, tap Resume Session.", "In the exam lobby, Remove exam clears the loaded exam without touching your saved library.", "The profile menu (top right) holds your Google account, sync, language, theme, text size and the Trash.", "Optional: sign in with Google from the profile menu to keep your library, Analytics, Study Profile and any test in progress in step across your devices. Start a test on one device and Continue here on another; if the two versions differ, you choose which to keep.", "The Trash (profile menu) now holds deleted Qbanks, Analytics sessions and Database items for 30 days. Restore them, or delete them forever."] },
     { title: "8. Using your phone", body: "On a phone the screen is simplified so the question gets the room.",
       points: ["The question list is hidden. Use Previous and Next at the top right, and Home at the top left (Tutor Mode).", "Lab Values, Notes, Calculator and Settings are in one row under them.", "At the bottom, Lock is on the left and End Block is on the right. A timed block also shows its countdown in the middle."] },
-    { title: "9. Your Student Profile and tutor", body: "Give OWORLD your syllabus once and your tutor follows along: it knows your week, your exams and what to study next.",
-      points: ["Open the profile menu (your picture, upper right), tap Student Profile, tap Copy prompt, and give it to your AI tool together with your syllabus. Paste the JSON it returns and tap Load profile.", "The Console then shows Your tutor: this week's topics, your next exam, today's tasks and a few lines of guidance. Tap Start a block to pre-fill the Question Recipe for a topic.", "In the Library, Qbanks that match this week's topics are suggested at the top.", "Exam countdowns, new weeks and pace alerts arrive in the bell. Each one appears once.", "Your profile syncs through Google Drive like your Qbanks. Tap Update current profile any time to refresh it.", "The bell (top right) collects exam countdowns, new weeks, pace and deadline alerts, finished blocks and sync notices. Mark all read or Clear all from there."] },
+    { title: "9. Your Study Profile and tutor", body: "Give OWORLD your syllabus once and your tutor follows along: it knows your week, your exams and what to study next.",
+      points: ["Open the profile menu (your picture, upper right), tap Study Profile, tap Copy prompt, and give it to your AI tool together with your syllabus. Paste the JSON it returns and tap Load profile.", "The Console then shows Your tutor: this week's topics, your next exam, today's tasks and a few lines of guidance. Tap Start a block to pre-fill the Question Recipe for a topic.", "In the Library, Qbanks that match this week's topics are suggested at the top.", "Exam countdowns, new weeks and pace alerts arrive in the bell. Each one appears once.", "Your profile syncs through Google Drive like your Qbanks. Tap Update current profile any time to refresh it.", "The bell (top right) collects exam countdowns, new weeks, pace and deadline alerts, finished blocks and sync notices. Mark all read or Clear all from there."] },
     { title: "10. Console, your dashboard", body: "The Console is the first page you see. It shows where you are at a glance.",
       points: ["A greeting and study streak, with a one-tap Resume for the block you left half-finished.", "Stat tiles for sessions, questions answered, accuracy and day streak.", "Analytics highlights: a donut of correct, correct using hints and incorrect answers. Tap View all to open Analytics.", "Recent scores charts your last 10 sessions against the 70% line.", "Your tutor sits beside the semester calendar. Use the Analytics and Library tabs for past sessions and your saved Qbanks."] },
     { title: "11. Personal Database", body: "The Database page keeps the questions, excerpts and notes you save while studying, so you can revise them later.",
@@ -7957,7 +8754,7 @@ const GUIDE = {
     { title: "12. Search everything", body: "The magnifier at the top of every page opens one search box for the whole app.",
       points: ["Type at least 2 letters. It looks through your Library, Calendar, Database and Analytics at once, with results grouped by section.", "Tap a result to jump straight to it. In the calendar it opens that day or item, and in the database it opens the matching entry.", "It also understands dates and times, so you can try Oct 20, Tuesday or 9:00."] },
     { title: "13. The Calendar", body: "The Calendar page puts your whole term on one screen: classes, exams, tasks, breaks and the days you studied.",
-      points: ["Switch between Month, Week and Agenda. Tap a day to see its details, tick things off, or add a task.", "The chips above the calendar are Key dates, Classes, Exam, Calendar, Task due and Studied. Tap one to show only that layer and hide the others. Tap it again to bring everything back.", "To combine layers, hold Shift (or Ctrl / Cmd) and tap the chips you want to turn on or off.", "Classes, exam dates and times can be edited, and a wrong exam date can be fixed in place. Your tutor follows the correction even after you update your profile.", "Without a Student Profile the calendar has little to show. Tap Set up profile on it to build one (see step 9)."] },
+      points: ["Switch between Month, Week and Agenda. Tap a day to see its details, tick things off, or add a task.", "The chips above the calendar are Key dates, Classes, Exam, Calendar, Task due and Studied. Tap one to show only that layer and hide the others. Tap it again to bring everything back.", "To combine layers, hold Shift (or Ctrl / Cmd) and tap the chips you want to turn on or off.", "Classes, exam dates and times can be edited, and a wrong exam date can be fixed in place. Your tutor follows the correction even after you update your profile.", "Without a Study Profile the calendar has little to show. Tap Set up profile on it to build one (see step 9)."] },
   ],
   es: [
     { title: "Bienvenido a OWORLD", body: "OWORLD es un simulador de exámenes de práctica. Tú aportas las preguntas y él las convierte en un examen realista con herramientas, retroalimentación inmediata y seguimiento de puntaje.",
@@ -7975,19 +8772,19 @@ const GUIDE = {
     { title: "6. Analíticas", body: "Cada bloque que terminas queda registrado, para que veas tu progreso y reabras cualquier intento.",
       points: ["En Inicio, usa la barra de menú bajo el logotipo para moverte entre Consola, Biblioteca, Importar, Analíticas, Base de datos y Calendario.", "Cada entrada muestra su título (por ejemplo Mezcla: 3 bloques · 50 preguntas), la fecha y tu puntaje.", "Toca Revisar examen para reabrir el desglose completo pregunta por pregunta, con valores de laboratorio y explicaciones.", "Marca entradas para mostrar Eliminar selección, o usa Seleccionar todo. Los registros eliminados pasan a la Papelera durante 30 días, y eliminar un registro nunca toca tus tarjetas de Qbank.", "Las 25 sesiones más recientes conservan su revisión completa. Las anteriores conservan solo un resumen del puntaje."] },
     { title: "7. Pausa, vuelve y ordena", body: "En modo tutor puedes salir y retomar donde lo dejaste.",
-      points: ["Toca Inicio. Tus respuestas y tu posición en el bloque se guardan automáticamente. De vuelta en Inicio, toca Reanudar sesión.", "En la sala del examen, Quitar examen borra el examen cargado sin tocar tu biblioteca guardada.", "El menú de perfil (arriba a la derecha) reúne tu cuenta de Google, la sincronización, el idioma, el tema, el tamaño de texto y la Papelera.", "Opcional: inicia sesión con Google desde el menú de perfil para mantener tu biblioteca, tus Analíticas, tu Perfil del estudiante y cualquier examen en curso al día entre dispositivos. Empieza un examen en un dispositivo y toca Continuar aquí en otro; si las dos versiones difieren, tú eliges cuál conservar.", "La Papelera (menú de perfil) guarda durante 30 días los Qbanks, sesiones de Analíticas y elementos de la Base de datos eliminados. Puedes restaurarlos o eliminarlos para siempre."] },
+      points: ["Toca Inicio. Tus respuestas y tu posición en el bloque se guardan automáticamente. De vuelta en Inicio, toca Reanudar sesión.", "En la sala del examen, Quitar examen borra el examen cargado sin tocar tu biblioteca guardada.", "El menú de perfil (arriba a la derecha) reúne tu cuenta de Google, la sincronización, el idioma, el tema, el tamaño de texto y la Papelera.", "Opcional: inicia sesión con Google desde el menú de perfil para mantener tu biblioteca, tus Analíticas, tu Perfil de estudio y cualquier examen en curso al día entre dispositivos. Empieza un examen en un dispositivo y toca Continuar aquí en otro; si las dos versiones difieren, tú eliges cuál conservar.", "La Papelera (menú de perfil) guarda durante 30 días los Qbanks, sesiones de Analíticas y elementos de la Base de datos eliminados. Puedes restaurarlos o eliminarlos para siempre."] },
     { title: "8. Usar el teléfono", body: "En el teléfono la pantalla se simplifica para que la pregunta tenga espacio.",
       points: ["La lista de preguntas se oculta. Usa Anterior y Siguiente arriba a la derecha, e Inicio arriba a la izquierda (modo tutor).", "Valores de laboratorio, Notas, Calculadora y Ajustes están en una fila debajo.", "Abajo, Bloquear está a la izquierda y Terminar bloque a la derecha. Un bloque cronometrado también muestra su cuenta regresiva en el centro."] },
-    { title: "9. Tu Perfil del estudiante y tu tutor", body: "Dale tu programa a OWORLD una sola vez y tu tutor te acompaña: conoce tu semana, tus exámenes y qué estudiar después.",
-      points: ["Abre el menú de perfil (tu foto, arriba a la derecha), toca Perfil del estudiante, toca Copiar prompt y dáselo a tu herramienta de IA junto con tu programa. Pega el JSON que te devuelva y toca Cargar perfil.", "La Consola muestra entonces Tu tutor: los temas de la semana, tu próximo examen, las tareas de hoy y algunas líneas de guía. Toca Iniciar un bloque para rellenar la receta de preguntas de un tema.", "En la Biblioteca, los Qbanks que coinciden con los temas de esta semana se sugieren arriba.", "Las cuentas regresivas de exámenes, las semanas nuevas y las alertas de ritmo llegan a la campana. Cada una aparece una sola vez.", "Tu perfil se sincroniza con Google Drive como tus Qbanks. Toca Actualizar perfil actual cuando quieras refrescarlo.", "La campana (arriba a la derecha) reúne las cuentas regresivas de exámenes, las semanas nuevas, las alertas de ritmo y de fechas límite, los bloques terminados y los avisos de sincronización. Usa Marcar todo como leído o Borrar todo desde ahí."] },
+    { title: "9. Tu Perfil de estudio y tu tutor", body: "Dale tu programa a OWORLD una sola vez y tu tutor te acompaña: conoce tu semana, tus exámenes y qué estudiar después.",
+      points: ["Abre el menú de perfil (tu foto, arriba a la derecha), toca Perfil de estudio, toca Copiar prompt y dáselo a tu herramienta de IA junto con tu programa. Pega el JSON que te devuelva y toca Cargar perfil.", "La Consola muestra entonces Tu tutor: los temas de la semana, tu próximo examen, las tareas de hoy y algunas líneas de guía. Toca Iniciar un bloque para rellenar la receta de preguntas de un tema.", "En la Biblioteca, los Qbanks que coinciden con los temas de esta semana se sugieren arriba.", "Las cuentas regresivas de exámenes, las semanas nuevas y las alertas de ritmo llegan a la campana. Cada una aparece una sola vez.", "Tu perfil se sincroniza con Google Drive como tus Qbanks. Toca Actualizar perfil actual cuando quieras refrescarlo.", "La campana (arriba a la derecha) reúne las cuentas regresivas de exámenes, las semanas nuevas, las alertas de ritmo y de fechas límite, los bloques terminados y los avisos de sincronización. Usa Marcar todo como leído o Borrar todo desde ahí."] },
     { title: "10. Consola, tu panel", body: "La Consola es la primera página que ves. Te muestra de un vistazo cómo vas.",
-      points: ["Un saludo y tu racha de estudio, con Reanudar con un toque para el bloque que dejaste a medias.", "Tarjetas con Sesiones, Preguntas respondidas, Precisión y Racha de días.", "Resumen de analíticas: una dona con las respuestas correctas, correctas con pistas e incorrectas. Toca Ver todo para abrir Analíticas.", "Puntajes recientes grafica tus últimas 10 sesiones frente a la línea del 70%. Materias más fuertes y Por mejorar ordenan tus materias cuando has respondido al menos 5 preguntas en cada una.", "Debajo están Tu tutor, Sesiones recientes y un vistazo a tu biblioteca. Con un Perfil del estudiante cargado, aparece a un lado un calendario pequeño."] },
+      points: ["Un saludo y tu racha de estudio, con Reanudar con un toque para el bloque que dejaste a medias.", "Tarjetas con Sesiones, Preguntas respondidas, Precisión y Racha de días.", "Resumen de analíticas: una dona con las respuestas correctas, correctas con pistas e incorrectas. Toca Ver todo para abrir Analíticas.", "Puntajes recientes grafica tus últimas 10 sesiones frente a la línea del 70%. Materias más fuertes y Por mejorar ordenan tus materias cuando has respondido al menos 5 preguntas en cada una.", "Debajo están Tu tutor, Sesiones recientes y un vistazo a tu biblioteca. Con un Perfil de estudio cargado, aparece a un lado un calendario pequeño."] },
     { title: "11. Base de datos personal", body: "La página Base de datos guarda las preguntas, extractos y notas que guardas mientras estudias, para repasarlos después.",
       points: ["Durante un bloque, selecciona texto y toca Añadir a la base de datos para guardar un extracto. Usa el marcador para guardar una pregunta completa, o Guardar en la base de datos en el panel de Notas para conservar una nota.", "Filtra por Todo, Preguntas, Extractos o Notas, o busca en tu base de datos. Mostrar respuesta revela la respuesta de una pregunta guardada, y Añadir comentario te deja escribir tus propias observaciones en cualquier elemento.", "Edita, copia o elimina cualquier elemento. Administrar te deja seleccionar varios para eliminarlos, y Borrar todo vacía la base de datos. Todo lo eliminado pasa a la Papelera durante 30 días.", "Exportar (o Compartir) guarda tus elementos en un solo archivo. Importar los añade en otro dispositivo o desde un amigo, y omite los que ya tienes.", "Con sesión de Google iniciada, tu base de datos se sincroniza entre dispositivos como tu biblioteca."] },
     { title: "12. Busca en todo", body: "La lupa en la parte superior de cada página abre un único cuadro de búsqueda para toda la app.",
       points: ["Escribe al menos 2 letras. Busca a la vez en tu Biblioteca, Calendario, Base de datos y Analíticas, con los resultados agrupados por sección.", "Toca un resultado para ir directo a él. En el calendario abre ese día o elemento, y en la base de datos abre la entrada correspondiente.", "También entiende fechas y horas, así que prueba Oct 20, martes o 9:00."] },
     { title: "13. El Calendario", body: "La página Calendario reúne todo tu periodo en una sola pantalla: clases, exámenes, tareas, descansos y los días que estudiaste.",
-      points: ["Cambia entre Mes, Semana y Agenda. Toca un día para ver sus detalles, marcar cosas o agregar una tarea.", "Los botones sobre el calendario son Fechas clave, Clases, Examen, Calendario, Tarea y Estudio. Toca uno para mostrar solo esa capa y ocultar las demás. Tócalo otra vez para recuperar todo.", "Para combinar capas, mantén Shift (o Ctrl / Cmd) y toca los botones que quieras activar o desactivar.", "Las clases, y las fechas y horas de los exámenes, se pueden editar, y una fecha de examen equivocada se corrige ahí mismo. Tu tutor respeta la corrección aunque actualices tu perfil.", "Sin un Perfil del estudiante el calendario tiene poco que mostrar. Toca Configurar perfil para crear uno (ver el paso 9)."] },
+      points: ["Cambia entre Mes, Semana y Agenda. Toca un día para ver sus detalles, marcar cosas o agregar una tarea.", "Los botones sobre el calendario son Fechas clave, Clases, Examen, Calendario, Tarea y Estudio. Toca uno para mostrar solo esa capa y ocultar las demás. Tócalo otra vez para recuperar todo.", "Para combinar capas, mantén Shift (o Ctrl / Cmd) y toca los botones que quieras activar o desactivar.", "Las clases, y las fechas y horas de los exámenes, se pueden editar, y una fecha de examen equivocada se corrige ahí mismo. Tu tutor respeta la corrección aunque actualices tu perfil.", "Sin un Perfil de estudio el calendario tiene poco que mostrar. Toca Configurar perfil para crear uno (ver el paso 9)."] },
   ],
 };
 
@@ -8109,6 +8906,16 @@ function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], dri
   const [review, setReview] = useState(null); // { result, action: "load" | "save" } — confirm when the tolerant loader left something out
   const [guideOpen, setGuideOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
+  const stickyRef = useRef(null);
+  useEffect(() => { // publish the sticky header's height so nested sticky bars (Study Hub sections) sit right below it
+    const el = stickyRef.current; if (!el) return undefined;
+    const root = document.documentElement;
+    const set = () => root.style.setProperty("--oworld-sticky-h", `${Math.round(el.getBoundingClientRect().height)}px`);
+    set();
+    if (typeof ResizeObserver === "undefined") { window.addEventListener("resize", set); return () => { window.removeEventListener("resize", set); root.style.removeProperty("--oworld-sticky-h"); }; }
+    const ro = new ResizeObserver(set); ro.observe(el);
+    return () => { ro.disconnect(); root.style.removeProperty("--oworld-sticky-h"); };
+  }, []);
   const [dbFocus, setDbFocus] = useState(null); // { q, n }: the Database page opens filtered by a Search result
   const [calFocus, setCalFocus] = useState(null); // { key, n }: a day picked in Search, shown on the Calendar page
   const vp = useViewport();
@@ -8210,6 +9017,10 @@ function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], dri
     <div style={{ maxWidth: Math.round(1120 * Math.max(1, TEXT_SCALE)), width: "100%", boxSizing: "border-box", margin: "0 auto", padding: "22px 20px 80px", position: "relative" }}>
       <style>{`@import url('${FONT_IMPORT_URL}');`}</style>
 
+      {searchOpen && <GlobalSearch library={library} sessionLog={sessionLog} onGo={(tab, key, query) => { if (key) setCalFocus({ key, n: Date.now() }); if (query) setDbFocus({ q: query, n: Date.now() }); setLibTab(tab); window.scrollTo({ top: 0, behavior: "smooth" }); }} onClose={() => setSearchOpen(false)} T={T} />}
+      {guideOpen && <HowItWorksGuide onClose={() => setGuideOpen(false)} T={T} />}
+      {/* Sticky header: the top bar and the page tabs stay pinned while the page scrolls. */}
+      <div ref={stickyRef} style={{ position: "sticky", top: 0, zIndex: 20, background: T.paper, margin: "-22px -20px 22px", padding: "14px 20px 0" }}>
       {/* Top bar: the OWORLD logo (the Home button) at the left, Search + notifications + the profile menu (which holds Help) at the right. */}
       <div style={wideBar
         ? { display: "grid", gridTemplateColumns: "1fr auto 1fr", alignItems: "center", gap: 12, marginBottom: 12 } // 1fr | search | 1fr keeps the search bar exactly centered
@@ -8235,19 +9046,17 @@ function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], dri
           <SettingsMenu darkMode={darkMode} setDarkMode={setDarkMode} T={T} iconOnly={phone} onHelp={() => setGuideOpen(true)} />
         </div>
       </div>
-      {searchOpen && <GlobalSearch library={library} sessionLog={sessionLog} onGo={(tab, key, query) => { if (key) setCalFocus({ key, n: Date.now() }); if (query) setDbFocus({ q: query, n: Date.now() }); setLibTab(tab); window.scrollTo({ top: 0, behavior: "smooth" }); }} onClose={() => setSearchOpen(false)} T={T} />}
-      {guideOpen && <HowItWorksGuide onClose={() => setGuideOpen(false)} T={T} />}
       <PageNav tab={libTab} setTab={setLibTab} T={T} />
+      </div>
 
       {/* Library top row: compact active-session widget (Resume lives here) with the Qhub placeholder to its right. */}
       {libTab === "library" && <LibraryTopRow session={session} resumeId={resumeId} library={library} onResume={onResume} onOpenLobby={onOpenLobby} T={T} />}
 
       {libTab === "database" && <DatabasePanel key={dbFocus ? dbFocus.n : "db"} initialQuery={dbFocus ? dbFocus.q : ""} T={T} />}
-      {libTab === "profile" && <StudentProfilePanel T={T} sessionLog={sessionLog} onNavigate={(tab) => { setLibTab(tab); window.scrollTo({ top: 0, behavior: "smooth" }); }} />}
       {libTab === "calendar" && <CalendarPage focusDate={calFocus} sessionLog={sessionLog} onNavigate={(tab) => { setLibTab(tab); window.scrollTo({ top: 0, behavior: "smooth" }); }} T={T} />}
       {libTab === "analytics" && <SessionHistoryPanel history={sessionLog} onDelete={onDeleteSession} onClear={onClearSessions} onReview={onReviewSession} T={T} />}
       {libTab === "console" && <ConsolePanel library={library} sessionLog={sessionLog} session={session} onResume={onResume} onOpenLobby={onOpenLobby} onReview={onReviewSession} onNavigate={(tab) => { setLibTab(tab); window.scrollTo({ top: 0, behavior: "smooth" }); }} T={T} />}
-      {libTab === "tutor" && <TutorDashboard library={library} sessionLog={sessionLog} onLaunch={onLaunchLibrary} onNavigate={(tab) => { setLibTab(tab); window.scrollTo({ top: 0, behavior: "smooth" }); }} T={T} />}
+      {libTab === "studyhub" && <StudyHub library={library} sessionLog={sessionLog} onLaunch={onLaunchLibrary} onNavigate={(tab, key) => { if (key) setCalFocus({ key, n: Date.now() }); setLibTab(tab); if (tab !== "profile") window.scrollTo({ top: 0, behavior: "smooth" }); }} T={T} />}
       {libTab === "library" && <TutorLibraryStrip library={library} sessionLog={sessionLog} onLaunch={onLaunchLibrary} T={T} />}
       {libTab === "library" && <QbankLibraryPanel library={library} onLaunch={onLaunchLibrary} onMix={onMixLibrary} onDelete={onDeleteLibraryEntry} onRename={onRenameLibraryEntry} resumeId={resumeId} onResume={onResume} sessionLog={sessionLog} T={T} />}
 
@@ -8771,6 +9580,75 @@ function ImportReview({ examData, library, onAdd, onCancel, T, darkMode, setDark
   );
 }
 
+// Tutor suggested sources: every reference the loaded questions cite, merged so a source that appears many times is listed once.
+// Sources are matched by title (case / punctuation insensitive); their chapters and pages are merged the same way.
+function collectTutorSources(questions) {
+  const norm = (x) => String(x || "").toLowerCase().replace(/[^a-z0-9\u00c0-\u024f]+/g, " ").trim();
+  const map = new Map();
+  (questions || []).forEach((q, qi) => {
+    (Array.isArray(q.sourceReferences) ? q.sourceReferences : []).forEach((r) => {
+      const title = r && r.sourceTitle ? String(r.sourceTitle).trim() : "";
+      const k = norm(title); if (!k) return;
+      let src = map.get(k); if (!src) { src = { title, qs: new Set(), chapters: new Map() }; map.set(k, src); }
+      src.qs.add(q.id != null ? q.id : qi);
+      const ch = r.chapterSection ? String(r.chapterSection).trim() : "";
+      const ck = norm(ch);
+      let c = src.chapters.get(ck); if (!c) { c = { label: ch, pages: new Set() }; src.chapters.set(ck, c); }
+      if (r.pageNumber) String(r.pageNumber).split(/\s*,\s*/).filter(Boolean).forEach((pg) => c.pages.add(pg));
+    });
+  });
+  return [...map.values()]
+    .map((src) => ({ title: src.title, count: src.qs.size, chapters: [...src.chapters.values()].filter((c) => c.label || c.pages.size).map((c) => ({ label: c.label, pages: [...c.pages] })) }))
+    .sort((a, b) => b.count - a.count || a.title.localeCompare(b.title));
+}
+
+function TutorSourcesWindow({ sources, T, onClose }) {
+  const { t } = useI18n();
+  useEffect(() => {
+    const esc = (e) => { if (e.key === "Escape") onClose(); };
+    document.addEventListener("keydown", esc);
+    return () => document.removeEventListener("keydown", esc);
+  }, [onClose]);
+  return (
+    <div role="dialog" aria-modal="true" aria-label={t("tutorSrcTitle")} onClick={onClose}
+      style={{ position: "fixed", inset: 0, zIndex: 320, background: "rgba(0,0,0,0.55)", display: "flex", alignItems: "center", justifyContent: "center", padding: 16, textAlign: "left" }}>
+      <div onClick={(e) => e.stopPropagation()} style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, width: "100%", maxWidth: 560, maxHeight: "86vh", display: "flex", flexDirection: "column", boxShadow: "0 12px 40px rgba(0,0,0,0.45)" }}>
+        <div style={{ padding: "18px 20px 12px" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+            <BookOpen size={18} color={T.blue} />
+            <h3 style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(16), color: T.ink, margin: 0, flex: 1 }}>{t("tutorSrcTitle")}</h3>
+            <span style={{ fontFamily: FONT_MONO, fontSize: fs(11.5), color: T.muted }}>{t("tutorSrcCount", { n: sources.length })}</span>
+            <button onClick={onClose} aria-label={t("cancel")} title={t("cancel")} style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", width: 32, height: 32, borderRadius: 6, background: "transparent", border: `1px solid ${T.border}`, color: T.ink, cursor: "pointer" }}><X size={15} /></button>
+          </div>
+          <p style={{ fontFamily: FONT_UI, fontSize: fs(12.5), color: T.muted, lineHeight: 1.5, margin: "8px 0 0" }}>{t("tutorSrcHint")}</p>
+        </div>
+        <div style={{ overflowY: "auto", padding: "4px 20px 12px", display: "grid", gap: 10 }}>
+          {sources.map((src) => (
+            <div key={src.title} style={{ border: `1px solid ${T.border}`, borderRadius: 8, padding: "10px 12px" }}>
+              <div style={{ display: "flex", alignItems: "baseline", gap: 8, flexWrap: "wrap" }}>
+                <span style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(13.5), color: T.ink, flex: 1, minWidth: 0, overflowWrap: "anywhere" }}>{src.title}</span>
+                <span style={{ fontFamily: FONT_MONO, fontSize: fs(11.5), color: T.muted }}>{t("tutorSrcQ", { n: src.count })}</span>
+              </div>
+              {src.chapters.length > 0 && (
+                <ul style={{ margin: "6px 0 0", paddingLeft: 18, display: "grid", gap: 3 }}>
+                  {src.chapters.map((c, i) => (
+                    <li key={i} style={{ fontFamily: FONT_UI, fontSize: fs(12.5), color: T.muted, lineHeight: 1.45, overflowWrap: "anywhere" }}>
+                      {c.label}{c.pages.length > 0 && <span style={{ fontFamily: FONT_MONO, fontSize: fs(11.5) }}>{c.label ? " · " : ""}{t("page")} {c.pages.join(", ")}</span>}
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </div>
+          ))}
+        </div>
+        <div style={{ padding: "12px 20px 18px", display: "flex", justifyContent: "flex-end", borderTop: `1px solid ${T.border}` }}>
+          <PrimaryButton T={T} onClick={onClose}>{t("tutorSrcStart")}</PrimaryButton>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function Lobby({ examData, blockStates, library = [], onStart, onReview, onHome, onRemove, onRemoveBlocks, onFinalSummary, onSetMode, onRetestMissed, onRetestAll, onSaveBlocks, T, darkMode, setDarkMode }) {
   const { t } = useI18n();
   const [confirmRemove, setConfirmRemove] = useState(false);
@@ -9206,6 +10084,8 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onRate, o
   const [confirmTimerOff, setConfirmTimerOff] = useState(false);
   const [timeUp, setTimeUp] = useState(false);
   const [settingsOpen, setSettingsOpen] = useState(false);
+  const [srcOpen, setSrcOpen] = useState(false); // Tutor suggested sources window (Tutor sessions)
+  const tutorSources = useMemo(() => (blockState.tutor ? collectTutorSources(block.questions) : []), [block, blockState.tutor]);
   const [importOpen, setImportOpen] = useState(false); // in-exam "Import Qbank" dialog (saves to the library, session untouched)
   // The question list can fold into a slim rail to give the question more room; the choice is remembered.
   const [navCollapsed, setNavCollapsed] = useState(() => lsGet("navCollapsed") === true);
@@ -9502,6 +10382,13 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onRate, o
               {t("item", { n: qIdx + 1, total: questions.length })}<br />{t("blockOf")}
             </div>
           )}
+          {blockState.tutor && tutorSources.length > 0 && (
+            <button onClick={() => setSrcOpen(true)} style={toolBtnStyle(srcOpen)} title={t("tutorSrcTitle")} aria-label={t("tutorSrcTitle")}>
+              <Lightbulb size={22} />
+              {!narrow && t("tutorSrcBtn")}
+            </button>
+          )}
+          {srcOpen && <TutorSourcesWindow sources={tutorSources} T={T} onClose={() => setSrcOpen(false)} />}
         </div>
 
         {prevNextEl}
@@ -10686,7 +11573,10 @@ export default function App() {
   const [textScale, setTextScale] = useState(boot.prefs.textScale);
   TEXT_SCALE = textScale; // read by fs() while this render builds the tree
   const [library, setLibrary] = useState(boot.library); // [{ id, title, importDate, questions, lastScore }]
-  const [libTab, setLibTab] = useState("console"); // Home page: console | library | import | analytics (lives here so Review Exam → Home lands back on Analytics)
+  const [libTab, setLibTabRaw] = useState("console");
+  // Tutor dashboard + Study Profile are one page, the Study Hub: "tutor" opens it, "profile" opens it and scrolls to the profile section.
+  const setLibTab = (tab) => { if (tab === "profile") { setLibTabRaw("studyhub"); setTimeout(() => window.dispatchEvent(new Event("oworld-profile-jump")), 220); } else setLibTabRaw(tab === "tutor" ? "studyhub" : tab); }; // Home page: console | library | import | analytics (lives here so Review Exam → Home lands back on Analytics)
+  const [srcWin, setSrcWin] = useState(null); // Tutor suggested sources window: { sources } | null
   const [tombs, setTombs] = useState(loadTombs); // deletions, so a delete on one device isn't undone by another device's copy
   const [sessionLog, setSessionLog] = useState(boot.sessionLog); // independent log of every finished session, newest first
   const [trash, setTrash] = useState(loadTrash); // recently deleted Qbanks, Analytics sessions and Database items (restorable for TRASH_TTL)
@@ -10852,6 +11742,7 @@ export default function App() {
     setHistory([]);
     setActiveBlockIdx(0);
     setView("exam");
+    if (mode === "tutor") { const list = collectTutorSources(block.questions); setSrcWin(list.length ? { sources: list } : null); } else setSrcWin(null);
   }
 
   // Saves a self-rating on the question's `meta` ({ rating, ratedAt }) — in the loaded exam (every copy, incl. retest
@@ -11061,6 +11952,9 @@ export default function App() {
   const profileSync = useProfileSync({ drive, store: studentProfile });
   const blueprintStore = useBlueprintStore();
   const blueprintSync = useBlueprintSync({ drive, store: blueprintStore });
+  const careerStore = useCareerProfile();
+  const careerSync = useCareerSync({ drive, store: careerStore });
+  const careerCtx = { ...careerStore, sync: careerSync };
   useBlueprintNudges({ bp: blueprintStore.bp, profile: studentProfile.profile, notify: notifs.notify });
   const [pendingFocus, setPendingFocus] = useState(null); // set by the tutor's "Start a <subject> block", consumed by the Import screen
   const navLockBs = view === "exam" && activeBlockIdx !== null ? blockStates[activeBlockIdx] : null;
@@ -11156,7 +12050,7 @@ export default function App() {
     setStorageError(false);
     setRestoredNotice(false);
     setExamData(null); setBlockStates([]); setHistory([]); setActiveBlockIdx(null);
-    removeAllReviewSnapshots(); notifs.clearAll(); database.wipe(); studentProfile.wipe(); blueprintStore.wipe(); setLibrary([]); setSessionLog([]); setTrash([]); setDarkMode(true); setLang("en"); setTextScale(1);
+    removeAllReviewSnapshots(); notifs.clearAll(); database.wipe(); studentProfile.wipe(); blueprintStore.wipe(); careerStore.wipe(); setLibrary([]); setSessionLog([]); setTrash([]); setDarkMode(true); setLang("en"); setTextScale(1);
     setView("import");
   }
 
@@ -11393,7 +12287,9 @@ export default function App() {
     <NotifContext.Provider value={notifs}>
     <DbContext.Provider value={dbCtx}>
     <ProfileContext.Provider value={profileCtx}>
+    <CareerContext.Provider value={careerCtx}>
     <div style={{ minHeight: "100vh", background: T.paper, fontFamily: FONT_UI, textAlign: "left" }}>
+      {srcWin && <TutorSourcesWindow sources={srcWin.sources} T={T} onClose={() => setSrcWin(null)} />}
       {restoredNotice && (
         <div role="status" onClick={() => setRestoredNotice(false)} style={{
           position: "fixed", top: 14, left: "50%", transform: "translateX(-50%)", zIndex: 200, cursor: "pointer",
@@ -11429,9 +12325,9 @@ export default function App() {
         const mixLine = r.isMixed && r.sourceBanks && r.sourceBanks.length ? ` ${tr("activeMixed").replace("{banks}", r.sourceBanks.join(", "))}` : "";
         const replaces = activePrompt.action === "conflict" || !!examData;
         return (
-          // A corner notification, not a modal: the screen stays usable underneath. Continue acts on it; the X / Not now dismisses it.
+          // A bottom-center notification, not a modal: the screen stays usable underneath. Continue acts on it; the X / Not now dismisses it.
           <div role="status" aria-live="polite" style={{
-            position: "fixed", right: 14, bottom: "calc(90px + env(safe-area-inset-bottom, 0px))", zIndex: 310, width: "min(400px, calc(100vw - 28px))", boxSizing: "border-box",
+            position: "fixed", left: "50%", transform: "translateX(-50%)", bottom: "calc(90px + env(safe-area-inset-bottom, 0px))", zIndex: 310, width: "min(400px, calc(100vw - 28px))", boxSizing: "border-box",
             background: T.card, border: `1px solid ${T.blue}`, borderRadius: 12, padding: "14px 14px 12px", boxShadow: "0 10px 30px rgba(0,0,0,0.35)",
           }}>
             <div style={{ display: "flex", alignItems: "flex-start", gap: 10 }}>
@@ -11443,7 +12339,7 @@ export default function App() {
               </div>
               <button onClick={declineActivePrompt} aria-label={tr("activeNotNow")} title={tr("activeNotNow")} style={{ background: "transparent", border: "none", cursor: "pointer", color: T.muted, padding: 4, margin: "-4px -4px 0 0", flexShrink: 0, display: "inline-flex" }}><X size={16} /></button>
             </div>
-            <div style={{ display: "flex", justifyContent: "flex-end", gap: 8, marginTop: 12, flexWrap: "wrap" }}>
+            <div style={{ display: "flex", justifyContent: "center", gap: 8, marginTop: 12, flexWrap: "wrap" }}>
               <GhostButton T={T} onClick={declineActivePrompt}>{tr(activePrompt.action === "conflict" ? "activeKeepMine" : "activeNotNow")}</GhostButton>
               <PrimaryButton T={T} onClick={acceptActivePrompt}>{tr("activeContinue")}</PrimaryButton>
             </div>
@@ -11537,6 +12433,7 @@ export default function App() {
         </FullPage>
       )}
     </div>
+    </CareerContext.Provider>
     </ProfileContext.Provider>
     </DbContext.Provider>
     </NotifContext.Provider>
