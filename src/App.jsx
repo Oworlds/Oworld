@@ -4,8 +4,7 @@ import {
   Play, CheckCircle2, XCircle, AlertTriangle, ClipboardList, Activity,
   Check, ChevronDown, ChevronUp, FileJson, FlaskConical, PencilLine,
   Calculator as CalcIcon, Settings as SettingsIcon, Lock, Unlock,
-  Search, Trash2, X, XOctagon, Lightbulb, Sun, Moon, Highlighter, BookOpen, Stethoscope, Target, Save, Shuffle, Plus, Home as HomeIcon, Pencil, Share2, ExternalLink, Sparkles, Cloud, RefreshCw, LogIn, LogOut, Bell, Database, Bookmark, User as UserIcon, BarChart3, LayoutDashboard, Flame, TrendingUp, Download, CheckSquare, SlidersHorizontal, GraduationCap, CalendarDays, Globe, ShieldCheck
-} from "lucide-react";
+  Search, Trash2, X, XOctagon, Lightbulb, Sun, Moon, Highlighter, BookOpen, Stethoscope, Target, Save, Shuffle, Plus, Home as HomeIcon, Pencil, Share2, ExternalLink, Sparkles, Cloud, RefreshCw, LogIn, LogOut, Bell, Database, Bookmark, User as UserIcon, BarChart3, LayoutDashboard, Flame, TrendingUp, Download, CheckSquare, SlidersHorizontal, GraduationCap, CalendarDays, Globe, ShieldCheck, Star } from "lucide-react";
 import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell
 } from "recharts";
@@ -288,7 +287,7 @@ const STR = {
     "spEvt.holiday": "Holiday", "spEvt.break": "Break", "spEvt.exam-period": "Exam period", "spEvt.deadline": "Deadline", "spEvt.class": "Class", "spEvt.other": "Event",
     "csCalendar": "Semester calendar", "csCalPrev": "Previous month", "csCalNext": "Next month", "csCalToday": "Today", "csCalNothing": "Nothing scheduled.", "csCalStudied": "Studied: {n} session(s) · {q} questions", "csCalLegExam": "Exam", "csCalLegTask": "Task due", "csCalLegEvent": "Calendar", "csCalLegStudy": "Studied", "csCalNoProfile": "Set up your Student Profile to see your exams, tasks and breaks here.", "csCalSetup": "Set up profile", "csCalMore": "+{n} more",
     "tabCalendar": "Calendar", "calTitle": "Calendar", "calHint": "Your whole term on one calendar: classes, exams, tasks, breaks and the days you studied. Tap a day to see and edit it.", "calMonth": "Month", "calWeek": "Week", "calAgenda": "Agenda", "calPrev": "Previous", "calNext": "Next", "calLayerKey": "Key dates", "calTermStart": "Term starts", "calTermEnd": "Term ends", "calTargetExam": "Target exam", "calClassesN": "{n} classes", "calStatTerm": "Term", "calStatOpen": "Open tasks", "calStatWeekQ": "Questions this week", "calAgendaEmpty": "Nothing scheduled in this stretch.", "calOpenFull": "Full calendar", "spMapNote": "Showing the weeks around today. Expand to see the full syllabus map.",
-    tbGapTitle: "Gap analysis", tbGapHint: "Your logged blocks grouped by subject tag and compared with the blueprint: exam weight, your share of practice, your accuracy and the gap to target (points).", tbColExam: "Exam", tbColPractice: "You", tbColAcc: "Acc.", tbColGap: "Gap", tbGapWorst: "Largest accuracy gap: {a} ({n} pts below target).", tbGapUnder: "Most under-practiced: {b}.", tbGapNone: "Finish a block to see your gaps.", tbUnmapped: "Not mapped to the blueprint", tbUnmappedHint: "These subject tags in your results match no blueprint item. Add them to a match list.", tbBpPrompt: "Blueprint — AI prompt", tbBpSchema: "Blueprint — JSON template", tbScale: "Scale weights to 100%", tbScaleHint: "Overlapping ranges (a question can count toward several disciplines) can add up to more than 100%. This rescales each group and keeps the original numbers as the official range. Comparisons already use the scaled shares.", tbConf: "Source confidence", "tbConfLvl.high": "High", "tbConfLvl.medium": "Medium", "tbConfLvl.low": "Low", "tbCg.official": "Cites official sources ({h}).", "tbCg.version": "Outline edition recorded: {v}.", "tbCg.fresh": "Retrieved {n} days ago.", "tbCg.weights": "Weights add up to about 100% in every group.", "tbCf.noSource": "No source cited.", "tbCf.unofficial": "The cited pages are not official USMLE, NBME or FSMB sites.", "tbCf.noVersion": "No outline edition recorded.", "tbCf.noDate": "No retrieval date recorded.", "tbCf.old": "Last checked {n} days ago, longer than a semester.", "tbCf.weights": "{g} weights add up to {n}%, not 100%.", "tbCf.noWeights": "No exam weights given.", "tbCf.template": "Template with placeholder weights, not the official outline.", tbCadence: "Update your blueprint at least once every semester: the outline can change and your tutor plans from it.", tbDueOn: "Next update due by {d}.", tbUpdate: "Update blueprint", tbDue: "Your blueprint was last checked {n} days ago. Update it at least once a semester.", tbDueTerm: "A new term started since your blueprint was last checked. Update it so your tutor follows the current outline.", tbSoon: "Your blueprint is {n} days old. Plan an update this semester.", "nf.bpDue.t": "Update your blueprint", "nf.bpDue.b": "It was last checked {n} days ago. Refresh it at least once a semester so your tutor follows the current USMLE outline.", "nf.bpDueTerm.t": "New semester: update your blueprint", "nf.bpDueTerm.b": "Your term started after your blueprint was last checked. Re-run the AI prompt to confirm the current USMLE outline.", tbSource: "Source: {v} {u}", tbNoSource: "No official source recorded: re-run the AI prompt so it can search the current USMLE outline.", tabTutor: "Tutor", tbTitle: "Tutor Dashboard", tbOpenTutor: "Open Tutor", tbBpTitle: "Blueprint", tbBpBody: "A blueprint is one JSON file with your exam's test domains, system weights and target competencies. Give the prompt to an AI tool that can browse the web: it looks up the latest official USMLE outline (usmle.org, NBME, FSMB) and returns the JSON to paste here. The built-in template is only a placeholder. The tutor ranks what to study by weight, your accuracy and this week's syllabus.", tbTemplate: "Use USMLE template", tbCopyPrompt: "Copy AI prompt", tbCopySchema: "Copy template JSON", tbCopied: "Copied", tbPaste: "Paste the blueprint JSON here…", tbLoad: "Load blueprint", tbRemove: "Remove blueprint", tbErrParse: "That doesn't look like JSON. Paste only the blueprint (or upload the file).", tbErrShape: "This JSON has no domains, systems or competencies.", tbReady: "Blueprint readiness", tbCoverage: "Coverage", tbCoverageSub: "items with 5+ answers", tbCountdown: "Days to exam", tbTarget: "target {n}%", tbPriority: "Priority targets", tbPriorityHint: "Ranked by exam weight, the gap to your target and this week's topics. Tick items to build one block, or tap a name to start it.", tbBuild: "Build block from {n} selected", tbShareLine: "{n} answered · {share}% of your practice vs {w}% of the exam · target {target}%", tbMatches: "Qbanks that match", tbNoMatches: "No Qbank in your library matches these topics yet.", tbSystems: "Systems", tbDomains: "Test domains", tbComps: "Competencies", tbLegend: "Bar = your accuracy, black tick = target. Weights are a study guide: check them against the current official outline.", tbNoBpTitle: "No blueprint loaded", tbNoBpBody: "Load a blueprint to see priorities by exam weight.", "nf.blueprintLoaded.t": "Blueprint loaded", "nf.blueprintLoaded.b": "Your tutor now plans around {exam}.",
+    tbGapTitle: "Gap analysis", tbGapHint: "Your logged blocks grouped by subject tag and compared with the blueprint: exam weight, your share of practice, your accuracy and the gap to target (points).", tbColExam: "Exam", tbColPractice: "You", tbColAcc: "Acc.", tbColGap: "Gap", tbGapWorst: "Largest accuracy gap: {a} ({n} pts below target).", tbGapUnder: "Most under-practiced: {b}.", tbGapNone: "Finish a block to see your gaps.", tbUnmapped: "Not mapped to the blueprint", tbUnmappedHint: "These subject tags in your results match no blueprint item. Add them to a match list.", tbBpPrompt: "Blueprint — AI prompt", tbBpSchema: "Blueprint — JSON template", tbCourses: "Priority course", tbStarOn: "Make {c} your priority course", tbStarOff: "Remove priority course", tbStarHint: "The starred course is studied first: its topics lead this week's focus and its blueprint items rank higher.", "calNew.task": "New task", "calNew.event": "New event", "calNew.exam": "New exam", "calEdit.task": "Edit task", "calEdit.event": "Edit event", "calEdit.exam": "Edit exam", "calAdd.task": "Task", "calAdd.event": "Event", "calAdd.exam": "Exam", "calF.title": "Title", "calF.date": "Date", "calF.time": "Time", "calF.endDate": "Ends on", "calF.endTime": "Ends at", "calF.type": "Type", "calF.repeat": "Repeats", "calF.until": "Repeat until", "calF.subject": "Subject", "calF.weight": "Weight %", "calF.place": "Location", "calF.course": "Course", "calF.topics": "Topics (comma separated)", "calF.notes": "Notes", "calF.done": "Already happened", "calRep.none": "Does not repeat", "calRep.daily": "Daily", "calRep.weekly": "Weekly", "calRep.monthly": "Monthly", calRepeats: "repeats {r}", calSave: "Save", calCancel: "Cancel", calDelete: "Delete", calEdit: "Edit", calDeleted: "Deleted “{s}”.", calMoved: "Moved “{s}” to {d}.", calUndo: "Undo", calFind: "Find in calendar", calJump: "Go to date", calExport: "Export .ics", tbScale: "Scale weights to 100%", tbScaleHint: "Overlapping ranges (a question can count toward several disciplines) can add up to more than 100%. This rescales each group and keeps the original numbers as the official range. Comparisons already use the scaled shares.", tbConf: "Source confidence", "tbConfLvl.high": "High", "tbConfLvl.medium": "Medium", "tbConfLvl.low": "Low", "tbCg.official": "Cites official sources ({h}).", "tbCg.version": "Outline edition recorded: {v}.", "tbCg.fresh": "Retrieved {n} days ago.", "tbCg.weights": "Weights add up to about 100% in every group.", "tbCf.noSource": "No source cited.", "tbCf.unofficial": "The cited pages are not official USMLE, NBME or FSMB sites.", "tbCf.noVersion": "No outline edition recorded.", "tbCf.noDate": "No retrieval date recorded.", "tbCf.old": "Last checked {n} days ago, longer than a semester.", "tbCf.weights": "{g} weights add up to {n}%, not 100%.", "tbCf.noWeights": "No exam weights given.", "tbCf.template": "Template with placeholder weights, not the official outline.", tbCadence: "Update your blueprint at least once every semester: the outline can change and your tutor plans from it.", tbDueOn: "Next update due by {d}.", tbUpdate: "Update blueprint", tbDue: "Your blueprint was last checked {n} days ago. Update it at least once a semester.", tbDueTerm: "A new term started since your blueprint was last checked. Update it so your tutor follows the current outline.", tbSoon: "Your blueprint is {n} days old. Plan an update this semester.", "nf.bpDue.t": "Update your blueprint", "nf.bpDue.b": "It was last checked {n} days ago. Refresh it at least once a semester so your tutor follows the current USMLE outline.", "nf.bpDueTerm.t": "New semester: update your blueprint", "nf.bpDueTerm.b": "Your term started after your blueprint was last checked. Re-run the AI prompt to confirm the current USMLE outline.", tbSource: "Source: {v} {u}", tbNoSource: "No official source recorded: re-run the AI prompt so it can search the current USMLE outline.", tabTutor: "Tutor", tbTitle: "Tutor Dashboard", tbOpenTutor: "Open Tutor", tbBpTitle: "Blueprint", tbBpBody: "A blueprint is one JSON file with your exam's test domains, system weights and target competencies. Give the prompt to an AI tool that can browse the web: it looks up the latest official USMLE outline (usmle.org, NBME, FSMB) and returns the JSON to paste here. The built-in template is only a placeholder. The tutor ranks what to study by weight, your accuracy and this week's syllabus.", tbTemplate: "Use USMLE template", tbCopyPrompt: "Copy AI prompt", tbCopySchema: "Copy template JSON", tbCopied: "Copied", tbPaste: "Paste the blueprint JSON here…", tbLoad: "Load blueprint", tbRemove: "Remove blueprint", tbErrParse: "That doesn't look like JSON. Paste only the blueprint (or upload the file).", tbErrShape: "This JSON has no domains, systems or competencies.", tbReady: "Blueprint readiness", tbCoverage: "Coverage", tbCoverageSub: "items with 5+ answers", tbCountdown: "Days to exam", tbTarget: "target {n}%", tbPriority: "Priority targets", tbPriorityHint: "Ranked by exam weight, the gap to your target and this week's topics. Tick items to build one block, or tap a name to start it.", tbBuild: "Build block from {n} selected", tbShareLine: "{n} answered · {share}% of your practice vs {w}% of the exam · target {target}%", tbMatches: "Qbanks that match", tbNoMatches: "No Qbank in your library matches these topics yet.", tbSystems: "Systems", tbDomains: "Test domains", tbComps: "Competencies", tbLegend: "Bar = your accuracy, black tick = target. Weights are a study guide: check them against the current official outline.", tbNoBpTitle: "No blueprint loaded", tbNoBpBody: "Load a blueprint to see priorities by exam weight.", "nf.blueprintLoaded.t": "Blueprint loaded", "nf.blueprintLoaded.b": "Your tutor now plans around {exam}.",
     tutorShort: "Tutor", modeLabel: "Test mode", modeLocked: "Locked once the block starts", modeTimedHint: "Countdown timer. You can turn it off during the exam, but not back on.", timerLabel: "Timer", timerOnHint: "You can turn the timer off, but you can't turn it back on.", timerOffNote: "Timer is off for this block and can't be turned back on.", timerOffTitle: "Turn off the timer?", timerOffBody: "The countdown will stop and this block will become untimed. This can't be undone: you won't be able to turn the timer back on for this block. Your answers and progress are kept.", keepTimer: "Keep timer on", turnOffTimer: "Turn off timer", timerOffSuffix: "timer off", modeTutorHint: "No timer. Instant feedback after each answer.", tutor: "Tutor mode", tutorHint: "Instant right/wrong feedback and explanations after each answer, plus question reset.",
     tutorCorrect: "Correct", tutorIncorrect: "Incorrect — the correct answer is {a}", tutorIncorrectHidden: "Incorrect", showCorrectBtn: "Show Correct Answer",
     resetQ: "Reset question", "sc.reset": "Reset question (Tutor mode)",
@@ -454,7 +453,7 @@ const STR = {
     "spEvt.holiday": "Feriado", "spEvt.break": "Descanso", "spEvt.exam-period": "Periodo de exámenes", "spEvt.deadline": "Fecha límite", "spEvt.class": "Clase", "spEvt.other": "Evento",
     "csCalendar": "Calendario del semestre", "csCalPrev": "Mes anterior", "csCalNext": "Mes siguiente", "csCalToday": "Hoy", "csCalNothing": "Nada programado.", "csCalStudied": "Estudiaste: {n} sesión(es) · {q} preguntas", "csCalLegExam": "Examen", "csCalLegTask": "Tarea", "csCalLegEvent": "Calendario", "csCalLegStudy": "Estudio", "csCalNoProfile": "Configura tu Perfil del estudiante para ver aquí tus exámenes, tareas y descansos.", "csCalSetup": "Configurar perfil", "csCalMore": "+{n} más",
     "tabCalendar": "Calendario", "calTitle": "Calendario", "calHint": "Todo tu periodo en un solo calendario: clases, exámenes, tareas, descansos y los días que estudiaste. Toca un día para verlo y editarlo.", "calMonth": "Mes", "calWeek": "Semana", "calAgenda": "Agenda", "calPrev": "Anterior", "calNext": "Siguiente", "calLayerKey": "Fechas clave", "calTermStart": "Inicio del periodo", "calTermEnd": "Fin del periodo", "calTargetExam": "Examen objetivo", "calClassesN": "{n} clases", "calStatTerm": "Periodo", "calStatOpen": "Tareas abiertas", "calStatWeekQ": "Preguntas esta semana", "calAgendaEmpty": "No hay nada programado en este lapso.", "calOpenFull": "Calendario completo", "spMapNote": "Se muestran las semanas cercanas a hoy. Expande para ver el mapa completo del programa.",
-    tbGapTitle: "Análisis de brechas", tbGapHint: "Tus bloques registrados agrupados por etiqueta de materia y comparados con el blueprint: peso en el examen, tu parte de la práctica, tu precisión y la brecha con la meta (puntos).", tbColExam: "Examen", tbColPractice: "Tú", tbColAcc: "Prec.", tbColGap: "Brecha", tbGapWorst: "Mayor brecha de precisión: {a} ({n} pts bajo la meta).", tbGapUnder: "Menos practicado: {b}.", tbGapNone: "Termina un bloque para ver tus brechas.", tbUnmapped: "Sin asignar al blueprint", tbUnmappedHint: "Estas etiquetas de materia de tus resultados no coinciden con ningún ítem del blueprint. Agrégalas a una lista de coincidencias.", tbBpPrompt: "Blueprint — prompt para IA", tbBpSchema: "Blueprint — plantilla JSON", tbScale: "Escalar pesos a 100%", tbScaleHint: "Los rangos que se superponen (una pregunta puede contar para varias disciplinas) pueden sumar más de 100%. Esto reescala cada grupo y conserva los números originales como rango oficial. Las comparaciones ya usan las proporciones escaladas.", tbConf: "Confianza en la fuente", "tbConfLvl.high": "Alta", "tbConfLvl.medium": "Media", "tbConfLvl.low": "Baja", "tbCg.official": "Cita fuentes oficiales ({h}).", "tbCg.version": "Edición del esquema registrada: {v}.", "tbCg.fresh": "Consultado hace {n} días.", "tbCg.weights": "Los pesos suman cerca de 100% en cada grupo.", "tbCf.noSource": "No cita ninguna fuente.", "tbCf.unofficial": "Las páginas citadas no son sitios oficiales de USMLE, NBME ni FSMB.", "tbCf.noVersion": "No se registró la edición del esquema.", "tbCf.noDate": "No se registró la fecha de consulta.", "tbCf.old": "Última revisión hace {n} días, más de un semestre.", "tbCf.weights": "Los pesos de {g} suman {n}%, no 100%.", "tbCf.noWeights": "No hay pesos del examen.", "tbCf.template": "Plantilla con pesos de ejemplo, no es el esquema oficial.", tbCadence: "Actualiza tu blueprint al menos una vez por semestre: el esquema puede cambiar y tu tutor planifica con él.", tbDueOn: "Próxima actualización antes del {d}.", tbUpdate: "Actualizar blueprint", tbDue: "Tu blueprint se revisó por última vez hace {n} días. Actualízalo al menos una vez por semestre.", tbDueTerm: "Empezó un nuevo periodo desde la última revisión de tu blueprint. Actualízalo para que tu tutor siga el esquema vigente.", tbSoon: "Tu blueprint tiene {n} días. Planea una actualización este semestre.", "nf.bpDue.t": "Actualiza tu blueprint", "nf.bpDue.b": "Se revisó por última vez hace {n} días. Renuévalo al menos una vez por semestre para que tu tutor siga el esquema USMLE vigente.", "nf.bpDueTerm.t": "Nuevo semestre: actualiza tu blueprint", "nf.bpDueTerm.b": "Tu periodo empezó después de la última revisión de tu blueprint. Vuelve a usar el prompt de IA para confirmar el esquema USMLE vigente.", tbSource: "Fuente: {v} {u}", tbNoSource: "Sin fuente oficial registrada: vuelve a usar el prompt de IA para que busque el esquema USMLE vigente.", tabTutor: "Tutor", tbTitle: "Panel del tutor", tbOpenTutor: "Abrir Tutor", tbBpTitle: "Blueprint", tbBpBody: "Un blueprint es un archivo JSON con los dominios de la prueba, el peso de cada sistema y las competencias objetivo de tu examen. Dale el prompt a una herramienta de IA con acceso a internet: busca el esquema oficial más reciente de USMLE (usmle.org, NBME, FSMB) y te devuelve el JSON para pegar aquí. La plantilla incluida es solo un ejemplo. El tutor ordena qué estudiar según el peso, tu precisión y el programa de esta semana.", tbTemplate: "Usar plantilla USMLE", tbCopyPrompt: "Copiar prompt de IA", tbCopySchema: "Copiar JSON de plantilla", tbCopied: "Copiado", tbPaste: "Pega aquí el JSON del blueprint…", tbLoad: "Cargar blueprint", tbRemove: "Quitar blueprint", tbErrParse: "Eso no parece JSON. Pega solo el blueprint (o sube el archivo).", tbErrShape: "Este JSON no tiene dominios, sistemas ni competencias.", tbReady: "Preparación del blueprint", tbCoverage: "Cobertura", tbCoverageSub: "ítems con 5+ respuestas", tbCountdown: "Días al examen", tbTarget: "meta {n}%", tbPriority: "Objetivos prioritarios", tbPriorityHint: "Ordenados por peso en el examen, la brecha con tu meta y los temas de esta semana. Marca ítems para armar un bloque, o toca un nombre para iniciarlo.", tbBuild: "Armar bloque con {n} seleccionados", tbShareLine: "{n} respondidas · {share}% de tu práctica vs {w}% del examen · meta {target}%", tbMatches: "Qbanks que coinciden", tbNoMatches: "Ningún Qbank de tu biblioteca coincide con estos temas todavía.", tbSystems: "Sistemas", tbDomains: "Dominios de la prueba", tbComps: "Competencias", tbLegend: "Barra = tu precisión, marca negra = meta. Los pesos son una guía de estudio: verifícalos con el esquema oficial vigente.", tbNoBpTitle: "Sin blueprint cargado", tbNoBpBody: "Carga un blueprint para ver prioridades según el peso en el examen.", "nf.blueprintLoaded.t": "Blueprint cargado", "nf.blueprintLoaded.b": "Tu tutor ahora planifica con {exam}.",
+    tbGapTitle: "Análisis de brechas", tbGapHint: "Tus bloques registrados agrupados por etiqueta de materia y comparados con el blueprint: peso en el examen, tu parte de la práctica, tu precisión y la brecha con la meta (puntos).", tbColExam: "Examen", tbColPractice: "Tú", tbColAcc: "Prec.", tbColGap: "Brecha", tbGapWorst: "Mayor brecha de precisión: {a} ({n} pts bajo la meta).", tbGapUnder: "Menos practicado: {b}.", tbGapNone: "Termina un bloque para ver tus brechas.", tbUnmapped: "Sin asignar al blueprint", tbUnmappedHint: "Estas etiquetas de materia de tus resultados no coinciden con ningún ítem del blueprint. Agrégalas a una lista de coincidencias.", tbBpPrompt: "Blueprint — prompt para IA", tbBpSchema: "Blueprint — plantilla JSON", tbCourses: "Curso prioritario", tbStarOn: "Hacer de {c} tu curso prioritario", tbStarOff: "Quitar curso prioritario", tbStarHint: "El curso con estrella se estudia primero: sus temas encabezan el enfoque de la semana y sus ítems del blueprint suben en el ranking.", "calNew.task": "Nueva tarea", "calNew.event": "Nuevo evento", "calNew.exam": "Nuevo examen", "calEdit.task": "Editar tarea", "calEdit.event": "Editar evento", "calEdit.exam": "Editar examen", "calAdd.task": "Tarea", "calAdd.event": "Evento", "calAdd.exam": "Examen", "calF.title": "Título", "calF.date": "Fecha", "calF.time": "Hora", "calF.endDate": "Termina el", "calF.endTime": "Termina a las", "calF.type": "Tipo", "calF.repeat": "Se repite", "calF.until": "Repetir hasta", "calF.subject": "Materia", "calF.weight": "Peso %", "calF.place": "Lugar", "calF.course": "Curso", "calF.topics": "Temas (separados por comas)", "calF.notes": "Notas", "calF.done": "Ya ocurrió", "calRep.none": "No se repite", "calRep.daily": "Cada día", "calRep.weekly": "Cada semana", "calRep.monthly": "Cada mes", calRepeats: "se repite: {r}", calSave: "Guardar", calCancel: "Cancelar", calDelete: "Eliminar", calEdit: "Editar", calDeleted: "Se eliminó «{s}».", calMoved: "«{s}» se movió al {d}.", calUndo: "Deshacer", calFind: "Buscar en el calendario", calJump: "Ir a la fecha", calExport: "Exportar .ics", tbScale: "Escalar pesos a 100%", tbScaleHint: "Los rangos que se superponen (una pregunta puede contar para varias disciplinas) pueden sumar más de 100%. Esto reescala cada grupo y conserva los números originales como rango oficial. Las comparaciones ya usan las proporciones escaladas.", tbConf: "Confianza en la fuente", "tbConfLvl.high": "Alta", "tbConfLvl.medium": "Media", "tbConfLvl.low": "Baja", "tbCg.official": "Cita fuentes oficiales ({h}).", "tbCg.version": "Edición del esquema registrada: {v}.", "tbCg.fresh": "Consultado hace {n} días.", "tbCg.weights": "Los pesos suman cerca de 100% en cada grupo.", "tbCf.noSource": "No cita ninguna fuente.", "tbCf.unofficial": "Las páginas citadas no son sitios oficiales de USMLE, NBME ni FSMB.", "tbCf.noVersion": "No se registró la edición del esquema.", "tbCf.noDate": "No se registró la fecha de consulta.", "tbCf.old": "Última revisión hace {n} días, más de un semestre.", "tbCf.weights": "Los pesos de {g} suman {n}%, no 100%.", "tbCf.noWeights": "No hay pesos del examen.", "tbCf.template": "Plantilla con pesos de ejemplo, no es el esquema oficial.", tbCadence: "Actualiza tu blueprint al menos una vez por semestre: el esquema puede cambiar y tu tutor planifica con él.", tbDueOn: "Próxima actualización antes del {d}.", tbUpdate: "Actualizar blueprint", tbDue: "Tu blueprint se revisó por última vez hace {n} días. Actualízalo al menos una vez por semestre.", tbDueTerm: "Empezó un nuevo periodo desde la última revisión de tu blueprint. Actualízalo para que tu tutor siga el esquema vigente.", tbSoon: "Tu blueprint tiene {n} días. Planea una actualización este semestre.", "nf.bpDue.t": "Actualiza tu blueprint", "nf.bpDue.b": "Se revisó por última vez hace {n} días. Renuévalo al menos una vez por semestre para que tu tutor siga el esquema USMLE vigente.", "nf.bpDueTerm.t": "Nuevo semestre: actualiza tu blueprint", "nf.bpDueTerm.b": "Tu periodo empezó después de la última revisión de tu blueprint. Vuelve a usar el prompt de IA para confirmar el esquema USMLE vigente.", tbSource: "Fuente: {v} {u}", tbNoSource: "Sin fuente oficial registrada: vuelve a usar el prompt de IA para que busque el esquema USMLE vigente.", tabTutor: "Tutor", tbTitle: "Panel del tutor", tbOpenTutor: "Abrir Tutor", tbBpTitle: "Blueprint", tbBpBody: "Un blueprint es un archivo JSON con los dominios de la prueba, el peso de cada sistema y las competencias objetivo de tu examen. Dale el prompt a una herramienta de IA con acceso a internet: busca el esquema oficial más reciente de USMLE (usmle.org, NBME, FSMB) y te devuelve el JSON para pegar aquí. La plantilla incluida es solo un ejemplo. El tutor ordena qué estudiar según el peso, tu precisión y el programa de esta semana.", tbTemplate: "Usar plantilla USMLE", tbCopyPrompt: "Copiar prompt de IA", tbCopySchema: "Copiar JSON de plantilla", tbCopied: "Copiado", tbPaste: "Pega aquí el JSON del blueprint…", tbLoad: "Cargar blueprint", tbRemove: "Quitar blueprint", tbErrParse: "Eso no parece JSON. Pega solo el blueprint (o sube el archivo).", tbErrShape: "Este JSON no tiene dominios, sistemas ni competencias.", tbReady: "Preparación del blueprint", tbCoverage: "Cobertura", tbCoverageSub: "ítems con 5+ respuestas", tbCountdown: "Días al examen", tbTarget: "meta {n}%", tbPriority: "Objetivos prioritarios", tbPriorityHint: "Ordenados por peso en el examen, la brecha con tu meta y los temas de esta semana. Marca ítems para armar un bloque, o toca un nombre para iniciarlo.", tbBuild: "Armar bloque con {n} seleccionados", tbShareLine: "{n} respondidas · {share}% de tu práctica vs {w}% del examen · meta {target}%", tbMatches: "Qbanks que coinciden", tbNoMatches: "Ningún Qbank de tu biblioteca coincide con estos temas todavía.", tbSystems: "Sistemas", tbDomains: "Dominios de la prueba", tbComps: "Competencias", tbLegend: "Barra = tu precisión, marca negra = meta. Los pesos son una guía de estudio: verifícalos con el esquema oficial vigente.", tbNoBpTitle: "Sin blueprint cargado", tbNoBpBody: "Carga un blueprint para ver prioridades según el peso en el examen.", "nf.blueprintLoaded.t": "Blueprint cargado", "nf.blueprintLoaded.b": "Tu tutor ahora planifica con {exam}.",
     tutorShort: "Tutor", modeLabel: "Modo del examen", modeLocked: "Se bloquea al iniciar el bloque", modeTimedHint: "Cuenta regresiva. Puedes desactivarla durante el examen, pero no volver a activarla.", timerLabel: "Cronómetro", timerOnHint: "Puedes desactivar el cronómetro, pero no volver a activarlo.", timerOffNote: "El cronómetro está desactivado en este bloque y no se puede volver a activar.", timerOffTitle: "¿Desactivar el cronómetro?", timerOffBody: "La cuenta regresiva se detendrá y este bloque quedará sin límite de tiempo. No se puede deshacer: no podrás volver a activar el cronómetro en este bloque. Tus respuestas y tu progreso se conservan.", keepTimer: "Mantener cronómetro", turnOffTimer: "Desactivar cronómetro", timerOffSuffix: "cronómetro desactivado", modeTutorHint: "Sin cronómetro. Retroalimentación instantánea tras cada respuesta.", tutor: "Modo tutor", tutorHint: "Retroalimentación instantánea de correcto/incorrecto y explicaciones tras cada respuesta, más reinicio de pregunta.",
     tutorCorrect: "Correcto", tutorIncorrect: "Incorrecto — la respuesta correcta es {a}", tutorIncorrectHidden: "Incorrecto", showCorrectBtn: "Mostrar respuesta correcta",
     resetQ: "Reiniciar pregunta", "sc.reset": "Reiniciar pregunta (modo tutor)",
@@ -3080,7 +3079,7 @@ function normalizeProfile(raw) {
       seen.add(num);
       return { week: num, startDate: spDate(x.startDate), topics: spList(x.topics, 20), readings: spList(x.readings, 20), qbankFocus: spList(x.qbankFocus || x.qbank_focus, 6, 60) };
     }).filter(Boolean).sort((a, b) => a.week - b.week);
-    return { id: spSlug(o.id || name, "c", i, usedC), name, code: spStr(o.code, 30) || null, instructor: spStr(o.instructor || o.professor, 100) || null, syllabus: spStr(o.syllabus || o.source, 160) || null, meetings: spMeetings(o.meetings || o.schedule || o.classTimes), weeks };
+    return { id: spSlug(o.id || name, "c", i, usedC), name, code: spStr(o.code, 30) || null, instructor: spStr(o.instructor || o.professor, 100) || null, syllabus: spStr(o.syllabus || o.source, 160) || null, priority: o.priority === true, meetings: spMeetings(o.meetings || o.schedule || o.classTimes), weeks };
   }).filter(Boolean);
 
   // An assessment's courseId may arrive as the AI wrote it ("CPR", "MED 5120", the course name): resolve it to a real courses[].id, else null.
@@ -3113,7 +3112,7 @@ function normalizeProfile(raw) {
     const o = spObj(k); const title = spStr(o.title || o.name, 200);
     if (!title) { dropped++; return null; }
     const kind = String(o.kind || "").toLowerCase();
-    return { id: spSlug(o.id || title, "t", i, usedT), title, due: spDate(o.due), subject: spStr(o.subject, 80) || null, kind: SP_TASK_KINDS.includes(kind) ? kind : "other", done: o.done === true };
+    return { id: spSlug(o.id || title, "t", i, usedT), title, due: spDate(o.due), subject: spStr(o.subject, 80) || null, kind: SP_TASK_KINDS.includes(kind) ? kind : "other", done: o.done === true, time: spTime(o.time), notes: spStr(o.notes, 200) || null };
   }).filter(Boolean);
 
   const usedE = new Set();
@@ -3126,7 +3125,7 @@ function normalizeProfile(raw) {
     let endDate = dt(o.endDate || o.end);
     if (endDate && endDate <= startDate) endDate = null; // a one-day event, or an end before the start
     const ty = String(o.type || "").toLowerCase().replace(/[\s_]+/g, "-");
-    return { id: spSlug(o.id || title, "e", i, usedE), title, type: SP_EVENT_TYPES.includes(ty) ? ty : "other", startDate, endDate, notes: spStr(o.notes, 200) || null };
+    return { id: spSlug(o.id || title, "e", i, usedE), title, type: SP_EVENT_TYPES.includes(ty) ? ty : "other", startDate, endDate, notes: spStr(o.notes, 200) || null, time: spTime(o.time || o.startTime), endTime: spTime(o.endTime), repeat: ["daily", "weekly", "monthly"].includes(String(o.repeat || "").toLowerCase()) ? String(o.repeat).toLowerCase() : null, until: spDate(o.until) };
   }).filter(Boolean).sort((a, b) => (a.startDate < b.startDate ? -1 : a.startDate > b.startDate ? 1 : 0));
 
   const risk = String(cs.risk || "").toLowerCase(); const style = String(tu.style || "").toLowerCase();
@@ -3183,7 +3182,7 @@ function topicMatch(a, b) {
 }
 function weekContent(p, week) {
   const out = { topics: [], readings: [], qbankFocus: [], courses: [] };
-  (p.courses || []).forEach((c) => {
+  [...(p.courses || [])].sort((a, b) => (b.priority ? 1 : 0) - (a.priority ? 1 : 0)).forEach((c) => {
     const w = (c.weeks || []).find((x) => x.week === week);
     if (!w) return;
     out.courses.push(c.name);
@@ -3508,13 +3507,19 @@ function useStudentProfile() {
     if (oldC.length) {
       const ids = new Set(profile.courses.map((c) => c.id));
       profile = { ...profile, courses: [
-        ...profile.courses.map((c) => { const o = oldC.find((x) => x.id === c.id); return o && (!c.meetings || !c.meetings.length) && o.meetings && o.meetings.length ? { ...c, meetings: o.meetings } : c; }),
+        ...profile.courses.map((c) => { const o = oldC.find((x) => x.id === c.id); const base = o && o.priority ? { ...c, priority: true } : c; return o && (!c.meetings || !c.meetings.length) && o.meetings && o.meetings.length ? { ...base, meetings: o.meetings } : base; }),
         ...oldC.filter((c) => String(c.id).startsWith("usr-") && !ids.has(c.id)),
       ] };
     }
     // exam dates the student corrected survive a re-import (matched by id)
     const fixed = ((cur.profile && cur.profile.assessments) || []).filter((x) => x.edited);
     if (fixed.length) profile = { ...profile, assessments: profile.assessments.map((x) => { const o = fixed.find((e) => e.id === x.id && normTopic(e.title) === normTopic(x.title)); return o ? { ...x, date: o.date, time: o.time, status: o.status, edited: true } : x; }).sort((p, q) => (p.date < q.date ? -1 : p.date > q.date ? 1 : 0)) };
+    // what the student added by hand in the calendar (ids start with usr-) survives a re-import
+    if (cur.profile) {
+      const oc = cur.profile; const keep = (old, fresh) => [...fresh, ...(old || []).filter((x) => String(x.id).startsWith("usr-") && !fresh.some((y) => y.id === x.id))];
+      profile = { ...profile, calendar: { ...profile.calendar, events: keep((oc.calendar || {}).events, (profile.calendar || {}).events || []).sort((x, y) => (x.startDate < y.startDate ? -1 : x.startDate > y.startDate ? 1 : 0)) },
+        plan: { ...profile.plan, tasks: keep((oc.plan || {}).tasks, (profile.plan || {}).tasks || []) }, assessments: keep(oc.assessments, profile.assessments || []).sort((x, y) => (x.date < y.date ? -1 : x.date > y.date ? 1 : 0)) };
+    }
     commit({ profile, updatedAt: now, clearedAt: cur.clearedAt });
   }, []);
   const toggleTask = useCallback((id) => {
@@ -3544,12 +3549,17 @@ function useStudentProfile() {
     const cur = ref.current; if (!cur.profile) return;
     commit({ ...cur, updatedAt: Date.now(), profile: { ...cur.profile, plan: { ...cur.profile.plan, tasks: cur.profile.plan.tasks.filter((k) => k.id !== id) } } });
   }, []);
+  // The calendar's editor: replaces the lists it changed (events, tasks, exams) in one step, so an undo restores all of them together.
+  const setCal = useCallback((patch) => {
+    const cur = ref.current; if (!cur.profile) return; const pr = cur.profile;
+    commit({ ...cur, updatedAt: Date.now(), profile: { ...pr, calendar: { ...pr.calendar, events: patch.events || (pr.calendar && pr.calendar.events) || [] }, plan: { ...pr.plan, tasks: patch.tasks || pr.plan.tasks }, assessments: patch.assessments || pr.assessments } });
+  }, []);
   const clear = useCallback(() => { const now = Date.now(); commit({ profile: null, updatedAt: now, clearedAt: now }); }, []);
   // "Reset all data": local only, no tombstone, so Drive keeps its copy and reconnecting restores it.
   const wipe = useCallback(() => { ref.current = { profile: null, updatedAt: 0, clearedAt: 0 }; setState(ref.current); lsRemove(LS_SP); lsRemove(LS_SP_FILE); lsRemove(LS_SP_LEDGER); }, []);
   const applyMerged = useCallback((m) => { if (spCore(m) !== spCore(ref.current)) commit(m); }, []);
   const getState = useCallback(() => ref.current, []);
-  return { profile: state.profile, updatedAt: state.updatedAt, clearedAt: state.clearedAt, setProfile, toggleTask, addTask, removeTask, updateCourses, updateAssessment, removeAssessment, clear, wipe, applyMerged, getState };
+  return { profile: state.profile, updatedAt: state.updatedAt, clearedAt: state.clearedAt, setProfile, toggleTask, addTask, removeTask, updateCourses, setCal, updateAssessment, removeAssessment, clear, wipe, applyMerged, getState };
 }
 
 // Google Drive sync for the profile: own file, same sign-in and token as the library sync, same pull → merge → push cycle as the Database.
@@ -3677,7 +3687,7 @@ function spWeekLabel(b, t) {
   return t("spTermUnknown");
 }
 const spTone = (T, tone) => ({ red: T.red, amber: T.amber, green: T.green, blue: T.blue }[tone] || T.muted);
-function TaskRow({ task, onToggle, onRemove, T, t, lang }) {
+function TaskRow({ task, onToggle, onRemove, onEdit, T, t, lang }) {
   const d = parseISODate(task.due);
   return (
     <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "8px 0" }}>
@@ -3686,7 +3696,9 @@ function TaskRow({ task, onToggle, onRemove, T, t, lang }) {
         background: task.done ? T.green : "transparent", border: `2px solid ${task.done ? T.green : T.border}`, color: T.onBlue,
       }}>{task.done && <Check size={14} />}</button>
       <span style={{ flex: 1, minWidth: 0, fontFamily: FONT_UI, fontSize: fs(13.5), color: task.done ? T.muted : T.ink, textDecoration: task.done ? "line-through" : "none", overflowWrap: "anywhere" }}>{task.title}</span>
+      {task.time && <span style={{ fontFamily: FONT_MONO, fontSize: fs(11.5), color: T.muted, whiteSpace: "nowrap" }}>{fmtClock(task.time, lang === "es" ? "es" : "en-US")}</span>}
       {d && <span style={{ fontFamily: FONT_MONO, fontSize: fs(11.5), color: T.muted, whiteSpace: "nowrap" }}>{d.toLocaleDateString(lang === "es" ? "es" : "en-US", { month: "short", day: "numeric" })}</span>}
+      {onEdit && <button onClick={onEdit} title={t("calEdit")} aria-label={t("calEdit")} style={{ background: "transparent", border: "none", cursor: "pointer", color: T.muted, padding: 4, display: "flex" }}><Pencil size={14} /></button>}
       {onRemove && <button onClick={onRemove} title={t("csPlanRemove")} aria-label={t("csPlanRemove")} style={{ background: "transparent", border: "none", cursor: "pointer", color: T.muted, padding: 4, display: "flex" }}><X size={15} /></button>}
     </div>
   );
@@ -3758,7 +3770,8 @@ function TutorCard({ sessionLog, onNavigate, T, compact = false, fill = false })
   };
   const actionLabel = (a) => (a.type === "focusBlock" ? t("spStartBlock", { s: a.value }) : a.type === "library" ? t("csOpenLibrary") : t("spCardOpen"));
   const pct = brief.target ? Math.min(100, Math.round((brief.answeredWeek / brief.target) * 100)) : 0;
-  const todays = [...brief.tasksDue, ...(sp.profile.plan.tasks || []).filter((k) => k.done && k.due === toISODate(new Date()))];
+  const courseList = (sp.profile.courses || []).slice(0, compact ? 4 : 8);
+  const setPriority = (id) => sp.updateCourses((sp.profile.courses || []).map((c) => ({ ...c, priority: c.id === id ? !c.priority : false })));
   const first = brief.guidance.slice(0, compact ? 3 : 5);
   const leadIdx = first.findIndex((g) => g.action && g.action.type === "focusBlock");
   const block = brief.studyFocus[0] ? { type: "focusBlock", value: brief.studyFocus[0] } : { type: "library" };
@@ -3826,6 +3839,21 @@ function TutorCard({ sessionLog, onNavigate, T, compact = false, fill = false })
         )}
       </div>
 
+      {courseList.length > 0 && (
+        <div style={sectionTop}>
+          <div style={label}>{t("tbCourses")}</div>
+          <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
+            {courseList.map((c) => (
+              <span key={c.id} style={{ display: "inline-flex", alignItems: "center", gap: 6, fontFamily: FONT_UI, fontSize: fs(12.5), fontWeight: 600, color: T.ink, border: `1px solid ${c.priority ? T.amber : T.border}`, borderRadius: 999, padding: "3px 10px 3px 6px", maxWidth: "100%" }}>
+                <button onClick={() => setPriority(c.id)} aria-pressed={!!c.priority} title={c.priority ? t("tbStarOff") : t("tbStarOn", { c: c.name })} aria-label={c.priority ? t("tbStarOff") : t("tbStarOn", { c: c.name })} style={{ background: "transparent", border: "none", padding: 2, cursor: "pointer", display: "flex" }}><Star size={14} color={c.priority ? T.amber : T.muted} fill={c.priority ? T.amber : "none"} /></button>
+                <span style={{ overflowWrap: "anywhere" }}>{c.name}</span>
+              </span>
+            ))}
+          </div>
+          <div style={{ fontFamily: FONT_UI, fontSize: fs(11.5), color: T.muted, marginTop: 6 }}>{t("tbStarHint")}</div>
+        </div>
+      )}
+
       <div style={{ display: "grid", gridTemplateColumns: compact ? "repeat(auto-fit, minmax(min(100%, 140px), 1fr))" : "repeat(auto-fit, minmax(min(100%, 230px), 1fr))", gap: compact ? 12 : 18 }}>
         <div>
           <div style={label}>{t("spThisWeek")}</div>
@@ -3836,23 +3864,14 @@ function TutorCard({ sessionLog, onNavigate, T, compact = false, fill = false })
             <div style={{ marginTop: compact ? 8 : 12 }}>
               <div style={{ height: 6, borderRadius: 999, background: T.mutedBg, overflow: "hidden" }}><div style={{ width: `${pct}%`, height: "100%", background: brief.pace === "behind" ? T.amber : T.blue }} /></div>
               <div style={{ fontFamily: FONT_MONO, fontSize: fs(11.5), color: T.muted, marginTop: 4 }}>{t("spWeekly", { a: brief.answeredWeek, n: brief.target })}</div>
-            </div>
-          )}
-        </div>
-        <div>
-          <div style={label}>{t("spToday")}</div>
-          {todays.length ? todays.slice(0, 4).map((k) => <TaskRow key={k.id} task={k} onToggle={() => sp.toggleTask(k.id)} T={T} t={t} lang={lang} />) : <div style={{ fontFamily: FONT_UI, fontSize: fs(13), color: T.muted }}>{t("spTodayNone")}</div>}
-          {brief.phase === "in" && brief.target > 0 && (
-            <div style={{ marginTop: compact ? 8 : 10 }}>
-              {brief.todayGoal > 0 ? (
+              {brief.phase === "in" && (brief.todayGoal > 0 ? (
                 <>
-                  <div style={{ height: 6, borderRadius: 999, background: T.mutedBg, overflow: "hidden" }}><div style={{ width: `${Math.min(100, Math.round((brief.answeredToday / brief.todayGoal) * 100))}%`, height: "100%", background: T.green }} /></div>
+                  <div style={{ height: 6, borderRadius: 999, background: T.mutedBg, overflow: "hidden", marginTop: 10 }}><div style={{ width: `${Math.min(100, Math.round((brief.answeredToday / brief.todayGoal) * 100))}%`, height: "100%", background: T.green }} /></div>
                   <div style={{ fontFamily: FONT_MONO, fontSize: fs(11.5), color: T.muted, marginTop: 4 }}>{t("tuTodayQs", { a: brief.answeredToday, n: brief.todayGoal })}</div>
                 </>
-              ) : <div style={{ fontFamily: FONT_UI, fontSize: fs(12.5), color: T.green, fontWeight: 600 }}>{t("tuGoalMet")}</div>}
+              ) : <div style={{ fontFamily: FONT_UI, fontSize: fs(12.5), color: T.green, fontWeight: 600, marginTop: 10 }}>{t("tuGoalMet")}</div>)}
             </div>
           )}
-          {brief.streak > 0 && <div style={{ marginTop: 8 }}><Pill T={T} tone={brief.studiedToday ? "green" : "amber"}>{t("tuStreak", { n: brief.streak })}</Pill></div>}
         </div>
       </div>
 
@@ -3870,7 +3889,7 @@ function TutorCard({ sessionLog, onNavigate, T, compact = false, fill = false })
             <div key={`${g.key}${i}`} style={{ display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap" }}>
               <span aria-hidden="true" style={{ width: 8, height: 8, borderRadius: "50%", background: spTone(T, g.tone), flexShrink: 0 }} />
               <span style={{ flex: "1 1 220px", minWidth: 0, fontFamily: FONT_UI, fontSize: fs(13.5), color: T.ink, lineHeight: 1.45, overflowWrap: "anywhere" }}>{t(g.key, { ...g.vars, when: spWhen(g.vars.n == null ? 0 : g.vars.n, t).toLowerCase() })}</span>
-              {g.action && (i === leadIdx
+              {g.action && g.action.type !== "profile" && (i === leadIdx
                 ? <PrimaryButton T={T} icon={Play} onClick={() => run(g.action)}>{actionLabel(g.action)}</PrimaryButton>
                 : <GhostButton T={T} onClick={() => run(g.action)}>{actionLabel(g.action)}</GhostButton>)}
             </div>
@@ -4100,7 +4119,7 @@ function useBlueprintNudges({ bp, profile, notify }) {
   }, [bp, profile, tick]); // eslint-disable-line
 }
 // Blueprint x Analytics x tutor: per item, accuracy from your logged answers (>= 5 questions), share of your practice vs its exam weight, and a priority score.
-function bpStats(bp, log, focus = []) {
+function bpStats(bp, log, focus = [], prioFocus = []) {
   const m = new Map();
   (Array.isArray(log) ? log : []).forEach((e) => (Array.isArray(e.bySubject) ? e.bySubject : []).forEach((x) => {
     const c = m.get(x.subject) || { subject: x.subject, correct: 0, total: 0 }; c.correct += Number(x.correct) || 0; c.total += Number(x.total) || 0; m.set(x.subject, c);
@@ -4111,9 +4130,9 @@ function bpStats(bp, log, focus = []) {
     const hit = subs.filter((x) => it.match.some((k) => topicMatch(k, x.subject)));
     const total = hit.reduce((n, x) => n + x.total, 0); const correct = hit.reduce((n, x) => n + x.correct, 0);
     const pct = total >= 5 ? Math.round((correct / total) * 100) : null; const target = it.targetPct != null ? it.targetPct : bp.targetPct;
-    const share = all ? (total / all) * 100 : 0; const thisWeek = focus.some((f) => it.match.some((k) => topicMatch(k, f)));
+    const share = all ? (total / all) * 100 : 0; const thisWeek = focus.some((f) => it.match.some((k) => topicMatch(k, f))); const prio = prioFocus.some((f) => it.match.some((k) => topicMatch(k, f)));
     const urg = pct == null ? 0.5 : Math.max(0, Math.min(1, (target - pct) / target)); const under = w > 0 ? Math.max(0, Math.min(1, (w - share) / w)) : 0;
-    return { ...it, kind, w, total, pct, target, share, thisWeek, score: w * (0.7 * urg + 0.3 * under) * (thisWeek ? 1.25 : 1) };
+    return { ...it, kind, w, total, pct, target, share, thisWeek, prio, score: w * (0.7 * urg + 0.3 * under) * (thisWeek ? 1.25 : 1) * (prio ? 1.4 : 1) };
   }); };
   const systems = grp(bp.systems, "systems"); const domains = grp(bp.domains, "domains"); const comps = grp(bp.competencies, "competencies");
   const base = systems.length ? systems : domains.length ? domains : comps; const kw = base.filter((x) => x.pct != null); const ww = kw.reduce((n, x) => n + x.w, 0);
@@ -4131,6 +4150,7 @@ function BpRows({ rows, T, t, picked, onPick, onStudy }) {
             <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap" }}>
               <input type="checkbox" checked={picked.includes(top)} onChange={() => onPick(top)} aria-label={r.name} style={{ margin: 0 }} />
               <button onClick={() => onStudy(top)} title={t("spStartBlock", { s: top })} style={{ flex: "1 1 140px", minWidth: 0, textAlign: "left", background: "transparent", border: "none", padding: 0, cursor: "pointer", fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(13.5), color: T.ink, overflowWrap: "anywhere" }}>{r.name}</button>
+              {r.prio && <Star size={14} color={T.amber} fill={T.amber} aria-label={t("tbCourses")} />}
               {r.thisWeek && <Pill T={T} tone="blue">{t("spThisWeek")}</Pill>}
               <Pill T={T} tone={r.pct == null ? "muted" : r.pct >= r.target ? "green" : r.pct >= r.target - 10 ? "amber" : "red"}>{r.pct == null ? t("tuNoData") : `${r.pct}%`}</Pill>
             </div>
@@ -4145,7 +4165,7 @@ function BpRows({ rows, T, t, picked, onPick, onStudy }) {
     </div>
   );
 }
-function GapTable({ st, kind, setKind, T, t, onStudy }) {
+function GapTable({ st, kind, setKind, T, t, onStudy, open, setOpen }) {
   const kinds = [["systems", "tbSystems"], ["domains", "tbDomains"], ["comps", "tbComps"]].filter(([k]) => st[k].length);
   const k = st[kind] && st[kind].length ? kind : kinds[0] && kinds[0][0]; if (!k) return null;
   const gapOf = (r) => (r.pct == null ? null : r.target - r.pct);
@@ -4155,12 +4175,13 @@ function GapTable({ st, kind, setKind, T, t, onStudy }) {
   const headC = { ...cell, fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(11), color: T.muted, textTransform: "uppercase", letterSpacing: "0.04em" };
   return (
     <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, padding: 20, minWidth: 0 }}>
-      <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 6, flexWrap: "wrap", fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(15), color: T.ink }}>
-        <TrendingUp size={17} color={T.blue} />{t("tbGapTitle")}
-        <span style={{ marginLeft: "auto", display: "flex", gap: 6, flexWrap: "wrap" }}>
+      <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: open ? 6 : 0, flexWrap: "wrap", fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(15), color: T.ink }}>
+        <button onClick={() => setOpen(!open)} aria-expanded={open} style={{ flex: "1 1 auto", display: "flex", alignItems: "center", gap: 8, background: "transparent", border: "none", padding: 0, cursor: "pointer", textAlign: "left", fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(15), color: T.ink }}><TrendingUp size={17} color={T.blue} />{t("tbGapTitle")}<span style={{ marginLeft: "auto", display: "flex" }}>{open ? <ChevronUp size={16} color={T.muted} /> : <ChevronDown size={16} color={T.muted} />}</span></button>
+        {open && <span style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
           {kinds.map(([id, lab]) => <button key={id} onClick={() => setKind(id)} aria-pressed={k === id} style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(12), color: k === id ? T.onBlue : T.ink, background: k === id ? T.blue : "transparent", border: `1px solid ${k === id ? T.blue : T.border}`, borderRadius: 999, padding: "4px 12px", cursor: "pointer" }}>{t(lab)}</button>)}
-        </span>
+        </span>}
       </div>
+      {open && (<>
       <div style={{ fontFamily: FONT_UI, fontSize: fs(12.5), color: T.muted, lineHeight: 1.5, marginBottom: 12 }}>{t("tbGapHint")}</div>
       {st.all === 0 ? <div style={{ fontFamily: FONT_UI, fontSize: fs(13), color: T.muted }}>{t("tbGapNone")}</div> : (
         <>
@@ -4190,12 +4211,13 @@ function GapTable({ st, kind, setKind, T, t, onStudy }) {
           <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>{st.unmapped.slice(0, 12).map((x) => <Pill key={x.subject} T={T} tone="muted">{`${x.subject} · ${x.total}`}</Pill>)}</div>
         </div>
       )}
+      </>)}
     </div>
   );
 }
 function TutorDashboard({ library, sessionLog, onLaunch, onNavigate, T }) {
   const { t, lang } = useI18n(); const sp = useContext(ProfileContext); const { notify } = useContext(NotifContext);
-  const bpStore = sp.bpStore; const bp = bpStore.bp; const saveBp = bpStore.save; const locale = lang === "es" ? "es" : "en-US"; const [text, setText] = useState(""); const [err, setErr] = useState(""); const [open, setOpen] = useState(false); const [showP, setShowP] = useState(false); const [showS, setShowS] = useState(false); const [gapKind, setGapKind] = useState("systems"); const panelRef = useRef(null);
+  const bpStore = sp.bpStore; const bp = bpStore.bp; const saveBp = bpStore.save; const locale = lang === "es" ? "es" : "en-US"; const [text, setText] = useState(""); const [err, setErr] = useState(""); const [open, setOpen] = useState(false); const [showP, setShowP] = useState(false); const [showS, setShowS] = useState(false); const [gapKind, setGapKind] = useState("systems"); const [gapOpen, setGapOpen] = useState(false); const [confOpen, setConfOpen] = useState(false); const [mapsOpen, setMapsOpen] = useState({}); const panelRef = useRef(null);
   const [picked, setPicked] = useState([]); const [copied, setCopied] = useState(""); const fileRef = useRef(null);
   const dayKey = new Date().toDateString();
   const brief = useMemo(() => (sp.profile ? tutorBrief(sp.profile, sessionLog, new Date()) : null), [sp.profile, sessionLog, dayKey]); // eslint-disable-line
@@ -4203,7 +4225,9 @@ function TutorDashboard({ library, sessionLog, onLaunch, onNavigate, T }) {
   const conf = useMemo(() => (bp ? bpConfidence(bp, new Date()) : null), [bp, dayKey]); // eslint-disable-line
   const confTone = conf ? (conf.level === "high" ? "green" : conf.level === "medium" ? "amber" : "red") : "muted";
   const cv = (v) => (v && v.g ? { ...v, g: t(v.g) } : v);
-  const st = useMemo(() => (bp ? bpStats(bp, sessionLog, brief ? brief.studyFocus : []) : null), [bp, sessionLog, brief]);
+  const prioCourse = sp.profile ? (sp.profile.courses || []).find((c) => c.priority) : null;
+  const prioFocus = useMemo(() => { const w = prioCourse && brief ? (prioCourse.weeks || []).find((x) => x.week === brief.week) : null; return w ? [...(w.qbankFocus || []), ...(w.topics || [])] : []; }, [prioCourse, brief]);
+  const st = useMemo(() => (bp ? bpStats(bp, sessionLog, brief ? brief.studyFocus : [], prioFocus) : null), [bp, sessionLog, brief, prioFocus]);
   const card = { background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, padding: 20, minWidth: 0 };
   const head = (Ic, label, extra) => <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 12, fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(15), color: T.ink }}><Ic size={17} color={T.blue} />{label}{extra}</div>;
   const hint = { fontFamily: FONT_UI, fontSize: fs(12.5), color: T.muted, lineHeight: 1.5 };
@@ -4221,7 +4245,8 @@ function TutorDashboard({ library, sessionLog, onLaunch, onNavigate, T }) {
   const daysTo = bp && bp.targetDate ? dayDiff(startOfDay(new Date()), parseISODate(bp.targetDate) || new Date()) : brief && brief.next ? brief.next.days : null;
   const topics = picked.length ? picked : st ? st.priorities.slice(0, 4).map((x) => x.match[0]) : brief ? brief.studyFocus : [];
   const matches = useMemo(() => library.map((e) => ({ e, n: e.questions.filter((q) => topics.some((f) => topicMatch(f, q.subject))).length })).filter((x) => x.n > 0).sort((a, b) => b.n - a.n).slice(0, 6), [library, topics.join("|")]); // eslint-disable-line
-  const tile = (label, value, sub) => <div style={{ ...card, padding: "14px 16px" }}><div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(11.5), color: T.muted, textTransform: "uppercase", letterSpacing: "0.06em" }}>{label}</div><div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(24), color: T.ink, marginTop: 4 }}>{value}</div>{sub && <div style={{ ...hint, fontSize: fs(11.5) }}>{sub}</div>}</div>;
+  const ell = { whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" };
+  const tile = (label, value, sub) => <div style={{ ...card, padding: "14px 16px", height: 112, boxSizing: "border-box", display: "flex", flexDirection: "column", justifyContent: "space-between", overflow: "hidden" }}><div style={{ ...ell, fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(11.5), color: T.muted, textTransform: "uppercase", letterSpacing: "0.06em" }}>{label}</div><div style={{ ...ell, fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(24), color: T.ink }}>{value}</div><div style={{ ...ell, ...hint, fontSize: fs(11.5), minHeight: 17 }}>{sub || ""}</div></div>;
 
   return (
     <div style={{ display: "grid", gap: 16 }}>
@@ -4245,7 +4270,7 @@ function TutorDashboard({ library, sessionLog, onLaunch, onNavigate, T }) {
       )}
 
       {st && (
-        <div style={grid(150)}>
+        <div style={{ ...grid(150), alignItems: "stretch" }}>
           {tile(t("tbReady"), st.ready == null ? "—" : `${st.ready}%`, t("tbTarget", { n: bp.targetPct }))}
           {tile(t("tbCoverage"), `${st.covered}%`, t("tbCoverageSub"))}
           {tile(t("csStatAnswered"), st.all)}
@@ -4279,12 +4304,15 @@ function TutorDashboard({ library, sessionLog, onLaunch, onNavigate, T }) {
         </div>
       )}
 
-      {st && <GapTable st={st} kind={gapKind} setKind={setGapKind} T={T} t={t} onStudy={study} />}
+      {st && <GapTable st={st} kind={gapKind} setKind={setGapKind} T={T} t={t} onStudy={study} open={gapOpen} setOpen={setGapOpen} />}
 
       {st && (
         <div style={grid(340)}>
           {[["systems", "tbSystems"], ["domains", "tbDomains"], ["comps", "tbComps"]].filter(([k]) => st[k].length).map(([k, label]) => (
-            <div key={k} style={card}>{head(BarChart3, t(label))}<BpRows rows={st[k]} T={T} t={t} picked={picked} onPick={pick} onStudy={study} /></div>
+            <div key={k} style={card}>
+              <button onClick={() => setMapsOpen({ ...mapsOpen, [k]: !mapsOpen[k] })} aria-expanded={!!mapsOpen[k]} style={{ display: "flex", alignItems: "center", gap: 8, width: "100%", background: "transparent", border: "none", padding: 0, marginBottom: mapsOpen[k] ? 12 : 0, cursor: "pointer", textAlign: "left", fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(15), color: T.ink }}><BarChart3 size={17} color={T.blue} />{t(label)}<Pill T={T} tone="muted">{st[k].length}</Pill><span style={{ marginLeft: "auto", display: "flex" }}>{mapsOpen[k] ? <ChevronUp size={16} color={T.muted} /> : <ChevronDown size={16} color={T.muted} />}</span></button>
+              {mapsOpen[k] && <BpRows rows={st[k]} T={T} t={t} picked={picked} onPick={pick} onStudy={study} />}
+            </div>
           ))}
         </div>
       )}
@@ -4292,7 +4320,8 @@ function TutorDashboard({ library, sessionLog, onLaunch, onNavigate, T }) {
 
       {bp && conf && (
         <div style={card}>
-          {head(ShieldCheck, t("tbConf"), <Pill T={T} tone={confTone}>{`${t(`tbConfLvl.${conf.level}`)} · ${conf.score}/100`}</Pill>)}
+          <button onClick={() => setConfOpen(!confOpen)} aria-expanded={confOpen} style={{ display: "flex", alignItems: "center", gap: 8, width: "100%", background: "transparent", border: "none", padding: 0, marginBottom: confOpen ? 12 : 0, cursor: "pointer", textAlign: "left", fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(15), color: T.ink }}><ShieldCheck size={17} color={T.blue} />{t("tbConf")}<Pill T={T} tone={confTone}>{`${t(`tbConfLvl.${conf.level}`)} · ${conf.score}/100`}</Pill><span style={{ marginLeft: "auto", display: "flex" }}>{confOpen ? <ChevronUp size={16} color={T.muted} /> : <ChevronDown size={16} color={T.muted} />}</span></button>
+          {confOpen && (<>
           <div style={{ display: "grid", gap: 6 }}>
             {conf.good.map((g) => <div key={g.k} style={{ display: "flex", gap: 8, alignItems: "flex-start", fontFamily: FONT_UI, fontSize: fs(13), color: T.ink, lineHeight: 1.45 }}><Check size={14} color={T.green} style={{ flexShrink: 0, marginTop: 2 }} /><span>{t(`tbCg.${g.k}`, cv(g.v))}</span></div>)}
             {conf.flags.map((g, i) => <div key={`${g.k}${i}`} style={{ display: "flex", gap: 8, alignItems: "flex-start", fontFamily: FONT_UI, fontSize: fs(13), color: T.ink, lineHeight: 1.45 }}><AlertTriangle size={14} color={T.amber} style={{ flexShrink: 0, marginTop: 2 }} /><span>{t(`tbCf.${g.k}`, cv(g.v))}</span></div>)}
@@ -4300,6 +4329,7 @@ function TutorDashboard({ library, sessionLog, onLaunch, onNavigate, T }) {
           {conf.flags.some((g) => g.k === "weights") && <div style={{ marginTop: 10 }}><GhostButton T={T} icon={SlidersHorizontal} onClick={() => saveBp(scaleBp(bp), true)}>{t("tbScale")}</GhostButton><div style={{ ...hint, marginTop: 4 }}>{t("tbScaleHint")}</div></div>}
           <div style={{ ...hint, marginTop: 10 }}>{t("tbCadence")}{fr && fr.dueOn ? ` ${t("tbDueOn", { d: fr.dueOn.toLocaleDateString(locale, { month: "short", day: "numeric", year: "numeric" }) })}` : ""}</div>
           <div style={{ marginTop: 10 }}><GhostButton T={T} icon={RefreshCw} onClick={openPanel}>{t("tbUpdate")}</GhostButton></div>
+          </>)}
         </div>
       )}
 
@@ -6575,7 +6605,7 @@ function AnalyticsOverview({ history, T }) {
 
 // ---------------------------------------------------------------------------
 // Console: the default Home page. A dashboard over everything else: greeting, one-tap resume, headline stats,
-// the analytics donut, score trend, strongest / weakest subjects, recent sessions and a peek at the library.
+// the analytics donut, score trend and the semester calendar.
 // ---------------------------------------------------------------------------
 function TrendSpark({ vals, T }) {
   const W = 300, H = 96, PX = 10, PY = 10;
@@ -6691,11 +6721,7 @@ function ConsoleCalendar({ sessionLog, onNavigate, T, fill = false }) {
     if (profile) {
       (profile.assessments || []).forEach((a) => slot(a.date).exams.push(a));
       ((profile.plan && profile.plan.tasks) || []).forEach((k) => { if (k.due) slot(k.due).tasks.push(k); });
-      ((profile.calendar && profile.calendar.events) || []).forEach((e) => {
-        const s = parseISODate(e.startDate); if (!s) return;
-        const span = Math.min(60, Math.max(0, e.endDate && parseISODate(e.endDate) ? dayDiff(s, parseISODate(e.endDate)) : 0));
-        for (let i = 0; i <= span; i++) { const d = new Date(s); d.setDate(d.getDate() + i); slot(toISODate(d)).events.push(e); }
-      });
+      ((profile.calendar && profile.calendar.events) || []).forEach((e) => eventDayKeys(e, profile.term && profile.term.endDate).forEach((k) => slot(k).events.push(e)));
     }
     (sessionLog || []).forEach((e) => slot(toISODate(new Date(e.finishedAt))).sessions.push(e));
     return m;
@@ -6889,6 +6915,63 @@ function ConsoleCalendar({ sessionLog, onNavigate, T, fill = false }) {
 
 // ---- Calendar page: the whole term on one big calendar. Month | Week | Agenda, with every layer (key dates, classes, exams,
 // breaks and holidays, tasks, study days) switchable, and a day panel to tick, add and edit things. ----
+// Days an event shows on: its own span, repeated daily / weekly / monthly until its end date (else the term's end, else a year).
+function eventDayKeys(e, limit) {
+  const s = parseISODate(e.startDate); if (!s) return [];
+  const span = Math.min(60, Math.max(0, e.endDate && parseISODate(e.endDate) ? dayDiff(s, parseISODate(e.endDate)) : 0));
+  const starts = [s];
+  if (e.repeat) {
+    const stop = parseISODate(e.until) || parseISODate(limit) || new Date(s.getFullYear() + 1, s.getMonth(), s.getDate());
+    for (let n = 1; n < 400; n++) {
+      const d = e.repeat === "daily" ? new Date(s.getFullYear(), s.getMonth(), s.getDate() + n) : e.repeat === "weekly" ? new Date(s.getFullYear(), s.getMonth(), s.getDate() + 7 * n) : new Date(s.getFullYear(), s.getMonth() + n, s.getDate());
+      if (e.repeat === "monthly" && d.getDate() !== s.getDate()) continue;
+      if (d > stop) break; starts.push(d);
+    }
+  }
+  const out = []; starts.forEach((st) => { for (let i = 0; i <= span; i++) out.push(toISODate(new Date(st.getFullYear(), st.getMonth(), st.getDate() + i))); });
+  return out;
+}
+const CAL_BLANK = { title: "", date: "", endDate: "", time: "", endTime: "", type: "other", notes: "", repeat: "none", until: "", kindT: "other", subject: "", weight: "", place: "", topics: "", courseId: "", done: false };
+// Add / edit form for a task, an event or an exam (same form, the fields follow the kind).
+function CalItemEditor({ ed, setEd, onSave, onDelete, onCancel, courses, T, t }) {
+  const d = ed.draft; const set = (k, v) => setEd({ ...ed, draft: { ...d, [k]: v } });
+  const inp = { fontFamily: FONT_UI, fontSize: fs(13), color: T.ink, background: T.paper, border: `1px solid ${T.border}`, borderRadius: 6, padding: "7px 9px", outline: "none", minWidth: 0, width: "100%", boxSizing: "border-box" };
+  const lab = { fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(11.5), color: T.muted, textTransform: "uppercase", letterSpacing: "0.05em" };
+  const cap = (x) => x.charAt(0).toUpperCase() + x.slice(1);
+  const field = (label, node, full) => <label style={{ display: "grid", gap: 3, minWidth: 0, ...(full ? { gridColumn: "1 / -1" } : {}) }}><span style={lab}>{label}</span>{node}</label>;
+  const sel = (k, opts) => <select value={d[k]} onChange={(e) => set(k, e.target.value)} style={inp}>{opts.map(([v, l]) => <option key={v} value={v}>{l}</option>)}</select>;
+  const valid = d.title.trim() && parseISODate(d.date);
+  const accent = ed.kind === "exam" ? T.red : ed.kind === "event" ? T.blue : T.amber;
+  return (
+    <div role="group" aria-label={t(ed.id ? `calEdit.${ed.kind}` : `calNew.${ed.kind}`)} onKeyDown={(e) => { if (e.key === "Escape") onCancel(); }} style={{ border: `1px solid ${T.border}`, borderLeft: `4px solid ${accent}`, borderRadius: 8, padding: 12, margin: "8px 0 12px", background: T.mutedBg, display: "grid", gap: 10 }}>
+      <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(13.5), color: T.ink }}>{t(ed.id ? `calEdit.${ed.kind}` : `calNew.${ed.kind}`)}</div>
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(120px, 1fr))", gap: 10 }}>
+        {field(t("calF.title"), <input autoFocus value={d.title} maxLength={160} onChange={(e) => set("title", e.target.value)} onKeyDown={(e) => { if (e.key === "Enter" && valid) onSave(); }} style={inp} />, true)}
+        {field(t("calF.date"), <input type="date" value={d.date} onChange={(e) => set("date", e.target.value)} style={inp} />)}
+        {field(t("calF.time"), <input type="time" value={d.time} onChange={(e) => set("time", e.target.value)} style={inp} />)}
+        {ed.kind === "event" && field(t("calF.endDate"), <input type="date" value={d.endDate} min={d.date} onChange={(e) => set("endDate", e.target.value)} style={inp} />)}
+        {ed.kind === "event" && field(t("calF.endTime"), <input type="time" value={d.endTime} onChange={(e) => set("endTime", e.target.value)} style={inp} />)}
+        {ed.kind === "event" && field(t("calF.type"), sel("type", SP_EVENT_TYPES.map((x) => [x, t(`spEvt.${x}`)])))}
+        {ed.kind === "event" && field(t("calF.repeat"), sel("repeat", [["none", t("calRep.none")], ["daily", t("calRep.daily")], ["weekly", t("calRep.weekly")], ["monthly", t("calRep.monthly")]]))}
+        {ed.kind === "event" && d.repeat !== "none" && field(t("calF.until"), <input type="date" value={d.until} min={d.date} onChange={(e) => set("until", e.target.value)} style={inp} />)}
+        {ed.kind === "task" && field(t("calF.type"), sel("kindT", SP_TASK_KINDS.map((x) => [x, cap(x)])))}
+        {ed.kind === "task" && field(t("calF.subject"), <input value={d.subject} maxLength={80} onChange={(e) => set("subject", e.target.value)} style={inp} />)}
+        {ed.kind === "exam" && field(t("calF.type"), sel("type", SP_ASSESS_TYPES.map((x) => [x, cap(x)])))}
+        {ed.kind === "exam" && field(t("calF.weight"), <input type="number" min={0} max={100} value={d.weight} onChange={(e) => set("weight", e.target.value)} style={inp} />)}
+        {ed.kind === "exam" && field(t("calF.place"), <input value={d.place} maxLength={80} onChange={(e) => set("place", e.target.value)} style={inp} />)}
+        {ed.kind === "exam" && courses.length > 0 && field(t("calF.course"), sel("courseId", [["", "—"], ...courses.map((c) => [c.id, c.name])]))}
+        {ed.kind === "exam" && field(t("calF.topics"), <input value={d.topics} onChange={(e) => set("topics", e.target.value)} style={inp} />, true)}
+        {field(t("calF.notes"), <input value={d.notes} maxLength={200} onChange={(e) => set("notes", e.target.value)} style={inp} />, true)}
+      </div>
+      {ed.kind === "exam" && <label style={{ display: "flex", alignItems: "center", gap: 8, fontFamily: FONT_UI, fontSize: fs(13), color: T.ink }}><input type="checkbox" checked={d.done} onChange={(e) => set("done", e.target.checked)} />{t("calF.done")}</label>}
+      <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
+        <PrimaryButton T={T} icon={Check} onClick={onSave} disabled={!valid}>{t("calSave")}</PrimaryButton>
+        <GhostButton T={T} icon={X} onClick={onCancel}>{t("calCancel")}</GhostButton>
+        {ed.id && <GhostButton T={T} icon={Trash2} onClick={onDelete} style={{ marginLeft: "auto" }}>{t("calDelete")}</GhostButton>}
+      </div>
+    </div>
+  );
+}
 function CalendarPage({ sessionLog, onNavigate, T, focusDate }) {
   const { t, lang } = useI18n();
   const sp = useContext(ProfileContext);
@@ -6905,6 +6988,8 @@ function CalendarPage({ sessionLog, onNavigate, T, focusDate }) {
   const [layers, setLayers] = useState({ key: true, class: true, exam: true, event: true, task: true, study: true });
   const [newTitle, setNewTitle] = useState("");
   const [editClasses, setEditClasses] = useState(false);
+  const [ed, setEd] = useState(null); const [toast, setToast] = useState(null); const [q, setQ] = useState(""); const dragRef = useRef(null);
+  useEffect(() => { if (!toast) return undefined; const id = setTimeout(() => setToast(null), 7000); return () => clearTimeout(id); }, [toast]);
   useEffect(() => { // a day chosen in Search: open the calendar on it
     const d = focusDate && parseISODate(focusDate.key); if (!d) return;
     setSelKey(focusDate.key); setAnchor(startOfDay(d));
@@ -6925,11 +7010,7 @@ function CalendarPage({ sessionLog, onNavigate, T, focusDate }) {
     if (profile) {
       (profile.assessments || []).forEach((a) => slot(a.date).exams.push(a));
       ((profile.plan && profile.plan.tasks) || []).forEach((k) => { if (k.due) slot(k.due).tasks.push(k); });
-      ((profile.calendar && profile.calendar.events) || []).forEach((e) => {
-        const s = parseISODate(e.startDate); if (!s) return;
-        const span = Math.min(60, Math.max(0, e.endDate && parseISODate(e.endDate) ? dayDiff(s, parseISODate(e.endDate)) : 0));
-        for (let i = 0; i <= span; i++) { const d = new Date(s); d.setDate(d.getDate() + i); slot(toISODate(d)).events.push(e); }
-      });
+      ((profile.calendar && profile.calendar.events) || []).forEach((e) => eventDayKeys(e, profile.term && profile.term.endDate).forEach((k) => slot(k).events.push(e)));
       const tm = profile.term || {};
       if (parseISODate(tm.startDate)) slot(tm.startDate).keys.push({ id: "start", title: t("calTermStart") });
       if (parseISODate(tm.endDate)) slot(tm.endDate).keys.push({ id: "end", title: t("calTermEnd") });
@@ -6961,18 +7042,19 @@ function CalendarPage({ sessionLog, onNavigate, T, focusDate }) {
   const qOf = (sessions) => sessions.reduce((n, e) => n + (Number(e.answered != null ? e.answered : e.total) || 0), 0);
   // Everything on a day that the visible layers allow. group = true folds several classes into one line (month cells).
   const itemsOf = (d, group = false) => {
-    const info = infoOf(toISODate(d)); const out = [];
+    const dk = toISODate(d); const info = infoOf(dk); const out = [];
     if (layers.key) info.keys.forEach((k) => out.push({ id: `k-${k.id}`, kind: "key", title: k.title }));
-    if (layers.exam) info.exams.forEach((a) => out.push({ id: `x-${a.id}`, kind: "exam", title: a.title, time: a.time ? shortClock(fmtClock(a.time, locale)) : null, done: a.status === "done" }));
+    if (layers.exam) info.exams.forEach((a) => out.push({ id: `x-${a.id}`, kind: "exam", title: a.title, t24: a.time || "", time: a.time ? shortClock(fmtClock(a.time, locale)) : null, done: a.status === "done", drag: { kind: "exam", id: a.id, src: dk }, edit: { kind: "exam", id: a.id } }));
     if (layers.class) {
       const cl = classesOn(d, info);
       if (group && cl.length > 1) out.push({ id: "c-all", kind: "class", title: t("calClassesN", { n: cl.length }) });
-      else cl.forEach(({ c, m }) => out.push({ id: `c-${c.id}-${m.id}`, kind: "class", title: c.name, time: m.start ? shortClock(fmtClock(m.start, locale)) : null }));
+      else cl.forEach(({ c, m }) => out.push({ id: `c-${c.id}-${m.id}`, kind: "class", title: c.name, t24: m.start || "", time: m.start ? shortClock(fmtClock(m.start, locale)) : null }));
     }
-    if (layers.event) info.events.forEach((e) => out.push({ id: `e-${e.id}`, kind: "event", title: e.title }));
-    if (layers.task) info.tasks.filter((k) => !String(k.id).startsWith("cal-")).forEach((k) => out.push({ id: `t-${k.id}`, kind: "task", title: k.title, done: k.done }));
+    if (layers.event) info.events.forEach((e) => out.push({ id: `e-${e.id}`, kind: "event", title: e.title, t24: e.time || "", time: e.time ? shortClock(fmtClock(e.time, locale)) : null, drag: { kind: "event", id: e.id, src: dk }, edit: { kind: "event", id: e.id } }));
+    if (layers.task) info.tasks.filter((k) => !String(k.id).startsWith("cal-")).forEach((k) => out.push({ id: `t-${k.id}`, kind: "task", title: k.title, done: k.done, t24: k.time || "", time: k.time ? shortClock(fmtClock(k.time, locale)) : null, drag: { kind: "task", id: k.id, src: dk }, edit: { kind: "task", id: k.id } }));
     if (layers.study && info.sessions.length) out.push({ id: "s", kind: "study", title: t("csCalStudied", { n: info.sessions.length, q: qOf(info.sessions) }) });
-    return out;
+    const ql = q.trim().toLowerCase(); const hit = ql ? out.filter((i) => i.title.toLowerCase().includes(ql)) : out;
+    return hit.map((i, n) => ({ i, n })).sort((x, y) => ((x.i.kind === "key" ? 0 : 1) - (y.i.kind === "key" ? 0 : 1)) || ((x.i.t24 || "99") < (y.i.t24 || "99") ? -1 : (x.i.t24 || "99") > (y.i.t24 || "99") ? 1 : 0) || x.n - y.n).map((x) => x.i);
   };
 
   // ---- navigation ----
@@ -7003,6 +7085,75 @@ function CalendarPage({ sessionLog, onNavigate, T, focusDate }) {
   const selClasses = classesOn(selDate, sel);
   const hasMeetings = !!(profile && (profile.courses || []).some((c) => (c.meetings || []).length));
   const planTasks = (profile && profile.plan && profile.plan.tasks) || [];
+  const events = (profile && profile.calendar && profile.calendar.events) || [];
+  const assessments = (profile && profile.assessments) || [];
+  const newId = () => `usr-${Date.now().toString(36)}${Math.random().toString(36).slice(2, 6)}`;
+  const byDate = (k) => (x, y) => (x[k] < y[k] ? -1 : x[k] > y[k] ? 1 : 0);
+  const calNow = () => ({ events, tasks: planTasks, assessments });
+  // Every change goes through here: one atomic update, and (when there is a message) an Undo that puts all three lists back.
+  const commitCal = (patch, msg) => { const before = calNow(); sp.setCal(patch); if (msg) setToast({ msg, undo: () => sp.setCal(before) }); };
+  const openNew = (kind, key) => setEd({ kind, id: null, draft: { ...CAL_BLANK, date: key || selKey, type: kind === "exam" ? "exam" : "other" } });
+  const openEdit = (kind, id) => {
+    if (kind === "event") { const e = events.find((x) => x.id === id); if (e) setEd({ kind, id, draft: { ...CAL_BLANK, title: e.title, date: e.startDate, endDate: e.endDate || "", time: e.time || "", endTime: e.endTime || "", type: e.type, notes: e.notes || "", repeat: e.repeat || "none", until: e.until || "" } }); }
+    else if (kind === "task") { const k = planTasks.find((x) => x.id === id); if (k) setEd({ kind, id, draft: { ...CAL_BLANK, title: k.title, date: k.due || selKey, time: k.time || "", kindT: k.kind || "other", subject: k.subject || "", notes: k.notes || "" } }); }
+    else { const a = assessments.find((x) => x.id === id); if (a) setEd({ kind: "exam", id, draft: { ...CAL_BLANK, title: a.title, date: a.date, time: a.time || "", type: a.type, weight: a.weightPct == null ? "" : String(a.weightPct), place: a.location || "", topics: (a.coverage || []).join(", "), courseId: a.courseId || "", done: a.status === "done", notes: a.notes || "" } }); }
+  };
+  const saveEd = () => {
+    if (!ed || !profile) return; const d = ed.draft; const title = d.title.trim().slice(0, 160); if (!title || !parseISODate(d.date)) return;
+    const notes = d.notes.trim().slice(0, 200) || null; const id = ed.id || newId();
+    if (ed.kind === "event") {
+      const ev = { id, title, type: d.type, startDate: d.date, endDate: d.endDate && d.endDate > d.date ? d.endDate : null, time: d.time || null, endTime: d.time && d.endTime ? d.endTime : null, notes, repeat: d.repeat !== "none" ? d.repeat : null, until: d.repeat !== "none" && d.until ? d.until : null };
+      commitCal({ events: (ed.id ? events.map((x) => (x.id === id ? { ...x, ...ev } : x)) : [...events, ev]).sort(byDate("startDate")) });
+    } else if (ed.kind === "task") {
+      const old = planTasks.find((x) => x.id === id);
+      const tk = { ...(old || {}), id, title, due: d.date, time: d.time || null, subject: d.subject.trim().slice(0, 80) || null, kind: d.kindT, notes, done: old ? old.done : false };
+      commitCal({ tasks: ed.id ? planTasks.map((x) => (x.id === id ? tk : x)) : [...planTasks, tk] });
+    } else {
+      const old = assessments.find((x) => x.id === id) || {}; const w = d.weight === "" ? null : Number(d.weight);
+      const ex = { coverageWeeks: [], qbankFocus: [], durationMin: null, format: null, ...old, id, title, type: d.type, date: d.date, time: d.time || null, location: d.place.trim().slice(0, 80) || null, weightPct: w != null && Number.isFinite(w) && w >= 0 && w <= 100 ? w : null, coverage: d.topics.split(",").map((x) => x.trim()).filter(Boolean).slice(0, 30), courseId: d.courseId || null, status: d.done ? "done" : "upcoming", notes, edited: true };
+      commitCal({ assessments: (ed.id ? assessments.map((x) => (x.id === id ? ex : x)) : [...assessments, ex]).sort(byDate("date")) });
+    }
+    setEd(null); selectDay(parseISODate(d.date));
+  };
+  const delEd = () => {
+    if (!ed || !ed.id) return; const id = ed.id; const title = ed.draft.title || "";
+    if (ed.kind === "event") commitCal({ events: events.filter((x) => x.id !== id), tasks: planTasks.filter((k) => !String(k.id).startsWith(`cal-event-${id}-`)) }, t("calDeleted", { s: title }));
+    else if (ed.kind === "task") commitCal({ tasks: planTasks.filter((x) => x.id !== id) }, t("calDeleted", { s: title }));
+    else commitCal({ assessments: assessments.filter((x) => x.id !== id), tasks: planTasks.filter((k) => k.id !== `cal-exam-${id}`) }, t("calDeleted", { s: title }));
+    setEd(null);
+  };
+  // Drag an exam, event or task onto another day. A repeating event moves its whole series.
+  const dropOn = (key) => {
+    const dr = dragRef.current; dragRef.current = null; if (!dr || !profile || dr.src === key) return;
+    const delta = dayDiff(parseISODate(dr.src), parseISODate(key)); const shiftKey = (k) => { const x = parseISODate(k); x.setDate(x.getDate() + delta); return toISODate(x); };
+    let title = "";
+    if (dr.kind === "task") { const k = planTasks.find((x) => x.id === dr.id); if (!k) return; title = k.title; commitCal({ tasks: planTasks.map((x) => (x.id === dr.id ? { ...x, due: key } : x)) }, t("calMoved", { s: title, d: fmtShort(parseISODate(key)) })); }
+    else if (dr.kind === "event") { const e = events.find((x) => x.id === dr.id); if (!e) return; title = e.title; commitCal({ events: events.map((x) => (x.id === dr.id ? { ...x, startDate: shiftKey(x.startDate), endDate: x.endDate ? shiftKey(x.endDate) : null } : x)).sort(byDate("startDate")) }, t("calMoved", { s: title, d: fmtShort(parseISODate(key)) })); }
+    else { const a = assessments.find((x) => x.id === dr.id); if (!a) return; title = a.title; commitCal({ assessments: assessments.map((x) => (x.id === dr.id ? { ...x, date: key, edited: true } : x)).sort(byDate("date")) }, t("calMoved", { s: title, d: fmtShort(parseISODate(key)) })); }
+    setSelKey(key);
+  };
+  // .ics for Google / Apple / Outlook calendars: exams, events (with their repeat), tasks and every class meeting of the term.
+  const exportIcs = () => {
+    if (!profile) return;
+    const esc = (x) => String(x || "").replace(/\\/g, "\\\\").replace(/;/g, "\\;").replace(/,/g, "\\,").replace(/\r?\n/g, "\\n");
+    const dS = (k) => k.replace(/-/g, ""); const tS = (h) => `${h.replace(":", "")}00`;
+    const plus = (k, n) => { const x = parseISODate(k); x.setDate(x.getDate() + n); return toISODate(x); };
+    const hourLater = (h) => { const [a, b] = h.split(":").map(Number); const m = Math.min(1439, a * 60 + b + 60); return `${String(Math.floor(m / 60)).padStart(2, "0")}:${String(m % 60).padStart(2, "0")}`; };
+    const stamp = `${new Date().toISOString().replace(/[-:]/g, "").split(".")[0]}Z`; const L = []; let n = 0;
+    const vevent = (title, k, time, endK, endTime, extra = [], notes) => {
+      L.push("BEGIN:VEVENT", `UID:oworld-${Date.now().toString(36)}-${n++}@oworld`, `DTSTAMP:${stamp}`, `SUMMARY:${esc(title)}`);
+      if (time) { L.push(`DTSTART:${dS(k)}T${tS(time)}`, `DTEND:${dS(endK || k)}T${tS(endTime || hourLater(time))}`); } else { L.push(`DTSTART;VALUE=DATE:${dS(k)}`, `DTEND;VALUE=DATE:${dS(plus(endK || k, 1))}`); }
+      if (notes) L.push(`DESCRIPTION:${esc(notes)}`); extra.forEach((x) => L.push(x)); L.push("END:VEVENT");
+    };
+    L.push("BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//Oworld//USMLE Tutor//EN", "CALSCALE:GREGORIAN", `X-WR-CALNAME:${esc((profile.term && profile.term.name) || "Oworld")}`);
+    assessments.forEach((a) => vevent(`${a.title} (${a.type})`, a.date, a.time, null, null, [], [a.location, (a.coverage || []).join(", ")].filter(Boolean).join(" · ")));
+    events.forEach((e) => { const freq = { daily: "DAILY", weekly: "WEEKLY", monthly: "MONTHLY" }[e.repeat]; const stop = e.until || (profile.term && profile.term.endDate) || plus(e.startDate, 365);
+      vevent(e.title, e.startDate, e.time, e.endDate || null, e.endTime, freq ? [`RRULE:FREQ=${freq};UNTIL=${dS(stop)}`] : [], e.notes); });
+    planTasks.filter((k) => k.due && !String(k.id).startsWith("cal-")).forEach((k) => vevent(`${t("csCalLegTask")}: ${k.title}`, k.due, k.time, null, null, [], k.notes));
+    if (termStart && termEnd) for (let i = 0; i < 400; i++) { const d = addDays(termStart, i); if (d > termEnd) break; classesOn(d, infoOf(toISODate(d))).forEach(({ c, m }) => vevent(c.name, toISODate(d), m.start, null, m.end, [], m.location)); }
+    L.push("END:VCALENDAR");
+    const a = document.createElement("a"); a.href = URL.createObjectURL(new Blob([L.join("\r\n")], { type: "text/calendar" })); a.download = "oworld-calendar.ics"; a.click(); setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+  };
   const sched = [
     ...sel.exams.map((a) => ({ id: `cal-exam-${a.id}`, src: "exam", item: a, title: a.title, kind: "exam" })),
     ...sel.events.map((e) => ({ id: `cal-event-${e.id}-${selKey}`, src: "event", item: e, title: e.title, kind: "other" })),
@@ -7033,7 +7184,7 @@ function CalendarPage({ sessionLog, onNavigate, T, focusDate }) {
   const chipEl = (it, wrap) => {
     const [c, bg] = KIND[it.kind];
     return (
-      <span key={it.id} title={[it.time, it.title].filter(Boolean).join(" ")} style={{
+      <span key={it.id} title={[it.time, it.title].filter(Boolean).join(" ")} draggable={!!it.drag} onDragStart={it.drag ? (e) => { dragRef.current = it.drag; e.dataTransfer.effectAllowed = "move"; try { e.dataTransfer.setData("text/plain", it.title); } catch (x) { /* ignore */ } } : undefined} onDragEnd={() => { dragRef.current = null; }} onDoubleClick={it.edit ? (e) => { e.stopPropagation(); openEdit(it.edit.kind, it.edit.id); } : undefined} style={{
         display: "block", boxSizing: "border-box", maxWidth: "100%", textAlign: "left", borderLeft: `3px solid ${c}`, background: bg, color: T.ink, borderRadius: 4,
         padding: "2px 6px", fontFamily: FONT_UI, fontSize: fs(11.5), lineHeight: 1.35, fontWeight: it.kind === "exam" || it.kind === "key" ? 700 : 500,
         textDecoration: it.done ? "line-through" : "none", opacity: it.done ? 0.65 : 1,
@@ -7061,7 +7212,7 @@ function CalendarPage({ sessionLog, onNavigate, T, focusDate }) {
         const items = itemsOf(d, true); const max = wide ? 3 : 2; const wk = termWeekOf(d);
         const kinds = [...new Set(items.map((i) => i.kind))];
         return (
-          <button key={key} onClick={() => selectDay(d)} aria-label={longDay(d)} aria-pressed={isSel} aria-current={isToday ? "date" : undefined} style={{
+          <div key={key} role="button" tabIndex={0} onClick={() => selectDay(d)} onKeyDown={keyActivate(() => selectDay(d))} onDragOver={(e) => { if (dragRef.current) e.preventDefault(); }} onDrop={(e) => { e.preventDefault(); dropOn(key); }} onDoubleClick={() => { if (profile) { selectDay(d); openNew("task", key); } }} aria-label={longDay(d)} aria-pressed={isSel} aria-current={isToday ? "date" : undefined} style={{
             minHeight: phone ? 54 : 122, minWidth: 0, boxSizing: "border-box", padding: phone ? "5px 2px" : "6px 6px 7px", borderRadius: 8, cursor: "pointer", fontFamily: FONT_UI,
             display: "flex", flexDirection: "column", alignItems: phone ? "center" : "stretch", justifyContent: "flex-start", gap: 4, textAlign: "left",
             background: isOff(infoOf(key)) ? T.blueLight : "transparent", border: `1px solid ${isSel ? T.blue : T.border}`, boxShadow: isSel ? `0 0 0 1px ${T.blue}` : "none",
@@ -7077,7 +7228,7 @@ function CalendarPage({ sessionLog, onNavigate, T, focusDate }) {
                 {items.slice(0, max).map((it) => chipEl(it, false))}
                 {items.length > max && <span style={{ fontFamily: FONT_UI, fontSize: fs(11), color: T.muted, paddingLeft: 3 }}>{t("csCalMore", { n: items.length - max })}</span>}
               </span>}
-          </button>
+          </div>
         );
       })}
     </div>
@@ -7089,7 +7240,7 @@ function CalendarPage({ sessionLog, onNavigate, T, focusDate }) {
         const key = toISODate(d); const isSel = key === selKey; const isToday = key === todayKey;
         const items = itemsOf(d); const wk = termWeekOf(d);
         return (
-          <div key={key} role="button" tabIndex={0} aria-pressed={isSel} aria-label={longDay(d)} onClick={() => selectDay(d)} onKeyDown={keyActivate(() => selectDay(d))} style={{
+          <div key={key} role="button" tabIndex={0} aria-pressed={isSel} aria-label={longDay(d)} onClick={() => selectDay(d)} onKeyDown={keyActivate(() => selectDay(d))} onDragOver={(e) => { if (dragRef.current) e.preventDefault(); }} onDrop={(e) => { e.preventDefault(); dropOn(key); }} onDoubleClick={() => { if (profile) { selectDay(d); openNew("task", key); } }} style={{
             minHeight: vw >= 900 ? 220 : 0, minWidth: 0, boxSizing: "border-box", padding: 8, borderRadius: 8, cursor: "pointer", display: "flex", flexDirection: "column", gap: 6,
             background: isOff(infoOf(key)) ? T.blueLight : "transparent", border: `1px solid ${isSel ? T.blue : T.border}`, boxShadow: isSel ? `0 0 0 1px ${T.blue}` : "none",
           }}>
@@ -7193,6 +7344,12 @@ function CalendarPage({ sessionLog, onNavigate, T, focusDate }) {
             })}
           </div>
 
+          <div style={{ display: "flex", gap: 8, flexWrap: "wrap", alignItems: "center", marginBottom: 14 }}>
+            <input value={q} onChange={(e) => setQ(e.target.value)} placeholder={t("calFind")} aria-label={t("calFind")} style={{ flex: "1 1 160px", ...{ fontFamily: FONT_UI, fontSize: fs(13), color: T.ink, background: T.paper, border: `1px solid ${T.border}`, borderRadius: 8, padding: "7px 10px", outline: "none", minWidth: 0 } }} />
+            <input type="date" value={selKey} onChange={(e) => { const d = parseISODate(e.target.value); if (d) { setAnchor(startOfDay(d)); setSelKey(e.target.value); } }} aria-label={t("calJump")} title={t("calJump")} style={{ fontFamily: FONT_UI, fontSize: fs(13), color: T.ink, background: T.paper, border: `1px solid ${T.border}`, borderRadius: 8, padding: "7px 10px", outline: "none", minWidth: 0 }} />
+            {profile && <GhostButton T={T} icon={Download} onClick={exportIcs}>{t("calExport")}</GhostButton>}
+          </div>
+
           {mode === "month" && monthView}
           {mode === "week" && weekView}
           {mode === "agenda" && agendaView}
@@ -7211,6 +7368,7 @@ function CalendarPage({ sessionLog, onNavigate, T, focusDate }) {
             {selWk && <Pill T={T} tone="muted">{brief && brief.total ? t("spTermWeek", { w: selWk.w, n: brief.total }) : t("spTermWeekNoTotal", { w: selWk.w })}</Pill>}
           </div>
 
+          {ed && profile && <CalItemEditor ed={ed} setEd={setEd} onSave={saveEd} onDelete={delEd} onCancel={() => setEd(null)} courses={profile.courses || []} T={T} t={t} />}
           {sel.keys.length > 0 && (
             <div style={{ display: "flex", gap: 6, flexWrap: "wrap", margin: "4px 0 8px" }}>{sel.keys.map((k) => <Pill key={k.id} T={T} tone="blue">{k.title}</Pill>)}</div>
           )}
@@ -7239,15 +7397,16 @@ function CalendarPage({ sessionLog, onNavigate, T, focusDate }) {
                 }}>{x.done && <Check size={14} />}</button>
                 <div style={{ flex: 1, minWidth: 0, opacity: x.done ? 0.6 : 1 }}>
                   <div style={{ ...rowHead, textDecoration: x.done ? "line-through" : "none" }}>{x.title}</div>
-                  <div style={rowSub}>{isExam ? [a.time, a.weightPct != null ? `${a.weightPct}%` : null, a.format].filter(Boolean).join(" · ") : fmtRange(a)}</div>
+                  <div style={rowSub}>{isExam ? [a.time, a.weightPct != null ? `${a.weightPct}%` : null, a.format].filter(Boolean).join(" · ") : [fmtRange(a), a.time ? fmtClock(a.time, locale) : null, a.repeat ? t("calRepeats", { r: t(`calRep.${a.repeat}`).toLowerCase() }) : null].filter(Boolean).join(" · ")}</div>
                   {isExam && a.coverage.length > 0 && <div style={{ fontFamily: FONT_UI, fontSize: fs(12), color: T.muted, marginTop: 2 }}>{a.coverage.slice(0, 4).join(" · ")}</div>}
                   {!isExam && a.notes && <div style={{ fontFamily: FONT_UI, fontSize: fs(12), color: T.muted, marginTop: 2 }}>{a.notes}</div>}
                 </div>
+                <button onClick={() => openEdit(isExam ? "exam" : "event", a.id)} title={t("calEdit")} aria-label={t("calEdit")} style={{ background: "transparent", border: "none", cursor: "pointer", color: T.muted, padding: 4, display: "flex" }}><Pencil size={14} /></button>
                 <Pill T={T} tone={isExam ? "red" : (SP_EVENT_TONE[a.type] || "muted")}>{isExam ? a.type : t(`spEvt.${a.type}`)}</Pill>
               </div>
             );
           })}
-          {selTasks.map((k) => <TaskRow key={k.id} task={k} onToggle={() => sp.toggleTask(k.id)} onRemove={isMine(k) ? () => sp.removeTask(k.id) : undefined} T={T} t={t} lang={lang} />)}
+          {selTasks.map((k) => <TaskRow key={k.id} task={k} onToggle={() => sp.toggleTask(k.id)} onRemove={isMine(k) ? () => sp.removeTask(k.id) : undefined} onEdit={() => openEdit("task", k.id)} T={T} t={t} lang={lang} />)}
           {sel.sessions.map((e) => (
             <div key={e.id} style={itemRow}>
               <span style={{ marginTop: 6 }}>{dot(T.green)}</span>
@@ -7261,6 +7420,13 @@ function CalendarPage({ sessionLog, onNavigate, T, focusDate }) {
             <p style={{ fontFamily: FONT_UI, fontSize: fs(13.5), color: T.muted, margin: "4px 0 0" }}>{t("csCalNothing")}</p>
           )}
 
+          {profile && !ed && (
+            <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginTop: 12 }}>
+              <GhostButton T={T} icon={Plus} onClick={() => openNew("task")}>{t("calAdd.task")}</GhostButton>
+              <GhostButton T={T} icon={Plus} onClick={() => openNew("event")}>{t("calAdd.event")}</GhostButton>
+              <GhostButton T={T} icon={Plus} onClick={() => openNew("exam")}>{t("calAdd.exam")}</GhostButton>
+            </div>
+          )}
           {profile && (
             <div style={{ display: "flex", alignItems: "center", gap: 8, marginTop: 12, flexWrap: "wrap" }}>
               <input value={newTitle} maxLength={200} onChange={(e) => setNewTitle(e.target.value)} onKeyDown={(e) => { if (e.key === "Enter") submitNew(); }}
@@ -7268,6 +7434,12 @@ function CalendarPage({ sessionLog, onNavigate, T, focusDate }) {
                 style={{ flex: "1 1 160px", minWidth: 0, fontFamily: FONT_UI, fontSize: fs(13.5), color: T.ink, background: T.paper, border: `1px solid ${T.border}`, borderRadius: 8, padding: "8px 10px", outline: "none" }} />
               <GhostButton T={T} icon={Plus} onClick={submitNew} disabled={!newTitle.trim()} style={{ padding: "7px 12px" }}>{t("csPlanAdd")}</GhostButton>
               <span style={{ flexBasis: "100%", fontFamily: FONT_UI, fontSize: fs(11.5), color: T.muted }}>{t("csPlanAddFor", { d: selDate.toLocaleDateString(locale, { weekday: "short", month: "short", day: "numeric" }) })}</span>
+            </div>
+          )}
+          {toast && (
+            <div role="status" style={{ display: "flex", alignItems: "center", gap: 10, marginTop: 12, padding: "9px 12px", borderRadius: 8, background: T.ink, color: T.paper, fontFamily: FONT_UI, fontSize: fs(13) }}>
+              <span style={{ flex: 1, minWidth: 0, overflowWrap: "anywhere" }}>{toast.msg}</span>
+              <button onClick={() => { toast.undo(); setToast(null); }} style={{ background: "transparent", border: "none", color: T.paper, fontWeight: 700, textDecoration: "underline", cursor: "pointer", fontFamily: FONT_UI, fontSize: fs(13) }}>{t("calUndo")}</button>
             </div>
           )}
         </div>
@@ -7339,14 +7511,6 @@ function ConsolePanel({ library, sessionLog, session, onResume, onOpenLobby, onR
       <div style={{ fontFamily: FONT_UI, fontSize: fs(12), color: T.muted, minHeight: "1.3em" }}>{sub || " "}</div>
     </div>
   );
-  const subjectRows = (rows) => rows.map((r) => (
-    <div key={r.subject} style={{ display: "flex", alignItems: "center", gap: 8, padding: "6px 0" }}>
-      <span style={{ flex: 1, minWidth: 0, fontFamily: FONT_UI, fontSize: fs(13.5), color: T.ink, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{r.subject}</span>
-      <span style={{ fontFamily: FONT_MONO, fontSize: fs(11.5), color: T.muted }}>{r.correct}/{r.total}</span>
-      <Pill T={T} tone={r.pct >= 70 ? "green" : "red"}>{r.pct}%</Pill>
-    </div>
-  ));
-
   // Analytics highlights are three cards. On large displays they stack vertically under the stat tiles, next to the calendar,
   // so the page uses its height instead of leaving a wide, half-empty row; on narrow screens they keep the compact grid below the top row.
   const [donutRef, donutTall] = useTallCard(420);
@@ -7379,23 +7543,6 @@ function ConsolePanel({ library, sessionLog, session, onResume, onOpenLobby, onR
       ) : <p style={{ fontFamily: FONT_UI, fontSize: fs(13.5), color: T.muted, margin: 0 }}>{t("csTrendNeed")}</p>}
     </div>
   );
-  const subjectCard = (
-    <div style={card}>
-      {data.strong.length > 0 ? (
-        <>
-          <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(11.5), color: T.green, textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 4 }}>{t("csStrong")}</div>
-          {subjectRows(data.strong)}
-          {data.weak.length > 0 && (
-            <>
-              <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(11.5), color: T.red, textTransform: "uppercase", letterSpacing: "0.06em", margin: "14px 0 4px" }}>{t("csWeak")}</div>
-              {subjectRows(data.weak)}
-            </>
-          )}
-        </>
-      ) : <p style={{ fontFamily: FONT_UI, fontSize: fs(13.5), color: T.muted, margin: 0 }}>{t("csSubjNeed")}</p>}
-    </div>
-  );
-
   return (
     <div style={{ display: "grid", gridTemplateColumns: "minmax(0, 1fr)", gap: 20 }}>
       {/* Greeting */}
@@ -7459,7 +7606,7 @@ function ConsolePanel({ library, sessionLog, session, onResume, onOpenLobby, onR
             {tile(<Flame size={14} />, t("csStatStreak"), data.streak, data.streak === 1 ? t("csStatDay1") : t("csStatDays", { n: data.streak }))}
           </div>
         )}
-        {hasSessions && wide && <div style={{ display: "grid", gap: 14 }}>{trendCard}{subjectCard}</div>}
+        {hasSessions && wide && <div style={{ display: "grid", gap: 14 }}>{trendCard}</div>}
         </div>
         <div style={{ display: "flex", flexDirection: "column", gap: wide ? 14 : 0, minWidth: 0 }}>
           <ConsoleCalendar sessionLog={sessionLog} onNavigate={onNavigate} T={T} fill={false} />
@@ -7470,64 +7617,9 @@ function ConsolePanel({ library, sessionLog, session, onResume, onOpenLobby, onR
       {hasSessions && !wide && (
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 340px), 1fr))", gap: 20 }}>
           {donutCard}
-          <div style={{ display: "grid", gap: 20, gridTemplateRows: "auto 1fr" }}>
-            {trendCard}
-            {subjectCard}
-          </div>
+          {trendCard}
         </div>
       )}
-
-      {/* Recent sessions (or the first-run card) beside the library, two columns on large displays */}
-      <div style={{ display: "grid", gridTemplateColumns: wide ? "repeat(2, minmax(0, 1fr))" : "minmax(0, 1fr)", gap: 20, alignItems: "stretch" }}>
-        {hasSessions ? (
-          <div style={card}>
-            <div style={cardHead}>
-              <ClipboardList size={17} color={T.ink} />
-              <span style={headTxt}>{t("csRecent")}</span>
-              <button onClick={() => onNavigate("analytics")} style={linkBtn}>{t("csViewAll")}</button>
-            </div>
-            <div style={{ display: "grid", gap: 8 }}>
-              {data.ordered.slice(0, 3).map((h) => (
-                <button key={h.id} onClick={() => (hasReviewSnapshot(h.id) ? onReview(h.id) : onNavigate("analytics"))} style={{ display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap", textAlign: "left", padding: "12px 14px", borderRadius: 8, border: `1px solid ${T.border}`, background: "transparent", cursor: "pointer" }}>
-                  <span style={{ flex: 1, minWidth: 160, fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(14), color: T.ink, overflowWrap: "anywhere" }}>{sessionTitle(h, t)}</span>
-                  <span style={{ fontFamily: FONT_MONO, fontSize: fs(12), color: T.muted }}>{fmtDay(h.finishedAt)}{h.elapsedSec ? ` · ${fmtTime(h.elapsedSec)}` : ""}</span>
-                  <Pill T={T} tone={h.pct >= 70 ? "green" : "red"}>{h.pct}% ({h.correct}/{h.total})</Pill>
-                </button>
-              ))}
-            </div>
-          </div>
-        ) : (
-        <div style={{ ...card, textAlign: "center", padding: phone ? "28px 18px" : "40px 24px", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
-          <BarChart3 size={30} color={T.blue} />
-          <h2 style={{ fontFamily: FONT_DISPLAY, fontSize: fs(22), fontWeight: 600, color: T.ink, margin: "10px 0 6px" }}>{t("csFirstTitle")}</h2>
-          <p style={{ fontFamily: FONT_UI, fontSize: fs(14), color: T.muted, lineHeight: 1.6, margin: "0 auto", maxWidth: 520 }}>{t("csFirstBody")}</p>
-        </div>
-        )}
-      <div style={card}>
-        <div style={cardHead}>
-          <BookOpen size={17} color={T.ink} />
-          <span style={headTxt}>{t("csYourLibrary")}</span>
-          {library.length > 0 && <Pill T={T} tone="muted">{t("csLibSub", { n: library.length })}</Pill>}
-          <button onClick={() => onNavigate("library")} style={linkBtn}>{t("csOpenLibrary")}</button>
-        </div>
-        {recentLib.length === 0 ? (
-          <p style={{ fontFamily: FONT_UI, fontSize: fs(13.5), color: T.muted, margin: 0 }}>{t("csLibEmpty")}</p>
-        ) : (
-          <div style={{ display: "grid", gap: 8 }}>
-            {recentLib.map((e) => {
-              const ls = e.lastScore;
-              return (
-                <button key={e.id} onClick={() => onNavigate("library")} style={{ display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap", textAlign: "left", padding: "12px 14px", borderRadius: 8, border: `1px solid ${T.border}`, background: "transparent", cursor: "pointer" }}>
-                  <span style={{ flex: 1, minWidth: 160, fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(14), color: T.ink, overflowWrap: "anywhere" }}>{e.title}</span>
-                  <span style={{ fontFamily: FONT_MONO, fontSize: fs(12), color: T.muted }}>{e.questions.length} Q</span>
-                  {ls ? <Pill T={T} tone={ls.pct >= 70 ? "green" : "red"}>{t("libLastScore", { pct: ls.pct, c: ls.correct, t: ls.total })}</Pill> : <Pill T={T} tone="muted">{t("libNoScore")}</Pill>}
-                </button>
-              );
-            })}
-          </div>
-        )}
-      </div>
-      </div>
     </div>
   );
 }
@@ -7823,7 +7915,7 @@ const GUIDE = {
     { title: "9. Your Student Profile and tutor", body: "Give OWORLD your syllabus once and your tutor follows along: it knows your week, your exams and what to study next.",
       points: ["Open the profile menu (your picture, upper right), tap Student Profile, tap Copy prompt, and give it to your AI tool together with your syllabus. Paste the JSON it returns and tap Load profile.", "The Console then shows Your tutor: this week's topics, your next exam, today's tasks and a few lines of guidance. Tap Start a block to pre-fill the Question Recipe for a topic.", "In the Library, Qbanks that match this week's topics are suggested at the top.", "Exam countdowns, new weeks and pace alerts arrive in the bell. Each one appears once.", "Your profile syncs through Google Drive like your Qbanks. Tap Update current profile any time to refresh it.", "The bell (top right) collects exam countdowns, new weeks, pace and deadline alerts, finished blocks and sync notices. Mark all read or Clear all from there."] },
     { title: "10. Console, your dashboard", body: "The Console is the first page you see. It shows where you are at a glance.",
-      points: ["A greeting and study streak, with a one-tap Resume for the block you left half-finished.", "Stat tiles for sessions, questions answered, accuracy and day streak.", "Analytics highlights: a donut of correct, correct using hints and incorrect answers. Tap View all to open Analytics.", "Recent scores charts your last 10 sessions against the 70% line. Strongest subjects and Needs work rank your subjects once you have answered at least 5 questions in each.", "Your tutor, Recent sessions and a peek at your library sit below. With a Student Profile loaded, a small calendar sits beside them."] },
+      points: ["A greeting and study streak, with a one-tap Resume for the block you left half-finished.", "Stat tiles for sessions, questions answered, accuracy and day streak.", "Analytics highlights: a donut of correct, correct using hints and incorrect answers. Tap View all to open Analytics.", "Recent scores charts your last 10 sessions against the 70% line.", "Your tutor sits beside the semester calendar. Use the Analytics and Library tabs for past sessions and your saved Qbanks."] },
     { title: "11. Personal Database", body: "The Database page keeps the questions, excerpts and notes you save while studying, so you can revise them later.",
       points: ["During a block, select text and tap Add to database to save an excerpt. Use the bookmark to save a whole question, or Save to Database in the Notes panel to keep a note.", "Filter by All, Questions, Excerpts or Notes, or search your database. Show answer reveals a saved question's answer, and Add comment lets you write your own remarks on any item.", "Edit, Copy or Delete any item. Manage lets you select several to delete, and Clear all empties the database. Everything deleted goes to the Trash for 30 days.", "Export (or Share) saves your items as one file. Import adds them to another device or from a friend, and skips items you already have.", "Signed in with Google, your database syncs across devices like your library."] },
     { title: "12. Search everything", body: "The magnifier at the top of every page opens one search box for the whole app.",
