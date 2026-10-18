@@ -5783,7 +5783,6 @@ function SettingsMenu({ darkMode, setDarkMode, T, iconOnly = false, onHelp }) {
   const signedIn = !!(drive && drive.configured && drive.linked);
   const profile = signedIn ? drive.profile : null;
   const displayName = profile ? (profile.name || (profile.email || "").split("@")[0]) : "";
-  const showName = !iconOnly && vp.w >= 900 && !!displayName; // the name only shows on larger displays
   const reauth = signedIn && drive.status === "reauth";
   const stText = drive ? {
     busy: t("syncStBusy"), reauth: t("syncStReauth"), error: t("syncStError"), none: t("syncStNone"), off: t("syncOff"),
@@ -5817,17 +5816,15 @@ function SettingsMenu({ darkMode, setDarkMode, T, iconOnly = false, onHelp }) {
     <div ref={wrapRef} style={{ position: "relative", flexShrink: 0 }}>
       <button
         onClick={toggle} aria-haspopup="true" aria-expanded={open} aria-label={t("settings")}
-        title={showName ? undefined : (profile && profile.email) || t("settings")}
+        title={(profile && profile.email) || t("settings")}
         style={{
           position: "relative", display: "flex", alignItems: "center", gap: 8, background: open ? T.blueLight : "transparent", whiteSpace: "nowrap", cursor: "pointer",
-          border: `1px solid ${open ? T.blue : T.border}`, borderRadius: 999, padding: showName ? "4px 12px 4px 4px" : 3,
+          border: `1px solid ${open ? T.blue : T.border}`, borderRadius: 999, padding: 3,
           fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(13), color: T.ink,
         }}
       >
         {signedIn ? <Avatar profile={profile} size={iconOnly ? 34 : 32} T={T} />
           : <span style={{ width: iconOnly ? 34 : 32, height: iconOnly ? 34 : 32, borderRadius: "50%", background: T.mutedBg, display: "inline-flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}><UserIcon size={17} color={T.muted} /></span>}
-        {showName && <span style={{ maxWidth: 180, overflow: "hidden", textOverflow: "ellipsis" }}>{displayName}</span>}
-        {showName && <ChevronDown size={15} color={T.muted} style={{ flexShrink: 0 }} />}
         {reauth && <span title={t("syncStReauth")} style={{ position: "absolute", top: -2, right: -2, width: 11, height: 11, borderRadius: "50%", background: T.amber, border: `2px solid ${T.paper}` }} />}
       </button>
       {open && (
