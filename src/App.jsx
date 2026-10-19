@@ -3887,17 +3887,18 @@ function spWeekLabel(b, t) {
   return t("spTermUnknown");
 }
 const spTone = (T, tone) => ({ red: T.red, amber: T.amber, green: T.green, blue: T.blue }[tone] || T.muted);
-function TaskRow({ task, onToggle, onRemove, onEdit, T, t, lang }) {
+function TaskRow({ task, onToggle, onRemove, onEdit, T, t, lang, accent = null }) {
   const d = parseISODate(task.due);
   return (
     <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "8px 0" }}>
+      {accent && <span aria-hidden="true" style={{ width: 3, alignSelf: "stretch", borderRadius: 2, background: accent, flexShrink: 0 }} />}
       <button onClick={onToggle} role="checkbox" aria-checked={task.done} aria-label={task.title} style={{
         width: 22, height: 22, flexShrink: 0, borderRadius: 5, cursor: "pointer", padding: 0, display: "inline-flex", alignItems: "center", justifyContent: "center",
-        background: task.done ? T.green : "transparent", border: `2px solid ${task.done ? T.green : T.border}`, color: T.onBlue,
+        background: task.done ? T.green : "transparent", border: `2px solid ${task.done ? T.green : (accent || T.border)}`, color: T.onBlue,
       }}>{task.done && <Check size={14} />}</button>
       <span style={{ flex: 1, minWidth: 0, fontFamily: FONT_UI, fontSize: fs(13.5), color: task.done ? T.muted : T.ink, textDecoration: task.done ? "line-through" : "none", overflowWrap: "anywhere" }}>{task.title}</span>
       {task.time && <span style={{ fontFamily: FONT_MONO, fontSize: fs(11.5), color: T.muted, whiteSpace: "nowrap" }}>{fmtClock(task.time, lang === "es" ? "es" : "en-US")}</span>}
-      {d && <span style={{ fontFamily: FONT_MONO, fontSize: fs(11.5), color: T.muted, whiteSpace: "nowrap" }}>{d.toLocaleDateString(lang === "es" ? "es" : "en-US", { month: "short", day: "numeric" })}</span>}
+      {d && <span style={{ fontFamily: FONT_MONO, fontSize: fs(11.5), color: accent && !task.done ? accent : T.muted, fontWeight: accent && !task.done ? 700 : 400, whiteSpace: "nowrap" }}>{d.toLocaleDateString(lang === "es" ? "es" : "en-US", { month: "short", day: "numeric" })}</span>}
       {onEdit && <button onClick={onEdit} title={t("calEdit")} aria-label={t("calEdit")} style={{ background: "transparent", border: "none", cursor: "pointer", color: T.muted, padding: 4, display: "flex" }}><Pencil size={14} /></button>}
       {onRemove && <button onClick={onRemove} title={t("csPlanRemove")} aria-label={t("csPlanRemove")} style={{ background: "transparent", border: "none", cursor: "pointer", color: T.muted, padding: 4, display: "flex" }}><X size={15} /></button>}
     </div>
@@ -4462,7 +4463,7 @@ function StudyHub({ library, sessionLog, onLaunch, onNavigate, T }) {
       </div>
 
       <nav aria-label={t("shJumpTo")} style={{ position: "sticky", top: "var(--oworld-sticky-h, 0px)", zIndex: 5, background: T.paper, borderBottom: `1px solid ${T.border}`, margin: "0 -4px", padding: "8px 4px", overflowX: "auto", overflowY: "hidden", touchAction: "pan-x" }}>
-        <div style={{ display: "flex", gap: 6, width: "max-content" }}>
+        <div style={{ display: "flex", gap: 6, width: "max-content", margin: "0 auto" }}>
           {sections.map(([id, label, Ic]) => {
             const on = active === id;
             return (
@@ -7893,12 +7894,14 @@ function ConsoleCalendar({ sessionLog, onNavigate, T, fill = false }) {
     return e.endDate ? `${f(e.startDate)} → ${f(e.endDate)}` : f(e.startDate);
   };
 
-  const dot = (color, k) => <span key={k} style={{ width: 6, height: 6, borderRadius: 999, background: color, display: "inline-block" }} />;
+  const dot = (color, k, faded) => <span key={k} style={{ width: 6, height: 6, borderRadius: 999, background: color, display: "inline-block", opacity: faded ? 0.45 : 1 }} />;
+  // Same task colours as the Schedule page: open = amber, overdue = red, done = green.
+  const taskAccent = (k) => (k.done ? T.green : k.due && k.due < todayKey ? T.red : T.amber);
   const iconBtn = { width: 30, height: 30, borderRadius: 8, border: `1px solid ${T.border}`, background: "transparent", color: T.ink, cursor: "pointer", display: "inline-flex", alignItems: "center", justifyContent: "center", padding: 0 };
   const rowHead = { fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(13.5), color: T.ink, overflowWrap: "anywhere" };
   const rowSub = { fontFamily: FONT_MONO, fontSize: fs(11.5), color: T.muted };
   const itemRow = { display: "flex", alignItems: "flex-start", gap: 10, padding: "7px 0" };
-  const legend = [[T.red, "csCalLegExam"], [T.purple, "csClasses"], [T.amber, "csCalLegTask"], [T.blue, "csCalLegEvent"], [T.green, "csCalLegStudy"]];
+  const legend = [[T.red, "csCalLegExam"], [T.purple, "csClasses"], [T.amber, "csCalLegTask"], [T.red, "plF.overdue"], [T.blue, "csCalLegEvent"], [T.green, "csCalLegStudy"]];
 
   return (
     <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, padding: phone ? 18 : 24, ...(fill ? { height: "100%", boxSizing: "border-box", display: "flex", flexDirection: "column" } : {}) }}>
@@ -7923,12 +7926,15 @@ function ConsoleCalendar({ sessionLog, onNavigate, T, fill = false }) {
           const key = toISODate(d); const info = byDay.get(key);
           const inMonth = d.getMonth() === view.getMonth(); const isSel = key === selKey; const isToday = key === todayKey;
           const off = !!(info && info.events.some((e) => e.type === "holiday" || e.type === "break"));
+          const dayTasks = info ? info.tasks.filter((k) => !String(k.id).startsWith("cal-")) : [];
+          const openTasks = dayTasks.filter((k) => !k.done);
+          const taskDot = openTasks.length ? [key < todayKey ? T.red : T.amber] : dayTasks.length ? [T.amber, true] : null; // overdue = red, open = amber, all done = faded amber (like the Schedule page)
           const dots = [
-            info && info.exams.some((a) => a.status !== "done") && T.red,
-            hasClassOn(d, info) && T.purple,
-            info && info.events.length > 0 && T.blue,
-            info && info.tasks.some((k) => !k.done && !String(k.id).startsWith("cal-")) && T.amber,
-            info && info.sessions.length > 0 && T.green,
+            info && info.exams.some((a) => a.status !== "done") && [T.red],
+            hasClassOn(d, info) && [T.purple],
+            info && info.events.length > 0 && [T.blue],
+            taskDot,
+            info && info.sessions.length > 0 && [T.green],
           ].filter(Boolean);
           const label = d.toLocaleDateString(locale, { weekday: "long", month: "long", day: "numeric" });
           return (
@@ -7944,7 +7950,7 @@ function ConsoleCalendar({ sessionLog, onNavigate, T, fill = false }) {
                 minWidth: 30, height: 30, lineHeight: "30px", borderRadius: 999, fontSize: fs(16), fontWeight: isToday || isSel ? 700 : 500,
                 background: isToday ? T.blue : "transparent", color: isToday ? T.onBlue : T.ink,
               }}>{d.getDate()}</span>
-              <span style={{ display: "flex", gap: 3, height: 6 }}>{dots.map((c, i) => dot(c, i))}</span>
+              <span style={{ display: "flex", gap: 3, height: 6 }}>{dots.map(([c, faded], i) => dot(c, i, faded))}</span>
             </button>
           );
         })}
@@ -7978,13 +7984,14 @@ function ConsoleCalendar({ sessionLog, onNavigate, T, fill = false }) {
                 <button onClick={() => onNavigate("calendar")} style={{ marginLeft: "auto", fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(12.5), color: T.blue, background: "transparent", border: "none", cursor: "pointer", padding: 4 }}>{t("csPlanShowAll", { n: planTasks.length })}</button>
               )}
             </div>
-            {planList.map((k) => <TaskRow key={k.id} task={k} onToggle={() => sp.toggleTask(k.id)} onRemove={isMine(k) ? () => sp.removeTask(k.id) : undefined} T={T} t={t} lang={lang} />)}
+            {planList.map((k) => <TaskRow key={k.id} accent={taskAccent(k)} task={k} onToggle={() => sp.toggleTask(k.id)} onRemove={isMine(k) ? () => sp.removeTask(k.id) : undefined} T={T} t={t} lang={lang} />)}
           </div>
         )}
         {sched.map((x) => {
           const a = x.item; const isExam = x.src === "exam"; const tone = isExam ? T.red : T.blue;
           return (
             <div key={x.id} style={{ ...itemRow, alignItems: "flex-start" }}>
+              <span aria-hidden="true" style={{ width: 3, alignSelf: "stretch", borderRadius: 2, background: x.done ? T.green : tone, flexShrink: 0 }} />
               <button onClick={() => tickSched(x)} role="checkbox" aria-checked={x.done} aria-label={x.title} style={{
                 width: 22, height: 22, flexShrink: 0, borderRadius: 5, cursor: "pointer", padding: 0, marginTop: 1, display: "inline-flex", alignItems: "center", justifyContent: "center",
                 background: x.done ? T.green : "transparent", border: `2px solid ${x.done ? T.green : tone}`, color: T.onBlue,
@@ -7999,7 +8006,7 @@ function ConsoleCalendar({ sessionLog, onNavigate, T, fill = false }) {
             </div>
           );
         })}
-        {selTasks.map((k) => <TaskRow key={k.id} task={k} onToggle={() => sp.toggleTask(k.id)} onRemove={isMine(k) ? () => sp.removeTask(k.id) : undefined} T={T} t={t} lang={lang} />)}
+        {selTasks.map((k) => <TaskRow key={k.id} accent={taskAccent(k)} task={k} onToggle={() => sp.toggleTask(k.id)} onRemove={isMine(k) ? () => sp.removeTask(k.id) : undefined} T={T} t={t} lang={lang} />)}
         {sel.sessions.length > 0 && (
           <div style={itemRow}>
             <span style={{ marginTop: 6 }}>{dot(T.green)}</span>
@@ -8438,7 +8445,7 @@ function CalendarPage({ sessionLog, onNavigate, T, focusDate }) {
             </div>
           </div>
 
-          <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginBottom: 14 }}>
+          <div style={{ display: "flex", gap: 8, flexWrap: "wrap", justifyContent: "center", marginBottom: 14 }}>
             {CAL_LAYERS.map(([id, k]) => {
               const on = layers[id];
               return (
