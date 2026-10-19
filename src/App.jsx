@@ -4,7 +4,7 @@ import {
   Play, CheckCircle2, XCircle, AlertTriangle, ClipboardList, Activity,
   Check, ChevronDown, ChevronUp, FileJson, FlaskConical, PencilLine,
   Calculator as CalcIcon, Settings as SettingsIcon, Lock, Unlock,
-  Search, Trash2, X, XOctagon, Lightbulb, Sun, Moon, Highlighter, BookOpen, Stethoscope, Target, Save, Shuffle, Plus, Home as HomeIcon, Pencil, Share2, ExternalLink, Sparkles, Cloud, RefreshCw, LogIn, LogOut, Bell, Database, Bookmark, User as UserIcon, BarChart3, LayoutDashboard, Flame, TrendingUp, Download, CheckSquare, SlidersHorizontal, GraduationCap, CalendarDays, Globe, ShieldCheck, Star } from "lucide-react";
+  Search, Trash2, X, XOctagon, Lightbulb, Sun, Moon, Highlighter, BookOpen, Stethoscope, Target, Save, Shuffle, Plus, Home as HomeIcon, Pencil, Share2, ExternalLink, Sparkles, Cloud, RefreshCw, LogIn, LogOut, Bell, Database, Bookmark, User as UserIcon, BarChart3, LayoutDashboard, Flame, TrendingUp, Download, CheckSquare, SlidersHorizontal, GraduationCap, CalendarDays, Globe, ShieldCheck, Star, LayoutGrid, List as ListIcon, Tag as TagIcon, Folder as FolderIcon } from "lucide-react";
 import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell
 } from "recharts";
@@ -274,7 +274,7 @@ const STR = {
     "rt.again": "Rated Again", "rt.hard": "Rated Hard", "rt.againhard": "Rated Again/Hard",
     sufAgain: "Retest Again", sufHard: "Retest Hard", sufAgainHard: "Retest Again/Hard",
     textSize: "Text size", textSmaller: "Smaller text", textLarger: "Larger text", textReset: "Reset", libMixMax: "Max ({n})", libMixCustom: "Custom", libMixCustomHint: "1–{n}", libCountTitle: "Choose question count", libCountHint: "Draws a random, subject-balanced set of questions from this bank. Scores from this block never change the bank's last score.", libLoad: "Load {n} questions", libLoadOne: "Load 1 question", libShareSel: "Share / Export Selected", libExporting: "Exporting your selection ({n}) as one file…", libExportShared: "Shared your selection ({n}) as one file.", libExportDownloaded: "Downloaded your selection ({n}) as one file.", libExportFailed: "Export failed. Please try again.", bundleFound: "Bundle detected: {n} blocks ({names}). Press Import to choose which ones to add to your library.", libEditSel: "Edit Selected", libDeleteSel: "Delete Selected", libEditing: "{i} of {n}", libSelectHint: "Tick blocks to load, share, rename or delete them. Tick two or more to mix them into one custom block.", libDeleteSelQ: "Delete {n} selected Qbank(s)? They move to Trash, where you can restore them for 30 days.", libMixTitle: "Mix selected banks", libMixHint: "Merges the ticked banks into one shuffled block, with systems and disciplines spread evenly.", libMixPool: "{q} questions · {s} subjects", libMixDupes: "{d} duplicate(s) removed", libMixSize: "Questions", libMixAll: "All ({n})", libMix: "Mix {n} questions", libMixOne: "Mix 1 question", mixedName: "Mixed Qbank ({n} banks)",
-    libDeleteQ: "Delete this block?", libDelete: "Delete", libLocalNote: "Saved in this browser and, when you're signed in with Google, synced to your Drive. Clearing site data removes only the local copy.",
+    libDeleteQ: "Delete this block?", libGroupLabel: "Group by", libGroupNone: "None", libGroupManual: "Manual", libGroupTags: "Tags", libGroupWeek: "Week", libGroupSubject: "Subject", libGroupSystem: "System", libGroupDiscipline: "Discipline", libUngrouped: "Ungrouped", libUntagged: "Untagged", libUnclassified: "Unclassified", libBeforeTerm: "Before term", libWeekN: "Week {n}", libWeekOf: "Week of {d}", libGroupCount: "{n} Qbank(s)", libGroupSelect: "Select all in {g}", libOrganize: "Group & tag", libOrgTitle: "Group & tag {n} selected", libOrgGroup: "Group", libOrgGroupPh: "Group name…", libOrgMove: "Move", libOrgUngroup: "Remove from group", libOrgTags: "Tags", libOrgTagPh: "Add a tag…", libOrgAdd: "Add", libOrgRemoveTag: "Remove tag {g} from the selection", libOrgNoTags: "No tags on the selection yet.", libHintManual: "Select Qbanks, then use Group & tag to move them into a group you name.", libHintTags: "Select Qbanks, then use Group & tag to add tags. A Qbank with several tags shows under each one.", libHintWeek: "Grouped by the week each Qbank was added. Load a Study Profile to count weeks from your term start; without one, weeks run Monday to Sunday.", libHintClass: "Grouped by the most common {k} among each Qbank's questions.", libClassSubject: "subject", libClassSystem: "organ system", libClassDiscipline: "discipline", libCollapse: "Collapse {g}", libExpand: "Expand {g}", libViewLabel: "View", libViewList: "List", libViewGrid: "Grid", libSortLabel: "Sort by", libSortAZ: "Name: A-Z", libSortZA: "Name: Z-A", libSortAdded: "Date added", libSortModified: "Last modified", libModified: "modified {d}", libDelete: "Delete", libLocalNote: "Saved in this browser and, when you're signed in with Google, synced to your Drive. Clearing site data removes only the local copy.",
     resetData: "Reset All Local Data", resetDataWarn: "This permanently deletes your Qbank library, saved exam progress, Trash and preferences from this browser and signs you out of Drive sync. Copies already synced to your Google Drive are not deleted; signing back in restores them. It can't be undone.", resetDataConfirm: "Yes, delete everything",
     resumed: "Session restored — you're back where you left off.", storageFull: "Couldn't write to browser storage (it may be full or disabled). Your progress is not being backed up right now.",
     leaveConfirm: "You have a block in progress. Leaving now discards it. Continue?",
@@ -448,7 +448,7 @@ const STR = {
     "rt.again": "Calificadas Otra vez", "rt.hard": "Calificadas Difícil", "rt.againhard": "Calificadas Otra vez/Difícil",
     sufAgain: "Repaso Otra vez", sufHard: "Repaso Difícil", sufAgainHard: "Repaso Otra vez/Difícil",
     textSize: "Tamaño del texto", textSmaller: "Texto más pequeño", textLarger: "Texto más grande", textReset: "Restablecer", libMixMax: "Máx ({n})", libMixCustom: "Personalizado", libMixCustomHint: "1–{n}", libCountTitle: "Elegir cantidad de preguntas", libCountHint: "Toma un conjunto aleatorio y equilibrado por materia de este banco. El puntaje de este bloque nunca cambia el último puntaje del banco.", libLoad: "Cargar {n} preguntas", libLoadOne: "Cargar 1 pregunta", libShareSel: "Compartir / Exportar selección", libExporting: "Exportando tu selección ({n}) en un solo archivo…", libExportShared: "Compartiste tu selección ({n}) en un solo archivo.", libExportDownloaded: "Descargaste tu selección ({n}) en un solo archivo.", libExportFailed: "Error al exportar. Inténtalo de nuevo.", bundleFound: "Paquete detectado: {n} bloques ({names}). Pulsa Importar para elegir cuáles añadir a tu biblioteca.", libEditSel: "Editar selección", libDeleteSel: "Eliminar selección", libEditing: "{i} de {n}", libSelectHint: "Marca bloques para cargarlos, compartirlos, renombrarlos o eliminarlos. Marca dos o más para mezclarlos en un solo bloque personalizado.", libDeleteSelQ: "¿Eliminar {n} Qbank(s) seleccionado(s)? Pasan a la papelera, donde puedes restaurarlos durante 30 días.", libMixTitle: "Mezclar bancos seleccionados", libMixHint: "Une los bancos marcados en un solo bloque mezclado, con sistemas y disciplinas repartidos de forma pareja.", libMixPool: "{q} preguntas · {s} materias", libMixDupes: "{d} duplicada(s) eliminada(s)", libMixSize: "Preguntas", libMixAll: "Todas ({n})", libMix: "Mezclar {n} preguntas", libMixOne: "Mezclar 1 pregunta", mixedName: "Qbank mezclado ({n} bancos)",
-    libDeleteQ: "¿Eliminar este bloque?", libDelete: "Eliminar", libLocalNote: "Se guarda en este navegador y, si inicias sesión con Google, se sincroniza con tu Drive. Borrar los datos del sitio elimina solo la copia local.",
+    libDeleteQ: "¿Eliminar este bloque?", libGroupLabel: "Agrupar por", libGroupNone: "Ninguno", libGroupManual: "Manual", libGroupTags: "Etiquetas", libGroupWeek: "Semana", libGroupSubject: "Materia", libGroupSystem: "Sistema", libGroupDiscipline: "Disciplina", libUngrouped: "Sin grupo", libUntagged: "Sin etiquetas", libUnclassified: "Sin clasificar", libBeforeTerm: "Antes del periodo", libWeekN: "Semana {n}", libWeekOf: "Semana del {d}", libGroupCount: "{n} Qbank(s)", libGroupSelect: "Seleccionar todo en {g}", libOrganize: "Agrupar y etiquetar", libOrgTitle: "Agrupar y etiquetar {n} seleccionado(s)", libOrgGroup: "Grupo", libOrgGroupPh: "Nombre del grupo…", libOrgMove: "Mover", libOrgUngroup: "Quitar del grupo", libOrgTags: "Etiquetas", libOrgTagPh: "Añadir etiqueta…", libOrgAdd: "Añadir", libOrgRemoveTag: "Quitar la etiqueta {g} de la selección", libOrgNoTags: "La selección aún no tiene etiquetas.", libHintManual: "Selecciona Qbanks y usa Agrupar y etiquetar para moverlos a un grupo con el nombre que quieras.", libHintTags: "Selecciona Qbanks y usa Agrupar y etiquetar para añadir etiquetas. Un Qbank con varias etiquetas aparece bajo cada una.", libHintWeek: "Agrupado por la semana en que se añadió cada Qbank. Carga un Perfil de estudio para contar las semanas desde el inicio de tu periodo; sin él, las semanas van de lunes a domingo.", libHintClass: "Agrupado por {k} más frecuente entre las preguntas de cada Qbank.", libClassSubject: "la materia", libClassSystem: "el sistema", libClassDiscipline: "la disciplina", libCollapse: "Contraer {g}", libExpand: "Expandir {g}", libViewLabel: "Vista", libViewList: "Lista", libViewGrid: "Cuadrícula", libSortLabel: "Ordenar por", libSortAZ: "Nombre: A-Z", libSortZA: "Nombre: Z-A", libSortAdded: "Fecha de importación", libSortModified: "Última modificación", libModified: "modificado {d}", libDelete: "Eliminar", libLocalNote: "Se guarda en este navegador y, si inicias sesión con Google, se sincroniza con tu Drive. Borrar los datos del sitio elimina solo la copia local.",
     resetData: "Restablecer todos los datos locales", resetDataWarn: "Esto elimina de forma permanente tu biblioteca, el progreso guardado, la papelera y tus preferencias en este navegador y cierra la sincronización con Drive. Las copias ya sincronizadas en tu Google Drive no se eliminan; al volver a iniciar sesión se restauran. No se puede deshacer.", resetDataConfirm: "Sí, eliminar todo",
     resumed: "Sesión restaurada: continúas donde la dejaste.", storageFull: "No se pudo escribir en el almacenamiento del navegador (puede estar lleno o desactivado). Tu progreso no se está respaldando.",
     leaveConfirm: "Tienes un bloque en curso. Si sales ahora se descartará. ¿Continuar?",
@@ -2022,6 +2022,8 @@ function mixQbanks(entries, { size = null, difficulty = "all" } = {}) {
 // ---------------------------------------------------------------------------
 const LS_SESSION = "activeSession";
 const LS_LIBRARY = "qbankLibrary";
+const LS_HISTVIEW = "owordHistoryView"; // { view: "grid" | "list", sort: "az" | "za" | "added" | "modified" }: how the Analysis page lists past sessions (this device only)
+const LS_LIBVIEW = "owordLibraryView"; // { view: "grid" | "list", sort: "az" | "za" | "added" | "modified" }: how the Qbank Library is shown (this device only)
 // NotebookLM study notebooks shown in the Import card on the Library page. Links omit "?authuser=N" so they open under whichever Google account the
 // visitor is signed in to (each notebook must be shared with them in NotebookLM). Add it back to a url if you want to force an account.
 const NB = (id) => `https://notebook.google.com/notebook/${id}`;
@@ -6952,16 +6954,68 @@ function LibraryTopRow({ session, resumeId, library, onResume, onOpenLobby, T })
 }
 
 // ---------------------------------------------------------------------------
+// Library grouping: Manual groups, Tags, Week, Subject, System, Discipline.
+// Manual groups and tags are stored on the Qbank entry (group, tags), so they sync with the rest of the card.
+// Week / Subject / System / Discipline are worked out from the card itself and need no setup.
+// ---------------------------------------------------------------------------
+const LIB_GROUPS = ["none", "manual", "tags", "week", "subject", "system", "discipline"];
+const LIB_GROUP_KEYS = { none: "libGroupNone", manual: "libGroupManual", tags: "libGroupTags", week: "libGroupWeek", subject: "libGroupSubject", system: "libGroupSystem", discipline: "libGroupDiscipline" };
+// A question's `subject` can be an organ system, a discipline or both ("Cardiac physiology"), so each list is matched on its own.
+const LIB_SYSTEMS = [
+  ["Cardiovascular", /cardio|cardiac|heart|vascular/], ["Respiratory", /respir|pulmon|lung/], ["Renal", /renal|kidney|nephr|urinar|urolog/],
+  ["Gastrointestinal", /gastro|\bgi\b|hepat|liver|digest|biliary|pancrea|bowel/], ["Endocrine", /endocr|diabet|thyroid|adrenal|pituitar/],
+  ["Reproductive", /reproduc|obstet|gyn|pregnan|breast/], ["Neurology", /neuro|nervous|brain|special sense|spinal/], ["Psychiatry", /psych|behavioral health|mental health/],
+  ["Musculoskeletal", /musculo|\bmsk\b|ortho|rheumat|skeletal|\bbone/], ["Dermatology", /derm|\bskin\b|integument/], ["Hematology/Oncology", /hemat|\bheme\b|oncol|\bblood\b|cancer|neoplas/],
+  ["Immunology", /immun|allerg/], ["Multisystem", /multisystem|multi-system|general principles/],
+];
+const LIB_DISCIPLINES = [
+  ["Anatomy", /anatom|embryo|histolog/], ["Physiology", /physiolog/], ["Biochemistry", /biochem|nutrition/], ["Pathology", /patholog/], ["Pharmacology", /pharmac|\bdrug|therapeutic/],
+  ["Microbiology", /microb|bacteri|virolog|mycolog|parasit|infectious/], ["Genetics", /genetic|genom/], ["Behavioral Science", /behavioral sci|behavioural|sociolog|communication/],
+  ["Biostatistics", /biostat|epidemi|statistic/], ["Ethics", /ethic|jurisprud|professionalism|patient safety/],
+];
+// The most common subject / organ system / discipline among a Qbank's questions (ties go to the alphabetically first).
+function libClassify(entry) {
+  const subj = new Map(); const sys = new Map(); const dis = new Map();
+  const bump = (m, k, label) => { const c = m.get(k) || { label, n: 0 }; c.n += 1; m.set(k, c); };
+  for (const q of entry.questions || []) {
+    const raw = String((q && q.subject) || "").replace(/\s+/g, " ").trim();
+    if (!raw) continue;
+    bump(subj, raw.toLowerCase(), raw);
+    const s = raw.toLowerCase().replace(/patho-?physiolog\w*/g, "pathology"); // pathophysiology counts as pathology, not physiology
+    for (const [name, re] of LIB_SYSTEMS) if (re.test(s)) bump(sys, name, name);
+    for (const [name, re] of LIB_DISCIPLINES) if (re.test(s)) bump(dis, name, name);
+  }
+  const top = (m) => { let best = null; m.forEach((c) => { if (!best || c.n > best.n || (c.n === best.n && c.label.localeCompare(best.label) < 0)) best = c; }); return best ? best.label : null; };
+  return { subject: top(subj), system: top(sys), discipline: top(dis) };
+}
+const libDayNum = (ms) => { const d = new Date(ms); return Math.floor(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()) / 86400000); };
+// The week a Qbank was added: counted from the Study Profile's term start when there is one, else Monday-to-Sunday calendar weeks.
+function libWeekOf(ms, termStart) {
+  if (!(Number(ms) > 0)) return null;
+  const day = libDayNum(ms);
+  if (termStart) {
+    const first = libDayNum(termStart.getTime());
+    const w = Math.floor((day - first) / 7) + 1;
+    return w >= 1 ? { key: "w" + w, order: first + (w - 1) * 7, n: w, startDay: first + (w - 1) * 7 } : { key: "before", order: -1e9, n: 0, startDay: null };
+  }
+  const start = day - ((new Date(ms).getDay() + 6) % 7);
+  return { key: "m" + start, order: start, n: null, startDay: start };
+}
+const libAddUnique = (list, tag) => {
+  const cur = Array.isArray(list) ? list : [];
+  return cur.some((x) => String(x).toLowerCase() === tag.toLowerCase()) ? cur : [...cur, tag];
+};
+
+// ---------------------------------------------------------------------------
 // Qbank library panel — saved blocks; start one, or tick several to run them as a queue
 // ---------------------------------------------------------------------------
-function QbankLibraryPanel({ library, onLaunch, onMix, onDelete, onRename, resumeId, onResume, sessionLog = [], T }) {
+function QbankLibraryPanel({ library, onLaunch, onMix, onDelete, onRename, onSetMeta, resumeId, onResume, sessionLog = [], T }) {
   const { t, lang } = useI18n();
   const spCtx = useContext(ProfileContext);
   const tutorBrief_ = useMemo(() => (spCtx.profile ? tutorBrief(spCtx.profile, sessionLog, new Date()) : null), [spCtx.profile, sessionLog, new Date().toDateString()]); // eslint-disable-line
   const tutorIds = useMemo(() => new Set(tutorLibraryPicks(library, tutorBrief_).map((x) => x.e.id)), [library, tutorBrief_]);
   const [queue, setQueue] = useState([]); // entry ids in the order they were ticked
   const phone = useViewport().w < 640;
-  const twoCol = useViewport().w >= 900; // large displays: Qbank cards share two columns
   const liveQueue = queue.filter((id) => library.some((e) => e.id === id));
   const titleOf = (id) => library.find((e) => e.id === id)?.title || "";
 
@@ -7024,6 +7078,98 @@ function QbankLibraryPanel({ library, onLaunch, onMix, onDelete, onRename, resum
   const toggle = (id) => setQueue((q) => (q.includes(id) ? q.filter((x) => x !== id) : [...q, id]));
   const fmtDate = (ms) => new Date(ms).toLocaleDateString(lang === "es" ? "es" : "en-US", { year: "numeric", month: "short", day: "numeric" });
 
+  // Display preferences: Grid or List, and the sort order. Kept on this device; they change only how the cards are shown.
+  const SORTS = [["az", "libSortAZ"], ["za", "libSortZA"], ["added", "libSortAdded"], ["modified", "libSortModified"]];
+  const [prefs, setPrefs] = useState(() => {
+    const v = lsGet(LS_LIBVIEW) || {};
+    return { view: v.view === "list" ? "list" : "grid", sort: SORTS.some(([id]) => id === v.sort) ? v.sort : "added", group: LIB_GROUPS.includes(v.group) ? v.group : "none" };
+  });
+  const setPref = (patch) => { const next = { ...prefs, ...patch }; setPrefs(next); lsSet(LS_LIBVIEW, JSON.stringify(next)); };
+  const modStamp = (e) => Math.max(Number(e.updatedAt) || 0, Number(e.importDate) || 0); // rename, rating or a new score all bump updatedAt
+  const sortedLib = useMemo(() => {
+    const byName = (a, b) => (a.title || "").localeCompare(b.title || "", lang === "es" ? "es" : "en", { numeric: true, sensitivity: "base" }) || (a.id < b.id ? -1 : 1);
+    const arr = [...library];
+    if (prefs.sort === "az") arr.sort(byName);
+    else if (prefs.sort === "za") arr.sort((a, b) => byName(b, a));
+    else if (prefs.sort === "modified") arr.sort((a, b) => modStamp(b) - modStamp(a) || byName(a, b)); // newest first
+    else arr.sort((a, b) => (Number(b.importDate) || 0) - (Number(a.importDate) || 0) || byName(a, b)); // newest first
+    return arr;
+  }, [library, prefs.sort, lang]);
+  const asGrid = prefs.view === "grid";
+
+  // Grouping. Manual groups and tags are saved on the card; the other modes are derived from it.
+  const loc = lang === "es" ? "es" : "en";
+  const termStart = useMemo(() => (spCtx.profile ? termStartOf(spCtx.profile) : null), [spCtx.profile]);
+  const classOf = useMemo(
+    () => (["subject", "system", "discipline"].includes(prefs.group) ? new Map(library.map((e) => [e.id, libClassify(e)])) : null),
+    [library, prefs.group]);
+  const allGroups = useMemo(() => [...new Set(library.map((e) => String(e.group || "").trim()).filter(Boolean))].sort((a, b) => a.localeCompare(b, loc, { numeric: true, sensitivity: "base" })), [library, loc]);
+  const allTags = useMemo(() => [...new Set(library.flatMap((e) => (Array.isArray(e.tags) ? e.tags : [])).map((x) => String(x).trim()).filter(Boolean))].sort((a, b) => a.localeCompare(b, loc, { numeric: true, sensitivity: "base" })), [library, loc]);
+  const fmtDay = (day) => new Date(day * 86400000).toLocaleDateString(loc === "es" ? "es" : "en-US", { month: "short", day: "numeric", timeZone: "UTC" });
+  const sections = useMemo(() => {
+    const g = prefs.group;
+    if (g === "none") return [{ key: "_all", label: null, items: sortedLib }];
+    const map = new Map();
+    const put = (key, label, e, extra) => { let s = map.get(key); if (!s) { s = { key, label, items: [], ...(extra || {}) }; map.set(key, s); } s.items.push(e); };
+    sortedLib.forEach((e) => {
+      if (g === "manual") {
+        const n = String(e.group || "").trim();
+        if (n) put("g:" + n.toLowerCase(), n, e); else put("_rest", t("libUngrouped"), e, { last: true });
+      } else if (g === "tags") {
+        const tg = (Array.isArray(e.tags) ? e.tags : []).map((x) => String(x).trim()).filter(Boolean);
+        if (tg.length) tg.forEach((x) => put("t:" + x.toLowerCase(), x, e)); else put("_rest", t("libUntagged"), e, { last: true });
+      } else if (g === "week") {
+        const w = libWeekOf(e.importDate, termStart);
+        if (!w) put("_rest", t("libUnclassified"), e, { last: true });
+        else if (w.key === "before") put("w:before", t("libBeforeTerm"), e, { order: w.order });
+        else if (w.n) put("w:" + w.key, t("libWeekN", { n: w.n }), e, { order: w.order, sub: `${fmtDay(w.startDay)} – ${fmtDay(w.startDay + 6)}` });
+        else put("w:" + w.key, t("libWeekOf", { d: fmtDay(w.startDay) }), e, { order: w.order });
+      } else {
+        const v = classOf && classOf.get(e.id) ? classOf.get(e.id)[g] : null;
+        if (v) put("c:" + v.toLowerCase(), v, e); else put("_rest", t("libUnclassified"), e, { last: true });
+      }
+    });
+    const arr = [...map.values()];
+    const cmp = g === "week" ? (a, b) => b.order - a.order : (a, b) => a.label.localeCompare(b.label, loc, { numeric: true, sensitivity: "base" });
+    arr.sort((a, b) => (a.last ? 1 : 0) - (b.last ? 1 : 0) || cmp(a, b));
+    return arr;
+  }, [sortedLib, prefs.group, classOf, termStart, lang]); // eslint-disable-line
+  const [collapsed, setCollapsed] = useState({}); // "mode:groupKey" -> true while a group is folded away
+  const toggleCollapsed = (k) => setCollapsed((c) => ({ ...c, [k]: !c[k] }));
+  const toggleSection = (items) => setQueue((q) => {
+    const ids = items.map((x) => x.id);
+    return ids.every((id) => q.includes(id)) ? q.filter((id) => !ids.includes(id)) : [...q, ...ids.filter((id) => !q.includes(id))];
+  });
+
+  // Group & tag Selected: move the ticked Qbanks into a named group and add or remove tags. Matching ignores case and reuses the spelling already in the library.
+  const [orgOpen, setOrgOpen] = useState(false);
+  const [orgGroup, setOrgGroup] = useState("");
+  const [orgTag, setOrgTag] = useState("");
+  const selTags = useMemo(() => {
+    const m = new Map();
+    liveQueue.forEach((id) => { const e = library.find((x) => x.id === id); (e && Array.isArray(e.tags) ? e.tags : []).forEach((x) => { const k = String(x).toLowerCase(); const c = m.get(k) || { label: x, n: 0 }; c.n += 1; m.set(k, c); }); });
+    return [...m.values()].sort((a, b) => a.label.localeCompare(b.label, loc, { sensitivity: "base" }));
+  }, [liveQueue.join("|"), library, loc]); // eslint-disable-line
+  const selHasGroup = liveQueue.some((id) => { const e = library.find((x) => x.id === id); return e && String(e.group || "").trim(); });
+  const canon = (list, v) => list.find((x) => x.toLowerCase() === v.toLowerCase()) || v;
+  const applyGroup = (name) => {
+    const g = canon(allGroups, String(name || "").trim().slice(0, 60));
+    onSetMeta(liveQueue, () => ({ group: g || null }));
+    setOrgGroup("");
+  };
+  const addTag = () => {
+    const tg = canon(allTags, orgTag.trim().replace(/^#/, "").slice(0, 40));
+    if (!tg) return;
+    onSetMeta(liveQueue, (e) => ({ tags: libAddUnique(e.tags, tg) }));
+    setOrgTag("");
+  };
+  const removeTag = (tg) => onSetMeta(liveQueue, (e) => ({ tags: (Array.isArray(e.tags) ? e.tags : []).filter((x) => String(x).toLowerCase() !== tg.toLowerCase()) }));
+  const groupHint = prefs.group === "manual" ? (allGroups.length ? null : t("libHintManual"))
+    : prefs.group === "tags" ? (allTags.length ? null : t("libHintTags"))
+    : prefs.group === "week" ? (termStart ? null : t("libHintWeek"))
+    : ["subject", "system", "discipline"].includes(prefs.group) ? t("libHintClass", { k: t(prefs.group === "subject" ? "libClassSubject" : prefs.group === "system" ? "libClassSystem" : "libClassDiscipline") })
+    : null;
+
   return (
     <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, padding: 24, marginBottom: 20 }}>
       <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 14, flexWrap: "wrap" }}>
@@ -7031,21 +7177,92 @@ function QbankLibraryPanel({ library, onLaunch, onMix, onDelete, onRename, resum
         <span style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(14), color: T.ink }}>{t("libTitle")}</span>
         <Pill T={T} tone="muted">{t("libCount", { n: library.length })}</Pill>
         {/* Contextual actions: only present while at least one Qbank is ticked */}
-        {liveQueue.length > 0 && (
+        {library.length > 0 && (
           <div role="toolbar" aria-label={t("libTitle")} style={{ marginLeft: "auto", display: "flex", gap: 6, flexWrap: "wrap", justifyContent: "flex-end" }}>
-            {[
+            {(liveQueue.length > 0 ? [
               { id: "share", icon: Share2, label: t("libShareSel"), onClick: startExport, disabled: !!exp && exp.phase !== "done" },
               { id: "edit", icon: Pencil, label: t("libEditSel"), onClick: startEdit, disabled: false },
-              { id: "delete", icon: Trash2, label: t("libDeleteSel"), onClick: () => { setRenameQueue([]); setConfirmDel(true); }, disabled: false, danger: true },
-            ].map((a) => (
+              { id: "organize", icon: TagIcon, label: t("libOrganize"), onClick: () => { setConfirmDel(false); setRenameQueue([]); setOrgOpen((o) => !o); }, disabled: false },
+              { id: "delete", icon: Trash2, label: t("libDeleteSel"), onClick: () => { setRenameQueue([]); setOrgOpen(false); setConfirmDel(true); }, disabled: false, danger: true },
+            ] : []).map((a) => (
               <GhostButton key={a.id} T={T} icon={a.icon} onClick={a.onClick} disabled={a.disabled} title={`${a.label} (${liveQueue.length})`}
                 style={{ ...(a.danger ? { color: T.red, borderColor: T.red } : {}), ...(phone ? { padding: "11px 12px" } : {}) }}>
                 {!phone && a.label}
               </GhostButton>
             ))}
+            <GhostButton T={T} onClick={() => { setConfirmDel(false); setQueue(liveQueue.length === library.length ? [] : sortedLib.map((e) => e.id)); }}>
+              {liveQueue.length === library.length ? t("histDeselect") : t("histSelectAll")}
+            </GhostButton>
           </div>
         )}
       </div>
+
+      {library.length > 0 && (
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 10, flexWrap: "wrap", marginBottom: 12 }}>
+          <label style={{ display: "inline-flex", alignItems: "center", gap: 8, fontFamily: FONT_UI, fontSize: fs(12.5), color: T.muted }}>
+            {t("libSortLabel")}
+            <select value={prefs.sort} onChange={(ev) => setPref({ sort: ev.target.value })} aria-label={t("libSortLabel")}
+              style={{ fontFamily: FONT_UI, fontSize: fs(13), fontWeight: 600, color: T.ink, background: T.paper, border: `1px solid ${T.border}`, borderRadius: 6, padding: "7px 8px", cursor: "pointer" }}>
+              {SORTS.map(([id, key]) => <option key={id} value={id}>{t(key)}</option>)}
+            </select>
+          </label>
+          <label style={{ display: "inline-flex", alignItems: "center", gap: 8, fontFamily: FONT_UI, fontSize: fs(12.5), color: T.muted }}>
+            {t("libGroupLabel")}
+            <select value={prefs.group} onChange={(ev) => setPref({ group: ev.target.value })} aria-label={t("libGroupLabel")}
+              style={{ fontFamily: FONT_UI, fontSize: fs(13), fontWeight: 600, color: T.ink, background: T.paper, border: `1px solid ${T.border}`, borderRadius: 6, padding: "7px 8px", cursor: "pointer" }}>
+              {LIB_GROUPS.map((id) => <option key={id} value={id}>{t(LIB_GROUP_KEYS[id])}</option>)}
+            </select>
+          </label>
+          <div role="group" aria-label={t("libViewLabel")} style={{ display: "inline-flex", border: `1px solid ${T.border}`, borderRadius: 6, overflow: "hidden" }}>
+            {[["list", t("libViewList"), ListIcon], ["grid", t("libViewGrid"), LayoutGrid]].map(([id, label, Ic]) => (
+              <button key={id} aria-pressed={prefs.view === id} title={label} aria-label={label} onClick={() => setPref({ view: id })} style={{
+                display: "flex", alignItems: "center", gap: 6, fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(12.5), padding: phone ? "9px 12px" : "7px 14px", border: "none",
+                cursor: "pointer", background: prefs.view === id ? T.blue : "transparent", color: prefs.view === id ? T.onBlue : T.ink,
+              }}><Ic size={14} />{!phone && label}</button>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {library.length > 0 && groupHint && (
+        <p style={{ fontFamily: FONT_UI, fontSize: fs(12.5), color: T.muted, lineHeight: 1.5, margin: "0 0 12px" }}>{groupHint}</p>
+      )}
+
+      {orgOpen && liveQueue.length > 0 && (
+        <div role="group" aria-label={t("libOrgTitle", { n: liveQueue.length })} style={{ padding: "12px 14px", marginBottom: 12, borderRadius: 8, border: `1px solid ${T.border}`, background: T.paper, display: "grid", gap: 12 }}>
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 8 }}>
+            <span style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(13), color: T.ink }}>{t("libOrgTitle", { n: liveQueue.length })}</span>
+            <button onClick={() => setOrgOpen(false)} title={t("close")} aria-label={t("close")} style={{ background: "transparent", border: "none", cursor: "pointer", color: T.muted, display: "flex", padding: 4 }}><X size={16} /></button>
+          </div>
+          <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap" }}>
+            <span style={{ fontFamily: FONT_UI, fontSize: fs(12.5), color: T.muted, minWidth: 52 }}>{t("libOrgGroup")}</span>
+            <input list="lib-groups" value={orgGroup} maxLength={60} placeholder={t("libOrgGroupPh")} aria-label={t("libOrgGroup")}
+              onChange={(ev) => setOrgGroup(ev.target.value)} onKeyDown={(ev) => { if (ev.key === "Enter" && orgGroup.trim()) applyGroup(orgGroup); }}
+              style={{ flex: 1, minWidth: 160, fontFamily: FONT_UI, fontSize: fs(13), color: T.ink, background: T.card, border: `1px solid ${T.border}`, borderRadius: 6, padding: "7px 10px", outline: "none" }} />
+            <datalist id="lib-groups">{allGroups.map((g) => <option key={g} value={g} />)}</datalist>
+            <GhostButton T={T} icon={FolderIcon} onClick={() => applyGroup(orgGroup)} disabled={!orgGroup.trim()}>{t("libOrgMove")}</GhostButton>
+            {selHasGroup && <GhostButton T={T} onClick={() => applyGroup("")}>{t("libOrgUngroup")}</GhostButton>}
+          </div>
+          <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap" }}>
+            <span style={{ fontFamily: FONT_UI, fontSize: fs(12.5), color: T.muted, minWidth: 52 }}>{t("libOrgTags")}</span>
+            <input list="lib-tags" value={orgTag} maxLength={40} placeholder={t("libOrgTagPh")} aria-label={t("libOrgTags")}
+              onChange={(ev) => setOrgTag(ev.target.value)} onKeyDown={(ev) => { if (ev.key === "Enter" && orgTag.trim()) addTag(); }}
+              style={{ flex: 1, minWidth: 160, fontFamily: FONT_UI, fontSize: fs(13), color: T.ink, background: T.card, border: `1px solid ${T.border}`, borderRadius: 6, padding: "7px 10px", outline: "none" }} />
+            <datalist id="lib-tags">{allTags.map((g) => <option key={g} value={g} />)}</datalist>
+            <GhostButton T={T} icon={TagIcon} onClick={addTag} disabled={!orgTag.trim()}>{t("libOrgAdd")}</GhostButton>
+          </div>
+          <div style={{ display: "flex", alignItems: "center", gap: 6, flexWrap: "wrap", paddingLeft: 60 }}>
+            {selTags.length === 0
+              ? <span style={{ fontFamily: FONT_UI, fontSize: fs(12), color: T.muted }}>{t("libOrgNoTags")}</span>
+              : selTags.map((c) => (
+                <button key={c.label} onClick={() => removeTag(c.label)} title={t("libOrgRemoveTag", { g: c.label })} aria-label={t("libOrgRemoveTag", { g: c.label })}
+                  style={{ display: "inline-flex", alignItems: "center", gap: 4, fontFamily: FONT_UI, fontSize: fs(12), fontWeight: 600, padding: "3px 6px 3px 9px", borderRadius: 999, border: `1px solid ${T.border}`, background: T.mutedBg, color: T.ink, cursor: "pointer" }}>
+                  {c.label}{c.n < liveQueue.length ? ` (${c.n})` : ""}<X size={12} />
+                </button>
+              ))}
+          </div>
+        </div>
+      )}
 
       {confirmDel && (
         <div role="alertdialog" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 12, flexWrap: "wrap", padding: "10px 14px", marginBottom: 12, borderRadius: 8, border: `1px solid ${T.red}`, background: T.redLight }}>
@@ -7071,17 +7288,37 @@ function QbankLibraryPanel({ library, onLaunch, onMix, onDelete, onRename, resum
         <p style={{ fontFamily: FONT_UI, fontSize: fs(13.5), color: T.muted, lineHeight: 1.6, margin: 0 }}>{t("libEmpty")}</p>
       ) : (
         <>
-          <div style={{ display: "grid", gap: 8, gridTemplateColumns: twoCol ? "repeat(2, minmax(0, 1fr))" : "minmax(0, 1fr)" }}>
-            {library.map((e) => {
+          {sections.map((sec) => {
+            const ck = prefs.group + ":" + sec.key;
+            const isCollapsed = sec.label !== null && !!collapsed[ck];
+            const selN = sec.items.filter((x) => liveQueue.includes(x.id)).length;
+            return (
+          <div key={sec.key} style={{ marginBottom: sec.label !== null ? 18 : 0 }}>
+            {sec.label !== null && (
+              <div style={{ display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap", marginBottom: 10, paddingBottom: 8, borderBottom: `1px solid ${T.border}` }}>
+                <input type="checkbox" checked={selN === sec.items.length} ref={(el) => { if (el) el.indeterminate = selN > 0 && selN < sec.items.length; }}
+                  onChange={() => toggleSection(sec.items)} aria-label={t("libGroupSelect", { g: sec.label })} style={{ cursor: "pointer", width: 18, height: 18 }} />
+                <button onClick={() => toggleCollapsed(ck)} aria-expanded={!isCollapsed} title={t(isCollapsed ? "libExpand" : "libCollapse", { g: sec.label })}
+                  style={{ display: "inline-flex", alignItems: "center", gap: 6, background: "transparent", border: "none", cursor: "pointer", padding: 0, fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(13.5), color: T.ink, textAlign: "left" }}>
+                  {isCollapsed ? <ChevronRight size={16} /> : <ChevronDown size={16} />}{sec.label}
+                </button>
+                {sec.sub && <span style={{ fontFamily: FONT_MONO, fontSize: fs(12), color: T.muted }}>{sec.sub}</span>}
+                <Pill T={T} tone="muted">{t("libGroupCount", { n: sec.items.length })}</Pill>
+              </div>
+            )}
+            {!isCollapsed && (
+          <div style={{ display: "grid", gap: asGrid ? 12 : 8, gridTemplateColumns: asGrid ? "repeat(auto-fill, minmax(min(100%, 250px), 1fr))" : "minmax(0, 1fr)" }}>
+            {sec.items.map((e) => {
               const pos = liveQueue.indexOf(e.id);
               const ls = e.lastScore;
               return (
                 <div key={e.id} onClick={() => { if (renameId !== e.id) toggle(e.id); }} style={{
-                  display: "flex", alignItems: "center", gap: 12, flexWrap: "wrap", padding: "12px 14px", borderRadius: 8, cursor: "pointer",
+                  display: "flex", gap: 12, padding: "12px 14px", borderRadius: 8, cursor: "pointer",
+                  ...(asGrid ? { flexDirection: "column", alignItems: "stretch", gap: 10, minWidth: 0 } : { alignItems: "center", flexWrap: "wrap" }),
                   border: `1px solid ${pos >= 0 ? T.blue : T.border}`, background: pos >= 0 ? T.blueLight : "transparent",
                 }}>
-                  <input type="checkbox" checked={pos >= 0} onChange={() => toggle(e.id)} onClick={(ev) => ev.stopPropagation()} aria-label={e.title} style={{ cursor: "pointer", width: 18, height: 18 }} />
-                  <div style={{ flex: 1, minWidth: 180 }}>
+                  <input type="checkbox" checked={pos >= 0} onChange={() => toggle(e.id)} onClick={(ev) => ev.stopPropagation()} aria-label={e.title} style={{ cursor: "pointer", width: 18, height: 18, ...(asGrid ? { alignSelf: "flex-start" } : {}) }} />
+                  <div style={{ flex: 1, minWidth: asGrid ? 0 : 180 }}>
                     <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap" }}>
                       {renameId === e.id ? (
                         <span style={{ display: "inline-flex", alignItems: "center", gap: 6, flex: 1, minWidth: 200 }}>
@@ -7117,12 +7354,23 @@ function QbankLibraryPanel({ library, onLaunch, onMix, onDelete, onRename, resum
                     </div>
                     <span style={{ fontFamily: FONT_MONO, fontSize: fs(12), color: T.muted }}>
                       {t("libMeta", { q: e.questions.length, d: fmtDate(e.importDate) })}
+                      {prefs.sort === "modified" && modStamp(e) > (Number(e.importDate) || 0) && ` · ${t("libModified", { d: fmtDate(modStamp(e)) })}`}
                     </span>
+                    {(String(e.group || "").trim() || (Array.isArray(e.tags) && e.tags.length > 0)) && (
+                      <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginTop: 6 }}>
+                        {String(e.group || "").trim() && <Pill T={T} tone="muted"><FolderIcon size={11} style={{ marginRight: 4, verticalAlign: "-1px" }} />{e.group}</Pill>}
+                        {(Array.isArray(e.tags) ? e.tags : []).map((x) => <Pill key={x} T={T} tone="muted"><TagIcon size={11} style={{ marginRight: 4, verticalAlign: "-1px" }} />{x}</Pill>)}
+                      </div>
+                    )}
                   </div>
                 </div>
               );
             })}
           </div>
+            )}
+          </div>
+            );
+          })}
           <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 12, flexWrap: "wrap", marginTop: 14 }}>
             <span style={{ fontFamily: FONT_UI, fontSize: fs(12.5), color: T.muted, maxWidth: 440, lineHeight: 1.5 }}>{t("libSelectHint")}</span>
           </div>
@@ -8495,13 +8743,32 @@ function SessionHistoryPanel({ history, qbankCount = 0, qbankQuestions = 0, onDe
   const { t, lang } = useI18n();
   const vpw = useViewport().w;
   const phone = vpw < 640;
-  const twoCols = vpw >= 760; // two columns of sessions on tablets and larger
   const [sel, setSel] = useState([]); // ticked log ids
   const [confirmDel, setConfirmDel] = useState(false);
   const liveSel = sel.filter((id) => history.some((e) => e.id === id));
   const toggleSel = (id) => setSel((q) => (q.includes(id) ? q.filter((x) => x !== id) : [...q, id]));
   const deleteSelected = () => { liveSel.forEach((id) => onDelete(id)); setSel([]); setConfirmDel(false); };
-  const ordered = useMemo(() => [...history].sort((a, b) => b.finishedAt - a.finishedAt), [history]); // newest first
+  // Display preferences: Grid or List, and the sort order. Kept on this device; they change only how the sessions are shown.
+  const SORTS = [["az", "libSortAZ"], ["za", "libSortZA"], ["added", "libSortAdded"], ["modified", "libSortModified"]];
+  const [prefs, setPrefs] = useState(() => {
+    const v = lsGet(LS_HISTVIEW) || {};
+    return { view: v.view === "list" ? "list" : "grid", sort: SORTS.some(([id]) => id === v.sort) ? v.sort : "added" };
+  });
+  const setPref = (patch) => { const next = { ...prefs, ...patch }; setPrefs(next); lsSet(LS_HISTVIEW, JSON.stringify(next)); };
+  const asGrid = prefs.view === "grid";
+  // A session is logged once when its block is finished. "Date added" is that moment; "Last modified" also follows any later edit (updatedAt) if one exists.
+  const modStamp = (e) => Math.max(Number(e.updatedAt) || 0, Number(e.finishedAt) || 0);
+  const ordered = useMemo(() => {
+    const loc = lang === "es" ? "es" : "en";
+    const name = (e) => sessionTitle(e, t);
+    const byName = (a, b) => name(a).localeCompare(name(b), loc, { numeric: true, sensitivity: "base" }) || (a.id < b.id ? -1 : 1);
+    const arr = [...history];
+    if (prefs.sort === "az") arr.sort(byName);
+    else if (prefs.sort === "za") arr.sort((a, b) => byName(b, a));
+    else if (prefs.sort === "modified") arr.sort((a, b) => modStamp(b) - modStamp(a) || byName(a, b)); // newest first
+    else arr.sort((a, b) => (Number(b.finishedAt) || 0) - (Number(a.finishedAt) || 0) || byName(a, b)); // newest first
+    return arr;
+  }, [history, prefs.sort, lang, t]);
   const fmt = (ms) => new Date(ms).toLocaleString(lang === "es" ? "es" : "en-US", { year: "numeric", month: "short", day: "numeric", hour: "numeric", minute: "2-digit" });
   const kindTone = { bank: "blue", custom: "amber", retest: "muted" };
   const kindKey = { bank: "histKindBank", custom: "histKindCustom", retest: "histKindRetest" };
@@ -8515,16 +8782,33 @@ function SessionHistoryPanel({ history, qbankCount = 0, qbankQuestions = 0, onDe
       <AnalyticsOverview history={history} qbankCount={qbankCount} qbankQuestions={qbankQuestions} T={T} />
 
         {history.length > 0 && (
-          <div role="toolbar" aria-label={t("histTitle")} style={{ display: "flex", gap: 6, flexWrap: "wrap", justifyContent: "flex-end", marginBottom: 12 }}>
-            <GhostButton T={T} onClick={() => { setConfirmDel(false); setSel(liveSel.length === history.length ? [] : history.map((e) => e.id)); }}>
-              {liveSel.length === history.length ? t("histDeselect") : t("histSelectAll")}
-            </GhostButton>
-            {liveSel.length > 0 && (
-              <GhostButton T={T} icon={Trash2} onClick={() => setConfirmDel(true)} title={`${t("libDeleteSel")} (${liveSel.length})`}
-                style={{ color: T.red, borderColor: T.red, ...(phone ? { padding: "11px 12px" } : {}) }}>
-                {!phone && t("libDeleteSel")}
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 10, flexWrap: "wrap", marginBottom: 12 }}>
+            <label style={{ display: "inline-flex", alignItems: "center", gap: 8, fontFamily: FONT_UI, fontSize: fs(12.5), color: T.muted }}>
+              {t("libSortLabel")}
+              <select value={prefs.sort} onChange={(ev) => setPref({ sort: ev.target.value })} aria-label={t("libSortLabel")}
+                style={{ fontFamily: FONT_UI, fontSize: fs(13), fontWeight: 600, color: T.ink, background: T.paper, border: `1px solid ${T.border}`, borderRadius: 6, padding: "7px 8px", cursor: "pointer" }}>
+                {SORTS.map(([id, key]) => <option key={id} value={id}>{t(key)}</option>)}
+              </select>
+            </label>
+            <div role="toolbar" aria-label={t("histTitle")} style={{ display: "flex", alignItems: "center", gap: 6, flexWrap: "wrap", justifyContent: "flex-end" }}>
+              {liveSel.length > 0 && (
+                <GhostButton T={T} icon={Trash2} onClick={() => setConfirmDel(true)} title={`${t("libDeleteSel")} (${liveSel.length})`}
+                  style={{ color: T.red, borderColor: T.red, ...(phone ? { padding: "11px 12px" } : {}) }}>
+                  {!phone && t("libDeleteSel")}
+                </GhostButton>
+              )}
+              <GhostButton T={T} onClick={() => { setConfirmDel(false); setSel(liveSel.length === history.length ? [] : history.map((e) => e.id)); }}>
+                {liveSel.length === history.length ? t("histDeselect") : t("histSelectAll")}
               </GhostButton>
-            )}
+              <div role="group" aria-label={t("libViewLabel")} style={{ display: "inline-flex", border: `1px solid ${T.border}`, borderRadius: 6, overflow: "hidden" }}>
+                {[["list", t("libViewList"), ListIcon], ["grid", t("libViewGrid"), LayoutGrid]].map(([id, label, Ic]) => (
+                  <button key={id} aria-pressed={prefs.view === id} title={label} aria-label={label} onClick={() => setPref({ view: id })} style={{
+                    display: "flex", alignItems: "center", gap: 6, fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(12.5), padding: phone ? "9px 12px" : "7px 14px", border: "none",
+                    cursor: "pointer", background: prefs.view === id ? T.blue : "transparent", color: prefs.view === id ? T.onBlue : T.ink,
+                  }}><Ic size={14} />{!phone && label}</button>
+                ))}
+              </div>
+            </div>
           </div>
         )}
 
@@ -8541,20 +8825,21 @@ function SessionHistoryPanel({ history, qbankCount = 0, qbankQuestions = 0, onDe
       {history.length === 0 ? (
         <p style={{ fontFamily: FONT_UI, fontSize: fs(13.5), color: T.muted, lineHeight: 1.6, margin: 0 }}>{t("histEmpty")}</p>
       ) : (
-        <div style={{ display: "grid", gridTemplateColumns: twoCols ? "repeat(2, minmax(0, 1fr))" : "minmax(0, 1fr)", gap: 8, alignItems: "stretch" }}>
+        <div style={{ display: "grid", gridTemplateColumns: asGrid ? "repeat(auto-fill, minmax(min(100%, 280px), 1fr))" : "minmax(0, 1fr)", gap: asGrid ? 12 : 8, alignItems: "stretch" }}>
           {ordered.map((h) => {
             const label = sessionTitle(h, t);
             const canReview = hasReviewSnapshot(h.id);
             const picked = liveSel.includes(h.id);
             return (
               <div key={h.id} onClick={() => toggleSel(h.id)} style={{
-                display: "flex", alignItems: "center", gap: 12, flexWrap: "wrap", padding: "12px 14px", borderRadius: 8, cursor: "pointer",
+                display: "flex", gap: 12, padding: "12px 14px", borderRadius: 8, cursor: "pointer",
+                ...(asGrid ? { flexDirection: "column", alignItems: "stretch", gap: 10, minWidth: 0 } : { alignItems: "center", flexWrap: "wrap" }),
                 border: `1px solid ${picked ? T.blue : T.border}`, background: picked ? T.blueLight : "transparent",
               }}>
-                <input type="checkbox" checked={picked} onChange={() => toggleSel(h.id)} onClick={(ev) => ev.stopPropagation()} aria-label={label} style={{ cursor: "pointer", width: 18, height: 18 }} />
-                <div style={{ flex: 1, minWidth: 180 }}>
+                <input type="checkbox" checked={picked} onChange={() => toggleSel(h.id)} onClick={(ev) => ev.stopPropagation()} aria-label={label} style={{ cursor: "pointer", width: 18, height: 18, ...(asGrid ? { alignSelf: "flex-start" } : {}) }} />
+                <div style={{ flex: 1, minWidth: asGrid ? 0 : 180 }}>
                   <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap" }}>
-                    <span style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(14.5), color: T.ink }}>{label}</span>
+                    <span style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(14.5), color: T.ink, overflowWrap: "anywhere" }}>{label}</span>
                     <Pill T={T} tone={kindTone[h.kind] || "muted"}>{t(kindKey[h.kind] || "histKindCustom")}</Pill>
                     <Pill T={T} tone="muted">{h.mode === "tutor" ? t("tutorShort") : t("timed")}</Pill>
                     <Pill T={T} tone={h.pct >= 70 ? "green" : "red"}>{h.pct}% ({h.correct}/{h.total})</Pill>
@@ -8567,7 +8852,7 @@ function SessionHistoryPanel({ history, qbankCount = 0, qbankQuestions = 0, onDe
                   )}
                 </div>
                 {canReview
-                  ? <PrimaryButton T={T} icon={ClipboardList} onClick={(ev) => { ev.stopPropagation(); onReview(h.id); }}>{t("histReview")}</PrimaryButton>
+                  ? <PrimaryButton T={T} icon={ClipboardList} onClick={(ev) => { ev.stopPropagation(); onReview(h.id); }} style={asGrid ? { alignSelf: "flex-start" } : undefined}>{t("histReview")}</PrimaryButton>
                   : <span style={{ fontFamily: FONT_UI, fontSize: fs(12), color: T.muted }}>{t("histNoReview")}</span>}
               </div>
             );
@@ -8921,7 +9206,7 @@ function HowItWorksGuide({ onClose, T }) {
   );
 }
 
-function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], drive, onDeleteSession, onClearSessions, onReviewSession, libTab, setLibTab, session, onResume, onOpenLobby, onLaunchLibrary, onMixLibrary, onDeleteLibraryEntry, onRenameLibraryEntry, T, darkMode, setDarkMode }) {
+function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], drive, onDeleteSession, onClearSessions, onReviewSession, libTab, setLibTab, session, onResume, onOpenLobby, onLaunchLibrary, onMixLibrary, onDeleteLibraryEntry, onRenameLibraryEntry, onSetLibraryMeta, T, darkMode, setDarkMode }) {
   const { t, lang } = useI18n();
   const [text, setText] = useState("");
   const [error, setError] = useState("");
@@ -9095,7 +9380,7 @@ function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], dri
       {libTab === "console" && <ConsolePanel library={library} sessionLog={sessionLog} session={session} onResume={onResume} onOpenLobby={onOpenLobby} onReview={onReviewSession} onNavigate={(tab) => { setLibTab(tab); window.scrollTo({ top: 0, behavior: "smooth" }); }} T={T} />}
       {libTab === "studyhub" && <StudyHub library={library} sessionLog={sessionLog} onLaunch={onLaunchLibrary} onNavigate={(tab, key) => { if (key) setCalFocus({ key, n: Date.now() }); setLibTab(tab); if (tab !== "profile") window.scrollTo({ top: 0, behavior: "smooth" }); }} T={T} />}
       {libTab === "library" && <TutorLibraryStrip library={library} sessionLog={sessionLog} onLaunch={onLaunchLibrary} T={T} />}
-      {libTab === "library" && <QbankLibraryPanel library={library} onLaunch={onLaunchLibrary} onMix={onMixLibrary} onDelete={onDeleteLibraryEntry} onRename={onRenameLibraryEntry} resumeId={resumeId} onResume={onResume} sessionLog={sessionLog} T={T} />}
+      {libTab === "library" && <QbankLibraryPanel library={library} onLaunch={onLaunchLibrary} onMix={onMixLibrary} onDelete={onDeleteLibraryEntry} onRename={onRenameLibraryEntry} onSetMeta={onSetLibraryMeta} resumeId={resumeId} onResume={onResume} sessionLog={sessionLog} T={T} />}
 
       {/* Import Qbank page: its own page, no longer an accordion under the library. */}
       <div ref={importRef} style={{ marginBottom: 20 }}>
@@ -12054,6 +12339,14 @@ export default function App() {
     setExamData((prev) => (prev ? { ...prev, blocks: prev.blocks.map((b) => (b.libraryId === id ? { ...b, blockName: name } : b)) } : prev));
   }
 
+  // Group & tag: patchFor(entry) returns the fields to set (group, tags) on each listed Qbank. updatedAt moves so Drive sync keeps the change.
+  function updateLibraryMeta(ids, patchFor) {
+    const set = new Set(ids);
+    if (!set.size) return;
+    const now = Date.now();
+    setLibrary((lib) => lib.map((e) => (set.has(e.id) ? { ...e, ...patchFor(e), updatedAt: now } : e)));
+  }
+
   // Remove the exam that is currently loaded in the lobby (the saved library is untouched).
   // Import step → "Add … to library": store the chosen Qbanks, discard the rest, and go back to the library.
   function finishBundleImport(idxs) {
@@ -12080,7 +12373,7 @@ export default function App() {
   // Settings → "Reset All Local Data": wipes the library, the active session and preferences, then returns
   // to a clean import screen. (The save effects above then see empty/default state and keep the keys absent.)
   function resetAllData() {
-    [LS_SESSION, LS_LIBRARY, LS_PREFS, LS_HISTORY, LS_TOMBS, LS_ACTIVE_SYNC, LS_TRASH].forEach(lsRemove);
+    [LS_SESSION, LS_LIBRARY, LS_LIBVIEW, LS_HISTVIEW, LS_PREFS, LS_HISTORY, LS_TOMBS, LS_ACTIVE_SYNC, LS_TRASH].forEach(lsRemove);
     recRef.current = null; setActiveStamp(0); setActivePrompt(null); lsRemove(LS_SESSION_FILE);
     drive.disconnect(); setTombs(emptyTombs()); // Drive is left as it was; reconnect to restore from it
     failedKeys.current = {};
@@ -12416,6 +12709,7 @@ export default function App() {
           onMixLibrary={(ids, size, difficulty, mode) => guardNew(() => mixFromLibrary(ids, size, difficulty, mode))}
           onDeleteLibraryEntry={deleteLibraryEntry}
           onRenameLibraryEntry={renameLibraryEntry}
+          onSetLibraryMeta={updateLibraryMeta}
           T={T} darkMode={darkMode} setDarkMode={setDarkMode}
         />
         </FullPage>
