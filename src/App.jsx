@@ -4,7 +4,7 @@ import {
   Play, CheckCircle2, XCircle, AlertTriangle, ClipboardList, Activity,
   Check, ChevronDown, ChevronUp, FileJson, FlaskConical, PencilLine,
   Calculator as CalcIcon, Settings as SettingsIcon, Lock, Unlock,
-  Search, Trash2, X, XOctagon, Lightbulb, Sun, Moon, Highlighter, BookOpen, Stethoscope, Target, Save, Shuffle, Plus, Home as HomeIcon, Pencil, Share2, ExternalLink, Sparkles, Cloud, RefreshCw, LogIn, LogOut, Bell, Database, Bookmark, User as UserIcon, BarChart3, LayoutDashboard, Flame, TrendingUp, Download, CheckSquare, SlidersHorizontal, GraduationCap, CalendarDays, Globe, ShieldCheck, Star, LayoutGrid, List as ListIcon, Tag as TagIcon, Folder as FolderIcon } from "lucide-react";
+  Search, Trash2, X, XOctagon, Lightbulb, Sun, Moon, Highlighter, BookOpen, Stethoscope, Target, Save, Shuffle, Plus, Home as HomeIcon, Pencil, Share2, ExternalLink, Sparkles, Cloud, RefreshCw, LogIn, LogOut, Bell, Database, Bookmark, User as UserIcon, BarChart3, LayoutDashboard, Flame, TrendingUp, Download, CheckSquare, SlidersHorizontal, GraduationCap, CalendarDays, Globe, ShieldCheck, Star, LayoutGrid, List as ListIcon, Tag as TagIcon, Folder as FolderIcon, Layers } from "lucide-react";
 import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell
 } from "recharts";
@@ -275,6 +275,7 @@ const STR = {
     sufAgain: "Retest Again", sufHard: "Retest Hard", sufAgainHard: "Retest Again/Hard",
     textSize: "Text size", textSmaller: "Smaller text", textLarger: "Larger text", textReset: "Reset", libMixMax: "Max ({n})", libMixCustom: "Custom", libMixCustomHint: "1–{n}", libCountTitle: "Choose question count", libCountHint: "Draws a random, subject-balanced set of questions from this bank. Scores from this block never change the bank's last score.", libLoad: "Load {n} questions", libLoadOne: "Load 1 question", libShareSel: "Share / Export Selected", libExporting: "Exporting your selection ({n}) as one file…", libExportShared: "Shared your selection ({n}) as one file.", libExportDownloaded: "Downloaded your selection ({n}) as one file.", libExportFailed: "Export failed. Please try again.", bundleFound: "Bundle detected: {n} blocks ({names}). Press Import to choose which ones to add to your library.", libEditSel: "Edit Selected", libDeleteSel: "Delete Selected", libEditing: "{i} of {n}", libSelectHint: "Tick blocks to load, share, rename or delete them. Tick two or more to mix them into one custom block.", libDeleteSelQ: "Delete {n} selected Qbank(s)? They move to Trash, where you can restore them for 30 days.", libMixTitle: "Mix selected banks", libMixHint: "Merges the ticked banks into one shuffled block, with systems and disciplines spread evenly.", libMixPool: "{q} questions · {s} subjects", libMixDupes: "{d} duplicate(s) removed", libMixSize: "Questions", libMixAll: "All ({n})", libMix: "Mix {n} questions", libMixOne: "Mix 1 question", mixedName: "Mixed Qbank ({n} banks)",
     libDeleteQ: "Delete this block?", libGroupLabel: "Group by", libGroupNone: "None", libGroupManual: "Manual", libGroupTags: "Tags", libGroupWeek: "Week", libGroupSubject: "Subject", libGroupSystem: "System", libGroupDiscipline: "Discipline", libUngrouped: "Ungrouped", libUntagged: "Untagged", libUnclassified: "Unclassified", libBeforeTerm: "Before term", libWeekN: "Week {n}", libWeekOf: "Week of {d}", libGroupCount: "{n} Qbank(s)", libGroupSelect: "Select all in {g}", libOrganize: "Group & tag", libOrgTitle: "Group & tag {n} selected", libOrgGroup: "Group", libOrgGroupPh: "Group name…", libOrgMove: "Move", libOrgUngroup: "Remove from group", libOrgTags: "Tags", libOrgTagPh: "Add a tag…", libOrgAdd: "Add", libOrgRemoveTag: "Remove tag {g} from the selection", libOrgNoTags: "No tags on the selection yet.", libHintManual: "Select Qbanks, then use Group & tag to move them into a group you name.", libHintTags: "Select Qbanks, then use Group & tag to add tags. A Qbank with several tags shows under each one.", libHintWeek: "Grouped by the week each Qbank was added. Load a Study Profile to count weeks from your term start; without one, weeks run Monday to Sunday.", libHintClass: "Grouped by the most common {k} among each Qbank's questions.", libClassSubject: "subject", libClassSystem: "organ system", libClassDiscipline: "discipline", libCollapse: "Collapse {g}", libExpand: "Expand {g}", libViewLabel: "View", libViewList: "List", libViewGrid: "Grid", libSortLabel: "Sort by", libSortAZ: "Name: A-Z", libSortZA: "Name: Z-A", libSortAdded: "Date added", libSortModified: "Last modified", libModified: "modified {d}", libDelete: "Delete", libLocalNote: "Saved in this browser and, when you're signed in with Google, synced to your Drive. Clearing site data removes only the local copy.",
+    deckTitle: "Decks", deckCount: "{n} deck(s)", deckNew: "New deck", deckNamePh: "Deck name…", deckCreate: "Create deck", deckColor: "Deck color", deckEmpty: "No decks yet. Create a deck to keep Qbanks that belong together apart from the general library.", deckEmptyBody: "This deck is empty. Use Add Qbanks, or tick Qbanks in your library and choose Add to deck.", deckAddQbanks: "Add Qbanks", deckAddPickTitle: "Add Qbanks to {d}", deckAddNone: "There are no other Qbanks to add.", deckAddN: "Add {n} to deck", deckRemove: "Remove from deck", deckRename: "Rename deck", deckDelete: "Delete deck", deckDeleteQ: "Delete the deck “{d}”? Its {n} Qbank(s) go back to the general library. No Qbank is deleted.", deckDeleteGo: "Delete deck", deckExpand: "Expand {d}", deckCollapse: "Collapse {d}", deckSelectAll: "Select all in {d}", deckAddSel: "Add to deck", deckMoveTitle: "Add {n} selected to a deck", deckRemoveSel: "Take out of deck", deckCreateAdd: "Create and add", deckProgress: "{c} of {n} completed", deckAvg: "avg {pct}%", deckGeneral: "General library", deckAllInDecks: "All your Qbanks are in decks.", deckMovedFrom: "In {d}",
     resetData: "Reset All Local Data", resetDataWarn: "This permanently deletes your Qbank library, saved exam progress, Trash and preferences from this browser and signs you out of Drive sync. Copies already synced to your Google Drive are not deleted; signing back in restores them. It can't be undone.", resetDataConfirm: "Yes, delete everything",
     resumed: "Session restored — you're back where you left off.", storageFull: "Couldn't write to browser storage (it may be full or disabled). Your progress is not being backed up right now.",
     leaveConfirm: "You have a block in progress. Leaving now discards it. Continue?",
@@ -449,6 +450,7 @@ const STR = {
     sufAgain: "Repaso Otra vez", sufHard: "Repaso Difícil", sufAgainHard: "Repaso Otra vez/Difícil",
     textSize: "Tamaño del texto", textSmaller: "Texto más pequeño", textLarger: "Texto más grande", textReset: "Restablecer", libMixMax: "Máx ({n})", libMixCustom: "Personalizado", libMixCustomHint: "1–{n}", libCountTitle: "Elegir cantidad de preguntas", libCountHint: "Toma un conjunto aleatorio y equilibrado por materia de este banco. El puntaje de este bloque nunca cambia el último puntaje del banco.", libLoad: "Cargar {n} preguntas", libLoadOne: "Cargar 1 pregunta", libShareSel: "Compartir / Exportar selección", libExporting: "Exportando tu selección ({n}) en un solo archivo…", libExportShared: "Compartiste tu selección ({n}) en un solo archivo.", libExportDownloaded: "Descargaste tu selección ({n}) en un solo archivo.", libExportFailed: "Error al exportar. Inténtalo de nuevo.", bundleFound: "Paquete detectado: {n} bloques ({names}). Pulsa Importar para elegir cuáles añadir a tu biblioteca.", libEditSel: "Editar selección", libDeleteSel: "Eliminar selección", libEditing: "{i} de {n}", libSelectHint: "Marca bloques para cargarlos, compartirlos, renombrarlos o eliminarlos. Marca dos o más para mezclarlos en un solo bloque personalizado.", libDeleteSelQ: "¿Eliminar {n} Qbank(s) seleccionado(s)? Pasan a la papelera, donde puedes restaurarlos durante 30 días.", libMixTitle: "Mezclar bancos seleccionados", libMixHint: "Une los bancos marcados en un solo bloque mezclado, con sistemas y disciplinas repartidos de forma pareja.", libMixPool: "{q} preguntas · {s} materias", libMixDupes: "{d} duplicada(s) eliminada(s)", libMixSize: "Preguntas", libMixAll: "Todas ({n})", libMix: "Mezclar {n} preguntas", libMixOne: "Mezclar 1 pregunta", mixedName: "Qbank mezclado ({n} bancos)",
     libDeleteQ: "¿Eliminar este bloque?", libGroupLabel: "Agrupar por", libGroupNone: "Ninguno", libGroupManual: "Manual", libGroupTags: "Etiquetas", libGroupWeek: "Semana", libGroupSubject: "Materia", libGroupSystem: "Sistema", libGroupDiscipline: "Disciplina", libUngrouped: "Sin grupo", libUntagged: "Sin etiquetas", libUnclassified: "Sin clasificar", libBeforeTerm: "Antes del periodo", libWeekN: "Semana {n}", libWeekOf: "Semana del {d}", libGroupCount: "{n} Qbank(s)", libGroupSelect: "Seleccionar todo en {g}", libOrganize: "Agrupar y etiquetar", libOrgTitle: "Agrupar y etiquetar {n} seleccionado(s)", libOrgGroup: "Grupo", libOrgGroupPh: "Nombre del grupo…", libOrgMove: "Mover", libOrgUngroup: "Quitar del grupo", libOrgTags: "Etiquetas", libOrgTagPh: "Añadir etiqueta…", libOrgAdd: "Añadir", libOrgRemoveTag: "Quitar la etiqueta {g} de la selección", libOrgNoTags: "La selección aún no tiene etiquetas.", libHintManual: "Selecciona Qbanks y usa Agrupar y etiquetar para moverlos a un grupo con el nombre que quieras.", libHintTags: "Selecciona Qbanks y usa Agrupar y etiquetar para añadir etiquetas. Un Qbank con varias etiquetas aparece bajo cada una.", libHintWeek: "Agrupado por la semana en que se añadió cada Qbank. Carga un Perfil de estudio para contar las semanas desde el inicio de tu periodo; sin él, las semanas van de lunes a domingo.", libHintClass: "Agrupado por {k} más frecuente entre las preguntas de cada Qbank.", libClassSubject: "la materia", libClassSystem: "el sistema", libClassDiscipline: "la disciplina", libCollapse: "Contraer {g}", libExpand: "Expandir {g}", libViewLabel: "Vista", libViewList: "Lista", libViewGrid: "Cuadrícula", libSortLabel: "Ordenar por", libSortAZ: "Nombre: A-Z", libSortZA: "Nombre: Z-A", libSortAdded: "Fecha de importación", libSortModified: "Última modificación", libModified: "modificado {d}", libDelete: "Eliminar", libLocalNote: "Se guarda en este navegador y, si inicias sesión con Google, se sincroniza con tu Drive. Borrar los datos del sitio elimina solo la copia local.",
+    deckTitle: "Mazos", deckCount: "{n} mazo(s)", deckNew: "Nuevo mazo", deckNamePh: "Nombre del mazo…", deckCreate: "Crear mazo", deckColor: "Color del mazo", deckEmpty: "Aún no hay mazos. Crea uno para mantener juntos los Qbanks que van unidos, separados de la biblioteca general.", deckEmptyBody: "Este mazo está vacío. Usa Añadir Qbanks, o marca Qbanks en tu biblioteca y elige Añadir a mazo.", deckAddQbanks: "Añadir Qbanks", deckAddPickTitle: "Añadir Qbanks a {d}", deckAddNone: "No hay otros Qbanks para añadir.", deckAddN: "Añadir {n} al mazo", deckRemove: "Quitar del mazo", deckRename: "Renombrar mazo", deckDelete: "Eliminar mazo", deckDeleteQ: "¿Eliminar el mazo «{d}»? Sus {n} Qbank(s) vuelven a la biblioteca general. No se elimina ningún Qbank.", deckDeleteGo: "Eliminar mazo", deckExpand: "Expandir {d}", deckCollapse: "Contraer {d}", deckSelectAll: "Seleccionar todo en {d}", deckAddSel: "Añadir a mazo", deckMoveTitle: "Añadir {n} seleccionado(s) a un mazo", deckRemoveSel: "Sacar del mazo", deckCreateAdd: "Crear y añadir", deckProgress: "{c} de {n} completados", deckAvg: "prom. {pct}%", deckGeneral: "Biblioteca general", deckAllInDecks: "Todos tus Qbanks están en mazos.", deckMovedFrom: "En {d}",
     resetData: "Restablecer todos los datos locales", resetDataWarn: "Esto elimina de forma permanente tu biblioteca, el progreso guardado, la papelera y tus preferencias en este navegador y cierra la sincronización con Drive. Las copias ya sincronizadas en tu Google Drive no se eliminan; al volver a iniciar sesión se restauran. No se puede deshacer.", resetDataConfirm: "Sí, eliminar todo",
     resumed: "Sesión restaurada: continúas donde la dejaste.", storageFull: "No se pudo escribir en el almacenamiento del navegador (puede estar lleno o desactivado). Tu progreso no se está respaldando.",
     leaveConfirm: "Tienes un bloque en curso. Si sales ahora se descartará. ¿Continuar?",
@@ -2023,6 +2025,7 @@ function mixQbanks(entries, { size = null, difficulty = "all" } = {}) {
 const LS_SESSION = "activeSession";
 const LS_LIBRARY = "qbankLibrary";
 const LS_HISTVIEW = "owordHistoryView"; // { view: "grid" | "list", sort: "az" | "za" | "added" | "modified" }: how the Analysis page lists past sessions (this device only)
+const LS_DECKS = "owordDecks"; // [{ id, name, color, createdAt, updatedAt }]: the deck list on this device (so empty decks exist). Which deck a Qbank is in is saved on the Qbank itself (entry.deck), so it syncs with the rest of the card.
 const LS_LIBVIEW = "owordLibraryView"; // { view: "grid" | "list", sort: "az" | "za" | "added" | "modified" }: how the Qbank Library is shown (this device only)
 // NotebookLM study notebooks shown in the Import card on the Library page. Links omit "?authuser=N" so they open under whichever Google account the
 // visitor is signed in to (each notebook must be shared with them in NotebookLM). Add it back to a url if you want to force an account.
@@ -6319,7 +6322,7 @@ const openAccountWindow = () => { try { window.dispatchEvent(new Event(OPEN_ACCO
 
 // Account settings + deletion. The creation date is the day this device first saw the signed-in account.
 const LS_ACCOUNT_CREATED = "owordAccountCreated";
-const ACCOUNT_DATA_KEYS = [LS_SESSION, LS_LIBRARY, LS_PREFS, LS_HISTORY, LS_TOMBS, LS_TRASH, LS_CAREER, LS_NOTIFS, LS_SP, LS_BP, LS_DB, LS_DB_TOMBS];
+const ACCOUNT_DATA_KEYS = [LS_DECKS, LS_SESSION, LS_LIBRARY, LS_PREFS, LS_HISTORY, LS_TOMBS, LS_TRASH, LS_CAREER, LS_NOTIFS, LS_SP, LS_BP, LS_DB, LS_DB_TOMBS];
 const ACCOUNT_SYNC_KEYS = [LS_SYNC, LS_CAREER_FILE, LS_SP_FILE, LS_SP_LEDGER, LS_BP_FILE, LS_BP_LEDGER, LS_DB_FILE, LS_ACTIVE_SYNC, LS_SESSION_FILE, LS_ACCOUNT_CREATED];
 function accountStoredKeys() {
   const keys = [...ACCOUNT_DATA_KEYS];
@@ -6959,7 +6962,10 @@ function LibraryTopRow({ session, resumeId, library, onResume, onOpenLobby, T })
 // Manual groups and tags are stored on the Qbank entry (group, tags), so they sync with the rest of the card.
 // Week / Subject / System / Discipline are worked out from the card itself and need no setup.
 // ---------------------------------------------------------------------------
-const LIB_GROUPS = ["none", "manual", "tags", "week", "subject", "system", "discipline"];
+// Decks: named sets of Qbanks that go together. Each deck card is expandable; its Qbanks leave the general library list while they are in it.
+const DECK_COLORS = ["#2D6CB4", "#2E7D4F", "#7B3FB8", "#9C6510", "#B23B35", "#0E8A8A"];
+const newDeckId = () => "dk_" + Date.now().toString(36) + Math.random().toString(36).slice(2, 7);
+const LIB_GROUPS = ["none", "tags", "week", "subject", "system", "discipline"];
 const LIB_GROUP_KEYS = { none: "libGroupNone", manual: "libGroupManual", tags: "libGroupTags", week: "libGroupWeek", subject: "libGroupSubject", system: "libGroupSystem", discipline: "libGroupDiscipline" };
 // A question's `subject` can be an organ system, a discipline or both ("Cardiac physiology"), so each list is matched on its own.
 const LIB_SYSTEMS = [
@@ -7083,7 +7089,7 @@ function QbankLibraryPanel({ library, onLaunch, onMix, onDelete, onRename, onSet
   const SORTS = [["az", "libSortAZ"], ["za", "libSortZA"], ["added", "libSortAdded"], ["modified", "libSortModified"]];
   const [prefs, setPrefs] = useState(() => {
     const v = lsGet(LS_LIBVIEW) || {};
-    return { view: v.view === "list" ? "list" : "grid", sort: SORTS.some(([id]) => id === v.sort) ? v.sort : "added", group: LIB_GROUPS.includes(v.group) ? v.group : "none" };
+    return { view: v.view === "list" ? "list" : "grid", sort: SORTS.some(([id]) => id === v.sort) ? v.sort : "added", group: LIB_GROUPS.includes(v.group) ? v.group : "none", decksOpen: v.decksOpen && typeof v.decksOpen === "object" ? v.decksOpen : {} };
   });
   const setPref = (patch) => { const next = { ...prefs, ...patch }; setPrefs(next); lsSet(LS_LIBVIEW, JSON.stringify(next)); };
   const modStamp = (e) => Math.max(Number(e.updatedAt) || 0, Number(e.importDate) || 0); // rename, rating or a new score all bump updatedAt
@@ -7098,6 +7104,59 @@ function QbankLibraryPanel({ library, onLaunch, onMix, onDelete, onRename, onSet
   }, [library, prefs.sort, lang]);
   const asGrid = prefs.view === "grid";
 
+  // ---- Decks ----
+  // The deck list lives on this device (so an empty deck can exist); which deck a Qbank is in is saved on the Qbank itself (entry.deck),
+  // so membership, names and colours travel with the card through Drive sync and a deck rebuilds itself on another device.
+  const [deckDefs, setDeckDefs] = useState(() => { const v = lsGet(LS_DECKS); return Array.isArray(v) ? v.filter((d) => d && typeof d.id === "string" && typeof d.name === "string" && d.name.trim()) : []; });
+  const saveDefs = (next) => { setDeckDefs(next); lsSet(LS_DECKS, JSON.stringify(next)); };
+  useEffect(() => { // decks that arrive with synced Qbanks (or were renamed on another device) are picked up here
+    const seen = new Map();
+    library.forEach((e) => { const d = e.deck; if (d && typeof d.id === "string" && String(d.name || "").trim()) { const stamp = Number(e.updatedAt) || 0; const c = seen.get(d.id); if (!c || stamp > c.stamp) seen.set(d.id, { name: String(d.name), color: d.color, stamp }); } });
+    let changed = false;
+    const next = deckDefs.map((def) => { const sn = seen.get(def.id); if (sn && sn.stamp > (def.updatedAt || 0) && (sn.name !== def.name || (sn.color && sn.color !== def.color))) { changed = true; return { ...def, name: sn.name, color: sn.color || def.color, updatedAt: sn.stamp }; } return def; });
+    seen.forEach((sn, id) => { if (!next.some((d) => d.id === id)) { changed = true; next.push({ id, name: sn.name, color: sn.color || DECK_COLORS[0], createdAt: sn.stamp, updatedAt: sn.stamp }); } });
+    if (changed) saveDefs(next);
+  }, [library]); // eslint-disable-line
+  const deckIds = useMemo(() => new Set(deckDefs.map((d) => d.id)), [deckDefs]);
+  const decks = useMemo(() => [...deckDefs].sort((a, b) => (a.createdAt || 0) - (b.createdAt || 0)).map((d) => ({ ...d, items: sortedLib.filter((e) => e.deck && e.deck.id === d.id) })), [deckDefs, sortedLib]);
+  const looseLib = useMemo(() => sortedLib.filter((e) => !(e.deck && deckIds.has(e.deck.id))), [sortedLib, deckIds]); // the general library: Qbanks that are not in a deck
+  const setDeckOf = (ids, def) => onSetMeta(ids, () => ({ deck: def ? { id: def.id, name: def.name, color: def.color } : null }));
+  const createDeck = (name, color) => {
+    const n = String(name || "").trim().slice(0, 60);
+    if (!n) return null;
+    const dup = deckDefs.find((d) => d.name.toLowerCase() === n.toLowerCase());
+    if (dup) return dup;
+    const now = Date.now();
+    const def = { id: newDeckId(), name: n, color: color || DECK_COLORS[deckDefs.length % DECK_COLORS.length], createdAt: now, updatedAt: now };
+    saveDefs([...deckDefs, def]);
+    return def;
+  };
+  const editDeck = (def, name, color) => {
+    const n = String(name || "").trim().slice(0, 60);
+    if (!n || (n === def.name && color === def.color)) return;
+    const upd = { ...def, name: n, color: color || def.color, updatedAt: Date.now() };
+    saveDefs(deckDefs.map((d) => (d.id === def.id ? upd : d)));
+    const ids = library.filter((e) => e.deck && e.deck.id === def.id).map((e) => e.id);
+    if (ids.length) setDeckOf(ids, upd);
+  };
+  const removeDeck = (def) => {
+    const ids = library.filter((e) => e.deck && e.deck.id === def.id).map((e) => e.id);
+    if (ids.length) setDeckOf(ids, null);
+    saveDefs(deckDefs.filter((d) => d.id !== def.id));
+  };
+  const openDeck = (id, on = true) => setPref({ decksOpen: { ...prefs.decksOpen, [id]: on } });
+  const [newDeckOpen, setNewDeckOpen] = useState(false);
+  const [newDeckName, setNewDeckName] = useState("");
+  const [newDeckColor, setNewDeckColor] = useState(DECK_COLORS[0]);
+  const [deckEditId, setDeckEditId] = useState(null);
+  const [deckEditName, setDeckEditName] = useState("");
+  const [deckEditColor, setDeckEditColor] = useState(DECK_COLORS[0]);
+  const [deckDelId, setDeckDelId] = useState(null);
+  const [deckPickId, setDeckPickId] = useState(null);
+  const [pickSel, setPickSel] = useState([]);
+  const [deckPanelOpen, setDeckPanelOpen] = useState(false); // "Add to deck" for the ticked Qbanks
+  const [panelDeckName, setPanelDeckName] = useState("");
+
   // Grouping. Manual groups and tags are saved on the card; the other modes are derived from it.
   const loc = lang === "es" ? "es" : "en";
   const termStart = useMemo(() => (spCtx.profile ? termStartOf(spCtx.profile) : null), [spCtx.profile]);
@@ -7109,10 +7168,10 @@ function QbankLibraryPanel({ library, onLaunch, onMix, onDelete, onRename, onSet
   const fmtDay = (day) => new Date(day * 86400000).toLocaleDateString(loc === "es" ? "es" : "en-US", { month: "short", day: "numeric", timeZone: "UTC" });
   const sections = useMemo(() => {
     const g = prefs.group;
-    if (g === "none") return [{ key: "_all", label: null, items: sortedLib }];
+    if (g === "none") return [{ key: "_all", label: null, items: looseLib }];
     const map = new Map();
     const put = (key, label, e, extra) => { let s = map.get(key); if (!s) { s = { key, label, items: [], ...(extra || {}) }; map.set(key, s); } s.items.push(e); };
-    sortedLib.forEach((e) => {
+    looseLib.forEach((e) => {
       if (g === "manual") {
         const n = String(e.group || "").trim();
         if (n) put("g:" + n.toLowerCase(), n, e); else put("_rest", t("libUngrouped"), e, { last: true });
@@ -7134,7 +7193,7 @@ function QbankLibraryPanel({ library, onLaunch, onMix, onDelete, onRename, onSet
     const cmp = g === "week" ? (a, b) => b.order - a.order : (a, b) => a.label.localeCompare(b.label, loc, { numeric: true, sensitivity: "base" });
     arr.sort((a, b) => (a.last ? 1 : 0) - (b.last ? 1 : 0) || cmp(a, b));
     return arr;
-  }, [sortedLib, prefs.group, classOf, termStart, lang]); // eslint-disable-line
+  }, [looseLib, prefs.group, classOf, termStart, lang]); // eslint-disable-line
   const [collapsed, setCollapsed] = useState({}); // "mode:groupKey" -> true while a group is folded away
   const toggleCollapsed = (k) => setCollapsed((c) => ({ ...c, [k]: !c[k] }));
   const toggleSection = (items) => setQueue((q) => {
@@ -7171,6 +7230,192 @@ function QbankLibraryPanel({ library, onLaunch, onMix, onDelete, onRename, onSet
     : ["subject", "system", "discipline"].includes(prefs.group) ? t("libHintClass", { k: t(prefs.group === "subject" ? "libClassSubject" : prefs.group === "system" ? "libClassSystem" : "libClassDiscipline") })
     : null;
 
+  // ---- Deck cards ----
+  const deckSwatches = (cur, set) => (
+    <div role="radiogroup" aria-label={t("deckColor")} style={{ display: "flex", gap: 8, flexWrap: "wrap", alignItems: "center" }}>
+      {DECK_COLORS.map((c) => (
+        <button key={c} role="radio" aria-checked={cur === c} aria-label={c} onClick={() => set(c)}
+          style={{ width: 24, height: 24, padding: 0, borderRadius: 999, background: c, cursor: "pointer", border: `3px solid ${cur === c ? T.ink : T.card}`, boxShadow: `0 0 0 1px ${T.border}` }} />
+      ))}
+    </div>
+  );
+  const deckIconBtn = { background: "transparent", border: `1px solid ${T.border}`, borderRadius: 6, cursor: "pointer", color: T.muted, padding: 7, display: "flex" };
+  const deckNameField = { flex: 1, minWidth: 0, fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(14), color: T.ink, background: T.paper, border: `1px solid ${T.blue}`, borderRadius: 6, padding: "6px 9px", outline: "none" };
+  const commitDeckEdit = (d) => { editDeck(d, deckEditName, deckEditColor); setDeckEditId(null); };
+  const submitNewDeck = () => {
+    const def = createDeck(newDeckName, newDeckColor);
+    if (!def) return;
+    openDeck(def.id, true);
+    setNewDeckName(""); setNewDeckOpen(false);
+    setNewDeckColor(DECK_COLORS[(deckDefs.length + 1) % DECK_COLORS.length]);
+  };
+  const addSelectedToDeck = (def) => { if (!def || !liveQueue.length) return; setDeckOf(liveQueue, def); openDeck(def.id, true); setDeckPanelOpen(false); setPanelDeckName(""); };
+  const selInDeck = liveQueue.some((id) => { const e = library.find((x) => x.id === id); return e && e.deck && deckIds.has(e.deck.id); });
+  const deckNameOf = (e) => { const d = e.deck && deckDefs.find((x) => x.id === e.deck.id); return d ? d.name : null; };
+
+  const renderDeck = (d) => {
+    const open = prefs.decksOpen[d.id] === true;
+    const selN = d.items.filter((x) => liveQueue.includes(x.id)).length;
+    const done = d.items.filter((x) => x.lastScore);
+    const qn = d.items.reduce((n, x) => n + x.questions.length, 0);
+    const avg = done.length ? Math.round(done.reduce((sum, x) => sum + (Number(x.lastScore.pct) || 0), 0) / done.length) : null;
+    const editing = deckEditId === d.id;
+    const picking = deckPickId === d.id;
+    const pickable = sortedLib.filter((x) => !(x.deck && x.deck.id === d.id));
+    return (
+      <div key={d.id} style={{ border: `1px solid ${T.border}`, borderLeft: `4px solid ${d.color}`, borderRadius: 10, background: T.card, marginBottom: 10, overflow: "hidden" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap", padding: "10px 12px", background: open ? T.paper : "transparent" }}>
+          <input type="checkbox" disabled={!d.items.length} checked={d.items.length > 0 && selN === d.items.length}
+            ref={(el) => { if (el) el.indeterminate = selN > 0 && selN < d.items.length; }}
+            onChange={() => toggleSection(d.items)} aria-label={t("deckSelectAll", { d: d.name })} style={{ cursor: d.items.length ? "pointer" : "not-allowed", width: 18, height: 18 }} />
+          {editing ? (
+            <span style={{ display: "inline-flex", alignItems: "center", gap: 6, flex: 1, minWidth: 180 }}>
+              <input autoFocus value={deckEditName} maxLength={60} aria-label={t("deckRename")} onChange={(ev) => setDeckEditName(ev.target.value)} onFocus={(ev) => ev.target.select()}
+                onKeyDown={(ev) => { if (ev.key === "Enter") commitDeckEdit(d); else if (ev.key === "Escape") setDeckEditId(null); }} style={deckNameField} />
+              <button onClick={() => commitDeckEdit(d)} disabled={!deckEditName.trim()} title={t("libRenameSave")} aria-label={t("libRenameSave")}
+                style={{ ...deckIconBtn, color: T.blue, borderColor: T.blue, opacity: deckEditName.trim() ? 1 : 0.4, cursor: deckEditName.trim() ? "pointer" : "not-allowed" }}><Check size={15} /></button>
+              <button onClick={() => setDeckEditId(null)} title={t("cancel")} aria-label={t("cancel")} style={deckIconBtn}><X size={15} /></button>
+            </span>
+          ) : (
+            <button onClick={() => openDeck(d.id, !open)} aria-expanded={open} title={t(open ? "deckCollapse" : "deckExpand", { d: d.name })}
+              style={{ display: "inline-flex", alignItems: "center", gap: 8, flex: 1, minWidth: 140, background: "transparent", border: "none", cursor: "pointer", padding: 0, textAlign: "left", fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(14.5), color: T.ink }}>
+              {open ? <ChevronDown size={16} /> : <ChevronRight size={16} />}
+              <Layers size={16} color={d.color} style={{ flexShrink: 0 }} />
+              <span style={{ overflowWrap: "anywhere" }}>{d.name}</span>
+            </button>
+          )}
+          {!editing && (
+            <>
+              <Pill T={T} tone="muted">{t("libGroupCount", { n: d.items.length })}</Pill>
+              {qn > 0 && !phone && <Pill T={T} tone="muted">{t("histQ", { n: qn })}</Pill>}
+              {done.length > 0 && <Pill T={T} tone={avg >= 70 ? "green" : "red"}>{t("deckProgress", { c: done.length, n: d.items.length })} · {t("deckAvg", { pct: avg })}</Pill>}
+              <span style={{ display: "inline-flex", gap: 6 }}>
+                <GhostButton T={T} icon={Plus} title={t("deckAddQbanks")} onClick={() => { openDeck(d.id, true); setDeckPickId(picking ? null : d.id); setPickSel([]); setDeckDelId(null); }} style={phone ? { padding: "9px 10px" } : undefined}>{!phone && t("deckAddQbanks")}</GhostButton>
+                <button onClick={() => { setDeckEditId(d.id); setDeckEditName(d.name); setDeckEditColor(d.color); setDeckDelId(null); }} title={t("deckRename")} aria-label={`${t("deckRename")}: ${d.name}`} style={deckIconBtn}><Pencil size={15} /></button>
+                <button onClick={() => { setDeckDelId(deckDelId === d.id ? null : d.id); setDeckEditId(null); }} title={t("deckDelete")} aria-label={`${t("deckDelete")}: ${d.name}`} style={{ ...deckIconBtn, color: T.red, borderColor: T.red }}><Trash2 size={15} /></button>
+              </span>
+            </>
+          )}
+        </div>
+        {editing && <div style={{ padding: "0 12px 12px", background: open ? T.paper : "transparent" }}>{deckSwatches(deckEditColor, setDeckEditColor)}</div>}
+        {deckDelId === d.id && (
+          <div role="alertdialog" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 12, flexWrap: "wrap", padding: "10px 14px", borderTop: `1px solid ${T.red}`, background: T.redLight }}>
+            <span style={{ fontFamily: FONT_UI, fontSize: fs(13), fontWeight: 600, color: T.red }}>{t("deckDeleteQ", { d: d.name, n: d.items.length })}</span>
+            <span style={{ display: "inline-flex", gap: 8 }}>
+              <button onClick={() => { removeDeck(d); setDeckDelId(null); }} style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(12.5), padding: "7px 12px", borderRadius: 6, border: `1px solid ${T.red}`, background: T.red, color: "#fff", cursor: "pointer" }}>{t("deckDeleteGo")}</button>
+              <GhostButton T={T} onClick={() => setDeckDelId(null)}>{t("cancel")}</GhostButton>
+            </span>
+          </div>
+        )}
+        {open && (
+          <div style={{ padding: 12, borderTop: `1px solid ${T.border}` }}>
+            {picking && (
+              <div role="group" aria-label={t("deckAddPickTitle", { d: d.name })} style={{ padding: "12px 14px", marginBottom: 12, borderRadius: 8, border: `1px dashed ${d.color}`, background: T.paper, display: "grid", gap: 10 }}>
+                <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 8 }}>
+                  <span style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(13), color: T.ink }}>{t("deckAddPickTitle", { d: d.name })}</span>
+                  <button onClick={() => setDeckPickId(null)} title={t("close")} aria-label={t("close")} style={{ background: "transparent", border: "none", cursor: "pointer", color: T.muted, display: "flex", padding: 4 }}><X size={16} /></button>
+                </div>
+                {pickable.length === 0 ? (
+                  <span style={{ fontFamily: FONT_UI, fontSize: fs(12.5), color: T.muted }}>{t("deckAddNone")}</span>
+                ) : (
+                  <div style={{ display: "grid", gap: 4, maxHeight: 260, overflowY: "auto" }}>
+                    {pickable.map((x) => {
+                      const on = pickSel.includes(x.id);
+                      const from = deckNameOf(x);
+                      return (
+                        <label key={x.id} style={{ display: "flex", alignItems: "center", gap: 10, padding: "7px 8px", borderRadius: 6, cursor: "pointer", background: on ? T.blueLight : "transparent", fontFamily: FONT_UI, fontSize: fs(13), color: T.ink }}>
+                          <input type="checkbox" checked={on} onChange={() => setPickSel((sel) => (on ? sel.filter((i) => i !== x.id) : [...sel, x.id]))} style={{ width: 16, height: 16, cursor: "pointer" }} />
+                          <span style={{ flex: 1, minWidth: 0, overflowWrap: "anywhere" }}>{x.title}</span>
+                          {from && <Pill T={T} tone="muted">{t("deckMovedFrom", { d: from })}</Pill>}
+                          <span style={{ fontFamily: FONT_MONO, fontSize: fs(12), color: T.muted }}>{x.questions.length}</span>
+                        </label>
+                      );
+                    })}
+                  </div>
+                )}
+                <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
+                  <PrimaryButton T={T} icon={Plus} disabled={!pickSel.length} onClick={() => { setDeckOf(pickSel, d); setPickSel([]); setDeckPickId(null); }}>{t("deckAddN", { n: pickSel.length })}</PrimaryButton>
+                  <GhostButton T={T} onClick={() => { setDeckPickId(null); setPickSel([]); }}>{t("cancel")}</GhostButton>
+                </div>
+              </div>
+            )}
+            {d.items.length === 0 ? (
+              !picking && <p style={{ fontFamily: FONT_UI, fontSize: fs(13), color: T.muted, lineHeight: 1.5, margin: 0 }}>{t("deckEmptyBody")}</p>
+            ) : (
+              <div style={{ display: "grid", gap: asGrid ? 12 : 8, gridTemplateColumns: asGrid ? "repeat(auto-fill, minmax(min(100%, 250px), 1fr))" : "minmax(0, 1fr)" }}>
+                {d.items.map((e) => renderCard(e, { onRemove: () => setDeckOf([e.id], null) }))}
+              </div>
+            )}
+          </div>
+        )}
+      </div>
+    );
+  };
+
+  // One Qbank card. Shared by the general library and by the cards inside a deck (opts.onRemove adds a "remove from deck" button).
+  const renderCard = (e, opts = {}) => {
+      const pos = liveQueue.indexOf(e.id);
+      const ls = e.lastScore;
+      return (
+        <div key={e.id} onClick={() => { if (renameId !== e.id) toggle(e.id); }} style={{
+          display: "flex", gap: 12, padding: "12px 14px", borderRadius: 8, cursor: "pointer",
+          ...(asGrid ? { flexDirection: "column", alignItems: "stretch", gap: 10, minWidth: 0 } : { alignItems: "center", flexWrap: "wrap" }),
+          border: `1px solid ${pos >= 0 ? T.blue : T.border}`, background: pos >= 0 ? T.blueLight : "transparent",
+        }}>
+          <input type="checkbox" checked={pos >= 0} onChange={() => toggle(e.id)} onClick={(ev) => ev.stopPropagation()} aria-label={e.title} style={{ cursor: "pointer", width: 18, height: 18, ...(asGrid ? { alignSelf: "flex-start" } : {}) }} />
+          <div style={{ flex: 1, minWidth: asGrid ? 0 : 180 }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap" }}>
+              {renameId === e.id ? (
+                <span style={{ display: "inline-flex", alignItems: "center", gap: 6, flex: 1, minWidth: 200 }}>
+                  <input
+                    autoFocus
+                    value={renameVal}
+                    maxLength={120}
+                    aria-label={t("libRename")}
+                    onChange={(ev) => setRenameVal(ev.target.value)}
+                    onFocus={(ev) => ev.target.select()}
+                    onKeyDown={(ev) => { if (ev.key === "Enter") commitRename(); else if (ev.key === "Escape") skipRename(); }}
+                    style={{ flex: 1, minWidth: 0, fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(14.5), color: T.ink, background: T.paper, border: `1px solid ${T.blue}`, borderRadius: 6, padding: "5px 8px", outline: "none" }}
+                  />
+                  <button onClick={commitRename} disabled={!renameVal.trim()} title={t("libRenameSave")} aria-label={t("libRenameSave")}
+                    style={{ background: "transparent", border: `1px solid ${T.blue}`, borderRadius: 6, cursor: renameVal.trim() ? "pointer" : "not-allowed", color: T.blue, padding: 5, display: "flex", opacity: renameVal.trim() ? 1 : 0.4 }}>
+                    <Check size={15} />
+                  </button>
+                  <button onClick={skipRename} title={t("cancel")} aria-label={t("cancel")}
+                    style={{ background: "transparent", border: `1px solid ${T.border}`, borderRadius: 6, cursor: "pointer", color: T.muted, padding: 5, display: "flex" }}>
+                    <X size={15} />
+                  </button>
+                  {renameTotal > 1 && <Pill T={T} tone="muted">{t("libEditing", { i: renameTotal - renameQueue.length + 1, n: renameTotal })}</Pill>}
+                </span>
+              ) : (
+                <span style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(14.5), color: T.ink }}>{e.title}</span>
+              )}
+              {tutorIds.has(e.id) && <span title={t("spLibStrip", { w: tutorBrief_.week })} aria-label={t("spLibStrip", { w: tutorBrief_.week })} style={{ display: "inline-flex", opacity: 0.7 }}><GraduationCap size={15} color={T.blue} /></span>}
+              {pos >= 0 && <Pill T={T} tone="blue">#{pos + 1}</Pill>}
+              {resumeId === e.id && <Pill T={T} tone="amber">{t("inProgressTag")}</Pill>}
+              {ls
+                ? <Pill T={T} tone={ls.pct >= 70 ? "green" : "red"}>{t("libCompleted", { pct: ls.pct, c: ls.correct, t: ls.total })}</Pill>
+                : resumeId !== e.id && <Pill T={T} tone="muted">{t("libNoScore")}</Pill>}
+              {opts.onRemove && (
+                <button onClick={(ev) => { ev.stopPropagation(); opts.onRemove(); }} title={t("deckRemove")} aria-label={`${t("deckRemove")}: ${e.title}`}
+                  style={{ marginLeft: "auto", background: "transparent", border: `1px solid ${T.border}`, borderRadius: 6, cursor: "pointer", color: T.muted, padding: 4, display: "flex" }}><X size={14} /></button>
+              )}
+            </div>
+            <span style={{ fontFamily: FONT_MONO, fontSize: fs(12), color: T.muted }}>
+              {t("libMeta", { q: e.questions.length, d: fmtDate(e.importDate) })}
+              {prefs.sort === "modified" && modStamp(e) > (Number(e.importDate) || 0) && ` · ${t("libModified", { d: fmtDate(modStamp(e)) })}`}
+            </span>
+            {(String(e.group || "").trim() || (Array.isArray(e.tags) && e.tags.length > 0)) && (
+              <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginTop: 6 }}>
+                {String(e.group || "").trim() && <Pill T={T} tone="muted"><FolderIcon size={11} style={{ marginRight: 4, verticalAlign: "-1px" }} />{e.group}</Pill>}
+                {(Array.isArray(e.tags) ? e.tags : []).map((x) => <Pill key={x} T={T} tone="muted"><TagIcon size={11} style={{ marginRight: 4, verticalAlign: "-1px" }} />{x}</Pill>)}
+              </div>
+            )}
+          </div>
+        </div>
+      );
+  };
+
   return (
     <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, padding: 24, marginBottom: 20 }}>
       <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 14, flexWrap: "wrap" }}>
@@ -7183,8 +7428,9 @@ function QbankLibraryPanel({ library, onLaunch, onMix, onDelete, onRename, onSet
             {(liveQueue.length > 0 ? [
               { id: "share", icon: Share2, label: t("libShareSel"), onClick: startExport, disabled: !!exp && exp.phase !== "done" },
               { id: "edit", icon: Pencil, label: t("libEditSel"), onClick: startEdit, disabled: false },
-              { id: "organize", icon: TagIcon, label: t("libOrganize"), onClick: () => { setConfirmDel(false); setRenameQueue([]); setOrgOpen((o) => !o); }, disabled: false },
-              { id: "delete", icon: Trash2, label: t("libDeleteSel"), onClick: () => { setRenameQueue([]); setOrgOpen(false); setConfirmDel(true); }, disabled: false, danger: true },
+              { id: "deck", icon: Layers, label: t("deckAddSel"), onClick: () => { setConfirmDel(false); setRenameQueue([]); setOrgOpen(false); setDeckPanelOpen((o) => !o); }, disabled: false },
+              { id: "organize", icon: TagIcon, label: t("libOrganize"), onClick: () => { setConfirmDel(false); setRenameQueue([]); setDeckPanelOpen(false); setOrgOpen((o) => !o); }, disabled: false },
+              { id: "delete", icon: Trash2, label: t("libDeleteSel"), onClick: () => { setRenameQueue([]); setOrgOpen(false); setDeckPanelOpen(false); setConfirmDel(true); }, disabled: false, danger: true },
             ] : []).map((a) => (
               <GhostButton key={a.id} T={T} icon={a.icon} onClick={a.onClick} disabled={a.disabled} title={`${a.label} (${liveQueue.length})`}
                 style={{ ...(a.danger ? { color: T.red, borderColor: T.red } : {}), ...(phone ? { padding: "11px 12px" } : {}) }}>
@@ -7265,6 +7511,32 @@ function QbankLibraryPanel({ library, onLaunch, onMix, onDelete, onRename, onSet
         </div>
       )}
 
+      {deckPanelOpen && liveQueue.length > 0 && (
+        <div role="group" aria-label={t("deckMoveTitle", { n: liveQueue.length })} style={{ padding: "12px 14px", marginBottom: 12, borderRadius: 8, border: `1px solid ${T.border}`, background: T.paper, display: "grid", gap: 12 }}>
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 8 }}>
+            <span style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(13), color: T.ink }}>{t("deckMoveTitle", { n: liveQueue.length })}</span>
+            <button onClick={() => setDeckPanelOpen(false)} title={t("close")} aria-label={t("close")} style={{ background: "transparent", border: "none", cursor: "pointer", color: T.muted, display: "flex", padding: 4 }}><X size={16} /></button>
+          </div>
+          {deckDefs.length > 0 && (
+            <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
+              {decks.map((d) => (
+                <button key={d.id} onClick={() => addSelectedToDeck(d)}
+                  style={{ display: "inline-flex", alignItems: "center", gap: 6, fontFamily: FONT_UI, fontSize: fs(13), fontWeight: 600, padding: "6px 12px", borderRadius: 999, border: `1px solid ${d.color}`, background: T.card, color: T.ink, cursor: "pointer" }}>
+                  <Layers size={14} color={d.color} />{d.name}
+                </button>
+              ))}
+            </div>
+          )}
+          <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap" }}>
+            <input value={panelDeckName} maxLength={60} placeholder={t("deckNamePh")} aria-label={t("deckNew")} onChange={(ev) => setPanelDeckName(ev.target.value)}
+              onKeyDown={(ev) => { if (ev.key === "Enter" && panelDeckName.trim()) addSelectedToDeck(createDeck(panelDeckName)); }}
+              style={{ flex: 1, minWidth: 160, fontFamily: FONT_UI, fontSize: fs(13), color: T.ink, background: T.card, border: `1px solid ${T.border}`, borderRadius: 6, padding: "7px 10px", outline: "none" }} />
+            <GhostButton T={T} icon={Plus} onClick={() => addSelectedToDeck(createDeck(panelDeckName))} disabled={!panelDeckName.trim()}>{t("deckCreateAdd")}</GhostButton>
+            {selInDeck && <GhostButton T={T} onClick={() => { setDeckOf(liveQueue, null); setDeckPanelOpen(false); }}>{t("deckRemoveSel")}</GhostButton>}
+          </div>
+        </div>
+      )}
+
       {confirmDel && (
         <div role="alertdialog" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 12, flexWrap: "wrap", padding: "10px 14px", marginBottom: 12, borderRadius: 8, border: `1px solid ${T.red}`, background: T.redLight }}>
           <span style={{ fontFamily: FONT_UI, fontSize: fs(13), fontWeight: 600, color: T.red }}>{t("libDeleteSelQ", { n: liveQueue.length })}</span>
@@ -7282,6 +7554,42 @@ function QbankLibraryPanel({ library, onLaunch, onMix, onDelete, onRename, onSet
             {exp.phase === "done" && (exp.result === "shared" ? t("libExportShared", { n: exp.n }) : exp.result === "downloaded" ? t("libExportDownloaded", { n: exp.n }) : t("libExportFailed"))}
           </span>
           {exp.phase === "done" && <GhostButton T={T} onClick={() => setExp(null)}>{t("close")}</GhostButton>}
+        </div>
+      )}
+
+      {library.length > 0 && (
+        <div style={{ marginBottom: 20 }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap", marginBottom: 10 }}>
+            <Layers size={16} color={T.ink} />
+            <span style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(13.5), color: T.ink }}>{t("deckTitle")}</span>
+            <Pill T={T} tone="muted">{t("deckCount", { n: deckDefs.length })}</Pill>
+            <span style={{ marginLeft: "auto" }}>
+              <GhostButton T={T} icon={Plus} onClick={() => setNewDeckOpen((o) => !o)}>{t("deckNew")}</GhostButton>
+            </span>
+          </div>
+          {newDeckOpen && (
+            <div role="group" aria-label={t("deckNew")} style={{ padding: "12px 14px", marginBottom: 12, borderRadius: 8, border: `1px solid ${T.border}`, background: T.paper, display: "grid", gap: 10 }}>
+              <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap" }}>
+                <input autoFocus value={newDeckName} maxLength={60} placeholder={t("deckNamePh")} aria-label={t("deckNew")} onChange={(ev) => setNewDeckName(ev.target.value)}
+                  onKeyDown={(ev) => { if (ev.key === "Enter") submitNewDeck(); else if (ev.key === "Escape") setNewDeckOpen(false); }}
+                  style={{ flex: 1, minWidth: 160, fontFamily: FONT_UI, fontSize: fs(13), color: T.ink, background: T.card, border: `1px solid ${T.border}`, borderRadius: 6, padding: "7px 10px", outline: "none" }} />
+                <PrimaryButton T={T} icon={Check} onClick={submitNewDeck} disabled={!newDeckName.trim()}>{t("deckCreate")}</PrimaryButton>
+                <GhostButton T={T} onClick={() => setNewDeckOpen(false)}>{t("cancel")}</GhostButton>
+              </div>
+              {deckSwatches(newDeckColor, setNewDeckColor)}
+            </div>
+          )}
+          {deckDefs.length === 0
+            ? <p style={{ fontFamily: FONT_UI, fontSize: fs(12.5), color: T.muted, lineHeight: 1.5, margin: 0 }}>{t("deckEmpty")}</p>
+            : decks.map(renderDeck)}
+          {deckDefs.length > 0 && (
+            <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap", margin: "16px 0 0", paddingTop: 12, borderTop: `1px solid ${T.border}` }}>
+              <BookOpen size={16} color={T.ink} />
+              <span style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(13.5), color: T.ink }}>{t("deckGeneral")}</span>
+              <Pill T={T} tone="muted">{t("libGroupCount", { n: looseLib.length })}</Pill>
+              {looseLib.length === 0 && <span style={{ fontFamily: FONT_UI, fontSize: fs(12.5), color: T.muted }}>{t("deckAllInDecks")}</span>}
+            </div>
+          )}
         </div>
       )}
 
@@ -7309,64 +7617,7 @@ function QbankLibraryPanel({ library, onLaunch, onMix, onDelete, onRename, onSet
             )}
             {!isCollapsed && (
           <div style={{ display: "grid", gap: asGrid ? 12 : 8, gridTemplateColumns: asGrid ? "repeat(auto-fill, minmax(min(100%, 250px), 1fr))" : "minmax(0, 1fr)" }}>
-            {sec.items.map((e) => {
-              const pos = liveQueue.indexOf(e.id);
-              const ls = e.lastScore;
-              return (
-                <div key={e.id} onClick={() => { if (renameId !== e.id) toggle(e.id); }} style={{
-                  display: "flex", gap: 12, padding: "12px 14px", borderRadius: 8, cursor: "pointer",
-                  ...(asGrid ? { flexDirection: "column", alignItems: "stretch", gap: 10, minWidth: 0 } : { alignItems: "center", flexWrap: "wrap" }),
-                  border: `1px solid ${pos >= 0 ? T.blue : T.border}`, background: pos >= 0 ? T.blueLight : "transparent",
-                }}>
-                  <input type="checkbox" checked={pos >= 0} onChange={() => toggle(e.id)} onClick={(ev) => ev.stopPropagation()} aria-label={e.title} style={{ cursor: "pointer", width: 18, height: 18, ...(asGrid ? { alignSelf: "flex-start" } : {}) }} />
-                  <div style={{ flex: 1, minWidth: asGrid ? 0 : 180 }}>
-                    <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap" }}>
-                      {renameId === e.id ? (
-                        <span style={{ display: "inline-flex", alignItems: "center", gap: 6, flex: 1, minWidth: 200 }}>
-                          <input
-                            autoFocus
-                            value={renameVal}
-                            maxLength={120}
-                            aria-label={t("libRename")}
-                            onChange={(ev) => setRenameVal(ev.target.value)}
-                            onFocus={(ev) => ev.target.select()}
-                            onKeyDown={(ev) => { if (ev.key === "Enter") commitRename(); else if (ev.key === "Escape") skipRename(); }}
-                            style={{ flex: 1, minWidth: 0, fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(14.5), color: T.ink, background: T.paper, border: `1px solid ${T.blue}`, borderRadius: 6, padding: "5px 8px", outline: "none" }}
-                          />
-                          <button onClick={commitRename} disabled={!renameVal.trim()} title={t("libRenameSave")} aria-label={t("libRenameSave")}
-                            style={{ background: "transparent", border: `1px solid ${T.blue}`, borderRadius: 6, cursor: renameVal.trim() ? "pointer" : "not-allowed", color: T.blue, padding: 5, display: "flex", opacity: renameVal.trim() ? 1 : 0.4 }}>
-                            <Check size={15} />
-                          </button>
-                          <button onClick={skipRename} title={t("cancel")} aria-label={t("cancel")}
-                            style={{ background: "transparent", border: `1px solid ${T.border}`, borderRadius: 6, cursor: "pointer", color: T.muted, padding: 5, display: "flex" }}>
-                            <X size={15} />
-                          </button>
-                          {renameTotal > 1 && <Pill T={T} tone="muted">{t("libEditing", { i: renameTotal - renameQueue.length + 1, n: renameTotal })}</Pill>}
-                        </span>
-                      ) : (
-                        <span style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(14.5), color: T.ink }}>{e.title}</span>
-                      )}
-                      {tutorIds.has(e.id) && <span title={t("spLibStrip", { w: tutorBrief_.week })} aria-label={t("spLibStrip", { w: tutorBrief_.week })} style={{ display: "inline-flex", opacity: 0.7 }}><GraduationCap size={15} color={T.blue} /></span>}
-                      {pos >= 0 && <Pill T={T} tone="blue">#{pos + 1}</Pill>}
-                      {resumeId === e.id && <Pill T={T} tone="amber">{t("inProgressTag")}</Pill>}
-                      {ls
-                        ? <Pill T={T} tone={ls.pct >= 70 ? "green" : "red"}>{t("libCompleted", { pct: ls.pct, c: ls.correct, t: ls.total })}</Pill>
-                        : resumeId !== e.id && <Pill T={T} tone="muted">{t("libNoScore")}</Pill>}
-                    </div>
-                    <span style={{ fontFamily: FONT_MONO, fontSize: fs(12), color: T.muted }}>
-                      {t("libMeta", { q: e.questions.length, d: fmtDate(e.importDate) })}
-                      {prefs.sort === "modified" && modStamp(e) > (Number(e.importDate) || 0) && ` · ${t("libModified", { d: fmtDate(modStamp(e)) })}`}
-                    </span>
-                    {(String(e.group || "").trim() || (Array.isArray(e.tags) && e.tags.length > 0)) && (
-                      <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginTop: 6 }}>
-                        {String(e.group || "").trim() && <Pill T={T} tone="muted"><FolderIcon size={11} style={{ marginRight: 4, verticalAlign: "-1px" }} />{e.group}</Pill>}
-                        {(Array.isArray(e.tags) ? e.tags : []).map((x) => <Pill key={x} T={T} tone="muted"><TagIcon size={11} style={{ marginRight: 4, verticalAlign: "-1px" }} />{x}</Pill>)}
-                      </div>
-                    )}
-                  </div>
-                </div>
-              );
-            })}
+            {sec.items.map((e) => renderCard(e))}
           </div>
             )}
           </div>
@@ -12380,7 +12631,7 @@ export default function App() {
   // Settings → "Reset All Local Data": wipes the library, the active session and preferences, then returns
   // to a clean import screen. (The save effects above then see empty/default state and keep the keys absent.)
   function resetAllData() {
-    [LS_SESSION, LS_LIBRARY, LS_LIBVIEW, LS_HISTVIEW, LS_PREFS, LS_HISTORY, LS_TOMBS, LS_ACTIVE_SYNC, LS_TRASH].forEach(lsRemove);
+    [LS_SESSION, LS_LIBRARY, LS_LIBVIEW, LS_DECKS, LS_HISTVIEW, LS_PREFS, LS_HISTORY, LS_TOMBS, LS_ACTIVE_SYNC, LS_TRASH].forEach(lsRemove);
     recRef.current = null; setActiveStamp(0); setActivePrompt(null); lsRemove(LS_SESSION_FILE);
     drive.disconnect(); setTombs(emptyTombs()); // Drive is left as it was; reconnect to restore from it
     failedKeys.current = {};
