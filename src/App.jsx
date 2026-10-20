@@ -2025,7 +2025,7 @@ function mixQbanks(entries, { size = null, difficulty = "all" } = {}) {
 const LS_SESSION = "activeSession";
 const LS_LIBRARY = "qbankLibrary";
 const LS_HISTVIEW = "owordHistoryView"; // { view: "grid" | "list", sort: "az" | "za" | "added" | "modified" }: how the Analysis page lists past sessions (this device only)
-const LS_DECKS = "owordDecks"; // [{ id, name, color, createdAt, updatedAt }]: the deck list on this device (so empty decks exist). Which deck a Qbank is in is saved on the Qbank itself (entry.deck), so it syncs with the rest of the card.
+const LS_DECKS = "owordDecks"; // [{ id, name, color, createdAt, updatedAt }]: the deck list (so empty decks exist). Synced to Drive in the sync file (decks + deleted.decks). Which deck a Qbank is in is saved on the Qbank itself (entry.deck).
 const LS_LIBVIEW = "owordLibraryView"; // { view: "grid" | "list", sort: "az" | "za" | "added" | "modified" }: how the Qbank Library is shown (this device only)
 // NotebookLM study notebooks shown in the Import card on the Library page. Links omit "?authuser=N" so they open under whichever Google account the
 // visitor is signed in to (each notebook must be shared with them in NotebookLM). Add it back to a url if you want to force an account.
@@ -2109,7 +2109,7 @@ const SIGNIN_SCOPES = `openid email profile ${DRIVE_SCOPE}`; // identity (name, 
 const USERINFO_URL = "https://openidconnect.googleapis.com/v1/userinfo";
 const SYNC_FILE_NAME = "oword_sync_state.json";
 const LS_SYNC = "owordDriveSync";   // { linked, fileId, lastSync }
-const LS_TOMBS = "owordTombstones"; // { qbanks: {id: deletedAt}, sessions: {id: deletedAt} }
+const LS_TOMBS = "owordTombstones"; // { qbanks: {id: deletedAt}, sessions: {id: deletedAt}, decks: {id: deletedAt} }
 const TOMB_TTL = 180 * 24 * 3600 * 1000;
 // A tombstone kills an item unless that item was restored from the Trash AFTER the deletion (its restoredAt is later than the
 // tombstone). Without this, another device's copy of the tombstone would delete a restored item again on the next sync.
@@ -2126,14 +2126,14 @@ function loadTrash() {
   return v.filter((e) => e && typeof e.tid === "string" && TRASH_KINDS.includes(e.kind) && e.data && typeof e.data.id === "string" && e.deletedAt > cutoff);
 }
 
-function emptyTombs() { return { qbanks: {}, sessions: {} }; }
+function emptyTombs() { return { qbanks: {}, sessions: {}, decks: {} }; }
 function loadTombs() {
   const t = lsGet(LS_TOMBS);
-  return t && typeof t === "object" ? { qbanks: { ...(t.qbanks || {}) }, sessions: { ...(t.sessions || {}) } } : emptyTombs();
+  return t && typeof t === "object" ? { qbanks: { ...(t.qbanks || {}) }, sessions: { ...(t.sessions || {}) }, decks: { ...(t.decks || {}) } } : emptyTombs();
 }
 function unionTombs(a, b) {
   const out = emptyTombs(); const cutoff = Date.now() - TOMB_TTL;
-  for (const k of ["qbanks", "sessions"]) {
+  for (const k of ["qbanks", "sessions", "decks"]) {
     for (const src of [a && a[k], b && b[k]]) for (const [id, ts] of Object.entries(src || {})) if (ts > cutoff) out[k][id] = Math.max(out[k][id] || 0, ts);
   }
   return out;
@@ -2177,6 +2177,22 @@ function mergeSessions(local, remote, deleted) {
   for (const r of remote || []) if (validSession(r) && !isBuried(dead[r.id], r) && !map.has(r.id)) map.set(r.id, r);
   return [...map.values()].sort((x, y) => y.finishedAt - x.finishedAt || (x.id < y.id ? -1 : 1)).slice(0, HISTORY_MAX);
 }
+// Decks sync as a small list inside the same Drive file. Union by id, the newer edit (rename / colour) wins, and only an explicit delete
+// (a tombstone in deleted.decks) removes one. Which deck a Qbank is in rides on the Qbank itself (entry.deck).
+const validDeck = (d) => d && typeof d.id === "string" && typeof d.name === "string" && d.name.trim();
+function loadDecks() { const v = lsGet(LS_DECKS); return Array.isArray(v) ? v.filter(validDeck) : []; }
+function mergeDecks(local, remote, deleted) {
+  const dead = (deleted && deleted.decks) || {};
+  const map = new Map();
+  for (const d of local || []) if (validDeck(d) && !isBuried(dead[d.id], d)) map.set(d.id, d);
+  for (const r of remote || []) {
+    if (!validDeck(r) || isBuried(dead[r.id], r)) continue;
+    const l = map.get(r.id);
+    map.set(r.id, !l || (r.updatedAt || 0) > (l.updatedAt || 0) ? r : l);
+  }
+  return [...map.values()].sort((x, y) => (x.createdAt || 0) - (y.createdAt || 0) || (x.id < y.id ? -1 : 1));
+}
+function sameDecks(a, b) { return a.length === b.length && a.every((d, i) => d.id === b[i].id && d.name === b[i].name && d.color === b[i].color && (d.updatedAt || 0) === (b[i].updatedAt || 0)); }
 function sameList(a, b) { return a.length === b.length && a.every((x, i) => x === b[i]); }
 function collectReviews(sessions) {
   const out = {};
@@ -2191,7 +2207,8 @@ function mergeSyncState(local, remote) {
   const keep = new Set(examSessions.slice(0, REVIEW_MAX).map((e) => e.id));
   const reviews = {};
   for (const src of [r.reviews || {}, local.reviews || {}]) for (const [id, snap] of Object.entries(src)) if (keep.has(id) && snap) reviews[id] = snap; // local wins
-  return { qbanks, examSessions, reviews, deleted };
+  const decks = mergeDecks(local.decks, r.decks, deleted);
+  return { qbanks, examSessions, reviews, decks, deleted };
 }
 function hashStr(str) { let h = 2166136261; for (let i = 0; i < str.length; i++) { h ^= str.charCodeAt(i); h = Math.imul(h, 16777619); } return `${str.length}:${h >>> 0}`; }
 
@@ -2391,7 +2408,7 @@ async function driveUpload(token, id, jsonText, name = SYNC_FILE_NAME) {
 
 // useDriveSync: owns sign-in, the pull → merge → push cycle, and the debounced background sync.
 // onMerged(merged) lets the app fold the cloud's data into its own state (merges are idempotent and never delete without a tombstone).
-function useDriveSync({ library, sessionLog, tombs, onMerged }) {
+function useDriveSync({ library, sessionLog, tombs, decks, onMerged }) {
   const configured = !!GOOGLE_CLIENT_ID;
   const saved = useRef(lsGet(LS_SYNC) || {});
   const [linked, setLinked] = useState(!!saved.current.linked && configured);
@@ -2400,7 +2417,7 @@ function useDriveSync({ library, sessionLog, tombs, onMerged }) {
   const [lastSync, setLastSync] = useState(saved.current.lastSync || 0);
   const [profile, setProfile] = useState((configured && saved.current.profile) || null); // { name, email, picture }
   const chooseAccount = useRef(false);   // an explicit "Sign in" click shows the account chooser
-  const latest = useRef({}); latest.current = { library, sessionLog, tombs, onMerged };
+  const latest = useRef({}); latest.current = { library, sessionLog, tombs, decks, onMerged };
   const tokenRef = useRef(null);          // { value, exp }
   const clientRef = useRef(null);
   const pending = useRef(null);
@@ -2461,13 +2478,13 @@ function useDriveSync({ library, sessionLog, tombs, onMerged }) {
       if (!fileId) { fileId = await driveFindSyncFile(token); if (fileId) remote = await driveDownload(token, fileId); }
 
       const cur = latest.current;
-      const local = { qbanks: cur.library, examSessions: cur.sessionLog, deleted: cur.tombs, reviews: collectReviews(cur.sessionLog) };
+      const local = { qbanks: cur.library, examSessions: cur.sessionLog, decks: cur.decks, deleted: cur.tombs, reviews: collectReviews(cur.sessionLog) };
       const merged = mergeSyncState(local, remote);
       cur.onMerged(merged);
 
-      const coreText = JSON.stringify({ qbanks: merged.qbanks, examSessions: merged.examSessions, reviews: merged.reviews, deleted: merged.deleted });
-      const remoteCore = remote ? mergeSyncState({ qbanks: [], examSessions: [], deleted: emptyTombs(), reviews: {} }, remote) : null;
-      const remoteText = remoteCore ? JSON.stringify({ qbanks: remoteCore.qbanks, examSessions: remoteCore.examSessions, reviews: remoteCore.reviews, deleted: remoteCore.deleted }) : null;
+      const coreText = JSON.stringify({ qbanks: merged.qbanks, examSessions: merged.examSessions, reviews: merged.reviews, decks: merged.decks, deleted: merged.deleted });
+      const remoteCore = remote ? mergeSyncState({ qbanks: [], examSessions: [], decks: [], deleted: emptyTombs(), reviews: {} }, remote) : null;
+      const remoteText = remoteCore ? JSON.stringify({ qbanks: remoteCore.qbanks, examSessions: remoteCore.examSessions, reviews: remoteCore.reviews, decks: remoteCore.decks, deleted: remoteCore.deleted }) : null;
       if (!fileId || !remoteText || hashStr(coreText) !== hashStr(remoteText)) {
         const payload = JSON.stringify({ v: 1, app: "oworld", updatedAt: Date.now(), deviceId: deviceId.current, ...merged });
         fileId = await driveUpload(token, fileId, payload);
@@ -2520,7 +2537,7 @@ function useDriveSync({ library, sessionLog, tombs, onMerged }) {
     if (!linked) return;
     const id = setTimeout(() => sync(), 4000);
     return () => clearTimeout(id);
-  }, [library, sessionLog, tombs, linked, sync]);
+  }, [library, sessionLog, tombs, decks, linked, sync]);
 
   // Shared with useSessionSync. A valid token, or (only when `interactive`, i.e. from a click) a fresh one. Never pops a window by itself
   // after a failed silent attempt, same rule as the library sync.
@@ -6914,19 +6931,19 @@ function ExportShareButton({ getBlock, T, style, fullWidth = false, wrapStyle })
   );
 }
 
-// Library page, top row: the active-session widget (compact) with the Qhub placeholder inline on its right.
+// Library page, top row: the active-session widget (compact); nothing is shown when no session is loaded.
 function LibraryTopRow({ session, resumeId, library, onResume, onOpenLobby, T }) {
   const { t } = useI18n();
-  const wide = useViewport().w >= 760;
   const inLib = resumeId ? library.find((e) => e.id === resumeId) : null;
   const active = !!(session || inLib);
   const canResume = !!((session && session.block) || inLib);
   const title = inLib ? inLib.title : session ? (session.block ? blockLabel(session.block, t) : (session.examTitle || t("practiceExam"))) : "";
   const pos = session && session.block && session.bs ? t("sessionPos", { n: (Number(session.bs.currentQuestionIndex) || 0) + 1, total: session.block.questions.length }) : "";
+  if (!active) return null;
   const box = { borderRadius: 10, padding: "10px 14px", display: "flex", alignItems: "center", gap: 12, minWidth: 0 };
   const tiny = { fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(10.5), textTransform: "uppercase", letterSpacing: "0.06em" };
   return (
-    <div style={{ display: "grid", gridTemplateColumns: wide && active ? "minmax(0, 1fr) minmax(0, 1fr)" : "minmax(0, 1fr)", gap: 14, marginBottom: 20 }}>
+    <div style={{ display: "grid", gridTemplateColumns: "minmax(0, 1fr)", gap: 14, marginBottom: 20 }}>
       {active && (
         <div style={{ ...box, background: T.card, border: `1px solid ${canResume ? T.blue : T.border}` }}>
           <div style={{ flex: 1, minWidth: 0 }}>
@@ -6941,18 +6958,6 @@ function LibraryTopRow({ session, resumeId, library, onResume, onOpenLobby, T })
             : <GhostButton T={T} onClick={onOpenLobby} style={{ padding: "7px 12px" }}>{t("openLobby")}</GhostButton>}
         </div>
       )}
-      <div style={{ ...box, border: `1px dashed ${T.border}`, background: "transparent" }} aria-label={t("qhubTitle")}>
-        <Globe size={20} color={T.muted} style={{ flexShrink: 0 }} />
-        <div style={{ flex: 1, minWidth: 0 }}>
-          <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap" }}>
-            <span style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(14), color: T.ink }}>{t("qhubTitle")}</span>
-            <Pill T={T} tone="muted">{t("qhubSoon")}</Pill>
-          </div>
-          <div style={{ display: "flex", alignItems: "center", gap: 6, fontFamily: FONT_UI, fontSize: fs(12), color: T.muted, lineHeight: 1.4 }}>
-            <ShieldCheck size={13} style={{ flexShrink: 0 }} /><span>{t("qhubBody")}</span>
-          </div>
-        </div>
-      </div>
     </div>
   );
 }
@@ -7016,7 +7021,7 @@ const libAddUnique = (list, tag) => {
 // ---------------------------------------------------------------------------
 // Qbank library panel — saved blocks; start one, or tick several to run them as a queue
 // ---------------------------------------------------------------------------
-function QbankLibraryPanel({ library, onLaunch, onMix, onDelete, onRename, onSetMeta, resumeId, onResume, sessionLog = [], T }) {
+function QbankLibraryPanel({ library, onLaunch, onMix, onDelete, onRename, onSetMeta, deckDefs = [], onDecksChange = () => {}, resumeId, onResume, sessionLog = [], T }) {
   const { t, lang } = useI18n();
   const spCtx = useContext(ProfileContext);
   const tutorBrief_ = useMemo(() => (spCtx.profile ? tutorBrief(spCtx.profile, sessionLog, new Date()) : null), [spCtx.profile, sessionLog, new Date().toDateString()]); // eslint-disable-line
@@ -7105,13 +7110,14 @@ function QbankLibraryPanel({ library, onLaunch, onMix, onDelete, onRename, onSet
   const asGrid = prefs.view === "grid";
 
   // ---- Decks ----
-  // The deck list lives on this device (so an empty deck can exist); which deck a Qbank is in is saved on the Qbank itself (entry.deck),
-  // so membership, names and colours travel with the card through Drive sync and a deck rebuilds itself on another device.
-  const [deckDefs, setDeckDefs] = useState(() => { const v = lsGet(LS_DECKS); return Array.isArray(v) ? v.filter((d) => d && typeof d.id === "string" && typeof d.name === "string" && d.name.trim()) : []; });
-  const saveDefs = (next) => { setDeckDefs(next); lsSet(LS_DECKS, JSON.stringify(next)); };
-  useEffect(() => { // decks that arrive with synced Qbanks (or were renamed on another device) are picked up here
+  // The deck list (deckDefs) is kept by the app and synced to Google Drive with the library, including empty decks, renames and deletions.
+  // Which deck a Qbank is in is saved on the Qbank itself (entry.deck). The effect below is a safety net for a Qbank that points at a deck
+  // this device doesn't have yet (or has a newer name for it).
+  const saveDefs = (next) => onDecksChange(next);
+  useEffect(() => {
+    const dead = loadTombs().decks || {};
     const seen = new Map();
-    library.forEach((e) => { const d = e.deck; if (d && typeof d.id === "string" && String(d.name || "").trim()) { const stamp = Number(e.updatedAt) || 0; const c = seen.get(d.id); if (!c || stamp > c.stamp) seen.set(d.id, { name: String(d.name), color: d.color, stamp }); } });
+    library.forEach((e) => { const d = e.deck; if (d && typeof d.id === "string" && !dead[d.id] && String(d.name || "").trim()) { const stamp = Number(e.updatedAt) || 0; const c = seen.get(d.id); if (!c || stamp > c.stamp) seen.set(d.id, { name: String(d.name), color: d.color, stamp }); } });
     let changed = false;
     const next = deckDefs.map((def) => { const sn = seen.get(def.id); if (sn && sn.stamp > (def.updatedAt || 0) && (sn.name !== def.name || (sn.color && sn.color !== def.color))) { changed = true; return { ...def, name: sn.name, color: sn.color || def.color, updatedAt: sn.stamp }; } return def; });
     seen.forEach((sn, id) => { if (!next.some((d) => d.id === id)) { changed = true; next.push({ id, name: sn.name, color: sn.color || DECK_COLORS[0], createdAt: sn.stamp, updatedAt: sn.stamp }); } });
@@ -9464,7 +9470,7 @@ function HowItWorksGuide({ onClose, T }) {
   );
 }
 
-function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], drive, onDeleteSession, onClearSessions, onReviewSession, libTab, setLibTab, session, onResume, onOpenLobby, onLaunchLibrary, onMixLibrary, onDeleteLibraryEntry, onRenameLibraryEntry, onSetLibraryMeta, T, darkMode, setDarkMode }) {
+function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], drive, onDeleteSession, onClearSessions, onReviewSession, libTab, setLibTab, session, onResume, onOpenLobby, onLaunchLibrary, onMixLibrary, onDeleteLibraryEntry, onRenameLibraryEntry, onSetLibraryMeta, deckDefs, onDecksChange, T, darkMode, setDarkMode }) {
   const { t, lang } = useI18n();
   const [text, setText] = useState("");
   const [error, setError] = useState("");
@@ -9629,7 +9635,7 @@ function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], dri
       <PageNav tab={libTab} setTab={setLibTab} T={T} />
       </div>
 
-      {/* Library top row: compact active-session widget (Resume lives here) with the Qhub placeholder to its right. */}
+      {/* Library top row: compact active-session widget (Resume lives here) */}
       {libTab === "library" && <LibraryTopRow session={session} resumeId={resumeId} library={library} onResume={onResume} onOpenLobby={onOpenLobby} T={T} />}
 
       {libTab === "database" && <DatabasePanel key={dbFocus ? dbFocus.n : "db"} initialQuery={dbFocus ? dbFocus.q : ""} T={T} />}
@@ -9638,7 +9644,7 @@ function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], dri
       {libTab === "console" && <ConsolePanel library={library} sessionLog={sessionLog} session={session} onResume={onResume} onOpenLobby={onOpenLobby} onReview={onReviewSession} onNavigate={(tab) => { setLibTab(tab); window.scrollTo({ top: 0, behavior: "smooth" }); }} T={T} />}
       {libTab === "studyhub" && <StudyHub library={library} sessionLog={sessionLog} onLaunch={onLaunchLibrary} onNavigate={(tab, key) => { if (key) setCalFocus({ key, n: Date.now() }); setLibTab(tab); if (tab !== "profile") window.scrollTo({ top: 0, behavior: "smooth" }); }} T={T} />}
       {libTab === "library" && <TutorLibraryStrip library={library} sessionLog={sessionLog} onLaunch={onLaunchLibrary} T={T} />}
-      {libTab === "library" && <QbankLibraryPanel library={library} onLaunch={onLaunchLibrary} onMix={onMixLibrary} onDelete={onDeleteLibraryEntry} onRename={onRenameLibraryEntry} onSetMeta={onSetLibraryMeta} resumeId={resumeId} onResume={onResume} sessionLog={sessionLog} T={T} />}
+      {libTab === "library" && <QbankLibraryPanel library={library} onLaunch={onLaunchLibrary} onMix={onMixLibrary} onDelete={onDeleteLibraryEntry} onRename={onRenameLibraryEntry} onSetMeta={onSetLibraryMeta} deckDefs={deckDefs} onDecksChange={onDecksChange} resumeId={resumeId} onResume={onResume} sessionLog={sessionLog} T={T} />}
 
       {/* Import Qbank page: its own page, no longer an accordion under the library. */}
       <div ref={importRef} style={{ marginBottom: 20 }}>
@@ -10668,7 +10674,7 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onRate, o
   const tutorSources = useMemo(() => (blockState.tutor ? collectTutorSources(block.questions) : []), [block, blockState.tutor]);
   const [importOpen, setImportOpen] = useState(false); // in-exam "Import Qbank" dialog (saves to the library, session untouched)
   // The question list can fold into a slim rail to give the question more room; the choice is remembered.
-  const [navCollapsed, setNavCollapsed] = useState(() => lsGet("navCollapsed") === true);
+  const [navCollapsedPref, setNavCollapsed] = useState(() => lsGet("navCollapsed") === true);
   const toggleNav = () => setNavCollapsed((v) => { lsSet("navCollapsed", JSON.stringify(!v)); return !v; });
   const [labOpen, setLabOpen] = useState(false);
   const [notesOpen, setNotesOpen] = useState(false);
@@ -10697,6 +10703,7 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onRate, o
   const T = darkMode ? DARK : LIGHT;
   const { t, lang } = useI18n();
   const tutorMode = !!blockState.tutor;
+  const navCollapsed = tutorMode ? navCollapsedPref : false; // Timed mode (like the real exam) has a fixed question list: no collapse control, never collapsed
   const vp = useViewport();
   const compact = vp.w < 980;           // tablets / small windows: lab panel overlays, navigator slims down
   const narrow = vp.w < 640;            // phones: icon-only toolbar, tighter padding
@@ -11048,7 +11055,7 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onRate, o
           width: Math.round((navCollapsed ? (compact ? 56 : 72) : compact ? 76 : tutorMode ? 280 : 130) * Math.min(TEXT_SCALE, 1.3)), transition: "width 0.18s ease", flexShrink: 0, background: T.card, borderRight: `1px solid ${T.border}`, padding: "16px 0",
           display: "flex", flexDirection: "column", overflow: "hidden",
         }}>
-          <div style={{ display: "flex", justifyContent: navCollapsed ? "center" : "flex-end", padding: navCollapsed ? "0 0 8px" : "0 10px 6px" }}>
+          {tutorMode && <div style={{ display: "flex", justifyContent: navCollapsed ? "center" : "flex-end", padding: navCollapsed ? "0 0 8px" : "0 10px 6px" }}>
             <button
               onClick={toggleNav}
               title={navCollapsed ? t("navExpand") : t("navCollapse")}
@@ -11058,7 +11065,7 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onRate, o
             >
               {navCollapsed ? <ChevronRight size={16} /> : <ChevronLeft size={16} />}
             </button>
-          </div>
+          </div>}
           {navCollapsed ? null : tutorMode && !compact ? (
             <div style={{ padding: "0 16px 12px", borderBottom: `1px solid ${T.border}`, marginBottom: 6 }}>
               <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(13), color: T.ink, marginBottom: 8, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
@@ -11130,7 +11137,7 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onRate, o
               <Flag size={16} color={T.flagRed} fill={T.flagRed} />
               <span style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(14), color: T.ink }}>{t("mark")}</span>
             </label>
-            <button
+            {tutorMode && <button
               onClick={toggleSaveQuestion} aria-pressed={questionSaved} title={questionSaved ? t("dbSavedQ") : t("dbSaveQ")}
               style={{
                 display: "inline-flex", alignItems: "center", gap: 6, background: "transparent", border: "none", padding: 0, cursor: "pointer",
@@ -11139,7 +11146,7 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onRate, o
             >
               <Bookmark size={16} color={T.blue} fill={questionSaved ? T.blue : "none"} />
               {questionSaved ? t("dbSavedQ") : t("dbSaveQ")}
-            </button>
+            </button>}
 
             {hintAvailable && (
               <button
@@ -11954,8 +11961,8 @@ function BlockResults({ block, blockState, blockIdx, history, onBackToLobby, onR
         })}
       </div>
 
-      {/* Retest options bar */}
-      <div style={{
+      {/* Retest options bar (hidden while reviewing a past exam beside a session in progress) */}
+      {onRetest && <div style={{
         position: "sticky", bottom: 0, zIndex: 30, margin: "28px -20px -80px", padding: "14px 20px",
         background: T.paper, borderTop: `1px solid ${T.border}`, display: "flex", flexWrap: "wrap", gap: 10,
       }}>
@@ -11965,10 +11972,10 @@ function BlockResults({ block, blockState, blockIdx, history, onBackToLobby, onR
         <GhostButton T={T} onClick={() => setRetestCfg({ pool: "all", mode: "tutor" })}>
           {t("retestFullBtn")}
         </GhostButton>
-      </div>
+      </div>}
 
       {/* Retest configuration modal */}
-      {retestCfg && (
+      {onRetest && retestCfg && (
         <div style={{ position: "fixed", inset: 0, background: "rgba(10,15,20,0.6)", display: "flex", alignItems: "center", justifyContent: "center", zIndex: 95, padding: 20 }}>
           <div role="dialog" aria-modal="true" style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, padding: 26, width: "100%", maxWidth: 520, maxHeight: "90vh", overflowY: "auto" }}>
             <h3 style={{ fontFamily: FONT_UI, fontSize: fs(17), fontWeight: 700, color: T.ink, margin: "0 0 16px" }}>{t("retestTitle")}</h3>
@@ -12158,6 +12165,7 @@ export default function App() {
   const setLibTab = (tab) => { if (tab === "profile") { setLibTabRaw("studyhub"); setTimeout(() => window.dispatchEvent(new Event("oworld-profile-jump")), 220); } else setLibTabRaw(tab === "tutor" ? "studyhub" : tab); }; // Home page: console | library | import | analytics (lives here so Review Exam → Home lands back on Analytics)
   const [srcWin, setSrcWin] = useState(null); // Tutor suggested sources window: { sources } | null
   const [tombs, setTombs] = useState(loadTombs); // deletions, so a delete on one device isn't undone by another device's copy
+  const [decks, setDecks] = useState(loadDecks); // Qbank Library decks (the list; membership is saved on each Qbank). Synced through Drive with the library.
   const [sessionLog, setSessionLog] = useState(boot.sessionLog); // independent log of every finished session, newest first
   const [trash, setTrash] = useState(loadTrash); // recently deleted Qbanks, Analytics sessions and Database items (restorable for TRASH_TTL)
   const [restoredNotice, setRestoredNotice] = useState(!!boot.session);
@@ -12196,7 +12204,8 @@ export default function App() {
   }, [examJson, blockStates, history, view, activeBlockIdx]);
 
   useEffect(() => { persist(LS_LIBRARY, library.length ? JSON.stringify(library) : null); }, [library]);
-  useEffect(() => { persist(LS_TOMBS, (Object.keys(tombs.qbanks).length || Object.keys(tombs.sessions).length) ? JSON.stringify(tombs) : null); }, [tombs]);
+  useEffect(() => { persist(LS_TOMBS, (Object.keys(tombs.qbanks).length || Object.keys(tombs.sessions).length || Object.keys(tombs.decks || {}).length) ? JSON.stringify(tombs) : null); }, [tombs]);
+  useEffect(() => { persist(LS_DECKS, decks.length ? JSON.stringify(decks) : null); }, [decks]);
   useEffect(() => { persist(LS_HISTORY, sessionLog.length ? JSON.stringify(sessionLog) : null); }, [sessionLog]);
   // Declared after the library / history effects on purpose: a delete frees that space first, then the Trash copy is written.
   // If storage is still full, the oldest Trash entries make room (the newest deletion is the one most likely to be restored).
@@ -12418,10 +12427,17 @@ export default function App() {
   }
   function clearSessionLog() { trashPush(sessionLog.map(sessionTrashItem)); addTombs("sessions", sessionLog.map((e) => e.id)); removeAllReviewSnapshots(); setSessionLog([]); }
 
+  // Deck list changes from the Library. A deck that disappeared from the list was deleted on purpose, so it leaves a tombstone for other devices.
+  function changeDecks(next) {
+    const gone = decks.filter((d) => !next.some((n) => n.id === d.id)).map((d) => d.id);
+    if (gone.length) addTombs("decks", gone);
+    setDecks(next);
+  }
   // Fold what Google Drive had into local state. Pure unions + explicit deletes only, so nothing local is ever lost.
   function applyCloudMerge(m) {
     setTombs((cur) => { const u = unionTombs(cur, m.deleted); return JSON.stringify(u) === JSON.stringify(cur) ? cur : u; });
     setLibrary((cur) => { const next = mergeQbanks(cur, m.qbanks, m.deleted); return sameList(cur, next) ? cur : next; });
+    setDecks((cur) => { const next = mergeDecks(cur, m.decks, m.deleted); return sameDecks(cur, next) ? cur : next; });
     setSessionLog((cur) => { const next = mergeSessions(cur, m.examSessions, m.deleted); return sameList(cur, next) ? cur : next; });
     const top = new Set(m.examSessions.slice(0, REVIEW_MAX).map((e) => e.id));
     Object.entries(m.reviews || {}).forEach(([id, snap]) => { if (top.has(id) && !hasReviewSnapshot(id)) lsSet(LS_REVIEW + id, JSON.stringify(snap)); });
@@ -12523,7 +12539,7 @@ export default function App() {
     if (p.action === "conflict" && rec && !rec.ended) { holdRef.current = false; setRec({ ...rec, updatedAt: Date.now() }); } // "keep this device's": the newest edit wins on the next sync
   }
 
-  const drive = useDriveSync({ library, sessionLog, tombs, onMerged: applyCloudMerge });
+  const drive = useDriveSync({ library, sessionLog, tombs, decks, onMerged: applyCloudMerge });
   const notifs = useNotifications();
   const database = useDatabase(trashDbItems);
   const dbSync = useDatabaseSync({ drive, database });
@@ -12540,7 +12556,7 @@ export default function App() {
   const navLockBs = view === "exam" && activeBlockIdx !== null ? blockStates[activeBlockIdx] : null;
   const navCtx = {
     locked: !!(navLockBs && navLockBs.status === "in-progress" && !navLockBs.tutor),
-    open: (tab) => { setLibTab(tab); if (view !== "import") goHome(); window.scrollTo({ top: 0, behavior: "smooth" }); },
+    open: (tab) => { setReviewSnap(null); setLibTab(tab); if (view !== "import") goHome(); window.scrollTo({ top: 0, behavior: "smooth" }); },
   };
   const profileCtx = { ...studentProfile, bpStore: { ...blueprintStore, sync: blueprintSync }, sync: profileSync, pendingFocus, seedFocus: setPendingFocus, consumeFocus: () => setPendingFocus(null) };
   useNativeFeel();
@@ -12571,13 +12587,16 @@ export default function App() {
     if (!snap || !snap.block || !snap.blockState || !snap.blockState.score) { setFlash(tr("histNoReviewFlash")); return; }
     const block = snap.block.isRetest ? { ...snap.block, retestOf: 0 } : snap.block; // the first-pass block isn't loaded with it
     const bs = snap.blockState;
-    setExamData({ blocks: [block] });
-    setBlockStates([bs]);
-    setHistory([{
+    const hist = [{
       id: 1, blockIdx: 0, originIdx: 0, pool: block.isRetest ? block.retestType : "first", mode: bs.tutor ? "tutor" : "timed", timerOff: !!bs.timerOff,
       correct: bs.score.correct, total: bs.score.total, answered: bs.score.answered, pct: bs.score.pct, elapsedSec: bs.elapsedSec || 0, finishedAt: bs.finishedAt || Date.now(),
       hintsUsed: block.questions.filter((q) => bs.answers[q.id]?.hintUsed).length,
-    }]);
+    }];
+    // A session is in progress: open the review as a read-only overlay so the session (answers, timer, position) stays exactly as it is.
+    if (hasInProgress) { setReviewSnap({ block, bs, history: hist }); setLibTab("analytics"); window.scrollTo({ top: 0 }); return; }
+    setExamData({ blocks: [block] });
+    setBlockStates([bs]);
+    setHistory(hist);
     setActiveBlockIdx(0);
     setLibTab("analytics");
     setView("results");
@@ -12633,7 +12652,7 @@ export default function App() {
   function resetAllData() {
     [LS_SESSION, LS_LIBRARY, LS_LIBVIEW, LS_DECKS, LS_HISTVIEW, LS_PREFS, LS_HISTORY, LS_TOMBS, LS_ACTIVE_SYNC, LS_TRASH].forEach(lsRemove);
     recRef.current = null; setActiveStamp(0); setActivePrompt(null); lsRemove(LS_SESSION_FILE);
-    drive.disconnect(); setTombs(emptyTombs()); // Drive is left as it was; reconnect to restore from it
+    drive.disconnect(); setTombs(emptyTombs()); setDecks([]); // Drive is left as it was; reconnect to restore from it
     failedKeys.current = {};
     setStorageError(false);
     setRestoredNotice(false);
@@ -12724,6 +12743,7 @@ export default function App() {
   // Starting something new from Home would replace the loaded exam, so an in-progress block needs an explicit OK first.
   const hasInProgress = !!examData && blockStates.some((b) => b.status === "in-progress");
   const [discardPrompt, setDiscardPrompt] = useState(null);
+  const [reviewSnap, setReviewSnap] = useState(null); // { block, bs, history }: a past exam opened for review beside an active session (never touches examData/blockStates)
   function guardNew(fn) { if (hasInProgress) setDiscardPrompt(() => fn); else fn(); }
   const ipIdx = examData ? blockStates.findIndex((b) => b.status === "in-progress") : -1;
   const homeSession = examData ? { examTitle: examData.examTitle, idx: ipIdx, block: ipIdx >= 0 ? examData.blocks[ipIdx] : null, bs: ipIdx >= 0 ? blockStates[ipIdx] : null } : null;
@@ -12948,7 +12968,7 @@ export default function App() {
         </div>
       )}
 
-      {view === "import" && (
+      {view === "import" && !reviewSnap && (
         <FullPage T={T}>
         <ImportScreen
           onImport={(d) => (hasInProgress ? importKeepingSession(d) : handleImport(d))}
@@ -12958,7 +12978,7 @@ export default function App() {
           drive={drive}
           onDeleteSession={deleteSessionLog}
           onClearSessions={clearSessionLog}
-          onReviewSession={(id) => guardNew(() => reviewSession(id))}
+          onReviewSession={reviewSession}
           libTab={libTab} setLibTab={setLibTab}
           session={homeSession}
           onResume={() => resumeSession(ipIdx)}
@@ -12968,6 +12988,7 @@ export default function App() {
           onDeleteLibraryEntry={deleteLibraryEntry}
           onRenameLibraryEntry={renameLibraryEntry}
           onSetLibraryMeta={updateLibraryMeta}
+          deckDefs={decks} onDecksChange={changeDecks}
           T={T} darkMode={darkMode} setDarkMode={setDarkMode}
         />
         </FullPage>
@@ -13009,6 +13030,24 @@ export default function App() {
           onRetest={launchRetest}
           onRate={(q, k) => rateQuestion(activeBlockIdx, q, k)}
           onHome={removeLoadedExam}
+          T={T}
+          darkMode={darkMode}
+          setDarkMode={setDarkMode}
+        />
+        </FullPage>
+      )}
+
+      {view === "import" && reviewSnap && (
+        <FullPage T={T}>
+        <BlockResults
+          block={reviewSnap.block}
+          blockState={reviewSnap.bs}
+          onBackToLobby={() => setReviewSnap(null)}
+          blockIdx={0}
+          history={reviewSnap.history}
+          onRetest={null}
+          onRate={null}
+          onHome={() => setReviewSnap(null)}
           T={T}
           darkMode={darkMode}
           setDarkMode={setDarkMode}
