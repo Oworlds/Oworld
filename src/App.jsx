@@ -269,7 +269,7 @@ const STR = {
     saveToLibrary: "Save to Library", libSaved: "Saved {n} new block(s) to your library.", libDup: "{d} already in your library.", libNothing: "Already in your library — nothing new to save.",
     libTitle: "Qbank Library", libCount: "{n} saved", libEmpty: "Nothing saved yet. Paste or upload a question bank and choose \u201cSave to Library\u201d to keep it on this device. Sign in with Google to also sync it through your Drive.",
     libMeta: "{q} questions · imported {d}", libLastScore: "Last score {pct}% ({c}/{t})", libNoScore: "Not attempted yet", libCompleted: "Completed · {pct}% ({c}/{t})", tabLibrary: "Qbank", tabHistory: "Analysis", tabImport: "Import", importPageTitle: "Import Qbank", histTitle: "Analytics", histEmpty: "No finished sessions yet. Every block you complete is logged here, including custom and mixed sessions.", histNote: "Each finished session is saved as its own log. Custom and mixed sessions never change your Qbank cards; a card is marked Completed only when you run that whole Qbank on its own. The 25 most recent sessions also keep their full question-by-question review; older ones keep a summary.", histKindBank: "Qbank", histKindCustom: "Custom", histKindRetest: "Retest", histQ: "{n} questions", histAnswered: "{a}/{n} answered", histSources: "From: {s}", histBySubject: "By subject", histDelete: "Delete this log", histClear: "Clear history", histClearQ: "Delete all {n} logged sessions? They move to Trash for 30 days. Your Qbank cards are not affected.", histClearGo: "Delete all", histToggle: "Show details", histSelectAll: "Select all", histDeselect: "Deselect all", histDeleteSelQ: "Delete {n} selected session(s)? They move to Trash for 30 days. Your Qbank cards are not affected.", histReview: "Review Exam", histNoReview: "Review unavailable", histNoReviewFlash: "The full review for this session is no longer stored.", histMixed: "Mixed: {n} blocks · {q} Questions", histNamed: "{name} · {q} Questions", histDone: "Completed {d}", anOverall: "Overall you answered {n} questions:", anCorrect: "correctly", anHints: "correctly using hints", anIncorrect: "incorrectly", anCenter: "Correct + using hints", anQ: "({n} questions)", anQ1: "(1 question)", tabConsole: "Console", csGoodMorning: "Good morning", csGoodAfternoon: "Good afternoon", csGoodEvening: "Good evening", csStreakLine: "{n}-day study streak", csReadyLine: "Ready when you are.", csNoSession: "No session in progress", csNoSessionHint: "Start a Qbank from your library, or import a new one.", csOpenLibrary: "Open Library", csImportNew: "Import a Qbank", csViewAll: "View all", csStatSessions: "Sessions", csStatWeek: "{n} this week", csStatAnswered: "Questions answered", csStatAccuracy: "Accuracy", csStatStreak: "Day streak", csStatDays: "{n} days", csStatDay1: "1 day", csHighlights: "Analytics highlights", csTrend: "Recent scores", csTrendHint: "Last {n} sessions · dashed line = 70%", csTrendNeed: "Finish 2 sessions to see your trend.", csStrong: "Strongest subjects", csWeak: "Needs work", csSubjNeed: "Answer at least 5 questions in a subject to rank it.", csRecent: "Recent sessions", csYourLibrary: "Your library", csLibSub: "{n} Qbanks saved", csLibEmpty: "Your library is empty. Import a Qbank to get started.", csFirstTitle: "Let's get your first session going", csFirstBody: "Import a Qbank (the JSON your AI tool writes), save it to your library, then run it as a timed or tutor block. Your stats will show up right here.", csProgress: "{a} of {n} answered",
-    libStart: "Start", rateTitle: "How well did you know this?", "rate.again": "Again", "rate.hard": "Hard", "rate.good": "Good", "rate.easy": "Easy",
+    libStart: "Start", rateTitle: "How well did you know this?", "rate.again": "Again", "rate.hard": "Hard", "rate.good": "Good", "rate.easy": "Easy", srsDays: "{n}d", srsMonths: "{n}mo", srsYears: "{n}y", srsNext: "Next review: {d}", srsNextTitle: "Review again in {n}", srdTitle: "Smart Review Deck", srdBlockName: "Smart Review", srdBadgeDue: "{n} due", srdCaughtUp: "All caught up", srdNone: "Nothing scheduled yet", srdOverdue: "{n} overdue", srdToday: "{n} due today", srdNextBlock: "next block: {n}", srdNextDue: "Next review {d}", srdEmptyHint: "Rate questions in Tutor Mode (Again, Hard, Good, Easy) and they return here when they are due.", srdStart: "Start review", srdHint: "Builds a Tutor block from every question across your Qbanks whose next review date is today or earlier, most overdue first.", srsHint: "Spaced repetition (SM-2): the number under each button is when this question comes back.",
     poolAgain: "Rated Again", poolHard: "Rated Hard", poolAgainHard: "Again + Hard",
     "rt.again": "Rated Again", "rt.hard": "Rated Hard", "rt.againhard": "Rated Again/Hard",
     sufAgain: "Retest Again", sufHard: "Retest Hard", sufAgainHard: "Retest Again/Hard",
@@ -444,7 +444,7 @@ const STR = {
     saveToLibrary: "Guardar en la biblioteca", libSaved: "Se guardaron {n} bloque(s) nuevo(s) en tu biblioteca.", libDup: "{d} ya estaba(n) en tu biblioteca.", libNothing: "Ya está en tu biblioteca; no hay nada nuevo que guardar.",
     libTitle: "Biblioteca de preguntas", libCount: "{n} guardados", libEmpty: "Aún no hay nada guardado. Pega o sube un banco de preguntas y elige \u201cGuardar en la biblioteca\u201d para conservarlo en este dispositivo. Inicia sesión con Google para sincronizarlo también con tu Drive.",
     libMeta: "{q} preguntas · importado {d}", libLastScore: "Último puntaje {pct}% ({c}/{t})", libNoScore: "Sin intentos aún", libCompleted: "Completado · {pct}% ({c}/{t})", tabLibrary: "Qbank", tabHistory: "Análisis", tabImport: "Importar", importPageTitle: "Importar Qbank", histTitle: "Analíticas", histEmpty: "Aún no hay sesiones terminadas. Cada bloque que completes queda registrado aquí, incluidas las sesiones personalizadas y mezcladas.", histNote: "Cada sesión terminada se guarda como un registro independiente. Las sesiones personalizadas y mezcladas nunca cambian tus tarjetas de Qbank; una tarjeta se marca como Completada solo cuando haces ese Qbank completo por sí solo. Las 25 sesiones más recientes también conservan su revisión completa pregunta por pregunta; las anteriores conservan un resumen.", histKindBank: "Qbank", histKindCustom: "Personalizada", histKindRetest: "Repetición", histQ: "{n} preguntas", histAnswered: "{a}/{n} respondidas", histSources: "De: {s}", histBySubject: "Por materia", histDelete: "Eliminar este registro", histClear: "Borrar historial", histClearQ: "¿Eliminar las {n} sesiones registradas? Pasan a la papelera durante 30 días. Tus tarjetas de Qbank no se ven afectadas.", histClearGo: "Eliminar todo", histToggle: "Ver detalles", histSelectAll: "Seleccionar todo", histDeselect: "Deseleccionar todo", histDeleteSelQ: "¿Eliminar {n} sesión(es) seleccionada(s)? Pasan a la papelera durante 30 días. Tus tarjetas de Qbank no se ven afectadas.", histReview: "Revisar examen", histNoReview: "Revisión no disponible", histNoReviewFlash: "La revisión completa de esta sesión ya no está guardada.", histMixed: "Mezcla: {n} bloques · {q} preguntas", histNamed: "{name} · {q} preguntas", histDone: "Completado {d}", anOverall: "En total respondiste {n} preguntas:", anCorrect: "correctas", anHints: "correctas con pistas", anIncorrect: "incorrectas", anCenter: "Correctas + con pistas", anQ: "({n} preguntas)", anQ1: "(1 pregunta)", tabConsole: "Consola", csGoodMorning: "Buenos días", csGoodAfternoon: "Buenas tardes", csGoodEvening: "Buenas noches", csStreakLine: "Racha de estudio de {n} días", csReadyLine: "Listo cuando tú lo estés.", csNoSession: "Ninguna sesión en curso", csNoSessionHint: "Inicia un Qbank de tu biblioteca o importa uno nuevo.", csOpenLibrary: "Abrir biblioteca", csImportNew: "Importar un Qbank", csViewAll: "Ver todo", csStatSessions: "Sesiones", csStatWeek: "{n} esta semana", csStatAnswered: "Preguntas respondidas", csStatAccuracy: "Precisión", csStatStreak: "Racha de días", csStatDays: "{n} días", csStatDay1: "1 día", csHighlights: "Resumen de analíticas", csTrend: "Puntajes recientes", csTrendHint: "Últimas {n} sesiones · línea punteada = 70%", csTrendNeed: "Termina 2 sesiones para ver tu tendencia.", csStrong: "Materias más fuertes", csWeak: "Por mejorar", csSubjNeed: "Responde al menos 5 preguntas de una materia para clasificarla.", csRecent: "Sesiones recientes", csYourLibrary: "Tu biblioteca", csLibSub: "{n} Qbanks guardados", csLibEmpty: "Tu biblioteca está vacía. Importa un Qbank para comenzar.", csFirstTitle: "Empecemos tu primera sesión", csFirstBody: "Importa un Qbank (el JSON que escribe tu herramienta de IA), guárdalo en tu biblioteca y ejecútalo como bloque cronometrado o con tutor. Tus estadísticas aparecerán aquí.", csProgress: "{a} de {n} respondidas",
-    libStart: "Iniciar", rateTitle: "¿Qué tan bien lo sabías?", "rate.again": "Otra vez", "rate.hard": "Difícil", "rate.good": "Bien", "rate.easy": "Fácil",
+    libStart: "Iniciar", rateTitle: "¿Qué tan bien lo sabías?", "rate.again": "Otra vez", "rate.hard": "Difícil", "rate.good": "Bien", "rate.easy": "Fácil", srsDays: "{n} d", srsMonths: "{n} m", srsYears: "{n} a", srsNext: "Próximo repaso: {d}", srsNextTitle: "Repasar de nuevo en {n}", srdTitle: "Mazo de repaso inteligente", srdBlockName: "Repaso inteligente", srdBadgeDue: "{n} pendientes", srdCaughtUp: "Al día", srdNone: "Nada programado aún", srdOverdue: "{n} atrasadas", srdToday: "{n} para hoy", srdNextBlock: "próximo bloque: {n}", srdNextDue: "Próximo repaso {d}", srdEmptyHint: "Califica preguntas en modo tutor (Otra vez, Difícil, Bien, Fácil) y volverán aquí cuando toque repasarlas.", srdStart: "Iniciar repaso", srdHint: "Crea un bloque de tutor con todas las preguntas de tus Qbanks cuya fecha de repaso es hoy o anterior, empezando por las más atrasadas.", srsHint: "Repetición espaciada (SM-2): el número bajo cada botón indica cuándo vuelve esta pregunta.",
     poolAgain: "Calificadas Otra vez", poolHard: "Calificadas Difícil", poolAgainHard: "Otra vez + Difícil",
     "rt.again": "Calificadas Otra vez", "rt.hard": "Calificadas Difícil", "rt.againhard": "Calificadas Otra vez/Difícil",
     sufAgain: "Repaso Otra vez", sufHard: "Repaso Difícil", sufAgainHard: "Repaso Otra vez/Difícil",
@@ -2154,7 +2154,7 @@ function mergeQbankEntry(a, b) {
   let changed = false;
   const qs = out.questions.map((q) => {
     const m = loseMeta.get(q.id);
-    if (m && m.ratedAt && m.ratedAt > ((q.meta && q.meta.ratedAt) || 0)) { changed = true; return { ...q, meta: { ...(q.meta || {}), rating: m.rating, ratedAt: m.ratedAt } }; }
+    if (m && m.ratedAt && m.ratedAt > ((q.meta && q.meta.ratedAt) || 0)) { changed = true; return { ...q, meta: { ...(q.meta || {}), rating: m.rating, ratedAt: m.ratedAt, ...(m.sm2 ? { sm2: m.sm2 } : {}) } }; }
     return q;
   });
   return changed ? { ...out, questions: qs } : out;
@@ -4132,6 +4132,76 @@ function tutorLibraryPicks(library, brief) {
 }
 
 // ---- Library: Qbanks that match this week's topics ----
+// ---- Smart Review Deck: every question whose SM-2 next review date (meta.sm2.due) is today or earlier ------------------
+const SMART_REVIEW_MAX = 40; // one block never exceeds this; whatever is left stays due for the next block
+const dayStart = (now = Date.now()) => { const d = new Date(now); d.setHours(0, 0, 0, 0); return d.getTime(); };
+const dayEnd = (now = Date.now()) => { const d = new Date(now); d.setHours(23, 59, 59, 999); return d.getTime(); };
+const smartDue = (q) => { const d = q && q.meta && q.meta.sm2 && Number(q.meta.sm2.due); return d > 0 ? d : 0; };
+function smartReviewStats(library, now = Date.now()) {
+  const sod = dayStart(now), eod = dayEnd(now);
+  const { pool } = buildMixPool(library); // same de-duplicated pool the block is built from, so badge and block always agree
+  let overdue = 0, today = 0, scheduled = 0, nextDue = 0;
+  pool.forEach((q) => {
+    const d = smartDue(q); if (!d) return;
+    scheduled++;
+    if (d < sod) overdue++; else if (d <= eod) today++; else if (!nextDue || d < nextDue) nextDue = d;
+  });
+  return { due: overdue + today, overdue, today, scheduled, nextDue };
+}
+function buildSmartReviewBlock(library, blockName, now = Date.now(), max = SMART_REVIEW_MAX) {
+  const eod = dayEnd(now);
+  const { pool } = buildMixPool(library);
+  const due = pool.filter((q) => { const d = smartDue(q); return d > 0 && d <= eod; }).sort((a, b) => smartDue(a) - smartDue(b)); // most overdue first
+  if (!due.length) return null;
+  const chosen = due.slice(0, max);
+  const map = new Map();
+  chosen.forEach((q) => { const k = subjectKey(q); if (!map.has(k)) map.set(k, []); map.get(k).push(q); });
+  const buckets = shuffleArray([...map.entries()]).map(([key, items]) => ({ key, items: shuffleArray(items) }));
+  const srcIds = [...new Set(chosen.map((q) => String(q.id).split("::")[0]))];
+  return debiasBlock({
+    blockName, isMixed: true, isSmartReview: true, mixCount: srcIds.length, mixDifficulty: "all",
+    sourceBanks: srcIds.map((id) => (library.find((e) => e.id === id) || {}).title).filter(Boolean),
+    sourceIds: srcIds,
+    timeLimitMinutes: Math.max(5, Math.round(chosen.length * 1.5)),
+    questions: spreadBySubject(buckets),
+  });
+}
+function SmartReviewDeck({ library, onStart, T }) {
+  const { t, lang } = useI18n();
+  const dayKey = new Date().toDateString();
+  const st = useMemo(() => smartReviewStats(library), [library, dayKey]); // eslint-disable-line
+  const tone = st.overdue > 0 ? T.red : st.due > 0 ? T.amber : st.scheduled > 0 ? T.green : T.muted;
+  const parts = [];
+  if (st.overdue > 0) parts.push(t("srdOverdue", { n: st.overdue }));
+  if (st.today > 0) parts.push(t("srdToday", { n: st.today }));
+  if (st.due > SMART_REVIEW_MAX) parts.push(t("srdNextBlock", { n: SMART_REVIEW_MAX }));
+  const sub = st.due > 0 ? parts.join(" · ")
+    : st.scheduled === 0 ? t("srdEmptyHint")
+    : st.nextDue ? t("srdNextDue", { d: new Date(st.nextDue).toLocaleDateString(lang === "es" ? "es" : "en-US", { month: "short", day: "numeric" }) }) : t("srdCaughtUp");
+  const badgeText = st.due > 0 ? t("srdBadgeDue", { n: st.due }) : st.scheduled > 0 ? t("srdCaughtUp") : t("srdNone");
+  const n = Math.min(st.due, SMART_REVIEW_MAX);
+  return (
+    <div title={t("srdHint")} style={{ display: "flex", alignItems: "center", gap: 12, flexWrap: "wrap", background: T.card, border: `1px solid ${T.border}`, borderLeft: `4px solid ${tone}`, borderRadius: 10, padding: "12px 14px", marginBottom: 14 }}>
+      <span style={{ position: "relative", display: "inline-flex", flexShrink: 0 }}>
+        <RefreshCw size={22} color={tone} />
+        {st.due > 0 && (
+          <span aria-hidden="true" style={{ position: "absolute", top: -9, right: -12, minWidth: 18, height: 18, padding: "0 5px", borderRadius: 999, background: tone, color: "#fff", fontFamily: FONT_MONO, fontWeight: 700, fontSize: fs(10.5), display: "inline-flex", alignItems: "center", justifyContent: "center", boxSizing: "border-box" }}>
+            {st.due > 99 ? "99+" : st.due}
+          </span>
+        )}
+      </span>
+      <div style={{ flex: 1, minWidth: 190 }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap" }}>
+          <span style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(15), color: T.ink }}>{t("srdTitle")}</span>
+          <span role="status" aria-live="polite" style={{ background: st.due > 0 ? tone : "transparent", color: st.due > 0 ? "#fff" : tone, border: `1px solid ${tone}`, borderRadius: 999, padding: "2px 9px", fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(11), letterSpacing: "0.04em", textTransform: "uppercase" }}>{badgeText}</span>
+        </div>
+        <div style={{ fontFamily: FONT_UI, fontSize: fs(12.5), color: T.muted, marginTop: 3, lineHeight: 1.4 }}>{sub}</div>
+      </div>
+      <PrimaryButton T={T} icon={Play} onClick={onStart} disabled={st.due < 1}>{t("srdStart")}{n > 0 ? ` (${n})` : ""}</PrimaryButton>
+    </div>
+  );
+}
+
 function TutorLibraryStrip({ library, sessionLog, onLaunch, T }) {
   const { t } = useI18n();
   const sp = useContext(ProfileContext);
@@ -9355,7 +9425,7 @@ const GUIDE = {
     { title: "3. Pick a mode", body: "Before you press Start block, choose how you want to practice. Tutor Mode is selected by default.",
       points: ["Tutor Mode: no timer, and you get feedback right after each answer.", "Timed Mode: a countdown like the real exam, with no feedback until the block ends. There is no Home button during a timed block, so plan to finish it.", "In Timed Mode you can switch the timer off during the block, but not back on."] },
     { title: "4. Answering questions", body: "Tap an answer choice. In Tutor Mode you see the result straight away.",
-      points: ["Key Info highlights the important clues in the story. Tutor's Tip gives you a hint. If you open either before answering, the question is tagged Hint used.", "Got it wrong? Tap Show Correct Answer when you're ready, then tap any answer choice to open or close its explanation. Source References are tucked into a dropdown.", "After answering, rate how well you knew it: Again, Hard, Good or Easy. You can retest by rating later.", "Tools: Mark Question (flag it), the ab button to strike out a choice, Highlight for selected text, Notes, Lab Values and Calculator.", "On a computer, the question list on the left lets you jump anywhere. Use its arrow to collapse it."] },
+      points: ["Key Info highlights the important clues in the story. Tutor's Tip gives you a hint. If you open either before answering, the question is tagged Hint used.", "Got it wrong? Tap Show Correct Answer when you're ready, then tap any answer choice to open or close its explanation. Source References are tucked into a dropdown.", "After answering, rate how well you knew it: Again, Hard, Good or Easy. In Tutor Mode each button shows when the question will come back (spaced repetition, SM-2), for example Again 1d, Hard +2d, Good +6d. You can retest by rating later.", "Tools: Mark Question (flag it), the ab button to strike out a choice, Highlight for selected text, Notes, Lab Values and Calculator.", "On a computer, the question list on the left lets you jump anywhere. Use its arrow to collapse it."] },
     { title: "5. Results and retesting", body: "When you tap End Block you get your score, breakdowns by subject and difficulty, and a review of every question.",
       points: ["Retest Incorrects (Tutor Mode) practices only what you missed. Retest Full Block goes again. You can also retest only flagged questions, or ones you rated Again or Hard.", "Your first-attempt score is always kept as your baseline. Retests never overwrite it."] },
     { title: "6. Analytics", body: "Every block you finish is logged, so you can look back at your progress and reopen any run.",
@@ -9385,7 +9455,7 @@ const GUIDE = {
     { title: "3. Elige un modo", body: "Antes de pulsar Iniciar bloque, elige cómo quieres practicar. El modo tutor viene seleccionado por defecto.",
       points: ["Modo tutor: sin cronómetro y con retroalimentación justo después de cada respuesta.", "Modo cronometrado: cuenta regresiva como en el examen real, sin retroalimentación hasta terminar el bloque. No hay botón de Inicio durante un bloque cronometrado, así que planea terminarlo.", "En modo cronometrado puedes apagar el cronómetro durante el bloque, pero no volver a encenderlo."] },
     { title: "4. Responder preguntas", body: "Toca una opción de respuesta. En modo tutor ves el resultado al instante.",
-      points: ["Datos clave resalta las pistas importantes del caso. Consejo del tutor te da una pista. Si abres cualquiera antes de responder, la pregunta queda marcada como Pista usada.", "¿Fallaste? Toca Mostrar respuesta correcta cuando quieras y luego toca cualquier opción para abrir o cerrar su explicación. Las fuentes están en un menú desplegable.", "Después de responder, califica qué tan bien lo sabías: Otra vez, Difícil, Bien o Fácil. Luego puedes repetir según tu calificación.", "Herramientas: Marcar pregunta, el botón ab para tachar una opción, Resaltar para el texto seleccionado, Notas, Valores de laboratorio y Calculadora.", "En computadora, la lista de preguntas a la izquierda te deja saltar a cualquiera. Usa su flecha para contraerla."] },
+      points: ["Datos clave resalta las pistas importantes del caso. Consejo del tutor te da una pista. Si abres cualquiera antes de responder, la pregunta queda marcada como Pista usada.", "¿Fallaste? Toca Mostrar respuesta correcta cuando quieras y luego toca cualquier opción para abrir o cerrar su explicación. Las fuentes están en un menú desplegable.", "Después de responder, califica qué tan bien lo sabías: Otra vez, Difícil, Bien o Fácil. En modo tutor cada botón muestra cuándo volverá la pregunta (repetición espaciada, SM-2), por ejemplo Otra vez 1 d, Difícil +2 d, Bien +6 d. Luego puedes repetir según tu calificación.", "Herramientas: Marcar pregunta, el botón ab para tachar una opción, Resaltar para el texto seleccionado, Notas, Valores de laboratorio y Calculadora.", "En computadora, la lista de preguntas a la izquierda te deja saltar a cualquiera. Usa su flecha para contraerla."] },
     { title: "5. Resultados y repetición", body: "Al tocar Terminar bloque ves tu puntaje, desgloses por materia y dificultad, y una revisión de cada pregunta.",
       points: ["Repetir falladas (modo tutor) practica solo lo que fallaste. Repetir bloque completo lo hace de nuevo. También puedes repetir solo las marcadas o las que calificaste Otra vez o Difícil.", "El puntaje de tu primer intento siempre se conserva como referencia. Las repeticiones nunca lo sobrescriben."] },
     { title: "6. Analíticas", body: "Cada bloque que terminas queda registrado, para que veas tu progreso y reabras cualquier intento.",
@@ -9503,7 +9573,7 @@ function HowItWorksGuide({ onClose, T }) {
   );
 }
 
-function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], drive, onDeleteSession, onClearSessions, onReviewSession, libTab, setLibTab, session, remoteSession, onMigrate, onResume, onOpenLobby, onLaunchLibrary, onMixLibrary, onDeleteLibraryEntry, onRenameLibraryEntry, onSetLibraryMeta, deckDefs, onDecksChange, T, darkMode, setDarkMode }) {
+function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], drive, onDeleteSession, onClearSessions, onReviewSession, libTab, setLibTab, session, remoteSession, onMigrate, onResume, onOpenLobby, onLaunchLibrary, onMixLibrary, onSmartReview = () => {}, onDeleteLibraryEntry, onRenameLibraryEntry, onSetLibraryMeta, deckDefs, onDecksChange, T, darkMode, setDarkMode }) {
   const { t, lang } = useI18n();
   const [text, setText] = useState("");
   const [error, setError] = useState("");
@@ -9676,6 +9746,7 @@ function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], dri
       {libTab === "analytics" && <SessionHistoryPanel history={sessionLog} qbankCount={library.length} qbankQuestions={libraryQuestionCount(library)} onDelete={onDeleteSession} onClear={onClearSessions} onReview={onReviewSession} T={T} />}
       {libTab === "console" && <ConsolePanel library={library} sessionLog={sessionLog} session={session} remoteSession={remoteSession} onMigrate={onMigrate} onResume={onResume} onOpenLobby={onOpenLobby} onReview={onReviewSession} onNavigate={(tab) => { setLibTab(tab); window.scrollTo({ top: 0, behavior: "smooth" }); }} T={T} />}
       {libTab === "studyhub" && <StudyHub library={library} sessionLog={sessionLog} onLaunch={onLaunchLibrary} onNavigate={(tab, key) => { if (key) setCalFocus({ key, n: Date.now() }); setLibTab(tab); if (tab !== "profile") window.scrollTo({ top: 0, behavior: "smooth" }); }} T={T} />}
+      {libTab === "library" && library.length > 0 && <SmartReviewDeck library={library} onStart={onSmartReview} T={T} />}
       {libTab === "library" && <TutorLibraryStrip library={library} sessionLog={sessionLog} onLaunch={onLaunchLibrary} T={T} />}
       {libTab === "library" && <QbankLibraryPanel library={library} onLaunch={onLaunchLibrary} onMix={onMixLibrary} onDelete={onDeleteLibraryEntry} onRename={onRenameLibraryEntry} onSetMeta={onSetLibraryMeta} deckDefs={deckDefs} onDecksChange={onDecksChange} resumeId={resumeId} onResume={onResume} sessionLog={sessionLog} T={T} />}
 
@@ -11073,7 +11144,6 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onRate, o
                     <div><strong style={{ color: T.ink }}>1–5 / A–E</strong> — {t("sc.select")}</div>
                   </div>
                 </div>
-                <ResetDataControl T={T} />
               </div>
             )}
           </div>
@@ -11155,6 +11225,7 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onRate, o
                       {vignettePreview(qq)}
                     </span>
                   )}
+                  {showPreview && <DifficultyPips value={qq.difficultyRating} label={qq.difficultyLabel} T={T} color={isCurrent ? T.onBlue : T.amber} />}
                 </div>
               );
             })}
@@ -11254,7 +11325,6 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onRate, o
                     </button>
                   );
                 })}
-                <span style={{ marginLeft: "auto" }}><DifficultyMeter value={q.difficultyRating} label={q.difficultyLabel} T={T} /></span>
               </div>
               {qState.tipOpen && q.attendingTip && (
                 <div style={{ background: T.paper, borderLeft: `3px solid ${T.blue}`, borderRadius: 8, padding: "12px 14px", marginTop: 10, maxWidth: 720 }}>
@@ -11354,7 +11424,7 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onRate, o
                   )}
                   {showCorrect && !explHidden[q.id] && (
                     <div style={{ background: hinted ? HINT_YELLOW_SOFT : T.greenSoft, padding: "12px 14px 14px 42px" }}>
-                      <ExplanationPanels q={q} T={T} showTip={false} showClues={false} flat rating={q.meta?.rating ?? null} onRate={tutorMode && onRate ? (k) => onRate(q, k) : null} />
+                      <ExplanationPanels q={q} T={T} showTip={false} showClues={false} flat rating={q.meta?.rating ?? null} onRate={tutorMode && onRate ? (k) => onRate(q, k) : null} srs={tutorMode} />
                     </div>
                   )}
                 </div>
@@ -11672,6 +11742,22 @@ function DifficultyMeter({ value, label, T }) {
   );
 }
 
+// Compact five-pip difficulty (no label), for the question list bar. Hover / screen readers get the full rating.
+function DifficultyPips({ value, label, T, color }) {
+  const { t } = useI18n();
+  const d = resolveDifficulty(value, label);
+  if (!d) return null;
+  const c = color || T.amber;
+  const text = `${t("diffTitle", { n: d.rating })} · ${t("dl." + d.tier)}`;
+  return (
+    <span title={text} aria-label={text} role="img" style={{ display: "inline-flex", alignItems: "center", gap: 2.5, flexShrink: 0 }}>
+      {[1, 2, 3, 4, 5].map((i) => (
+        <span key={i} style={{ width: 6, height: 6, borderRadius: 999, background: i <= d.rating ? c : "transparent", border: `1.25px solid ${c}`, boxSizing: "border-box" }} />
+      ))}
+    </span>
+  );
+}
+
 // Attending's tip, key clues, explanation, key learning point, educational objective and
 // source references for one question. Shared by Tutor mode feedback and the block review.
 // Every section is optional, so question banks in the older schema still render.
@@ -11715,35 +11801,91 @@ function SourcesDropdown({ refs, T }) {
   );
 }
 
+// ---- SM-2 spaced repetition (Tutor Mode) ----------------------------------------------------------------------------
+// Each question carries meta.sm2 = { reps, ease, interval (days), lapses, due (ms), at (ms), prev }. The four ratings map to
+// SM-2 grades with Anki-style modifiers: Again resets the card (1 day, ease -0.20), Hard (ease -0.15) grows slowly,
+// Good keeps the ease, Easy (ease +0.15) takes a bonus. First reviews use 1 / 2 / 4 days for Hard / Good / Easy so the
+// preview differs from the very first answer; the second step is the classic 6 days, then interval x ease.
+const SM2_DAY = 86400000;
+const SM2_MIN_EASE = 1.3;
+const SM2_START_EASE = 2.5;
+const SM2_FIRST = { hard: 1, good: 2, easy: 4 };
+const SM2_REGRADE_MS = 6 * 3600 * 1000; // re-rating within 6h replaces the last grade instead of compounding it
+const sm2Fresh = () => ({ reps: 0, ease: SM2_START_EASE, interval: 0, lapses: 0, due: 0 });
+function sm2Base(s) {
+  if (!s || typeof s !== "object") return sm2Fresh();
+  if (s.prev && Date.now() - (s.at || 0) < SM2_REGRADE_MS) return s.prev;
+  return s;
+}
+function sm2Step(s0, grade, now = Date.now()) {
+  const b = sm2Base(s0);
+  const ease0 = Math.max(SM2_MIN_EASE, Number(b.ease) || SM2_START_EASE);
+  const reps0 = Math.max(0, Math.floor(Number(b.reps) || 0));
+  const cur = Math.max(1, Math.round(Number(b.interval) || 1));
+  let reps = reps0 + 1, ease = ease0, lapses = b.lapses || 0, interval;
+  const hard = reps0 === 0 ? SM2_FIRST.hard : Math.max(cur + 1, Math.round(cur * 1.2));
+  let good = reps0 === 0 ? SM2_FIRST.good : reps0 === 1 ? 6 : Math.round(cur * ease0);
+  good = Math.max(good, hard + 1);
+  if (grade === "again") { reps = 0; lapses += 1; ease = Math.max(SM2_MIN_EASE, ease0 - 0.2); interval = 1; }
+  else if (grade === "hard") { ease = Math.max(SM2_MIN_EASE, ease0 - 0.15); interval = hard; }
+  else if (grade === "good") { interval = good; }
+  else { ease = ease0 + 0.15; interval = reps0 === 0 ? SM2_FIRST.easy : Math.max(good + 1, Math.round((reps0 === 1 ? 6 : cur * ease0) * 1.3)); }
+  const { prev: _p, ...snap } = b;
+  return { reps, ease: Math.round(ease * 100) / 100, interval, lapses, due: now + interval * SM2_DAY, at: now, prev: snap };
+}
+function sm2Preview(s0) {
+  const out = {};
+  RATINGS_SM2.forEach((k) => { out[k] = sm2Step(s0, k).interval; });
+  return out;
+}
+const RATINGS_SM2 = ["again", "hard", "good", "easy"];
+function sm2Fmt(days, t) {
+  if (days < 60) return t("srsDays", { n: days });
+  if (days < 365) return t("srsMonths", { n: Math.round(days / 30) });
+  return t("srsYears", { n: Math.round(days / 36.5) / 10 });
+}
+
 // Anki-style self-rating. Only rendered where an onRate handler is supplied (Tutor Mode reveal + post-exam Review),
-// never in Timed testing.
-const RATINGS = ["again", "hard", "good", "easy"];
-function RatingBar({ value, onRate, T }) {
-  const { t } = useI18n();
+// never in Timed testing. With `preview` (Tutor Mode) each button shows when the question comes back (SM-2).
+const RATINGS = [...RATINGS_SM2];
+function RatingBar({ value, onRate, T, sm2 = null, preview = false }) {
+  const { t, lang } = useI18n();
   const colors = { again: T.red, hard: T.amber, good: T.green, easy: T.blue };
+  const iv = preview ? sm2Preview(sm2) : null;
+  const dueMs = preview && value && sm2 && sm2.due ? sm2.due : 0;
   return (
     <div>
-      <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(12), color: T.muted, textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: 6 }}>
+      <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(12), color: T.muted, textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: 6 }} title={preview ? t("srsHint") : undefined}>
         {t("rateTitle")}
       </div>
       <div role="radiogroup" aria-label={t("rateTitle")} style={{ display: "grid", gridTemplateColumns: "repeat(4, minmax(0, 1fr))", gap: 6 }}>
         {RATINGS.map((k) => {
           const on = value === k;
+          const lbl = iv ? (k === "again" ? sm2Fmt(iv[k], t) : "+" + sm2Fmt(iv[k], t)) : null;
           return (
-            <button key={k} role="radio" aria-checked={on} onClick={(e) => { e.stopPropagation(); onRate(k); }} style={{
-              fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(13), padding: "9px 6px", borderRadius: 6, cursor: "pointer",
-              border: `1.5px solid ${colors[k]}`, background: on ? colors[k] : "transparent", color: on ? "#fff" : colors[k],
-            }}>
-              {t(`rate.${k}`)}
+            <button key={k} role="radio" aria-checked={on} onClick={(e) => { e.stopPropagation(); onRate(k); }}
+              title={iv ? t("srsNextTitle", { n: sm2Fmt(iv[k], t) }) : undefined}
+              style={{
+                fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(13), padding: iv ? "7px 6px 6px" : "9px 6px", borderRadius: 6, cursor: "pointer",
+                border: `1.5px solid ${colors[k]}`, background: on ? colors[k] : "transparent", color: on ? "#fff" : colors[k],
+                display: "flex", flexDirection: "column", alignItems: "center", gap: 1, lineHeight: 1.15,
+              }}>
+              <span>{t(`rate.${k}`)}</span>
+              {lbl && <span style={{ fontFamily: FONT_MONO, fontWeight: 600, fontSize: fs(11), opacity: on ? 0.95 : 0.8 }}>{lbl}</span>}
             </button>
           );
         })}
       </div>
+      {dueMs > 0 && (
+        <div style={{ fontFamily: FONT_UI, fontSize: fs(11.5), color: T.muted, marginTop: 6 }}>
+          {t("srsNext", { d: new Date(dueMs).toLocaleDateString(lang === "es" ? "es" : "en-US", { month: "short", day: "numeric", year: "numeric" }) })}
+        </div>
+      )}
     </div>
   );
 }
 
-function ExplanationPanels({ q, T, showTip = true, showClues = true, flat = false, rating = null, onRate = null }) {
+function ExplanationPanels({ q, T, showTip = true, showClues = true, flat = false, rating = null, onRate = null, srs = false }) {
   const { t } = useI18n();
   const clues = getClues(q.vignette, q.keyInfoPhrases);
   const label = (color) => ({ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(12), color, marginBottom: 4, textTransform: "uppercase", letterSpacing: "0.05em", display: "flex", alignItems: "center", gap: 6 });
@@ -11793,7 +11935,7 @@ function ExplanationPanels({ q, T, showTip = true, showClues = true, flat = fals
 
       <SourcesDropdown refs={q.sourceReferences} T={T} />
 
-      {onRate && <RatingBar value={rating} onRate={onRate} T={T} />}
+      {onRate && <RatingBar value={rating} onRate={onRate} T={T} sm2={q.meta?.sm2 ?? null} preview={srs} />}
     </div>
   );
 }
@@ -11825,6 +11967,9 @@ function BlockResults({ block, blockState, blockIdx, history, onBackToLobby, onR
   const [expanded, setExpanded] = useState(null);
   const [retestCfg, setRetestCfg] = useState(null); // { pool, mode } while the modal is open
   const { score } = blockState;
+  const vw = useViewport().w;
+  const phone = vw < 640; // phones: question rows stack (text first, badges below), tighter padding, narrower chart labels
+  const pad = phone ? 14 : 20;
 
   const incorrectQs = block.questions.filter((q) => blockState.answers[q.id]?.selected !== q.correctAnswer);
   const flaggedQs = block.questions.filter((q) => blockState.answers[q.id]?.flagged);
@@ -11857,17 +12002,17 @@ function BlockResults({ block, blockState, blockIdx, history, onBackToLobby, onR
   );
 
   return (
-    <div style={{ maxWidth: Math.round(1120 * Math.max(1, TEXT_SCALE)), margin: "0 auto", padding: "44px 20px 80px" }}>
+    <div style={{ maxWidth: Math.round(1120 * Math.max(1, TEXT_SCALE)), margin: "0 auto", padding: phone ? `22px ${pad}px 80px` : "44px 20px 80px" }}>
       <style>{`@import url('${FONT_IMPORT_URL}');`}</style>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 22 }}>
         <span />
         <SettingsMenu darkMode={darkMode} setDarkMode={setDarkMode} T={T} />
       </div>
 
-      <h1 style={{ fontFamily: FONT_DISPLAY, fontSize: fs(28), fontWeight: 600, color: T.ink, margin: "0 0 4px" }}>
+      <h1 style={{ fontFamily: FONT_DISPLAY, fontSize: fs(phone ? 22 : 28), fontWeight: 600, color: T.ink, margin: "0 0 4px", overflowWrap: "anywhere" }}>
         {t("results", { name: blockLabel(block, t) })}
       </h1>
-      <div style={{ display: "flex", alignItems: "baseline", gap: 12, marginBottom: 20 }}>
+      <div style={{ display: "flex", flexWrap: "wrap", alignItems: "baseline", columnGap: 12, rowGap: 6, marginBottom: 20 }}>
         <span style={{ fontFamily: FONT_MONO, fontSize: fs(32), fontWeight: 600, color: score.pct >= 70 ? T.green : T.red }}>
           {score.pct}%
         </span>
@@ -11907,15 +12052,15 @@ function BlockResults({ block, blockState, blockIdx, history, onBackToLobby, onR
       )}
 
       {subjectRows.length > 1 && (
-        <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, padding: "20px 22px 8px", marginBottom: 22 }}>
+        <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, padding: phone ? "16px 10px 8px" : "20px 22px 8px", marginBottom: 22 }}>
           <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(13), color: T.ink, marginBottom: 12, textTransform: "uppercase", letterSpacing: "0.04em" }}>
             {t("perfSubject")}
           </div>
           <ResponsiveContainer width="100%" height={Math.max(140, subjectRows.length * 42)}>
-            <BarChart data={subjectRows} layout="vertical" margin={{ left: 8, right: 24, top: 4, bottom: 4 }}>
+            <BarChart data={subjectRows} layout="vertical" margin={{ left: 4, right: phone ? 14 : 24, top: 4, bottom: 4 }}>
               <CartesianGrid strokeDasharray="3 3" stroke={T.border} horizontal={false} />
               <XAxis type="number" domain={[0, 100]} tick={{ fontFamily: FONT_MONO, fontSize: fs(11), fill: T.muted }} unit="%" />
-              <YAxis type="category" dataKey="subject" width={Math.round(200 * Math.max(1, TEXT_SCALE))} interval={0} tick={<SubjectTick T={T} />} />
+              <YAxis type="category" dataKey="subject" width={phone ? Math.round(Math.min(130, vw * 0.34)) : Math.round(200 * Math.max(1, TEXT_SCALE))} interval={0} tick={<SubjectTick T={T} max={phone ? 15 : 28} />} />
               <Tooltip
                 formatter={(v, n, p) => [`${p.payload.correct}/${p.payload.total} (${v}%)`, t("score")]}
                 contentStyle={{ fontFamily: FONT_UI, fontSize: fs(12.5), borderRadius: 8, border: `1px solid ${T.border}`, background: T.card, color: T.ink }}
@@ -11943,17 +12088,28 @@ function BlockResults({ block, blockState, blockIdx, history, onBackToLobby, onR
           const isOpen = expanded === q.id;
           return (
             <div key={q.id} style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 8, overflow: "hidden" }}>
-              <div onClick={() => setExpanded(isOpen ? null : q.id)} style={{ display: "flex", alignItems: "center", gap: 12, padding: "13px 16px", cursor: "pointer" }}>
-                {!answered ? <AlertTriangle size={17} color={T.amber} /> : correct ? <CheckCircle2 size={17} color={T.green} /> : <XCircle size={17} color={T.red} />}
-                <span style={{ fontFamily: FONT_MONO, fontSize: fs(12.5), color: T.muted, width: 24 }}>{i + 1}</span>
-                <span style={{ fontFamily: FONT_UI, fontSize: fs(14), color: T.ink, flex: 1 }}>{q.stem}</span>
-                {a?.hintUsed && <Pill T={T} tone="amber">{t("hintUsedBadge")}</Pill>}
-                {a?.wasIncorrect && <Pill T={T} tone="red">{t("wasIncorrectBadge")}</Pill>}
-                <Pill T={T} tone="muted">{q.subject || t("general")}</Pill>
-                {isOpen ? <ChevronUp size={16} color={T.muted} /> : <ChevronDown size={16} color={T.muted} />}
+              <div onClick={() => setExpanded(isOpen ? null : q.id)} style={{ display: "flex", alignItems: phone ? "flex-start" : "center", gap: phone ? 10 : 12, padding: phone ? "12px 12px" : "13px 16px", cursor: "pointer" }}>
+                <span style={{ display: "inline-flex", flexShrink: 0, marginTop: phone ? 2 : 0 }}>
+                  {!answered ? <AlertTriangle size={17} color={T.amber} /> : correct ? <CheckCircle2 size={17} color={T.green} /> : <XCircle size={17} color={T.red} />}
+                </span>
+                <span style={{ fontFamily: FONT_MONO, fontSize: fs(12.5), color: T.muted, width: phone ? 20 : 24, flexShrink: 0, marginTop: phone ? 1 : 0 }}>{i + 1}</span>
+                <div style={{ flex: 1, minWidth: 0 }}>
+                  <span style={{ display: "block", fontFamily: FONT_UI, fontSize: fs(14), color: T.ink, lineHeight: 1.45, overflowWrap: "anywhere" }}>{q.stem}</span>
+                  {phone && (
+                    <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: 6, marginTop: 6 }}>
+                      {a?.hintUsed && <Pill T={T} tone="amber">{t("hintUsedBadge")}</Pill>}
+                      {a?.wasIncorrect && <Pill T={T} tone="red">{t("wasIncorrectBadge")}</Pill>}
+                      <span style={{ fontFamily: FONT_UI, fontSize: fs(12), color: T.muted, lineHeight: 1.35, overflowWrap: "anywhere" }}>{q.subject || t("general")}</span>
+                    </div>
+                  )}
+                </div>
+                {!phone && a?.hintUsed && <Pill T={T} tone="amber">{t("hintUsedBadge")}</Pill>}
+                {!phone && a?.wasIncorrect && <Pill T={T} tone="red">{t("wasIncorrectBadge")}</Pill>}
+                {!phone && <Pill T={T} tone="muted">{q.subject || t("general")}</Pill>}
+                <span style={{ display: "inline-flex", flexShrink: 0, marginTop: phone ? 2 : 0 }}>{isOpen ? <ChevronUp size={16} color={T.muted} /> : <ChevronDown size={16} color={T.muted} />}</span>
               </div>
               {isOpen && (
-                <div style={{ padding: "0 16px 18px", borderTop: `1px solid ${T.border}` }}>
+                <div style={{ padding: phone ? "0 12px 16px" : "0 16px 18px", borderTop: `1px solid ${T.border}` }}>
                   <div style={{ display: "flex", justifyContent: "flex-end", marginTop: 12 }}>
                     <DifficultyMeter value={q.difficultyRating} label={q.difficultyLabel} T={T} />
                   </div>
@@ -11971,9 +12127,9 @@ function BlockResults({ block, blockState, blockIdx, history, onBackToLobby, onR
                           background: isCorrectOpt ? (a?.hintUsed ? HINT_YELLOW_SOFT : T.greenLight) : isYourPick ? T.redLight : "transparent",
                           fontFamily: FONT_UI, fontSize: fs(13.5), color: T.ink,
                         }}>
-                          <div style={{ display: "flex", gap: 10, alignItems: "center" }}>
-                            <span style={{ fontFamily: FONT_MONO, fontWeight: 700, fontSize: fs(12), width: 18 }}>{opt.key}</span>
-                            <span style={{ flex: 1 }}>{opt.text}</span>
+                          <div style={{ display: "flex", gap: 10, alignItems: phone ? "flex-start" : "center", flexWrap: phone ? "wrap" : "nowrap" }}>
+                            <span style={{ fontFamily: FONT_MONO, fontWeight: 700, fontSize: fs(12), width: 18, flexShrink: 0 }}>{opt.key}</span>
+                            <span style={{ flex: phone ? "1 1 160px" : 1, minWidth: 0, overflowWrap: "anywhere" }}>{opt.text}</span>
                             {isCorrectOpt && <Pill T={T} tone={a?.hintUsed ? "amber" : "green"}>{t("correct")}</Pill>}
                             {isYourPick && !isCorrectOpt && <Pill T={T} tone="red">{t("yours")}</Pill>}
                           </div>
@@ -11996,7 +12152,7 @@ function BlockResults({ block, blockState, blockIdx, history, onBackToLobby, onR
 
       {/* Retest options bar (hidden while reviewing a past exam beside a session in progress) */}
       {onRetest && <div style={{
-        position: "sticky", bottom: 0, zIndex: 30, margin: "28px -20px -80px", padding: "14px 20px",
+        position: "sticky", bottom: 0, zIndex: 30, margin: `28px -${pad}px -80px`, padding: `14px ${pad}px`,
         background: T.paper, borderTop: `1px solid ${T.border}`, display: "flex", flexWrap: "wrap", gap: 10,
       }}>
         <PrimaryButton T={T} onClick={() => setRetestCfg({ pool: poolCounts.incorrect > 0 ? "incorrect" : "all", mode: "tutor" })}>
@@ -12010,7 +12166,7 @@ function BlockResults({ block, blockState, blockIdx, history, onBackToLobby, onR
       {/* Retest configuration modal */}
       {onRetest && retestCfg && (
         <div style={{ position: "fixed", inset: 0, background: "rgba(10,15,20,0.6)", display: "flex", alignItems: "center", justifyContent: "center", zIndex: 95, padding: 20 }}>
-          <div role="dialog" aria-modal="true" style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, padding: 26, width: "100%", maxWidth: 520, maxHeight: "90vh", overflowY: "auto" }}>
+          <div role="dialog" aria-modal="true" style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, padding: phone ? 18 : 26, width: "100%", maxWidth: 520, maxHeight: "90vh", overflowY: "auto" }}>
             <h3 style={{ fontFamily: FONT_UI, fontSize: fs(17), fontWeight: 700, color: T.ink, margin: "0 0 16px" }}>{t("retestTitle")}</h3>
             {[
               ["poolLabel", "pool", [["incorrect", "poolIncorrect"], ["flagged", "poolFlagged"], ["again", "poolAgain"], ["hard", "poolHard"], ["againhard", "poolAgainHard"], ["all", "poolAll"]]],
@@ -12059,10 +12215,10 @@ function BlockResults({ block, blockState, blockIdx, history, onBackToLobby, onR
 // ---------------------------------------------------------------------------
 // Y-axis tick for the subject charts. Long "Parent / Child" subject names used to wrap and collide, so show the last
 // segment on one line (ellipsised if still long) and keep the full name as a hover title.
-function SubjectTick({ x, y, payload, T }) {
+function SubjectTick({ x, y, payload, T, max = 28 }) {
   const full = String(payload?.value ?? "");
   const leaf = full.includes(" / ") ? full.split(" / ").pop() : full;
-  const label = leaf.length > 28 ? leaf.slice(0, 27) + "…" : leaf;
+  const label = leaf.length > max ? leaf.slice(0, max - 1) + "…" : leaf;
   return (
     <g transform={`translate(${x},${y})`}>
       <title>{full}</title>
@@ -12073,6 +12229,8 @@ function SubjectTick({ x, y, payload, T }) {
 
 function FinalSummary({ examData, blockStates, onBackToLobby, T, darkMode, setDarkMode }) {
   const { t, lang } = useI18n();
+  const vw = useViewport().w;
+  const phone = vw < 640;
   const subjectRows = useMemo(() => {
     const map = {};
     examData.blocks.forEach((block, bi) => {
@@ -12106,7 +12264,7 @@ function FinalSummary({ examData, blockStates, onBackToLobby, T, darkMode, setDa
   const weakest = subjectRows.slice(0, 3);
 
   return (
-    <div style={{ maxWidth: Math.round(1120 * Math.max(1, TEXT_SCALE)), margin: "0 auto", padding: "44px 20px 80px" }}>
+    <div style={{ maxWidth: Math.round(1120 * Math.max(1, TEXT_SCALE)), margin: "0 auto", padding: phone ? "22px 14px 80px" : "44px 20px 80px" }}>
       <style>{`@import url('${FONT_IMPORT_URL}');`}</style>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 22 }}>
         <GhostButton T={T} icon={ChevronLeft} onClick={onBackToLobby}>{t("back")}</GhostButton>
@@ -12136,7 +12294,7 @@ function FinalSummary({ examData, blockStates, onBackToLobby, T, darkMode, setDa
           <BarChart data={subjectRows} layout="vertical" margin={{ left: 8, right: 24, top: 4, bottom: 4 }}>
             <CartesianGrid strokeDasharray="3 3" stroke={T.border} horizontal={false} />
             <XAxis type="number" domain={[0, 100]} tick={{ fontFamily: FONT_MONO, fontSize: fs(11), fill: T.muted }} unit="%" />
-            <YAxis type="category" dataKey="subject" width={Math.round(200 * Math.max(1, TEXT_SCALE))} interval={0} tick={<SubjectTick T={T} />} />
+            <YAxis type="category" dataKey="subject" width={phone ? Math.round(Math.min(130, vw * 0.34)) : Math.round(200 * Math.max(1, TEXT_SCALE))} interval={0} tick={<SubjectTick T={T} max={phone ? 15 : 28} />} />
             <Tooltip
               formatter={(v, n, p) => [`${p.payload.correct}/${p.payload.total} (${v}%)`, t("score")]}
               contentStyle={{ fontFamily: FONT_UI, fontSize: fs(12.5), borderRadius: 8, border: `1px solid ${T.border}`, background: T.card, color: T.ink }}
@@ -12367,11 +12525,26 @@ export default function App() {
     if (mode === "tutor") { const list = collectTutorSources(block.questions); setSrcWin(list.length ? { sources: list } : null); } else setSrcWin(null);
   }
 
-  // Saves a self-rating on the question's `meta` ({ rating, ratedAt }) — in the loaded exam (every copy, incl. retest
+  // Smart Review: filters every Qbank's JSON for questions whose meta.sm2.due <= end of today, builds ONE Tutor block from them
+  // (most overdue first, up to SMART_REVIEW_MAX, subjects interleaved) and starts it. Like any mixed block it never touches a
+  // card's "last score"; ratings made inside it still reach the owning Qbank (ids are namespaced "<entryId>::<questionId>").
+  function smartReviewFromLibrary() {
+    const block = buildSmartReviewBlock(library, tr("srdBlockName"));
+    if (!block || block.questions.length === 0) return;
+    setExamData({ blocks: [block] });
+    setBlockStates([{ ...makeInitialBlockState(block), timed: false, tutor: true, status: "in-progress", startedAt: Date.now() }]);
+    setHistory([]);
+    setActiveBlockIdx(0);
+    setView("exam");
+    const list = collectTutorSources(block.questions); setSrcWin(list.length ? { sources: list } : null);
+  }
+
+  // Saves a self-rating on the question's `meta` ({ rating, ratedAt, sm2 }) — in the loaded exam (every copy, incl. retest
   // blocks) and in the persisted qbankLibrary entry it came from, so ratings survive reloads and drive retest filters.
   function rateQuestion(blockIdx, q, key) {
     const ratedAt = Date.now();
-    const stamp = (qq) => (qq.id === q.id ? { ...qq, meta: { ...(qq.meta || {}), rating: key, ratedAt } } : qq);
+    const sm2 = sm2Step(q.meta?.sm2, key, ratedAt); // SM-2: one schedule, stamped on every copy of the question
+    const stamp = (qq) => (qq.id === q.id ? { ...qq, meta: { ...(qq.meta || {}), rating: key, ratedAt, sm2 } } : qq);
     setExamData((prev) => ({ ...prev, blocks: prev.blocks.map((b) => ({ ...b, questions: b.questions.map(stamp) })) }));
 
     // Which library entry owns this question? Mixed blocks namespace ids as "<entryId>::<questionId>";
@@ -12385,7 +12558,7 @@ export default function App() {
     setLibrary((lib) => lib.map((e) => (e.id !== entryId ? e : {
       ...e,
       updatedAt: ratedAt,
-      questions: e.questions.map((qq) => (qq.id === origId ? { ...qq, meta: { ...(qq.meta || {}), rating: key, ratedAt } } : qq)),
+      questions: e.questions.map((qq) => (qq.id === origId ? { ...qq, meta: { ...(qq.meta || {}), rating: key, ratedAt, sm2 } } : qq)),
     })));
   }
 
@@ -13030,6 +13203,7 @@ export default function App() {
           onOpenLobby={() => setView("lobby")}
           onLaunchLibrary={(ids) => guardNew(() => launchFromLibrary(ids))}
           onMixLibrary={(ids, size, difficulty, mode) => guardNew(() => mixFromLibrary(ids, size, difficulty, mode))}
+          onSmartReview={() => guardNew(() => smartReviewFromLibrary())}
           onDeleteLibraryEntry={deleteLibraryEntry}
           onRenameLibraryEntry={renameLibraryEntry}
           onSetLibraryMeta={updateLibraryMeta}
