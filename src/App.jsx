@@ -329,7 +329,7 @@ const STR = {
     activeTitle: "Continue your test from another device?", activeTitleConflict: "A different version of this test is on another device",
     activeBody: "“{name}”: question {n} of {total}, {answered} answered. Last updated {time}.",
     activeReplaceWarn: "Continuing replaces the exam that is open on this device.", activeContinue: "Continue here", activeNotNow: "Not now", activeKeepMine: "Keep this device's",
-    activeResumed: "Picked up “{name}” from another device.", activeEndedElsewhere: "This test was finished on another device.",
+    activeResumed: "Picked up “{name}” from another device.", activeEndedElsewhere: "This test was finished on another device.", csMigrate: "Migrate", csRemoteBody: "“{name}”: question {n} of {total}, {answered} answered. Last updated {time}.", csRemoteMigrating: "Migrating…",
     activeMissing: "Couldn't load that test from Google Drive. Check your connection and try again.", activeMixed: "Mixed from {banks}.",
     themeLabel: "Theme", themeLight: "Light", themeDark: "Dark",
     accountBtn: "Account", viewAccount: "Manage account", signIn: "Sign in with Google", signOut: "Sign out", signedInAs: "Signed in with Google", signInHint: "Sign in to sync your library and Analytics across devices through your Google Drive.", signOutHint: "Signing out stops syncing on this device. Your data stays here and in your Drive.", signedOutNote: "Not signed in", "cpTitle": "Career & study profile", "cpHint": "Tell Oworld who you are and what you're preparing for. Your tutor uses it to set goals and to build your Study Profile.", "cpAbout": "About you", "cpStatus": "Current status", "cpStatus.pick": "Select…", "cpStatus.student": "Medical student", "cpStatus.graduate": "Medical graduate (IMG)", "cpStatus.resident": "Resident", "cpStatus.other": "Other", "cpGradYear": "Graduation year", "cpCountry": "Country", "cpCity": "City", "cpUniversity": "University", "cpSchool": "School or faculty", "cpPhCountry": "Dominican Republic", "cpPhCity": "Santo Domingo", "cpPhUniversity": "Universidad Iberoamericana (UNIBE)", "cpPhSchool": "School of Medicine", "cpObjective": "Study objective", "cpCoursework": "Medical school studies", "cpCourseworkHint": "Pick everything you're studying for right now.", "cpWork.generals": "Generals", "cpWork.preclinical": "Preclinical", "cpWork.clinical": "Clinical studies", "cpUsmle": "USMLE", "cpUsmleHint": "Pick the steps you're preparing for. Add a target date if you have one.", "cpStep.step1": "Step 1", "cpStep.step2ck": "Step 2 CK", "cpStep.step3": "Step 3", "cpTargetDate": "Target date", "cpClassOf": "Class of {y}", "cpNext": "Next target: {step}, {when} ({date})", "cpSavedLocal": "Saved on this device.", "acctSettings": "Account Settings", "acctName": "Name", "acctEmail": "Email", "acctLinked": "Linked via", "acctCreated": "Account created", "acctNone": "Not available", "acctLinkedGoogle": "Google", "acctSignedOutHint": "Sign in with Google to see your account details here.", "dzTitle": "Danger Zone", "dzDesc": "Deleting your account permanently removes your Qbanks, Analytics, Personal Database, Study Profile and settings from this device and signs you out.", "dzDelete": "Delete my account", "dzDownloadFirst": "Download all your files before you delete your account. This can't be undone.", "dzDownload": "Download all files", "dzDownloaded": "Downloaded. Your files are saved.", "dzDownloadFailed": "Download failed. Please try again.", "dzConfirmGo": "Delete permanently", "dzSkip": "Delete without downloading", "dzDriveNote": "A copy synced to your Google Drive stays there until you remove it from Drive.", "dzFileName": "oworld-account-backup-{d}.json", "spCareerEdit": "Edit in account", "spCareerAdd": "Add details", "spCareerEmpty": "Add your university, graduation year and USMLE targets in your account and they will show up here. Your tutor uses them too.", "spNoDate": "No target date",
@@ -504,7 +504,7 @@ const STR = {
     activeTitle: "¿Continuar tu examen desde otro dispositivo?", activeTitleConflict: "Hay otra versión de este examen en otro dispositivo",
     activeBody: "«{name}»: pregunta {n} de {total}, {answered} respondidas. Última actualización {time}.",
     activeReplaceWarn: "Continuar reemplaza el examen abierto en este dispositivo.", activeContinue: "Continuar aquí", activeNotNow: "Ahora no", activeKeepMine: "Conservar el de este dispositivo",
-    activeResumed: "Retomaste «{name}» desde otro dispositivo.", activeEndedElsewhere: "Este examen se terminó en otro dispositivo.",
+    activeResumed: "Retomaste «{name}» desde otro dispositivo.", activeEndedElsewhere: "Este examen se terminó en otro dispositivo.", csMigrate: "Migrar", csRemoteBody: "«{name}»: pregunta {n} de {total}, {answered} respondidas. Última actualización {time}.", csRemoteMigrating: "Migrando…",
     activeMissing: "No se pudo cargar ese examen desde Google Drive. Revisa tu conexión e inténtalo de nuevo.", activeMixed: "Mezcla de {banks}.",
     themeLabel: "Tema", themeLight: "Claro", themeDark: "Oscuro",
     accountBtn: "Cuenta", viewAccount: "Administrar cuenta", signIn: "Iniciar sesión con Google", signOut: "Cerrar sesión", signedInAs: "Sesión iniciada con Google", signInHint: "Inicia sesión para sincronizar tu biblioteca y tus Analíticas entre dispositivos mediante tu Google Drive.", signOutHint: "Al cerrar sesión se detiene la sincronización en este dispositivo. Tus datos se conservan aquí y en tu Drive.", signedOutNote: "Sin sesión iniciada", "cpTitle": "Perfil profesional y de estudio", "cpHint": "Cuéntale a Oworld quién eres y para qué te estás preparando. Tu tutor lo usa para fijar metas y crear tu Perfil de estudio.", "cpAbout": "Sobre ti", "cpStatus": "Situación actual", "cpStatus.pick": "Seleccionar…", "cpStatus.student": "Estudiante de medicina", "cpStatus.graduate": "Médico graduado (IMG)", "cpStatus.resident": "Residente", "cpStatus.other": "Otro", "cpGradYear": "Año de graduación", "cpCountry": "País", "cpCity": "Ciudad", "cpUniversity": "Universidad", "cpSchool": "Escuela o facultad", "cpPhCountry": "República Dominicana", "cpPhCity": "Santo Domingo", "cpPhUniversity": "Universidad Iberoamericana (UNIBE)", "cpPhSchool": "Escuela de Medicina", "cpObjective": "Objetivo de estudio", "cpCoursework": "Estudios de la carrera", "cpCourseworkHint": "Elige todo lo que estás estudiando ahora.", "cpWork.generals": "Generales", "cpWork.preclinical": "Preclínicas", "cpWork.clinical": "Estudios clínicos", "cpUsmle": "USMLE", "cpUsmleHint": "Elige los pasos para los que te preparas. Añade una fecha objetivo si la tienes.", "cpStep.step1": "Step 1", "cpStep.step2ck": "Step 2 CK", "cpStep.step3": "Step 3", "cpTargetDate": "Fecha objetivo", "cpClassOf": "Promoción {y}", "cpNext": "Próximo objetivo: {step}, {when} ({date})", "cpSavedLocal": "Guardado en este dispositivo.", "acctSettings": "Ajustes de la cuenta", "acctName": "Nombre", "acctEmail": "Correo", "acctLinked": "Vinculada con", "acctCreated": "Cuenta creada", "acctNone": "No disponible", "acctLinkedGoogle": "Google", "acctSignedOutHint": "Inicia sesión con Google para ver aquí los datos de tu cuenta.", "dzTitle": "Zona de peligro", "dzDesc": "Eliminar tu cuenta borra de forma permanente tus Qbanks, Analíticas, Base de datos personal, Perfil de estudio y ajustes de este dispositivo, y cierra tu sesión.", "dzDelete": "Eliminar mi cuenta", "dzDownloadFirst": "Descarga todos tus archivos antes de eliminar tu cuenta. Esto no se puede deshacer.", "dzDownload": "Descargar todos los archivos", "dzDownloaded": "Descargado. Tus archivos están guardados.", "dzDownloadFailed": "Error al descargar. Inténtalo de nuevo.", "dzConfirmGo": "Eliminar definitivamente", "dzSkip": "Eliminar sin descargar", "dzDriveNote": "La copia sincronizada en tu Google Drive permanece allí hasta que la elimines de Drive.", "dzFileName": "oworld-copia-cuenta-{d}.json", "spCareerEdit": "Editar en la cuenta", "spCareerAdd": "Añadir datos", "spCareerEmpty": "Añade tu universidad, año de graduación y objetivos de USMLE en tu cuenta y aparecerán aquí. Tu tutor también los usa.", "spNoDate": "Sin fecha objetivo",
@@ -8826,8 +8826,10 @@ function CalendarPage({ sessionLog, onNavigate, T, focusDate }) {
 }
 const CAL_LAYERS = [["key", "calLayerKey"], ["class", "csClasses"], ["exam", "csCalLegExam"], ["event", "csCalLegEvent"], ["task", "csCalLegTask"], ["study", "csCalLegStudy"]];
 
-function ConsolePanel({ library, sessionLog, session, onResume, onOpenLobby, onReview, onNavigate, T }) {
+function ConsolePanel({ library, sessionLog, session, remoteSession, onMigrate, onResume, onOpenLobby, onReview, onNavigate, T }) {
   const { t, lang } = useI18n();
+  const [migrating, setMigrating] = useState(false);
+  const doMigrate = async () => { if (migrating || !onMigrate) return; setMigrating(true); try { await onMigrate(); } finally { setMigrating(false); } };
   const drive = useContext(DriveContext);
   const vw = useViewport().w;
   const phone = vw < 640;
@@ -8935,7 +8937,7 @@ function ConsolePanel({ library, sessionLog, session, onResume, onOpenLobby, onR
       {/* Top of the Console: session + tutor (compact on large displays) with the semester calendar to their right */}
       <div style={{ display: "grid", gridTemplateColumns: wide ? "repeat(2, minmax(0, 1fr))" : "minmax(0, 1fr)", gap: 20, alignItems: "stretch" }}>
         <div style={{ display: "flex", flexDirection: "column", gap: wide ? 14 : 20, minWidth: 0 }}>
-      <div style={{ ...card, borderColor: session ? T.blue : T.border, display: "flex", alignItems: "center", justifyContent: "space-between", gap: wide ? 12 : 16, flexWrap: "wrap", ...(wide ? { padding: "14px 18px" } : {}) }}>
+      <div style={{ ...card, borderColor: session || remoteSession ? T.blue : T.border, display: "flex", alignItems: "center", justifyContent: "space-between", gap: wide ? 12 : 16, flexWrap: "wrap", ...(wide ? { padding: "14px 18px" } : {}) }}>
         {session ? (
           <>
             <div style={{ flex: "1 1 260px", minWidth: 0 }}>
@@ -8962,14 +8964,45 @@ function ConsolePanel({ library, sessionLog, session, onResume, onOpenLobby, onR
           </>
         ) : (
           <>
-            <div style={{ flex: "1 1 260px", minWidth: 0 }}>
-              <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(16), color: T.ink }}>{t("csNoSession")}</div>
-              <div style={{ fontFamily: FONT_UI, fontSize: fs(13.5), color: T.muted, marginTop: 3 }}>{t("csNoSessionHint")}</div>
-            </div>
-            <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
-              <PrimaryButton T={T} onClick={() => onNavigate("library")} icon={BookOpen}>{t("csOpenLibrary")}</PrimaryButton>
-              <GhostButton T={T} onClick={() => onNavigate("import")} icon={Plus}>{t("csImportNew")}</GhostButton>
-            </div>
+            {remoteSession ? (() => {
+              // A test in progress on another device (Drive session sync): shown right in this box, with a Migrate pill that brings it here.
+              const r = remoteSession;
+              const when = new Date(r.updatedAt).toLocaleTimeString(lang === "es" ? "es" : "en-US", { hour: "numeric", minute: "2-digit" });
+              const body = t("csRemoteBody", { name: r.blockName || "", n: (Number(r.currentIndex) || 0) + 1, total: r.questionCount || "?", answered: r.answeredCount || 0, time: when });
+              const total = Number(r.questionCount) || 0, done = Number(r.answeredCount) || 0;
+              return (
+                <>
+                  <div style={{ flex: "1 1 260px", minWidth: 0 }}>
+                    <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap", marginBottom: 3 }}>
+                      <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(11.5), color: T.blue, textTransform: "uppercase", letterSpacing: "0.06em" }}>{t("sessionInProgress")}</div>
+                      <button type="button" onClick={doMigrate} disabled={migrating} title={t("activeContinue")} aria-label={t("csMigrate")}
+                        style={{ background: T.blueLight, color: T.blueDeep, border: "none", fontFamily: FONT_UI, fontSize: fs(11), fontWeight: 700, letterSpacing: "0.04em", textTransform: "uppercase", padding: "3px 9px", borderRadius: 999, display: "inline-flex", alignItems: "center", gap: 5, cursor: migrating ? "default" : "pointer", opacity: migrating ? 0.7 : 1 }}>
+                        <Cloud size={12} />{migrating ? t("csRemoteMigrating") : t("csMigrate")}
+                      </button>
+                    </div>
+                    <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(17), color: T.ink, overflowWrap: "anywhere" }}>{r.blockName || t("sessionInProgress")}</div>
+                    <div style={{ fontFamily: FONT_MONO, fontSize: fs(12), color: T.muted, margin: "4px 0 8px" }}>{body}</div>
+                    {total > 0 && (
+                      <div style={{ height: 6, borderRadius: 999, background: T.mutedBg, overflow: "hidden", maxWidth: 420 }}>
+                        <div style={{ width: `${Math.min(100, Math.round((done / total) * 100))}%`, height: "100%", background: T.blue }} />
+                      </div>
+                    )}
+                  </div>
+                  <PrimaryButton T={T} onClick={doMigrate} disabled={migrating} icon={Play}>{t("activeContinue")}</PrimaryButton>
+                </>
+              );
+            })() : (
+              <>
+                <div style={{ flex: "1 1 260px", minWidth: 0 }}>
+                  <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(16), color: T.ink }}>{t("csNoSession")}</div>
+                  <div style={{ fontFamily: FONT_UI, fontSize: fs(13.5), color: T.muted, marginTop: 3 }}>{t("csNoSessionHint")}</div>
+                </div>
+                <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
+                  <PrimaryButton T={T} onClick={() => onNavigate("library")} icon={BookOpen}>{t("csOpenLibrary")}</PrimaryButton>
+                  <GhostButton T={T} onClick={() => onNavigate("import")} icon={Plus}>{t("csImportNew")}</GhostButton>
+                </div>
+              </>
+            )}
           </>
         )}
       </div>
@@ -9470,7 +9503,7 @@ function HowItWorksGuide({ onClose, T }) {
   );
 }
 
-function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], drive, onDeleteSession, onClearSessions, onReviewSession, libTab, setLibTab, session, onResume, onOpenLobby, onLaunchLibrary, onMixLibrary, onDeleteLibraryEntry, onRenameLibraryEntry, onSetLibraryMeta, deckDefs, onDecksChange, T, darkMode, setDarkMode }) {
+function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], drive, onDeleteSession, onClearSessions, onReviewSession, libTab, setLibTab, session, remoteSession, onMigrate, onResume, onOpenLobby, onLaunchLibrary, onMixLibrary, onDeleteLibraryEntry, onRenameLibraryEntry, onSetLibraryMeta, deckDefs, onDecksChange, T, darkMode, setDarkMode }) {
   const { t, lang } = useI18n();
   const [text, setText] = useState("");
   const [error, setError] = useState("");
@@ -9641,7 +9674,7 @@ function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], dri
       {libTab === "database" && <DatabasePanel key={dbFocus ? dbFocus.n : "db"} initialQuery={dbFocus ? dbFocus.q : ""} T={T} />}
       {libTab === "calendar" && <CalendarPage focusDate={calFocus} sessionLog={sessionLog} onNavigate={(tab) => { setLibTab(tab); window.scrollTo({ top: 0, behavior: "smooth" }); }} T={T} />}
       {libTab === "analytics" && <SessionHistoryPanel history={sessionLog} qbankCount={library.length} qbankQuestions={libraryQuestionCount(library)} onDelete={onDeleteSession} onClear={onClearSessions} onReview={onReviewSession} T={T} />}
-      {libTab === "console" && <ConsolePanel library={library} sessionLog={sessionLog} session={session} onResume={onResume} onOpenLobby={onOpenLobby} onReview={onReviewSession} onNavigate={(tab) => { setLibTab(tab); window.scrollTo({ top: 0, behavior: "smooth" }); }} T={T} />}
+      {libTab === "console" && <ConsolePanel library={library} sessionLog={sessionLog} session={session} remoteSession={remoteSession} onMigrate={onMigrate} onResume={onResume} onOpenLobby={onOpenLobby} onReview={onReviewSession} onNavigate={(tab) => { setLibTab(tab); window.scrollTo({ top: 0, behavior: "smooth" }); }} T={T} />}
       {libTab === "studyhub" && <StudyHub library={library} sessionLog={sessionLog} onLaunch={onLaunchLibrary} onNavigate={(tab, key) => { if (key) setCalFocus({ key, n: Date.now() }); setLibTab(tab); if (tab !== "profile") window.scrollTo({ top: 0, behavior: "smooth" }); }} T={T} />}
       {libTab === "library" && <TutorLibraryStrip library={library} sessionLog={sessionLog} onLaunch={onLaunchLibrary} T={T} />}
       {libTab === "library" && <QbankLibraryPanel library={library} onLaunch={onLaunchLibrary} onMix={onMixLibrary} onDelete={onDeleteLibraryEntry} onRename={onRenameLibraryEntry} onSetMeta={onSetLibraryMeta} deckDefs={deckDefs} onDecksChange={onDecksChange} resumeId={resumeId} onResume={onResume} sessionLog={sessionLog} T={T} />}
@@ -12451,6 +12484,7 @@ export default function App() {
   const [activeStamp, setActiveStamp] = useState(bootRec ? bootRec.updatedAt : 0);
   const [restoreNonce, setRestoreNonce] = useState(0);   // remounts the exam screen when a remote session is loaded under it
   const [activePrompt, setActivePrompt] = useState(null); // { action: "offer" | "conflict", remote, qbanks }
+  const [remoteOffer, setRemoteOffer] = useState(null); // { remote, block }: a test live on another device, kept for the Console box even after the toast is dismissed
   const declinedActive = useRef("");
   const holdRef = useRef(false);                         // a prompt is open: don't mark the remote version as agreed yet
   const liveRef = useRef({}); liveRef.current = { examData, blockStates, library, view };
@@ -12490,6 +12524,7 @@ export default function App() {
   // The hook found something to act on after comparing remote vs local activeSession.updatedAt.
   function handleActiveDecision({ action, remote, block }) {
     holdRef.current = action === "offer" || action === "conflict";
+    setRemoteOffer(action === "offer" ? { remote, block: block || null } : null);
     if (action === "adopt") applyRemoteActive(remote, null, { silent: true });
     else if (action === "end") {
       setRec({ sessionId: remote.sessionId, updatedAt: remote.updatedAt, baseAt: remote.updatedAt, ended: true, sig: "" });
@@ -12502,6 +12537,7 @@ export default function App() {
   }
   // Push succeeded (or nothing needed pushing): both sides now hold `winner`, so it becomes the agreed baseline.
   function activeSynced(winner) {
+    setRemoteOffer((o) => (o && winner && !winner.ended && winner.sessionId === o.remote.sessionId ? o : null)); // the other device finished it, or it is gone
     const rec = recRef.current;
     if (!winner || !rec || holdRef.current || rec.sessionId !== winner.sessionId || (rec.baseAt || 0) === winner.updatedAt) return;
     setRec({ ...rec, baseAt: winner.updatedAt });
@@ -12530,6 +12566,13 @@ export default function App() {
     if (!p) return;
     const blk = p.block || await sessionSync.fetchBlock(p.remote);
     applyRemoteActive(p.remote, blk, { silent: false });
+  }
+  // Console box "Migrate": same as accepting the toast, but driven by the persistent offer.
+  async function migrateRemoteOffer() {
+    const o = remoteOffer; if (!o) return;
+    setActivePrompt(null);
+    const blk = o.block || await sessionSync.fetchBlock(o.remote);
+    if (applyRemoteActive(o.remote, blk, { silent: false })) setRemoteOffer(null);
   }
   function declineActivePrompt() {
     const p = activePrompt; setActivePrompt(null);
@@ -12981,6 +13024,8 @@ export default function App() {
           onReviewSession={reviewSession}
           libTab={libTab} setLibTab={setLibTab}
           session={homeSession}
+          remoteSession={!homeSession && remoteOffer ? remoteOffer.remote : null}
+          onMigrate={migrateRemoteOffer}
           onResume={() => resumeSession(ipIdx)}
           onOpenLobby={() => setView("lobby")}
           onLaunchLibrary={(ids) => guardNew(() => launchFromLibrary(ids))}
