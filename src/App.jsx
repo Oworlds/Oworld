@@ -331,7 +331,7 @@ const STR = {
     activeTitle: "Continue your test from another device?", activeTitleConflict: "A different version of this test is on another device",
     activeBody: "“{name}”: question {n} of {total}, {answered} answered. Last updated {time}.",
     activeReplaceWarn: "Continuing replaces the exam that is open on this device.", activeContinue: "Continue here", activeNotNow: "Not now", activeKeepMine: "Keep this device's",
-    activeResumed: "Picked up “{name}” from another device.", activeEndedElsewhere: "This test was finished on another device.", csMigrate: "Migrate", csRemoteBody: "“{name}”: question {n} of {total}, {answered} answered. Last updated {time}.", csRemoteMigrating: "Migrating…",
+    activeResumed: "Picked up “{name}” from another device.", activeEndedElsewhere: "This test was finished on another device.", activeEndedFinished: "“{name}” was finished on another device: {pct}% ({c}/{t}). The result is syncing to your Analytics and Qbank.", activeEndedRemoved: "This test was closed on another device.", csMigrate: "Migrate", csRemoteBody: "“{name}”: question {n} of {total}, {answered} answered. Last updated {time}.", csRemoteMigrating: "Migrating…",
     activeMissing: "Couldn't load that test from Google Drive. Check your connection and try again.", activeMixed: "Mixed from {banks}.",
     themeLabel: "Theme", themeLight: "Light", themeDark: "Dark",
     accountBtn: "Account", viewAccount: "Manage account", signIn: "Sign in with Google", signOut: "Sign out", signedInAs: "Signed in with Google", signInHint: "Sign in to sync your library and Analytics across devices through your Google Drive.", signOutHint: "Signing out stops syncing on this device. Your data stays here and in your Drive.", signedOutNote: "Not signed in", "cpTitle": "Career & study profile", "cpHint": "Tell Oworld who you are and what you're preparing for. Your tutor uses it to set goals and to build your Study Profile.", "cpAbout": "About you", "cpStatus": "Current status", "cpStatus.pick": "Select…", "cpStatus.student": "Medical student", "cpStatus.graduate": "Medical graduate (IMG)", "cpStatus.resident": "Resident", "cpStatus.other": "Other", "cpGradYear": "Graduation year", "cpCountry": "Country", "cpCity": "City", "cpUniversity": "University", "cpSchool": "School or faculty", "cpPhCountry": "Dominican Republic", "cpPhCity": "Santo Domingo", "cpPhUniversity": "Universidad Iberoamericana (UNIBE)", "cpPhSchool": "School of Medicine", "cpObjective": "Study objective", "cpCoursework": "Medical school studies", "cpCourseworkHint": "Pick everything you're studying for right now.", "cpWork.generals": "Generals", "cpWork.preclinical": "Preclinical", "cpWork.clinical": "Clinical studies", "cpUsmle": "USMLE", "cpUsmleHint": "Pick the steps you're preparing for. Add a target date if you have one.", "cpStep.step1": "Step 1", "cpStep.step2ck": "Step 2 CK", "cpStep.step3": "Step 3", "cpTargetDate": "Target date", "cpClassOf": "Class of {y}", "cpNext": "Next target: {step}, {when} ({date})", "cpSavedLocal": "Saved on this device.", "acctSettings": "Account Settings", "acctName": "Name", "acctEmail": "Email", "acctLinked": "Linked via", "acctCreated": "Account created", "acctNone": "Not available", "acctLinkedGoogle": "Google", "acctSignedOutHint": "Sign in with Google to see your account details here.", "dzTitle": "Danger Zone", "dzDesc": "Deleting your account permanently removes your Qbanks, Analytics, Personal Database, Study Profile and settings from this device and signs you out.", "dzDelete": "Delete my account", "dzDownloadFirst": "Download all your files before you delete your account. This can't be undone.", "dzDownload": "Download all files", "dzDownloaded": "Downloaded. Your files are saved.", "dzDownloadFailed": "Download failed. Please try again.", "dzConfirmGo": "Delete permanently", "dzSkip": "Delete without downloading", "dzDriveNote": "A copy synced to your Google Drive stays there until you remove it from Drive.", "dzFileName": "oworld-account-backup-{d}.json", "spCareerEdit": "Edit in account", "spCareerAdd": "Add details", "spCareerEmpty": "Add your university, graduation year and USMLE targets in your account and they will show up here. Your tutor uses them too.", "spNoDate": "No target date",
@@ -508,7 +508,7 @@ const STR = {
     activeTitle: "¿Continuar tu examen desde otro dispositivo?", activeTitleConflict: "Hay otra versión de este examen en otro dispositivo",
     activeBody: "«{name}»: pregunta {n} de {total}, {answered} respondidas. Última actualización {time}.",
     activeReplaceWarn: "Continuar reemplaza el examen abierto en este dispositivo.", activeContinue: "Continuar aquí", activeNotNow: "Ahora no", activeKeepMine: "Conservar el de este dispositivo",
-    activeResumed: "Retomaste «{name}» desde otro dispositivo.", activeEndedElsewhere: "Este examen se terminó en otro dispositivo.", csMigrate: "Migrar", csRemoteBody: "«{name}»: pregunta {n} de {total}, {answered} respondidas. Última actualización {time}.", csRemoteMigrating: "Migrando…",
+    activeResumed: "Retomaste «{name}» desde otro dispositivo.", activeEndedElsewhere: "Este examen se terminó en otro dispositivo.", activeEndedFinished: "«{name}» se terminó en otro dispositivo: {pct}% ({c}/{t}). El resultado se está sincronizando con tus Analíticas y tu Qbank.", activeEndedRemoved: "Este examen se cerró en otro dispositivo.", csMigrate: "Migrar", csRemoteBody: "«{name}»: pregunta {n} de {total}, {answered} respondidas. Última actualización {time}.", csRemoteMigrating: "Migrando…",
     activeMissing: "No se pudo cargar ese examen desde Google Drive. Revisa tu conexión e inténtalo de nuevo.", activeMixed: "Mezcla de {banks}.",
     themeLabel: "Tema", themeLight: "Claro", themeDark: "Oscuro",
     accountBtn: "Cuenta", viewAccount: "Administrar cuenta", signIn: "Iniciar sesión con Google", signOut: "Cerrar sesión", signedInAs: "Sesión iniciada con Google", signInHint: "Inicia sesión para sincronizar tu biblioteca y tus Analíticas entre dispositivos mediante tu Google Drive.", signOutHint: "Al cerrar sesión se detiene la sincronización en este dispositivo. Tus datos se conservan aquí y en tu Drive.", signedOutNote: "Sin sesión iniciada", "cpTitle": "Perfil profesional y de estudio", "cpHint": "Cuéntale a Oworld quién eres y para qué te estás preparando. Tu tutor lo usa para fijar metas y crear tu Perfil de estudio.", "cpAbout": "Sobre ti", "cpStatus": "Situación actual", "cpStatus.pick": "Seleccionar…", "cpStatus.student": "Estudiante de medicina", "cpStatus.graduate": "Médico graduado (IMG)", "cpStatus.resident": "Residente", "cpStatus.other": "Otro", "cpGradYear": "Año de graduación", "cpCountry": "País", "cpCity": "Ciudad", "cpUniversity": "Universidad", "cpSchool": "Escuela o facultad", "cpPhCountry": "República Dominicana", "cpPhCity": "Santo Domingo", "cpPhUniversity": "Universidad Iberoamericana (UNIBE)", "cpPhSchool": "Escuela de Medicina", "cpObjective": "Objetivo de estudio", "cpCoursework": "Estudios de la carrera", "cpCourseworkHint": "Elige todo lo que estás estudiando ahora.", "cpWork.generals": "Generales", "cpWork.preclinical": "Preclínicas", "cpWork.clinical": "Estudios clínicos", "cpUsmle": "USMLE", "cpUsmleHint": "Elige los pasos para los que te preparas. Añade una fecha objetivo si la tienes.", "cpStep.step1": "Step 1", "cpStep.step2ck": "Step 2 CK", "cpStep.step3": "Step 3", "cpTargetDate": "Fecha objetivo", "cpClassOf": "Promoción {y}", "cpNext": "Próximo objetivo: {step}, {when} ({date})", "cpSavedLocal": "Guardado en este dispositivo.", "acctSettings": "Ajustes de la cuenta", "acctName": "Nombre", "acctEmail": "Correo", "acctLinked": "Vinculada con", "acctCreated": "Cuenta creada", "acctNone": "No disponible", "acctLinkedGoogle": "Google", "acctSignedOutHint": "Inicia sesión con Google para ver aquí los datos de tu cuenta.", "dzTitle": "Zona de peligro", "dzDesc": "Eliminar tu cuenta borra de forma permanente tus Qbanks, Analíticas, Base de datos personal, Perfil de estudio y ajustes de este dispositivo, y cierra tu sesión.", "dzDelete": "Eliminar mi cuenta", "dzDownloadFirst": "Descarga todos tus archivos antes de eliminar tu cuenta. Esto no se puede deshacer.", "dzDownload": "Descargar todos los archivos", "dzDownloaded": "Descargado. Tus archivos están guardados.", "dzDownloadFailed": "Error al descargar. Inténtalo de nuevo.", "dzConfirmGo": "Eliminar definitivamente", "dzSkip": "Eliminar sin descargar", "dzDriveNote": "La copia sincronizada en tu Google Drive permanece allí hasta que la elimines de Drive.", "dzFileName": "oworld-copia-cuenta-{d}.json", "spCareerEdit": "Editar en la cuenta", "spCareerAdd": "Añadir datos", "spCareerEmpty": "Añade tu universidad, año de graduación y objetivos de USMLE en tu cuenta y aparecerán aquí. Tu tutor también los usa.", "spNoDate": "Sin fecha objetivo",
@@ -2306,7 +2306,8 @@ function hashStr(str) { let h = 2166136261; for (let i = 0; i < str.length; i++)
 //     timeElapsed (s), updatedAt (ms of the last LOCAL mutation),
 //     + what a faithful restore needs: blockFileId, blockName, mode, timeLeft, timerOff, notes, states, questionCount, answeredCount,
 //       isMixed, sourceBanks, sourceIds }
-// A finished / removed test is written as a tombstone { sessionId, ended: true, updatedAt } so the other device lets go of it.
+// A finished / removed test is written as a tombstone { sessionId, ended: true, updatedAt, outcome: "finished" | "removed", score?: {correct,total,pct}, finishedAt? }
+// so the other device lets go of it, and (for "finished") shows the result and pulls the new Analytics log straight away.
 // Only a one-block exam with a block in progress is synced (a library launch, a Mixed Qbank, a pasted single block); multi-block bundles are not.
 // ---------------------------------------------------------------------------
 const LS_ACTIVE_SYNC = "owordActiveSync"; // this device's marker for the synced session: { sessionId, updatedAt, baseAt, ended, sig, blockFileId }
@@ -2644,7 +2645,7 @@ function useDriveSync({ library, sessionLog, tombs, decks, onMerged }) {
     setProfile(null); setLinked(false); setLastSync(0); setErrKey(""); setStatus(configured ? "none" : "off");
   }, [configured]);
 
-  return { configured, linked, profile, acquireToken, peekToken, status, errKey, lastSync, connect, disconnect, signIn: connect, signOut: disconnect, syncNow: () => sync({ interactive: true }), reconnect: () => sync({ interactive: true }) };
+  return { configured, linked, profile, acquireToken, peekToken, status, errKey, lastSync, connect, disconnect, signIn: connect, signOut: disconnect, syncNow: () => sync({ interactive: true }), reconnect: () => sync({ interactive: true }), refresh: () => sync() };
 }
 
 // useSessionSync: keeps the test in progress in step through its own two small Drive files (see the schema note above).
@@ -2691,7 +2692,7 @@ function useSessionSync({ drive, stamp, getLocal, onDecision, onSynced, onBlockS
         if (action === "push" && winner) {
           let payload = winner;
           if (winner.ended) {
-            payload = { sessionId: winner.sessionId, ended: true, updatedAt: winner.updatedAt };
+            payload = { sessionId: winner.sessionId, ended: true, updatedAt: winner.updatedAt, outcome: winner.outcome || null, score: winner.score || null, finishedAt: winner.finishedAt || null };
             if (local.blockFileId) { driveDelete(token, local.blockFileId).catch(() => {}); cur.onBlockSaved(winner.sessionId, null); } // the test is over: its question copy can go
           } else {
             let bf = winner.blockFileId;
@@ -13154,7 +13155,12 @@ function OworldApp() {
       if (!rec || rec.sessionId !== id || rec.ended) setRec({ sessionId: id, updatedAt: now, baseAt: 0, ended: false, sig: liveSig });
       else if (rec.sig !== liveSig) setRec({ ...rec, updatedAt: now, sig: liveSig });
     } else if (rec && !rec.ended) {
-      setRec({ ...rec, ended: true, updatedAt: now }); // finished, submitted or removed: leave a tombstone so other devices let go of it
+      // finished, submitted or removed: leave a tombstone so other devices let go of it. A finished block also carries its score,
+      // so the other device can say "finished: 72%" and fetch the new Analytics log; a removed one just says "closed".
+      const b0 = blockStates.length === 1 ? blockStates[0] : null;
+      const fin = !!(b0 && b0.status === "done" && b0.syncId === rec.sessionId && b0.score);
+      setRec({ ...rec, ended: true, updatedAt: now, outcome: fin ? "finished" : "removed",
+        ...(fin ? { score: { correct: b0.score.correct, total: b0.score.total, pct: b0.score.pct }, finishedAt: b0.finishedAt || now } : {}) });
     }
   }, [liveSig, liveId, !!liveSession]); // eslint-disable-line
 
@@ -13165,7 +13171,7 @@ function OworldApp() {
     const owns = !!(lv && rec && !rec.ended && rec.sessionId === lv.bs.syncId);
     let active = null;
     if (owns) active = buildActiveSession(lv.block, lv.bs, rec);
-    else if (rec && rec.ended) active = { sessionId: rec.sessionId, ended: true, updatedAt: rec.updatedAt };
+    else if (rec && rec.ended) active = { sessionId: rec.sessionId, ended: true, updatedAt: rec.updatedAt, outcome: rec.outcome || null, score: rec.score || null, finishedAt: rec.finishedAt || null };
     return { active, baseAt: rec ? rec.baseAt || 0 : 0, block: owns ? lv.block : null, blockFileId: rec ? rec.blockFileId || null : null };
   }
   // The hook found something to act on after comparing remote vs local activeSession.updatedAt.
@@ -13174,9 +13180,18 @@ function OworldApp() {
     setRemoteOffer(action === "offer" ? { remote, block: block || null } : null);
     if (action === "adopt") applyRemoteActive(remote, null, { silent: true });
     else if (action === "end") {
-      setRec({ sessionId: remote.sessionId, updatedAt: remote.updatedAt, baseAt: remote.updatedAt, ended: true, sig: "" });
+      const ex0 = liveRef.current.examData;
+      const nm = ex0 && ex0.blocks && ex0.blocks[0] ? ex0.blocks[0].blockName || "" : "";
+      setRec({ sessionId: remote.sessionId, updatedAt: remote.updatedAt, baseAt: remote.updatedAt, ended: true, sig: "",
+        outcome: remote.outcome || null, score: remote.score || null, finishedAt: remote.finishedAt || null });
+      setActivePrompt(null); setRemoteOffer(null);
       setExamData(null); setBlockStates([]); setHistory([]); setActiveBlockIdx(null); setView("import");
-      setFlash(tr("activeEndedElsewhere"));
+      if (remote.outcome === "finished" && remote.score) {
+        setFlash(tr("activeEndedFinished").replace("{name}", nm).replace("{pct}", String(remote.score.pct)).replace("{c}", String(remote.score.correct)).replace("{t}", String(remote.score.total)));
+        // The result (Analytics log, review snapshot, Qbank "Completed") travels in the library file, which the other device uploads a few
+        // seconds after the tombstone. Pull it now, and again shortly after in case it was not up yet; merges are idempotent.
+        [0, 6000, 15000].forEach((ms) => setTimeout(() => { try { drive.refresh(); } catch (e) { /* ignore */ } }, ms));
+      } else setFlash(tr(remote.outcome === "removed" ? "activeEndedRemoved" : "activeEndedElsewhere"));
     } else if (holdRef.current) {
       const key = `${remote.sessionId}:${remote.updatedAt}`;
       if (declinedActive.current !== key) setActivePrompt((p) => (p && p.remote.sessionId === remote.sessionId && p.remote.updatedAt === remote.updatedAt ? p : { action, remote, block }));
@@ -13185,6 +13200,7 @@ function OworldApp() {
   // Push succeeded (or nothing needed pushing): both sides now hold `winner`, so it becomes the agreed baseline.
   function activeSynced(winner) {
     setRemoteOffer((o) => (o && winner && !winner.ended && winner.sessionId === o.remote.sessionId ? o : null)); // the other device finished it, or it is gone
+    if (winner && winner.ended) setActivePrompt((p) => { if (p && p.remote.sessionId === winner.sessionId) { holdRef.current = false; return null; } return p; }); // the "Continue your test?" popup closes too
     const rec = recRef.current;
     if (!winner || !rec || holdRef.current || rec.sessionId !== winner.sessionId || (rec.baseAt || 0) === winner.updatedAt) return;
     setRec({ ...rec, baseAt: winner.updatedAt });
