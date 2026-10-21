@@ -2071,17 +2071,98 @@ const REVIEW_MAX = 25; // full snapshots are large (explanations, labs), so only
 const HISTORY_MAX = 300; // oldest logs fall off first so the log can never fill localStorage on its own
 const SESSION_VERSION = 1;
 
+// ---------------------------------------------------------------------------
+// Heavy data (Qbank library, Trash, session log, Review snapshots, the exam in progress, Personal Database) is kept in IndexedDB
+// instead of localStorage. localStorage holds only about 5 MB and is written synchronously on the main thread; IndexedDB holds far
+// more and writes in the background. The app still reads and writes through lsGet / lsSet / lsRemove: a synchronous in-memory
+// mirror answers reads, and changes are written to IndexedDB in batches (at most once every BIG_FLUSH_MS, and at once when the tab
+// is hidden or closed). Whatever is still in localStorage is moved over on first start and deleted only after IndexedDB confirms
+// it has it. If IndexedDB is not available the app keeps using localStorage exactly as before.
+// ---------------------------------------------------------------------------
+const BIG_KEYS = new Set(["qbankLibrary", "owordTrash", "sessionHistory", "activeSession", "owordDatabase"]); // = LS_LIBRARY, LS_TRASH, LS_HISTORY, LS_SESSION, LS_DB
+const BIG_PREFIX = "sessionReview:"; // = LS_REVIEW
+const BIG_FLUSH_MS = 800;
+const BIG = { on: false, db: null, cache: new Map(), pending: new Map(), timer: null, flushing: false, ready: null };
+const isBigKey = (k) => typeof k === "string" && (BIG_KEYS.has(k) || k.indexOf(BIG_PREFIX) === 0);
+const bigSignal = (ok) => { try { window.dispatchEvent(new CustomEvent("oworld-storage", { detail: { ok } })); } catch (e) { /* ignore */ } };
+function bigFlush() {
+  if (BIG.timer) { clearTimeout(BIG.timer); BIG.timer = null; }
+  if (!BIG.on || !BIG.db || BIG.flushing || BIG.pending.size === 0) return;
+  const batch = new Map(BIG.pending); BIG.pending.clear(); BIG.flushing = true;
+  let settled = false;
+  const done = (ok) => {
+    if (settled) return; settled = true; BIG.flushing = false;
+    if (ok) {
+      batch.forEach((v, k) => { try { window.localStorage.removeItem(k); } catch (e) { /* ignore */ } }); // the old localStorage copy is no longer needed
+      bigSignal(true);
+    } else {
+      batch.forEach((v, k) => { if (!BIG.pending.has(k)) BIG.pending.set(k, v); }); // try again later; a newer value always wins
+      bigSignal(false);
+    }
+    if (BIG.pending.size && !BIG.timer) BIG.timer = setTimeout(bigFlush, ok ? BIG_FLUSH_MS : 30000);
+  };
+  try {
+    const tx = BIG.db.transaction("kv", "readwrite"); const st = tx.objectStore("kv");
+    batch.forEach((v, k) => { if (v === null) st.delete(k); else st.put(v, k); });
+    tx.oncomplete = () => done(true); tx.onerror = () => done(false); tx.onabort = () => done(false);
+  } catch (e) { done(false); }
+}
+function bigQueue(key, val) { BIG.pending.set(key, val); if (!BIG.timer && !BIG.flushing) BIG.timer = setTimeout(bigFlush, BIG_FLUSH_MS); }
+function hydrateBigStore() {
+  if (BIG.ready) return BIG.ready;
+  BIG.ready = new Promise((resolve) => {
+    const finish = (db, keys, vals) => {
+      keys.forEach((k, i) => { if (isBigKey(k) && typeof vals[i] === "string") BIG.cache.set(k, vals[i]); });
+      const legacy = [];
+      try { for (let i = 0; i < window.localStorage.length; i++) { const k = window.localStorage.key(i); if (isBigKey(k)) legacy.push(k); } } catch (e) { /* ignore */ }
+      legacy.forEach((k) => {
+        let v = null; try { v = window.localStorage.getItem(k); } catch (e) { /* ignore */ }
+        if (v == null) return;
+        if (BIG.cache.has(k)) { try { window.localStorage.removeItem(k); } catch (e) { /* ignore */ } } // IndexedDB already has the newer copy
+        else { BIG.cache.set(k, v); BIG.pending.set(k, v); } // move it over; the localStorage copy goes once IndexedDB confirms
+      });
+      BIG.db = db; BIG.on = true;
+      db.onversionchange = () => { try { db.close(); } catch (e) { /* ignore */ } BIG.db = null; };
+      try { window.addEventListener("pagehide", bigFlush); document.addEventListener("visibilitychange", () => { if (document.visibilityState === "hidden") bigFlush(); }); } catch (e) { /* ignore */ }
+      bigFlush();
+      resolve();
+    };
+    let req;
+    try { if (typeof indexedDB === "undefined" || !indexedDB) { resolve(); return; } req = indexedDB.open("oworld", 1); } catch (e) { resolve(); return; }
+    req.onupgradeneeded = () => { try { req.result.createObjectStore("kv"); } catch (e) { /* ignore */ } };
+    req.onerror = () => resolve(); req.onblocked = () => resolve();
+    req.onsuccess = () => {
+      const db = req.result;
+      try {
+        const tx = db.transaction("kv", "readonly"); const st = tx.objectStore("kv");
+        const kr = st.getAllKeys(); const vr = st.getAll();
+        tx.oncomplete = () => { try { finish(db, kr.result || [], vr.result || []); } catch (e) { resolve(); } };
+        tx.onerror = () => resolve(); tx.onabort = () => resolve();
+      } catch (e) { resolve(); }
+    };
+  });
+  return BIG.ready;
+}
 function lsGet(key) {
   try {
-    const raw = window.localStorage.getItem(key);
+    const raw = BIG.on && isBigKey(key) ? (BIG.cache.has(key) ? BIG.cache.get(key) : null) : window.localStorage.getItem(key);
     return raw == null ? null : JSON.parse(raw);
   } catch (e) { return null; }
 }
 function lsSet(key, raw) {
+  if (BIG.on && isBigKey(key)) { BIG.cache.set(key, raw); bigQueue(key, raw); return true; } // the write happens in the background; a failure raises the "oworld-storage" event
   try { window.localStorage.setItem(key, raw); return true; } catch (e) { return false; }
 }
 function lsRemove(key) {
+  if (BIG.on && isBigKey(key)) { BIG.cache.delete(key); bigQueue(key, null); }
   try { window.localStorage.removeItem(key); } catch (e) { /* ignore */ }
+}
+function lsHas(key) { try { return BIG.on && isBigKey(key) ? BIG.cache.has(key) : window.localStorage.getItem(key) !== null; } catch (e) { return false; } }
+function lsKeysWithPrefix(prefix) {
+  const keys = new Set();
+  try { for (let i = 0; i < window.localStorage.length; i++) { const k = window.localStorage.key(i); if (k && k.indexOf(prefix) === 0) keys.add(k); } } catch (e) { /* ignore */ }
+  if (BIG.on) BIG.cache.forEach((v, k) => { if (k.indexOf(prefix) === 0) keys.add(k); });
+  return [...keys];
 }
 
 function loadLibrary() {
@@ -2090,14 +2171,8 @@ function loadLibrary() {
   return lib.filter((e) => e && typeof e.id === "string" && typeof e.title === "string" && Array.isArray(e.questions) && e.questions.length > 0);
 }
 
-function hasReviewSnapshot(id) { try { return window.localStorage.getItem(LS_REVIEW + id) !== null; } catch (e) { return false; } }
-function removeAllReviewSnapshots() {
-  try {
-    const keys = [];
-    for (let i = 0; i < window.localStorage.length; i++) { const k = window.localStorage.key(i); if (k && k.startsWith(LS_REVIEW)) keys.push(k); }
-    keys.forEach((k) => window.localStorage.removeItem(k));
-  } catch (e) { /* ignore */ }
-}
+function hasReviewSnapshot(id) { return lsHas(LS_REVIEW + id); }
+function removeAllReviewSnapshots() { lsKeysWithPrefix(LS_REVIEW).forEach(lsRemove); }
 // Past-session logs: independent of the Qbank cards and of the active session, so deleting a card or finishing/removing an exam never touches them.
 function loadHistory() {
   const h = lsGet(LS_HISTORY);
@@ -6586,9 +6661,7 @@ const LS_ACCOUNT_CREATED = "owordAccountCreated";
 const ACCOUNT_DATA_KEYS = [LS_DECKS, LS_SESSION, LS_LIBRARY, LS_PREFS, LS_HISTORY, LS_TOMBS, LS_TRASH, LS_CAREER, LS_NOTIFS, LS_SP, LS_BP, LS_DB, LS_DB_TOMBS];
 const ACCOUNT_SYNC_KEYS = [LS_SYNC, LS_CAREER_FILE, LS_SP_FILE, LS_SP_LEDGER, LS_BP_FILE, LS_BP_LEDGER, LS_DB_FILE, LS_ACTIVE_SYNC, LS_SESSION_FILE, LS_ACCOUNT_CREATED];
 function accountStoredKeys() {
-  const keys = [...ACCOUNT_DATA_KEYS];
-  try { for (let i = 0; i < window.localStorage.length; i++) { const k = window.localStorage.key(i); if (k && k.indexOf(LS_REVIEW) === 0) keys.push(k); } } catch (e) { /* ignore */ }
-  return keys;
+  return [...ACCOUNT_DATA_KEYS, ...lsKeysWithPrefix(LS_REVIEW)];
 }
 // One JSON file with everything stored for this account on this device. Resolves true when the download started.
 function downloadAccountFiles(fileName, account) {
@@ -12731,7 +12804,7 @@ function FinalSummary({ examData, blockStates, onBackToLobby, T, darkMode, setDa
 // ---------------------------------------------------------------------------
 // Root app
 // ---------------------------------------------------------------------------
-export default function App() {
+function OworldApp() {
   // Everything persisted is read ONCE, synchronously, before the first render — so a refresh drops the
   // student straight back into the exam (no flash of the import screen) and the save effects below can
   // never overwrite a stored session with empty initial state.
@@ -12767,6 +12840,12 @@ export default function App() {
 
   // --- Local persistence ------------------------------------------------------
   const failedKeys = useRef({});
+  // Background writes to IndexedDB report here (the Library, Trash, logs and the open exam are saved that way).
+  useEffect(() => {
+    const onStore = (ev) => { failedKeys.current.__idb = !(ev && ev.detail && ev.detail.ok); setStorageError(Object.values(failedKeys.current).some(Boolean)); };
+    window.addEventListener("oworld-storage", onStore);
+    return () => window.removeEventListener("oworld-storage", onStore);
+  }, []);
   function persist(key, raw) { // raw === null removes the key
     let ok = true;
     if (raw === null) lsRemove(key); else ok = lsSet(key, raw);
@@ -13686,4 +13765,13 @@ export default function App() {
     </TextScaleContext.Provider>
     </LangContext.Provider>
   );
+}
+
+// The app waits for the IndexedDB copy of the heavy data to load (a few milliseconds) before its first render, so everything
+// that reads storage synchronously still sees the full library, session and logs.
+export default function App() {
+  const [ready, setReady] = useState(false);
+  useEffect(() => { let live = true; hydrateBigStore().then(() => { if (live) setReady(true); }); return () => { live = false; }; }, []);
+  if (!ready) return <div aria-busy="true" style={{ minHeight: "100vh", background: loadPrefs().darkMode ? DARK.paper : LIGHT.paper }} />;
+  return <OworldApp />;
 }
