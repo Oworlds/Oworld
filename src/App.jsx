@@ -268,19 +268,19 @@ const STR = {
     "nf.syncLinked.t": "Google Drive connected", "nf.syncLinked.b": "Your library and Analytics now sync across your devices.",
     saveToLibrary: "Save to Library", libSaved: "Saved {n} new block(s) to your library.", libDup: "{d} already in your library.", libNothing: "Already in your library — nothing new to save.",
     libTitle: "Oworld Library", libCount: "{n} saved", libEmpty: "Nothing saved yet. Paste or upload a question bank and choose \u201cSave to Library\u201d to keep it on this device. Sign in with Google to also sync it through your Drive.",
-    libMeta: "{q} questions · imported {d}", libLastScore: "Last score {pct}% ({c}/{t})", libNoScore: "Not attempted yet", libCompleted: "Completed · {pct}% ({c}/{t})", tabLibrary: "Qbank", tabHistory: "Analysis", tabImport: "Import", importPageTitle: "Import Qbank", histTitle: "Analytics", histEmpty: "No finished sessions yet. Every block you complete is logged here, including custom and mixed sessions.", histNote: "Each finished session is saved as its own log. Custom and mixed sessions never change your Qbank cards; a card is marked Completed only when you run that whole Qbank on its own. The 25 most recent sessions also keep their full question-by-question review; older ones keep a summary.", histKindBank: "Qbank", histKindCustom: "Custom", histKindRetest: "Retest", histQ: "{n} questions", histAnswered: "{a}/{n} answered", histSources: "From: {s}", histBySubject: "By subject", histDelete: "Delete this log", histClear: "Clear history", histClearQ: "Delete all {n} logged sessions? They move to Trash for 30 days. Your Qbank cards are not affected.", histClearGo: "Delete all", histToggle: "Show details", histSelectAll: "Select all", histDeselect: "Deselect all", histDeleteSelQ: "Delete {n} selected session(s)? They move to Trash for 30 days. Your Qbank cards are not affected.", histReview: "Review Exam", histNoReview: "Review unavailable", histNoReviewFlash: "The full review for this session is no longer stored.", histMixed: "Mixed: {n} blocks · {q} Questions", histNamed: "{name} · {q} Questions", histDone: "Completed {d}", anOverall: "Overall you answered {n} questions:", anCorrect: "correctly", anHints: "correctly using hints", anIncorrect: "incorrectly", anCenter: "Correct + using hints", anQ: "({n} questions)", anQ1: "(1 question)", tabConsole: "Console", csGoodMorning: "Good morning", csGoodAfternoon: "Good afternoon", csGoodEvening: "Good evening", csStreakLine: "{n}-day study streak", csReadyLine: "Ready when you are.", csNoSession: "No session in progress", csNoSessionHint: "Start a Qbank from your library, or import a new one.", csOpenLibrary: "Open Library", csImportNew: "Import a Qbank", csViewAll: "View all", csStatSessions: "Sessions", csStatWeek: "{n} this week", csStatAnswered: "Questions answered", csStatAccuracy: "Accuracy", csStatStreak: "Day streak", csStatDays: "{n} days", csStatDay1: "1 day", csHighlights: "Analytics highlights", csTrend: "Recent scores", csTrendHint: "Last {n} sessions · dashed line = 70%", csTrendNeed: "Finish 2 sessions to see your trend.", csStrong: "Strongest subjects", csWeak: "Needs work", csSubjNeed: "Answer at least 5 questions in a subject to rank it.", csRecent: "Recent sessions", csYourLibrary: "Your library", csLibSub: "{n} Qbanks saved", csLibEmpty: "Your library is empty. Import a Qbank to get started.", csFirstTitle: "Let's get your first session going", csFirstBody: "Import a Qbank (the JSON your AI tool writes), save it to your library, then run it as a timed or tutor block. Your stats will show up right here.", csProgress: "{a} of {n} answered",
-    libStart: "Start", rateTitle: "How well did you know this?", "rate.again": "Again", "rate.hard": "Hard", "rate.good": "Good", "rate.easy": "Easy", srsDays: "{n}d", srsMonths: "{n}mo", srsYears: "{n}y", srsNext: "Next review: {d}", srsNextTitle: "Review again in {n}", srdTitle: "Smart Review Deck", srdBlockName: "Smart Review", srdBadgeDue: "{n} due", srdCaughtUp: "All caught up", srdNone: "Nothing scheduled yet", srdOverdue: "{n} overdue", srdToday: "{n} due today", srdNextBlock: "next block: {n}", srdNextDue: "Next review {d}", srdEmptyHint: "Rate questions in Tutor Mode (Again, Hard, Good, Easy) and they return here when they are due.", srdStart: "Start review", srdHint: "Builds a Tutor block from every question across your Qbanks whose next review date is today or earlier, most overdue first.", srsHint: "Spaced repetition (SM-2): the number under each button is when this question comes back.",
+    libMeta: "{q} questions · imported {d}", libLastScore: "Last score {pct}% ({c}/{t})", libNoScore: "Not attempted yet", libCompleted: "Completed · Best {pct}% ({c}/{t})", tabLibrary: "Qbank", tabHistory: "Analysis", tabImport: "Import", importPageTitle: "Import Qbank", histTitle: "Analytics", histEmpty: "No finished sessions yet. Every block you complete is logged here, including custom and mixed sessions.", histNote: "Each finished session is saved as its own log. Custom and mixed sessions never change your Qbank cards; a card is marked Completed only when you run that whole Qbank on its own. The 25 most recent sessions also keep their full question-by-question review; older ones keep a summary.", histKindBank: "Qbank", histKindCustom: "Custom", histKindRetest: "Retest", histQ: "{n} questions", histAnswered: "{a}/{n} answered", histSources: "From: {s}", histBySubject: "By subject", histDelete: "Delete this log", histClear: "Clear history", histClearQ: "Delete all {n} logged sessions? They move to Trash for 30 days. Your Qbank cards are not affected.", histClearGo: "Delete all", histToggle: "Show details", histSelectAll: "Select all", histDeselect: "Deselect all", histDeleteSelQ: "Delete {n} selected session(s)? They move to Trash for 30 days. Your Qbank cards are not affected.", histReview: "Review Exam", histNoReview: "Review unavailable", histNoReviewFlash: "The full review for this session is no longer stored.", histMixed: "Mixed: {n} blocks · {q} Questions", histNamed: "{name} · {q} Questions", histDone: "Completed {d}", anOverall: "Overall you answered {n} questions:", anCorrect: "correctly", anHints: "correctly using hints", anIncorrect: "incorrectly", anCenter: "Correct + using hints", anQ: "({n} questions)", anQ1: "(1 question)", tabConsole: "Console", csGoodMorning: "Good morning", csGoodAfternoon: "Good afternoon", csGoodEvening: "Good evening", csStreakLine: "{n}-day study streak", csReadyLine: "Ready when you are.", csNoSession: "No session in progress", csNoSessionHint: "Start a Qbank from your library, or import a new one.", csOpenLibrary: "Open Library", csImportNew: "Import a Qbank", csViewAll: "View all", csStatSessions: "Sessions", csStatWeek: "{n} this week", csStatAnswered: "Questions answered", csStatAccuracy: "Accuracy", csStatStreak: "Day streak", csStatDays: "{n} days", csStatDay1: "1 day", csHighlights: "Analytics highlights", csTrend: "Recent scores", csTrendHint: "Last {n} sessions · dashed line = 70%", csTrendNeed: "Finish 2 sessions to see your trend.", csStrong: "Strongest subjects", csWeak: "Needs work", csSubjNeed: "Answer at least 5 questions in a subject to rank it.", csRecent: "Recent sessions", csYourLibrary: "Your library", csLibSub: "{n} Qbanks saved", csLibEmpty: "Your library is empty. Import a Qbank to get started.", csFirstTitle: "Let's get your first session going", csFirstBody: "Import a Qbank (the JSON your AI tool writes), save it to your library, then run it as a timed or tutor block. Your stats will show up right here.", csProgress: "{a} of {n} answered",
+    libStart: "Start", libSearchPh: "Search Qbanks, tags, subjects…", libSearchLabel: "Search Qbanks", libSearchClear: "Clear search", libFilterAll: "All", libFilterNew: "Not started", libFilterProgress: "In progress", libFilterDone: "Completed", libFilterWeak: "Below 70%", libFilterDue: "Due for review", libShowing: "Showing {n} of {total}", libNoMatch: "No Qbanks match your search or filter.", libClearFilters: "Clear filters", libSortStudied: "Recently studied", libSortBest: "Best score: high to low", libSortWeak: "Best score: low to high", libSortSize: "Most questions", libStartAs: "Start as", libStartTitle: "{mode}: {name}", libStudied: "Studied {n}× · last {d}", libStudiedOnly: "Last studied {d}", libDue: "{n} due", libSumQ: "{q} questions", libSumDone: "{c} completed", libSumAvg: "avg best {pct}%", libSumDue: "{n} due for review", rateTitle: "How well did you know this?", "rate.again": "Again", "rate.hard": "Hard", "rate.good": "Good", "rate.easy": "Easy", srsDays: "{n}d", srsMonths: "{n}mo", srsYears: "{n}y", srsNext: "Next review: {d}", srsNextTitle: "Review again in {n}", srdTitle: "Smart Review Deck", srdBlockName: "Smart Review", srdBadgeDue: "{n} due", srdCaughtUp: "All caught up", srdNone: "Nothing scheduled yet", srdOverdue: "{n} overdue", srdToday: "{n} due today", srdNextBlock: "next block: {n}", srdNextDue: "Next review {d}", srdEmptyHint: "Rate questions in Tutor Mode (Again, Hard, Good, Easy) and they return here when they are due.", srdStart: "Start review", srdHint: "Builds a Tutor block from every question across your Qbanks whose next review date is today or earlier, most overdue first.", srsHint: "Spaced repetition (SM-2): the number under each button is when this question comes back.",
     poolAgain: "Rated Again", poolHard: "Rated Hard", poolAgainHard: "Again + Hard",
     "rt.again": "Rated Again", "rt.hard": "Rated Hard", "rt.againhard": "Rated Again/Hard",
     sufAgain: "Retest Again", sufHard: "Retest Hard", sufAgainHard: "Retest Again/Hard",
     textSize: "Text size", textSmaller: "Smaller text", textLarger: "Larger text", textReset: "Reset", libMixMax: "Max ({n})", libMixCustom: "Custom", libMixCustomHint: "1–{n}", libCountTitle: "Choose question count", libCountHint: "Draws a random, subject-balanced set of questions from this bank. Scores from this block never change the bank's last score.", libLoad: "Load {n} questions", libLoadOne: "Load 1 question", libShareSel: "Share / Export Selected", libExporting: "Exporting your selection ({n}) as one file…", libExportShared: "Shared your selection ({n}) as one file.", libExportDownloaded: "Downloaded your selection ({n}) as one file.", libExportFailed: "Export failed. Please try again.", bundleFound: "Bundle detected: {n} blocks ({names}). Press Import to choose which ones to add to your library.", libEditSel: "Edit Selected", libDeleteSel: "Delete Selected", libEditing: "{i} of {n}", libSelectHint: "Tick blocks to load, share, rename or delete them. Tick two or more to mix them into one custom block.", libDeleteSelQ: "Delete {n} selected Qbank(s)? They move to Trash, where you can restore them for 30 days.", libMixTitle: "Mix selected banks", libMixHint: "Merges the ticked banks into one shuffled block, with systems and disciplines spread evenly.", libMixPool: "{q} questions · {s} subjects", libMixDupes: "{d} duplicate(s) removed", libMixSize: "Questions", libMixAll: "All ({n})", libMix: "Mix {n} questions", libMixOne: "Mix 1 question", mixedName: "Mixed Qbank ({n} banks)",
     libDeleteQ: "Delete this block?", libGroupLabel: "Group by", libGroupNone: "None", libGroupManual: "Manual", libGroupTags: "Tags", libGroupWeek: "Week", libGroupSubject: "Subject", libGroupSystem: "System", libGroupDiscipline: "Discipline", libUngrouped: "Ungrouped", libUntagged: "Untagged", libUnclassified: "Unclassified", libBeforeTerm: "Before term", libWeekN: "Week {n}", libWeekOf: "Week of {d}", libGroupCount: "{n} Qbank(s)", libGroupSelect: "Select all in {g}", libOrganize: "Group & tag", libOrgTitle: "Group & tag {n} selected", libOrgGroup: "Group", libOrgGroupPh: "Group name…", libOrgMove: "Move", libOrgUngroup: "Remove from group", libOrgTags: "Tags", libOrgTagPh: "Add a tag…", libOrgAdd: "Add", libOrgRemoveTag: "Remove tag {g} from the selection", libOrgNoTags: "No tags on the selection yet.", libHintManual: "Select Qbanks, then use Group & tag to move them into a group you name.", libHintTags: "Select Qbanks, then use Group & tag to add tags. A Qbank with several tags shows under each one.", libHintWeek: "Grouped by the week each Qbank was added. Load a Study Profile to count weeks from your term start; without one, weeks run Monday to Sunday.", libHintClass: "Grouped by the most common {k} among each Qbank's questions.", libClassSubject: "subject", libClassSystem: "organ system", libClassDiscipline: "discipline", libCollapse: "Collapse {g}", libExpand: "Expand {g}", libViewLabel: "View", libViewList: "List", libViewGrid: "Grid", libSortLabel: "Sort by", libSortAZ: "Name: A-Z", libSortZA: "Name: Z-A", libSortAdded: "Date added", libSortModified: "Last modified", libModified: "modified {d}", libDelete: "Delete", libLocalNote: "Saved in this browser and, when you're signed in with Google, synced to your Drive. Clearing site data removes only the local copy.",
-    deckTitle: "Decks", deckCount: "{n} deck(s)", deckNew: "New deck", deckNamePh: "Deck name…", deckCreate: "Create deck", deckColor: "Deck color", deckEmpty: "No decks yet. Create a deck to keep Qbanks that belong together apart from the general library.", deckEmptyBody: "This deck is empty. Use Add Qbanks, or tick Qbanks in your library and choose Add to deck.", deckAddQbanks: "Add Qbanks", deckAddPickTitle: "Add Qbanks to {d}", deckAddNone: "There are no other Qbanks to add.", deckAddN: "Add {n} to deck", deckRemove: "Remove from deck", deckRename: "Rename deck", deckDelete: "Delete deck", deckDeleteQ: "Delete the deck “{d}”? Its {n} Qbank(s) go back to the general library. No Qbank is deleted.", deckDeleteGo: "Delete deck", deckExpand: "Expand {d}", deckCollapse: "Collapse {d}", deckSelectAll: "Select all in {d}", deckAddSel: "Add to deck", deckMoveTitle: "Add {n} selected to a deck", deckRemoveSel: "Take out of deck", deckCreateAdd: "Create and add", deckProgress: "{c} of {n} completed", deckAvg: "avg {pct}%", deckGeneral: "General library", deckAllInDecks: "All your Qbanks are in decks.", deckMovedFrom: "In {d}",
+    deckTitle: "Decks", deckCount: "{n} deck(s)", deckNew: "New deck", deckNamePh: "Deck name…", deckCreate: "Create deck", deckColor: "Deck color", deckEmpty: "No decks yet. Create a deck to keep Qbanks that belong together apart from the general library.", deckEmptyBody: "This deck is empty. Use Add Qbanks, or tick Qbanks in your library and choose Add to deck.", deckAddQbanks: "Add Qbanks", deckAddPickTitle: "Add Qbanks to {d}", deckAddNone: "There are no other Qbanks to add.", deckAddN: "Add {n} to deck", deckRemove: "Remove from deck", deckRename: "Rename deck", deckDelete: "Delete deck", deckDeleteQ: "Delete the deck “{d}”? Its {n} Qbank(s) go back to the general library. No Qbank is deleted.", deckDeleteGo: "Delete deck", deckExpand: "Expand {d}", deckCollapse: "Collapse {d}", deckSelectAll: "Select all in {d}", deckAddSel: "Add to deck", deckMoveTitle: "Add {n} selected to a deck", deckRemoveSel: "Take out of deck", deckCreateAdd: "Create and add", deckProgress: "{c} of {n} completed", deckAvg: "avg {pct}%", deckGeneral: "Qbank Pool", deckAllInDecks: "All your Qbanks are in decks.", deckMovedFrom: "In {d}",
     resetData: "Reset All Local Data", resetDataWarn: "This permanently deletes your Qbank library, saved exam progress, Trash and preferences from this browser and signs you out of Drive sync. Copies already synced to your Google Drive are not deleted; signing back in restores them. It can't be undone.", resetDataConfirm: "Yes, delete everything",
     resumed: "Session restored — you're back where you left off.", storageFull: "Couldn't write to browser storage (it may be full or disabled). Your progress is not being backed up right now.",
     leaveConfirm: "You have a block in progress. Leaving now discards it. Continue?",
     settings: "Settings", dark: "Dark mode", lang: "Language",
-    "tabProfile": "Study Profile", "menuProfile": "Profile", "tutorSrcTitle": "Tutor suggested sources", "tutorSrcHint": "This block draws on the references below. Have them open so you can study along as you answer.", "tutorSrcQ": "{n} question(s)", "tutorSrcCount": "{n} source(s)", "tutorSrcStart": "Continue", "tutorSrcBtn": "Sources", "syncShort": "Sync", "acctSave": "Save", "acctSaved": "Saved", "spTitle": "Study Profile", "spHint": "One standard file that tells Oworld where you are in your studies: your term and semester calendar, syllabus weeks, class schedule, exams and plan. Your tutor uses it on the Console, in the Library and in notifications.", "spSyncLocal": "Saved on this device. Sign in with Google (profile menu) to sync it through your Drive.", "spSyncDrive": "Syncs with your Google Drive", "spBuildTitle": "Build your profile with AI", "spBuildBody": "Copy the prompt, give it to your AI tool together with your syllabi, semester calendar, class timetable and exam schedule (PDF, screenshot or pasted text; send what you have), then paste the JSON it returns below.", "spUpdateTitle": "Update your profile", "spUpdateBody": "Give your AI tool the prompt again (with a new syllabus, schedule or semester calendar if you have one) to refresh your week, plan and strengths. Ids and ticked tasks are kept.", "spModeNew": "Start fresh", "spModeUpdate": "Update current profile", "spIncludeStats": "Include my study stats", "spIncludeStatsHint": "Adds a compact summary of your Analytics so the AI can write your strengths, gaps and pace from real results.", "spCopyPrompt": "Copy prompt", "spViewPrompt": "Preview prompt", "spHidePrompt": "Hide prompt", "spPasteLabel": "Paste the AI's JSON", "spPasteOpen": "Show box", "spPastePh": "Paste the profile JSON here…", "spLoad": "Load profile", "spUpload": "Upload .json", "spReplaceNote": "Loading replaces your current profile. Tasks you already ticked stay ticked.", "spLoaded": "Profile loaded. Your tutor is now on the Console.", "spErrParse": "That doesn't look like JSON. Paste only the AI's reply (or upload the file).", "spErrShape": "This JSON isn't a Study Profile. It needs at least a term, courses, assessments or a plan.", "spWarnTruncated": "The reply looked cut off, so only the complete part was loaded. Ask the AI to continue and update your profile.", "spWarnDates": "{n} assessment(s) had no usable date and were left out: {titles}.", "spWarnDropped": "{n} incomplete item(s) were left out.", "spWarnNoStart": "No term start date was found, so the current week can't be tracked automatically.", "spTermWeek": "Week {w} of {n}", "spTermWeekNoTotal": "Week {w}", "spTermBefore": "Starts in {n} days", "spTermBefore1": "Starts tomorrow", "spTermAfter": "Term ended", "spTermUnknown": "Week unknown", "spThisWeek": "This week", "spNoFocus": "No topics mapped for this week.", "spNext": "Next assessment", "spNoNext": "No upcoming assessments.", "spToday": "Today", "spTomorrow": "Tomorrow", "spInDays": "in {n} days", "spTodayNone": "Nothing due today.", "spWeekly": "{a} of {n} questions this week", "spAssessments": "Upcoming assessments", "spTasks": "Plan", "spNoTasks": "No tasks yet.", "spCourses": "Syllabus map", "spWeekN": "Wk {n}", "spSource": "Source", "spConf": "Confidence: {c}", "spConf.high": "high", "spConf.medium": "medium", "spConf.low": "low", "spAssump": "Assumptions the AI made", "spRisk": "Risk", "spRisk.low": "low", "spRisk.medium": "medium", "spRisk.high": "high", "spStrengths": "Strengths", "spGaps": "Gaps", "spExport": "Export JSON", "spDelete": "Delete profile", "spDeleteQ": "Delete your Study Profile? It is removed from this device and from Drive sync. Your Qbanks and Analytics are not touched.", "spDeleteGo": "Delete", "spSchemaView": "View JSON schema", "spSchemaHide": "Hide JSON schema", "spSchemaTitle": "Study Profile JSON schema", "spCardTitle": "Your tutor", "spCardOpen": "Open profile", "spCardInviteTitle": "Set up your Study Profile", "spCardInviteBody": "Give Oworld your syllabi, calendar, class timetable and exam schedule once and your tutor will keep track of your week, your classes, your exams and what to study next.", "spCardInviteBtn": "Set up profile", "spStartBlock": "Start a {s} block", "spLibStrip": "Tutor suggests for week {w}", "spLibStart": "{title} ({n} Q)", "sgBefore": "Your term starts {when}. Get your Qbanks ready.", "sgExam": "{title} is {when}.", "sgExamCover": "{title} is {when} and covers {coverage}.", "sgTasks": "{n} task(s) due today or overdue.", "sgPaceBehind": "You're behind this week's pace: {a} of {t} questions. A short block today closes the gap.", "sgPaceDone": "Weekly target reached ({a}/{t}). Nice work.", "sgPaceOn": "On pace: {a} of {t} questions this week.", "sgWeak": "{subject} is at {pct}% and it's on this week's list.", "sgNoFocus": "No topics are mapped for this week. Update your profile with the syllabus.", "sgStale": "Your profile is {n} days old. Update it so your tutor stays accurate.", "nf.examSoon.t": "Exam coming up", "nf.examSoon.b": "{title} is in {days} days.", "nf.examTomorrow.t": "Exam tomorrow", "nf.examTomorrow.b": "{title} is tomorrow. Do a light review and rest.", "nf.examToday.t": "Exam today", "nf.examToday.b": "{title} is today. Good luck!", "nf.weekStart.t": "Week {week} of {total}", "nf.weekStart.b": "This week: {topics}", "nf.termStart.t": "Term starts soon", "nf.termStart.b": "Your term starts in {days} day(s). Get your Qbanks ready.", "nf.paceBehind.t": "Behind this week's pace", "nf.paceBehind.b": "{a} of {t} questions so far. A short block today helps.", "nf.tasksDue.t": "Tasks due", "nf.tasksDue.b": "{n} task(s) due today or overdue. Open the Console.", "nf.profileStale.t": "Update your profile", "nf.profileStale.b": "Your Study Profile is {n} days old.", "nf.profileLoaded.t": "Study Profile ready", "nf.profileLoaded.b": "Your tutor now follows {term}.",
+    "tabProfile": "Study Profile", "menuProfile": "Profile", "tutorSrcTitle": "Tutor suggested sources", "tutorSrcHint": "This block draws on the references below. Have them open so you can study along as you answer.", "tutorSrcQ": "{n} question(s)", "tutorSrcCount": "{n} source(s)", "tutorSrcStart": "Continue", "tutorSrcBtn": "Sources", "srcAutoLabel": "Show tutor suggested sources at the start of every session", "srcAutoShort": "Show this at the start of every session", "syncShort": "Sync", "acctSave": "Save", "acctSaved": "Saved", "spTitle": "Study Profile", "spHint": "One standard file that tells Oworld where you are in your studies: your term and semester calendar, syllabus weeks, class schedule, exams and plan. Your tutor uses it on the Console, in the Library and in notifications.", "spSyncLocal": "Saved on this device. Sign in with Google (profile menu) to sync it through your Drive.", "spSyncDrive": "Syncs with your Google Drive", "spBuildTitle": "Build your profile with AI", "spBuildBody": "Copy the prompt, give it to your AI tool together with your syllabi, semester calendar, class timetable and exam schedule (PDF, screenshot or pasted text; send what you have), then paste the JSON it returns below.", "spUpdateTitle": "Update your profile", "spUpdateBody": "Give your AI tool the prompt again (with a new syllabus, schedule or semester calendar if you have one) to refresh your week, plan and strengths. Ids and ticked tasks are kept.", "spModeNew": "Start fresh", "spModeUpdate": "Update current profile", "spIncludeStats": "Include my study stats", "spIncludeStatsHint": "Adds a compact summary of your Analytics so the AI can write your strengths, gaps and pace from real results.", "spCopyPrompt": "Copy prompt", "spViewPrompt": "Preview prompt", "spHidePrompt": "Hide prompt", "spPasteLabel": "Paste the AI's JSON", "spPasteOpen": "Show box", "spPastePh": "Paste the profile JSON here…", "spLoad": "Load profile", "spUpload": "Upload .json", "spReplaceNote": "Loading replaces your current profile. Tasks you already ticked stay ticked.", "spLoaded": "Profile loaded. Your tutor is now on the Console.", "spErrParse": "That doesn't look like JSON. Paste only the AI's reply (or upload the file).", "spErrShape": "This JSON isn't a Study Profile. It needs at least a term, courses, assessments or a plan.", "spWarnTruncated": "The reply looked cut off, so only the complete part was loaded. Ask the AI to continue and update your profile.", "spWarnDates": "{n} assessment(s) had no usable date and were left out: {titles}.", "spWarnDropped": "{n} incomplete item(s) were left out.", "spWarnNoStart": "No term start date was found, so the current week can't be tracked automatically.", "spTermWeek": "Week {w} of {n}", "spTermWeekNoTotal": "Week {w}", "spTermBefore": "Starts in {n} days", "spTermBefore1": "Starts tomorrow", "spTermAfter": "Term ended", "spTermUnknown": "Week unknown", "spThisWeek": "This week", "spNoFocus": "No topics mapped for this week.", "spNext": "Next assessment", "spNoNext": "No upcoming assessments.", "spToday": "Today", "spTomorrow": "Tomorrow", "spInDays": "in {n} days", "spTodayNone": "Nothing due today.", "spWeekly": "{a} of {n} questions this week", "spAssessments": "Upcoming assessments", "spTasks": "Plan", "spNoTasks": "No tasks yet.", "spCourses": "Syllabus map", "spWeekN": "Wk {n}", "spSource": "Source", "spConf": "Confidence: {c}", "spConf.high": "high", "spConf.medium": "medium", "spConf.low": "low", "spAssump": "Assumptions the AI made", "spRisk": "Risk", "spRisk.low": "low", "spRisk.medium": "medium", "spRisk.high": "high", "spStrengths": "Strengths", "spGaps": "Gaps", "spExport": "Export JSON", "spDelete": "Delete profile", "spDeleteQ": "Delete your Study Profile? It is removed from this device and from Drive sync. Your Qbanks and Analytics are not touched.", "spDeleteGo": "Delete", "spSchemaView": "View JSON schema", "spSchemaHide": "Hide JSON schema", "spSchemaTitle": "Study Profile JSON schema", "spCardTitle": "Your tutor", "spCardOpen": "Open profile", "spCardInviteTitle": "Set up your Study Profile", "spCardInviteBody": "Give Oworld your syllabi, calendar, class timetable and exam schedule once and your tutor will keep track of your week, your classes, your exams and what to study next.", "spCardInviteBtn": "Set up profile", "spStartBlock": "Start a {s} block", "spLibStrip": "Tutor suggests for week {w}", "spLibStart": "{title} ({n} Q)", "sgBefore": "Your term starts {when}. Get your Qbanks ready.", "sgExam": "{title} is {when}.", "sgExamCover": "{title} is {when} and covers {coverage}.", "sgTasks": "{n} task(s) due today or overdue.", "sgPaceBehind": "You're behind this week's pace: {a} of {t} questions. A short block today closes the gap.", "sgPaceDone": "Weekly target reached ({a}/{t}). Nice work.", "sgPaceOn": "On pace: {a} of {t} questions this week.", "sgWeak": "{subject} is at {pct}% and it's on this week's list.", "sgNoFocus": "No topics are mapped for this week. Update your profile with the syllabus.", "sgStale": "Your profile is {n} days old. Update it so your tutor stays accurate.", "nf.examSoon.t": "Exam coming up", "nf.examSoon.b": "{title} is in {days} days.", "nf.examTomorrow.t": "Exam tomorrow", "nf.examTomorrow.b": "{title} is tomorrow. Do a light review and rest.", "nf.examToday.t": "Exam today", "nf.examToday.b": "{title} is today. Good luck!", "nf.weekStart.t": "Week {week} of {total}", "nf.weekStart.b": "This week: {topics}", "nf.termStart.t": "Term starts soon", "nf.termStart.b": "Your term starts in {days} day(s). Get your Qbanks ready.", "nf.paceBehind.t": "Behind this week's pace", "nf.paceBehind.b": "{a} of {t} questions so far. A short block today helps.", "nf.tasksDue.t": "Tasks due", "nf.tasksDue.b": "{n} task(s) due today or overdue. Open the Console.", "nf.profileStale.t": "Update your profile", "nf.profileStale.b": "Your Study Profile is {n} days old.", "nf.profileLoaded.t": "Study Profile ready", "nf.profileLoaded.b": "Your tutor now follows {term}.",
     "spPromptTitle": "Study Profile — AI prompt",
     "sgEve": "{title} is tomorrow. Keep it light: review your weakest topic, then rest.", "sgDeadline": "Deadline: {title} is {when}.", "sgBreakNow": "{title}: no classes today. Classes resume {when}. A good time to close gaps.", "sgBreakSoon": "{title} starts {when}. Fit a heavier study block in before it.", "sgStreak": "No practice yet today. A short block keeps your {n}-day streak alive.", "sgUntested": "{n} of {total} topics for {title} have no practice data yet.",
     "nf.breakSoon.t": "Break starts tomorrow", "nf.breakSoon.b": "{title} starts tomorrow. Plan your study before it.", "nf.deadlineSoon.t": "Deadline coming up", "nf.deadlineSoon.b": "{title} is due in {days} day(s).", "nf.deadlineToday.t": "Deadline today", "nf.deadlineToday.b": "{title} is due today.",
@@ -379,11 +379,11 @@ const STR = {
     notesItem: "Notes — Item {n}", delNote: "Delete note", saveClose: "Save and close", highlight: "Highlight",
     paused: "Exam paused — timer is stopped.", endQ: "End this block?",
     endConfirm: "You've answered {a} of {n} questions. Once you end the block you can't change your answers, but you can review explanations right away.",
-    keepWorking: "Keep working", endBlockBtn: "End block", timesUp: "Time's up",
+    keepWorking: "Keep working", endBlockBtn: "End block", abortBtn: "Abort", abortQ: "Abort this block?", abortConfirmBody: "This closes the block without scoring it. Nothing is logged to Analytics and your answers in it are discarded. This can't be undone. Ratings you already gave are kept.", abortGo: "Abort block", abortHint: "Abort closes the block without scoring it: nothing is logged to Analytics and your answers in it are discarded. Ratings you already gave are kept.", blockAborted: "Block aborted. Nothing was logged to Analytics.", timesUp: "Time's up",
     timesUpBody: "The allotted time for this block has lapsed. You answered {a} of {n} questions. The block will now be submitted automatically and you can review your results.",
     viewResults: "View results",
     siIntervals: "SI Reference Intervals", siHdr: "SI Reference Interval", refRange: "Reference Range",
-    search: "Search…", noMatches: "No matches in {tab}.", searchTitle: "Search", searchPh: "Search Qbanks, questions, notes and sessions…", searchHint: "Type at least 2 letters. Searches your Library, Calendar (events, dates, times, classes, exams, tasks), Database (questions, excerpts, notes, comments) and Analytics. Try “Oct 20”, “Tuesday” or “9:00”.", searchGrpCal: "Schedule", searchGoDate: "Go to {d}", searchNone: "No results for “{q}”.", searchGrpLib: "Library", searchGrpDb: "Database", searchGrpHist: "Analytics", searchQsMatch: "{n} matching question(s)", searchClose: "Close search",
+    search: "Search…", noMatches: "No matches in {tab}.", searchTitle: "Search", searchPh: "Search Qbanks, questions, notes and sessions…", searchHint: "Type at least 2 letters. Searches your Library, Calendar (events, dates, times, classes, exams, tasks), Database (questions, excerpts, notes, comments) and Analytics. Try “Oct 20”, “Tuesday” or “9:00”.", searchGrpCal: "Schedule", searchGoDate: "Go to {d}", searchNone: "No results for “{q}”.", searchGrpLib: "Library", searchGrpDb: "Database", searchGrpHist: "Analytics", searchQsMatch: "{n} matching question(s)", searchClose: "Close search", searchClear: "Clear search", searchScopeLabel: "Search in", searchScopeThis: "This page", searchScopeAll: "Everywhere", searchScopeLib: "Qbanks", searchScopeCal: "Calendar", searchScopeDb: "Database", searchScopeHist: "Sessions", searchInPage: "Filtering this page as you type. Pick another scope to search elsewhere.", searchInPageEmpty: "Type to filter this page, or pick another scope to search elsewhere.", searchMore: "Type at least 2 letters to search.", searchPhHist: "Search sessions…", searchPhAll: "Search Everywhere",
     "tab.Serum": "Serum", "tab.Cerebrospinal": "Cerebrospinal", "tab.Blood": "Blood", "tab.Urine and BMI": "Urine and BMI",
     back: "Back to blocks", results: "{name} — results",
     scoreLine: "{c} correct out of {t} · {u} unanswered",
@@ -445,19 +445,19 @@ const STR = {
     "nf.syncLinked.t": "Google Drive conectado", "nf.syncLinked.b": "Tu biblioteca y tus Analíticas ahora se sincronizan entre tus dispositivos.",
     saveToLibrary: "Guardar en la biblioteca", libSaved: "Se guardaron {n} bloque(s) nuevo(s) en tu biblioteca.", libDup: "{d} ya estaba(n) en tu biblioteca.", libNothing: "Ya está en tu biblioteca; no hay nada nuevo que guardar.",
     libTitle: "Biblioteca Oworld", libCount: "{n} guardados", libEmpty: "Aún no hay nada guardado. Pega o sube un banco de preguntas y elige \u201cGuardar en la biblioteca\u201d para conservarlo en este dispositivo. Inicia sesión con Google para sincronizarlo también con tu Drive.",
-    libMeta: "{q} preguntas · importado {d}", libLastScore: "Último puntaje {pct}% ({c}/{t})", libNoScore: "Sin intentos aún", libCompleted: "Completado · {pct}% ({c}/{t})", tabLibrary: "Qbank", tabHistory: "Análisis", tabImport: "Importar", importPageTitle: "Importar Qbank", histTitle: "Analíticas", histEmpty: "Aún no hay sesiones terminadas. Cada bloque que completes queda registrado aquí, incluidas las sesiones personalizadas y mezcladas.", histNote: "Cada sesión terminada se guarda como un registro independiente. Las sesiones personalizadas y mezcladas nunca cambian tus tarjetas de Qbank; una tarjeta se marca como Completada solo cuando haces ese Qbank completo por sí solo. Las 25 sesiones más recientes también conservan su revisión completa pregunta por pregunta; las anteriores conservan un resumen.", histKindBank: "Qbank", histKindCustom: "Personalizada", histKindRetest: "Repetición", histQ: "{n} preguntas", histAnswered: "{a}/{n} respondidas", histSources: "De: {s}", histBySubject: "Por materia", histDelete: "Eliminar este registro", histClear: "Borrar historial", histClearQ: "¿Eliminar las {n} sesiones registradas? Pasan a la papelera durante 30 días. Tus tarjetas de Qbank no se ven afectadas.", histClearGo: "Eliminar todo", histToggle: "Ver detalles", histSelectAll: "Seleccionar todo", histDeselect: "Deseleccionar todo", histDeleteSelQ: "¿Eliminar {n} sesión(es) seleccionada(s)? Pasan a la papelera durante 30 días. Tus tarjetas de Qbank no se ven afectadas.", histReview: "Revisar examen", histNoReview: "Revisión no disponible", histNoReviewFlash: "La revisión completa de esta sesión ya no está guardada.", histMixed: "Mezcla: {n} bloques · {q} preguntas", histNamed: "{name} · {q} preguntas", histDone: "Completado {d}", anOverall: "En total respondiste {n} preguntas:", anCorrect: "correctas", anHints: "correctas con pistas", anIncorrect: "incorrectas", anCenter: "Correctas + con pistas", anQ: "({n} preguntas)", anQ1: "(1 pregunta)", tabConsole: "Consola", csGoodMorning: "Buenos días", csGoodAfternoon: "Buenas tardes", csGoodEvening: "Buenas noches", csStreakLine: "Racha de estudio de {n} días", csReadyLine: "Listo cuando tú lo estés.", csNoSession: "Ninguna sesión en curso", csNoSessionHint: "Inicia un Qbank de tu biblioteca o importa uno nuevo.", csOpenLibrary: "Abrir biblioteca", csImportNew: "Importar un Qbank", csViewAll: "Ver todo", csStatSessions: "Sesiones", csStatWeek: "{n} esta semana", csStatAnswered: "Preguntas respondidas", csStatAccuracy: "Precisión", csStatStreak: "Racha de días", csStatDays: "{n} días", csStatDay1: "1 día", csHighlights: "Resumen de analíticas", csTrend: "Puntajes recientes", csTrendHint: "Últimas {n} sesiones · línea punteada = 70%", csTrendNeed: "Termina 2 sesiones para ver tu tendencia.", csStrong: "Materias más fuertes", csWeak: "Por mejorar", csSubjNeed: "Responde al menos 5 preguntas de una materia para clasificarla.", csRecent: "Sesiones recientes", csYourLibrary: "Tu biblioteca", csLibSub: "{n} Qbanks guardados", csLibEmpty: "Tu biblioteca está vacía. Importa un Qbank para comenzar.", csFirstTitle: "Empecemos tu primera sesión", csFirstBody: "Importa un Qbank (el JSON que escribe tu herramienta de IA), guárdalo en tu biblioteca y ejecútalo como bloque cronometrado o con tutor. Tus estadísticas aparecerán aquí.", csProgress: "{a} de {n} respondidas",
-    libStart: "Iniciar", rateTitle: "¿Qué tan bien lo sabías?", "rate.again": "Otra vez", "rate.hard": "Difícil", "rate.good": "Bien", "rate.easy": "Fácil", srsDays: "{n} d", srsMonths: "{n} m", srsYears: "{n} a", srsNext: "Próximo repaso: {d}", srsNextTitle: "Repasar de nuevo en {n}", srdTitle: "Mazo de repaso inteligente", srdBlockName: "Repaso inteligente", srdBadgeDue: "{n} pendientes", srdCaughtUp: "Al día", srdNone: "Nada programado aún", srdOverdue: "{n} atrasadas", srdToday: "{n} para hoy", srdNextBlock: "próximo bloque: {n}", srdNextDue: "Próximo repaso {d}", srdEmptyHint: "Califica preguntas en modo tutor (Otra vez, Difícil, Bien, Fácil) y volverán aquí cuando toque repasarlas.", srdStart: "Iniciar repaso", srdHint: "Crea un bloque de tutor con todas las preguntas de tus Qbanks cuya fecha de repaso es hoy o anterior, empezando por las más atrasadas.", srsHint: "Repetición espaciada (SM-2): el número bajo cada botón indica cuándo vuelve esta pregunta.",
+    libMeta: "{q} preguntas · importado {d}", libLastScore: "Último puntaje {pct}% ({c}/{t})", libNoScore: "Sin intentos aún", libCompleted: "Completado · Mejor {pct}% ({c}/{t})", tabLibrary: "Qbank", tabHistory: "Análisis", tabImport: "Importar", importPageTitle: "Importar Qbank", histTitle: "Analíticas", histEmpty: "Aún no hay sesiones terminadas. Cada bloque que completes queda registrado aquí, incluidas las sesiones personalizadas y mezcladas.", histNote: "Cada sesión terminada se guarda como un registro independiente. Las sesiones personalizadas y mezcladas nunca cambian tus tarjetas de Qbank; una tarjeta se marca como Completada solo cuando haces ese Qbank completo por sí solo. Las 25 sesiones más recientes también conservan su revisión completa pregunta por pregunta; las anteriores conservan un resumen.", histKindBank: "Qbank", histKindCustom: "Personalizada", histKindRetest: "Repetición", histQ: "{n} preguntas", histAnswered: "{a}/{n} respondidas", histSources: "De: {s}", histBySubject: "Por materia", histDelete: "Eliminar este registro", histClear: "Borrar historial", histClearQ: "¿Eliminar las {n} sesiones registradas? Pasan a la papelera durante 30 días. Tus tarjetas de Qbank no se ven afectadas.", histClearGo: "Eliminar todo", histToggle: "Ver detalles", histSelectAll: "Seleccionar todo", histDeselect: "Deseleccionar todo", histDeleteSelQ: "¿Eliminar {n} sesión(es) seleccionada(s)? Pasan a la papelera durante 30 días. Tus tarjetas de Qbank no se ven afectadas.", histReview: "Revisar examen", histNoReview: "Revisión no disponible", histNoReviewFlash: "La revisión completa de esta sesión ya no está guardada.", histMixed: "Mezcla: {n} bloques · {q} preguntas", histNamed: "{name} · {q} preguntas", histDone: "Completado {d}", anOverall: "En total respondiste {n} preguntas:", anCorrect: "correctas", anHints: "correctas con pistas", anIncorrect: "incorrectas", anCenter: "Correctas + con pistas", anQ: "({n} preguntas)", anQ1: "(1 pregunta)", tabConsole: "Consola", csGoodMorning: "Buenos días", csGoodAfternoon: "Buenas tardes", csGoodEvening: "Buenas noches", csStreakLine: "Racha de estudio de {n} días", csReadyLine: "Listo cuando tú lo estés.", csNoSession: "Ninguna sesión en curso", csNoSessionHint: "Inicia un Qbank de tu biblioteca o importa uno nuevo.", csOpenLibrary: "Abrir biblioteca", csImportNew: "Importar un Qbank", csViewAll: "Ver todo", csStatSessions: "Sesiones", csStatWeek: "{n} esta semana", csStatAnswered: "Preguntas respondidas", csStatAccuracy: "Precisión", csStatStreak: "Racha de días", csStatDays: "{n} días", csStatDay1: "1 día", csHighlights: "Resumen de analíticas", csTrend: "Puntajes recientes", csTrendHint: "Últimas {n} sesiones · línea punteada = 70%", csTrendNeed: "Termina 2 sesiones para ver tu tendencia.", csStrong: "Materias más fuertes", csWeak: "Por mejorar", csSubjNeed: "Responde al menos 5 preguntas de una materia para clasificarla.", csRecent: "Sesiones recientes", csYourLibrary: "Tu biblioteca", csLibSub: "{n} Qbanks guardados", csLibEmpty: "Tu biblioteca está vacía. Importa un Qbank para comenzar.", csFirstTitle: "Empecemos tu primera sesión", csFirstBody: "Importa un Qbank (el JSON que escribe tu herramienta de IA), guárdalo en tu biblioteca y ejecútalo como bloque cronometrado o con tutor. Tus estadísticas aparecerán aquí.", csProgress: "{a} de {n} respondidas",
+    libStart: "Iniciar", libSearchPh: "Buscar Qbanks, etiquetas, materias…", libSearchLabel: "Buscar Qbanks", libSearchClear: "Borrar búsqueda", libFilterAll: "Todos", libFilterNew: "Sin iniciar", libFilterProgress: "En curso", libFilterDone: "Completados", libFilterWeak: "Menos de 70%", libFilterDue: "Por repasar", libShowing: "Mostrando {n} de {total}", libNoMatch: "Ningún Qbank coincide con tu búsqueda o filtro.", libClearFilters: "Quitar filtros", libSortStudied: "Estudiados recientemente", libSortBest: "Mejor puntaje: de mayor a menor", libSortWeak: "Mejor puntaje: de menor a mayor", libSortSize: "Más preguntas", libStartAs: "Iniciar como", libStartTitle: "{mode}: {name}", libStudied: "Estudiado {n}× · último {d}", libStudiedOnly: "Último estudio {d}", libDue: "{n} por repasar", libSumQ: "{q} preguntas", libSumDone: "{c} completados", libSumAvg: "mejor prom. {pct}%", libSumDue: "{n} por repasar", rateTitle: "¿Qué tan bien lo sabías?", "rate.again": "Otra vez", "rate.hard": "Difícil", "rate.good": "Bien", "rate.easy": "Fácil", srsDays: "{n} d", srsMonths: "{n} m", srsYears: "{n} a", srsNext: "Próximo repaso: {d}", srsNextTitle: "Repasar de nuevo en {n}", srdTitle: "Mazo de repaso inteligente", srdBlockName: "Repaso inteligente", srdBadgeDue: "{n} pendientes", srdCaughtUp: "Al día", srdNone: "Nada programado aún", srdOverdue: "{n} atrasadas", srdToday: "{n} para hoy", srdNextBlock: "próximo bloque: {n}", srdNextDue: "Próximo repaso {d}", srdEmptyHint: "Califica preguntas en modo tutor (Otra vez, Difícil, Bien, Fácil) y volverán aquí cuando toque repasarlas.", srdStart: "Iniciar repaso", srdHint: "Crea un bloque de tutor con todas las preguntas de tus Qbanks cuya fecha de repaso es hoy o anterior, empezando por las más atrasadas.", srsHint: "Repetición espaciada (SM-2): el número bajo cada botón indica cuándo vuelve esta pregunta.",
     poolAgain: "Calificadas Otra vez", poolHard: "Calificadas Difícil", poolAgainHard: "Otra vez + Difícil",
     "rt.again": "Calificadas Otra vez", "rt.hard": "Calificadas Difícil", "rt.againhard": "Calificadas Otra vez/Difícil",
     sufAgain: "Repaso Otra vez", sufHard: "Repaso Difícil", sufAgainHard: "Repaso Otra vez/Difícil",
     textSize: "Tamaño del texto", textSmaller: "Texto más pequeño", textLarger: "Texto más grande", textReset: "Restablecer", libMixMax: "Máx ({n})", libMixCustom: "Personalizado", libMixCustomHint: "1–{n}", libCountTitle: "Elegir cantidad de preguntas", libCountHint: "Toma un conjunto aleatorio y equilibrado por materia de este banco. El puntaje de este bloque nunca cambia el último puntaje del banco.", libLoad: "Cargar {n} preguntas", libLoadOne: "Cargar 1 pregunta", libShareSel: "Compartir / Exportar selección", libExporting: "Exportando tu selección ({n}) en un solo archivo…", libExportShared: "Compartiste tu selección ({n}) en un solo archivo.", libExportDownloaded: "Descargaste tu selección ({n}) en un solo archivo.", libExportFailed: "Error al exportar. Inténtalo de nuevo.", bundleFound: "Paquete detectado: {n} bloques ({names}). Pulsa Importar para elegir cuáles añadir a tu biblioteca.", libEditSel: "Editar selección", libDeleteSel: "Eliminar selección", libEditing: "{i} de {n}", libSelectHint: "Marca bloques para cargarlos, compartirlos, renombrarlos o eliminarlos. Marca dos o más para mezclarlos en un solo bloque personalizado.", libDeleteSelQ: "¿Eliminar {n} Qbank(s) seleccionado(s)? Pasan a la papelera, donde puedes restaurarlos durante 30 días.", libMixTitle: "Mezclar bancos seleccionados", libMixHint: "Une los bancos marcados en un solo bloque mezclado, con sistemas y disciplinas repartidos de forma pareja.", libMixPool: "{q} preguntas · {s} materias", libMixDupes: "{d} duplicada(s) eliminada(s)", libMixSize: "Preguntas", libMixAll: "Todas ({n})", libMix: "Mezclar {n} preguntas", libMixOne: "Mezclar 1 pregunta", mixedName: "Qbank mezclado ({n} bancos)",
     libDeleteQ: "¿Eliminar este bloque?", libGroupLabel: "Agrupar por", libGroupNone: "Ninguno", libGroupManual: "Manual", libGroupTags: "Etiquetas", libGroupWeek: "Semana", libGroupSubject: "Materia", libGroupSystem: "Sistema", libGroupDiscipline: "Disciplina", libUngrouped: "Sin grupo", libUntagged: "Sin etiquetas", libUnclassified: "Sin clasificar", libBeforeTerm: "Antes del periodo", libWeekN: "Semana {n}", libWeekOf: "Semana del {d}", libGroupCount: "{n} Qbank(s)", libGroupSelect: "Seleccionar todo en {g}", libOrganize: "Agrupar y etiquetar", libOrgTitle: "Agrupar y etiquetar {n} seleccionado(s)", libOrgGroup: "Grupo", libOrgGroupPh: "Nombre del grupo…", libOrgMove: "Mover", libOrgUngroup: "Quitar del grupo", libOrgTags: "Etiquetas", libOrgTagPh: "Añadir etiqueta…", libOrgAdd: "Añadir", libOrgRemoveTag: "Quitar la etiqueta {g} de la selección", libOrgNoTags: "La selección aún no tiene etiquetas.", libHintManual: "Selecciona Qbanks y usa Agrupar y etiquetar para moverlos a un grupo con el nombre que quieras.", libHintTags: "Selecciona Qbanks y usa Agrupar y etiquetar para añadir etiquetas. Un Qbank con varias etiquetas aparece bajo cada una.", libHintWeek: "Agrupado por la semana en que se añadió cada Qbank. Carga un Perfil de estudio para contar las semanas desde el inicio de tu periodo; sin él, las semanas van de lunes a domingo.", libHintClass: "Agrupado por {k} más frecuente entre las preguntas de cada Qbank.", libClassSubject: "la materia", libClassSystem: "el sistema", libClassDiscipline: "la disciplina", libCollapse: "Contraer {g}", libExpand: "Expandir {g}", libViewLabel: "Vista", libViewList: "Lista", libViewGrid: "Cuadrícula", libSortLabel: "Ordenar por", libSortAZ: "Nombre: A-Z", libSortZA: "Nombre: Z-A", libSortAdded: "Fecha de importación", libSortModified: "Última modificación", libModified: "modificado {d}", libDelete: "Eliminar", libLocalNote: "Se guarda en este navegador y, si inicias sesión con Google, se sincroniza con tu Drive. Borrar los datos del sitio elimina solo la copia local.",
-    deckTitle: "Mazos", deckCount: "{n} mazo(s)", deckNew: "Nuevo mazo", deckNamePh: "Nombre del mazo…", deckCreate: "Crear mazo", deckColor: "Color del mazo", deckEmpty: "Aún no hay mazos. Crea uno para mantener juntos los Qbanks que van unidos, separados de la biblioteca general.", deckEmptyBody: "Este mazo está vacío. Usa Añadir Qbanks, o marca Qbanks en tu biblioteca y elige Añadir a mazo.", deckAddQbanks: "Añadir Qbanks", deckAddPickTitle: "Añadir Qbanks a {d}", deckAddNone: "No hay otros Qbanks para añadir.", deckAddN: "Añadir {n} al mazo", deckRemove: "Quitar del mazo", deckRename: "Renombrar mazo", deckDelete: "Eliminar mazo", deckDeleteQ: "¿Eliminar el mazo «{d}»? Sus {n} Qbank(s) vuelven a la biblioteca general. No se elimina ningún Qbank.", deckDeleteGo: "Eliminar mazo", deckExpand: "Expandir {d}", deckCollapse: "Contraer {d}", deckSelectAll: "Seleccionar todo en {d}", deckAddSel: "Añadir a mazo", deckMoveTitle: "Añadir {n} seleccionado(s) a un mazo", deckRemoveSel: "Sacar del mazo", deckCreateAdd: "Crear y añadir", deckProgress: "{c} de {n} completados", deckAvg: "prom. {pct}%", deckGeneral: "Biblioteca general", deckAllInDecks: "Todos tus Qbanks están en mazos.", deckMovedFrom: "En {d}",
+    deckTitle: "Mazos", deckCount: "{n} mazo(s)", deckNew: "Nuevo mazo", deckNamePh: "Nombre del mazo…", deckCreate: "Crear mazo", deckColor: "Color del mazo", deckEmpty: "Aún no hay mazos. Crea uno para mantener juntos los Qbanks que van unidos, separados de la biblioteca general.", deckEmptyBody: "Este mazo está vacío. Usa Añadir Qbanks, o marca Qbanks en tu biblioteca y elige Añadir a mazo.", deckAddQbanks: "Añadir Qbanks", deckAddPickTitle: "Añadir Qbanks a {d}", deckAddNone: "No hay otros Qbanks para añadir.", deckAddN: "Añadir {n} al mazo", deckRemove: "Quitar del mazo", deckRename: "Renombrar mazo", deckDelete: "Eliminar mazo", deckDeleteQ: "¿Eliminar el mazo «{d}»? Sus {n} Qbank(s) vuelven a la biblioteca general. No se elimina ningún Qbank.", deckDeleteGo: "Eliminar mazo", deckExpand: "Expandir {d}", deckCollapse: "Contraer {d}", deckSelectAll: "Seleccionar todo en {d}", deckAddSel: "Añadir a mazo", deckMoveTitle: "Añadir {n} seleccionado(s) a un mazo", deckRemoveSel: "Sacar del mazo", deckCreateAdd: "Crear y añadir", deckProgress: "{c} de {n} completados", deckAvg: "prom. {pct}%", deckGeneral: "Qbank Pool", deckAllInDecks: "Todos tus Qbanks están en mazos.", deckMovedFrom: "En {d}",
     resetData: "Restablecer todos los datos locales", resetDataWarn: "Esto elimina de forma permanente tu biblioteca, el progreso guardado, la papelera y tus preferencias en este navegador y cierra la sincronización con Drive. Las copias ya sincronizadas en tu Google Drive no se eliminan; al volver a iniciar sesión se restauran. No se puede deshacer.", resetDataConfirm: "Sí, eliminar todo",
     resumed: "Sesión restaurada: continúas donde la dejaste.", storageFull: "No se pudo escribir en el almacenamiento del navegador (puede estar lleno o desactivado). Tu progreso no se está respaldando.",
     leaveConfirm: "Tienes un bloque en curso. Si sales ahora se descartará. ¿Continuar?",
     settings: "Ajustes", dark: "Modo oscuro", lang: "Idioma",
-    "tabProfile": "Perfil de estudio", "menuProfile": "Perfil", "tutorSrcTitle": "Fuentes sugeridas por el tutor", "tutorSrcHint": "Este bloque se apoya en las referencias de abajo. Tenlas abiertas para estudiar mientras respondes.", "tutorSrcQ": "{n} pregunta(s)", "tutorSrcCount": "{n} fuente(s)", "tutorSrcStart": "Continuar", "tutorSrcBtn": "Fuentes", "syncShort": "Sincronizar", "acctSave": "Guardar", "acctSaved": "Guardado", "spTitle": "Perfil de estudio", "spHint": "Un archivo estándar que le dice a Oworld en qué punto de tus estudios estás: tu periodo y el calendario del semestre, las semanas del programa, el horario de clases, los exámenes y tu plan. Tu tutor lo usa en la Consola, en la Biblioteca y en las notificaciones.", "spSyncLocal": "Guardado en este dispositivo. Inicia sesión con Google (menú de perfil) para sincronizarlo con tu Drive.", "spSyncDrive": "Se sincroniza con tu Google Drive", "spBuildTitle": "Crea tu perfil con IA", "spBuildBody": "Copia el prompt, dáselo a tu herramienta de IA junto con tus programas, el calendario del semestre, tu horario de clases y el calendario de exámenes (PDF, captura o texto pegado; envía lo que tengas) y pega abajo el JSON que te devuelva.", "spUpdateTitle": "Actualiza tu perfil", "spUpdateBody": "Vuelve a darle el prompt a tu herramienta de IA (con un programa, horario o calendario del semestre nuevo si lo tienes) para refrescar tu semana, tu plan y tus fortalezas. Se conservan los ids y las tareas marcadas.", "spModeNew": "Empezar de cero", "spModeUpdate": "Actualizar perfil actual", "spIncludeStats": "Incluir mis estadísticas de estudio", "spIncludeStatsHint": "Añade un resumen compacto de tus Analíticas para que la IA escriba tus fortalezas, puntos débiles y ritmo con resultados reales.", "spCopyPrompt": "Copiar prompt", "spViewPrompt": "Ver prompt", "spHidePrompt": "Ocultar prompt", "spPasteLabel": "Pega el JSON de la IA", "spPasteOpen": "Mostrar cuadro", "spPastePh": "Pega aquí el JSON del perfil…", "spLoad": "Cargar perfil", "spUpload": "Subir .json", "spReplaceNote": "Cargar reemplaza tu perfil actual. Las tareas que ya marcaste siguen marcadas.", "spLoaded": "Perfil cargado. Tu tutor ya está en la Consola.", "spErrParse": "Eso no parece JSON. Pega solo la respuesta de la IA (o sube el archivo).", "spErrShape": "Este JSON no es un Perfil de estudio. Necesita al menos un periodo, cursos, evaluaciones o un plan.", "spWarnTruncated": "La respuesta parecía cortada, así que solo se cargó la parte completa. Pide a la IA que continúe y actualiza tu perfil.", "spWarnDates": "{n} evaluación(es) no tenían una fecha válida y se omitieron: {titles}.", "spWarnDropped": "Se omitieron {n} elemento(s) incompleto(s).", "spWarnNoStart": "No se encontró la fecha de inicio del periodo, así que la semana actual no se puede seguir automáticamente.", "spTermWeek": "Semana {w} de {n}", "spTermWeekNoTotal": "Semana {w}", "spTermBefore": "Empieza en {n} días", "spTermBefore1": "Empieza mañana", "spTermAfter": "Periodo terminado", "spTermUnknown": "Semana desconocida", "spThisWeek": "Esta semana", "spNoFocus": "No hay temas asignados a esta semana.", "spNext": "Próxima evaluación", "spNoNext": "No hay evaluaciones próximas.", "spToday": "Hoy", "spTomorrow": "Mañana", "spInDays": "en {n} días", "spTodayNone": "Nada para hoy.", "spWeekly": "{a} de {n} preguntas esta semana", "spAssessments": "Próximas evaluaciones", "spTasks": "Plan", "spNoTasks": "Aún no hay tareas.", "spCourses": "Mapa del programa", "spWeekN": "Sem {n}", "spSource": "Fuente", "spConf": "Confianza: {c}", "spConf.high": "alta", "spConf.medium": "media", "spConf.low": "baja", "spAssump": "Suposiciones de la IA", "spRisk": "Riesgo", "spRisk.low": "bajo", "spRisk.medium": "medio", "spRisk.high": "alto", "spStrengths": "Fortalezas", "spGaps": "Puntos débiles", "spExport": "Exportar JSON", "spDelete": "Eliminar perfil", "spDeleteQ": "¿Eliminar tu Perfil de estudio? Se borra de este dispositivo y de la sincronización con Drive. Tus Qbanks y Analíticas no se tocan.", "spDeleteGo": "Eliminar", "spSchemaView": "Ver esquema JSON", "spSchemaHide": "Ocultar esquema JSON", "spSchemaTitle": "Esquema JSON del Perfil de estudio", "spCardTitle": "Tu tutor", "spCardOpen": "Abrir perfil", "spCardInviteTitle": "Configura tu Perfil de estudio", "spCardInviteBody": "Dale a Oworld tus programas, el calendario, tu horario de clases y el calendario de exámenes una sola vez y tu tutor llevará el control de tu semana, tus clases, tus exámenes y qué estudiar después.", "spCardInviteBtn": "Configurar perfil", "spStartBlock": "Iniciar un bloque de {s}", "spLibStrip": "El tutor sugiere para la semana {w}", "spLibStart": "{title} ({n} P)", "sgBefore": "Tu periodo empieza {when}. Prepara tus Qbanks.", "sgExam": "{title} es {when}.", "sgExamCover": "{title} es {when} e incluye {coverage}.", "sgTasks": "{n} tarea(s) para hoy o atrasada(s).", "sgPaceBehind": "Vas por debajo del ritmo de esta semana: {a} de {t} preguntas. Un bloque corto hoy cierra la brecha.", "sgPaceDone": "Meta semanal alcanzada ({a}/{t}). Buen trabajo.", "sgPaceOn": "Buen ritmo: {a} de {t} preguntas esta semana.", "sgWeak": "{subject} está en {pct}% y está en la lista de esta semana.", "sgNoFocus": "No hay temas asignados a esta semana. Actualiza tu perfil con el programa.", "sgStale": "Tu perfil tiene {n} días. Actualízalo para que tu tutor siga siendo preciso.", "nf.examSoon.t": "Se acerca un examen", "nf.examSoon.b": "{title} es en {days} días.", "nf.examTomorrow.t": "Examen mañana", "nf.examTomorrow.b": "{title} es mañana. Haz un repaso ligero y descansa.", "nf.examToday.t": "Examen hoy", "nf.examToday.b": "{title} es hoy. ¡Mucha suerte!", "nf.weekStart.t": "Semana {week} de {total}", "nf.weekStart.b": "Esta semana: {topics}", "nf.termStart.t": "El periodo empieza pronto", "nf.termStart.b": "Tu periodo empieza en {days} día(s). Prepara tus Qbanks.", "nf.paceBehind.t": "Por debajo del ritmo semanal", "nf.paceBehind.b": "{a} de {t} preguntas hasta ahora. Un bloque corto hoy ayuda.", "nf.tasksDue.t": "Tareas pendientes", "nf.tasksDue.b": "{n} tarea(s) para hoy o atrasada(s). Abre la Consola.", "nf.profileStale.t": "Actualiza tu perfil", "nf.profileStale.b": "Tu Perfil de estudio tiene {n} días.", "nf.profileLoaded.t": "Perfil de estudio listo", "nf.profileLoaded.b": "Tu tutor ahora sigue {term}.",
+    "tabProfile": "Perfil de estudio", "menuProfile": "Perfil", "tutorSrcTitle": "Fuentes sugeridas por el tutor", "tutorSrcHint": "Este bloque se apoya en las referencias de abajo. Tenlas abiertas para estudiar mientras respondes.", "tutorSrcQ": "{n} pregunta(s)", "tutorSrcCount": "{n} fuente(s)", "tutorSrcStart": "Continuar", "tutorSrcBtn": "Fuentes", "srcAutoLabel": "Mostrar las fuentes sugeridas por el tutor al inicio de cada sesión", "srcAutoShort": "Mostrar esto al inicio de cada sesión", "syncShort": "Sincronizar", "acctSave": "Guardar", "acctSaved": "Guardado", "spTitle": "Perfil de estudio", "spHint": "Un archivo estándar que le dice a Oworld en qué punto de tus estudios estás: tu periodo y el calendario del semestre, las semanas del programa, el horario de clases, los exámenes y tu plan. Tu tutor lo usa en la Consola, en la Biblioteca y en las notificaciones.", "spSyncLocal": "Guardado en este dispositivo. Inicia sesión con Google (menú de perfil) para sincronizarlo con tu Drive.", "spSyncDrive": "Se sincroniza con tu Google Drive", "spBuildTitle": "Crea tu perfil con IA", "spBuildBody": "Copia el prompt, dáselo a tu herramienta de IA junto con tus programas, el calendario del semestre, tu horario de clases y el calendario de exámenes (PDF, captura o texto pegado; envía lo que tengas) y pega abajo el JSON que te devuelva.", "spUpdateTitle": "Actualiza tu perfil", "spUpdateBody": "Vuelve a darle el prompt a tu herramienta de IA (con un programa, horario o calendario del semestre nuevo si lo tienes) para refrescar tu semana, tu plan y tus fortalezas. Se conservan los ids y las tareas marcadas.", "spModeNew": "Empezar de cero", "spModeUpdate": "Actualizar perfil actual", "spIncludeStats": "Incluir mis estadísticas de estudio", "spIncludeStatsHint": "Añade un resumen compacto de tus Analíticas para que la IA escriba tus fortalezas, puntos débiles y ritmo con resultados reales.", "spCopyPrompt": "Copiar prompt", "spViewPrompt": "Ver prompt", "spHidePrompt": "Ocultar prompt", "spPasteLabel": "Pega el JSON de la IA", "spPasteOpen": "Mostrar cuadro", "spPastePh": "Pega aquí el JSON del perfil…", "spLoad": "Cargar perfil", "spUpload": "Subir .json", "spReplaceNote": "Cargar reemplaza tu perfil actual. Las tareas que ya marcaste siguen marcadas.", "spLoaded": "Perfil cargado. Tu tutor ya está en la Consola.", "spErrParse": "Eso no parece JSON. Pega solo la respuesta de la IA (o sube el archivo).", "spErrShape": "Este JSON no es un Perfil de estudio. Necesita al menos un periodo, cursos, evaluaciones o un plan.", "spWarnTruncated": "La respuesta parecía cortada, así que solo se cargó la parte completa. Pide a la IA que continúe y actualiza tu perfil.", "spWarnDates": "{n} evaluación(es) no tenían una fecha válida y se omitieron: {titles}.", "spWarnDropped": "Se omitieron {n} elemento(s) incompleto(s).", "spWarnNoStart": "No se encontró la fecha de inicio del periodo, así que la semana actual no se puede seguir automáticamente.", "spTermWeek": "Semana {w} de {n}", "spTermWeekNoTotal": "Semana {w}", "spTermBefore": "Empieza en {n} días", "spTermBefore1": "Empieza mañana", "spTermAfter": "Periodo terminado", "spTermUnknown": "Semana desconocida", "spThisWeek": "Esta semana", "spNoFocus": "No hay temas asignados a esta semana.", "spNext": "Próxima evaluación", "spNoNext": "No hay evaluaciones próximas.", "spToday": "Hoy", "spTomorrow": "Mañana", "spInDays": "en {n} días", "spTodayNone": "Nada para hoy.", "spWeekly": "{a} de {n} preguntas esta semana", "spAssessments": "Próximas evaluaciones", "spTasks": "Plan", "spNoTasks": "Aún no hay tareas.", "spCourses": "Mapa del programa", "spWeekN": "Sem {n}", "spSource": "Fuente", "spConf": "Confianza: {c}", "spConf.high": "alta", "spConf.medium": "media", "spConf.low": "baja", "spAssump": "Suposiciones de la IA", "spRisk": "Riesgo", "spRisk.low": "bajo", "spRisk.medium": "medio", "spRisk.high": "alto", "spStrengths": "Fortalezas", "spGaps": "Puntos débiles", "spExport": "Exportar JSON", "spDelete": "Eliminar perfil", "spDeleteQ": "¿Eliminar tu Perfil de estudio? Se borra de este dispositivo y de la sincronización con Drive. Tus Qbanks y Analíticas no se tocan.", "spDeleteGo": "Eliminar", "spSchemaView": "Ver esquema JSON", "spSchemaHide": "Ocultar esquema JSON", "spSchemaTitle": "Esquema JSON del Perfil de estudio", "spCardTitle": "Tu tutor", "spCardOpen": "Abrir perfil", "spCardInviteTitle": "Configura tu Perfil de estudio", "spCardInviteBody": "Dale a Oworld tus programas, el calendario, tu horario de clases y el calendario de exámenes una sola vez y tu tutor llevará el control de tu semana, tus clases, tus exámenes y qué estudiar después.", "spCardInviteBtn": "Configurar perfil", "spStartBlock": "Iniciar un bloque de {s}", "spLibStrip": "El tutor sugiere para la semana {w}", "spLibStart": "{title} ({n} P)", "sgBefore": "Tu periodo empieza {when}. Prepara tus Qbanks.", "sgExam": "{title} es {when}.", "sgExamCover": "{title} es {when} e incluye {coverage}.", "sgTasks": "{n} tarea(s) para hoy o atrasada(s).", "sgPaceBehind": "Vas por debajo del ritmo de esta semana: {a} de {t} preguntas. Un bloque corto hoy cierra la brecha.", "sgPaceDone": "Meta semanal alcanzada ({a}/{t}). Buen trabajo.", "sgPaceOn": "Buen ritmo: {a} de {t} preguntas esta semana.", "sgWeak": "{subject} está en {pct}% y está en la lista de esta semana.", "sgNoFocus": "No hay temas asignados a esta semana. Actualiza tu perfil con el programa.", "sgStale": "Tu perfil tiene {n} días. Actualízalo para que tu tutor siga siendo preciso.", "nf.examSoon.t": "Se acerca un examen", "nf.examSoon.b": "{title} es en {days} días.", "nf.examTomorrow.t": "Examen mañana", "nf.examTomorrow.b": "{title} es mañana. Haz un repaso ligero y descansa.", "nf.examToday.t": "Examen hoy", "nf.examToday.b": "{title} es hoy. ¡Mucha suerte!", "nf.weekStart.t": "Semana {week} de {total}", "nf.weekStart.b": "Esta semana: {topics}", "nf.termStart.t": "El periodo empieza pronto", "nf.termStart.b": "Tu periodo empieza en {days} día(s). Prepara tus Qbanks.", "nf.paceBehind.t": "Por debajo del ritmo semanal", "nf.paceBehind.b": "{a} de {t} preguntas hasta ahora. Un bloque corto hoy ayuda.", "nf.tasksDue.t": "Tareas pendientes", "nf.tasksDue.b": "{n} tarea(s) para hoy o atrasada(s). Abre la Consola.", "nf.profileStale.t": "Actualiza tu perfil", "nf.profileStale.b": "Tu Perfil de estudio tiene {n} días.", "nf.profileLoaded.t": "Perfil de estudio listo", "nf.profileLoaded.b": "Tu tutor ahora sigue {term}.",
     "spPromptTitle": "Perfil de estudio — prompt para IA",
     "sgEve": "{title} es mañana. Hazlo ligero: repasa tu tema más débil y descansa.", "sgDeadline": "Fecha límite: {title} es {when}.", "sgBreakNow": "{title}: hoy no hay clases. Las clases se reanudan {when}. Buen momento para cerrar brechas.", "sgBreakSoon": "{title} empieza {when}. Mete un bloque de estudio más fuerte antes.", "sgStreak": "Aún no practicas hoy. Un bloque corto mantiene tu racha de {n} días.", "sgUntested": "{n} de {total} temas de {title} aún no tienen datos de práctica.",
     "nf.breakSoon.t": "El descanso empieza mañana", "nf.breakSoon.b": "{title} empieza mañana. Planea tu estudio antes.", "nf.deadlineSoon.t": "Se acerca una fecha límite", "nf.deadlineSoon.b": "{title} vence en {days} día(s).", "nf.deadlineToday.t": "Fecha límite hoy", "nf.deadlineToday.b": "{title} vence hoy.",
@@ -556,11 +556,11 @@ const STR = {
     notesItem: "Notas — Ítem {n}", delNote: "Borrar nota", saveClose: "Guardar y cerrar", highlight: "Resaltar",
     paused: "Examen en pausa: el cronómetro está detenido.", endQ: "¿Terminar este bloque?",
     endConfirm: "Has respondido {a} de {n} preguntas. Una vez que termines el bloque no podrás cambiar tus respuestas, pero podrás revisar las explicaciones de inmediato.",
-    keepWorking: "Seguir trabajando", endBlockBtn: "Terminar bloque", timesUp: "Se acabó el tiempo",
+    keepWorking: "Seguir trabajando", endBlockBtn: "Terminar bloque", abortBtn: "Abortar", abortQ: "¿Abortar este bloque?", abortConfirmBody: "Esto cierra el bloque sin calificarlo. No se registra nada en Analíticas y se descartan tus respuestas. No se puede deshacer. Las valoraciones que ya diste se conservan.", abortGo: "Abortar bloque", abortHint: "Abortar cierra el bloque sin calificarlo: no se registra nada en Analíticas y se descartan tus respuestas. Las valoraciones que ya diste se conservan.", blockAborted: "Bloque abortado. No se registró nada en Analíticas.", timesUp: "Se acabó el tiempo",
     timesUpBody: "El tiempo asignado para este bloque ha terminado. Respondiste {a} de {n} preguntas. El bloque se enviará automáticamente y podrás revisar tus resultados.",
     viewResults: "Ver resultados",
     siIntervals: "Intervalos de referencia SI", siHdr: "Intervalo de referencia SI", refRange: "Rango de referencia",
-    search: "Buscar…", noMatches: "Sin coincidencias en {tab}.", searchTitle: "Buscar", searchPh: "Busca Qbanks, preguntas, notas y sesiones…", searchHint: "Escribe al menos 2 letras. Busca en tu Biblioteca, Calendario (eventos, fechas, horas, clases, exámenes, tareas), Base de datos y Analíticas. Prueba “20 oct”, “martes” o “9:00”.", searchGrpCal: "Horario", searchGoDate: "Ir a {d}", searchNone: "Sin resultados para “{q}”.", searchGrpLib: "Biblioteca", searchGrpDb: "Base de datos", searchGrpHist: "Analíticas", searchQsMatch: "{n} pregunta(s) coinciden", searchClose: "Cerrar búsqueda",
+    search: "Buscar…", noMatches: "Sin coincidencias en {tab}.", searchTitle: "Buscar", searchPh: "Busca Qbanks, preguntas, notas y sesiones…", searchHint: "Escribe al menos 2 letras. Busca en tu Biblioteca, Calendario (eventos, fechas, horas, clases, exámenes, tareas), Base de datos y Analíticas. Prueba “20 oct”, “martes” o “9:00”.", searchGrpCal: "Horario", searchGoDate: "Ir a {d}", searchNone: "Sin resultados para “{q}”.", searchGrpLib: "Biblioteca", searchGrpDb: "Base de datos", searchGrpHist: "Analíticas", searchQsMatch: "{n} pregunta(s) coinciden", searchClose: "Cerrar búsqueda", searchClear: "Borrar búsqueda", searchScopeLabel: "Buscar en", searchScopeThis: "Esta página", searchScopeAll: "Todo", searchScopeLib: "Qbanks", searchScopeCal: "Calendario", searchScopeDb: "Base de datos", searchScopeHist: "Sesiones", searchInPage: "Filtrando esta página mientras escribes. Elige otro ámbito para buscar en otra parte.", searchInPageEmpty: "Escribe para filtrar esta página, o elige otro ámbito para buscar en otra parte.", searchMore: "Escribe al menos 2 letras para buscar.", searchPhHist: "Buscar sesiones…", searchPhAll: "Buscar en todo",
     "tab.Serum": "Suero", "tab.Cerebrospinal": "Líquido cefalorraquídeo", "tab.Blood": "Sangre", "tab.Urine and BMI": "Orina e IMC",
     back: "Volver a los bloques", results: "{name} — resultados",
     scoreLine: "{c} correctas de {t} · {u} sin responder",
@@ -989,7 +989,7 @@ const FOCUS_MODES = [
   { id: "discipline", label: "Single discipline" },
 ];
 const BLOCK_SIZES = [5, 15, 25, 40];
-const MAX_RECIPE_SIZE = 60; // upper bound for the custom question count (most AI tools truncate far beyond this)
+const MAX_RECIPE_SIZE = 40; // upper bound for the custom question count (each question now also carries 2 variants, so ~3x the output; most AI tools truncate far beyond this)
 
 // Difficulty modes for the recipe. "mixed" is the recommended default.
 const DIFFICULTY_MODES = ["mixed", "easy", "medium", "hard"];
@@ -1139,7 +1139,7 @@ function difficultyBreakdown(entries) {
 // stays in the "JSON schema" reference panel for humans to read — this is a
 // field-name/type skeleton only, no prose example values, to keep the copied
 // prompt as short as possible while still fully specifying the shape.
-const PROMPT_SCHEMA_TEXT = `{"examTitle":"string","blocks":[{"blockName":"string","timeLimitMinutes":number,"questions":[{"id":"unique string","subject":"organ system/discipline","difficultyRating":number,"difficultyLabel":"Easy|Medium|Hard","vignette":"string","keyInfoPhrases":["string"],"stem":"string","options":[{"key":"A","text":"string"}],"correctAnswer":"matching key","attendingTip":"string","explanation":"string","keyLearningPoint":"string","distractorAnalysis":{"key":"string"},"hint":"string","educationalObjective":"string","sourceReferences":[{"sourceTitle":"string","chapterSection":"string","pageNumber":"string (optional)","relevance":"string"}]}]}]}`;
+const PROMPT_SCHEMA_TEXT = `{"examTitle":"string","blocks":[{"blockName":"string","timeLimitMinutes":number,"questions":[{"id":"unique string","subject":"organ system/discipline","difficultyRating":number,"difficultyLabel":"Easy|Medium|Hard","vignette":"string","keyInfoPhrases":["string"],"stem":"string","options":[{"key":"A","text":"string"}],"correctAnswer":"matching key","attendingTip":"string","explanation":"string","keyLearningPoint":"string","distractorAnalysis":{"key":"string"},"hint":"string","educationalObjective":"string","sourceReferences":[{"sourceTitle":"string","chapterSection":"string","pageNumber":"string (optional)","relevance":"string"}],"variants":[{"vignette":"string","keyInfoPhrases":["string"],"stem":"string","options":[{"key":"A","text":"string"}],"correctAnswer":"matching key","attendingTip":"string","explanation":"string","keyLearningPoint":"string","distractorAnalysis":{"key":"string"},"hint":"string"}]}]}]}`;
 
 function buildQuestionRecipe({ size, focusMode, focusValue, lang, difficulty = "mixed" }) {
   if (lang === "es") return buildQuestionRecipeEs({ size, focusMode, focusValue, difficulty });
@@ -1173,6 +1173,12 @@ distractorAnalysis: 1 concise sentence per wrong option explaining why it is inc
 hint: 1 short sentence guiding attention to the core abnormality without revealing the answer.
 educationalObjective: 1-2 sentence core concept summary.
 sourceReferences: 1-3 real sources (First Aid, BRS, Pathoma, etc.) — sourceTitle, chapterSection, pageNumber (omit if unsure), relevance.
+variants: EXACTLY 2 per question, as an array [variant1, variant2], for spaced repetition. Everything above is the PRIMARY version; each variant re-tests the SAME educationalObjective and the SAME core diagnosis/mechanism/management, but must look different so it cannot be passed by recalling the primary's wording or answer position:
+- Change the patient (age, sex, setting, history details) and the presenting clues, while keeping the same decisive finding(s) that lead to the answer.
+- Change the angle of the question across the three versions (for example: primary asks the diagnosis, variant 1 the mechanism or next best step, variant 2 the treatment, complication or expected lab/imaging finding). Every version must still hinge on the same concept; never add a new topic.
+- Write a new option set (new distractors, not just a reorder) with the same number of options as the primary, and put correctAnswer on a different letter in each of the three versions.
+- Same difficulty tier as the primary. A variant must never mention or refer to the primary or the other variant.
+- Each variant has its own: vignette, keyInfoPhrases (exact substrings of THAT variant's vignette), stem, options, correctAnswer, attendingTip, explanation, keyLearningPoint, distractorAnalysis, hint, all written fresh and following the same length rules as the primary. Do NOT put id, subject, difficulty, educationalObjective or sourceReferences inside a variant (they are inherited from the question).
 subject: specific system/discipline. Every id unique. difficultyRating: integer 1 to 5, matching the difficulty tier above. difficultyLabel: exactly "Easy", "Medium" or "Hard", consistent with difficultyRating. Spread correctAnswer evenly across the option letters used (never the same letter more than twice in a row).
 Focus: ${focusLine}`;
 }
@@ -1451,6 +1457,7 @@ const Q_ALIASES = {
   hint: ["hint"],
   educationalObjective: ["educationalobjective", "learningobjective", "objective"],
   sourceReferences: ["sourcereferences", "sources", "references"],
+  variants: ["variants", "variations", "alternateversions", "alternativeversions", "altversions", "rewrites"],
 };
 const QUESTION_LIST = ["questions", "items", "qs", "questionlist"];
 
@@ -1588,7 +1595,29 @@ function normalizeSources(raw) {
 }
 
 // -> { q, touched } | { err, vars }
-function normalizeQuestion(q, n, usedIds, ctx) {
+// ---- Question variants (spaced repetition) -------------------------------------------------------------------------
+// Every question may carry up to VARIANT_MAX alternative versions of ITSELF (same concept, new patient / angle / options). Only the
+// fields below differ; id, subject, difficulty, educationalObjective and sourceReferences stay with the question. Which version is
+// shown follows the SM-2 lapse count (meta.sm2.lapses):  0 -> primary,  1 -> variant 1,  2 -> variant 2,  3+ -> the cycle repeats
+// (3 -> primary, 4 -> variant 1, ...). A missing / invalid variant simply falls back to the primary, so old Qbanks are unaffected.
+const VARIANT_MAX = 2;
+const VARIANT_FIELDS = ["vignette", "keyInfoPhrases", "stem", "options", "correctAnswer", "attendingTip", "explanation", "keyLearningPoint", "distractorAnalysis", "hint"];
+const variantFormFor = (lapses, count) => { const i = Math.max(0, Math.floor(Number(lapses) || 0)) % (VARIANT_MAX + 1); return i <= count ? i : 0; }; // 0 = primary
+const pickVariantFields = (q) => { const o = {}; VARIANT_FIELDS.forEach((f) => { if (q[f] !== undefined) o[f] = q[f]; }); return o; };
+// Returns the copy of `q` that should be shown NOW. Safe to call on an already-served copy (it restores the primary first).
+function serveQuestion(q) {
+  if (!q || !Array.isArray(q.variants) || q.variants.length === 0) return q;
+  let base = q;
+  if (q.servedVariant > 0 && q.primaryContent) { const { servedVariant: _s, primaryContent: _p, ...rest } = q; base = { ...rest, ...q.primaryContent }; }
+  const form = variantFormFor(base.meta && base.meta.sm2 && base.meta.sm2.lapses, base.variants.length);
+  if (form === 0) return base;
+  const v = base.variants[form - 1];
+  const out = { ...base, primaryContent: pickVariantFields(base), servedVariant: form };
+  VARIANT_FIELDS.forEach((f) => { if (v[f] !== undefined) out[f] = v[f]; else delete out[f]; }); // never inherit the primary's hint / tip text
+  return out;
+}
+
+function normalizeQuestion(q, n, usedIds, ctx, isVariant = false) {
   if (!q || typeof q !== "object" || Array.isArray(q)) return { err: "err.qObj", vars: { n, name: ctx.blockName } };
   const nk = indexKeys(q);
   let touched = false;
@@ -1647,6 +1676,26 @@ function normalizeQuestion(q, n, usedIds, ctx) {
   if (da) out.distractorAnalysis = da; else delete out.distractorAnalysis;
   const sr = normalizeSources(get("sourceReferences"));
   if (sr) out.sourceReferences = sr; else delete out.sourceReferences;
+
+  // Variants: each one goes through the SAME checks as a question (vignette, stem, options, one correct answer). One that fails, or that
+  // just repeats the primary, is left out quietly: the question itself is never rejected because of a bad variant.
+  Q_ALIASES.variants.forEach((a) => { if (nk[a] !== undefined) delete out[nk[a]]; });
+  if (!isVariant) {
+    const rawV = get("variants");
+    const list = Array.isArray(rawV) ? rawV : rawV && typeof rawV === "object" ? [rawV] : [];
+    const seen = new Set([hashStr(`${normText(vignette)}|${normText(stem)}`)]);
+    const vs = [];
+    for (const rv of list) {
+      if (vs.length >= VARIANT_MAX) break;
+      const r = rv && typeof rv === "object" && !Array.isArray(rv) ? normalizeQuestion({ ...rv, id }, n, new Set(), ctx, true) : null;
+      if (!r || !r.q) continue;
+      const key = hashStr(`${normText(r.q.vignette)}|${normText(r.q.stem)}`);
+      if (seen.has(key)) continue;
+      seen.add(key);
+      vs.push(pickVariantFields(r.q));
+    }
+    if (vs.length) out.variants = vs;
+  }
   return { q: out, touched };
 }
 
@@ -1789,6 +1838,12 @@ distractorAnalysis: 1 oración concisa por opción incorrecta que explique por q
 hint: 1 oración corta que dirija la atención a la anomalía central sin revelar la respuesta.
 educationalObjective: resumen del concepto central en 1-2 oraciones.
 sourceReferences: 1-3 fuentes reales (First Aid, BRS, Pathoma, etc.) — sourceTitle, chapterSection, pageNumber (omítelo si no estás seguro), relevance.
+variants: EXACTAMENTE 2 por pregunta, como arreglo [variante1, variante2], para repetición espaciada. Todo lo anterior es la versión PRIMARIA; cada variante vuelve a evaluar el MISMO educationalObjective y el MISMO diagnóstico/mecanismo/manejo central, pero debe verse distinta para que no se pueda acertar recordando la redacción ni la posición de la respuesta de la primaria:
+- Cambia al paciente (edad, sexo, contexto, detalles de la historia) y las pistas de presentación, conservando el/los hallazgo(s) decisivo(s) que llevan a la respuesta.
+- Cambia el enfoque de la pregunta entre las tres versiones (por ejemplo: la primaria pregunta el diagnóstico, la variante 1 el mecanismo o el siguiente mejor paso, la variante 2 el tratamiento, la complicación o el hallazgo esperado de laboratorio/imagen). Todas deben seguir girando en torno al mismo concepto; nunca agregues un tema nuevo.
+- Escribe un conjunto nuevo de opciones (distractores nuevos, no solo reordenados) con el mismo número de opciones que la primaria, y coloca correctAnswer en una letra distinta en cada una de las tres versiones.
+- Mismo nivel de dificultad que la primaria. Una variante nunca debe mencionar ni hacer referencia a la primaria ni a la otra variante.
+- Cada variante tiene lo suyo: vignette, keyInfoPhrases (subcadenas exactas de la viñeta DE ESA variante), stem, options, correctAnswer, attendingTip, explanation, keyLearningPoint, distractorAnalysis, hint, todo escrito de nuevo y con las mismas reglas de extensión que la primaria. NO incluyas id, subject, dificultad, educationalObjective ni sourceReferences dentro de una variante (se heredan de la pregunta).
 subject: sistema/disciplina específica. Cada id único. difficultyRating: entero de 1 a 5, acorde con el nivel de dificultad indicado. difficultyLabel: exactamente "Easy", "Medium" o "Hard" (en inglés), coherente con difficultyRating. Distribuye correctAnswer de forma uniforme entre las letras de opción usadas (nunca la misma letra más de dos veces seguidas).
 Enfoque: ${focusLine}`;
 }
@@ -1902,7 +1957,7 @@ function buildMixPool(entries) {
     if (seen.has(k)) return false; // same question present in two banks
     seen.add(k);
     return true;
-  });
+  }).map(serveQuestion); // the version to show follows the SM-2 lapse count (primary / variant 1 / variant 2)
   const subjects = new Set(pool.map(subjectKey)).size;
   return { pool, subjects, dupes: tagged.length - pool.length };
 }
@@ -2224,13 +2279,13 @@ function unionTombs(a, b) {
 const validLibEntry = (e) => e && typeof e.id === "string" && typeof e.title === "string" && Array.isArray(e.questions) && e.questions.length > 0;
 const validSession = (e) => e && typeof e.id === "string" && Number.isFinite(e.total) && Number.isFinite(e.finishedAt);
 
-// Same Qbank on two devices: the newer edit (rename / rating / score) wins; the latest score and the newest per-question rating are kept.
+// Same Qbank on two devices: the newer edit (rename / rating) wins; the best score and the newest per-question rating are kept.
 function mergeQbankEntry(a, b) {
   if (a === b) return a;
   const win = (b.updatedAt || 0) > (a.updatedAt || 0) ? b : a;
   const lose = win === a ? b : a;
   let out = win;
-  const scores = [a.lastScore, b.lastScore].filter(Boolean).sort((x, y) => (y.date || 0) - (x.date || 0));
+  const scores = [a.lastScore, b.lastScore].filter(Boolean).sort((x, y) => (Number(y.pct) || 0) - (Number(x.pct) || 0) || (y.date || 0) - (x.date || 0)); // highest score wins, then the newer one
   const best = scores[0] || null;
   if (((win.lastScore && win.lastScore.date) || 0) !== ((best && best.date) || 0)) out = { ...out, lastScore: best };
   const loseMeta = new Map(lose.questions.map((q) => [q.id, q.meta]));
@@ -2763,7 +2818,7 @@ function useSessionSync({ drive, stamp, getLocal, onDecision, onSynced, onBlockS
 
 function loadPrefs() {
   const p = lsGet(LS_PREFS) || {};
-  return { darkMode: typeof p.darkMode === "boolean" ? p.darkMode : true, lang: p.lang === "es" ? "es" : "en", textScale: TEXT_STEPS.includes(p.textScale) ? p.textScale : 1 };
+  return { darkMode: typeof p.darkMode === "boolean" ? p.darkMode : true, lang: p.lang === "es" ? "es" : "en", textScale: TEXT_STEPS.includes(p.textScale) ? p.textScale : 1, srcAuto: p.srcAuto !== false };
 }
 
 // Returns a validated session, or null if there is none / it is corrupt / from an incompatible version.
@@ -2809,7 +2864,7 @@ function makeLibraryEntry(block) {
     title: block.blockName,
     importDate: Date.now(),
     questions: block.questions,
-    lastScore: null, // { correct, total, pct, date } — set when a first-pass attempt of this block is submitted
+    lastScore: null, // { correct, total, pct, date } — the BEST first-pass attempt of this block (set when one is submitted)
     timeLimitMinutes: typeof block.timeLimitMinutes === "number" ? block.timeLimitMinutes : null,
   };
 }
@@ -2817,6 +2872,7 @@ function makeLibraryEntry(block) {
 // Lets any Settings menu reach the app-level "wipe local data" action without prop-drilling.
 const DataContext = createContext({ resetAllData: () => {} });
 // The Trash lives in the app state; the Settings menu (profile picture, upper right) reads it from here.
+const SrcAutoContext = createContext({ on: true, set: () => {} }); // preference: open the Tutor suggested sources card when a Tutor session starts
 const TrashContext = createContext({ trash: [], restore: () => {}, purge: () => {} });
 // Lets the account menu (on every screen) open a Home page such as the Study Profile. locked = a timed block can't be left.
 const NavContext = createContext({ open: null, locked: false });
@@ -5984,13 +6040,12 @@ function DatabaseCard({ item, T, onUpdate, onRemove, selected = false, onToggle 
   );
 }
 
-function DatabasePanel({ T, initialQuery = "" }) {
+function DatabasePanel({ T, query = "" }) { // query: from the universal search bar
   const { t, lang } = useI18n();
   const db = useContext(DbContext);
   const { items, update, remove, removeMany, clearAll, importItems, sync } = db;
   const drive = useContext(DriveContext);
   const [filter, setFilter] = useState("all");
-  const [query, setQuery] = useState(initialQuery);
   const [sel, setSel] = useState([]);
   const [confirm, setConfirm] = useState(null); // null | "clear" | "delSel"
   const [msg, setMsg] = useState(null);         // { tone, text } one-line result of an import / export
@@ -6098,8 +6153,8 @@ function DatabasePanel({ T, initialQuery = "" }) {
       {msg && <div role="status" style={{ fontFamily: FONT_UI, fontSize: fs(13), fontWeight: 600, color: toneColor }}>{msg.text}</div>}
 
       {items.length > 0 && (
-        <div style={{ display: "flex", gap: 10, flexWrap: "wrap", alignItems: "center" }}>
-          <div role="tablist" style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
+        <div style={{ display: "flex", gap: 10, flexWrap: "wrap", alignItems: "center", justifyContent: "center" }}>
+          <div role="tablist" style={{ display: "flex", gap: 6, flexWrap: "wrap", justifyContent: "center" }}>
             {chips.map(([id, label]) => {
               const on = filter === id;
               return (
@@ -6109,13 +6164,6 @@ function DatabasePanel({ T, initialQuery = "" }) {
                 }}>{t(label)}</button>
               );
             })}
-          </div>
-          <div style={{ position: "relative", flex: "1 1 200px", minWidth: 180 }}>
-            <Search size={15} color={T.muted} style={{ position: "absolute", left: 10, top: "50%", transform: "translateY(-50%)" }} />
-            <input
-              value={query} onChange={(e) => setQuery(e.target.value)} placeholder={t("dbSearch")} aria-label={t("dbSearch")}
-              style={{ width: "100%", boxSizing: "border-box", fontFamily: FONT_UI, fontSize: fs(13), padding: "8px 10px 8px 32px", borderRadius: 6, border: `1px solid ${T.border}`, background: T.card, color: T.ink }}
-            />
           </div>
         </div>
       )}
@@ -6889,6 +6937,7 @@ function SettingsMenu({ darkMode, setDarkMode, T, iconOnly = false, onHelp }) {
   const drive = useContext(DriveContext);
   const trashCtx = useContext(TrashContext);
   const nav = useContext(NavContext);
+  const srcPref = useContext(SrcAutoContext);
   const cp = useContext(CareerContext);
   const vp = useViewport();
   const [open, setOpen] = useState(false);
@@ -7120,6 +7169,10 @@ function SettingsMenu({ darkMode, setDarkMode, T, iconOnly = false, onHelp }) {
                   </div>
                 </div>
                 <TextSizeControl T={T} />
+                <label style={{ display: "flex", alignItems: "center", gap: 10, margin: "14px 0 2px", fontFamily: FONT_UI, fontSize: fs(13), color: T.ink, cursor: "pointer", lineHeight: 1.4 }}>
+                  <input type="checkbox" checked={srcPref.on} onChange={(e) => srcPref.set(e.target.checked)} style={{ width: 18, height: 18, cursor: "pointer", flexShrink: 0 }} />
+                  {t("srcAutoLabel")}
+                </label>
               </div>
             )}
           </div>
@@ -7340,7 +7393,7 @@ const libAddUnique = (list, tag) => {
 // ---------------------------------------------------------------------------
 // Qbank library panel — saved blocks; start one, or tick several to run them as a queue
 // ---------------------------------------------------------------------------
-function QbankLibraryPanel({ library, onLaunch, onMix, onDelete, onRename, onSetMeta, deckDefs: nodeDefs = [], onDecksChange = () => {}, resumeId, onResume, sessionLog = [], T }) {
+function QbankLibraryPanel({ library, onLaunch, onMix, onDelete, onRename, onSetMeta, deckDefs: nodeDefs = [], onDecksChange = () => {}, resumeId, onResume, sessionLog = [], uq = "", onClearSearch = () => {}, T }) {
   const { t, lang } = useI18n();
   const spCtx = useContext(ProfileContext);
   const tutorBrief_ = useMemo(() => (spCtx.profile ? tutorBrief(spCtx.profile, sessionLog, new Date()) : null), [spCtx.profile, sessionLog, new Date().toDateString()]); // eslint-disable-line
@@ -7410,23 +7463,78 @@ function QbankLibraryPanel({ library, onLaunch, onMix, onDelete, onRename, onSet
   const fmtDate = (ms) => new Date(ms).toLocaleDateString(lang === "es" ? "es" : "en-US", { year: "numeric", month: "short", day: "numeric" });
 
   // Display preferences: Grid or List, and the sort order. Kept on this device; they change only how the cards are shown.
-  const SORTS = [["az", "libSortAZ"], ["za", "libSortZA"], ["added", "libSortAdded"], ["modified", "libSortModified"]];
+  const SORTS = [["az", "libSortAZ"], ["za", "libSortZA"], ["added", "libSortAdded"], ["modified", "libSortModified"], ["studied", "libSortStudied"], ["best", "libSortBest"], ["weak", "libSortWeak"], ["size", "libSortSize"]];
   const [prefs, setPrefs] = useState(() => {
     const v = lsGet(LS_LIBVIEW) || {};
-    return { view: v.view === "list" ? "list" : "grid", sort: SORTS.some(([id]) => id === v.sort) ? v.sort : "added", group: LIB_GROUPS.includes(v.group) ? v.group : "none", decksOpen: v.decksOpen && typeof v.decksOpen === "object" ? v.decksOpen : {} };
+    return { view: v.view === "list" ? "list" : "grid", sort: SORTS.some(([id]) => id === v.sort) ? v.sort : "added", group: LIB_GROUPS.includes(v.group) ? v.group : "none", decksOpen: v.decksOpen && typeof v.decksOpen === "object" ? v.decksOpen : {}, poolOpen: typeof v.poolOpen === "boolean" ? v.poolOpen : undefined };
   });
   const setPref = (patch) => { const next = { ...prefs, ...patch }; setPrefs(next); lsSet(LS_LIBVIEW, JSON.stringify(next)); };
   const modStamp = (e) => Math.max(Number(e.updatedAt) || 0, Number(e.importDate) || 0); // rename, rating or a new score all bump updatedAt
+  // What the student has actually DONE with each Qbank, read from the Analytics log: full runs of the card, and the last time it was studied
+  // (retests count as studying). Shown on the card and used by "Recently studied".
+  const studyInfo = useMemo(() => {
+    const m = new Map();
+    (sessionLog || []).forEach((h) => {
+      if (!h || !h.libraryId) return;
+      const c = m.get(h.libraryId) || { runs: 0, last: 0 };
+      if (h.kind === "bank") c.runs += 1;
+      if ((Number(h.finishedAt) || 0) > c.last) c.last = Number(h.finishedAt) || 0;
+      m.set(h.libraryId, c);
+    });
+    return m;
+  }, [sessionLog]);
   const sortedLib = useMemo(() => {
     const byName = (a, b) => (a.title || "").localeCompare(b.title || "", lang === "es" ? "es" : "en", { numeric: true, sensitivity: "base" }) || (a.id < b.id ? -1 : 1);
     const arr = [...library];
     if (prefs.sort === "az") arr.sort(byName);
     else if (prefs.sort === "za") arr.sort((a, b) => byName(b, a));
     else if (prefs.sort === "modified") arr.sort((a, b) => modStamp(b) - modStamp(a) || byName(a, b)); // newest first
+    else if (prefs.sort === "studied") arr.sort((a, b) => ((studyInfo.get(b.id) || {}).last || 0) - ((studyInfo.get(a.id) || {}).last || 0) || byName(a, b)); // studied most recently first; never-studied last
+    else if (prefs.sort === "size") arr.sort((a, b) => b.questions.length - a.questions.length || byName(a, b));
+    else if (prefs.sort === "best" || prefs.sort === "weak") { // by best score; Qbanks with no score yet always go last
+      const sc = (e) => (e.lastScore ? Number(e.lastScore.pct) || 0 : null);
+      arr.sort((a, b) => { const x = sc(a), y = sc(b); if (x === null || y === null) return x === y ? byName(a, b) : x === null ? 1 : -1; return (prefs.sort === "best" ? y - x : x - y) || byName(a, b); });
+    }
     else arr.sort((a, b) => (Number(b.importDate) || 0) - (Number(a.importDate) || 0) || byName(a, b)); // newest first
     return arr;
-  }, [library, prefs.sort, lang]);
+  }, [library, prefs.sort, lang, studyInfo]);
   const asGrid = prefs.view === "grid";
+
+  // ---- Search, status filter, due counts and the summary line ----
+  // While a search or filter is active the Library shows ONE flat list of matches (across decks, groups and sections); clearing it brings the
+  // organised view back exactly as it was.
+  const search = uq; // the text comes from the universal search bar in the top bar; this page only keeps its filter chips
+  const [statusF, setStatusF] = useState("all"); // all | new | progress | done | weak | due
+  const dueMap = useMemo(() => { // questions whose SM-2 review date is today or earlier, per Qbank
+    const eod = dayEnd(); const m = new Map();
+    library.forEach((e) => { let n = 0; for (const q of e.questions) { const d = smartDue(q); if (d > 0 && d <= eod) n++; } if (n) m.set(e.id, n); });
+    return m;
+  }, [library, new Date().toDateString()]); // eslint-disable-line
+  const searchText = useMemo(() => {
+    const m = new Map();
+    library.forEach((e) => {
+      const subj = new Set(); e.questions.forEach((q) => { const sv = String(q.subject || "").trim(); if (sv) subj.add(sv); });
+      m.set(e.id, [e.title, e.group, ...(Array.isArray(e.tags) ? e.tags : []), e.deck && e.deck.name, ...subj, ...e.questions.map((x) => [x.vignette, x.stem, x.explanation, ...(x.options || []).map((o) => o.text)].filter(Boolean).join(" "))].filter(Boolean).join(" ").toLowerCase()); // question text too, so it matches what the universal search finds
+    });
+    return m;
+  }, [library]);
+  const terms = search.trim().toLowerCase().split(/\s+/).filter(Boolean);
+  const matchStatus = (e, f) => (f === "all" ? true : f === "progress" ? resumeId === e.id : f === "new" ? !e.lastScore && resumeId !== e.id
+    : f === "done" ? !!e.lastScore : f === "weak" ? !!e.lastScore && (Number(e.lastScore.pct) || 0) < 70 : dueMap.has(e.id));
+  const filterActive = terms.length > 0 || statusF !== "all";
+  const filteredLib = filterActive ? sortedLib.filter((e) => matchStatus(e, statusF) && terms.every((w) => (searchText.get(e.id) || "").includes(w))) : sortedLib;
+  const clearFilters = () => { onClearSearch(); setStatusF("all"); };
+  const FILTERS = [["all", "libFilterAll"], ["new", "libFilterNew"], ["progress", "libFilterProgress"], ["done", "libFilterDone"], ["weak", "libFilterWeak"], ["due", "libFilterDue"]];
+  const filterCount = (f) => (f === "all" ? library.length : library.filter((e) => matchStatus(e, f)).length);
+  const selectPool = filterActive ? filteredLib : sortedLib; // Select all follows what is on screen
+  const allSelected = selectPool.length > 0 && selectPool.every((e) => liveQueue.includes(e.id));
+  const summaryLine = (() => {
+    const sumQ = library.reduce((n, e) => n + e.questions.length, 0);
+    const scored = library.filter((e) => e.lastScore);
+    const avg = scored.length ? Math.round(scored.reduce((a, e) => a + (Number(e.lastScore.pct) || 0), 0) / scored.length) : null;
+    const dueTotal = [...dueMap.values()].reduce((a, b) => a + b, 0);
+    return [t("libSumQ", { q: sumQ }), scored.length ? t("libSumDone", { c: scored.length }) : null, avg != null ? t("libSumAvg", { pct: avg }) : null, dueTotal > 0 ? t("libSumDue", { n: dueTotal }) : null].filter(Boolean).join(" · ");
+  })();
 
   // ---- Decks ----
   // The deck list (deckDefs) is kept by the app and synced to Google Drive with the library, including empty decks, renames and deletions.
@@ -7565,6 +7673,10 @@ function QbankLibraryPanel({ library, onLaunch, onMix, onDelete, onRename, onSet
   }, [looseLib, prefs.group, classOf, termStart, lang]); // eslint-disable-line
   const [collapsed, setCollapsed] = useState({}); // "mode:groupKey" -> true while a group is folded away
   const toggleCollapsed = (k) => setCollapsed((c) => ({ ...c, [k]: !c[k] }));
+  // Qbank Pool (the Qbanks that are not in a deck): folds away to give the page room. With no saved choice it starts folded while every Qbank
+  // sits in a deck, and opens by itself as soon as a loose Qbank exists. Searching or filtering always shows the matches.
+  const poolFolded = nodeDefs.length > 0 && !filterActive && (prefs.poolOpen === undefined ? looseLib.length === 0 : prefs.poolOpen === false);
+  const togglePool = () => setPref({ poolOpen: poolFolded });
   const toggleSection = (items) => setQueue((q) => {
     const ids = items.map((x) => x.id);
     return ids.every((id) => q.includes(id)) ? q.filter((id) => !ids.includes(id)) : [...q, ...ids.filter((id) => !q.includes(id))];
@@ -7923,13 +8035,35 @@ function QbankLibraryPanel({ library, onLaunch, onMix, onDelete, onRename, onSet
               {t("libMeta", { q: e.questions.length, d: fmtDate(e.importDate) })}
               {prefs.sort === "modified" && modStamp(e) > (Number(e.importDate) || 0) && ` · ${t("libModified", { d: fmtDate(modStamp(e)) })}`}
             </span>
-            {(String(e.group || "").trim() || (Array.isArray(e.tags) && e.tags.length > 0)) && (
+            {(dueMap.get(e.id) > 0 || (studyInfo.get(e.id) && studyInfo.get(e.id).last > 0)) && (
+              <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: 8, marginTop: 6 }}>
+                {dueMap.get(e.id) > 0 && <Pill T={T} tone="amber"><RefreshCw size={11} style={{ marginRight: 4, verticalAlign: "-1px" }} />{t("libDue", { n: dueMap.get(e.id) })}</Pill>}
+                {studyInfo.get(e.id) && studyInfo.get(e.id).last > 0 && (
+                  <span style={{ fontFamily: FONT_MONO, fontSize: fs(12), color: T.muted }}>
+                    {studyInfo.get(e.id).runs > 0 ? t("libStudied", { n: studyInfo.get(e.id).runs, d: fmtDate(studyInfo.get(e.id).last) }) : t("libStudiedOnly", { d: fmtDate(studyInfo.get(e.id).last) })}
+                  </span>
+                )}
+              </div>
+            )}
+            {(String(e.group || "").trim() || (Array.isArray(e.tags) && e.tags.length > 0) || (opts.showDeck && e.deck)) && (
               <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginTop: 6 }}>
+                {opts.showDeck && e.deck && <Pill T={T} tone="muted"><Layers size={11} style={{ marginRight: 4, verticalAlign: "-1px" }} />{e.deck.name}</Pill>}
                 {String(e.group || "").trim() && <Pill T={T} tone="muted"><FolderIcon size={11} style={{ marginRight: 4, verticalAlign: "-1px" }} />{e.group}</Pill>}
                 {(Array.isArray(e.tags) ? e.tags : []).map((x) => <Pill key={x} T={T} tone="muted"><TagIcon size={11} style={{ marginRight: 4, verticalAlign: "-1px" }} />{x}</Pill>)}
               </div>
             )}
           </div>
+          {/* One-tap start: runs this whole Qbank in the mode chosen next to the view buttons (Resume if it is the test in progress) */}
+          {renameId !== e.id && (
+            <button
+              onClick={(ev) => { ev.stopPropagation(); if (resumeId === e.id) onResume(); else onMix([e.id], null, "all", mode); }}
+              title={resumeId === e.id ? t("resume") : t("libStartTitle", { mode: mode === "tutor" ? t("tutorShort") : t("timed"), name: e.title })}
+              aria-label={resumeId === e.id ? `${t("resume")}: ${e.title}` : t("libStartTitle", { mode: t("libStart"), name: e.title })}
+              style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", gap: 8, fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(14), padding: "10px 18px", minWidth: 150, whiteSpace: "nowrap", borderRadius: 6, border: "none", cursor: "pointer", flexShrink: 0,
+                background: resumeId === e.id ? T.amber : T.blue, color: T.onBlue, ...(asGrid ? { alignSelf: "center" } : { marginLeft: "auto" }) }}>
+              <Play size={16} />{resumeId === e.id ? t("resume") : t("libStart")}
+            </button>
+          )}
         </div>
       );
   };
@@ -7955,12 +8089,38 @@ function QbankLibraryPanel({ library, onLaunch, onMix, onDelete, onRename, onSet
                 {!phone && a.label}
               </GhostButton>
             ))}
-            <GhostButton T={T} onClick={() => { setConfirmDel(false); setQueue(liveQueue.length === library.length ? [] : sortedLib.map((e) => e.id)); }}>
-              {liveQueue.length === library.length ? t("histDeselect") : t("histSelectAll")}
+            <GhostButton T={T} onClick={() => { setConfirmDel(false); setQueue(allSelected ? liveQueue.filter((id) => !selectPool.some((e) => e.id === id)) : [...liveQueue, ...selectPool.map((e) => e.id).filter((id) => !liveQueue.includes(id))]); }} disabled={selectPool.length === 0}>
+              {allSelected ? t("histDeselect") : t("histSelectAll")}
             </GhostButton>
           </div>
         )}
       </div>
+
+      {library.length > 0 && (
+        <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 10, marginBottom: 12, textAlign: "center" }}>
+          <div role="group" aria-label={t("libFilterAll")} style={{ display: "flex", gap: 6, flexWrap: "wrap", alignItems: "center", justifyContent: "center" }}>
+            {FILTERS.map(([id, key]) => {
+              const n = filterCount(id);
+              if (id !== "all" && n === 0 && statusF !== id) return null;
+              const on = statusF === id;
+              return (
+                <button key={id} aria-pressed={on} onClick={() => setStatusF(on && id !== "all" ? "all" : id)} style={{
+                  fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(12.5), padding: "5px 11px", borderRadius: 999, cursor: "pointer",
+                  border: `1px solid ${on ? T.blue : T.border}`, background: on ? T.blueLight : "transparent", color: on ? T.blue : T.ink,
+                }}>{t(key)} <span style={{ fontFamily: FONT_MONO, fontWeight: 500, opacity: 0.75 }}>{n}</span></button>
+              );
+            })}
+          </div>
+          {filterActive ? (
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 10, flexWrap: "wrap" }}>
+              <span style={{ fontFamily: FONT_UI, fontSize: fs(12.5), color: T.muted }}>{t("libShowing", { n: filteredLib.length, total: library.length })}</span>
+              <button onClick={clearFilters} style={{ background: "transparent", border: "none", cursor: "pointer", color: T.blue, fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(12.5), padding: 0 }}>{t("libClearFilters")}</button>
+            </div>
+          ) : (
+            <span style={{ fontFamily: FONT_UI, fontSize: fs(12.5), color: T.muted }}>{summaryLine}</span>
+          )}
+        </div>
+      )}
 
       {library.length > 0 && (
         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 10, flexWrap: "wrap", marginBottom: 12 }}>
@@ -7986,10 +8146,21 @@ function QbankLibraryPanel({ library, onLaunch, onMix, onDelete, onRename, onSet
               }}><Ic size={14} />{!phone && label}</button>
             ))}
           </div>
+          <div role="group" aria-label={t("libStartAs")} style={{ display: "inline-flex", alignItems: "center", gap: 8, fontFamily: FONT_UI, fontSize: fs(12.5), color: T.muted }}>
+            {!phone && t("libStartAs")}
+            <span style={{ display: "inline-flex", border: `1px solid ${T.border}`, borderRadius: 6, overflow: "hidden" }}>
+              {[["timed", t("timed"), Clock], ["tutor", t("tutorShort"), Lightbulb]].map(([m, label, Ic]) => (
+                <button key={m} aria-pressed={mode === m} title={label} aria-label={label} onClick={() => setMode(m)} style={{
+                  display: "flex", alignItems: "center", gap: 6, fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(12.5), padding: phone ? "9px 12px" : "7px 12px", border: "none",
+                  cursor: "pointer", background: mode === m ? T.blue : "transparent", color: mode === m ? T.onBlue : T.ink,
+                }}><Ic size={14} />{!phone && label}</button>
+              ))}
+            </span>
+          </div>
         </div>
       )}
 
-      {library.length > 0 && groupHint && (
+      {library.length > 0 && !filterActive && groupHint && (
         <p style={{ fontFamily: FONT_UI, fontSize: fs(12.5), color: T.muted, lineHeight: 1.5, margin: "0 0 12px" }}>{groupHint}</p>
       )}
 
@@ -8075,7 +8246,7 @@ function QbankLibraryPanel({ library, onLaunch, onMix, onDelete, onRename, onSet
         </div>
       )}
 
-      {library.length > 0 && (
+      {library.length > 0 && !filterActive && (
         <div style={{ marginBottom: 20 }}>
           <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap", marginBottom: 10 }}>
             <Layers size={16} color={T.ink} />
@@ -8129,8 +8300,11 @@ function QbankLibraryPanel({ library, onLaunch, onMix, onDelete, onRename, onSet
           )}
           {nodeDefs.length > 0 && (
             <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap", margin: "16px 0 0", paddingTop: 12, borderTop: `1px solid ${T.border}` }}>
-              <BookOpen size={16} color={T.ink} />
-              <span style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(13.5), color: T.ink }}>{t("deckGeneral")}</span>
+              <button onClick={togglePool} aria-expanded={!poolFolded} title={t(poolFolded ? "libExpand" : "libCollapse", { g: t("deckGeneral") })}
+                style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "transparent", border: "none", cursor: "pointer", padding: 0, fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(13.5), color: T.ink, textAlign: "left" }}>
+                {poolFolded ? <ChevronRight size={16} /> : <ChevronDown size={16} />}
+                <BookOpen size={16} color={T.ink} />{t("deckGeneral")}
+              </button>
               <Pill T={T} tone="muted">{t("libGroupCount", { n: looseLib.length })}</Pill>
               {looseLib.length === 0 && <span style={{ fontFamily: FONT_UI, fontSize: fs(12.5), color: T.muted }}>{t("deckAllInDecks")}</span>}
             </div>
@@ -8142,7 +8316,13 @@ function QbankLibraryPanel({ library, onLaunch, onMix, onDelete, onRename, onSet
         <p style={{ fontFamily: FONT_UI, fontSize: fs(13.5), color: T.muted, lineHeight: 1.6, margin: 0 }}>{t("libEmpty")}</p>
       ) : (
         <>
-          {sections.map((sec) => {
+          {filterActive && filteredLib.length === 0 && (
+            <div style={{ padding: "22px 16px", textAlign: "center", border: `1px dashed ${T.border}`, borderRadius: 8 }}>
+              <p style={{ fontFamily: FONT_UI, fontSize: fs(13.5), color: T.muted, margin: "0 0 10px" }}>{t("libNoMatch")}</p>
+              <GhostButton T={T} onClick={clearFilters}>{t("libClearFilters")}</GhostButton>
+            </div>
+          )}
+          {(filterActive ? [{ key: "_results", label: null, items: filteredLib, flat: true }] : poolFolded ? [] : sections).map((sec) => {
             const ck = prefs.group + ":" + sec.key;
             const isCollapsed = sec.label !== null && !!collapsed[ck];
             const selN = sec.items.filter((x) => liveQueue.includes(x.id)).length;
@@ -8162,15 +8342,12 @@ function QbankLibraryPanel({ library, onLaunch, onMix, onDelete, onRename, onSet
             )}
             {!isCollapsed && (
           <div style={{ display: "grid", gap: asGrid ? 12 : 8, gridTemplateColumns: asGrid ? "repeat(auto-fill, minmax(min(100%, 250px), 1fr))" : "minmax(0, 1fr)" }}>
-            {sec.items.map((e) => renderCard(e))}
+            {sec.items.map((e) => renderCard(e, sec.flat ? { showDeck: true } : {}))}
           </div>
             )}
           </div>
             );
           })}
-          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 12, flexWrap: "wrap", marginTop: 14 }}>
-            <span style={{ fontFamily: FONT_UI, fontSize: fs(12.5), color: T.muted, maxWidth: 440, lineHeight: 1.5 }}>{t("libSelectHint")}</span>
-          </div>
           {mixInfo && (
             <div style={{ marginTop: 14, padding: "14px 16px", borderRadius: 8, border: `1px dashed ${T.blue}`, display: "flex", flexWrap: "wrap", alignItems: "center", gap: 14 }}>
               <div style={{ flex: 1, minWidth: 220 }}>
@@ -8259,7 +8436,6 @@ function QbankLibraryPanel({ library, onLaunch, onMix, onDelete, onRename, onSet
           )}
         </>
       )}
-      <p style={{ fontFamily: FONT_UI, fontSize: fs(11.5), color: T.muted, margin: "14px 0 0" }}>{t("libLocalNote")}</p>
     </div>
   );
 }
@@ -8885,7 +9061,7 @@ function CalItemEditor({ ed, setEd, onSave, onDelete, onCancel, courses, T, t })
     </div>
   );
 }
-function CalendarPage({ sessionLog, onNavigate, T, focusDate }) {
+function CalendarPage({ sessionLog, onNavigate, T, focusDate, query = "" }) {
   const { t, lang } = useI18n();
   const sp = useContext(ProfileContext);
   const vw = useViewport().w;
@@ -8901,7 +9077,7 @@ function CalendarPage({ sessionLog, onNavigate, T, focusDate }) {
   const [layers, setLayers] = useState({ key: true, class: true, exam: true, event: true, task: true, study: true });
   const [newTitle, setNewTitle] = useState("");
   const [editClasses, setEditClasses] = useState(false);
-  const [ed, setEd] = useState(null); const [toast, setToast] = useState(null); const [q, setQ] = useState(""); const dragRef = useRef(null);
+  const [ed, setEd] = useState(null); const [toast, setToast] = useState(null); const q = query; /* from the universal search bar */ const dragRef = useRef(null);
   useEffect(() => { if (!toast) return undefined; const id = setTimeout(() => setToast(null), 7000); return () => clearTimeout(id); }, [toast]);
   useEffect(() => { // a day chosen in Search: open the calendar on it
     const d = focusDate && parseISODate(focusDate.key); if (!d) return;
@@ -9259,8 +9435,7 @@ function CalendarPage({ sessionLog, onNavigate, T, focusDate }) {
             })}
           </div>
 
-          <div style={{ display: "flex", gap: 8, flexWrap: "wrap", alignItems: "center", marginBottom: 14 }}>
-            <input value={q} onChange={(e) => setQ(e.target.value)} placeholder={t("calFind")} aria-label={t("calFind")} style={{ flex: "1 1 160px", ...{ fontFamily: FONT_UI, fontSize: fs(13), color: T.ink, background: T.paper, border: `1px solid ${T.border}`, borderRadius: 8, padding: "7px 10px", outline: "none", minWidth: 0 } }} />
+          <div style={{ display: "flex", gap: 8, flexWrap: "wrap", alignItems: "center", justifyContent: "center", marginBottom: 14 }}>
             <input type="date" value={selKey} onChange={(e) => { const d = parseISODate(e.target.value); if (d) { setAnchor(startOfDay(d)); setSelKey(e.target.value); } }} aria-label={t("calJump")} title={t("calJump")} style={{ fontFamily: FONT_UI, fontSize: fs(13), color: T.ink, background: T.paper, border: `1px solid ${T.border}`, borderRadius: 8, padding: "7px 10px", outline: "none", minWidth: 0 }} />
             {profile && <GhostButton T={T} icon={Download} onClick={exportIcs}>{t("calExport")}</GhostButton>}
           </div>
@@ -9575,7 +9750,7 @@ function ConsolePanel({ library, sessionLog, session, remoteSession, onMigrate, 
   );
 }
 
-function SessionHistoryPanel({ history, qbankCount = 0, qbankQuestions = 0, onDelete, onClear, onReview, T }) {
+function SessionHistoryPanel({ history, qbankCount = 0, qbankQuestions = 0, onDelete, onClear, onReview, query = "", T }) {
   const { t, lang } = useI18n();
   const vpw = useViewport().w;
   const phone = vpw < 640;
@@ -9598,13 +9773,14 @@ function SessionHistoryPanel({ history, qbankCount = 0, qbankQuestions = 0, onDe
     const loc = lang === "es" ? "es" : "en";
     const name = (e) => sessionTitle(e, t);
     const byName = (a, b) => name(a).localeCompare(name(b), loc, { numeric: true, sensitivity: "base" }) || (a.id < b.id ? -1 : 1);
-    const arr = [...history];
+    const needle = String(query || "").trim().toLowerCase();
+    const arr = needle ? history.filter((e) => [name(e), e.title, e.blockName].filter(Boolean).join(" ").toLowerCase().includes(needle)) : [...history];
     if (prefs.sort === "az") arr.sort(byName);
     else if (prefs.sort === "za") arr.sort((a, b) => byName(b, a));
     else if (prefs.sort === "modified") arr.sort((a, b) => modStamp(b) - modStamp(a) || byName(a, b)); // newest first
     else arr.sort((a, b) => (Number(b.finishedAt) || 0) - (Number(a.finishedAt) || 0) || byName(a, b)); // newest first
     return arr;
-  }, [history, prefs.sort, lang, t]);
+  }, [history, prefs.sort, lang, t, query]);
   const fmt = (ms) => new Date(ms).toLocaleString(lang === "es" ? "es" : "en-US", { year: "numeric", month: "short", day: "numeric", hour: "numeric", minute: "2-digit" });
   const kindTone = { bank: "blue", custom: "amber", retest: "muted" };
   const kindKey = { bank: "histKindBank", custom: "histKindCustom", retest: "histKindRetest" };
@@ -9633,8 +9809,8 @@ function SessionHistoryPanel({ history, qbankCount = 0, qbankQuestions = 0, onDe
                   {!phone && t("libDeleteSel")}
                 </GhostButton>
               )}
-              <GhostButton T={T} onClick={() => { setConfirmDel(false); setSel(liveSel.length === history.length ? [] : history.map((e) => e.id)); }}>
-                {liveSel.length === history.length ? t("histDeselect") : t("histSelectAll")}
+              <GhostButton T={T} onClick={() => { setConfirmDel(false); setSel(liveSel.length === ordered.length ? [] : ordered.map((e) => e.id)); }}>
+                {liveSel.length === ordered.length ? t("histDeselect") : t("histSelectAll")}
               </GhostButton>
               <div role="group" aria-label={t("libViewLabel")} style={{ display: "inline-flex", border: `1px solid ${T.border}`, borderRadius: 6, overflow: "hidden" }}>
                 {[["list", t("libViewList"), ListIcon], ["grid", t("libViewGrid"), LayoutGrid]].map(([id, label, Ic]) => (
@@ -9660,6 +9836,8 @@ function SessionHistoryPanel({ history, qbankCount = 0, qbankQuestions = 0, onDe
 
       {history.length === 0 ? (
         <p style={{ fontFamily: FONT_UI, fontSize: fs(13.5), color: T.muted, lineHeight: 1.6, margin: 0 }}>{t("histEmpty")}</p>
+      ) : ordered.length === 0 ? (
+        <p style={{ fontFamily: FONT_UI, fontSize: fs(13.5), color: T.muted, textAlign: "center", margin: 0 }}>{t("noMatches", { tab: t("tabHistory") })}</p>
       ) : (
         <div style={{ display: "grid", gridTemplateColumns: asGrid ? "repeat(auto-fill, minmax(min(100%, 280px), 1fr))" : "minmax(0, 1fr)", gap: asGrid ? 12 : 8, alignItems: "stretch" }}>
           {ordered.map((h) => {
@@ -9688,7 +9866,7 @@ function SessionHistoryPanel({ history, qbankCount = 0, qbankQuestions = 0, onDe
                   )}
                 </div>
                 {canReview
-                  ? <PrimaryButton T={T} icon={ClipboardList} onClick={(ev) => { ev.stopPropagation(); onReview(h.id); }} style={asGrid ? { alignSelf: "flex-start" } : undefined}>{t("histReview")}</PrimaryButton>
+                  ? <PrimaryButton T={T} icon={ClipboardList} onClick={(ev) => { ev.stopPropagation(); onReview(h.id); }} style={{ minWidth: 150, ...(asGrid ? { alignSelf: "center" } : {}) }}>{t("histReview")}</PrimaryButton>
                   : <span style={{ fontFamily: FONT_UI, fontSize: fs(12), color: T.muted }}>{t("histNoReview")}</span>}
               </div>
             );
@@ -9727,22 +9905,14 @@ function PageNav({ tab, setTab, T }) {
 // ---------------------------------------------------------------------------
 // Import screen
 // ---------------------------------------------------------------------------
-// Global search (the magnifier in the top bar): Qbank titles + their questions, Database items and finished sessions.
+// Universal search RESULTS (the search bar in the top bar types here; see UniversalSearchBar). Scope-aware: Qbank titles + their questions, Database items and finished sessions.
 // Choosing a result opens the page that holds it.
-function GlobalSearch({ library, sessionLog, onGo, onClose, T }) {
+function GlobalSearch({ library, sessionLog, onGo, onClose, q, scope = "all", T }) {
   const { t, lang } = useI18n();
   const db = useContext(DbContext);
   const sp = useContext(ProfileContext);
   const profile = sp.profile;
   const phone = useViewport().w < 640;
-  const [q, setQ] = useState("");
-  const inputRef = useRef(null);
-  useEffect(() => {
-    if (inputRef.current) inputRef.current.focus();
-    const esc = (e) => { if (e.key === "Escape") onClose(); };
-    document.addEventListener("keydown", esc);
-    return () => document.removeEventListener("keydown", esc);
-  }, []); // eslint-disable-line
   const needle = q.trim().toLowerCase();
   const on = needle.length >= 2;
   const snip = (text) => {
@@ -9809,44 +9979,37 @@ function GlobalSearch({ library, sessionLog, onGo, onClose, T }) {
   }, [profile, lang]); // eslint-disable-line
   const res = useMemo(() => {
     if (!on) return { lib: [], db: [], hist: [], cal: [] };
+    const inScope = (k) => scope === "all" || scope === k; // scoping: only the chosen area is searched
     const lib = [];
-    (library || []).forEach((e) => {
+    (inScope("library") ? library || [] : []).forEach((e) => {
       const titleHit = String(e.title || "").toLowerCase().includes(needle);
       const hits = (e.questions || []).filter((x) => [x.vignette, x.stem, x.subject, x.explanation, ...(x.options || []).map((o) => o.text)].filter(Boolean).join(" ").toLowerCase().includes(needle));
       if (titleHit || hits.length) lib.push({ id: e.id, title: e.title, n: hits.length, sample: hits[0] ? snip(hits[0].stem || hits[0].vignette) : "" });
     });
     const dbHits = [];
-    ((db && db.items) || []).forEach((n) => {
+    (inScope("database") ? (db && db.items) || [] : []).forEach((n) => {
       const fields = dbItemFields(n);
       const hit = fields.find((f) => String(f).toLowerCase().includes(needle));
       if (!hit) return;
       const qq = n.question || {}; const src = n.source || {};
       dbHits.push({ id: n.id, kind: n.kind, title: snip(n.text || qq.stem || qq.vignette || n.comment || hit), match: hit === n.text || hit === qq.stem || hit === qq.vignette ? "" : snip(hit), src: [src.block, src.num ? `#${src.num}` : "", src.subject].filter(Boolean).join(" · ") });
     });
-    const hist = (sessionLog || []).filter((h) => String(h.title || h.blockName || "").toLowerCase().includes(needle)).map((h) => ({ id: h.id, title: h.title || h.blockName }));
+    const hist = (inScope("history") ? sessionLog || [] : []).filter((h) => String(h.title || h.blockName || "").toLowerCase().includes(needle)).map((h) => ({ id: h.id, title: h.title || h.blockName }));
     const nn = norm(q);
-    const cal = calIndex.filter((r) => r.hay.includes(nn)).sort((a, b) => String(a.date || "9999").localeCompare(String(b.date || "9999"))).slice(0, 10);
+    const cal = (inScope("calendar") ? calIndex : []).filter((r) => r.hay.includes(nn)).sort((a, b) => String(a.date || "9999").localeCompare(String(b.date || "9999"))).slice(0, 10);
     return { lib: lib.slice(0, 8), db: dbHits.slice(0, 10), hist: hist.slice(0, 6), cal };
-  }, [needle, library, sessionLog, db && db.items, calIndex]); // eslint-disable-line
-  const total = res.lib.length + res.db.length + res.hist.length + res.cal.length + (jumpDate ? 1 : 0);
+  }, [needle, scope, library, sessionLog, db && db.items, calIndex]); // eslint-disable-line
+  const showJump = !!jumpDate && (scope === "all" || scope === "calendar");
+  const total = res.lib.length + res.db.length + res.hist.length + res.cal.length + (showJump ? 1 : 0);
   const grp = { fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(11), color: T.muted, textTransform: "uppercase", letterSpacing: "0.05em", margin: "14px 0 4px" };
   const row = { width: "100%", textAlign: "left", display: "block", background: "transparent", border: "none", borderBottom: `1px solid ${T.border}`, padding: "10px 4px", cursor: "pointer", fontFamily: FONT_UI, color: T.ink };
   const go = (tab, dateKey, query) => { onGo(tab, dateKey, query); onClose(); };
   return (
-    <div role="dialog" aria-modal="true" aria-label={t("searchTitle")} onClick={onClose}
-      style={{ position: "fixed", inset: 0, zIndex: 120, background: "rgba(0,0,0,0.55)", display: "flex", alignItems: phone ? "flex-start" : "flex-start", justifyContent: "center", padding: phone ? 10 : "8vh 20px 20px" }}>
-      <div onClick={(e) => e.stopPropagation()} style={{ width: "100%", maxWidth: 640, maxHeight: phone ? "92vh" : "80vh", overflowY: "auto", background: T.card, border: `1px solid ${T.border}`, borderRadius: 12, padding: 16, boxShadow: "0 12px 40px rgba(0,0,0,0.45)", boxSizing: "border-box" }}>
-        <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-          <div style={{ position: "relative", flex: 1, minWidth: 0 }}>
-            <Search size={16} color={T.muted} style={{ position: "absolute", left: 11, top: "50%", transform: "translateY(-50%)" }} />
-            <input ref={inputRef} value={q} onChange={(e) => setQ(e.target.value)} placeholder={t("searchPh")} aria-label={t("searchTitle")}
-              style={{ width: "100%", boxSizing: "border-box", fontFamily: FONT_UI, fontSize: Math.max(16, fs(14)), color: T.ink, background: T.paper, border: `1px solid ${T.border}`, borderRadius: 8, padding: "10px 12px 10px 34px", outline: "none" }} />
-          </div>
-          <button onClick={onClose} aria-label={t("searchClose")} title={t("searchClose")} style={{ width: 40, height: 40, borderRadius: 8, border: `1px solid ${T.border}`, background: "transparent", color: T.ink, cursor: "pointer", display: "inline-flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}><X size={16} /></button>
-        </div>
+    <div>
+      {!on && <p style={{ fontFamily: FONT_UI, fontSize: fs(13), color: T.muted, margin: "12px 2px 2px", textAlign: "center" }}>{t("searchMore")}</p>}
         {on && total === 0 && <p style={{ fontFamily: FONT_UI, fontSize: fs(13.5), color: T.muted, margin: "14px 2px 2px" }}>{t("searchNone", { q: q.trim() })}</p>}
-        {(res.cal.length > 0 || jumpDate) && <div style={grp}>{t("searchGrpCal")}</div>}
-        {jumpDate && (
+        {(res.cal.length > 0 || showJump) && <div style={grp}>{t("searchGrpCal")}</div>}
+        {showJump && (
           <button onClick={() => go("calendar", toISODate(jumpDate))} style={row}>
             <div style={{ fontWeight: 700, fontSize: fs(13.5), color: T.blue }}>{t("searchGoDate", { d: longDate(jumpDate) })}</div>
           </button>
@@ -9866,7 +10029,7 @@ function GlobalSearch({ library, sessionLog, onGo, onClose, T }) {
         ))}
         {res.db.length > 0 && <div style={grp}>{t("searchGrpDb")}</div>}
         {res.db.map((r) => (
-          <button key={r.id} onClick={() => go("database", null, q.trim())} style={row}>
+          <button key={r.id} onClick={() => go("database")} style={row}>
             <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(10.5), color: (DB_KINDS[r.kind] ? T[DB_KINDS[r.kind].tone] : T.muted) || T.muted, textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: 2 }}>{DB_KINDS[r.kind] ? t(DB_KINDS[r.kind].label) : ""}</div>
             <div style={{ fontSize: fs(13), overflowWrap: "anywhere" }}>{r.title}</div>
             {(r.match || r.src) && <div style={{ fontSize: fs(12), color: T.muted, marginTop: 2, overflowWrap: "anywhere" }}>{[r.match, r.src].filter(Boolean).join(" · ")}</div>}
@@ -9876,7 +10039,63 @@ function GlobalSearch({ library, sessionLog, onGo, onClose, T }) {
         {res.hist.map((r) => (
           <button key={r.id} onClick={() => go("analytics")} style={row}><div style={{ fontWeight: 600, fontSize: fs(13.5), overflowWrap: "anywhere" }}>{r.title}</div></button>
         ))}
+    </div>
+  );
+}
+
+// The universal search bar: the ONE search field in the app. It sits centered in the top bar. On Qbank / Calendar / Database / Analysis it filters
+// that page in place as you type (each page keeps only its own centered filter chips); the scope chips under the bar widen or narrow it
+// (This page, Everywhere, or one area). Any scope other than the current page lists its matches in a panel; choosing one opens that page, filtered.
+const SEARCH_SCOPES = [["library", "searchScopeLib"], ["calendar", "searchScopeCal"], ["database", "searchScopeDb"], ["history", "searchScopeHist"]];
+function UniversalSearchBar({ q, setQ, scope, setScope, pageScope, library, sessionLog, onGo, T, wide, autoFocus = false }) {
+  const { t } = useI18n();
+  const [open, setOpen] = useState(false);
+  const boxRef = useRef(null);
+  const inputRef = useRef(null);
+  const effScope = scope === "auto" ? pageScope : scope;
+  const inPlace = effScope === pageScope && pageScope !== "all"; // the page itself is the result list
+  useEffect(() => { if (autoFocus && inputRef.current) { inputRef.current.focus(); setOpen(true); } }, []); // eslint-disable-line
+  useEffect(() => {
+    if (!open) return undefined;
+    const down = (e) => { if (boxRef.current && !boxRef.current.contains(e.target)) setOpen(false); };
+    const key = (e) => { if (e.key === "Escape") { setOpen(false); if (inputRef.current) inputRef.current.blur(); } };
+    document.addEventListener("mousedown", down); document.addEventListener("touchstart", down); document.addEventListener("keydown", key);
+    return () => { document.removeEventListener("mousedown", down); document.removeEventListener("touchstart", down); document.removeEventListener("keydown", key); };
+  }, [open]);
+  const ph = { library: "libSearchPh", calendar: "calFind", database: "dbSearch", history: "searchPhHist", all: "searchPhAll" }[effScope] || "searchPh";
+  const chips = [...(pageScope !== "all" ? [["auto", "searchScopeThis"]] : []), ["all", "searchScopeAll"], ...SEARCH_SCOPES.filter(([id]) => id !== pageScope)];
+  const chipOn = (id) => (id === "auto" ? effScope === pageScope : id === "all" ? effScope === "all" : scope === id);
+  return (
+    <div ref={boxRef} style={{ position: "relative", width: wide ? "clamp(300px, 34vw, 460px)" : "100%" }}>
+      <div style={{ display: "flex", alignItems: "center", gap: 10, height: 40, padding: "0 8px 0 16px", borderRadius: 999, background: T.card, border: `1px solid ${open ? T.blue : T.border}`, boxSizing: "border-box" }}>
+        <Search size={17} color={T.muted} style={{ flexShrink: 0 }} />
+        <input ref={inputRef} value={q} onChange={(e) => { setQ(e.target.value); setOpen(true); }} onFocus={() => setOpen(true)} maxLength={80}
+          placeholder={t(ph)} aria-label={t("searchTitle")} role="searchbox" autoComplete="off" spellCheck={false}
+          style={{ flex: 1, minWidth: 0, border: "none", outline: "none", background: "transparent", color: T.ink, fontFamily: FONT_UI, fontSize: Math.max(16, fs(14)) }} />
+        {q && (
+          <button onClick={() => { setQ(""); if (inputRef.current) inputRef.current.focus(); }} title={t("searchClear")} aria-label={t("searchClear")}
+            style={{ background: "transparent", border: "none", cursor: "pointer", color: T.muted, display: "flex", padding: 6, flexShrink: 0 }}><X size={16} /></button>
+        )}
       </div>
+      {open && (
+        <div role="dialog" aria-label={t("searchTitle")} style={{ position: "absolute", top: 46, left: "50%", transform: "translateX(-50%)", width: wide ? "min(560px, 92vw)" : "100%", maxHeight: "70vh", overflowY: "auto", zIndex: 130, background: T.card, border: `1px solid ${T.border}`, borderRadius: 12, padding: 14, boxShadow: "0 12px 40px rgba(0,0,0,0.35)", boxSizing: "border-box" }}>
+          <div role="group" aria-label={t("searchScopeLabel")} style={{ display: "flex", gap: 6, flexWrap: "wrap", justifyContent: "center", alignItems: "center" }}>
+            <span style={{ fontFamily: FONT_UI, fontSize: fs(12), color: T.muted, marginRight: 2 }}>{t("searchScopeLabel")}</span>
+            {chips.map(([id, key]) => { const on = chipOn(id); return (
+              <button key={id} aria-pressed={on} onClick={() => { setScope(id); if (inputRef.current) inputRef.current.focus(); }} style={{
+                fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(12.5), padding: "5px 11px", borderRadius: 999, cursor: "pointer",
+                border: `1px solid ${on ? T.blue : T.border}`, background: on ? T.blueLight : "transparent", color: on ? T.blue : T.ink,
+              }}>{t(key)}</button>
+            ); })}
+          </div>
+          {inPlace ? (
+            <p style={{ fontFamily: FONT_UI, fontSize: fs(12.5), color: T.muted, lineHeight: 1.5, margin: "12px 4px 0", textAlign: "center" }}>{t(q.trim() ? "searchInPage" : "searchInPageEmpty")}</p>
+          ) : (
+            <GlobalSearch library={library} sessionLog={sessionLog} q={q} scope={effScope} T={T}
+              onGo={(tab, key) => { onGo(tab, key); setOpen(false); }} onClose={() => setOpen(false)} />
+          )}
+        </div>
+      )}
     </div>
   );
 }
@@ -10048,6 +10267,7 @@ function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], dri
   const [error, setError] = useState("");
   const [showSchema, setShowSchema] = useState(false);
   const [showDevSchema, setShowDevSchema] = useState(false);
+  const [showRecipe, setShowRecipe] = useState(false); // the recipe text itself stays folded until the chevron is tapped; Copy works either way
   const [copied, setCopied] = useState(false);
   const [recipeSize, setRecipeSize] = useState(25);
   const [recipeCustom, setRecipeCustom] = useState(""); // typed custom question count; "" = a preset is active
@@ -10063,7 +10283,16 @@ function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], dri
   const [saveMsg, setSaveMsg] = useState(null); // { tone: "green" | "red" | "muted", text }
   const [review, setReview] = useState(null); // { result, action: "load" | "save" } — confirm when the tolerant loader left something out
   const [guideOpen, setGuideOpen] = useState(false);
-  const [searchOpen, setSearchOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false); // narrow screens: the universal search bar drops down as its own row under the top bar
+  // Universal search: ONE query + scope for the whole app. "auto" follows the page you are on; the pages filter in place when it is their scope.
+  const [uq, setUq] = useState("");
+  const [uScope, setUScope] = useState("auto"); // auto | all | library | calendar | database | history
+  const keepScopeRef = useRef(false);
+  const TAB_SCOPE = { library: "library", calendar: "calendar", database: "database", analytics: "history" };
+  const pageScope = TAB_SCOPE[libTab] || "all";
+  const effScope = uScope === "auto" ? pageScope : uScope;
+  const scopedQ = (area) => (effScope === area ? uq : ""); // the text a page filters by (empty when the search is aimed elsewhere)
+  useEffect(() => { if (keepScopeRef.current) { keepScopeRef.current = false; return; } setUScope("auto"); }, [libTab]); // a manual scope lasts for the page it was chosen on
   const stickyRef = useRef(null);
   useEffect(() => { // publish the sticky header's height so nested sticky bars (Study Hub sections) sit right below it
     const el = stickyRef.current; if (!el) return undefined;
@@ -10074,7 +10303,6 @@ function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], dri
     const ro = new ResizeObserver(set); ro.observe(el);
     return () => { ro.disconnect(); root.style.removeProperty("--oworld-sticky-h"); };
   }, []);
-  const [dbFocus, setDbFocus] = useState(null); // { q, n }: the Database page opens filtered by a Search result
   const [calFocus, setCalFocus] = useState(null); // { key, n }: a day picked in Search, shown on the Calendar page
   const vp = useViewport();
   const wideBar = vp.w >= 960; // large displays: the search button grows into a centered search bar
@@ -10084,7 +10312,15 @@ function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], dri
     setLibTab("library"); setImportOpen(true);
     setTimeout(() => { if (importRef.current) importRef.current.scrollIntoView({ behavior: "smooth", block: "start" }); }, 80);
   }, [libTab]); // eslint-disable-line
-  useEffect(() => { if (libTab !== "calendar") setCalFocus(null); if (libTab !== "database") setDbFocus(null); }, [libTab]);
+  useEffect(() => { if (libTab !== "calendar") setCalFocus(null); }, [libTab]);
+  // Choosing a universal-search result opens the page that holds it, with the search aimed at that page so it filters in place.
+  // The Calendar result is a date, so there the text is cleared and the day is shown instead.
+  const onSearchGo = (tab, key) => {
+    if (key) setCalFocus({ key, n: Date.now() });
+    if (tab !== libTab) keepScopeRef.current = true;
+    if (tab === "calendar") { setUq(""); setUScope("auto"); } else setUScope(TAB_SCOPE[tab] || "auto");
+    setLibTab(tab); window.scrollTo({ top: 0, behavior: "smooth" });
+  };
   const goHomePage = () => { setLibTab("console"); window.scrollTo({ top: 0, behavior: "smooth" }); }; // the logo is the Home button
   const fileRef = useRef(null);
   const spCtx = useContext(ProfileContext);
@@ -10175,7 +10411,6 @@ function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], dri
     <div style={{ maxWidth: Math.round(1120 * Math.max(1, TEXT_SCALE)), width: "100%", boxSizing: "border-box", margin: "0 auto", padding: "22px 20px 80px", position: "relative" }}>
       <style>{`@import url('${FONT_IMPORT_URL}');`}</style>
 
-      {searchOpen && <GlobalSearch library={library} sessionLog={sessionLog} onGo={(tab, key, query) => { if (key) setCalFocus({ key, n: Date.now() }); if (query) setDbFocus({ q: query, n: Date.now() }); setLibTab(tab); window.scrollTo({ top: 0, behavior: "smooth" }); }} onClose={() => setSearchOpen(false)} T={T} />}
       {guideOpen && <HowItWorksGuide onClose={() => setGuideOpen(false)} T={T} />}
       {/* Sticky header: the top bar and the page tabs stay pinned while the page scrolls. */}
       <div ref={stickyRef} style={{ position: "sticky", top: 0, zIndex: 20, background: T.paper, margin: "-22px -20px 22px", padding: "14px 20px 0" }}>
@@ -10189,35 +10424,32 @@ function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], dri
           <Activity size={phone ? 24 : 30} color={T.blue} strokeWidth={2.5} />
           <span style={{ fontFamily: FONT_MONO, fontSize: fs(phone ? 22 : 30), letterSpacing: "0.1em", color: T.blue, fontWeight: 700 }}>OWORLD</span>
         </button>
-        {wideBar && (
-          <button onClick={() => setSearchOpen(true)} aria-label={t("searchTitle")} title={t("searchTitle")} style={{
-            display: "flex", alignItems: "center", gap: 10, width: "clamp(300px, 34vw, 460px)", height: 40, padding: "0 16px", borderRadius: 999, cursor: "pointer",
-            background: T.card, border: `1px solid ${T.border}`, color: T.muted, fontFamily: FONT_UI, fontSize: fs(14), textAlign: "left",
-          }}>
-            <Search size={17} color={T.muted} style={{ flexShrink: 0 }} />
-            <span>{t("searchTitle")}</span>
-          </button>
-        )}
+        {wideBar && <UniversalSearchBar q={uq} setQ={setUq} scope={uScope} setScope={setUScope} pageScope={pageScope} library={library} sessionLog={sessionLog} onGo={onSearchGo} T={T} wide />}
         <div style={{ display: "flex", alignItems: "center", gap: phone ? 8 : 10, ...(wideBar ? { justifySelf: "end" } : {}) }}>
-          {!wideBar && <GhostButton T={T} icon={Search} onClick={() => setSearchOpen(true)} title={t("searchTitle")} style={{ padding: 0, width: 40, height: 40, borderRadius: "50%", flexShrink: 0 }} />}
+          {!wideBar && <GhostButton T={T} icon={Search} onClick={() => setSearchOpen((o) => !o)} title={t("searchTitle")} style={{ padding: 0, width: 40, height: 40, borderRadius: "50%", flexShrink: 0 }} />}
           <NotificationBell T={T} />
           <SettingsMenu darkMode={darkMode} setDarkMode={setDarkMode} T={T} iconOnly={phone} onHelp={() => setGuideOpen(true)} />
         </div>
       </div>
+      {!wideBar && searchOpen && (
+        <div style={{ marginBottom: 12 }}>
+          <UniversalSearchBar q={uq} setQ={setUq} scope={uScope} setScope={setUScope} pageScope={pageScope} library={library} sessionLog={sessionLog} onGo={(tab, key) => { onSearchGo(tab, key); setSearchOpen(false); }} T={T} autoFocus />
+        </div>
+      )}
       <PageNav tab={libTab} setTab={setLibTab} T={T} />
       </div>
 
       {/* Library top row: compact active-session widget (Resume lives here) */}
       {libTab === "library" && <LibraryTopRow session={session} resumeId={resumeId} library={library} onResume={onResume} onOpenLobby={onOpenLobby} T={T} />}
 
-      {libTab === "database" && <DatabasePanel key={dbFocus ? dbFocus.n : "db"} initialQuery={dbFocus ? dbFocus.q : ""} T={T} />}
-      {libTab === "calendar" && <CalendarPage focusDate={calFocus} sessionLog={sessionLog} onNavigate={(tab) => { setLibTab(tab); window.scrollTo({ top: 0, behavior: "smooth" }); }} T={T} />}
-      {libTab === "analytics" && <SessionHistoryPanel history={sessionLog} qbankCount={library.length} qbankQuestions={libraryQuestionCount(library)} onDelete={onDeleteSession} onClear={onClearSessions} onReview={onReviewSession} T={T} />}
+      {libTab === "database" && <DatabasePanel query={scopedQ("database")} T={T} />}
+      {libTab === "calendar" && <CalendarPage focusDate={calFocus} query={scopedQ("calendar")} sessionLog={sessionLog} onNavigate={(tab) => { setLibTab(tab); window.scrollTo({ top: 0, behavior: "smooth" }); }} T={T} />}
+      {libTab === "analytics" && <SessionHistoryPanel history={sessionLog} qbankCount={library.length} qbankQuestions={libraryQuestionCount(library)} onDelete={onDeleteSession} onClear={onClearSessions} onReview={onReviewSession} query={scopedQ("history")} T={T} />}
       {libTab === "console" && <ConsolePanel library={library} sessionLog={sessionLog} session={session} remoteSession={remoteSession} onMigrate={onMigrate} onResume={onResume} onOpenLobby={onOpenLobby} onReview={onReviewSession} onNavigate={(tab) => { setLibTab(tab); window.scrollTo({ top: 0, behavior: "smooth" }); }} T={T} />}
       {libTab === "studyhub" && <StudyHub library={library} sessionLog={sessionLog} onLaunch={onLaunchLibrary} onNavigate={(tab, key) => { if (key) setCalFocus({ key, n: Date.now() }); setLibTab(tab); if (tab !== "profile") window.scrollTo({ top: 0, behavior: "smooth" }); }} T={T} />}
       {libTab === "library" && library.length > 0 && <SmartReviewDeck library={library} onStart={onSmartReview} T={T} />}
       {libTab === "library" && <TutorLibraryStrip library={library} sessionLog={sessionLog} onLaunch={onLaunchLibrary} onSmartReview={onSmartReview} onNavigate={setLibTab} T={T} />}
-      {libTab === "library" && <QbankLibraryPanel library={library} onLaunch={onLaunchLibrary} onMix={onMixLibrary} onDelete={onDeleteLibraryEntry} onRename={onRenameLibraryEntry} onSetMeta={onSetLibraryMeta} deckDefs={deckDefs} onDecksChange={onDecksChange} resumeId={resumeId} onResume={onResume} sessionLog={sessionLog} T={T} />}
+      {libTab === "library" && <QbankLibraryPanel library={library} onLaunch={onLaunchLibrary} onMix={onMixLibrary} onDelete={onDeleteLibraryEntry} onRename={onRenameLibraryEntry} onSetMeta={onSetLibraryMeta} deckDefs={deckDefs} onDecksChange={onDecksChange} resumeId={resumeId} onResume={onResume} sessionLog={sessionLog} uq={scopedQ("library")} onClearSearch={() => setUq("")} T={T} />}
 
       {/* Import Qbank page: its own page, no longer an accordion under the library. */}
       <div ref={importRef} style={{ marginBottom: 20 }}>
@@ -10375,21 +10607,25 @@ function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], dri
             </p>
 
             {recipeFocusMode !== "standard" && (
-              <input
+              <textarea
                 value={recipeFocusValue}
+                rows={2}
                 onChange={(e) => setRecipeFocusValue(e.target.value)}
                 placeholder={recipeFocusMode === "systems" ? t("phSystems") : t("phDisc")}
                 style={{
-                  width: "100%", boxSizing: "border-box", fontFamily: FONT_UI, fontSize: fs(13.5), color: T.ink,
-                  border: `1px solid ${T.border}`, borderRadius: 6, padding: "9px 12px", marginBottom: 18,
+                  width: "100%", boxSizing: "border-box", fontFamily: FONT_UI, fontSize: Math.max(16, fs(13.5)), color: T.ink, lineHeight: 1.4,
+                  minHeight: 78, resize: "vertical", display: "block", // twice the old one-line height: easier to type into on a phone (16px text also stops iOS zooming in)
+                  background: T.paper, border: `1px solid ${T.border}`, borderRadius: 6, padding: "9px 12px", marginBottom: 18,
                 }}
               />
             )}
 
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 8 }}>
-              <span style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(12.5), color: T.ink, textTransform: "uppercase", letterSpacing: "0.05em" }}>
+              <button type="button" onClick={() => setShowRecipe((v) => !v)} aria-expanded={showRecipe}
+                style={{ display: "inline-flex", alignItems: "center", gap: 6, background: "transparent", border: "none", padding: 0, cursor: "pointer", textAlign: "left", fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(12.5), color: T.ink, textTransform: "uppercase", letterSpacing: "0.05em" }}>
+                {showRecipe ? <ChevronUp size={15} color={T.muted} /> : <ChevronDown size={15} color={T.muted} />}
                 {t("recipeTitle")}
-              </span>
+              </button>
               <button
                 onClick={copyPrompt}
                 style={{
@@ -10400,13 +10636,15 @@ function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], dri
                 {copied ? <Check size={14} /> : <Copy size={14} />} {copied ? t("copied") : t("copy")}
               </button>
             </div>
-            <pre style={{
-              fontFamily: FONT_MONO, fontSize: fs(11.5), color: T.ink, background: T.paper,
-              border: `1px solid ${T.border}`, borderRadius: 8, padding: 14, whiteSpace: "pre-wrap",
-              wordBreak: "break-word", lineHeight: 1.6, margin: 0,
-            }}>
-              {recipeText}
-            </pre>
+            {showRecipe && (
+              <pre style={{
+                fontFamily: FONT_MONO, fontSize: fs(11.5), color: T.ink, background: T.paper,
+                border: `1px solid ${T.border}`, borderRadius: 8, padding: 14, whiteSpace: "pre-wrap",
+                wordBreak: "break-word", lineHeight: 1.6, margin: 0,
+              }}>
+                {recipeText}
+              </pre>
+            )}
             <button
               onClick={() => setShowDevSchema((v) => !v)}
               aria-expanded={showDevSchema}
@@ -10763,6 +11001,7 @@ function collectTutorSources(questions) {
 
 function TutorSourcesWindow({ sources, T, onClose }) {
   const { t } = useI18n();
+  const srcPref = useContext(SrcAutoContext);
   useEffect(() => {
     const esc = (e) => { if (e.key === "Escape") onClose(); };
     document.addEventListener("keydown", esc);
@@ -10800,7 +11039,11 @@ function TutorSourcesWindow({ sources, T, onClose }) {
             </div>
           ))}
         </div>
-        <div style={{ padding: "12px 20px 18px", display: "flex", justifyContent: "flex-end", borderTop: `1px solid ${T.border}` }}>
+        <div style={{ padding: "12px 20px 18px", display: "flex", justifyContent: "space-between", alignItems: "center", gap: 12, flexWrap: "wrap", borderTop: `1px solid ${T.border}` }}>
+          <label style={{ display: "inline-flex", alignItems: "center", gap: 8, fontFamily: FONT_UI, fontSize: fs(12.5), color: T.muted, cursor: "pointer" }}>
+            <input type="checkbox" checked={srcPref.on} onChange={(e) => srcPref.set(e.target.checked)} style={{ width: 16, height: 16, cursor: "pointer" }} />
+            {t("srcAutoShort")}
+          </label>
           <PrimaryButton T={T} onClick={onClose}>{t("tutorSrcStart")}</PrimaryButton>
         </div>
       </div>
@@ -11233,13 +11476,14 @@ function QbankImportModal({ onSave, onClose, T }) {
   );
 }
 
-function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onRate, onHome, onImportQbank, darkMode, setDarkMode }) {
+function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onAbortBlock, onRate, onHome, onImportQbank, darkMode, setDarkMode }) {
   // Resume on the question the student was last viewing (clamped in case the stored value is stale).
   const [qIdx, setQIdx] = useState(() => {
     const n = Math.floor(Number(blockState.currentQuestionIndex) || 0);
     return Math.min(Math.max(0, n), block.questions.length - 1);
   });
   const [confirmSubmit, setConfirmSubmit] = useState(false);
+  const [confirmAbort, setConfirmAbort] = useState(false); // Abort asks once more before it discards the block
   const [confirmTimerOff, setConfirmTimerOff] = useState(false);
   const [timeUp, setTimeUp] = useState(false);
   const [settingsOpen, setSettingsOpen] = useState(false);
@@ -12152,9 +12396,28 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onRate, o
             <p style={{ fontFamily: FONT_UI, fontSize: fs(14), color: T.muted, lineHeight: 1.55, margin: "0 0 20px" }}>
               {t("endConfirm", { a: answeredCount, n: questions.length })}
             </p>
-            <div style={{ display: "flex", gap: 10, justifyContent: "flex-end" }}>
+            {tutorMode && onAbortBlock && <p style={{ fontFamily: FONT_UI, fontSize: fs(12.5), color: T.muted, lineHeight: 1.5, margin: "-8px 0 18px" }}>{t("abortHint")}</p>}
+            <div style={{ display: "flex", gap: 10, justifyContent: "flex-end", flexWrap: "wrap" }}>
               <GhostButton T={T} onClick={() => setConfirmSubmit(false)}>{t("keepWorking")}</GhostButton>
+              {tutorMode && onAbortBlock && <GhostButton T={T} style={{ color: T.red, borderColor: T.red }} onClick={() => { setConfirmSubmit(false); setConfirmAbort(true); }}>{t("abortBtn")}</GhostButton>}
               <PrimaryButton T={T} onClick={() => { setConfirmSubmit(false); onSubmitBlock(); }}>{t("endBlockBtn")}</PrimaryButton>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Abort confirmation */}
+      {confirmAbort && onAbortBlock && (
+        <div role="alertdialog" aria-modal="true" aria-label={t("abortQ")} style={{
+          position: "fixed", inset: 0, background: "rgba(10,15,20,0.6)", display: "flex", alignItems: "center",
+          justifyContent: "center", zIndex: 96, padding: 20,
+        }}>
+          <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, padding: 28, maxWidth: 400 }}>
+            <h3 style={{ fontFamily: FONT_UI, fontSize: fs(17), fontWeight: 700, color: T.ink, margin: "0 0 10px" }}>{t("abortQ")}</h3>
+            <p style={{ fontFamily: FONT_UI, fontSize: fs(14), color: T.muted, lineHeight: 1.55, margin: "0 0 20px" }}>{t("abortConfirmBody")}</p>
+            <div style={{ display: "flex", gap: 10, justifyContent: "flex-end", flexWrap: "wrap" }}>
+              <GhostButton T={T} onClick={() => setConfirmAbort(false)}>{t("keepWorking")}</GhostButton>
+              <GhostButton T={T} style={{ color: T.red, borderColor: T.red }} onClick={() => { setConfirmAbort(false); onAbortBlock(); }}>{t("abortGo")}</GhostButton>
             </div>
           </div>
         </div>
@@ -12818,6 +13081,7 @@ function OworldApp() {
   const [darkMode, setDarkMode] = useState(boot.prefs.darkMode);
   const [lang, setLang] = useState(boot.prefs.lang); // English is the default
   const [textScale, setTextScale] = useState(boot.prefs.textScale);
+  const [srcAuto, setSrcAuto] = useState(boot.prefs.srcAuto !== false); // show the Tutor suggested sources card at the start of a session
   TEXT_SCALE = textScale; // read by fs() while this render builds the tree
   const [library, setLibrary] = useState(boot.library); // [{ id, title, importDate, questions, lastScore }]
   const [libTab, setLibTabRaw] = useState("console");
@@ -12893,9 +13157,9 @@ function OworldApp() {
     setTrash((cur) => { const keep = cur.filter((e) => e.deletedAt > cut); return keep.length === cur.length ? cur : keep; });
   }, [libTab]);
   useEffect(() => {
-    const isDefault = darkMode === true && lang === "en" && textScale === 1;
-    persist(LS_PREFS, isDefault ? null : JSON.stringify({ darkMode, lang, textScale }));
-  }, [darkMode, lang, textScale]);
+    const isDefault = darkMode === true && lang === "en" && textScale === 1 && srcAuto === true;
+    persist(LS_PREFS, isDefault ? null : JSON.stringify({ darkMode, lang, textScale, srcAuto }));
+  }, [darkMode, lang, textScale, srcAuto]);
   useEffect(() => {
     if (!restoredNotice) return;
     const id = setTimeout(() => setRestoredNotice(false), 5000);
@@ -12969,7 +13233,7 @@ function OworldApp() {
     const blocks = entries.map((e) => ({
       blockName: e.title,
       ...(typeof e.timeLimitMinutes === "number" ? { timeLimitMinutes: e.timeLimitMinutes } : {}),
-      questions: e.questions,
+      questions: e.questions.map(serveQuestion), // primary / variant 1 / variant 2 by SM-2 lapse count
       libraryId: e.id,
     }));
     setExamData({ blocks });
@@ -12997,7 +13261,7 @@ function OworldApp() {
     setHistory([]);
     setActiveBlockIdx(0);
     setView("exam");
-    if (mode === "tutor") { const list = collectTutorSources(block.questions); setSrcWin(list.length ? { sources: list } : null); } else setSrcWin(null);
+    if (mode === "tutor" && srcAuto) { const list = collectTutorSources(block.questions); setSrcWin(list.length ? { sources: list } : null); } else setSrcWin(null);
   }
 
   // Smart Review: filters every Qbank's JSON for questions whose meta.sm2.due <= end of today, builds ONE Tutor block from them
@@ -13011,7 +13275,7 @@ function OworldApp() {
     setHistory([]);
     setActiveBlockIdx(0);
     setView("exam");
-    const list = collectTutorSources(block.questions); setSrcWin(list.length ? { sources: list } : null);
+    const list = srcAuto ? collectTutorSources(block.questions) : []; setSrcWin(list.length ? { sources: list } : null);
   }
 
   // Saves a self-rating on the question's `meta` ({ rating, ratedAt, sm2 }) — in the loaded exam (every copy, incl. retest
@@ -13348,9 +13612,14 @@ function OworldApp() {
   }
 
   function recordLibraryScore(libraryId, score, finishedAt) {
-    setLibrary((lib) => lib.map((e) => (e.id === libraryId
-      ? { ...e, updatedAt: finishedAt, lastScore: { correct: score.correct, total: score.total, pct: score.pct, date: finishedAt } }
-      : e)));
+    // The card keeps the HIGHEST-scoring first-pass attempt (a tie goes to the newer one); a lower score leaves the card, and the sync, untouched.
+    // (The field is still called lastScore: it is stored and synced under that name.) Every attempt is still logged under Analytics.
+    setLibrary((lib) => lib.map((e) => {
+      if (e.id !== libraryId) return e;
+      const prev = e.lastScore;
+      if (prev && (Number(prev.pct) || 0) > score.pct) return e;
+      return { ...e, updatedAt: finishedAt, lastScore: { correct: score.correct, total: score.total, pct: score.pct, date: finishedAt } };
+    }));
   }
 
   // Settings → "Reset All Local Data": wipes the library, the active session and preferences, then returns
@@ -13532,6 +13801,35 @@ function OworldApp() {
     setView("results");
   }
 
+  // Tutor mode → End block popup → Abort: drop the block in progress WITHOUT scoring it. Nothing reaches the Analytics log, no review
+  // snapshot is saved and the Qbank card keeps its score; ratings already given stay (they are saved on the question the moment they are made).
+  //   only block loaded (a library run, a Mixed / Smart Review block)  -> the exam is cleared, back to Home
+  //   a retest block                                                    -> it is removed, back to the results of the block it retested
+  //   one of several blocks in the lobby                                -> that block is reset to "not started", back to the lobby
+  function abortActiveBlock() {
+    const idx = activeBlockIdx;
+    const block = examData && examData.blocks[idx];
+    if (!block || !blockStates[idx]) return;
+    setSrcWin(null);
+    if (examData.blocks.length === 1) { removeLoadedExam(); }
+    else if (block.isRetest) {
+      const parent = block.retestOf;
+      const keep = examData.blocks.map((_, i) => i).filter((i) => i !== idx);
+      const remap = new Map(keep.map((oldI, newI) => [oldI, newI]));
+      const fix = (i) => (remap.has(i) ? remap.get(i) : i);
+      setExamData((prev) => ({ ...prev, blocks: keep.map((i) => (prev.blocks[i].isRetest ? { ...prev.blocks[i], retestOf: fix(prev.blocks[i].retestOf) } : prev.blocks[i])) }));
+      setBlockStates((prev) => keep.map((i) => prev[i]));
+      setHistory((h) => h.filter((e) => e.blockIdx !== idx).map((e) => ({ ...e, blockIdx: fix(e.blockIdx), originIdx: fix(e.originIdx) })));
+      setActiveBlockIdx(remap.has(parent) ? remap.get(parent) : null);
+      setView(remap.has(parent) ? "results" : "lobby");
+    } else {
+      setBlockStates((prev) => prev.map((b, i) => (i === idx ? makeInitialBlockState(examData.blocks[idx]) : b)));
+      setActiveBlockIdx(null);
+      setView("lobby");
+    }
+    setFlash(tr("blockAborted"));
+  }
+
   function reviewBlock(idx) { setActiveBlockIdx(idx); setView("results"); }
   function resetAll() {
     // Auto-save protects against refreshes, so don't let a single stray click on "Import new exam" discard a started block.
@@ -13568,7 +13866,7 @@ function OworldApp() {
       : pool === "againhard" ? (q.meta?.rating === "again" || q.meta?.rating === "hard")
       : bs.answers[q.id]?.selected !== q.correctAnswer);
     if (src.length === 0) return;
-    const shuffled = shuffleArray(src).map(shuffleQuestionOptions); // new question AND answer order
+    const shuffled = shuffleArray(src.map(serveQuestion)).map(shuffleQuestionOptions); // new question AND answer order; a question rated Again now comes back as its next variant
     const newBlock = {
       blockName: baseBlockName(block.blockName), // suffix is localized in blockLabel()
       questions: shuffled,
@@ -13601,6 +13899,7 @@ function OworldApp() {
     <NotifContext.Provider value={notifs}>
     <DbContext.Provider value={dbCtx}>
     <ProfileContext.Provider value={profileCtx}>
+    <SrcAutoContext.Provider value={{ on: srcAuto, set: setSrcAuto }}>
     <CareerContext.Provider value={careerCtx}>
     <div style={{ minHeight: "100vh", background: T.paper, fontFamily: FONT_UI, textAlign: "left" }}>
       {srcWin && <TutorSourcesWindow sources={srcWin.sources} T={T} onClose={() => setSrcWin(null)} />}
@@ -13720,6 +14019,7 @@ function OworldApp() {
           blockState={blockStates[activeBlockIdx]}
           setBlockState={setActiveBlockState}
           onSubmitBlock={submitActiveBlock}
+          onAbortBlock={abortActiveBlock}
           onRate={(q, k) => rateQuestion(activeBlockIdx, q, k)}
           onHome={goHome}
           onImportQbank={saveImportToLibrary}
@@ -13771,6 +14071,7 @@ function OworldApp() {
       )}
     </div>
     </CareerContext.Provider>
+    </SrcAutoContext.Provider>
     </ProfileContext.Provider>
     </DbContext.Provider>
     </NotifContext.Provider>
