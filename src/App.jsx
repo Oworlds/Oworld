@@ -253,7 +253,7 @@ const LAB_TABS = ["Serum", "Cerebrospinal", "Blood", "Urine and BMI"];
 // ---------------------------------------------------------------------------
 const STR = {
   en: {
-    searchScopeClin: "Cases", searchPhClin: "Search saved cases…", searchGrpClin: "Clinical cases", clClear: "Clear", clViewMore: "View more ({n})", clViewLess: "View less", clSelCount: "{n} selected", clRename: "Rename case", clShareBundle: "Oworld clinical cases", clShareText: "Oworld clinical case: {name}", clDeleteSelQ: "Delete {n} selected case(s)? This can't be undone.", clImportBundleOk: "Imported {n} case(s) into your library.", clImportBundleNone: "That file has no valid cases.", clDifficulty: "Difficulty", clEasy: "Easy", clModerate: "Moderate", clHard: "Hard", clSyncLocal: "Saved on this device. Sign in with Google to sync your cases to Drive.", clViewBuild: "Builder", clViewLib: "Library", clImport: "Import AI case", clImportHint: "Paste the JSON your AI tool returned for the recipe above, or upload a .json file.", clImportPh: "Paste the AI case JSON here…", clImportBtn: "Import case", clUpload: "Upload .json", clImportOk: "Case imported. Review it below, then save it to your library.", clImportWarn: "Imported, but these parts were missing: {w}.", clSave: "Save to Library", clSaved: "Saved", clSrcAi: "AI", clSrcTpl: "Template", clSrcAll: "All sources", clAllAges: "All ages", clLibEmpty: "Your case library is empty. Generate or import a case, then tap Save to Library, or add the sample case to try the workflow.", clAddSample: "Add sample case", clLibNoMatch: "No saved cases match.", clOpen: "Open", clCopyJson: "Copy JSON", clDelete: "Delete", clDeleteSure: "Tap again to delete", clSavedOn: "Saved {d}", clIce: "Ideas, concerns, expectations", clExit: "Save & exit", clHiVitals: "Hi Doctor, here are {n}'s vital signs", clChart: "Patient chart", clHpiTitle: "History of present illness", clChief: "Chief complaint", clFullStory: "Full patient story: {n}", clHideStory: "Hide full patient story", clSenior: "Senior Clinician", clTypeTab: "Type response", clTypePh: "Type your response…", clTypeHint: "Type your answer to {d}", clSkip: "Skip response", clSubmit: "Submit response", clSkipped: "Response skipped", clStep: "Step {n} of {m}", clCaseDone: "Case complete", clRestart: "Restart case", clConversation: "Conversation with the senior clinician", clTapReveal: "Tap to reveal this finding", clQ0: "Hi, I'm {d}. I'll be your senior clinician during this case. Can you provide me with your patient presentation?", clQ1: "Thank you. Which examination findings would you look for? Tap the ones you want to reveal, then tell me what you expect to find.", clQ2: "What is your leading diagnosis, and what else is on your differential?", clQ3: "What investigations and management would you start?", clDone: "Thank you, that completes the case. Here is the examiner key and your marking checklist.", tabClinical: "Clinical", clTitle: "Clinical — OSCE patients", clHint: "Build a recipe, preview the prompt, then generate a practice patient.", clBuilder: "Recipe Builder", clAge: "Age group", clAgePed: "Pediatric", clAgeAdult: "Adult", clAgeGeri: "Geriatric", clSex: "Sex", clSexF: "Female", clSexM: "Male", clSexAny: "Random", clSpecialty: "Specialty", clSystem: "Body system", clAny: "Any", clComplaint: "Chief complaint / presentation", clCustom: "Or type your own presentation…", clNoMatch: "No templates for these filters. Type your own presentation below.", clPreview: "Recipe preview", clJson: "JSON", clCopyPrompt: "Copy prompt", clGenerate: "Generate Patient Scenario", clPickComplaint: "Choose or type a chief complaint to enable generation.", clEmpty: "Set your recipe, then generate a patient.", clRegenerate: "Regenerate", clShell: "Custom presentation: no template matched, so this is a structured shell. Copy the prompt above into your AI tool to fill in the full case.", clFallbackAge: "No template for this complaint in the chosen age group. Showing the closest match.", clFallbackSex: "No template for this complaint in the chosen sex. Showing the closest match.", clStation: "Candidate instructions", clScript: "Patient script", clPmh: "Past history", clMeds: "Medicines and allergies", clBg: "Social and family", clVitals: "Vital signs", clExam: "Examination findings", clRevealAll: "Reveal all", clHidden: "Tap to reveal when the candidate asks", clChecklist: "Marking checklist", clScore: "{n}/{m} marks", clShowKey: "Show examiner key", clHideKey: "Hide examiner key", clDx: "Leading diagnosis", clDdx: "Differential", clIx: "Investigations", clMgmt: "Management", tabDatabase: "Database", dbTitle: "Personal Database", dbHint: "Questions, excerpts and notes you've saved while studying.", dbAdd: "Add to database", dbSavedToast: "Saved to Database", dbAll: "All", dbQuestions: "Questions", dbExcerpts: "Excerpts", dbNotes: "Notes", dbSearch: "Search your database", dbEmpty: "Your database is empty.", dbEmptyHint: "While taking a block, select text and tap Add to database, save a question with the bookmark, or save a note from the Notes panel.", dbNoMatch: "Nothing matches.", dbSaveQ: "Save question", dbSavedQ: "Saved to Database", dbSaveNote: "Save to Database", dbUpdateNote: "Update in Database", dbShowAns: "Show answer", dbHideAns: "Hide answer", dbEdit: "Edit", dbSave: "Save", dbCancel: "Cancel", dbCopy: "Copy", dbCopied: "Copied", dbDelete: "Delete", dbConfirmDel: "Delete?", dbClearAll: "Clear all", dbClearConfirm: "Move everything in your database to Trash? You can restore it for 30 days.", dbKindQ: "Question", dbKindE: "Excerpt", dbKindN: "Note", dbCommentPh: "Add your own comment…", dbAddComment: "Add comment", dbNoteTitle: "Your note", dbCorrectTag: "Correct",
+    searchScopeClin: "Cases", searchPhClin: "Search saved cases…", searchGrpClin: "Clinical cases", clClear: "Clear", clViewMore: "View more ({n})", clViewLess: "View less", clDdxSay: "I think it could be: {list}.", clQExamPick: "Which physical examinations would you perform? Choose all that are relevant to your differential.", clExamPickCount: "{n} selected", clQ1b: "Here are the findings for the examinations you chose. Tap any others you want to reveal, then tell me what you make of them.", clExamSay: "I would examine: {list}.", clExamNotIndicated: "Not indicated for this presentation; no additional findings.", clExamYours: "Your examinations", clExamScore: "{n} of {m} relevant examinations chosen", clQDdx: "Before you examine {n}, what is on your differential diagnosis? Choose the 3 conditions from this list that you think are most likely.", clDdxPick: "Choose 3 ({n}/3)", clDdxYours: "Your differential", clDdxScore: "{n} of 3 on the expected differential", clPmhTitle: "Past medical history", clSocialTitle: "Social history", clFamilyTitle: "Family history", clSocialFamilyTitle: "Social and family history", clDrugTitle: "Drug and other treatment history", clSelCount: "{n} selected", clRename: "Rename case", clShareBundle: "Oworld clinical cases", clShareText: "Oworld clinical case: {name}", clDeleteSelQ: "Delete {n} selected case(s)? This can't be undone.", clImportBundleOk: "Imported {n} case(s) into your library.", clImportBundleNone: "That file has no valid cases.", clDifficulty: "Difficulty", clEasy: "Easy", clModerate: "Moderate", clHard: "Hard", clSyncLocal: "Saved on this device. Sign in with Google to sync your cases to Drive.", clViewBuild: "Builder", clViewLib: "Library", clImport: "Import AI case", clImportHint: "Paste the JSON your AI tool returned for the recipe above, or upload a .json file.", clImportPh: "Paste the AI case JSON here…", clImportBtn: "Import case", clUpload: "Upload .json", clImportOk: "Case imported. Review it below, then save it to your library.", clImportWarn: "Imported, but these parts were missing: {w}.", clSave: "Save to Library", clSaved: "Saved", clSrcAi: "AI", clSrcTpl: "Template", clSrcAll: "All sources", clAllAges: "All ages", clLibEmpty: "Your case library is empty. Generate or import a case, then tap Save to Library, or add the sample case to try the workflow.", clAddSample: "Add sample case", clLibNoMatch: "No saved cases match.", clOpen: "Open", clCopyJson: "Copy JSON", clDelete: "Delete", clDeleteSure: "Tap again to delete", clSavedOn: "Saved {d}", clIce: "Ideas, concerns, expectations", clExit: "Save & exit", clHiVitals: "Hi Doctor, here are {n}'s vital signs", clChart: "Patient chart", clHpiTitle: "History of present illness", clChief: "Chief complaint", clFullStory: "Full patient story: {n}", clHideStory: "Hide full patient story", clSenior: "Senior Clinician", clTypeTab: "Type response", clTypePh: "Type your response…", clTypeHint: "Type your answer to {d}", clSkip: "Skip response", clSubmit: "Submit response", clSkipped: "Response skipped", clStep: "Step {n} of {m}", clCaseDone: "Case complete", clRestart: "Restart case", clConversation: "Conversation with the senior clinician", clTapReveal: "Tap to reveal this finding", clQ0: "Hi, I'm {d}. I'll be your senior clinician during this case. Can you provide me with your patient presentation?", clQ1: "Thank you. Which examination findings would you look for? Tap the ones you want to reveal, then tell me what you expect to find.", clQ2: "What is your leading diagnosis, and what else is on your differential?", clQ3: "What investigations and management would you start?", clDone: "Thank you, that completes the case. Here is the examiner key and your marking checklist.", tabClinical: "Clinic", clTitle: "Clinical Cases", clHint: "Build a recipe, preview the prompt, then generate a practice patient.", clBuilder: "Recipe Builder", clAge: "Age group", clAgePed: "Pediatric", clAgeAdult: "Adult", clAgeGeri: "Geriatric", clSex: "Sex", clSexF: "Female", clSexM: "Male", clSexAny: "Random", clSpecialty: "Specialty", clSystem: "Body system", clAny: "Any", clComplaint: "Chief complaint / presentation", clCustom: "Or type your own presentation…", clNoMatch: "No templates for these filters. Type your own presentation below.", clPreview: "Recipe preview", clJson: "JSON", clCopyPrompt: "Copy prompt", clGenerate: "Generate Patient Scenario", clPickComplaint: "Choose or type a chief complaint to enable generation.", clEmpty: "Set your recipe, then generate a patient.", clRegenerate: "Regenerate", clShell: "Custom presentation: no template matched, so this is a structured shell. Copy the prompt above into your AI tool to fill in the full case.", clFallbackAge: "No template for this complaint in the chosen age group. Showing the closest match.", clFallbackSex: "No template for this complaint in the chosen sex. Showing the closest match.", clStation: "Candidate instructions", clScript: "Patient script", clPmh: "Past history", clMeds: "Medicines and allergies", clBg: "Social and family", clVitals: "Vital signs", clExam: "Examination findings", clRevealAll: "Reveal all", clHidden: "Tap to reveal when the candidate asks", clChecklist: "Marking checklist", clScore: "{n}/{m} marks", clShowKey: "Show examiner key", clHideKey: "Hide examiner key", clDx: "Leading diagnosis", clDdx: "Differential", clIx: "Investigations", clMgmt: "Management", tabDatabase: "Database", dbTitle: "Personal Database", dbHint: "Questions, excerpts and notes you've saved while studying.", dbAdd: "Add to database", dbSavedToast: "Saved to Database", dbAll: "All", dbQuestions: "Questions", dbExcerpts: "Excerpts", dbNotes: "Notes", dbSearch: "Search your database", dbEmpty: "Your database is empty.", dbEmptyHint: "While taking a block, select text and tap Add to database, save a question with the bookmark, or save a note from the Notes panel.", dbNoMatch: "Nothing matches.", dbSaveQ: "Save question", dbSavedQ: "Saved to Database", dbSaveNote: "Save to Database", dbUpdateNote: "Update in Database", dbShowAns: "Show answer", dbHideAns: "Hide answer", dbEdit: "Edit", dbSave: "Save", dbCancel: "Cancel", dbCopy: "Copy", dbCopied: "Copied", dbDelete: "Delete", dbConfirmDel: "Delete?", dbClearAll: "Clear all", dbClearConfirm: "Move everything in your database to Trash? You can restore it for 30 days.", dbKindQ: "Question", dbKindE: "Excerpt", dbKindN: "Note", dbCommentPh: "Add your own comment…", dbAddComment: "Add comment", dbNoteTitle: "Your note", dbCorrectTag: "Correct",
     dbSyncSignIn: "Sign in with Google from the account menu to sync it across your devices.", dbImport: "Import", dbImported: "Imported {a} item(s); {s} already in your database.", dbImportBad: "That file isn't a Personal Database export.",
     dbShared: "Shared {n} item(s) as one file.", dbDownloaded: "Downloaded {n} item(s) as one file.", dbExportFailed: "Export failed. Please try again.", dbShareText: "My OWORLD Personal Database ({n} items). In OWORLD, open Database and tap Import to add them.", dbDelSelQ: "Move {n} selected item(s) to Trash? You can restore them for 30 days.", dbManage: "Manage", dbExport: "Export",
     tabTrash: "Trash", trashTitle: "Trash", trashCount: "{n} item(s)", trashHint: "Deleted Qbanks, Analytics sessions and Database items stay here for {d} days. Restore them, or delete them forever.", trashEmpty: "Trash is empty.", trashEmptyHint: "Anything you delete from the Library, Analytics or Database lands here first, so you can get it back.", trashNoneHere: "Nothing of this kind in Trash.",
@@ -430,7 +430,7 @@ const STR = {
     "err.match": "Question \"{id}\": correctAnswer \"{ans}\" doesn't match any option key.",
   },
   es: {
-    searchScopeClin: "Casos", searchPhClin: "Buscar casos guardados…", searchGrpClin: "Casos clínicos", clClear: "Borrar", clViewMore: "Ver más ({n})", clViewLess: "Ver menos", clSelCount: "{n} seleccionados", clRename: "Renombrar caso", clShareBundle: "Casos clínicos de Oworld", clShareText: "Caso clínico de Oworld: {name}", clDeleteSelQ: "¿Eliminar {n} caso(s) seleccionado(s)? No se puede deshacer.", clImportBundleOk: "Se importaron {n} caso(s) a tu biblioteca.", clImportBundleNone: "Ese archivo no contiene casos válidos.", clDifficulty: "Dificultad", clEasy: "Fácil", clModerate: "Moderada", clHard: "Difícil", clSyncLocal: "Guardado en este dispositivo. Inicia sesión con Google para sincronizar tus casos con Drive.", clViewBuild: "Constructor", clViewLib: "Biblioteca", clImport: "Importar caso de IA", clImportHint: "Pega el JSON que devolvió tu herramienta de IA para la receta de arriba, o sube un archivo .json.", clImportPh: "Pega aquí el JSON del caso de IA…", clImportBtn: "Importar caso", clUpload: "Subir .json", clImportOk: "Caso importado. Revísalo abajo y guárdalo en tu biblioteca.", clImportWarn: "Importado, pero faltaban estas partes: {w}.", clSave: "Guardar en la biblioteca", clSaved: "Guardado", clSrcAi: "IA", clSrcTpl: "Plantilla", clSrcAll: "Todas las fuentes", clAllAges: "Todas las edades", clLibEmpty: "Tu biblioteca de casos está vacía. Genera o importa un caso y toca Guardar en la biblioteca, o añade el caso de ejemplo para probar el flujo.", clAddSample: "Añadir caso de ejemplo", clLibNoMatch: "Ningún caso guardado coincide.", clOpen: "Abrir", clCopyJson: "Copiar JSON", clDelete: "Eliminar", clDeleteSure: "Toca otra vez para eliminar", clSavedOn: "Guardado {d}", clIce: "Ideas, preocupaciones, expectativas", clExit: "Guardar y salir", clHiVitals: "Hola, doctor/a, estos son los signos vitales de {n}", clChart: "Historia clínica", clHpiTitle: "Enfermedad actual", clChief: "Motivo de consulta", clFullStory: "Historia completa: {n}", clHideStory: "Ocultar historia completa", clSenior: "Clínico sénior", clTypeTab: "Escribir respuesta", clTypePh: "Escribe tu respuesta…", clTypeHint: "Escribe tu respuesta para {d}", clSkip: "Omitir respuesta", clSubmit: "Enviar respuesta", clSkipped: "Respuesta omitida", clStep: "Paso {n} de {m}", clCaseDone: "Caso completado", clRestart: "Reiniciar caso", clConversation: "Conversación con el clínico sénior", clTapReveal: "Toca para revelar este hallazgo", clQ0: "Hola, soy {d}. Seré tu clínico sénior durante este caso. ¿Puedes darme la presentación del paciente?", clQ1: "Gracias. ¿Qué hallazgos de la exploración buscarías? Toca los que quieras revelar y dime qué esperas encontrar.", clQ2: "¿Cuál es tu diagnóstico principal y qué más hay en tu diagnóstico diferencial?", clQ3: "¿Qué estudios y qué manejo iniciarías?", clDone: "Gracias, con esto termina el caso. Aquí tienes la clave del examinador y tu lista de verificación.", tabClinical: "Clínica", clTitle: "Clínica — pacientes OSCE", clHint: "Arma una receta, revisa el prompt y genera un paciente de práctica.", clBuilder: "Constructor de recetas", clAge: "Grupo de edad", clAgePed: "Pediátrico", clAgeAdult: "Adulto", clAgeGeri: "Geriátrico", clSex: "Sexo", clSexF: "Femenino", clSexM: "Masculino", clSexAny: "Aleatorio", clSpecialty: "Especialidad", clSystem: "Sistema corporal", clAny: "Cualquiera", clComplaint: "Motivo de consulta / presentación", clCustom: "O escribe tu propia presentación…", clNoMatch: "No hay plantillas para estos filtros. Escribe tu propia presentación abajo.", clPreview: "Vista previa de la receta", clJson: "JSON", clCopyPrompt: "Copiar prompt", clGenerate: "Generar escenario de paciente", clPickComplaint: "Elige o escribe un motivo de consulta para generar.", clEmpty: "Configura tu receta y genera un paciente.", clRegenerate: "Regenerar", clShell: "Presentación personalizada: ninguna plantilla coincide, así que esto es un esquema. Copia el prompt de arriba en tu herramienta de IA para completar el caso.", clFallbackAge: "No hay plantilla para este motivo en el grupo de edad elegido. Se muestra la más cercana.", clFallbackSex: "No hay plantilla para este motivo en el sexo elegido. Se muestra la más cercana.", clStation: "Instrucciones para el candidato", clScript: "Guion del paciente", clPmh: "Antecedentes", clMeds: "Medicamentos y alergias", clBg: "Social y familiar", clVitals: "Signos vitales", clExam: "Hallazgos del examen", clRevealAll: "Revelar todo", clHidden: "Toca para revelar cuando el candidato lo pida", clChecklist: "Lista de calificación", clScore: "{n}/{m} puntos", clShowKey: "Mostrar clave del examinador", clHideKey: "Ocultar clave del examinador", clDx: "Diagnóstico principal", clDdx: "Diferencial", clIx: "Estudios", clMgmt: "Manejo", tabDatabase: "Base de datos", dbTitle: "Base de datos personal", dbHint: "Preguntas, extractos y notas que guardaste mientras estudiabas.", dbAdd: "Añadir a la base de datos", dbSavedToast: "Guardado en la base de datos", dbAll: "Todo", dbQuestions: "Preguntas", dbExcerpts: "Extractos", dbNotes: "Notas", dbSearch: "Buscar en tu base de datos", dbEmpty: "Tu base de datos está vacía.", dbEmptyHint: "Mientras haces un bloque, selecciona texto y toca Añadir a la base de datos, guarda una pregunta con el marcador o guarda una nota desde el panel de Notas.", dbNoMatch: "No hay coincidencias.", dbSaveQ: "Guardar pregunta", dbSavedQ: "Guardada en la base de datos", dbSaveNote: "Guardar en la base de datos", dbUpdateNote: "Actualizar en la base de datos", dbShowAns: "Mostrar respuesta", dbHideAns: "Ocultar respuesta", dbEdit: "Editar", dbSave: "Guardar", dbCancel: "Cancelar", dbCopy: "Copiar", dbCopied: "Copiado", dbDelete: "Eliminar", dbConfirmDel: "¿Eliminar?", dbClearAll: "Borrar todo", dbClearConfirm: "¿Mover todo el contenido de tu base de datos a la papelera? Podrás restaurarlo durante 30 días.", dbKindQ: "Pregunta", dbKindE: "Extracto", dbKindN: "Nota", dbCommentPh: "Añade tu propio comentario…", dbAddComment: "Añadir comentario", dbNoteTitle: "Tu nota", dbCorrectTag: "Correcta",
+    searchScopeClin: "Casos", searchPhClin: "Buscar casos guardados…", searchGrpClin: "Casos clínicos", clClear: "Borrar", clViewMore: "Ver más ({n})", clViewLess: "Ver menos", clDdxSay: "Creo que podría ser: {list}.", clQExamPick: "¿Qué exploraciones físicas realizarías? Elige todas las relevantes para tu diagnóstico diferencial.", clExamPickCount: "{n} seleccionadas", clQ1b: "Aquí están los hallazgos de las exploraciones que elegiste. Toca cualquier otra que quieras revelar y dime qué interpretas.", clExamSay: "Exploraría: {list}.", clExamNotIndicated: "No indicada para esta presentación; sin hallazgos adicionales.", clExamYours: "Tus exploraciones", clExamScore: "{n} de {m} exploraciones relevantes elegidas", clQDdx: "Antes de explorar a {n}, ¿cuál es tu diagnóstico diferencial? Elige de esta lista las 3 enfermedades que consideres más probables.", clDdxPick: "Elige 3 ({n}/3)", clDdxYours: "Tu diagnóstico diferencial", clDdxScore: "{n} de 3 en el diferencial esperado", clPmhTitle: "Antecedentes médicos", clSocialTitle: "Antecedentes sociales", clFamilyTitle: "Antecedentes familiares", clSocialFamilyTitle: "Antecedentes sociales y familiares", clDrugTitle: "Medicamentos y otros tratamientos", clSelCount: "{n} seleccionados", clRename: "Renombrar caso", clShareBundle: "Casos clínicos de Oworld", clShareText: "Caso clínico de Oworld: {name}", clDeleteSelQ: "¿Eliminar {n} caso(s) seleccionado(s)? No se puede deshacer.", clImportBundleOk: "Se importaron {n} caso(s) a tu biblioteca.", clImportBundleNone: "Ese archivo no contiene casos válidos.", clDifficulty: "Dificultad", clEasy: "Fácil", clModerate: "Moderada", clHard: "Difícil", clSyncLocal: "Guardado en este dispositivo. Inicia sesión con Google para sincronizar tus casos con Drive.", clViewBuild: "Constructor", clViewLib: "Biblioteca", clImport: "Importar caso de IA", clImportHint: "Pega el JSON que devolvió tu herramienta de IA para la receta de arriba, o sube un archivo .json.", clImportPh: "Pega aquí el JSON del caso de IA…", clImportBtn: "Importar caso", clUpload: "Subir .json", clImportOk: "Caso importado. Revísalo abajo y guárdalo en tu biblioteca.", clImportWarn: "Importado, pero faltaban estas partes: {w}.", clSave: "Guardar en la biblioteca", clSaved: "Guardado", clSrcAi: "IA", clSrcTpl: "Plantilla", clSrcAll: "Todas las fuentes", clAllAges: "Todas las edades", clLibEmpty: "Tu biblioteca de casos está vacía. Genera o importa un caso y toca Guardar en la biblioteca, o añade el caso de ejemplo para probar el flujo.", clAddSample: "Añadir caso de ejemplo", clLibNoMatch: "Ningún caso guardado coincide.", clOpen: "Abrir", clCopyJson: "Copiar JSON", clDelete: "Eliminar", clDeleteSure: "Toca otra vez para eliminar", clSavedOn: "Guardado {d}", clIce: "Ideas, preocupaciones, expectativas", clExit: "Guardar y salir", clHiVitals: "Hola, doctor/a, estos son los signos vitales de {n}", clChart: "Historia clínica", clHpiTitle: "Enfermedad actual", clChief: "Motivo de consulta", clFullStory: "Historia completa: {n}", clHideStory: "Ocultar historia completa", clSenior: "Clínico sénior", clTypeTab: "Escribir respuesta", clTypePh: "Escribe tu respuesta…", clTypeHint: "Escribe tu respuesta para {d}", clSkip: "Omitir respuesta", clSubmit: "Enviar respuesta", clSkipped: "Respuesta omitida", clStep: "Paso {n} de {m}", clCaseDone: "Caso completado", clRestart: "Reiniciar caso", clConversation: "Conversación con el clínico sénior", clTapReveal: "Toca para revelar este hallazgo", clQ0: "Hola, soy {d}. Seré tu clínico sénior durante este caso. ¿Puedes darme la presentación del paciente?", clQ1: "Gracias. ¿Qué hallazgos de la exploración buscarías? Toca los que quieras revelar y dime qué esperas encontrar.", clQ2: "¿Cuál es tu diagnóstico principal y qué más hay en tu diagnóstico diferencial?", clQ3: "¿Qué estudios y qué manejo iniciarías?", clDone: "Gracias, con esto termina el caso. Aquí tienes la clave del examinador y tu lista de verificación.", tabClinical: "Clínica", clTitle: "Casos clínicos", clHint: "Arma una receta, revisa el prompt y genera un paciente de práctica.", clBuilder: "Constructor de recetas", clAge: "Grupo de edad", clAgePed: "Pediátrico", clAgeAdult: "Adulto", clAgeGeri: "Geriátrico", clSex: "Sexo", clSexF: "Femenino", clSexM: "Masculino", clSexAny: "Aleatorio", clSpecialty: "Especialidad", clSystem: "Sistema corporal", clAny: "Cualquiera", clComplaint: "Motivo de consulta / presentación", clCustom: "O escribe tu propia presentación…", clNoMatch: "No hay plantillas para estos filtros. Escribe tu propia presentación abajo.", clPreview: "Vista previa de la receta", clJson: "JSON", clCopyPrompt: "Copiar prompt", clGenerate: "Generar escenario de paciente", clPickComplaint: "Elige o escribe un motivo de consulta para generar.", clEmpty: "Configura tu receta y genera un paciente.", clRegenerate: "Regenerar", clShell: "Presentación personalizada: ninguna plantilla coincide, así que esto es un esquema. Copia el prompt de arriba en tu herramienta de IA para completar el caso.", clFallbackAge: "No hay plantilla para este motivo en el grupo de edad elegido. Se muestra la más cercana.", clFallbackSex: "No hay plantilla para este motivo en el sexo elegido. Se muestra la más cercana.", clStation: "Instrucciones para el candidato", clScript: "Guion del paciente", clPmh: "Antecedentes", clMeds: "Medicamentos y alergias", clBg: "Social y familiar", clVitals: "Signos vitales", clExam: "Hallazgos del examen", clRevealAll: "Revelar todo", clHidden: "Toca para revelar cuando el candidato lo pida", clChecklist: "Lista de calificación", clScore: "{n}/{m} puntos", clShowKey: "Mostrar clave del examinador", clHideKey: "Ocultar clave del examinador", clDx: "Diagnóstico principal", clDdx: "Diferencial", clIx: "Estudios", clMgmt: "Manejo", tabDatabase: "Base de datos", dbTitle: "Base de datos personal", dbHint: "Preguntas, extractos y notas que guardaste mientras estudiabas.", dbAdd: "Añadir a la base de datos", dbSavedToast: "Guardado en la base de datos", dbAll: "Todo", dbQuestions: "Preguntas", dbExcerpts: "Extractos", dbNotes: "Notas", dbSearch: "Buscar en tu base de datos", dbEmpty: "Tu base de datos está vacía.", dbEmptyHint: "Mientras haces un bloque, selecciona texto y toca Añadir a la base de datos, guarda una pregunta con el marcador o guarda una nota desde el panel de Notas.", dbNoMatch: "No hay coincidencias.", dbSaveQ: "Guardar pregunta", dbSavedQ: "Guardada en la base de datos", dbSaveNote: "Guardar en la base de datos", dbUpdateNote: "Actualizar en la base de datos", dbShowAns: "Mostrar respuesta", dbHideAns: "Ocultar respuesta", dbEdit: "Editar", dbSave: "Guardar", dbCancel: "Cancelar", dbCopy: "Copiar", dbCopied: "Copiado", dbDelete: "Eliminar", dbConfirmDel: "¿Eliminar?", dbClearAll: "Borrar todo", dbClearConfirm: "¿Mover todo el contenido de tu base de datos a la papelera? Podrás restaurarlo durante 30 días.", dbKindQ: "Pregunta", dbKindE: "Extracto", dbKindN: "Nota", dbCommentPh: "Añade tu propio comentario…", dbAddComment: "Añadir comentario", dbNoteTitle: "Tu nota", dbCorrectTag: "Correcta",
     dbSyncSignIn: "Inicia sesión con Google desde el menú de la cuenta para sincronizarla entre tus dispositivos.", dbImport: "Importar", dbImported: "Se importaron {a} elemento(s); {s} ya estaban en tu base de datos.", dbImportBad: "Ese archivo no es una exportación de la base de datos personal.",
     dbShared: "Compartiste {n} elemento(s) en un solo archivo.", dbDownloaded: "Descargaste {n} elemento(s) en un solo archivo.", dbExportFailed: "Error al exportar. Inténtalo de nuevo.", dbShareText: "Mi base de datos personal de OWORLD ({n} elementos). En OWORLD, abre Base de datos y toca Importar para añadirlos.", dbDelSelQ: "¿Mover {n} elemento(s) seleccionado(s) a la papelera? Podrás restaurarlos durante 30 días.", dbManage: "Administrar", dbExport: "Exportar",
     tabTrash: "Papelera", trashTitle: "Papelera", trashCount: "{n} elemento(s)", trashHint: "Los Qbanks, sesiones de Analíticas y elementos de la base de datos eliminados permanecen aquí {d} días. Restáuralos o elimínalos para siempre.", trashEmpty: "La papelera está vacía.", trashEmptyHint: "Todo lo que elimines de la biblioteca, las Analíticas o la base de datos llega primero aquí, para que puedas recuperarlo.", trashNoneHere: "No hay nada de este tipo en la papelera.",
@@ -7307,6 +7307,16 @@ function SettingsMenu({ darkMode, setDarkMode, T, iconOnly = false, onHelp }) {
                 <ChevronRight size={15} color={T.muted} />
               </button>
             )}
+            {nav.open && (
+              <button onClick={() => { setOpen(false); nav.open("database"); }} disabled={nav.locked} style={{
+                width: "100%", display: "flex", alignItems: "center", gap: 10, background: "transparent", border: `1px solid ${T.border}`, borderRadius: 6, cursor: nav.locked ? "not-allowed" : "pointer",
+                padding: "9px 12px", fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(13), color: T.ink, textAlign: "left", opacity: nav.locked ? 0.5 : 1,
+              }}>
+                <Database size={15} color={T.muted} />
+                <span style={{ flex: 1 }}>{t("tabDatabase")}</span>
+                <ChevronRight size={15} color={T.muted} />
+              </button>
+            )}
             {onHelp && (
               <button onClick={() => { setOpen(false); onHelp(); }} style={{
                 width: "100%", display: "flex", alignItems: "center", gap: 10, background: "transparent", border: `1px solid ${T.border}`, borderRadius: 6, cursor: "pointer",
@@ -10300,6 +10310,37 @@ function osceSummary(sc) {
   const complaint = String(sc.complaint || "");
   return sc.summary || `${fullName} is ${/^(8|11|18)/.test(sc.ageText || "") ? "an" : "a"} ${[sc.ageText, osceSexWord(sc)].filter(Boolean).join(" ")} presenting with ${complaint.toLowerCase()}${sc.informant ? `, accompanied by their ${sc.informant}` : ""}.`;
 }
+// A case-relevant emoji for the patient picture: matched on the chief complaint first, then the diagnosis and specialty, then a person emoji by age and sex.
+const OSCE_EMOJI = [
+  [/speech|language|talk/, "🗣️"], [/\bear\b|ears|hearing|otitis|tinnitus/, "👂"], [/\beyes?\b|vision|diplopia|red eye|visual/, "👁️"],
+  [/pregnan|antepartum|postpartum|labou?r|obstetric|vaginal|menstru|pelvic|vulv|gestation/, "🤰"], [/breast/, "🎗️"],
+  [/chest pain|cardi|heart|palpitat|murmur|hypertens|blood pressure|claudicat|myocard|oedema|edema|ankle swelling|cold, painful/, "❤️"],
+  [/breath|cough|asthma|respir|h(a)?emopt|stridor|pneumon|copd|wheez|dyspn/, "🫁"],
+  [/headache|migraine|seizure|fits|faint|blackout|stroke|confus|dizz|vertigo|tremor|unsteady|numb|tingling|facial weak|neuro|dementia|memory/, "🧠"],
+  [/anxi|depress|mood|psych|suicid|overdose|self-harm|behaviou?r|panic|mental|elat|personality|ocd|eating/, "💭"],
+  [/diabet|glucose|dka|polydips|thirst/, "🩸"], [/thyroid|weight|endocr/, "⚖️"],
+  [/vomit|nausea|diarrh|constipat|bowel|swallow|jaundice|abdom|gastro|liver|bleeding from lower|perianal/, "🤢"],
+  [/urin|renal|loin|h(a)?ematuria|kidney|incontinen|scrot|testic|groin|genital|sexual/, "🚽"],
+  [/rash|skin|prurit|itch|ulcer|lump|dermat|lesion|swelling/, "🧴"], [/fever|infect|sepsis|sweat|febrile/, "🤒"],
+  [/joint|bone|back pain|neck pain|fractur|musculo|limb|muscle|trauma|injur|lacerat|sprain/, "🦴"],
+  [/fatigue|tired|lethargy/, "😴"], [/development|growth|child|newborn|neonat/, "🧸"], [/pain|ache/, "🤕"],
+];
+function osceEmoji(sc) {
+  for (const hay of [String(sc.complaint || ""), `${sc.dx || ""} ${sc.specialty || ""}`]) {
+    const low = hay.toLowerCase();
+    const hit = OSCE_EMOJI.find(([re]) => re.test(low));
+    if (hit) return hit[1];
+  }
+  const f = sc.sex === "female", m = sc.sex === "male";
+  if (sc.ageGroup === "pediatric") return /month|week|day/i.test(String(sc.ageText || "")) || /^[01]-year/.test(String(sc.ageText || "")) ? "👶" : f ? "👧" : m ? "👦" : "🧒";
+  if (sc.ageGroup === "geriatric") return f ? "👵" : m ? "👴" : "🧓";
+  return f ? "👩" : m ? "👨" : "🧑";
+}
+// A history slot (text or list) as bullet lines: a list is kept as is, text is split into sentences; "Not provided" placeholders are dropped.
+function osceList(v) {
+  const parts = Array.isArray(v) ? v : typeof v === "string" ? v.split(/\n+|;\s+|(?<=[.!?])\s+(?=[A-Z])/) : [];
+  return parts.map((x) => String(x == null ? "" : x).trim().replace(/^./, (ch) => ch.toUpperCase())).filter((x) => x && !/^not provided\.?$/i.test(x));
+}
 // "57-year-old" -> "57 years", "8-month-old" -> "8 months" (compact form for list rows)
 function osceAgeShort(sc) {
   const m = /^(\d+)-(year|month)-old/.exec(String(sc.ageText || ""));
@@ -10321,7 +10362,16 @@ function parseOsceCase(raw) {
   const key = o.key && typeof o.key === "object" ? o.key : o.examinerKey && typeof o.examinerKey === "object" ? o.examinerKey : {};
   const complaint = str(o.complaint || o.chiefComplaint || o.title);
   const opener = str(sc0.opening || sc0.openingStatement || o.opener);
-  const hpi = arr(sc0.history || sc0.hpi || o.history);
+  // History items may be plain strings or { category, prompt, response } objects; objects become "prompt: response" (category kept when it is not HPI).
+  const hpiRaw = sc0.history || sc0.hpi || o.history;
+  const hpi = (Array.isArray(hpiRaw) ? hpiRaw : typeof hpiRaw === "string" && hpiRaw.trim() ? [hpiRaw] : []).map((x) => {
+    if (x && typeof x === "object" && !Array.isArray(x)) {
+      const cat = str(x.category || x.section), q = str(x.prompt || x.topic || x.question), a = str(x.response || x.answer || x.reply);
+      const body = [q, a].filter(Boolean).join(": ") || Object.values(x).map(str).filter(Boolean).join(": ");
+      return cat && !/^hpi$/i.test(cat) && body ? `${cat} – ${body}` : body;
+    }
+    return arr([x])[0] || "";
+  }).filter(Boolean);
   const missing = [];
   if (!complaint) missing.push("complaint");
   if (!opener && hpi.length === 0) missing.push("script.opening or script.history");
@@ -10345,14 +10395,14 @@ function parseOsceCase(raw) {
   if (vit.every((x) => !x)) warn.push("vitals");
   if (exam.length === 0) warn.push("exam");
   if (check.length === 0) warn.push("checklist");
-  const meds = [str(sc0.medicines || sc0.meds), str(sc0.allergies) && "allergies: " + str(sc0.allergies)].filter(Boolean).join("; ");
+  const meds = [...arr(sc0.drugHistory || sc0.medicines || sc0.meds), ...(str(sc0.allergies) ? ["Allergies: " + str(sc0.allergies)] : [])];
   const name = str(pt.name || o.name);
   const sc = {
-    id: osceNewId(), source: "ai", name, who: name || "The patient", title: "", sex, ageGroup, ageText: !isNaN(age) ? osceAgeText(age) : str(pt.age || o.age), complaint,
+    id: osceNewId(), source: "ai", name, avatarKeyword: str(pt.avatarKeyword || o.avatarKeyword), who: name || "The patient", title: "", sex, ageGroup, ageText: !isNaN(age) ? osceAgeText(age) : str(pt.age || o.age), complaint,
     shell: false, notice: "", setting: str(o.setting) || "clinic", instructions: str(o.candidateInstructions || o.instructions), dx: str(key.diagnosis || key.dx) || "Not provided",
-    opener, hpi, pmh: str(sc0.pastHistory || sc0.pmh) || "Not provided", meds: meds || "Not provided", bg: str(sc0.socialFamily || sc0.social) || "Not provided", ice: str(sc0.ideasConcernsExpectations || sc0.ice),
+    opener, hpi, pmh: arr(sc0.pastHistory || sc0.pmh), meds, social: arr(sc0.socialHistory || sc0.social), family: arr(sc0.familyHistory), bg: arr(sc0.socialFamily), ice: str(sc0.ideasConcernsExpectations || sc0.ice),
     informant: str(pt.informant || o.informant) || null, vitals: vit.map((x) => x || "—"), exam: exam.map(([l, f]) => [l, f || "Not provided"]),
-    ddx: arr(key.differential || key.ddx), ix: arr(key.investigations || key.ix), mgmt: arr(key.management || key.mgmt), check: check.length ? check : OSCE_COMMON_CHECK,
+    ddx: arr(key.differential || key.ddx), ddxOptions: arr(key.differentialOptions || o.differentialOptions || key.ddxOptions), ix: arr(key.investigations || key.ix), mgmt: arr(key.management || key.mgmt), check: check.length ? check : OSCE_COMMON_CHECK,
   };
   return { sc, warn };
 }
@@ -10362,9 +10412,9 @@ function osceCaseToJson(sc) {
   return JSON.stringify({
     title: `${sc.who || sc.name || "Patient"} — ${sc.complaint}`, complaint: sc.complaint, setting: sc.setting,
     patient: { name: sc.name || "", age: sc.ageText, ageGroup: sc.ageGroup, sex: sc.sex, informant: sc.informant || "" },
-    candidateInstructions: sc.instructions || "", script: { opening: sc.opener, history: sc.hpi, pastHistory: sc.pmh, medicines: sc.meds, socialFamily: sc.bg, ideasConcernsExpectations: sc.ice || "" },
+    candidateInstructions: sc.instructions || "", script: { opening: sc.opener, history: sc.hpi, pastHistory: sc.pmh, medicines: sc.meds, ...(osceList(sc.social).length ? { socialHistory: sc.social } : {}), ...(osceList(sc.family).length ? { familyHistory: sc.family } : {}), socialFamily: sc.bg || "", ideasConcernsExpectations: sc.ice || "" },
     vitals: { hr: sc.vitals[0], bp: sc.vitals[1], rr: sc.vitals[2], temp: sc.vitals[3], spo2: sc.vitals[4] }, exam: sc.exam.map(([label, finding]) => ({ label, finding })),
-    key: { diagnosis: sc.dx, differential: sc.ddx, investigations: sc.ix, management: sc.mgmt }, checklist: sc.check,
+    key: { diagnosis: sc.dx, differential: sc.ddx, ...(Array.isArray(sc.ddxOptions) && sc.ddxOptions.length ? { differentialOptions: sc.ddxOptions } : {}), investigations: sc.ix, management: sc.mgmt }, checklist: sc.check,
   }, null, 2);
 }
 
@@ -10379,13 +10429,13 @@ function compileOscePrompt(spec, lang) {
   const ageTxt = `${age.id.charAt(0).toUpperCase() + age.id.slice(1)} (${age.span})`;
   const responseSchema = {
     title: "short station title", complaint: "chief complaint", setting: "e.g. emergency department",
-    patient: { name: "", age: "number of years (decimal for infants)", ageGroup: "pediatric | adult | geriatric", sex: "female | male", informant: "optional: parent, spouse, carer" },
+    patient: { name: "", age: "number of years (decimal for infants)", ageGroup: "pediatric | adult | geriatric", sex: "female | male", informant: "optional: parent, spouse, carer", avatarKeyword: "e.g., young female portrait" },
     candidateInstructions: "door sign text for an 8-minute station",
-    script: { opening: "the patient's first sentence", history: ["lay-language history points"], pastHistory: "", medicines: "", allergies: "", socialFamily: "", ideasConcernsExpectations: "" },
-    vitals: { hr: "", bp: "", rr: "", temp: "", spo2: "" }, exam: [{ label: "", finding: "" }],
-    key: { diagnosis: "", differential: [""], investigations: [""], management: [""] }, checklist: ["10 to 14 marking items"],
+    script: { opening: "the patient's first sentence", history: [{ category: "HPI", prompt: "question topic", response: "lay-language response" }], pastHistory: "", medicines: "", allergies: "", socialFamily: "", ideasConcernsExpectations: "" },
+    vitals: { hr: "e.g. 92 bpm", bp: "e.g. 118/76 mmHg", rr: "e.g. 18 /min", temp: "e.g. 36.8 °C", spo2: "e.g. 99% RA" }, exam: [{ label: "system or maneuver", finding: "clinical finding description" }],
+    key: { diagnosis: "primary diagnosis", differential: ["top 3-5 differentials"], differentialOptions: ["10 to 14 candidate diagnoses for the candidate to choose 3 from: include the primary diagnosis and the true differentials plus plausible distractors, in alphabetical order"], investigations: ["essential labs/imaging"], management: ["initial management steps"] }, checklist: ["10 to 14 marking items"],
   };
-  const rules = ["Be clinically accurate and realistic for the age group and sex", "Include one or two red flags or distractors a candidate should pick up", "Keep patient speech natural and lay; do not name the diagnosis in the script", "Do not include real patient data"];
+  const rules = ["Be clinically accurate and realistic for the age group and sex", "Include one or two red flags or distractors a candidate should pick up", "Keep patient speech natural and lay; do not name the diagnosis in the script", "Do not include real patient data", "differentialOptions must contain the primary diagnosis and at least two of the differentials, each worded as a short diagnosis name"];
   return JSON.stringify({ task: "Create a standardized-patient OSCE station", language, patient: { ageGroup: ageTxt, sex }, clinicalFocus: { specialty: osceSpecLabel(spec.specialty), bodySystem: sys ? sys.label : "Any" }, difficulty: diffTxt, chiefComplaint: complaint, responseFormat: "Return ONLY one JSON object with exactly these keys: no commentary, no code fences", responseSchema, rules }, null, 2);
 }
 
@@ -10455,7 +10505,51 @@ function PromptPreview({ text, T, fill = false }) {
 
 // ---- Clinical case work screen: patient card | conversation with the senior clinician | patient chart ----
 const CL_EXAMINER = "Dr Tutor";
-const CL_STAGES = 4; // 0 presentation, 1 examination, 2 diagnosis, 3 investigations & management, then the case is finished
+// "A, B, or C" / "A, B o C"
+function osceJoin(list, word) { return list.length < 2 ? list.join("") : list.length === 2 ? `${list[0]} ${word} ${list[1]}` : `${list.slice(0, -1).join(", ")}, ${word} ${list[list.length - 1]}`; }
+// The examinations offered in the "choose the relevant examinations" step: the case's own examinations (relevant) mixed with a few from
+// other built-in cases that do not apply here (same body system first), stable per case. Returns [] when the case has no real examinations.
+function osceExamOptions(sc) {
+  const own = (Array.isArray(sc.exam) ? sc.exam : []).map((e) => String(e && e[0] || "").trim()).filter(Boolean);
+  if (own.length === 0 || (Array.isArray(sc.exam) && sc.exam.every((e) => /to be defined|not provided/i.test(String(e && e[1] || ""))))) return [];
+  let h = 7; for (const ch of String(sc.id || sc.complaint || "")) h = (Math.imul(h, 31) + ch.charCodeAt(0)) | 0;
+  const rnd = () => { h = (h + 0x6D2B79F5) | 0; let x = Math.imul(h ^ (h >>> 15), 1 | h); x = (x + Math.imul(x ^ (x >>> 7), 61 | x)) ^ x; return ((x ^ (x >>> 14)) >>> 0) / 4294967296; };
+  const shuffle = (a) => { const r = [...a]; for (let i = r.length - 1; i > 0; i--) { const j = Math.floor(rnd() * (i + 1)); [r[i], r[j]] = [r[j], r[i]]; } return r; };
+  const tpl = OSCE_CASES.find((c) => c.label === sc.complaint);
+  const mine = tpl && Array.isArray(tpl.sys) ? tpl.sys : [];
+  const grab = (cases) => cases.flatMap((c) => c.v.flatMap((v) => (Array.isArray(v.exam) ? v.exam.map((e) => e[0]) : []))).filter((x) => typeof x === "string" && x.trim());
+  const ownLow = own.map((x) => x.toLowerCase());
+  const clash = (x) => ownLow.some((r) => r === x.toLowerCase() || r.includes(x.toLowerCase()) || x.toLowerCase().includes(r));
+  const pool = [...shuffle(grab(OSCE_CASES.filter((c) => c !== tpl && Array.isArray(c.sys) && c.sys.some((y) => mine.includes(y))))), ...shuffle(grab(OSCE_CASES.filter((c) => c !== tpl)))].filter((x) => !clash(x));
+  const out = [...own]; const want = Math.min(12, own.length + 4);
+  for (const x of pool) { if (out.length >= want) break; if (!out.some((y) => y.toLowerCase() === x.toLowerCase())) out.push(x); }
+  return out.sort((a, b) => a.localeCompare(b));
+}
+// The pick-3 differential list shown before the examination. A case can carry its own list (ddxOptions); otherwise the list is the case's
+// own diagnosis + differential mixed with plausible distractors from the built-in cases (same body system first), stable per case.
+// Returns [] when the case has no known diagnosis, and the differential step is then skipped.
+function osceDdxOptions(sc) {
+  const seen = new Set();
+  const uniq = (a) => a.filter((x) => { const k = x.toLowerCase(); if (seen.has(k)) return false; seen.add(k); return true; });
+  const own = uniq((Array.isArray(sc.ddxOptions) ? sc.ddxOptions : []).map((x) => String(x == null ? "" : x).trim()).filter(Boolean));
+  if (own.length >= 6) return own;
+  seen.clear();
+  const dxOk = sc.dx && !/^not (specified|provided)/i.test(sc.dx);
+  const right = uniq([dxOk ? sc.dx : "", ...(Array.isArray(sc.ddx) ? sc.ddx : [])].map((x) => String(x || "").trim()).filter(Boolean));
+  if (right.length < 3) return [];
+  let h = 0; for (const ch of String(sc.id || sc.complaint || "")) h = (Math.imul(h, 31) + ch.charCodeAt(0)) | 0;
+  const rnd = () => { h = (h + 0x6D2B79F5) | 0; let x = Math.imul(h ^ (h >>> 15), 1 | h); x = (x + Math.imul(x ^ (x >>> 7), 61 | x)) ^ x; return ((x ^ (x >>> 14)) >>> 0) / 4294967296; };
+  const shuffle = (a) => { const r = [...a]; for (let i = r.length - 1; i > 0; i--) { const j = Math.floor(rnd() * (i + 1)); [r[i], r[j]] = [r[j], r[i]]; } return r; };
+  const tpl = OSCE_CASES.find((c) => c.label === sc.complaint);
+  const mine = tpl && Array.isArray(tpl.sys) ? tpl.sys : [];
+  const grab = (cases) => cases.flatMap((c) => c.v.flatMap((v) => [v.dx, ...(Array.isArray(v.ddx) ? v.ddx : [])])).filter((x) => typeof x === "string" && x.trim());
+  const rightLow = right.map((x) => x.toLowerCase());
+  const clash = (x) => rightLow.some((r) => r.includes(x.toLowerCase()) || x.toLowerCase().includes(r));
+  const pool = [...shuffle(grab(OSCE_CASES.filter((c) => c !== tpl && Array.isArray(c.sys) && c.sys.some((y) => mine.includes(y))))), ...shuffle(grab(OSCE_CASES.filter((c) => c !== tpl)))].filter((x) => !clash(x));
+  const out = [...right];
+  for (const x of pool) { if (out.length >= 12) break; if (!out.some((y) => y.toLowerCase() === x.toLowerCase())) out.push(x); }
+  return out.sort((a, b) => a.localeCompare(b));
+}
 const clVitalText = (i, v, es) => {
   const s = String(v == null ? "" : v).trim();
   if (!s) return "";
@@ -10491,6 +10585,8 @@ function ClinicalWorkspace({ sc, T, isSaved, onExit }) {
   const [shown, setShown] = useState({});
   const [ticks, setTicks] = useState({});
   const [story, setStory] = useState(false);
+  const [picks, setPicks] = useState([]); // the 3 differential diagnoses chosen before the examination
+  const [examPicks, setExamPicks] = useState([]); // the examinations chosen before their findings are shown
   const [chartOpen, setChartOpen] = useState(false);
   const threadRef = useRef(null);
   const mounted = useRef(false);
@@ -10505,8 +10601,24 @@ function ClinicalWorkspace({ sc, T, isSaved, onExit }) {
   }, [stage]);
 
   const advance = (val) => { setAnswers((a) => [...a, val]); setText(""); setStage((s) => s + 1); };
-  const submit = () => { const v = text.trim(); if (v) advance(v); };
-  const restart = () => { setStage(0); setAnswers([]); setText(""); setShown({}); setTicks({}); setStory(false); };
+  const ddxOptions = useMemo(() => osceDdxOptions(sc), [sc]);
+  const examOptions = useMemo(() => osceExamOptions(sc), [sc]);
+  // stage order: presentation, differential (pick 3), choose the relevant examinations, their findings, diagnosis, plan
+  const kinds = ["presentation", ...(ddxOptions.length >= 6 ? ["ddx"] : []), ...(examOptions.length >= 3 ? ["examPick"] : []), "exam", "dx", "mgmt"];
+  const nStages = kinds.length;
+  const kind = kinds[stage];
+  const qKey = { presentation: "clQ0", ddx: "clQDdx", examPick: "clQExamPick", exam: kinds.includes("examPick") ? "clQ1b" : "clQ1", dx: "clQ2", mgmt: "clQ3" };
+  const submit = () => {
+    if (kind === "ddx") { if (picks.length === 3) advance(t("clDdxSay", { list: osceJoin(picks, es ? "o" : "or") })); return; }
+    if (kind === "examPick") {
+      if (!examPicks.length) return;
+      setShown(Object.fromEntries(sc.exam.map((e, i) => [i, examPicks.includes(e[0])]).filter(([, v]) => v))); // the chosen examinations' findings are shown next
+      advance(t("clExamSay", { list: osceJoin(examPicks, es ? "y" : "and") })); return;
+    }
+    if (kind !== "presentation") { advance(null); return; } // no typed response after the patient presentation
+    const v = text.trim(); if (v) advance(v);
+  };
+  const restart = () => { setStage(0); setAnswers([]); setText(""); setShown({}); setTicks({}); setStory(false); setPicks([]); setExamPicks([]); };
 
   const fullName = sc.name || sc.who || "Patient";
   const first = String(fullName).split(" ")[0];
@@ -10518,8 +10630,8 @@ function ClinicalWorkspace({ sc, T, isSaved, onExit }) {
   const vitalLines = [2, 4, 0, 1, 3].map((i) => [i, clVitalText(i, sc.vitals[i], es)]).filter(([, v]) => v).map(([i, v]) => `${vNames[i]}: ${v}`);
   const revealed = sc.exam.map((e, i) => [e, i]).filter(([, i]) => shown[i]).map(([e]) => `${e[0]}: ${e[1]}`);
   const score = sc.check.filter((_, i) => ticks[i]).length;
-  const finished = stage >= CL_STAGES;
-  const canSubmit = text.trim().length > 0;
+  const finished = stage >= nStages;
+  const canSubmit = kind === "ddx" ? picks.length === 3 : kind === "examPick" ? examPicks.length > 0 : kind === "presentation" ? text.trim().length > 0 : true;
 
   const panel = { background: T.card, border: `1px solid ${T.border}`, borderRadius: 4, minWidth: 0 };
   const sect = { fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(19), color: T.ink, margin: "0 0 12px" };
@@ -10532,7 +10644,7 @@ function ClinicalWorkspace({ sc, T, isSaved, onExit }) {
     <aside aria-label={fullName} style={{ ...panel, padding: wide ? 16 : 14, overflowY: wide ? "auto" : "visible", minHeight: 0 }}>
       <div style={wide ? undefined : { display: "flex", gap: 14, alignItems: "center" }}>
         <div aria-hidden="true" style={{ width: wide ? "100%" : 84, height: wide ? 170 : 84, flexShrink: 0, borderRadius: 4, background: `linear-gradient(160deg, ${T.blueLight}, ${T.mutedBg})`, display: "flex", alignItems: "center", justifyContent: "center", color: T.blue }}>
-          <UserIcon size={wide ? 84 : 44} strokeWidth={1.5} />
+          <span style={{ fontSize: wide ? 84 : 46, lineHeight: 1, fontFamily: '"Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif' }}>{osceEmoji(sc)}</span>
         </div>
         <div style={{ minWidth: 0, marginTop: wide ? 14 : 0 }}>
           <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(wide ? 26 : 20), color: T.ink, lineHeight: 1.15, overflowWrap: "anywhere" }}>{fullName}</div>
@@ -10553,15 +10665,20 @@ function ClinicalWorkspace({ sc, T, isSaved, onExit }) {
         <div style={{ marginTop: 12, display: "flex", flexDirection: "column", gap: 10, fontFamily: FONT_UI, fontSize: fs(14), color: T.ink, lineHeight: 1.55 }}>
           {sc.instructions && <div><p style={small}>{t("clStation")}</p>{sc.instructions}</div>}
           {sc.opener && <div style={{ fontStyle: "italic" }}>“{sc.opener}”</div>}
-          {sc.pmh && <div><p style={small}>{t("clPmh")}</p>{sc.pmh}</div>}
-          {sc.meds && <div><p style={small}>{t("clMeds")}</p>{sc.meds}</div>}
-          {sc.bg && <div><p style={small}>{t("clBg")}</p>{sc.bg}</div>}
           {sc.ice && <div><p style={small}>{t("clIce")}</p>{sc.ice}</div>}
         </div>
       )}
     </aside>
   );
 
+  // Past medical, social, family and drug/treatment history slots (shown in the chart under the presentation).
+  const histSoc = osceList(sc.social), histFam = osceList(sc.family), histBg = osceList(sc.bg);
+  const historySlots = [
+    [t("clPmhTitle"), osceList(sc.pmh)],
+    ...(histFam.length ? [[t("clSocialTitle"), histSoc.length ? histSoc : histBg], [t("clFamilyTitle"), histFam]]
+      : histSoc.length && !histBg.length ? [[t("clSocialTitle"), histSoc]] : [[t("clSocialFamilyTitle"), [...histSoc, ...histBg]]]),
+    [t("clDrugTitle"), osceList(sc.meds)],
+  ].filter(([, items]) => items.length > 0);
   const chartBody = (
     <div style={{ padding: "18px 20px 22px", display: "flex", flexDirection: "column", gap: 18 }}>
       <div><h3 style={sect}>{t("clVitals")}</h3><ClBullets T={T} items={vitalLines} /></div>
@@ -10569,6 +10686,12 @@ function ClinicalWorkspace({ sc, T, isSaved, onExit }) {
         <h3 style={sect}>{t("clHpiTitle")}</h3>
         <ClBullets T={T} items={[`${t("clChief")}: ${complaint}`, ...sc.hpi]} />
       </div>
+      {historySlots.map(([label, items]) => (
+        <div key={label} style={{ borderTop: `1px solid ${T.border}`, paddingTop: 18 }}>
+          <h3 style={sect}>{label}</h3>
+          <ClBullets T={T} items={items} />
+        </div>
+      ))}
       {revealed.length > 0 && (
         <div style={{ borderTop: `1px solid ${T.border}`, paddingTop: 18 }}>
           <h3 style={sect}>{t("clExam")}</h3>
@@ -10628,6 +10751,8 @@ function ClinicalWorkspace({ sc, T, isSaved, onExit }) {
     </div>
   );
 
+  const ownExamLow = sc.exam.map((e) => String(e[0]).toLowerCase());
+  const examHit = (x) => ownExamLow.includes(x.toLowerCase());
   const examExtra = (
     <div style={{ padding: "0 24px 22px" }}>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: 8, marginBottom: 8 }}>
@@ -10641,10 +10766,62 @@ function ClinicalWorkspace({ sc, T, isSaved, onExit }) {
             <div style={{ fontSize: fs(14), color: shown[i] ? T.ink : T.muted, marginTop: 3, lineHeight: 1.5 }}>{shown[i] ? f : t("clTapReveal")}</div>
           </button>
         ))}
+        {examPicks.filter((l) => !examHit(l)).map((l) => (
+          <div key={"ni" + l} style={{ border: `1px dashed ${T.border}`, borderRadius: 6, padding: "9px 12px", fontFamily: FONT_UI }}>
+            <div style={{ fontWeight: 600, fontSize: fs(14) }}>{l}</div>
+            <div style={{ fontSize: fs(14), color: T.muted, marginTop: 3, lineHeight: 1.5 }}>{t("clExamNotIndicated")}</div>
+          </div>
+        ))}
       </div>
     </div>
   );
 
+  const ddxExtra = (
+    <div style={{ padding: "0 24px 22px" }}>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: 8, marginBottom: 8 }}>
+        <span style={small}>{t("clDdx")}</span>
+        <Pill T={T} tone={picks.length === 3 ? "green" : "muted"}>{t("clDdxPick", { n: picks.length })}</Pill>
+      </div>
+      <div role="group" aria-label={t("clDdx")} style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(min(100%, 230px), 1fr))", gap: 8 }}>
+        {ddxOptions.map((o) => {
+          const on = picks.includes(o); const locked = !on && picks.length >= 3;
+          return (
+            <button key={o} type="button" aria-pressed={on} disabled={locked} onClick={() => setPicks((q) => (q.includes(o) ? q.filter((x) => x !== o) : q.length < 3 ? [...q, o] : q))}
+              style={{ display: "flex", alignItems: "center", gap: 10, textAlign: "left", fontFamily: FONT_UI, fontSize: fs(14.5), lineHeight: 1.35, color: T.ink, background: on ? T.blueLight : "transparent", border: `1px solid ${on ? T.blue : T.border}`, borderRadius: 6, padding: "10px 12px", cursor: locked ? "not-allowed" : "pointer", opacity: locked ? 0.5 : 1, overflowWrap: "anywhere" }}>
+              <span aria-hidden="true" style={{ width: 18, height: 18, borderRadius: 4, border: `2px solid ${on ? T.blue : T.border}`, background: on ? T.blue : "transparent", color: T.onBlue, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>{on && <Check size={13} strokeWidth={3} />}</span>
+              <span style={{ minWidth: 0 }}>{o}</span>
+            </button>
+          );
+        })}
+      </div>
+    </div>
+  );
+  const examPickExtra = (
+    <div style={{ padding: "0 24px 22px" }}>
+      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: 8, marginBottom: 8 }}>
+        <span style={small}>{t("clExam")}</span>
+        <Pill T={T} tone={examPicks.length > 0 ? "green" : "muted"}>{t("clExamPickCount", { n: examPicks.length })}</Pill>
+      </div>
+      <div role="group" aria-label={t("clExam")} style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(min(100%, 230px), 1fr))", gap: 8 }}>
+        {examOptions.map((o) => {
+          const on = examPicks.includes(o);
+          return (
+            <button key={o} type="button" aria-pressed={on} onClick={() => setExamPicks((q) => (q.includes(o) ? q.filter((x) => x !== o) : [...q, o]))}
+              style={{ display: "flex", alignItems: "center", gap: 10, textAlign: "left", fontFamily: FONT_UI, fontSize: fs(14.5), lineHeight: 1.35, color: T.ink, background: on ? T.blueLight : "transparent", border: `1px solid ${on ? T.blue : T.border}`, borderRadius: 6, padding: "10px 12px", cursor: "pointer", overflowWrap: "anywhere" }}>
+              <span aria-hidden="true" style={{ width: 18, height: 18, borderRadius: 4, border: `2px solid ${on ? T.blue : T.border}`, background: on ? T.blue : "transparent", color: T.onBlue, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>{on && <Check size={13} strokeWidth={3} />}</span>
+              <span style={{ minWidth: 0 }}>{o}</span>
+            </button>
+          );
+        })}
+      </div>
+    </div>
+  );
+  const examIdx = kinds.indexOf("examPick");
+  const examAnswered = examIdx >= 0 && stage > examIdx && answers[examIdx] != null && examPicks.length > 0;
+  const ddxIdx = kinds.indexOf("ddx");
+  const ddxAnswered = ddxIdx >= 0 && stage > ddxIdx && answers[ddxIdx] != null && picks.length === 3;
+  const expectedLow = [sc.dx, ...(sc.ddx || [])].map((x) => String(x || "").toLowerCase()).filter((x) => x && !/^not (specified|provided)/.test(x));
+  const ddxHit = (x) => expectedLow.some((e) => e.includes(x.toLowerCase()) || x.toLowerCase().includes(e));
   const listStyle = { margin: 0, paddingLeft: 20, fontFamily: FONT_UI, fontSize: fs(14.5), color: T.ink, lineHeight: 1.6 };
   const feedback = (
     <div style={{ padding: "0 24px 24px", display: "flex", flexDirection: "column", gap: 16 }}>
@@ -10652,6 +10829,30 @@ function ClinicalWorkspace({ sc, T, isSaved, onExit }) {
         <p style={small}>{t("clDx")}</p>
         <p style={{ ...listStyle, paddingLeft: 0 }}>{sc.dx}</p>
       </div>
+      {ddxAnswered && (
+        <div>
+          <p style={small}>{t("clDdxYours")} · {t("clDdxScore", { n: picks.filter(ddxHit).length })}</p>
+          <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+            {picks.map((x) => (
+              <div key={x} style={{ display: "flex", alignItems: "center", gap: 8, fontFamily: FONT_UI, fontSize: fs(14.5), color: T.ink, lineHeight: 1.45 }}>
+                {ddxHit(x) ? <Check size={16} color={T.green} style={{ flexShrink: 0 }} aria-label="✓" /> : <X size={16} color={T.red} style={{ flexShrink: 0 }} aria-label="✗" />}<span style={{ overflowWrap: "anywhere" }}>{x}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+      {examAnswered && (
+        <div>
+          <p style={small}>{t("clExamYours")} · {t("clExamScore", { n: examPicks.filter(examHit).length, m: sc.exam.length })}</p>
+          <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+            {examPicks.map((x) => (
+              <div key={x} style={{ display: "flex", alignItems: "center", gap: 8, fontFamily: FONT_UI, fontSize: fs(14.5), color: T.ink, lineHeight: 1.45 }}>
+                {examHit(x) ? <Check size={16} color={T.green} style={{ flexShrink: 0 }} aria-label="✓" /> : <X size={16} color={T.red} style={{ flexShrink: 0 }} aria-label="✗" />}<span style={{ overflowWrap: "anywhere" }}>{x}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
       {sc.ddx.length > 0 && <div><p style={small}>{t("clDdx")}</p><ul style={listStyle}>{sc.ddx.map((x, i) => <li key={i}>{x}</li>)}</ul></div>}
       {sc.ix.length > 0 && <div><p style={small}>{t("clIx")}</p><ul style={listStyle}>{sc.ix.map((x, i) => <li key={i}>{x}</li>)}</ul></div>}
       {sc.mgmt.length > 0 && <div><p style={small}>{t("clMgmt")}</p><ul style={listStyle}>{sc.mgmt.map((x, i) => <li key={i}>{x}</li>)}</ul></div>}
@@ -10678,13 +10879,14 @@ function ClinicalWorkspace({ sc, T, isSaved, onExit }) {
       <ClBullets T={T} items={vitalLines} />
     </div>,
   ];
-  for (let i = 0; i < Math.min(stage, CL_STAGES); i++) {
-    thread.push(clin(`q${i}`, t(`clQ${i}`, { d: CL_EXAMINER }), null, null, true));
+  for (let i = 0; i < Math.min(stage, nStages); i++) {
+    thread.push(clin(`q${i}`, t(qKey[kinds[i]], { d: CL_EXAMINER, n: first }), null, null, true));
+    if (answers[i] == null && kinds[i] !== "presentation" && kinds[i] !== "ddx" && kinds[i] !== "examPick") continue; // no typed response was asked for here
     thread.push(answers[i] == null
       ? <div key={`a${i}`} style={{ ...mine, background: "transparent", border: `1px dashed ${T.border}`, color: T.muted, fontStyle: "italic" }}>{t("clSkipped")}</div>
       : <div key={`a${i}`} style={mine}>{answers[i]}</div>);
   }
-  if (!finished) thread.push(clin(`q${stage}`, t(`clQ${stage}`, { d: CL_EXAMINER }), stage === 1 ? examExtra : null, responseBox, false));
+  if (!finished) thread.push(clin(`q${stage}`, t(qKey[kind], { d: CL_EXAMINER, n: first }), kind === "exam" ? examExtra : kind === "ddx" ? ddxExtra : kind === "examPick" ? examPickExtra : null, kind === "presentation" ? responseBox : null, false));
   else thread.push(clin("done", t("clDone"), feedback, null, false));
 
   const panelH = wide ? "100%" : Math.max(480, vp.h - 120);
@@ -10693,10 +10895,14 @@ function ClinicalWorkspace({ sc, T, isSaved, onExit }) {
       <div ref={threadRef} style={{ flex: 1, minHeight: 0, overflowY: "auto", padding: wide ? 24 : 14, display: "flex", flexDirection: "column", gap: 22, position: "relative" }}>{thread}</div>
       <div style={{ display: "flex", gap: 16, padding: "16px 20px", borderTop: `1px solid ${T.border}`, background: T.card, flexShrink: 0 }}>
         {!finished ? (
+          kind === "exam" || kind === "dx" || kind === "mgmt" ? (
+            <button type="button" onClick={submit} style={{ ...bigBtn, background: T.blue, color: T.onBlue, border: "2px solid transparent" }}>{t("guideNext")}</button>
+          ) : (
           <>
             <button type="button" onClick={() => advance(null)} style={{ ...bigBtn, background: T.card, color: T.ink, border: `2px solid ${T.blue}` }}>{t("clSkip")}</button>
             <button type="button" onClick={submit} disabled={!canSubmit} style={{ ...bigBtn, background: canSubmit ? T.blue : "#C5CBD0", color: canSubmit ? T.onBlue : "#FFFFFF", border: "2px solid transparent", cursor: canSubmit ? "pointer" : "not-allowed" }}>{t("clSubmit")}</button>
           </>
+          )
         ) : (
           <>
             <button type="button" onClick={restart} style={{ ...bigBtn, background: T.card, color: T.ink, border: `2px solid ${T.blue}` }}>{t("clRestart")}</button>
@@ -10715,7 +10921,7 @@ function ClinicalWorkspace({ sc, T, isSaved, onExit }) {
           <ChevronLeft size={20} />{t("clExit")}
         </button>
         <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-          <Pill T={T} tone={finished ? "green" : "blue"}>{finished ? t("clCaseDone") : t("clStep", { n: stage + 1, m: CL_STAGES })}</Pill>
+          <Pill T={T} tone={finished ? "green" : "blue"}>{finished ? t("clCaseDone") : t("clStep", { n: stage + 1, m: nStages })}</Pill>
         </div>
       </div>
       {sc.shell && <div style={{ ...panel, flexShrink: 0, padding: 14, background: T.blueLight, borderColor: T.blue, fontFamily: FONT_UI, fontSize: fs(13.5), color: T.ink, lineHeight: 1.5 }}>{t("clShell")}</div>}
@@ -10746,9 +10952,10 @@ function buildSampleCase() {
       "Alyssa continues to display delays with speech and language without any identifiable words or pointing or grunting behaviors",
       "Frequent ear infections in the first year; no known hearing test since the newborn screen",
     ],
-    pmh: "Born at 39 weeks, uncomplicated delivery, normal newborn hearing screen. Three episodes of otitis media in the first year. Gross motor milestones on time.",
-    meds: "No regular medicines. No known drug allergies. Immunisations up to date.",
-    bg: "Lives with both parents and an older brother who speaks normally. Mostly English at home. Limited screen time. No family history of hearing loss or autism.",
+    pmh: ["Unremarkable pregnancy and delivery at 39 weeks (7 lbs. 6 oz.)", "Healthy at birth with jaundice", "History of ear infections beginning at age 10 months"],
+    social: ["Lives with her mother and father", "Alyssa does not attend daycare", "Non-smoking household"],
+    family: ["No significant family history"],
+    meds: ["Not taking any medication"],
     ice: "Mother worries something is seriously wrong and wants to know whether Alyssa will catch up.",
     vitals: ["98", "105/62", "22", "36.8", "98%"],
     exam: [
@@ -10759,6 +10966,7 @@ function buildSampleCase() {
       ["Neurological and motor", "Normal tone, power and reflexes; walks and runs steadily; stacks four blocks"],
     ],
     dx: "Speech and language delay secondary to conductive hearing loss (otitis media with effusion)",
+    ddxOptions: ["Acetaminophen overdose", "Acute stress reaction", "Anxiety disorder: generalized", "Anxiety disorder: post-traumatic stress disorder", "Attention deficit hyperactivity disorder", "Autism spectrum disorder", "Bipolar affective disorder", "Depression", "Developmental delay", "Eating disorder", "Hyperthyroidism", "Otitis media", "Personality disorder", "Self-harm"],
     ddx: ["Sensorineural hearing loss", "Autism spectrum disorder", "Global developmental delay", "Developmental language disorder", "Environmental or psychosocial deprivation"],
     ix: ["Formal audiology (pure-tone or play audiometry) and tympanometry", "Developmental assessment and referral to speech and language therapy", "Consider genetic or metabolic tests only if audiology and developmental assessment point to it"],
     mgmt: ["Refer to audiology and ENT for management of persistent effusion (watchful waiting, grommets if persistent)", "Start speech and language therapy while hearing is addressed", "Reassure and advise on language-rich play, reading and limited screens", "Review development after hearing is corrected"],
@@ -10804,7 +11012,7 @@ function ClinicalPage({ T, query = "" }) {
   const vp = useViewport();
   const wide = vp.w >= 960;
   const [spec, setSpec] = useState({ age: "adult", difficulty: "moderate", specialty: "any", system: "any", complaint: "" });
-  const [view, setView] = useState("build"); // build | library
+  const [view, setView] = useState("library"); // build | library (Library is the default)
   const [scenario, setScenario] = useState(null);
   const [shown, setShown] = useState({});
   const [ticks, setTicks] = useState({});
@@ -10926,8 +11134,8 @@ function ClinicalPage({ T, query = "" }) {
         <p style={{ fontFamily: FONT_UI, fontSize: fs(13.5), color: T.muted, margin: 0 }}>{t("clHint")}</p>
       </div>
       <div role="group" style={centerChips}>
-        <ClChip T={T} on={view === "build"} onClick={() => setView("build")}>{t("clViewBuild")}</ClChip>
         <ClChip T={T} on={view === "library"} onClick={() => setView("library")}>{t("clViewLib")} ({cases.length})</ClChip>
+        <ClChip T={T} on={view === "build"} onClick={() => setView("build")}>{t("clViewBuild")}</ClChip>
       </div>
 
       {view === "build" && (
@@ -11201,7 +11409,7 @@ function ClinicalPage({ T, query = "" }) {
 
 function PageNav({ tab, setTab, T }) {
   const { t } = useI18n();
-  const items = [["console", t("tabConsole"), LayoutDashboard], ["library", t("tabLibrary"), BookOpen], ["analytics", t("tabHistory"), BarChart3], ["calendar", t("tabCalendar"), CalendarDays], ["clinical", t("tabClinical"), Stethoscope], ["database", t("tabDatabase"), Database]];
+  const items = [["console", t("tabConsole"), LayoutDashboard], ["library", t("tabLibrary"), BookOpen], ["analytics", t("tabHistory"), BarChart3], ["clinical", t("tabClinical"), Stethoscope], ["calendar", t("tabCalendar"), CalendarDays]];
   return (
     <nav style={{ borderBottom: `1px solid ${T.border}`, marginBottom: 0, overflowX: "auto", overflowY: "hidden", touchAction: "pan-x", overscrollBehaviorY: "none" }}>
       <div role="tablist" style={{ display: "flex", gap: 4, width: "max-content", margin: "0 auto" }}>{/* auto margins center the tabs; when they are wider than the screen the margins collapse and the row scrolls from its start */}
