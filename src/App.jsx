@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, useMemo, useCallback, createContext, useContext } from "react";
 import {
-  Flag, Clock, ChevronLeft, ChevronRight, Upload, Copy, RotateCcw,
+  Flag, Clock, MoreHorizontal, Mail, EyeOff, ChevronLeft, ChevronRight, Upload, Copy, RotateCcw,
   Play, CheckCircle2, XCircle, AlertTriangle, ClipboardList, Activity,
   Check, ChevronDown, ChevronUp, FileJson, FlaskConical, PencilLine,
   Calculator as CalcIcon, Settings as SettingsIcon, Lock, Unlock,
@@ -292,7 +292,7 @@ const STR = {
     "tabCalendar": "Schedule", "calTitle": "Schedule", "calHint": "Your whole term on one calendar: classes, exams, tasks, breaks and the days you studied. Tap a day to see and edit it.", "calMonth": "Month", "calWeek": "Week", "calAgenda": "Agenda", "calPrev": "Previous", "calNext": "Next", "calLayerKey": "Key dates", "calTermStart": "Term starts", "calTermEnd": "Term ends", "calTargetExam": "Target exam", "calClassesN": "{n} classes", "calStatTerm": "Term", "calStatOpen": "Open tasks", "calStatWeekQ": "Questions this week", "calAgendaEmpty": "Nothing scheduled in this stretch.", "calOpenFull": "Full schedule", "spMapNote": "Showing the weeks around today. Expand to see the full syllabus map.",
     tbGapTitle: "Gap analysis", tbGapHint: "Your logged blocks grouped by subject tag and compared with the blueprint: exam weight, your share of practice, your accuracy and the gap to target (points).", tbColExam: "Exam", tbColPractice: "You", tbColAcc: "Acc.", tbColGap: "Gap", tbGapWorst: "Largest accuracy gap: {a} ({n} pts below target).", tbGapUnder: "Most under-practiced: {b}.", tbGapNone: "Finish a block to see your gaps.", tbUnmapped: "Not mapped to the blueprint", tbUnmappedHint: "These subject tags in your results match no blueprint item. Add them to a match list.", tbBpPrompt: "Blueprint — AI prompt", tbBpSchema: "Blueprint — JSON template", tbCourses: "Priority course", tbStarOn: "Make {c} your priority course", tbStarOff: "Remove priority course", tbStarHint: "The starred course is studied first: its topics lead this week's focus and its blueprint items rank higher.", "calNew.task": "New task", "calNew.event": "New event", "calNew.exam": "New exam", "calEdit.task": "Edit task", "calEdit.event": "Edit event", "calEdit.exam": "Edit exam", "calAdd.task": "Task", "calAdd.event": "Event", "calAdd.exam": "Exam", "calF.title": "Title", "calF.date": "Date", "calF.time": "Time", "calF.endDate": "Ends on", "calF.endTime": "Ends at", "calF.type": "Type", "calF.repeat": "Repeats", "calF.until": "Repeat until", "calF.subject": "Subject", "calF.weight": "Weight %", "calF.place": "Location", "calF.course": "Course", "calF.topics": "Topics (comma separated)", "calF.notes": "Notes", "calF.done": "Already happened", "calRep.none": "Does not repeat", "calRep.daily": "Daily", "calRep.weekly": "Weekly", "calRep.monthly": "Monthly", calRepeats: "repeats {r}", calSave: "Save", calCancel: "Cancel", calDelete: "Delete", calEdit: "Edit", calDeleted: "Deleted “{s}”.", calMoved: "Moved “{s}” to {d}.", calUndo: "Undo", calFind: "Find in calendar", calJump: "Go to date", calExport: "Export .ics", tbScale: "Scale weights to 100%", tbScaleHint: "Overlapping ranges (a question can count toward several disciplines) can add up to more than 100%. This rescales each group and keeps the original numbers as the official range. Comparisons already use the scaled shares.", tbConf: "Source confidence", "tbConfLvl.high": "High", "tbConfLvl.medium": "Medium", "tbConfLvl.low": "Low", "tbCg.official": "Cites official sources ({h}).", "tbCg.version": "Outline edition recorded: {v}.", "tbCg.fresh": "Retrieved {n} days ago.", "tbCg.weights": "Weights add up to about 100% in every group.", "tbCf.noSource": "No source cited.", "tbCf.unofficial": "The cited pages are not official USMLE, NBME or FSMB sites.", "tbCf.noVersion": "No outline edition recorded.", "tbCf.noDate": "No retrieval date recorded.", "tbCf.old": "Last checked {n} days ago, longer than a semester.", "tbCf.weights": "{g} weights add up to {n}%, not 100%.", "tbCf.noWeights": "No exam weights given.", "tbCf.template": "Template with placeholder weights, not the official outline.", tbCadence: "Update your blueprint at least once every semester: the outline can change and your tutor plans from it.", tbDueOn: "Next update due by {d}.", tbUpdate: "Update blueprint", tbDue: "Your blueprint was last checked {n} days ago. Update it at least once a semester.", tbDueTerm: "A new term started since your blueprint was last checked. Update it so your tutor follows the current outline.", tbSoon: "Your blueprint is {n} days old. Plan an update this semester.", "nf.bpDue.t": "Update your blueprint", "nf.bpDue.b": "It was last checked {n} days ago. Refresh it at least once a semester so your tutor follows the current USMLE outline.", "nf.bpDueTerm.t": "New semester: update your blueprint", "nf.bpDueTerm.b": "Your term started after your blueprint was last checked. Re-run the AI prompt to confirm the current USMLE outline.", tbSource: "Source: {v} {u}", tbNoSource: "No official source recorded: re-run the AI prompt so it can search the current USMLE outline.", tabTutor: "Tutor", tbTitle: "Tutor Dashboard", tbOpenTutor: "Open Study Hub", tabStudyHub: "Study Hub", shTitle: "Study Hub", shSub: "Your tutor, blueprint and Study Profile in one place: where you are in your term, what to study next and how ready you are.", shNavOverview: "Overview", shNavPriorities: "Priorities", shNavBlueprint: "Blueprint", shNavProfile: "Study Profile", shJumpTo: "Jump to section", shSetupCta: "Set up your Study Profile", "plAddAs": "Add as…", "plSrc.exam": "Exam", "plSrc.event": "Event", "plSrc.class": "Class", "plAct.study": "Study", "plAct.task": "Add task", "plAct.skip": "Skip class", "plAct.editClass": "Edit classes", "plPrepTitle": "Prepare: {s}", "plReviewTitle": "Review: {s}", "plTaskAdded": "Added task “{s}”.", "plSkipped": "Skipped “{s}” on {d}.", plAgendaHint: "Exams, classes and events in the next 7 days appear here with their own actions.", tbBpTitle: "Blueprint", tbBpBody: "A blueprint is one JSON file with your exam's test domains, system weights and target competencies. Give the prompt to an AI tool that can browse the web: it looks up the latest official USMLE outline (usmle.org, NBME, FSMB) and returns the JSON to paste here. The built-in template is only a placeholder. The tutor ranks what to study by weight, your accuracy and this week's syllabus.", tbTemplate: "Use USMLE template", tbCopyPrompt: "Copy AI prompt", tbCopySchema: "Copy template JSON", tbCopied: "Copied", tbPaste: "Paste the blueprint JSON here…", tbLoad: "Load blueprint", tbRemove: "Remove blueprint", tbErrParse: "That doesn't look like JSON. Paste only the blueprint (or upload the file).", tbErrShape: "This JSON has no domains, systems or competencies.", tbReady: "Blueprint readiness", tbCoverage: "Coverage", tbCoverageSub: "items with 5+ answers", tbCountdown: "Days to exam", tbTarget: "target {n}%", tbPriority: "Priority targets", tbPriorityHint: "Ranked by exam weight, the gap to your target and this week's topics. Tick items to build one block, or tap a name to start it.", tbBuild: "Build block from {n} selected", tbShareLine: "{n} answered · {share}% of your practice vs {w}% of the exam · target {target}%", tbMatches: "Qbanks that match", tbNoMatches: "No Qbank in your library matches these topics yet.", tbSystems: "Systems", tbDomains: "Test domains", tbComps: "Competencies", tbLegend: "Bar = your accuracy, black tick = target. Weights are a study guide: check them against the current official outline.", tbNoBpTitle: "No blueprint loaded", tbNoBpBody: "Load a blueprint to see priorities by exam weight.", "nf.blueprintLoaded.t": "Blueprint loaded", "nf.blueprintLoaded.b": "Your tutor now plans around {exam}.",
     tutorShort: "Tutor", modeLabel: "Test mode", modeLocked: "Locked once the block starts", modeTimedHint: "Countdown timer. You can turn it off during the exam, but not back on.", timerLabel: "Timer", timerOnHint: "You can turn the timer off, but you can't turn it back on.", timerOffNote: "Timer is off for this block and can't be turned back on.", timerOffTitle: "Turn off the timer?", timerOffBody: "The countdown will stop and this block will become untimed. This can't be undone: you won't be able to turn the timer back on for this block. Your answers and progress are kept.", keepTimer: "Keep timer on", turnOffTimer: "Turn off timer", timerOffSuffix: "timer off", modeTutorHint: "No timer. Instant feedback after each answer.", tutor: "Tutor mode", tutorHint: "Instant right/wrong feedback and explanations after each answer, plus question reset.",
-    tutorCorrect: "Correct", tutorIncorrect: "Incorrect — the correct answer is {a}", tutorIncorrectHidden: "Incorrect", showCorrectBtn: "Show Correct Answer",
+    tutorCorrect: "Correct", tutorIncorrect: "Incorrect — the correct answer is {a}", tutorIncorrectHidden: "Incorrect", showCorrectBtn: "Show Answer",
     resetQ: "Reset question", "sc.reset": "Reset question (Tutor mode)",
     attendingTip: "Tutor's Tip", keyClues: "Key Clues", keyLearningPoint: "Key Learning Point",
     keyInfoBtn: "Key Info", tipBtn: "Tutor's Tip", distractorBtn: "Why this is incorrect", noKeyInfo: "No key info available for this question.", noTipAvail: "No tip available for this question.", hintUsedBadge: "Hint used", hintsUsedN: "Hints used: {n}",
@@ -351,7 +351,7 @@ const STR = {
     recipeTutor: "Tutor suggests", recipeTutorHint: "Tap topics to build this recipe around them. Tap again to remove one.", phSystems: "e.g. Cardiovascular, Renal, Neuro…", phDisc: "e.g. Pharmacology, Biochemistry, Microbiology…",
     uniTitle: "Recipe & Import Hub", uniHint: "One importer for everything: pick a recipe, copy the prompt into your AI tool, then paste what it returns. Qbank blocks and clinical cases share a case link, so a Hybrid keeps both together.", uniKindQbank: "Questions", uniKindClinical: "Patients", uniKindCross: "Hybrids", uniKindQbankHint: "Practice questions only.", uniKindClinicalHint: "An OSCE patient to work through.", uniKindCrossHint: "One patient plus a Qbank block on the same diagnosis, linked by a shared case.", uniCrossSize: "Linked Qbank questions", uniGenTpl: "Generate from template (no AI)", uniGenTplHint: "Builds a case instantly from the built-in templates and saves it to your library.",
     uniDetected: "Detected:", uniDetQbank: "Qbank ({n} block(s))", uniDetClinical: "Clinical case", uniDetClinicalBundle: "Clinical cases ({n})", uniDetCross: "Crossover (case + Qbank)", uniSaveBtn: "Import to Library", uniCaseSaved: "Saved \"{name}\" to your case library.", uniCrossOk: "Crossover saved: case + {n} question(s) linked in your library.", uniCrossDup: "The case was saved, but that Qbank block was already in your library, so it is not linked.", uniCrossBadCase: "Case part: {e}", uniCrossBadQ: "Qbank part: {e}", uniNew: "Create / Import",
-    libTypeAll: "Import", libTypeQbank: "Qbank", libTypeClinical: "Clinical", uniLibEmpty: "Nothing here yet. Use the Universal Importer to create or import a Qbank, a clinical case or a Crossover.", uniPractice: "Practice Qbank", uniOpenCase: "Open case", uniDeleteCase: "Delete", uniDeleteQ: "Delete this case and its linked Qbank block(s)?", uniQN: "{n} questions", uniCasesCount: "{n} case(s)", uniCrossCount: "{c} crossover(s)", uniLinkedQ: "Linked Qbank ({n})", uniNoMatch: "Nothing matches.", uniBadVersion: "This file was made by a newer version of OWORLD.", libHybrid: "Hybrid",
+    libTypeAll: "Import", libTypeQbank: "Qbank", libTypeClinical: "Clinical", uniLibEmpty: "Nothing here yet. Use the Universal Importer to create or import a Qbank, a clinical case or a Crossover.", uniPractice: "Practice Qbank", uniOpenCase: "Open case", uniDeleteCase: "Delete", uniDeleteQ: "Delete this case and its linked Qbank block(s)?", uniQN: "{n} questions", uniCasesCount: "{n} case(s)", uniCrossCount: "{c} crossover(s)", uniLinkedQ: "Linked Qbank ({n})", uniNoMatch: "Nothing matches.", uniBadVersion: "This file was made by a newer version of OWORLD.", libHybrid: "Hybrid", moreActions: "More actions", omitQuestion: "Omit question", omitTitle: "Remove this question from your Qbank?", omitConfirmSaved: "This permanently deletes the question from \"{title}\". It will not appear when you practise, and it will not be included if you share or export that Qbank. This cannot be undone.", omitConfirmLocal: "This question is not saved in your library. It is removed from this block and from anything you share from it. This cannot be undone.", omitGo: "Omit permanently", omitLastHint: "Every block and Qbank needs at least one question, so this one cannot be omitted.", giveFeedback: "Give feedback", reportIssue: "Report an Issue",
     recipeTitle: "Question Recipe — AI prompt", copied: "Copied", copy: "Copy", schema: "JSON schema", viewSchema: "View Developer JSON Schema", hideSchema: "Hide Developer JSON Schema",
     createdBy: "OWORLD is created by", role: "Medical student | Founder of Verde+",
     notAffil: "Not affiliated with NBME or USMLE®", tmTitle: "Trademark disclaimer",
@@ -473,7 +473,7 @@ const STR = {
     "tabCalendar": "Horario", "calTitle": "Horario", "calHint": "Todo tu periodo en un solo calendario: clases, exámenes, tareas, descansos y los días que estudiaste. Toca un día para verlo y editarlo.", "calMonth": "Mes", "calWeek": "Semana", "calAgenda": "Agenda", "calPrev": "Anterior", "calNext": "Siguiente", "calLayerKey": "Fechas clave", "calTermStart": "Inicio del periodo", "calTermEnd": "Fin del periodo", "calTargetExam": "Examen objetivo", "calClassesN": "{n} clases", "calStatTerm": "Periodo", "calStatOpen": "Tareas abiertas", "calStatWeekQ": "Preguntas esta semana", "calAgendaEmpty": "No hay nada programado en este lapso.", "calOpenFull": "Horario completo", "spMapNote": "Se muestran las semanas cercanas a hoy. Expande para ver el mapa completo del programa.",
     tbGapTitle: "Análisis de brechas", tbGapHint: "Tus bloques registrados agrupados por etiqueta de materia y comparados con el blueprint: peso en el examen, tu parte de la práctica, tu precisión y la brecha con la meta (puntos).", tbColExam: "Examen", tbColPractice: "Tú", tbColAcc: "Prec.", tbColGap: "Brecha", tbGapWorst: "Mayor brecha de precisión: {a} ({n} pts bajo la meta).", tbGapUnder: "Menos practicado: {b}.", tbGapNone: "Termina un bloque para ver tus brechas.", tbUnmapped: "Sin asignar al blueprint", tbUnmappedHint: "Estas etiquetas de materia de tus resultados no coinciden con ningún ítem del blueprint. Agrégalas a una lista de coincidencias.", tbBpPrompt: "Blueprint — prompt para IA", tbBpSchema: "Blueprint — plantilla JSON", tbCourses: "Curso prioritario", tbStarOn: "Hacer de {c} tu curso prioritario", tbStarOff: "Quitar curso prioritario", tbStarHint: "El curso con estrella se estudia primero: sus temas encabezan el enfoque de la semana y sus ítems del blueprint suben en el ranking.", "calNew.task": "Nueva tarea", "calNew.event": "Nuevo evento", "calNew.exam": "Nuevo examen", "calEdit.task": "Editar tarea", "calEdit.event": "Editar evento", "calEdit.exam": "Editar examen", "calAdd.task": "Tarea", "calAdd.event": "Evento", "calAdd.exam": "Examen", "calF.title": "Título", "calF.date": "Fecha", "calF.time": "Hora", "calF.endDate": "Termina el", "calF.endTime": "Termina a las", "calF.type": "Tipo", "calF.repeat": "Se repite", "calF.until": "Repetir hasta", "calF.subject": "Materia", "calF.weight": "Peso %", "calF.place": "Lugar", "calF.course": "Curso", "calF.topics": "Temas (separados por comas)", "calF.notes": "Notas", "calF.done": "Ya ocurrió", "calRep.none": "No se repite", "calRep.daily": "Cada día", "calRep.weekly": "Cada semana", "calRep.monthly": "Cada mes", calRepeats: "se repite: {r}", calSave: "Guardar", calCancel: "Cancelar", calDelete: "Eliminar", calEdit: "Editar", calDeleted: "Se eliminó «{s}».", calMoved: "«{s}» se movió al {d}.", calUndo: "Deshacer", calFind: "Buscar en el calendario", calJump: "Ir a la fecha", calExport: "Exportar .ics", tbScale: "Escalar pesos a 100%", tbScaleHint: "Los rangos que se superponen (una pregunta puede contar para varias disciplinas) pueden sumar más de 100%. Esto reescala cada grupo y conserva los números originales como rango oficial. Las comparaciones ya usan las proporciones escaladas.", tbConf: "Confianza en la fuente", "tbConfLvl.high": "Alta", "tbConfLvl.medium": "Media", "tbConfLvl.low": "Baja", "tbCg.official": "Cita fuentes oficiales ({h}).", "tbCg.version": "Edición del esquema registrada: {v}.", "tbCg.fresh": "Consultado hace {n} días.", "tbCg.weights": "Los pesos suman cerca de 100% en cada grupo.", "tbCf.noSource": "No cita ninguna fuente.", "tbCf.unofficial": "Las páginas citadas no son sitios oficiales de USMLE, NBME ni FSMB.", "tbCf.noVersion": "No se registró la edición del esquema.", "tbCf.noDate": "No se registró la fecha de consulta.", "tbCf.old": "Última revisión hace {n} días, más de un semestre.", "tbCf.weights": "Los pesos de {g} suman {n}%, no 100%.", "tbCf.noWeights": "No hay pesos del examen.", "tbCf.template": "Plantilla con pesos de ejemplo, no es el esquema oficial.", tbCadence: "Actualiza tu blueprint al menos una vez por semestre: el esquema puede cambiar y tu tutor planifica con él.", tbDueOn: "Próxima actualización antes del {d}.", tbUpdate: "Actualizar blueprint", tbDue: "Tu blueprint se revisó por última vez hace {n} días. Actualízalo al menos una vez por semestre.", tbDueTerm: "Empezó un nuevo periodo desde la última revisión de tu blueprint. Actualízalo para que tu tutor siga el esquema vigente.", tbSoon: "Tu blueprint tiene {n} días. Planea una actualización este semestre.", "nf.bpDue.t": "Actualiza tu blueprint", "nf.bpDue.b": "Se revisó por última vez hace {n} días. Renuévalo al menos una vez por semestre para que tu tutor siga el esquema USMLE vigente.", "nf.bpDueTerm.t": "Nuevo semestre: actualiza tu blueprint", "nf.bpDueTerm.b": "Tu periodo empezó después de la última revisión de tu blueprint. Vuelve a usar el prompt de IA para confirmar el esquema USMLE vigente.", tbSource: "Fuente: {v} {u}", tbNoSource: "Sin fuente oficial registrada: vuelve a usar el prompt de IA para que busque el esquema USMLE vigente.", tabTutor: "Tutor", tbTitle: "Panel del tutor", tbOpenTutor: "Abrir Centro de estudio", tabStudyHub: "Centro de estudio", shTitle: "Centro de estudio", shSub: "Tu tutor, el blueprint y tu Perfil de estudio en un solo lugar: en qué punto de tu periodo estás, qué estudiar después y qué tan listo estás.", shNavOverview: "Resumen", shNavPriorities: "Prioridades", shNavBlueprint: "Blueprint", shNavProfile: "Perfil de estudio", shJumpTo: "Ir a la sección", shSetupCta: "Configura tu Perfil de estudio", "plAddAs": "Añadir como…", "plSrc.exam": "Examen", "plSrc.event": "Evento", "plSrc.class": "Clase", "plAct.study": "Estudiar", "plAct.task": "Añadir tarea", "plAct.skip": "Omitir clase", "plAct.editClass": "Editar clases", "plPrepTitle": "Preparar: {s}", "plReviewTitle": "Repasar: {s}", "plTaskAdded": "Se añadió la tarea «{s}».", "plSkipped": "Se omitió «{s}» el {d}.", plAgendaHint: "Los exámenes, clases y eventos de los próximos 7 días aparecen aquí con sus propias acciones.", tbBpTitle: "Blueprint", tbBpBody: "Un blueprint es un archivo JSON con los dominios de la prueba, el peso de cada sistema y las competencias objetivo de tu examen. Dale el prompt a una herramienta de IA con acceso a internet: busca el esquema oficial más reciente de USMLE (usmle.org, NBME, FSMB) y te devuelve el JSON para pegar aquí. La plantilla incluida es solo un ejemplo. El tutor ordena qué estudiar según el peso, tu precisión y el programa de esta semana.", tbTemplate: "Usar plantilla USMLE", tbCopyPrompt: "Copiar prompt de IA", tbCopySchema: "Copiar JSON de plantilla", tbCopied: "Copiado", tbPaste: "Pega aquí el JSON del blueprint…", tbLoad: "Cargar blueprint", tbRemove: "Quitar blueprint", tbErrParse: "Eso no parece JSON. Pega solo el blueprint (o sube el archivo).", tbErrShape: "Este JSON no tiene dominios, sistemas ni competencias.", tbReady: "Preparación del blueprint", tbCoverage: "Cobertura", tbCoverageSub: "ítems con 5+ respuestas", tbCountdown: "Días al examen", tbTarget: "meta {n}%", tbPriority: "Objetivos prioritarios", tbPriorityHint: "Ordenados por peso en el examen, la brecha con tu meta y los temas de esta semana. Marca ítems para armar un bloque, o toca un nombre para iniciarlo.", tbBuild: "Armar bloque con {n} seleccionados", tbShareLine: "{n} respondidas · {share}% de tu práctica vs {w}% del examen · meta {target}%", tbMatches: "Qbanks que coinciden", tbNoMatches: "Ningún Qbank de tu biblioteca coincide con estos temas todavía.", tbSystems: "Sistemas", tbDomains: "Dominios de la prueba", tbComps: "Competencias", tbLegend: "Barra = tu precisión, marca negra = meta. Los pesos son una guía de estudio: verifícalos con el esquema oficial vigente.", tbNoBpTitle: "Sin blueprint cargado", tbNoBpBody: "Carga un blueprint para ver prioridades según el peso en el examen.", "nf.blueprintLoaded.t": "Blueprint cargado", "nf.blueprintLoaded.b": "Tu tutor ahora planifica con {exam}.",
     tutorShort: "Tutor", modeLabel: "Modo del examen", modeLocked: "Se bloquea al iniciar el bloque", modeTimedHint: "Cuenta regresiva. Puedes desactivarla durante el examen, pero no volver a activarla.", timerLabel: "Cronómetro", timerOnHint: "Puedes desactivar el cronómetro, pero no volver a activarlo.", timerOffNote: "El cronómetro está desactivado en este bloque y no se puede volver a activar.", timerOffTitle: "¿Desactivar el cronómetro?", timerOffBody: "La cuenta regresiva se detendrá y este bloque quedará sin límite de tiempo. No se puede deshacer: no podrás volver a activar el cronómetro en este bloque. Tus respuestas y tu progreso se conservan.", keepTimer: "Mantener cronómetro", turnOffTimer: "Desactivar cronómetro", timerOffSuffix: "cronómetro desactivado", modeTutorHint: "Sin cronómetro. Retroalimentación instantánea tras cada respuesta.", tutor: "Modo tutor", tutorHint: "Retroalimentación instantánea de correcto/incorrecto y explicaciones tras cada respuesta, más reinicio de pregunta.",
-    tutorCorrect: "Correcto", tutorIncorrect: "Incorrecto — la respuesta correcta es {a}", tutorIncorrectHidden: "Incorrecto", showCorrectBtn: "Mostrar respuesta correcta",
+    tutorCorrect: "Correcto", tutorIncorrect: "Incorrecto — la respuesta correcta es {a}", tutorIncorrectHidden: "Incorrecto", showCorrectBtn: "Mostrar respuesta",
     resetQ: "Reiniciar pregunta", "sc.reset": "Reiniciar pregunta (modo tutor)",
     attendingTip: "Consejo del tutor", keyClues: "Pistas clave", keyLearningPoint: "Punto clave de aprendizaje",
     keyInfoBtn: "Datos clave", tipBtn: "Consejo del tutor", distractorBtn: "Por qué es incorrecta", noKeyInfo: "No hay datos clave para esta pregunta.", noTipAvail: "No hay consejo para esta pregunta.", hintUsedBadge: "Pista usada", hintsUsedN: "Pistas usadas: {n}",
@@ -532,7 +532,7 @@ const STR = {
     recipeTutor: "El tutor sugiere", recipeTutorHint: "Toca los temas para basar esta receta en ellos. Toca de nuevo para quitar uno.", phSystems: "p. ej. Cardiovascular, Renal, Neuro…", phDisc: "p. ej. Farmacología, Bioquímica, Microbiología…",
     uniTitle: "Centro de recetas e importación", uniHint: "Un solo importador para todo: elige una receta, copia el prompt en tu herramienta de IA y pega lo que devuelva. Los bloques de Qbank y los casos clínicos comparten un vínculo de caso, así que un Crossover mantiene ambos juntos.", uniKindQbank: "Preguntas", uniKindClinical: "Pacientes", uniKindCross: "Híbridos", uniKindQbankHint: "Solo preguntas de práctica.", uniKindClinicalHint: "Un paciente tipo ECOE para trabajar.", uniKindCrossHint: "Un paciente más un bloque de Qbank sobre el mismo diagnóstico, vinculados por un caso compartido.", uniCrossSize: "Preguntas de Qbank vinculadas", uniGenTpl: "Generar desde plantilla (sin IA)", uniGenTplHint: "Crea un caso al instante con las plantillas integradas y lo guarda en tu biblioteca.",
     uniDetected: "Detectado:", uniDetQbank: "Qbank ({n} bloque(s))", uniDetClinical: "Caso clínico", uniDetClinicalBundle: "Casos clínicos ({n})", uniDetCross: "Crossover (caso + Qbank)", uniSaveBtn: "Importar a la biblioteca", uniCaseSaved: "Se guardó «{name}» en tu biblioteca de casos.", uniCrossOk: "Crossover guardado: el caso y {n} pregunta(s) de Qbank quedaron vinculados en tu biblioteca.", uniCrossDup: "El caso se guardó, pero ese bloque de Qbank ya estaba en tu biblioteca, así que no queda vinculado.", uniCrossBadCase: "Parte del caso: {e}", uniCrossBadQ: "Parte del Qbank: {e}", uniNew: "Crear / Importar",
-    libTypeAll: "Importar", libTypeQbank: "Qbank", libTypeClinical: "Clínicos", uniLibEmpty: "Aún no hay nada aquí. Usa el Importador universal para crear o importar un Qbank, un caso clínico o un Crossover.", uniPractice: "Practicar Qbank", uniOpenCase: "Abrir caso", uniDeleteCase: "Eliminar", uniDeleteQ: "¿Eliminar este caso y sus bloques de Qbank vinculados?", uniQN: "{n} preguntas", uniCasesCount: "{n} caso(s)", uniCrossCount: "{c} crossover(s)", uniLinkedQ: "Qbank vinculado ({n})", uniNoMatch: "Nada coincide.", uniBadVersion: "Este archivo lo creó una versión más reciente de OWORLD.", libHybrid: "Híbrido",
+    libTypeAll: "Importar", libTypeQbank: "Qbank", libTypeClinical: "Clínicos", uniLibEmpty: "Aún no hay nada aquí. Usa el Importador universal para crear o importar un Qbank, un caso clínico o un Crossover.", uniPractice: "Practicar Qbank", uniOpenCase: "Abrir caso", uniDeleteCase: "Eliminar", uniDeleteQ: "¿Eliminar este caso y sus bloques de Qbank vinculados?", uniQN: "{n} preguntas", uniCasesCount: "{n} caso(s)", uniCrossCount: "{c} crossover(s)", uniLinkedQ: "Qbank vinculado ({n})", uniNoMatch: "Nada coincide.", uniBadVersion: "Este archivo lo creó una versión más reciente de OWORLD.", libHybrid: "Híbrido", moreActions: "Más acciones", omitQuestion: "Omitir pregunta", omitTitle: "¿Quitar esta pregunta de tu Qbank?", omitConfirmSaved: "Esto elimina la pregunta de \"{title}\" de forma permanente. No aparecerá al practicar y no se incluirá si compartes o exportas ese Qbank. No se puede deshacer.", omitConfirmLocal: "Esta pregunta no está guardada en tu biblioteca. Se quita de este bloque y de todo lo que compartas desde él. No se puede deshacer.", omitGo: "Omitir definitivamente", omitLastHint: "Cada bloque y cada Qbank necesita al menos una pregunta, así que no se puede omitir esta.", giveFeedback: "Enviar comentarios", reportIssue: "Informar de un problema",
     recipeTitle: "Receta de preguntas — prompt para IA", copied: "Copiado", copy: "Copiar", schema: "Esquema JSON", viewSchema: "Ver esquema JSON para desarrolladores", hideSchema: "Ocultar esquema JSON para desarrolladores",
     createdBy: "OWORLD fue creado por", role: "Estudiante de medicina | Fundador de Verde+",
     notAffil: "Sin afiliación con NBME ni USMLE®", tmTitle: "Aviso de marcas registradas",
@@ -7434,6 +7434,13 @@ function SettingsMenu({ darkMode, setDarkMode, T, iconOnly = false, onHelp }) {
               {trashLive > 0 && <span style={{ fontFamily: FONT_MONO, fontSize: fs(11), fontWeight: 700, padding: "1px 7px", borderRadius: 999, background: T.mutedBg, color: T.muted }}>{trashLive}</span>}
               <ChevronRight size={15} color={T.muted} />
             </button>
+            <a href={feedbackMailto(null, null)} onClick={() => setOpen(false)} style={{
+              width: "100%", boxSizing: "border-box", display: "flex", alignItems: "center", gap: 10, background: "transparent", border: `1px solid ${T.border}`, borderRadius: 6, cursor: "pointer",
+              padding: "9px 12px", fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(13), color: T.ink, textAlign: "left", textDecoration: "none",
+            }}>
+              <Mail size={15} color={T.muted} />
+              <span style={{ flex: 1 }}>{t("reportIssue")}</span>
+            </a>
           </div>
 
         </div>
@@ -11951,7 +11958,7 @@ const GUIDE = {
     { title: "3. Pick a mode", body: "Before you press Start block, choose how you want to practice. Tutor Mode is selected by default.",
       points: ["Tutor Mode: no timer, and you get feedback right after each answer.", "Timed Mode: a countdown like the real exam, with no feedback until the block ends. There is no Home button during a timed block, so plan to finish it.", "In Timed Mode you can switch the timer off during the block, but not back on."] },
     { title: "4. Answering questions", body: "Tap an answer choice. In Tutor Mode you see the result straight away.",
-      points: ["Key Info highlights the important clues in the story. Tutor's Tip gives you a hint. If you open either before answering, the question is tagged Hint used.", "Got it wrong? Tap Show Correct Answer when you're ready, then tap any answer choice to open or close its explanation. Source References are tucked into a dropdown.", "After answering, rate how well you knew it: Again, Hard, Good or Easy. In Tutor Mode each button shows when the question will come back (spaced repetition, SM-2), for example Again 1d, Hard +2d, Good +6d. You can retest by rating later.", "Tools: Mark Question (flag it), the ab button to strike out a choice, Highlight for selected text, Notes, Lab Values and Calculator.", "On a computer, the question list on the left lets you jump anywhere. Use its arrow to collapse it."] },
+      points: ["Key Info highlights the important clues in the story. Tutor's Tip gives you a hint. If you open either before answering, the question is tagged Hint used.", "Got it wrong? Tap Show Answer when you're ready, then tap any answer choice to open or close its explanation. Source References are tucked into a dropdown.", "After answering, rate how well you knew it: Again, Hard, Good or Easy. In Tutor Mode each button shows when the question will come back (spaced repetition, SM-2), for example Again 1d, Hard +2d, Good +6d. You can retest by rating later.", "Tools: Mark Question (flag it), the ab button to strike out a choice, Highlight for selected text, Notes, Lab Values and Calculator.", "On a computer, the question list on the left lets you jump anywhere. Use its arrow to collapse it."] },
     { title: "5. Results and retesting", body: "When you tap End Block you get your score, breakdowns by subject and difficulty, and a review of every question.",
       points: ["Retest Incorrects (Tutor Mode) practices only what you missed. Retest Full Block goes again. You can also retest only flagged questions, or ones you rated Again or Hard.", "Your first-attempt score is always kept as your baseline. Retests never overwrite it."] },
     { title: "6. Analytics", body: "Every block you finish is logged, so you can look back at your progress and reopen any run.",
@@ -11981,7 +11988,7 @@ const GUIDE = {
     { title: "3. Elige un modo", body: "Antes de pulsar Iniciar bloque, elige cómo quieres practicar. El modo tutor viene seleccionado por defecto.",
       points: ["Modo tutor: sin cronómetro y con retroalimentación justo después de cada respuesta.", "Modo cronometrado: cuenta regresiva como en el examen real, sin retroalimentación hasta terminar el bloque. No hay botón de Inicio durante un bloque cronometrado, así que planea terminarlo.", "En modo cronometrado puedes apagar el cronómetro durante el bloque, pero no volver a encenderlo."] },
     { title: "4. Responder preguntas", body: "Toca una opción de respuesta. En modo tutor ves el resultado al instante.",
-      points: ["Datos clave resalta las pistas importantes del caso. Consejo del tutor te da una pista. Si abres cualquiera antes de responder, la pregunta queda marcada como Pista usada.", "¿Fallaste? Toca Mostrar respuesta correcta cuando quieras y luego toca cualquier opción para abrir o cerrar su explicación. Las fuentes están en un menú desplegable.", "Después de responder, califica qué tan bien lo sabías: Otra vez, Difícil, Bien o Fácil. En modo tutor cada botón muestra cuándo volverá la pregunta (repetición espaciada, SM-2), por ejemplo Otra vez 1 d, Difícil +2 d, Bien +6 d. Luego puedes repetir según tu calificación.", "Herramientas: Marcar pregunta, el botón ab para tachar una opción, Resaltar para el texto seleccionado, Notas, Valores de laboratorio y Calculadora.", "En computadora, la lista de preguntas a la izquierda te deja saltar a cualquiera. Usa su flecha para contraerla."] },
+      points: ["Datos clave resalta las pistas importantes del caso. Consejo del tutor te da una pista. Si abres cualquiera antes de responder, la pregunta queda marcada como Pista usada.", "¿Fallaste? Toca Mostrar respuesta cuando quieras y luego toca cualquier opción para abrir o cerrar su explicación. Las fuentes están en un menú desplegable.", "Después de responder, califica qué tan bien lo sabías: Otra vez, Difícil, Bien o Fácil. En modo tutor cada botón muestra cuándo volverá la pregunta (repetición espaciada, SM-2), por ejemplo Otra vez 1 d, Difícil +2 d, Bien +6 d. Luego puedes repetir según tu calificación.", "Herramientas: Marcar pregunta, el botón ab para tachar una opción, Resaltar para el texto seleccionado, Notas, Valores de laboratorio y Calculadora.", "En computadora, la lista de preguntas a la izquierda te deja saltar a cualquiera. Usa su flecha para contraerla."] },
     { title: "5. Resultados y repetición", body: "Al tocar Terminar bloque ves tu puntaje, desgloses por materia y dificultad, y una revisión de cada pregunta.",
       points: ["Repetir falladas (modo tutor) practica solo lo que fallaste. Repetir bloque completo lo hace de nuevo. También puedes repetir solo las marcadas o las que calificaste Otra vez o Difícil.", "El puntaje de tu primer intento siempre se conserva como referencia. Las repeticiones nunca lo sobrescriben."] },
     { title: "6. Analíticas", body: "Cada bloque que terminas queda registrado, para que veas tu progreso y reabras cualquier intento.",
@@ -13765,7 +13772,22 @@ function FullPage({ T, children }) {
   );
 }
 
-function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onAbortBlock, onRate, onHome, darkMode, setDarkMode, caseAnchor = null }) {
+const FEEDBACK_EMAIL = "oworld.app@proton.me";
+// "Give feedback" opens the person's own mail app, addressed to us. From a question it also fills in the question's id, subject and block;
+// from the account menu (no q) it is a blank note. Nothing is sent by OWORLD itself.
+function feedbackMailto(q, block) {
+  const ctx = q ? ["Question: " + q.id, q.subject ? "Subject: " + q.subject : "", block && block.blockName ? "Block: " + block.blockName : ""].filter(Boolean) : [];
+  const lines = [...ctx, ...(ctx.length ? [""] : []), "My feedback:", "", ""];
+  return `mailto:${FEEDBACK_EMAIL}?subject=${encodeURIComponent("OWORLD feedback")}&body=${encodeURIComponent(lines.join("\n"))}`;
+}
+// One look for every row in the question's "..." menu, so a link and a button are indistinguishable.
+const examMenuItemStyle = (T, disabled) => ({
+  display: "flex", alignItems: "center", gap: 8, width: "100%", boxSizing: "border-box", padding: "8px 10px", borderRadius: 6, border: "none",
+  background: "transparent", color: T.ink, fontFamily: FONT_UI, fontSize: fs(13.5), fontWeight: 500, textAlign: "left", textDecoration: "none",
+  cursor: disabled ? "not-allowed" : "pointer", opacity: disabled ? 0.45 : 1,
+});
+
+function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onAbortBlock, onOmitQuestion = () => {}, omitInfo = () => ({ saved: false, title: "", last: false }), onRate, onHome, darkMode, setDarkMode, caseAnchor = null }) {
   // Resume on the question the student was last viewing (clamped in case the stored value is stale).
   const [qIdx, setQIdx] = useState(() => {
     const n = Math.floor(Number(blockState.currentQuestionIndex) || 0);
@@ -13777,6 +13799,23 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onAbortBl
   const [timeUp, setTimeUp] = useState(false);
   const [settingsOpen, setSettingsOpen] = useState(false);
   const [srcOpen, setSrcOpen] = useState(false); // Tutor suggested sources window (Tutor sessions)
+  const [moreOpen, setMoreOpen] = useState(false); // the "..." menu beside Key Info / Tutor's Tip: Omit question, Give feedback
+  const [omitAsk, setOmitAsk] = useState(false); // Omit asks once more before it removes the question
+  const moreRef = useRef(null);
+  useEffect(() => {
+    if (!moreOpen) return;
+    const away = (e) => { if (moreRef.current && !moreRef.current.contains(e.target)) { setMoreOpen(false); setOmitAsk(false); } };
+    const esc = (e) => { if (e.key === "Escape") { setMoreOpen(false); setOmitAsk(false); } };
+    document.addEventListener("mousedown", away);
+    document.addEventListener("keydown", esc);
+    return () => { document.removeEventListener("mousedown", away); document.removeEventListener("keydown", esc); };
+  }, [moreOpen]);
+  useEffect(() => { // the warning card closes on Escape
+    if (!omitAsk) return;
+    const esc = (e) => { if (e.key === "Escape") setOmitAsk(false); };
+    document.addEventListener("keydown", esc);
+    return () => document.removeEventListener("keydown", esc);
+  }, [omitAsk]);
   const tutorSources = useMemo(() => (blockState.tutor ? collectTutorSources(block.questions) : []), [block, blockState.tutor]);
   // The question list can fold into a slim rail to give the question more room; the choice is remembered.
   const [navCollapsedPref, setNavCollapsed] = useState(() => lsGet("navCollapsed") === true);
@@ -13852,6 +13891,7 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onAbortBl
   const questions = block.questions;
   const q = questions[qIdx];
   const qState = blockState.answers[q.id] || { selected: null, struck: [], flagged: false, checked: false };
+  const omitI = moreOpen || omitAsk ? omitInfo(q.id) : null; // where this question lives (saved Qbank or only this session) and whether it is the last one standing
   // Tutor mode: once an answer is checked, show right/wrong + explanations and lock the question until reset.
   const revealed = tutorMode && !!qState.checked && !!qState.selected;
   // A wrong pick does NOT disclose the correct answer: the student asks for it with a button (qState.answerRevealed).
@@ -14414,6 +14454,42 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onAbortBl
                     </button>
                   );
                 })}
+                <div ref={moreRef} style={{ position: "relative", marginLeft: "auto" }}>
+                  <button
+                    type="button"
+                    aria-label={t("moreActions")}
+                    title={t("moreActions")}
+                    aria-haspopup="menu"
+                    aria-expanded={moreOpen}
+                    onClick={() => { setMoreOpen((v) => !v); setOmitAsk(false); }}
+                    style={{
+                      display: "inline-flex", alignItems: "center", justifyContent: "center", padding: "6px 10px", borderRadius: 999, cursor: "pointer",
+                      background: moreOpen ? T.blueLight : "transparent", color: moreOpen ? T.blueDeep : T.blue, border: `1px solid ${moreOpen ? T.blue : T.border}`,
+                    }}
+                  ><MoreHorizontal size={16} /></button>
+                  {moreOpen && (
+                    <div role="menu" style={{ position: "absolute", right: 0, top: "calc(100% + 6px)", zIndex: 30, minWidth: 220, background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, boxShadow: "0 8px 24px rgba(0,0,0,0.16)", padding: 6 }}>
+                      <button
+                        type="button"
+                        role="menuitem"
+                        disabled={!!(omitI && omitI.last)}
+                        title={omitI && omitI.last ? t("omitLastHint") : undefined}
+                        onClick={() => { setMoreOpen(false); setOmitAsk(true); }}
+                        onMouseEnter={(e) => { if (!e.currentTarget.disabled) e.currentTarget.style.background = T.paper; }}
+                        onMouseLeave={(e) => { e.currentTarget.style.background = "transparent"; }}
+                        style={examMenuItemStyle(T, !!(omitI && omitI.last))}
+                      ><EyeOff size={15} /> {t("omitQuestion")}</button>
+                      <a
+                        role="menuitem"
+                        href={feedbackMailto(q, block)}
+                        onClick={() => setMoreOpen(false)}
+                        onMouseEnter={(e) => { e.currentTarget.style.background = T.paper; }}
+                        onMouseLeave={(e) => { e.currentTarget.style.background = "transparent"; }}
+                        style={examMenuItemStyle(T, false)}
+                      ><Mail size={15} /> {t("giveFeedback")}</a>
+                    </div>
+                  )}
+                </div>
               </div>
               {qState.tipOpen && q.attendingTip && (
                 <div style={{ background: T.paper, borderLeft: `3px solid ${T.blue}`, borderRadius: 8, padding: "12px 14px", marginTop: 10, maxWidth: 720 }}>
@@ -14808,6 +14884,28 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onAbortBl
             <div style={{ display: "flex", gap: 10, justifyContent: "flex-end", flexWrap: "wrap" }}>
               <GhostButton T={T} onClick={() => setConfirmAbort(false)}>{t("keepWorking")}</GhostButton>
               <GhostButton T={T} style={{ color: T.red, borderColor: T.red }} onClick={() => { setConfirmAbort(false); onAbortBlock(); }}>{t("abortGo")}</GhostButton>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Omit confirmation: this deletes the question from the saved Qbank, so it asks first */}
+      {omitAsk && omitI && (
+        <div role="alertdialog" aria-modal="true" aria-label={t("omitTitle")} style={{
+          position: "fixed", inset: 0, background: "rgba(10,15,20,0.6)", display: "flex", alignItems: "center",
+          justifyContent: "center", zIndex: 96, padding: 20,
+        }}>
+          <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, padding: 28, maxWidth: 420 }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 10 }}>
+              <AlertTriangle size={20} color={T.red} />
+              <h3 style={{ fontFamily: FONT_UI, fontSize: fs(17), fontWeight: 700, color: T.ink, margin: 0 }}>{t("omitTitle")}</h3>
+            </div>
+            <p style={{ fontFamily: FONT_UI, fontSize: fs(14), color: T.muted, lineHeight: 1.55, margin: "0 0 20px" }}>
+              {omitI.saved ? t("omitConfirmSaved", { title: omitI.title }) : t("omitConfirmLocal")}
+            </p>
+            <div style={{ display: "flex", gap: 10, justifyContent: "flex-end", flexWrap: "wrap" }}>
+              <GhostButton T={T} onClick={() => setOmitAsk(false)}>{t("cancel")}</GhostButton>
+              <GhostButton T={T} icon={EyeOff} style={{ color: T.red, borderColor: T.red }} onClick={() => { setQIdx((i) => Math.min(i, block.questions.length - 2)); setOmitAsk(false); onOmitQuestion(q.id); }}>{t("omitGo")}</GhostButton>
             </div>
           </div>
         </div>
@@ -16161,6 +16259,38 @@ function OworldApp() {
     });
   }, [activeBlockIdx]);
 
+  // Omit, step 1: work out everything an omit would touch. Mixed blocks namespace ids as "<entryId>::<questionId>"; otherwise the owner is the
+  // block's library entry (a retest points back at its first pass). Plain ids can repeat across Qbanks in one session, so a plain id is only
+  // removed from blocks that belong to the SAME Qbank. `last` = removing it would leave a block or a saved Qbank with no questions.
+  function omitPlan(qId) {
+    const idx = activeBlockIdx;
+    const blocks = examData ? examData.blocks : [];
+    if (!blocks[idx]) return { saved: false, title: "", last: true, entryId: null, origId: qId, hit: [] };
+    const sep = String(qId).indexOf("::");
+    const namespaced = sep > 0;
+    const root = (i) => (blocks[i].isRetest ? blocks[i].retestOf : i);
+    const entryId = namespaced ? qId.slice(0, sep) : ((blocks[root(idx)] || {}).libraryId || null);
+    const origId = namespaced ? qId.slice(sep + 2) : qId;
+    const entry = entryId ? library.find((e) => e.id === entryId) || null : null;
+    const saved = !!entry && entry.questions.some((qq) => qq.id === origId);
+    const hit = blocks.map((_, i) => i).filter((i) => blocks[i].questions.some((q) => q.id === qId)
+      && (namespaced || (entryId ? (blocks[root(i)] || {}).libraryId === entryId : root(i) === root(idx))));
+    const last = hit.some((i) => blocks[i].questions.length <= 1) || (saved && entry.questions.length <= 1);
+    return { saved, title: entry ? entry.title : "", last, entryId, origId, hit };
+  }
+
+  // Omit, step 2: the question is deleted from the saved Qbank (so it is never practised, shared or exported again) and from every copy in
+  // the loaded session, finished blocks included, so no retest or "save to library" can bring it back. Past scores in History stay as recorded.
+  function omitQuestion(qId) {
+    const p = omitPlan(qId);
+    if (p.last || p.hit.length === 0) return;
+    if (p.saved) setLibrary((lib) => lib.map((e) => (e.id !== p.entryId ? e : { ...e, updatedAt: Date.now(), questions: e.questions.filter((qq) => qq.id !== p.origId) })));
+    const hit = new Set(p.hit);
+    const drop = (o) => { const c = { ...(o || {}) }; delete c[qId]; return c; };
+    setExamData((prev) => ({ ...prev, blocks: prev.blocks.map((b, i) => (hit.has(i) ? { ...b, questions: b.questions.filter((q) => q.id !== qId) } : b)) }));
+    setBlockStates((prev) => prev.map((bs, i) => (hit.has(i) ? { ...bs, answers: drop(bs.answers), notes: drop(bs.notes), highlights: drop(bs.highlights) } : bs)));
+  }
+
   function submitActiveBlock() {
     const idx = activeBlockIdx;
     const bs = blockStates[idx];
@@ -16455,6 +16585,8 @@ function OworldApp() {
           setBlockState={setActiveBlockState}
           onSubmitBlock={submitActiveBlock}
           onAbortBlock={abortActiveBlock}
+          onOmitQuestion={omitQuestion}
+          omitInfo={omitPlan}
           onRate={(q, k) => rateQuestion(activeBlockIdx, q, k)}
           onHome={goHome}
           darkMode={darkMode}
