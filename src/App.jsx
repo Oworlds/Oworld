@@ -4,7 +4,7 @@ import {
   Play, CheckCircle2, XCircle, AlertTriangle, ClipboardList, Activity,
   Check, ChevronDown, ChevronUp, FileJson, FlaskConical, PencilLine,
   Calculator as CalcIcon, Settings as SettingsIcon, Lock, Unlock,
-  Search, Eye, Trash2, X, XOctagon, Lightbulb, Sun, Moon, Highlighter, BookOpen, Stethoscope, Target, Save, Shuffle, Plus, Home as HomeIcon, Pencil, Share2, ExternalLink, Sparkles, Cloud, RefreshCw, LogIn, LogOut, Bell, Database, Bookmark, User as UserIcon, BarChart3, LayoutDashboard, Flame, TrendingUp, Download, CheckSquare, SlidersHorizontal, GraduationCap, CalendarDays, Globe, ShieldCheck, Star, LayoutGrid, List as ListIcon, Tag as TagIcon, Folder as FolderIcon, Layers, MapPin, Meh } from "lucide-react";
+  Search, Eye, Trash2, X, XOctagon, Lightbulb, Sun, Moon, Highlighter, BookOpen, Stethoscope, Target, Save, Shuffle, Plus, Home as HomeIcon, Pencil, Share2, ExternalLink, Sparkles, Cloud, RefreshCw, LogIn, LogOut, Bell, Database, Bookmark, User as UserIcon, BarChart3, LayoutDashboard, Flame, TrendingUp, Download, CheckSquare, SlidersHorizontal, GraduationCap, CalendarDays, Globe, ShieldCheck, Star, LayoutGrid, List as ListIcon, Tag as TagIcon, Folder as FolderIcon, Layers, MapPin, Meh, Heart } from "lucide-react";
 import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell
 } from "recharts";
@@ -295,7 +295,7 @@ const STR = {
     tutorCorrect: "Correct", tutorIncorrect: "Incorrect — the correct answer is {a}", tutorIncorrectHidden: "Incorrect", showCorrectBtn: "Show Answer",
     resetQ: "Reset question", "sc.reset": "Reset question (Tutor mode)",
     attendingTip: "Tutor's Tip", keyClues: "Key Clues", keyLearningPoint: "Key Learning Point",
-    ankiGet: "Get Anki card", ankiInQueue: "In queue ✓", ankiQueueBtn: "Anki queue", ankiPanelTitle: "Anki queue", ankiDeckName: "Deck name", ankiIncludeTags: "Include tags", ankiDownloadTsv: "Download .tsv", ankiSelectAll: "Select all", ankiDeselectAll: "Deselect all", ankiRemoveSel: "Remove selected ({n})", ankiClear: "Clear queue", ankiClearQ: "Remove all {n} cards from the queue?", ankiKeep: "Keep", ankiEmpty: "No cards queued. Use Get Anki card on a question to add it.", ankiMoveUp: "Move up", ankiMoveDown: "Move down", ankiRemove: "Remove from queue", ankiPreview: "Preview", ankiPreviewTitle: "Card preview", ankiClose: "Close", ankiQNum: "Q{n}", ankiSelectCard: "Select card {n}", keyInfoBtn: "Key Info", tipBtn: "Tutor's Tip", distractorBtn: "Why this is incorrect", noKeyInfo: "No key info available for this question.", noTipAvail: "No tip available for this question.", hintUsedBadge: "Hint used", hintsUsedN: "Hints used: {n}",
+    ankiGet: "Get Anki card", ankiInQueue: "In queue ✓", ankiQueueBtn: "Anki queue", ankiPanelTitle: "Anki queue", ankiDeckName: "Deck name", ankiIncludeTags: "Include tags", ankiDownloadTsv: "Download .tsv", ankiSupportText: "Building your deck for long-term retention. If Oworld is helping you study, consider supporting the project.", ankiSupportBtn: "Support Oworld", ankiSelectAll: "Select all", ankiDeselectAll: "Deselect all", ankiRemoveSel: "Remove selected ({n})", ankiClear: "Clear queue", ankiClearQ: "Remove all {n} cards from the queue?", ankiKeep: "Keep", ankiEmpty: "No cards queued. Use Get Anki card on a question to add it.", ankiMoveUp: "Move up", ankiMoveDown: "Move down", ankiRemove: "Remove from queue", ankiPreview: "Preview", ankiPreviewTitle: "Card preview", ankiClose: "Close", ankiQNum: "Q{n}", ankiSelectCard: "Select card {n}", keyInfoBtn: "Key Info", tipBtn: "Tutor's Tip", distractorBtn: "Why this is incorrect", noKeyInfo: "No key info available for this question.", noTipAvail: "No tip available for this question.", hintUsedBadge: "Hint used", hintsUsedN: "Hints used: {n}",
     difficulty: "Difficulty", diffTitle: "Difficulty: {n} of 5",
     timerLocked: "The timer can't be turned on once a block has started.",
     title: "Turn questions from any AI model into a realistic practice exam",
@@ -353,7 +353,9 @@ const STR = {
     uniDetected: "Detected:", uniDetQbank: "Qbank ({n} block(s))", uniDetClinical: "Clinical case", uniDetClinicalBundle: "Clinical cases ({n})", uniDetCross: "Crossover (case + Qbank)", uniSaveBtn: "Import to Library", uniCaseSaved: "Saved \"{name}\" to your case library.", uniCrossOk: "Crossover saved: case + {n} question(s) linked in your library.", uniCrossDup: "The case was saved, but that Qbank block was already in your library, so it is not linked.", uniCrossBadCase: "Case part: {e}", uniCrossBadQ: "Qbank part: {e}", uniNew: "Create / Import",
     libTypeAll: "Import", libTypeQbank: "Qbank", libTypeClinical: "Clinical", uniLibEmpty: "Nothing here yet. Use the Universal Importer to create or import a Qbank, a clinical case or a Crossover.", uniPractice: "Practice Qbank", uniOpenCase: "Open case", uniDeleteCase: "Delete", uniDeleteQ: "Delete this case and its linked Qbank block(s)?", uniQN: "{n} questions", uniCasesCount: "{n} case(s)", uniCrossCount: "{c} crossover(s)", uniLinkedQ: "Linked Qbank ({n})", uniNoMatch: "Nothing matches.", uniBadVersion: "This file was made by a newer version of OWORLD.", libHybrid: "Hybrid", moreActions: "More actions", omitQuestion: "Omit question", omitTitle: "Remove this question from your Qbank?", omitConfirmSaved: "This permanently deletes the question from \"{title}\". It will not appear when you practise, and it will not be included if you share or export that Qbank. This cannot be undone.", omitConfirmLocal: "This question is not saved in your library. It is removed from this block and from anything you share from it. This cannot be undone.", omitGo: "Omit permanently", omitLastHint: "Every block and Qbank needs at least one question, so this one cannot be omitted.", giveFeedback: "Give feedback", reportIssue: "Report an Issue", defineBtn: "Define", defLoading: "Looking up…", defDisambig: "This term has several meanings on Wikipedia.", defNoArticle: "No Wikipedia article matches this term.", defUnavailable: "Could not load a definition right now.", defReadFull: "Read full article", defSeeAll: "See all meanings", defOpenWiki: "Open on Wikipedia", defSkipped: "Select a more specific medical term to look it up.", defCaveat: "Definitions are for background only; rely on your source text for management.",
     recipeTitle: "Question Recipe — AI prompt", copied: "Copied", copy: "Copy", schema: "JSON schema", viewSchema: "View Developer JSON Schema", hideSchema: "Hide Developer JSON Schema",
-    createdBy: "OWORLD is created by", role: "Medical student | Founder of Verde+",
+    createdBy: "OWORLD is created by", role: "Medical student | Founder of Verde+", supportOworld: "Support Oworld",
+    supportCardText: "Oworld is free and stays free. If it helps you, consider supporting the project.", supportCardBtn: "Support",
+    supportResultsTitle: "You just finished a free block.", supportResultsBody: "Oworld will never lock its questions behind a paywall. If you found this valuable, consider supporting the project.", supportResultsBtn: "Support Oworld",
     notAffil: "Not affiliated with NBME or USMLE®", tmTitle: "Trademark disclaimer",
     tm1: "OWORLD is an independent, unofficial study tool for running practice question blocks you generate yourself with third-party AI tools. It is not produced, endorsed, licensed, or affiliated with the National Board of Medical Examiners (NBME) or the Federation of State Medical Boards (FSMB).",
     tm2: "USMLE® is a registered trademark of the NBME and FSMB. Any resemblance to their exam interface or terminology is used for descriptive and educational purposes only.",
@@ -476,7 +478,7 @@ const STR = {
     tutorCorrect: "Correcto", tutorIncorrect: "Incorrecto — la respuesta correcta es {a}", tutorIncorrectHidden: "Incorrecto", showCorrectBtn: "Mostrar respuesta",
     resetQ: "Reiniciar pregunta", "sc.reset": "Reiniciar pregunta (modo tutor)",
     attendingTip: "Consejo del tutor", keyClues: "Pistas clave", keyLearningPoint: "Punto clave de aprendizaje",
-    ankiGet: "Obtener tarjeta Anki", ankiInQueue: "En la cola ✓", ankiQueueBtn: "Cola de Anki", ankiPanelTitle: "Cola de Anki", ankiDeckName: "Nombre del mazo", ankiIncludeTags: "Incluir etiquetas", ankiDownloadTsv: "Descargar .tsv", ankiSelectAll: "Seleccionar todo", ankiDeselectAll: "Deseleccionar todo", ankiRemoveSel: "Quitar seleccionadas ({n})", ankiClear: "Vaciar cola", ankiClearQ: "¿Quitar las {n} tarjetas de la cola?", ankiKeep: "Conservar", ankiEmpty: "No hay tarjetas en la cola. Usa Obtener tarjeta Anki en una pregunta para añadirla.", ankiMoveUp: "Subir", ankiMoveDown: "Bajar", ankiRemove: "Quitar de la cola", ankiPreview: "Vista previa", ankiPreviewTitle: "Vista previa de la tarjeta", ankiClose: "Cerrar", ankiQNum: "P{n}", ankiSelectCard: "Seleccionar tarjeta {n}", keyInfoBtn: "Datos clave", tipBtn: "Consejo del tutor", distractorBtn: "Por qué es incorrecta", noKeyInfo: "No hay datos clave para esta pregunta.", noTipAvail: "No hay consejo para esta pregunta.", hintUsedBadge: "Pista usada", hintsUsedN: "Pistas usadas: {n}",
+    ankiGet: "Obtener tarjeta Anki", ankiInQueue: "En la cola ✓", ankiQueueBtn: "Cola de Anki", ankiPanelTitle: "Cola de Anki", ankiDeckName: "Nombre del mazo", ankiIncludeTags: "Incluir etiquetas", ankiDownloadTsv: "Descargar .tsv", ankiSupportText: "Construyendo tu mazo para retención a largo plazo. Si Oworld te ayuda a estudiar, considera apoyar el proyecto.", ankiSupportBtn: "Apoyar a Oworld", ankiSelectAll: "Seleccionar todo", ankiDeselectAll: "Deseleccionar todo", ankiRemoveSel: "Quitar seleccionadas ({n})", ankiClear: "Vaciar cola", ankiClearQ: "¿Quitar las {n} tarjetas de la cola?", ankiKeep: "Conservar", ankiEmpty: "No hay tarjetas en la cola. Usa Obtener tarjeta Anki en una pregunta para añadirla.", ankiMoveUp: "Subir", ankiMoveDown: "Bajar", ankiRemove: "Quitar de la cola", ankiPreview: "Vista previa", ankiPreviewTitle: "Vista previa de la tarjeta", ankiClose: "Cerrar", ankiQNum: "P{n}", ankiSelectCard: "Seleccionar tarjeta {n}", keyInfoBtn: "Datos clave", tipBtn: "Consejo del tutor", distractorBtn: "Por qué es incorrecta", noKeyInfo: "No hay datos clave para esta pregunta.", noTipAvail: "No hay consejo para esta pregunta.", hintUsedBadge: "Pista usada", hintsUsedN: "Pistas usadas: {n}",
     difficulty: "Dificultad", diffTitle: "Dificultad: {n} de 5",
     timerLocked: "El temporizador no se puede activar una vez iniciado el bloque.",
     title: "Convierte preguntas de cualquier modelo de IA en un examen de práctica realista",
@@ -534,7 +536,9 @@ const STR = {
     uniDetected: "Detectado:", uniDetQbank: "Qbank ({n} bloque(s))", uniDetClinical: "Caso clínico", uniDetClinicalBundle: "Casos clínicos ({n})", uniDetCross: "Crossover (caso + Qbank)", uniSaveBtn: "Importar a la biblioteca", uniCaseSaved: "Se guardó «{name}» en tu biblioteca de casos.", uniCrossOk: "Crossover guardado: el caso y {n} pregunta(s) de Qbank quedaron vinculados en tu biblioteca.", uniCrossDup: "El caso se guardó, pero ese bloque de Qbank ya estaba en tu biblioteca, así que no queda vinculado.", uniCrossBadCase: "Parte del caso: {e}", uniCrossBadQ: "Parte del Qbank: {e}", uniNew: "Crear / Importar",
     libTypeAll: "Importar", libTypeQbank: "Qbank", libTypeClinical: "Clínicos", uniLibEmpty: "Aún no hay nada aquí. Usa el Importador universal para crear o importar un Qbank, un caso clínico o un Crossover.", uniPractice: "Practicar Qbank", uniOpenCase: "Abrir caso", uniDeleteCase: "Eliminar", uniDeleteQ: "¿Eliminar este caso y sus bloques de Qbank vinculados?", uniQN: "{n} preguntas", uniCasesCount: "{n} caso(s)", uniCrossCount: "{c} crossover(s)", uniLinkedQ: "Qbank vinculado ({n})", uniNoMatch: "Nada coincide.", uniBadVersion: "Este archivo lo creó una versión más reciente de OWORLD.", libHybrid: "Híbrido", moreActions: "Más acciones", omitQuestion: "Omitir pregunta", omitTitle: "¿Quitar esta pregunta de tu Qbank?", omitConfirmSaved: "Esto elimina la pregunta de \"{title}\" de forma permanente. No aparecerá al practicar y no se incluirá si compartes o exportas ese Qbank. No se puede deshacer.", omitConfirmLocal: "Esta pregunta no está guardada en tu biblioteca. Se quita de este bloque y de todo lo que compartas desde él. No se puede deshacer.", omitGo: "Omitir definitivamente", omitLastHint: "Cada bloque y cada Qbank necesita al menos una pregunta, así que no se puede omitir esta.", giveFeedback: "Enviar comentarios", reportIssue: "Informar de un problema", defineBtn: "Definir", defLoading: "Buscando…", defDisambig: "Este término tiene varios significados en Wikipedia.", defNoArticle: "Ningún artículo de Wikipedia coincide con este término.", defUnavailable: "No se pudo cargar una definición ahora mismo.", defReadFull: "Leer el artículo completo", defSeeAll: "Ver todos los significados", defOpenWiki: "Abrir en Wikipedia", defSkipped: "Selecciona un término médico más específico para buscarlo.", defCaveat: "Las definiciones son solo información de contexto; para el manejo, guíate por tu texto de referencia.",
     recipeTitle: "Receta de preguntas — prompt para IA", copied: "Copiado", copy: "Copiar", schema: "Esquema JSON", viewSchema: "Ver esquema JSON para desarrolladores", hideSchema: "Ocultar esquema JSON para desarrolladores",
-    createdBy: "OWORLD fue creado por", role: "Estudiante de medicina | Fundador de Verde+",
+    createdBy: "OWORLD fue creado por", role: "Estudiante de medicina | Fundador de Verde+", supportOworld: "Apoyar a Oworld",
+    supportCardText: "Oworld es gratis y seguirá siéndolo. Si te ayuda, considera apoyar el proyecto.", supportCardBtn: "Apoyar",
+    supportResultsTitle: "Acabas de terminar un bloque gratis.", supportResultsBody: "Oworld nunca bloqueará sus preguntas tras un muro de pago. Si te resultó valioso, considera apoyar el proyecto.", supportResultsBtn: "Apoyar a Oworld",
     notAffil: "Sin afiliación con NBME ni USMLE®", tmTitle: "Aviso de marcas registradas",
     tm1: "OWORLD es una herramienta de estudio independiente y no oficial para resolver bloques de preguntas de práctica que tú mismo generas con herramientas de IA de terceros. No es producida, respaldada, licenciada ni afiliada al National Board of Medical Examiners (NBME) ni a la Federation of State Medical Boards (FSMB).",
     tm2: "USMLE® es una marca registrada de la NBME y la FSMB. Cualquier parecido con su interfaz o terminología de examen se usa únicamente con fines descriptivos y educativos.",
@@ -7169,6 +7173,19 @@ function AnkiManagerPanel({ T }) {
               </div>
             );
           })}
+          {cards.length > 0 && (
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 10, flexWrap: "wrap", padding: sectionPad }}>
+              <span style={{ fontFamily: FONT_UI, fontSize: fs(11.5), color: T.muted, lineHeight: 1.5, flex: "1 1 200px" }}>{t("ankiSupportText")}</span>
+              <GhostButton
+                T={T}
+                icon={Heart}
+                onClick={() => window.open("https://www.patreon.com/cw/Oworld", "_blank", "noopener,noreferrer")}
+                style={{ padding: "5px 12px", fontSize: fs(12), color: T.muted, fontWeight: 500 }}
+              >
+                {t("ankiSupportBtn")}
+              </GhostButton>
+            </div>
+          )}
         </div>
       </div>
       {previewCard && <AnkiPreviewCard card={previewCard} T={T} onClose={() => setPreview(null)} />}
@@ -12341,6 +12358,8 @@ const GUIDE = {
       points: ["Type at least 2 letters. It looks through your Library, Calendar, Database and Analytics at once, with results grouped by section.", "Tap a result to jump straight to it. In the calendar it opens that day or item, and in the database it opens the matching entry.", "It also understands dates and times, so you can try Oct 20, Tuesday or 9:00."] },
     { title: "13. The Calendar", body: "The Calendar page puts your whole term on one screen: classes, exams, tasks, breaks and the days you studied.",
       points: ["Switch between Month, Week and Agenda. Tap a day to see its details, tick things off, or add a task.", "The chips above the calendar are Key dates, Classes, Exam, Calendar, Task due and Studied. Tap one to show only that layer and hide the others. Tap it again to bring everything back.", "To combine layers, hold Shift (or Ctrl / Cmd) and tap the chips you want to turn on or off.", "Classes, exam dates and times can be edited, and a wrong exam date can be fixed in place. Your tutor follows the correction even after you update your profile.", "Without a Study Profile the calendar has little to show. Tap Set up profile on it to build one (see step 9)."] },
+    { title: "Supporting Oworld", body: "Oworld is built by a student, for students, and will always be free. If you want to help cover costs and keep the project alive, you can support it on Patreon. No features are locked behind it—the app is the same whether you give or not.",
+      cta: { label: "Support on Patreon", href: "https://www.patreon.com/cw/Oworld" } },
   ],
   es: [
     { title: "Bienvenido a OWORLD", body: "OWORLD es un simulador de exámenes de práctica. Tú aportas las preguntas y él las convierte en un examen realista con herramientas, retroalimentación inmediata y seguimiento de puntaje.",
@@ -12371,6 +12390,8 @@ const GUIDE = {
       points: ["Escribe al menos 2 letras. Busca a la vez en tu Biblioteca, Calendario, Base de datos y Analíticas, con los resultados agrupados por sección.", "Toca un resultado para ir directo a él. En el calendario abre ese día o elemento, y en la base de datos abre la entrada correspondiente.", "También entiende fechas y horas, así que prueba Oct 20, martes o 9:00."] },
     { title: "13. El Calendario", body: "La página Calendario reúne todo tu periodo en una sola pantalla: clases, exámenes, tareas, descansos y los días que estudiaste.",
       points: ["Cambia entre Mes, Semana y Agenda. Toca un día para ver sus detalles, marcar cosas o agregar una tarea.", "Los botones sobre el calendario son Fechas clave, Clases, Examen, Calendario, Tarea y Estudio. Toca uno para mostrar solo esa capa y ocultar las demás. Tócalo otra vez para recuperar todo.", "Para combinar capas, mantén Shift (o Ctrl / Cmd) y toca los botones que quieras activar o desactivar.", "Las clases, y las fechas y horas de los exámenes, se pueden editar, y una fecha de examen equivocada se corrige ahí mismo. Tu tutor respeta la corrección aunque actualices tu perfil.", "Sin un Perfil de estudio el calendario tiene poco que mostrar. Toca Configurar perfil para crear uno (ver el paso 9)."] },
+    { title: "Apoyar a Oworld", body: "Oworld está hecho por un estudiante, para estudiantes, y siempre será gratis. Si quieres ayudar a cubrir los costos y mantener el proyecto vivo, puedes apoyarlo en Patreon. Ninguna función está bloqueada: la app es la misma tanto si aportas como si no.",
+      cta: { label: "Apoyar en Patreon", href: "https://www.patreon.com/cw/Oworld" } },
   ],
 };
 
@@ -12432,11 +12453,17 @@ function HowItWorksGuide({ onClose, T }) {
           </div>
           <h2 style={{ fontFamily: FONT_DISPLAY, fontSize: fs(phone ? 20 : 24), fontWeight: 600, color: T.ink, margin: "0 0 10px", lineHeight: 1.25 }}>{step.title}</h2>
           <p style={{ fontFamily: FONT_UI, fontSize: fs(phone ? 14 : 14.5), color: T.ink, lineHeight: 1.6, margin: "0 0 14px" }}>{step.body}</p>
-          <ul style={{ margin: 0, paddingLeft: phone ? 18 : 20, display: "grid", gap: phone ? 10 : 8 }}>
+          {step.points && step.points.length > 0 && <ul style={{ margin: 0, paddingLeft: phone ? 18 : 20, display: "grid", gap: phone ? 10 : 8 }}>
             {step.points.map((p, pi) => (
               <li key={pi} style={{ fontFamily: FONT_UI, fontSize: fs(phone ? 13.5 : 14), color: T.muted, lineHeight: 1.55 }}>{p}</li>
             ))}
-          </ul>
+          </ul>}
+          {step.cta && (
+            <a href={step.cta.href} target="_blank" rel="noopener noreferrer"
+              style={{ display: "inline-flex", alignItems: "center", gap: 6, marginTop: 4, fontFamily: FONT_UI, fontSize: fs(phone ? 14 : 14.5), fontWeight: 600, color: T.blue, textDecoration: "none" }}>
+              <Heart size={15} aria-hidden="true" /> {step.cta.label}
+            </a>
+          )}
         </div>
 
         <div style={{ borderTop: `1px solid ${T.border}`, padding: phone ? "10px 16px calc(12px + env(safe-area-inset-bottom, 0px))" : "14px 22px" }}>
@@ -13211,6 +13238,18 @@ function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], dri
               ? <PrimaryButton T={T} onClick={handleSubmit} icon={Plus} disabled={!text.trim()}>{t("importBundle")}</PrimaryButton>
               : <PrimaryButton T={T} onClick={handleSaveToLibrary} icon={Save} disabled={!text.trim()}>{det && det.kind !== "qbank" && det.kind !== "unknown" ? t("uniSaveBtn") : t("saveToLibrary")}</PrimaryButton>}
           </div>
+
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 10, flexWrap: "wrap", marginTop: 16, paddingTop: 12, borderTop: `1px solid ${T.border}` }}>
+            <span style={{ fontFamily: FONT_UI, fontSize: fs(12), color: T.muted, lineHeight: 1.5, flex: "1 1 220px" }}>{t("supportCardText")}</span>
+            <GhostButton
+              T={T}
+              icon={Heart}
+              onClick={() => window.open("https://www.patreon.com/cw/Oworld", "_blank", "noopener,noreferrer")}
+              style={{ padding: "5px 12px", fontSize: fs(12), color: T.muted, fontWeight: 500 }}
+            >
+              {t("supportCardBtn")}
+            </GhostButton>
+          </div>
         </div>
 
           </div>
@@ -13231,6 +13270,21 @@ function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], dri
       <div style={{ marginTop: 48, paddingTop: 20, borderTop: `1px solid ${T.border}`, textAlign: "center" }}>
         <p style={{ fontFamily: FONT_UI, fontSize: fs(12), color: T.muted, margin: "0 0 6px" }}>
           {t("createdBy")} <strong style={{ color: T.ink }}>Oscar Perez</strong> — {t("role")}
+        </p>
+        <p style={{ margin: "0 0 6px" }}>
+          <a
+            href="https://www.patreon.com/cw/Oworld"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: "inline-flex", alignItems: "center", gap: 5,
+              fontFamily: FONT_UI, fontSize: fs(11.5), color: T.blue,
+              textDecoration: "none", background: "none", border: "none", padding: 0, cursor: "pointer",
+            }}
+          >
+            <Heart size={12} aria-hidden="true" />
+            {t("supportOworld")}
+          </a>
         </p>
         <button
           onClick={() => setShowDisclaimer(true)}
@@ -15686,6 +15740,7 @@ function BlockResults({ block, blockState, blockIdx, history, onBackToLobby, onR
   const { t, lang } = useI18n();
   const [expanded, setExpanded] = useState(null);
   const [retestCfg, setRetestCfg] = useState(null); // { pool, mode } while the modal is open
+  const [supportDismissed, setSupportDismissed] = useState(false); // hides the support note for this session of the results view
   const { score } = blockState;
   const vw = useViewport().w;
   const phone = vw < 640; // phones: question rows stack (text first, badges below), tighter padding, narrower chart labels
@@ -15872,6 +15927,36 @@ function BlockResults({ block, blockState, blockIdx, history, onBackToLobby, onR
           );
         })}
       </div>
+
+      {/* Optional support note: Tutor Mode only, placed above the sticky retest bar so it never sits underneath it */}
+      {blockState.tutor && !supportDismissed && (
+        <div style={{
+          marginTop: 24, padding: phone ? "10px 12px" : "12px 14px", background: T.card, border: `1px solid ${T.border}`, borderRadius: 8,
+          display: "flex", alignItems: "flex-start", gap: 10, flexWrap: "wrap",
+        }}>
+          <div style={{ flex: "1 1 220px", minWidth: 0 }}>
+            <div style={{ fontFamily: FONT_UI, fontSize: fs(13), fontWeight: 600, color: T.muted, marginBottom: 2 }}>{t("supportResultsTitle")}</div>
+            <div style={{ fontFamily: FONT_UI, fontSize: fs(12), color: T.muted, lineHeight: 1.5 }}>{t("supportResultsBody")}</div>
+          </div>
+          <GhostButton
+            T={T}
+            icon={Heart}
+            onClick={() => window.open("https://www.patreon.com/cw/Oworld", "_blank", "noopener,noreferrer")}
+            style={{ padding: "5px 12px", fontSize: fs(12), color: T.muted, fontWeight: 500 }}
+          >
+            {t("supportResultsBtn")}
+          </GhostButton>
+          <button
+            type="button"
+            onClick={() => setSupportDismissed(true)}
+            aria-label={t("close")}
+            title={t("close")}
+            style={{ background: "transparent", border: "none", cursor: "pointer", color: T.muted, display: "flex", padding: phone ? 6 : 2, marginLeft: "auto" }}
+          >
+            <X size={16} />
+          </button>
+        </div>
+      )}
 
       {/* Retest options bar (hidden while reviewing a past exam beside a session in progress) */}
       {onRetest && <div style={{
