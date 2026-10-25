@@ -4,7 +4,7 @@ import {
   Play, CheckCircle2, XCircle, AlertTriangle, ClipboardList, Activity,
   Check, ChevronDown, ChevronUp, FileJson, FlaskConical, PencilLine,
   Calculator as CalcIcon, Settings as SettingsIcon, Lock, Unlock,
-  Search, Trash2, X, XOctagon, Lightbulb, Sun, Moon, Highlighter, BookOpen, Stethoscope, Target, Save, Shuffle, Plus, Home as HomeIcon, Pencil, Share2, ExternalLink, Sparkles, Cloud, RefreshCw, LogIn, LogOut, Bell, Database, Bookmark, User as UserIcon, BarChart3, LayoutDashboard, Flame, TrendingUp, Download, CheckSquare, SlidersHorizontal, GraduationCap, CalendarDays, Globe, ShieldCheck, Star, LayoutGrid, List as ListIcon, Tag as TagIcon, Folder as FolderIcon, Layers, MapPin, Meh } from "lucide-react";
+  Search, Eye, Trash2, X, XOctagon, Lightbulb, Sun, Moon, Highlighter, BookOpen, Stethoscope, Target, Save, Shuffle, Plus, Home as HomeIcon, Pencil, Share2, ExternalLink, Sparkles, Cloud, RefreshCw, LogIn, LogOut, Bell, Database, Bookmark, User as UserIcon, BarChart3, LayoutDashboard, Flame, TrendingUp, Download, CheckSquare, SlidersHorizontal, GraduationCap, CalendarDays, Globe, ShieldCheck, Star, LayoutGrid, List as ListIcon, Tag as TagIcon, Folder as FolderIcon, Layers, MapPin, Meh } from "lucide-react";
 import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell
 } from "recharts";
@@ -295,7 +295,7 @@ const STR = {
     tutorCorrect: "Correct", tutorIncorrect: "Incorrect — the correct answer is {a}", tutorIncorrectHidden: "Incorrect", showCorrectBtn: "Show Answer",
     resetQ: "Reset question", "sc.reset": "Reset question (Tutor mode)",
     attendingTip: "Tutor's Tip", keyClues: "Key Clues", keyLearningPoint: "Key Learning Point",
-    keyInfoBtn: "Key Info", tipBtn: "Tutor's Tip", distractorBtn: "Why this is incorrect", noKeyInfo: "No key info available for this question.", noTipAvail: "No tip available for this question.", hintUsedBadge: "Hint used", hintsUsedN: "Hints used: {n}",
+    ankiGet: "Get Anki card", ankiInQueue: "In queue ✓", ankiQueueBtn: "Anki queue", ankiPanelTitle: "Anki queue", ankiDeckName: "Deck name", ankiIncludeTags: "Include tags", ankiDownloadTsv: "Download .tsv", ankiSelectAll: "Select all", ankiDeselectAll: "Deselect all", ankiRemoveSel: "Remove selected ({n})", ankiClear: "Clear queue", ankiClearQ: "Remove all {n} cards from the queue?", ankiKeep: "Keep", ankiEmpty: "No cards queued. Use Get Anki card on a question to add it.", ankiMoveUp: "Move up", ankiMoveDown: "Move down", ankiRemove: "Remove from queue", ankiPreview: "Preview", ankiPreviewTitle: "Card preview", ankiClose: "Close", ankiQNum: "Q{n}", ankiSelectCard: "Select card {n}", keyInfoBtn: "Key Info", tipBtn: "Tutor's Tip", distractorBtn: "Why this is incorrect", noKeyInfo: "No key info available for this question.", noTipAvail: "No tip available for this question.", hintUsedBadge: "Hint used", hintsUsedN: "Hints used: {n}",
     difficulty: "Difficulty", diffTitle: "Difficulty: {n} of 5",
     timerLocked: "The timer can't be turned on once a block has started.",
     title: "Turn questions from any AI model into a realistic practice exam",
@@ -476,7 +476,7 @@ const STR = {
     tutorCorrect: "Correcto", tutorIncorrect: "Incorrecto — la respuesta correcta es {a}", tutorIncorrectHidden: "Incorrecto", showCorrectBtn: "Mostrar respuesta",
     resetQ: "Reiniciar pregunta", "sc.reset": "Reiniciar pregunta (modo tutor)",
     attendingTip: "Consejo del tutor", keyClues: "Pistas clave", keyLearningPoint: "Punto clave de aprendizaje",
-    keyInfoBtn: "Datos clave", tipBtn: "Consejo del tutor", distractorBtn: "Por qué es incorrecta", noKeyInfo: "No hay datos clave para esta pregunta.", noTipAvail: "No hay consejo para esta pregunta.", hintUsedBadge: "Pista usada", hintsUsedN: "Pistas usadas: {n}",
+    ankiGet: "Obtener tarjeta Anki", ankiInQueue: "En la cola ✓", ankiQueueBtn: "Cola de Anki", ankiPanelTitle: "Cola de Anki", ankiDeckName: "Nombre del mazo", ankiIncludeTags: "Incluir etiquetas", ankiDownloadTsv: "Descargar .tsv", ankiSelectAll: "Seleccionar todo", ankiDeselectAll: "Deseleccionar todo", ankiRemoveSel: "Quitar seleccionadas ({n})", ankiClear: "Vaciar cola", ankiClearQ: "¿Quitar las {n} tarjetas de la cola?", ankiKeep: "Conservar", ankiEmpty: "No hay tarjetas en la cola. Usa Obtener tarjeta Anki en una pregunta para añadirla.", ankiMoveUp: "Subir", ankiMoveDown: "Bajar", ankiRemove: "Quitar de la cola", ankiPreview: "Vista previa", ankiPreviewTitle: "Vista previa de la tarjeta", ankiClose: "Cerrar", ankiQNum: "P{n}", ankiSelectCard: "Seleccionar tarjeta {n}", keyInfoBtn: "Datos clave", tipBtn: "Consejo del tutor", distractorBtn: "Por qué es incorrecta", noKeyInfo: "No hay datos clave para esta pregunta.", noTipAvail: "No hay consejo para esta pregunta.", hintUsedBadge: "Pista usada", hintsUsedN: "Pistas usadas: {n}",
     difficulty: "Dificultad", diffTitle: "Dificultad: {n} de 5",
     timerLocked: "El temporizador no se puede activar una vez iniciado el bloque.",
     title: "Convierte preguntas de cualquier modelo de IA en un examen de práctica realista",
@@ -4927,24 +4927,19 @@ function GapTable({ st, kind, setKind, T, t, onStudy, open, setOpen }) {
 // The Study Hub's section pills. They live in the page's sticky header (right under the page tabs) with the exact markup of the
 // Library's type pills, so they stay put and never scroll; StudyHub reports the section being read and these pills jump to one.
 const studyHubSections = (t) => [["sh-profile", t("shNavProfile"), UserIcon], ["sh-priorities", t("shNavPriorities"), Flame], ["sh-blueprint", t("shNavBlueprint"), Target]];
-function studyHubJump(id, setActive) {
-  let el = document.getElementById(id);
-  if (!el && id !== "sh-profile") el = document.getElementById("sh-priorities") || document.getElementById("sh-profile"); // no blueprint yet: the anchors below still exist
-  if (el) { setActive(id); el.scrollIntoView({ behavior: "smooth", block: "start" }); }
+function studyHubJump(id, setActive) { // each section is its own page now: switch to it and start at the top
+  setActive(id);
+  try { window.scrollTo({ top: 0, behavior: "smooth" }); } catch (e) { /* ignore */ }
 }
 function StudyHubNav({ active, onJump, T }) {
   const { t } = useI18n();
   return (
-    <nav aria-label={t("shJumpTo")} style={{ background: T.paper, borderBottom: `1px solid ${T.border}`, margin: "0 -4px", padding: "10px 4px" }}>
-      <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 6, width: "100%", margin: "0 auto" }}>
+    <nav aria-label={t("shJumpTo")} style={{ borderBottom: `1px solid ${T.border}`, overflowX: "auto", overflowY: "hidden", touchAction: "pan-x", overscrollBehaviorY: "none" }}>
+      <div style={{ display: "flex", gap: 4, width: "max-content", margin: "0 auto" }}>
         {studyHubSections(t).map(([id, label, Ic]) => {
           const on = active === id;
           return (
-            <button key={id} onClick={() => onJump(id)} aria-current={on ? "true" : undefined} style={{
-              display: "flex", alignItems: "center", justifyContent: "center", gap: 6, padding: "7px 13px", borderRadius: 999, cursor: "pointer", whiteSpace: "nowrap", minWidth: 0, flex: "0 1 auto",
-              background: on ? T.blue : "transparent", color: on ? "#fff" : T.ink, border: `1px solid ${on ? T.blue : T.border}`,
-              fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(13),
-            }}><Ic size={14} style={{ flexShrink: 0 }} /><span style={{ overflow: "hidden", textOverflow: "ellipsis" }}>{label}</span></button>
+            <button key={id} onClick={() => onJump(id)} aria-current={on ? "true" : undefined} style={tabBarStyle(T, on)}><Ic size={16} style={{ flexShrink: 0 }} />{label}</button>
           );
         })}
       </div>
@@ -4952,41 +4947,28 @@ function StudyHubNav({ active, onJump, T }) {
   );
 }
 // Study Hub: the tutor dashboard (readiness, priorities, blueprint) and the Study Profile (term, exams, syllabus, plan, setup)
-// on ONE page, with one header and a sticky section bar. Anything that used to open "Tutor" or "Profile" lands here.
+// as three separate pages (Study Profile, Priorities, Blueprint) picked from the section tabs in the sticky header. Anything that used to open "Tutor" or "Profile" lands here.
 function StudyHub({ library, sessionLog, onLaunch, onNavigate, active, setActive, T }) {
-  const { t, lang } = useI18n(); const sp = useContext(ProfileContext);
-  const bp = sp.bpStore && sp.bpStore.bp;
-  const sections = studyHubSections(t);
+  const { t } = useI18n();
   const jump = useCallback((id) => studyHubJump(id, setActive), [setActive]);
-  useEffect(() => { // "profile" navigation from anywhere (tutor card, calendar, notifications) lands on the Study Profile section
+  useEffect(() => { // "profile" navigation from anywhere (tutor card, calendar, notifications) lands on the Study Profile page
     const go = () => jump("sh-profile");
     window.addEventListener("oworld-profile-jump", go);
     return () => window.removeEventListener("oworld-profile-jump", go);
   }, [jump]);
-  useEffect(() => { // highlight the section being read
-    if (typeof IntersectionObserver === "undefined") return undefined;
-    const stickyEl = document.querySelector("[data-oworld-sticky]"); // the sticky header, section pills included (measured now: the published height may not have caught up yet)
-    const stickyH = stickyEl ? stickyEl.getBoundingClientRect().height : (parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--oworld-sticky-h")) || 0);
-    const seen = new Map();
-    const io = new IntersectionObserver((es) => {
-      es.forEach((e) => seen.set(e.target.id, e.isIntersecting ? e.boundingClientRect.top : null));
-      const vis = [...seen.entries()].filter(([, top]) => top != null).sort((x, y) => Math.abs(x[1]) - Math.abs(y[1]));
-      if (vis.length) setActive(vis[0][0]);
-    }, { rootMargin: `-${12 + stickyH}px 0px -55% 0px`, threshold: 0 });
-    sections.forEach(([id]) => { const el = document.getElementById(id); if (el) io.observe(el); });
-    return () => io.disconnect();
-  }, [!!bp, !!sp.profile]); // eslint-disable-line
-  return (
-    <div style={{ display: "grid", gap: 20 }}>
-      <div id="sh-profile" style={{ borderBottom: `1px solid ${T.border}`, paddingBottom: 28, scrollMarginTop: "calc(var(--oworld-sticky-h, 0px) + 12px)", display: "grid", gap: 16 }}>
+  const page = active === "sh-priorities" || active === "sh-blueprint" ? active : "sh-profile";
+  if (page === "sh-profile") {
+    return (
+      <div id="sh-profile" style={{ display: "grid", gap: 16 }}>
         <div style={{ display: "flex", alignItems: "center", gap: 8, fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(20), color: T.ink }}><UserIcon size={20} color={T.blue} />{t("shNavProfile")}</div>
         <StudentProfilePanel embedded T={T} sessionLog={sessionLog} onNavigate={onNavigate} />
       </div>
-      <TutorDashboard embedded library={library} sessionLog={sessionLog} onLaunch={onLaunch} onNavigate={onNavigate} T={T} />
-    </div>
-  );
+    );
+  }
+  return <TutorDashboard embedded page={page === "sh-priorities" ? "priorities" : "blueprint"} onGoto={jump} library={library} sessionLog={sessionLog} onLaunch={onLaunch} onNavigate={onNavigate} T={T} />;
 }
-function TutorDashboard({ library, sessionLog, onLaunch, onNavigate, T, embedded = false }) {
+
+function TutorDashboard({ library, sessionLog, onLaunch, onNavigate, T, embedded = false, page, onGoto }) { // page: "priorities" | "blueprint" shows just that Study Hub page; omitted = everything on one page
   const { t, lang } = useI18n(); const sp = useContext(ProfileContext); const { notify } = useContext(NotifContext);
   const bpStore = sp.bpStore; const bp = bpStore.bp; const saveBp = bpStore.save; const locale = lang === "es" ? "es" : "en-US"; const [text, setText] = useState(""); const [err, setErr] = useState(""); const [open, setOpen] = useState(false); const [showP, setShowP] = useState(false); const [showS, setShowS] = useState(false); const [gapKind, setGapKind] = useState("systems"); const [gapOpen, setGapOpen] = useState(false); const [confOpen, setConfOpen] = useState(false); const [mapsOpen, setMapsOpen] = useState({}); const panelRef = useRef(null);
   const [picked, setPicked] = useState([]); const [copied, setCopied] = useState(""); const fileRef = useRef(null);
@@ -5003,7 +4985,13 @@ function TutorDashboard({ library, sessionLog, onLaunch, onNavigate, T, embedded
   const head = (Ic, label, extra) => <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 12, fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(15), color: T.ink }}><Ic size={17} color={T.blue} />{label}{extra}</div>;
   const hint = { fontFamily: FONT_UI, fontSize: fs(12.5), color: T.muted, lineHeight: 1.5 };
   const grid = (min) => ({ display: "grid", gridTemplateColumns: `repeat(auto-fit, minmax(min(100%, ${min}px), 1fr))`, gap: 16, alignItems: "start" });
-  const openPanel = () => { setOpen(true); setTimeout(() => panelRef.current && panelRef.current.scrollIntoView({ behavior: "smooth", block: "start" }), 50); };
+  const inPrio = !page || page === "priorities"; const inBp = !page || page === "blueprint";
+  const panelOpen = page === "blueprint" || open; // on its own page the blueprint panel is always expanded
+  const openPanel = () => {
+    setOpen(true);
+    if (page === "priorities" && onGoto) { onGoto("sh-blueprint"); return; } // the blueprint lives on its own page now
+    setTimeout(() => panelRef.current && panelRef.current.scrollIntoView({ behavior: "smooth", block: "start" }), 50);
+  };
   const load = (raw) => {
     const r = parseBlueprint(raw); if (r.error) { setErr(t(r.error)); return; }
     saveBp(r.bp); setErr(""); setText(""); setOpen(false); setPicked([]);
@@ -5041,6 +5029,7 @@ function TutorDashboard({ library, sessionLog, onLaunch, onNavigate, T, embedded
       )}
 
 
+      {inPrio && (<>
       <div id="sh-priorities" style={{ ...grid(360), scrollMarginTop: "calc(var(--oworld-sticky-h, 0px) + 12px)" }}>
         <TutorCard sessionLog={sessionLog} onNavigate={onNavigate} T={T} hideLinks={embedded} />
         {st ? (
@@ -5078,7 +5067,9 @@ function TutorDashboard({ library, sessionLog, onLaunch, onNavigate, T, embedded
         </div>
       )}
       {st && <div style={hint}>{t("tbLegend")}{bp.note ? ` ${bp.note}` : ""}{bp.source && (bp.source.urls.length || bp.source.outlineVersion) ? ` ${t("tbSource", { v: [bp.source.outlineVersion, bp.source.retrievedOn].filter(Boolean).join(", "), u: bp.source.urls.join(" ") })}` : ` ${t("tbNoSource")}`}</div>}
+      </>)}
 
+      {inBp && (<>
       {bp && conf && (
         <div style={card}>
           <button onClick={() => setConfOpen(!confOpen)} aria-expanded={confOpen} style={{ display: "flex", alignItems: "center", gap: 8, width: "100%", background: "transparent", border: "none", padding: 0, marginBottom: confOpen ? 12 : 0, cursor: "pointer", textAlign: "left", fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(15), color: T.ink }}><ShieldCheck size={17} color={T.blue} />{t("tbConf")}<Pill T={T} tone={confTone}>{`${t(`tbConfLvl.${conf.level}`)} · ${conf.score}/100`}</Pill><span style={{ marginLeft: "auto", display: "flex" }}>{confOpen ? <ChevronUp size={16} color={T.muted} /> : <ChevronDown size={16} color={T.muted} />}</span></button>
@@ -5095,13 +5086,13 @@ function TutorDashboard({ library, sessionLog, onLaunch, onNavigate, T, embedded
       )}
 
       <div ref={panelRef} id="sh-blueprint" style={{ ...card, scrollMarginTop: "calc(var(--oworld-sticky-h, 0px) + 12px)" }}>
-        <button onClick={() => setOpen(!open)} aria-expanded={open} style={{ display: "flex", alignItems: "center", gap: 8, width: "100%", background: "transparent", border: "none", padding: 0, cursor: "pointer", textAlign: "left" }}>
+        <button onClick={() => { if (page !== "blueprint") setOpen(!open); }} aria-expanded={panelOpen} style={{ display: "flex", alignItems: "center", gap: 8, width: "100%", background: "transparent", border: "none", padding: 0, cursor: "pointer", textAlign: "left" }}>
           <Target size={17} color={T.blue} /><span style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(15), color: T.ink }}>{t("tbBpTitle")}</span>
           {bp && <Pill T={T} tone="muted">{bp.exam}{bp.version ? ` · ${bp.version}` : ""}</Pill>}
           {conf && <Pill T={T} tone={confTone}>{t(`tbConfLvl.${conf.level}`)}</Pill>}
-          <span style={{ marginLeft: "auto", display: "flex" }}>{open ? <ChevronUp size={16} color={T.muted} /> : <ChevronDown size={16} color={T.muted} />}</span>
+          <span style={{ marginLeft: "auto", display: "flex" }}>{page === "blueprint" ? null : open ? <ChevronUp size={16} color={T.muted} /> : <ChevronDown size={16} color={T.muted} />}</span>
         </button>
-        {open && (
+        {panelOpen && (
           <div style={{ marginTop: 12, display: "grid", gap: 14 }}>
             <div style={hint}>{t("tbBpBody")} {t("tbCadence")}</div>
             <div style={{ display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap" }}>
@@ -5132,6 +5123,7 @@ function TutorDashboard({ library, sessionLog, onLaunch, onNavigate, T, embedded
           </div>
         )}
       </div>
+      </>)}
     </div>
   );
 }
@@ -6844,6 +6836,368 @@ function renderHighlightedText(text, ranges, onRemoveHighlight, clues, clueStyle
 // ---------------------------------------------------------------------------
 // Small shared UI atoms (light theme, used outside the exam screen)
 // ---------------------------------------------------------------------------
+// ---- Anki queue (local only: this device, never synced to Drive; no export yet) ---------------------------------------------
+const LS_ANKI = "owordAnkiQueue"; // [{ id, addedAt, question: snapshotQuestion(q) + id, source: { block, num, subject, difficultyLabel } }], oldest first
+const ANKI_MAX = 500; // past this the oldest cards fall off first
+const ankiListeners = new Set();
+let ankiCards = null; // in-memory mirror of LS_ANKI, loaded on first use
+function ankiLoad() {
+  if (ankiCards) return ankiCards;
+  const raw = lsGet(LS_ANKI);
+  const seen = new Set();
+  ankiCards = (Array.isArray(raw) ? raw : []).filter((c) => {
+    const qid = c && c.question && c.question.id;
+    if (qid == null || seen.has(qid)) return false;
+    seen.add(qid); return true;
+  }).slice(-ANKI_MAX);
+  return ankiCards;
+}
+function ankiCommit(next) { // every change goes through here: update the mirror, persist, tell the hooks
+  ankiCards = next;
+  lsSet(LS_ANKI, JSON.stringify(next));
+  ankiListeners.forEach((fn) => fn());
+}
+const ankiQid = (qOrId) => (qOrId && typeof qOrId === "object" ? qOrId.id : qOrId);
+function hasInAnkiQueue(qOrId) { const id = ankiQid(qOrId); return ankiLoad().some((c) => c.question.id === id); }
+function addToAnkiQueue(q, block, qIdx) {
+  if (!q || q.id == null || hasInAnkiQueue(q)) return; // dedupe by question.id
+  const card = {
+    id: `ak_${Date.now().toString(36)}${Math.random().toString(36).slice(2, 7)}`,
+    addedAt: Date.now(),
+    question: { // meta and SM-2 are deliberately not copied: the queue holds only what the card shows
+      id: q.id, ...snapshotQuestion(q), // snapshotQuestion has no id, so it is added here for the dedupe
+      distractorAnalysis: q.distractorAnalysis && typeof q.distractorAnalysis === "object" ? { ...q.distractorAnalysis } : {},
+      sourceReferences: (Array.isArray(q.sourceReferences) ? q.sourceReferences : []).map((r) => ({ sourceTitle: r.sourceTitle || "", chapterSection: r.chapterSection || "", pageNumber: r.pageNumber || "", relevance: r.relevance || "" })),
+      aiGenerated: q.aiGenerated !== false, // every Qbank import today is AI-written JSON; a human-made deck can set aiGenerated: false
+    },
+    source: { block: (block && block.blockName) || "", num: Number.isFinite(qIdx) ? qIdx + 1 : null, subject: q.subject || "", difficultyLabel: q.difficultyLabel || "" },
+  };
+  const next = [...ankiLoad(), card];
+  while (next.length > ANKI_MAX) { // drop the oldest by addedAt (the order can be rearranged by hand, so position is not age)
+    let k = 0;
+    for (let i = 1; i < next.length; i++) if (next[i].addedAt < next[k].addedAt) k = i;
+    next.splice(k, 1);
+  }
+  ankiCommit(next);
+}
+function removeFromAnkiQueue(qOrId) { // accepts the question or its id
+  const id = ankiQid(qOrId);
+  const cur = ankiLoad();
+  const next = cur.filter((c) => c.question.id !== id);
+  if (next.length !== cur.length) ankiCommit(next);
+}
+function removeManyFromAnkiQueue(entryIds) { // card ids (not question ids)
+  const gone = new Set(entryIds);
+  const cur = ankiLoad();
+  const next = cur.filter((c) => !gone.has(c.id));
+  if (next.length !== cur.length) ankiCommit(next);
+}
+function moveInAnkiQueue(entryId, dir) { // dir: -1 = up, +1 = down
+  const cur = ankiLoad();
+  const i = cur.findIndex((c) => c.id === entryId);
+  const j = i + dir;
+  if (i < 0 || j < 0 || j >= cur.length) return;
+  const next = [...cur];
+  [next[i], next[j]] = [next[j], next[i]];
+  ankiCommit(next);
+}
+function clearAnkiQueue() { if (ankiLoad().length) ankiCommit([]); }
+function useAnkiQueue() {
+  const [, bump] = useState(0);
+  useEffect(() => {
+    const fn = () => bump((n) => n + 1);
+    ankiListeners.add(fn);
+    const onStorage = (e) => { if (e.key === LS_ANKI) { ankiCards = null; fn(); } }; // another tab changed it
+    window.addEventListener("storage", onStorage);
+    return () => { ankiListeners.delete(fn); window.removeEventListener("storage", onStorage); };
+  }, []);
+  return { cards: ankiLoad(), add: addToAnkiQueue, remove: removeFromAnkiQueue, clear: clearAnkiQueue, has: hasInAnkiQueue, removeMany: removeManyFromAnkiQueue, move: moveInAnkiQueue };
+}
+// Whether the Anki manager panel is open. The top-bar counter toggles it; the panel itself should read useAnkiPanelOpen() and call closeAnkiPanel().
+let ankiPanelOpen = false;
+const ankiPanelListeners = new Set();
+function setAnkiPanelOpen(v) { if (ankiPanelOpen === v) return; ankiPanelOpen = v; ankiPanelListeners.forEach((fn) => fn()); }
+const openAnkiPanel = () => setAnkiPanelOpen(true);
+const closeAnkiPanel = () => setAnkiPanelOpen(false);
+function useAnkiPanelOpen() {
+  const [, bump] = useState(0);
+  useEffect(() => { const fn = () => bump((n) => n + 1); ankiPanelListeners.add(fn); return () => { ankiPanelListeners.delete(fn); }; }, []);
+  return ankiPanelOpen;
+}
+// Top-bar counter beside the NotificationBell: same 40x40 circle and badge. Hidden while the queue is empty and the panel is closed.
+function AnkiQueueButton({ T }) {
+  const { t } = useI18n();
+  const { cards } = useAnkiQueue();
+  const open = useAnkiPanelOpen();
+  const n = cards.length;
+  if (n === 0 && !open) return null;
+  const label = `${t("ankiQueueBtn")} (${n})`;
+  return (
+    <div style={{ position: "relative", flexShrink: 0 }}>
+      <button
+        type="button"
+        onClick={() => setAnkiPanelOpen(!open)} aria-haspopup="dialog" aria-expanded={open}
+        aria-label={label} title={label}
+        style={{
+          position: "relative", display: "inline-flex", alignItems: "center", justifyContent: "center", width: 40, height: 40, padding: 0, borderRadius: "50%", cursor: "pointer",
+          background: open ? T.blueLight : "transparent", border: `1px solid ${open ? T.blue : T.border}`, color: T.ink,
+        }}
+      >
+        <Layers size={17} />
+        {n > 0 && (
+          <span aria-hidden="true" style={{
+            position: "absolute", top: -4, right: -4, minWidth: 18, height: 18, padding: "0 5px", boxSizing: "border-box", borderRadius: 999,
+            background: T.blue, color: "#fff", border: `2px solid ${T.paper}`, display: "flex", alignItems: "center", justifyContent: "center",
+            fontFamily: FONT_UI, fontWeight: 700, fontSize: 10, lineHeight: 1,
+          }}>{n > 99 ? "99+" : n}</span>
+        )}
+      </button>
+    </div>
+  );
+}
+// Builds the .tsv text for an Anki import: one row per card, Front<TAB>Back<TAB>Tags (the Tags column is left out when includeTags is false).
+// The "#" lines at the top are Anki's own import directives (tab separator, HTML on, deck, which column holds the tags), so the import
+// dialog is already filled in. Field text is HTML-escaped and line breaks become <br>, so no field can contain a tab or a newline.
+// Only what the card shows goes in: no meta, no SM-2 schedule, no ratings.
+function toAnkiTsv(cards, { deckName = "OWORLD", includeTags = true } = {}) {
+  const list = Array.isArray(cards) ? cards : [];
+  if (list.length === 0) return "";
+  const esc = (v) => String(v == null ? "" : v).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/\t/g, " ").replace(/\r?\n|\r/g, "<br>").trim();
+  const tag = (v) => String(v == null ? "" : v).trim().replace(/\s+/g, "_").replace(/[\t\r\n"]+/g, "");
+  const para = (parts) => parts.filter(Boolean).join("<br><br>");
+  const deck = String(deckName || "OWORLD").replace(/[\t\r\n]+/g, " ").trim() || "OWORLD";
+  const rows = list.map((c) => {
+    const qq = (c && c.question) || {}; const src = (c && c.source) || {};
+    const opts = Array.isArray(qq.options) ? qq.options : [];
+    const front = para([
+      esc(qq.vignette), esc(qq.stem),
+      opts.map((o) => `${esc(o.key)}. ${esc(o.text)}`).join("<br>"),
+    ]);
+    const right = opts.find((o) => o.key === qq.correctAnswer);
+    const da = qq.distractorAnalysis && typeof qq.distractorAnalysis === "object" ? qq.distractorAnalysis : {};
+    const wrongKeys = (opts.length ? opts.map((o) => o.key) : Object.keys(da)).filter((k) => k !== qq.correctAnswer);
+    const wrong = wrongKeys.filter((k) => da[k]).map((k) => `${esc(k)}. ${esc(da[k])}`);
+    const refs = (Array.isArray(qq.sourceReferences) ? qq.sourceReferences : []).filter((r) => r && r.sourceTitle).map((r) => {
+      const where = [r.chapterSection, r.pageNumber ? `p. ${r.pageNumber}` : ""].filter(Boolean).join(", ");
+      return esc(where ? `${r.sourceTitle} — ${where}` : r.sourceTitle);
+    });
+    const back = para([
+      `<b>Correct answer:</b> ${esc(qq.correctAnswer)}${right ? `. ${esc(right.text)}` : ""}`,
+      qq.explanation ? esc(qq.explanation) : "",
+      qq.keyLearningPoint ? `<b>Key learning point:</b> ${esc(qq.keyLearningPoint)}` : "",
+      wrong.length ? `<b>Why the others are wrong:</b><br>${wrong.join("<br>")}` : "",
+      refs.length ? `<b>Sources:</b><br>${refs.join("<br>")}` : "",
+    ]);
+    const cols = [front, back];
+    if (includeTags) {
+      const tags = [tag(qq.subject || src.subject), tag(src.difficultyLabel), src.block ? `source:${tag(src.block)}` : "", qq.aiGenerated !== false ? "ai-generated" : ""];
+      cols.push([...new Set(tags.filter(Boolean))].join(" "));
+    }
+    return cols.join("\t");
+  });
+  const head = ["#separator:tab", "#html:true", `#deck:${deck}`, ...(includeTags ? ["#tags column:3"] : [])];
+  return `${head.join("\n")}\n${rows.join("\n")}\n`;
+}
+const ankiClip = (txt, n) => { const v = String(txt || "").replace(/\s+/g, " ").trim(); return v.length > n ? `${v.slice(0, n).trimEnd()}…` : v; };
+
+// Small read-only card: what the queued question looks like (nothing here edits the queue).
+function AnkiPreviewCard({ card, T, onClose }) {
+  const { t } = useI18n();
+  const qq = card.question; const src = card.source;
+  return (
+    <div onClick={onClose} style={{ position: "fixed", inset: 0, zIndex: 95, background: "rgba(0,0,0,0.5)", display: "flex", alignItems: "center", justifyContent: "center", padding: 16 }}>
+      <div role="dialog" aria-label={t("ankiPreviewTitle")} onClick={(e) => e.stopPropagation()} style={{
+        background: T.card, border: `1px solid ${T.border}`, borderRadius: 12, width: "min(520px, 100%)", maxHeight: "min(80vh, 640px)", overflowY: "auto", padding: 16, boxShadow: "0 12px 32px rgba(0,0,0,0.35)",
+      }}>
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 10, marginBottom: 10 }}>
+          <span style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(14.5), color: T.ink }}>{t("ankiPreviewTitle")}</span>
+          <button type="button" onClick={onClose} aria-label={t("ankiClose")} title={t("ankiClose")} style={{ background: "none", border: "none", padding: 2, cursor: "pointer", color: T.muted, display: "flex" }}><X size={17} /></button>
+        </div>
+        <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginBottom: 12 }}>
+          {src.block && <Pill T={T} tone="muted">{src.block}</Pill>}
+          {src.num != null && <Pill T={T} tone="muted">{t("ankiQNum", { n: src.num })}</Pill>}
+          {src.subject && <Pill T={T} tone="blue">{src.subject}</Pill>}
+          {src.difficultyLabel && <Pill T={T} tone="muted">{src.difficultyLabel}</Pill>}
+        </div>
+        {qq.vignette && <p style={{ fontFamily: FONT_DISPLAY, fontSize: fs(14.5), color: T.ink, lineHeight: 1.65, margin: "0 0 10px" }}>{qq.vignette}</p>}
+        {qq.stem && <p style={{ fontFamily: FONT_DISPLAY, fontSize: fs(14.5), fontWeight: 600, color: T.ink, lineHeight: 1.55, margin: "0 0 12px" }}>{qq.stem}</p>}
+        <div style={{ display: "grid", gap: 6, marginBottom: 12 }}>
+          {(qq.options || []).map((o) => {
+            const ok = o.key === qq.correctAnswer;
+            return (
+              <div key={o.key} style={{ display: "flex", gap: 10, alignItems: "flex-start", padding: "7px 10px", borderRadius: 6, background: ok ? T.greenLight : "transparent", fontFamily: FONT_UI, fontSize: fs(13.5), color: T.ink }}>
+                <span style={{ fontFamily: FONT_MONO, fontWeight: 700, fontSize: fs(12), width: 18, flexShrink: 0 }}>{o.key}</span>
+                <span style={{ flex: 1, minWidth: 0, overflowWrap: "anywhere" }}>{o.text}</span>
+                {ok && <Pill T={T} tone="green">{t("correct")}</Pill>}
+              </div>
+            );
+          })}
+        </div>
+        {(qq.explanation || qq.keyLearningPoint) && (
+          <div style={{ background: T.paper, borderLeft: `3px solid ${T.blue}`, borderRadius: 8, padding: "10px 12px", fontFamily: FONT_UI, fontSize: fs(13), color: T.ink, lineHeight: 1.55 }}>
+            {qq.keyLearningPoint && <div style={{ fontWeight: 700, marginBottom: qq.explanation ? 4 : 0 }}>{qq.keyLearningPoint}</div>}
+            {qq.explanation && <div style={{ color: T.muted }}>{qq.explanation}</div>}
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+// The Anki queue manager. Opens from the top-bar counter (AnkiQueueButton): side panel on desktop, bottom sheet on phones.
+function AnkiManagerPanel({ T }) {
+  const { t } = useI18n();
+  const open = useAnkiPanelOpen();
+  const anki = useAnkiQueue();
+  const phone = useViewport().w < 640;
+  const [deck, setDeck] = useState("OWORLD");
+  const [includeTags, setIncludeTags] = useState(true);
+  const [sel, setSel] = useState(() => new Set());
+  const [confirmClear, setConfirmClear] = useState(false);
+  const [preview, setPreview] = useState(null); // a card id
+  const cards = anki.cards;
+  const selected = cards.filter((c) => sel.has(c.id)).map((c) => c.id);
+  const allSelected = cards.length > 0 && selected.length === cards.length;
+  const previewCard = preview ? cards.find((c) => c.id === preview) : null;
+
+  useEffect(() => { if (!open) { setPreview(null); setConfirmClear(false); } }, [open]);
+  useEffect(() => {
+    if (!open) return undefined;
+    const esc = (e) => { if (e.key === "Escape") { if (preview) setPreview(null); else closeAnkiPanel(); } };
+    document.addEventListener("keydown", esc);
+    return () => document.removeEventListener("keydown", esc);
+  }, [open, preview]);
+  if (!open) return null;
+
+  const toggleOne = (id) => setSel((cur) => { const n = new Set(cur); if (n.has(id)) n.delete(id); else n.add(id); return n; });
+  const download = () => {
+    const tsv = toAnkiTsv(cards, { deckName: deck.trim() || "OWORLD", includeTags });
+    if (!tsv) return;
+    const d = new Date(); const p2 = (n) => String(n).padStart(2, "0");
+    const date = `${d.getFullYear()}-${p2(d.getMonth() + 1)}-${p2(d.getDate())}`;
+    downloadBlob(new Blob([tsv], { type: "text/tab-separated-values" }), `OWORLD-anki-${date}.tsv`);
+  };
+  const iconBtn = (disabled) => ({
+    display: "inline-flex", alignItems: "center", justifyContent: "center", width: 30, height: 30, padding: 0, borderRadius: 6, cursor: disabled ? "not-allowed" : "pointer",
+    background: "transparent", border: `1px solid ${T.border}`, color: disabled ? T.muted : T.ink, opacity: disabled ? 0.4 : 1, flexShrink: 0,
+  });
+  const shell = phone
+    ? { left: 0, right: 0, bottom: 0, maxHeight: "85vh", borderRadius: "14px 14px 0 0", borderTop: `1px solid ${T.border}`, paddingBottom: "env(safe-area-inset-bottom, 0px)" }
+    : { top: 0, right: 0, bottom: 0, width: "min(440px, 100vw)", borderLeft: `1px solid ${T.border}` };
+  const sectionPad = phone ? "12px 14px" : "14px 16px";
+
+  return (
+    <>
+      <div onClick={closeAnkiPanel} style={{ position: "fixed", inset: 0, zIndex: 80, background: "rgba(0,0,0,0.4)" }} />
+      <div role="dialog" aria-label={t("ankiPanelTitle")} style={{
+        position: "fixed", zIndex: 81, background: T.card, display: "flex", flexDirection: "column", boxShadow: "0 8px 32px rgba(0,0,0,0.35)", ...shell,
+      }}>
+        {phone && <div aria-hidden="true" style={{ width: 38, height: 4, borderRadius: 2, background: T.border, margin: "8px auto 0", flexShrink: 0 }} />}
+        <div style={{ display: "flex", alignItems: "center", gap: 10, padding: sectionPad, borderBottom: `1px solid ${T.border}`, flexShrink: 0 }}>
+          <Layers size={18} color={T.blue} />
+          <span style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(15), color: T.ink }}>{t("ankiPanelTitle")}</span>
+          <Pill T={T} tone="blue">{cards.length}</Pill>
+          <button type="button" onClick={closeAnkiPanel} aria-label={t("ankiClose")} title={t("ankiClose")} style={{ marginLeft: "auto", background: "none", border: "none", padding: 2, cursor: "pointer", color: T.muted, display: "flex" }}><X size={18} /></button>
+        </div>
+
+        <div style={{ padding: sectionPad, borderBottom: `1px solid ${T.border}`, display: "grid", gap: 10, flexShrink: 0 }}>
+          <label style={{ display: "grid", gap: 4, fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(12), color: T.muted }}>
+            {t("ankiDeckName")}
+            <input
+              value={deck} onChange={(e) => setDeck(e.target.value)} placeholder="OWORLD" maxLength={80}
+              style={{ fontFamily: FONT_UI, fontSize: fs(14), color: T.ink, background: T.paper, border: `1px solid ${T.border}`, borderRadius: 6, padding: "8px 10px", outline: "none", width: "100%", boxSizing: "border-box" }}
+            />
+          </label>
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 10, flexWrap: "wrap" }}>
+            <button
+              type="button" role="switch" aria-checked={includeTags} onClick={() => setIncludeTags((v) => !v)}
+              style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "none", border: "none", padding: 0, cursor: "pointer", fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(13), color: T.ink }}
+            >
+              <span style={{ position: "relative", width: 34, height: 20, borderRadius: 999, background: includeTags ? T.blue : T.mutedBg, border: `1px solid ${includeTags ? T.blue : T.border}`, flexShrink: 0, boxSizing: "border-box" }}>
+                <span style={{ position: "absolute", top: 1, left: includeTags ? 15 : 1, width: 16, height: 16, borderRadius: "50%", background: includeTags ? T.onBlue : T.muted, transition: "left 0.12s" }} />
+              </span>
+              {t("ankiIncludeTags")}
+            </button>
+            <PrimaryButton T={T} icon={Download} onClick={download} disabled={cards.length === 0} style={{ padding: "8px 14px", fontSize: fs(13) }}>{t("ankiDownloadTsv")}</PrimaryButton>
+          </div>
+        </div>
+
+        <div style={{ padding: sectionPad, borderBottom: `1px solid ${T.border}`, flexShrink: 0 }}>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
+            <GhostButton T={T} icon={CheckSquare} disabled={cards.length === 0} onClick={() => setSel(allSelected ? new Set() : new Set(cards.map((c) => c.id)))} style={{ padding: "7px 12px" }}>
+              {allSelected ? t("ankiDeselectAll") : t("ankiSelectAll")}
+            </GhostButton>
+            <GhostButton T={T} icon={Trash2} disabled={selected.length === 0} onClick={() => { anki.removeMany(selected); setSel(new Set()); }} style={{ padding: "7px 12px" }}>
+              {t("ankiRemoveSel", { n: selected.length })}
+            </GhostButton>
+            <GhostButton T={T} disabled={cards.length === 0} onClick={() => setConfirmClear(true)} style={{ padding: "7px 12px", color: cards.length === 0 ? undefined : T.red }}>
+              {t("ankiClear")}
+            </GhostButton>
+          </div>
+          {confirmClear && cards.length > 0 && (
+            <div style={{ marginTop: 10, display: "flex", alignItems: "center", flexWrap: "wrap", gap: 8, background: T.redLight, borderRadius: 6, padding: "8px 10px", fontFamily: FONT_UI, fontSize: fs(13), color: T.ink }}>
+              <span style={{ flex: "1 1 160px" }}>{t("ankiClearQ", { n: cards.length })}</span>
+              <GhostButton T={T} onClick={() => setConfirmClear(false)} style={{ padding: "6px 12px" }}>{t("ankiKeep")}</GhostButton>
+              <PrimaryButton T={T} onClick={() => { anki.clear(); setSel(new Set()); setConfirmClear(false); }} style={{ padding: "6px 12px", fontSize: fs(13), background: T.red }}>{t("ankiClear")}</PrimaryButton>
+            </div>
+          )}
+        </div>
+
+        <div style={{ overflowY: "auto", flex: 1, minHeight: 0 }}>
+          {cards.length === 0 ? (
+            <div style={{ padding: "28px 18px", textAlign: "center", fontFamily: FONT_UI, fontSize: fs(13.5), color: T.muted, lineHeight: 1.5 }}>{t("ankiEmpty")}</div>
+          ) : cards.map((c, i) => {
+            const stem = c.question.stem || c.question.vignette;
+            return (
+              <div key={c.id} style={{ display: "flex", gap: 10, alignItems: "flex-start", padding: phone ? "11px 14px" : "12px 16px", borderBottom: `1px solid ${T.border}`, background: sel.has(c.id) ? T.blueLight : "transparent" }}>
+                <input type="checkbox" checked={sel.has(c.id)} onChange={() => toggleOne(c.id)} aria-label={t("ankiSelectCard", { n: i + 1 })} style={{ marginTop: 3, accentColor: T.blue, width: 16, height: 16, flexShrink: 0, cursor: "pointer" }} />
+                <div style={{ flex: 1, minWidth: 0 }}>
+                  <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: 6, marginBottom: 6 }}>
+                    {c.source.block && <Pill T={T} tone="muted">{ankiClip(c.source.block, 32)}</Pill>}
+                    {c.source.num != null && <Pill T={T} tone="muted">{t("ankiQNum", { n: c.source.num })}</Pill>}
+                    {c.source.subject && <Pill T={T} tone="blue">{c.source.subject}</Pill>}
+                    {c.source.difficultyLabel && <Pill T={T} tone="muted">{c.source.difficultyLabel}</Pill>}
+                  </div>
+                  <div style={{ fontFamily: FONT_UI, fontSize: fs(13.5), color: T.ink, lineHeight: 1.45, overflowWrap: "anywhere" }}>{ankiClip(stem, 140)}</div>
+                </div>
+                <div style={{ display: "flex", gap: 4, flexShrink: 0, flexWrap: "wrap", justifyContent: "flex-end", maxWidth: phone ? 100 : "none" }}>
+                  <button type="button" onClick={() => setPreview(c.id)} aria-label={t("ankiPreview")} title={t("ankiPreview")} style={iconBtn(false)}><Eye size={15} /></button>
+                  <button type="button" disabled={i === 0} onClick={() => anki.move(c.id, -1)} aria-label={t("ankiMoveUp")} title={t("ankiMoveUp")} style={iconBtn(i === 0)}><ChevronUp size={15} /></button>
+                  <button type="button" disabled={i === cards.length - 1} onClick={() => anki.move(c.id, 1)} aria-label={t("ankiMoveDown")} title={t("ankiMoveDown")} style={iconBtn(i === cards.length - 1)}><ChevronDown size={15} /></button>
+                  <button type="button" onClick={() => anki.remove(c.question.id)} aria-label={t("ankiRemove")} title={t("ankiRemove")} style={iconBtn(false)}><Trash2 size={15} /></button>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+      {previewCard && <AnkiPreviewCard card={previewCard} T={T} onClose={() => setPreview(null)} />}
+    </>
+  );
+}
+// Same look as the Key Info / Tutor's Tip pills; flips to the "on" look and "In queue ✓" once queued. A second click removes it.
+function AnkiButton({ q, block, qIdx, T, style, variant = "pill" }) { // variant "tab" = the underline look of the Tutor-mode row; "pill" = outlined pill
+  const { t } = useI18n();
+  const anki = useAnkiQueue();
+  const queued = anki.has(q);
+  return (
+    <button
+      type="button"
+      aria-pressed={queued}
+      onClick={() => (queued ? anki.remove(q) : anki.add(q, block, qIdx))}
+      style={variant === "tab" ? tabBarStyle(T, queued, style) : {
+        display: "inline-flex", alignItems: "center", gap: 6, padding: "6px 12px", borderRadius: 999,
+        fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(13), cursor: "pointer",
+        background: queued ? T.blueLight : "transparent", color: queued ? T.blueDeep : T.blue,
+        border: `1px solid ${queued ? T.blue : T.border}`, ...style,
+      }}
+    >
+      <Download size={14} />
+      {queued ? t("ankiInQueue") : t("ankiGet")}
+    </button>
+  );
+}
+
 function Pill({ children, tone = "muted", T = LIGHT }) {
   const tones = {
     muted: { bg: T.mutedBg, fg: T.muted },
@@ -11720,6 +12074,14 @@ function ClinicalPage({ T, query = "", onNew = () => {}, openReq = null, qLinks 
   );
 }
 
+// The underline look of the page tabs (Console, Library, ...): no outline, a 3px blue bar under the selected one. Also used by the Tutor-mode action row.
+function tabBarStyle(T, on, extra) {
+  return {
+    display: "inline-flex", alignItems: "center", gap: 7, padding: "12px 16px", background: "transparent", border: "none", borderRadius: 0, cursor: "pointer",
+    borderBottom: `3px solid ${on ? T.blue : "transparent"}`, marginBottom: -1, whiteSpace: "nowrap",
+    fontFamily: FONT_UI, fontWeight: on ? 700 : 600, fontSize: fs(14), color: on ? T.blue : T.ink, ...extra,
+  };
+}
 function PageNav({ tab, setTab, T }) {
   const { t } = useI18n();
   const items = [["console", t("tabConsole"), LayoutDashboard], ["library", t("tabLibrary"), BookOpen], ["analytics", t("tabHistory"), BarChart3], ["calendar", t("tabCalendar"), CalendarDays]];
@@ -12416,6 +12778,7 @@ function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], dri
       <style>{`@import url('${FONT_IMPORT_URL}');`}</style>
 
       {guideOpen && <HowItWorksGuide onClose={() => setGuideOpen(false)} T={T} />}
+      <AnkiManagerPanel T={T} />
       {/* Sticky header: the top bar and the page tabs stay pinned while the page scrolls. */}
       <div ref={stickyRef} data-oworld-sticky style={{ position: "sticky", top: 0, zIndex: 20, background: T.paper, margin: "-22px -20px 22px", padding: "14px 20px 0" }}>
       {/* Top bar: the OWORLD logo (the Home button) at the left, Search + notifications + the profile menu (which holds Help) at the right. */}
@@ -12431,6 +12794,7 @@ function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], dri
         {wideBar && <UniversalSearchBar q={uq} setQ={setUq} scope={uScope} setScope={setUScope} pageScope={pageScope} library={library} sessionLog={sessionLog} onGo={onSearchGo} T={T} wide />}
         <div style={{ display: "flex", alignItems: "center", gap: phone ? 8 : 10, ...(wideBar ? { justifySelf: "end" } : {}) }}>
           {!wideBar && <GhostButton T={T} icon={Search} onClick={() => setSearchOpen((o) => !o)} title={t("searchTitle")} style={{ padding: 0, width: 40, height: 40, borderRadius: "50%", flexShrink: 0 }} />}
+          <AnkiQueueButton T={T} />
           <NotificationBell T={T} />
           <SettingsMenu darkMode={darkMode} setDarkMode={setDarkMode} T={T} iconOnly={phone} onHelp={() => setGuideOpen(true)} />
         </div>
@@ -12442,16 +12806,12 @@ function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], dri
       )}
       <PageNav tab={libTab} setTab={setLibTab} T={T} />
       {libTab === "library" && (
-        <nav aria-label={t("tabLibrary")} style={{ background: T.paper, borderBottom: `1px solid ${T.border}`, margin: "0 -4px", padding: "10px 4px" }}>
-          <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 6, width: "100%", margin: "0 auto" }}>
+        <nav aria-label={t("tabLibrary")} style={{ borderBottom: `1px solid ${T.border}`, overflowX: "auto", overflowY: "hidden", touchAction: "pan-x", overscrollBehaviorY: "none" }}>
+          <div style={{ display: "flex", gap: 4, width: "max-content", margin: "0 auto" }}>
             {[["qbank", "libTypeQbank", ClipboardList], ["clinical", "libTypeClinical", Stethoscope], ["all", "libTypeAll", Download]].map(([id, k, Ic]) => {
               const on = libType === id;
               return (
-                <button key={id} onClick={() => setLibType(id)} aria-current={on ? "true" : undefined} style={{
-                  display: "flex", alignItems: "center", justifyContent: "center", gap: 6, padding: "7px 13px", borderRadius: 999, cursor: "pointer", whiteSpace: "nowrap", minWidth: 0, flex: "0 1 auto",
-                  background: on ? T.blue : "transparent", color: on ? "#fff" : T.ink, border: `1px solid ${on ? T.blue : T.border}`,
-                  fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(13),
-                }}><Ic size={14} style={{ flexShrink: 0 }} /><span style={{ overflow: "hidden", textOverflow: "ellipsis" }}>{t(k)}</span></button>
+                <button key={id} onClick={() => setLibType(id)} aria-current={on ? "true" : undefined} style={tabBarStyle(T, on, { gap: 7 })}><Ic size={16} style={{ flexShrink: 0 }} />{t(k)}</button>
               );
             })}
           </div>
@@ -14516,9 +14876,17 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onAbortBl
           >
             {renderHighlightedText(q.vignette, highlightsMap[q.id]?.vignette, (hlId) => removeHighlight(q.id, "vignette", hlId), tutorMode && qState.keyInfoOn ? clueInfo.ranges : null, clueStyleFor(T))}
           </p>
+          <p
+            data-hl-field="stem"
+            onMouseUp={(e) => handleSelectionInContainer(q.id, "stem", e.currentTarget)}
+            onKeyUp={(e) => handleSelectionInContainer(q.id, "stem", e.currentTarget)}
+            style={{ fontFamily: FONT_DISPLAY, fontSize: fs(17), lineHeight: 1.6, color: T.ink, margin: tutorMode ? "0 0 6px" : "0 0 18px", cursor: "text" }}
+          >
+            {renderHighlightedText(q.stem, highlightsMap[q.id]?.stem, (hlId) => removeHighlight(q.id, "stem", hlId))}
+          </p>
           {tutorMode && (
-            <div style={{ margin: "-8px 0 18px" }}>
-              <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: 8 }}>
+            <div style={{ margin: "0 0 18px" }}>
+              <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: 4, borderBottom: `1px solid ${T.border}` }}>
                 {[
                   { id: "keyInfoOn", label: "keyInfoBtn", available: clueInfo.phrases.length > 0, missing: "noKeyInfo", on: !!qState.keyInfoOn, click: () => toggleTutorAid("keyInfoOn") },
                   { id: "tipOpen", label: "tipBtn", available: !!q.attendingTip, missing: "noTipAvail", on: !!qState.tipOpen, expandable: true, click: () => toggleTutorAid("tipOpen") },
@@ -14532,20 +14900,15 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onAbortBl
                       disabled={!b.available}
                       title={b.available ? undefined : t(b.missing)}
                       onClick={b.click}
-                      style={{
-                        display: "inline-flex", alignItems: "center", gap: 6, padding: "6px 12px", borderRadius: 999,
-                        fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(13),
-                        cursor: b.available ? "pointer" : "not-allowed", opacity: b.available ? 1 : 0.45,
-                        background: on ? T.blueLight : "transparent", color: on ? T.blueDeep : T.blue,
-                        border: `1px solid ${on ? T.blue : T.border}`,
-                      }}
+                      style={tabBarStyle(T, on, { cursor: b.available ? "pointer" : "not-allowed", opacity: b.available ? 1 : 0.45 })}
                     >
                       {t(b.label)}
                       {b.expandable && (on ? <ChevronUp size={14} /> : <ChevronDown size={14} />)}
                     </button>
                   );
                 })}
-                <div ref={moreRef} style={{ position: "relative", marginLeft: "auto" }}>
+                <AnkiButton q={q} block={block} qIdx={qIdx} T={T} variant="tab" style={{ marginLeft: "auto" }} />
+                <div ref={moreRef} style={{ position: "relative", display: "flex", marginBottom: -1 }}>
                   <button
                     type="button"
                     aria-label={t("moreActions")}
@@ -14553,10 +14916,7 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onAbortBl
                     aria-haspopup="menu"
                     aria-expanded={moreOpen}
                     onClick={() => { setMoreOpen((v) => !v); setOmitAsk(false); }}
-                    style={{
-                      display: "inline-flex", alignItems: "center", justifyContent: "center", padding: "6px 10px", borderRadius: 999, cursor: "pointer",
-                      background: moreOpen ? T.blueLight : "transparent", color: moreOpen ? T.blueDeep : T.blue, border: `1px solid ${moreOpen ? T.blue : T.border}`,
-                    }}
+                    style={tabBarStyle(T, moreOpen, { justifyContent: "center", padding: "12px 12px", marginBottom: 0 })}
                   ><MoreHorizontal size={16} /></button>
                   {moreOpen && (
                     <div role="menu" style={{ position: "absolute", right: 0, top: "calc(100% + 6px)", zIndex: 30, minWidth: 220, background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, boxShadow: "0 8px 24px rgba(0,0,0,0.16)", padding: 6 }}>
@@ -14592,14 +14952,6 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onAbortBl
               )}
             </div>
           )}
-          <p
-            data-hl-field="stem"
-            onMouseUp={(e) => handleSelectionInContainer(q.id, "stem", e.currentTarget)}
-            onKeyUp={(e) => handleSelectionInContainer(q.id, "stem", e.currentTarget)}
-            style={{ fontFamily: FONT_DISPLAY, fontSize: fs(17), lineHeight: 1.6, color: T.ink, marginBottom: 18, cursor: "text" }}
-          >
-            {renderHighlightedText(q.stem, highlightsMap[q.id]?.stem, (hlId) => removeHighlight(q.id, "stem", hlId))}
-          </p>
 
           <div style={{ border: `1.5px solid ${T.border}`, borderRadius: 4, maxWidth: 640 }}>
             {q.options.map((opt, i) => {
@@ -15480,7 +15832,8 @@ function BlockResults({ block, blockState, blockIdx, history, onBackToLobby, onR
               </div>
               {isOpen && (
                 <div style={{ padding: phone ? "0 12px 16px" : "0 16px 18px", borderTop: `1px solid ${T.border}` }}>
-                  <div style={{ display: "flex", justifyContent: "flex-end", marginTop: 12 }}>
+                  <div style={{ display: "flex", justifyContent: "flex-end", alignItems: "center", flexWrap: "wrap", gap: 10, marginTop: 12 }}>
+                    <AnkiButton q={q} block={block} qIdx={i} T={T} />
                     <DifficultyMeter value={q.difficultyRating} label={q.difficultyLabel} T={T} />
                   </div>
                   <p style={{ fontFamily: FONT_DISPLAY, fontSize: fs(14.5), color: T.ink, lineHeight: 1.65, marginTop: 8 }}>
@@ -16293,6 +16646,7 @@ function OworldApp() {
     setStorageError(false);
     setRestoredNotice(false);
     setExamData(null); setBlockStates([]); setHistory([]); setActiveBlockIdx(null);
+    clearAnkiQueue(); lsRemove(LS_ANKI); closeAnkiPanel();
     removeAllReviewSnapshots(); notifs.clearAll(); database.wipe(); clinicalStore.wipe(); studentProfile.wipe(); blueprintStore.wipe(); careerStore.wipe(); setLibrary([]); setSessionLog([]); setTrash([]); setDarkMode(true); setLang("en"); setTextScale(1);
     setView("import");
   }
