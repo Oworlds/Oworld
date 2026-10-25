@@ -14872,7 +14872,7 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onAbortBl
             data-hl-field="vignette"
             onMouseUp={(e) => handleSelectionInContainer(q.id, "vignette", e.currentTarget)}
             onKeyUp={(e) => handleSelectionInContainer(q.id, "vignette", e.currentTarget)}
-            style={{ fontFamily: FONT_DISPLAY, fontSize: fs(17), lineHeight: 1.75, color: T.ink, margin: "0 0 20px", cursor: "text" }}
+            style={{ fontFamily: FONT_DISPLAY, fontSize: fs(17), lineHeight: 1.75, color: T.ink, margin: "0", cursor: "text" }}
           >
             {renderHighlightedText(q.vignette, highlightsMap[q.id]?.vignette, (hlId) => removeHighlight(q.id, "vignette", hlId), tutorMode && qState.keyInfoOn ? clueInfo.ranges : null, clueStyleFor(T))}
           </p>
