@@ -22,3 +22,5 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+.DS_Store
+src/utils/.DS_Store # in case the root rule is later changed
