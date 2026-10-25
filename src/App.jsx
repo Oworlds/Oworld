@@ -351,7 +351,7 @@ const STR = {
     recipeTutor: "Tutor suggests", recipeTutorHint: "Tap topics to build this recipe around them. Tap again to remove one.", phSystems: "e.g. Cardiovascular, Renal, Neuro…", phDisc: "e.g. Pharmacology, Biochemistry, Microbiology…",
     uniTitle: "Recipe & Import Hub", uniHint: "One importer for everything: pick a recipe, copy the prompt into your AI tool, then paste what it returns. Qbank blocks and clinical cases share a case link, so a Hybrid keeps both together.", uniKindQbank: "Questions", uniKindClinical: "Patients", uniKindCross: "Hybrids", uniKindQbankHint: "Practice questions only.", uniKindClinicalHint: "An OSCE patient to work through.", uniKindCrossHint: "One patient plus a Qbank block on the same diagnosis, linked by a shared case.", uniCrossSize: "Linked Qbank questions", uniGenTpl: "Generate from template (no AI)", uniGenTplHint: "Builds a case instantly from the built-in templates and saves it to your library.",
     uniDetected: "Detected:", uniDetQbank: "Qbank ({n} block(s))", uniDetClinical: "Clinical case", uniDetClinicalBundle: "Clinical cases ({n})", uniDetCross: "Crossover (case + Qbank)", uniSaveBtn: "Import to Library", uniCaseSaved: "Saved \"{name}\" to your case library.", uniCrossOk: "Crossover saved: case + {n} question(s) linked in your library.", uniCrossDup: "The case was saved, but that Qbank block was already in your library, so it is not linked.", uniCrossBadCase: "Case part: {e}", uniCrossBadQ: "Qbank part: {e}", uniNew: "Create / Import",
-    libTypeAll: "Import", libTypeQbank: "Qbank", libTypeClinical: "Clinical", uniLibEmpty: "Nothing here yet. Use the Universal Importer to create or import a Qbank, a clinical case or a Crossover.", uniPractice: "Practice Qbank", uniOpenCase: "Open case", uniDeleteCase: "Delete", uniDeleteQ: "Delete this case and its linked Qbank block(s)?", uniQN: "{n} questions", uniCasesCount: "{n} case(s)", uniCrossCount: "{c} crossover(s)", uniLinkedQ: "Linked Qbank ({n})", uniNoMatch: "Nothing matches.", uniBadVersion: "This file was made by a newer version of OWORLD.", libHybrid: "Hybrid", moreActions: "More actions", omitQuestion: "Omit question", omitTitle: "Remove this question from your Qbank?", omitConfirmSaved: "This permanently deletes the question from \"{title}\". It will not appear when you practise, and it will not be included if you share or export that Qbank. This cannot be undone.", omitConfirmLocal: "This question is not saved in your library. It is removed from this block and from anything you share from it. This cannot be undone.", omitGo: "Omit permanently", omitLastHint: "Every block and Qbank needs at least one question, so this one cannot be omitted.", giveFeedback: "Give feedback", reportIssue: "Report an Issue",
+    libTypeAll: "Import", libTypeQbank: "Qbank", libTypeClinical: "Clinical", uniLibEmpty: "Nothing here yet. Use the Universal Importer to create or import a Qbank, a clinical case or a Crossover.", uniPractice: "Practice Qbank", uniOpenCase: "Open case", uniDeleteCase: "Delete", uniDeleteQ: "Delete this case and its linked Qbank block(s)?", uniQN: "{n} questions", uniCasesCount: "{n} case(s)", uniCrossCount: "{c} crossover(s)", uniLinkedQ: "Linked Qbank ({n})", uniNoMatch: "Nothing matches.", uniBadVersion: "This file was made by a newer version of OWORLD.", libHybrid: "Hybrid", moreActions: "More actions", omitQuestion: "Omit question", omitTitle: "Remove this question from your Qbank?", omitConfirmSaved: "This permanently deletes the question from \"{title}\". It will not appear when you practise, and it will not be included if you share or export that Qbank. This cannot be undone.", omitConfirmLocal: "This question is not saved in your library. It is removed from this block and from anything you share from it. This cannot be undone.", omitGo: "Omit permanently", omitLastHint: "Every block and Qbank needs at least one question, so this one cannot be omitted.", giveFeedback: "Give feedback", reportIssue: "Report an Issue", defineBtn: "Define", defLoading: "Looking up…", defDisambig: "This term has several meanings on Wikipedia.", defNoArticle: "No Wikipedia article matches this term.", defUnavailable: "Could not load a definition right now.", defReadFull: "Read full article", defSeeAll: "See all meanings", defOpenWiki: "Open on Wikipedia", defSkipped: "Select a more specific medical term to look it up.", defCaveat: "Definitions are for background only; rely on your source text for management.",
     recipeTitle: "Question Recipe — AI prompt", copied: "Copied", copy: "Copy", schema: "JSON schema", viewSchema: "View Developer JSON Schema", hideSchema: "Hide Developer JSON Schema",
     createdBy: "OWORLD is created by", role: "Medical student | Founder of Verde+",
     notAffil: "Not affiliated with NBME or USMLE®", tmTitle: "Trademark disclaimer",
@@ -532,7 +532,7 @@ const STR = {
     recipeTutor: "El tutor sugiere", recipeTutorHint: "Toca los temas para basar esta receta en ellos. Toca de nuevo para quitar uno.", phSystems: "p. ej. Cardiovascular, Renal, Neuro…", phDisc: "p. ej. Farmacología, Bioquímica, Microbiología…",
     uniTitle: "Centro de recetas e importación", uniHint: "Un solo importador para todo: elige una receta, copia el prompt en tu herramienta de IA y pega lo que devuelva. Los bloques de Qbank y los casos clínicos comparten un vínculo de caso, así que un Crossover mantiene ambos juntos.", uniKindQbank: "Preguntas", uniKindClinical: "Pacientes", uniKindCross: "Híbridos", uniKindQbankHint: "Solo preguntas de práctica.", uniKindClinicalHint: "Un paciente tipo ECOE para trabajar.", uniKindCrossHint: "Un paciente más un bloque de Qbank sobre el mismo diagnóstico, vinculados por un caso compartido.", uniCrossSize: "Preguntas de Qbank vinculadas", uniGenTpl: "Generar desde plantilla (sin IA)", uniGenTplHint: "Crea un caso al instante con las plantillas integradas y lo guarda en tu biblioteca.",
     uniDetected: "Detectado:", uniDetQbank: "Qbank ({n} bloque(s))", uniDetClinical: "Caso clínico", uniDetClinicalBundle: "Casos clínicos ({n})", uniDetCross: "Crossover (caso + Qbank)", uniSaveBtn: "Importar a la biblioteca", uniCaseSaved: "Se guardó «{name}» en tu biblioteca de casos.", uniCrossOk: "Crossover guardado: el caso y {n} pregunta(s) de Qbank quedaron vinculados en tu biblioteca.", uniCrossDup: "El caso se guardó, pero ese bloque de Qbank ya estaba en tu biblioteca, así que no queda vinculado.", uniCrossBadCase: "Parte del caso: {e}", uniCrossBadQ: "Parte del Qbank: {e}", uniNew: "Crear / Importar",
-    libTypeAll: "Importar", libTypeQbank: "Qbank", libTypeClinical: "Clínicos", uniLibEmpty: "Aún no hay nada aquí. Usa el Importador universal para crear o importar un Qbank, un caso clínico o un Crossover.", uniPractice: "Practicar Qbank", uniOpenCase: "Abrir caso", uniDeleteCase: "Eliminar", uniDeleteQ: "¿Eliminar este caso y sus bloques de Qbank vinculados?", uniQN: "{n} preguntas", uniCasesCount: "{n} caso(s)", uniCrossCount: "{c} crossover(s)", uniLinkedQ: "Qbank vinculado ({n})", uniNoMatch: "Nada coincide.", uniBadVersion: "Este archivo lo creó una versión más reciente de OWORLD.", libHybrid: "Híbrido", moreActions: "Más acciones", omitQuestion: "Omitir pregunta", omitTitle: "¿Quitar esta pregunta de tu Qbank?", omitConfirmSaved: "Esto elimina la pregunta de \"{title}\" de forma permanente. No aparecerá al practicar y no se incluirá si compartes o exportas ese Qbank. No se puede deshacer.", omitConfirmLocal: "Esta pregunta no está guardada en tu biblioteca. Se quita de este bloque y de todo lo que compartas desde él. No se puede deshacer.", omitGo: "Omitir definitivamente", omitLastHint: "Cada bloque y cada Qbank necesita al menos una pregunta, así que no se puede omitir esta.", giveFeedback: "Enviar comentarios", reportIssue: "Informar de un problema",
+    libTypeAll: "Importar", libTypeQbank: "Qbank", libTypeClinical: "Clínicos", uniLibEmpty: "Aún no hay nada aquí. Usa el Importador universal para crear o importar un Qbank, un caso clínico o un Crossover.", uniPractice: "Practicar Qbank", uniOpenCase: "Abrir caso", uniDeleteCase: "Eliminar", uniDeleteQ: "¿Eliminar este caso y sus bloques de Qbank vinculados?", uniQN: "{n} preguntas", uniCasesCount: "{n} caso(s)", uniCrossCount: "{c} crossover(s)", uniLinkedQ: "Qbank vinculado ({n})", uniNoMatch: "Nada coincide.", uniBadVersion: "Este archivo lo creó una versión más reciente de OWORLD.", libHybrid: "Híbrido", moreActions: "Más acciones", omitQuestion: "Omitir pregunta", omitTitle: "¿Quitar esta pregunta de tu Qbank?", omitConfirmSaved: "Esto elimina la pregunta de \"{title}\" de forma permanente. No aparecerá al practicar y no se incluirá si compartes o exportas ese Qbank. No se puede deshacer.", omitConfirmLocal: "Esta pregunta no está guardada en tu biblioteca. Se quita de este bloque y de todo lo que compartas desde él. No se puede deshacer.", omitGo: "Omitir definitivamente", omitLastHint: "Cada bloque y cada Qbank necesita al menos una pregunta, así que no se puede omitir esta.", giveFeedback: "Enviar comentarios", reportIssue: "Informar de un problema", defineBtn: "Definir", defLoading: "Buscando…", defDisambig: "Este término tiene varios significados en Wikipedia.", defNoArticle: "Ningún artículo de Wikipedia coincide con este término.", defUnavailable: "No se pudo cargar una definición ahora mismo.", defReadFull: "Leer el artículo completo", defSeeAll: "Ver todos los significados", defOpenWiki: "Abrir en Wikipedia", defSkipped: "Selecciona un término médico más específico para buscarlo.", defCaveat: "Las definiciones son solo información de contexto; para el manejo, guíate por tu texto de referencia.",
     recipeTitle: "Receta de preguntas — prompt para IA", copied: "Copiado", copy: "Copiar", schema: "Esquema JSON", viewSchema: "Ver esquema JSON para desarrolladores", hideSchema: "Ocultar esquema JSON para desarrolladores",
     createdBy: "OWORLD fue creado por", role: "Estudiante de medicina | Fundador de Verde+",
     notAffil: "Sin afiliación con NBME ni USMLE®", tmTitle: "Aviso de marcas registradas",
@@ -2154,9 +2154,10 @@ const SESSION_VERSION = 1;
 // ---------------------------------------------------------------------------
 const BIG_KEYS = new Set(["qbankLibrary", "owordTrash", "sessionHistory", "activeSession", "owordDatabase"]); // = LS_LIBRARY, LS_TRASH, LS_HISTORY, LS_SESSION, LS_DB
 const BIG_PREFIX = "sessionReview:"; // = LS_REVIEW
+const BIG_WIKI_PREFIX = "wiki:"; // Define cache: wiki:<lang>:<normalized term> (see wikiCacheGet)
 const BIG_FLUSH_MS = 800;
 const BIG = { on: false, db: null, cache: new Map(), pending: new Map(), timer: null, flushing: false, ready: null };
-const isBigKey = (k) => typeof k === "string" && (BIG_KEYS.has(k) || k.indexOf(BIG_PREFIX) === 0);
+const isBigKey = (k) => typeof k === "string" && (BIG_KEYS.has(k) || k.indexOf(BIG_PREFIX) === 0 || k.indexOf(BIG_WIKI_PREFIX) === 0);
 const bigSignal = (ok) => { try { window.dispatchEvent(new CustomEvent("oworld-storage", { detail: { ok } })); } catch (e) { /* ignore */ } };
 function bigFlush() {
   if (BIG.timer) { clearTimeout(BIG.timer); BIG.timer = null; }
@@ -6954,6 +6955,7 @@ function downloadAccountFiles(fileName, account) {
 }
 function wipeAccountData() {
   accountStoredKeys().forEach(lsRemove);
+  lsKeysWithPrefix(BIG_WIKI_PREFIX).forEach(lsRemove); // the Define cache is not account data, but it records what was looked up on this device
   ACCOUNT_SYNC_KEYS.forEach(lsRemove);
 }
 
@@ -13773,6 +13775,52 @@ function FullPage({ T, children }) {
 }
 
 const FEEDBACK_EMAIL = "oworld.app@proton.me";
+
+// ---- Tutor-mode quick definitions (Wikipedia) -------------------------------------------------------------------------------------
+// Selection-triggered only. Successful lookups are cached on this device (IndexedDB, `wiki:` keys, 30 days); never exported, synced or sent anywhere.
+const WIKI_TTL_MS = 30 * 24 * 60 * 60 * 1000;
+const WIKI_LICENSE = "CC BY-SA 4.0";
+// Cache key: language + the term tidied (cleanDefineTerm), Unicode-normalised, lower-cased, whitespace collapsed.
+const normalizeWikiTerm = (term) => cleanDefineTerm(term).normalize("NFC").toLowerCase();
+// Not worth a lookup: under 4 characters, no letters at all, or a generic word that only finds an unrelated article.
+const WIKI_STOPWORDS = new Set(["the", "this", "that", "with", "from", "have", "been", "were", "will", "most", "next", "best", "which", "what", "when", "than", "none", "following", "likely", "patient", "patients", "blood", "pain", "disease", "treatment", "therapy", "test", "tests", "case", "step", "management", "diagnosis", "history", "symptom", "symptoms", "sign", "signs", "drug", "drugs", "year", "years", "old", "man", "woman", "male", "female", "child"]);
+const wikiSkipTerm = (term) => { const n = normalizeWikiTerm(term); return [...n].length < 4 || !/\p{L}/u.test(n) || WIKI_STOPWORDS.has(n); };
+const wikiCacheKey = (lang, term) => `${BIG_WIKI_PREFIX}${wikiLang(lang)}:${normalizeWikiTerm(term)}`;
+const wikiFresh = (e) => !!e && typeof e === "object" && typeof e.extract === "string" && !!e.extract && Number.isFinite(e.retrievedAt) && Date.now() - e.retrievedAt < WIKI_TTL_MS && e.retrievedAt <= Date.now() + 60000;
+// Returns a fresh { extract, url, license, retrievedAt, title, desc } or null. An expired or malformed entry is dropped.
+function wikiCacheGet(lang, term) {
+  if (!BIG.on) return null;
+  const key = wikiCacheKey(lang, term);
+  const e = lsGet(key);
+  if (e == null) return null;
+  if (wikiFresh(e)) return e;
+  lsRemove(key);
+  return null;
+}
+// Only ever written to the IndexedDB store; if that is unavailable nothing is cached (it never lands in localStorage).
+function wikiCachePut(lang, term, d) {
+  if (!BIG.on || !d || !d.extract) return;
+  lsSet(wikiCacheKey(lang, term), JSON.stringify({ extract: d.extract, url: d.page || "", license: WIKI_LICENSE, retrievedAt: Date.now(), title: d.title || "", desc: d.desc || "" }));
+}
+function wikiCacheSweep() { // at start-up: drop every expired entry so the cache cannot grow without bound
+  if (!BIG.on) return;
+  lsKeysWithPrefix(BIG_WIKI_PREFIX).forEach((k) => { if (!wikiFresh(lsGet(k))) lsRemove(k); });
+}
+const wikiLang = (lang) => (/^[a-z]{2,3}$/.test(lang) ? lang : "en");
+const wikiSearchUrl = (lang, term) => `https://${wikiLang(lang)}.wikipedia.org/w/index.php?search=${encodeURIComponent(term)}`;
+const safeWikiUrl = (u) => (typeof u === "string" && /^https:\/\/[a-z-]+\.wikipedia\.org\//.test(u) ? u : null); // only ever link to Wikipedia itself
+// What was selected, tidied for a title lookup: whitespace collapsed, quotes / brackets / trailing punctuation trimmed off the ends.
+function cleanDefineTerm(raw) {
+  return String(raw || "").replace(/\s+/g, " ").replace(/^[\s"'“”‘’(\[{¿¡]+|[\s"'“”‘’.,;:!?)\]}]+$/g, "").trim();
+}
+// ~400 characters, ending on a sentence where there is one in the back half, otherwise on a word.
+function clipExtract(text, max = 400) {
+  const s = String(text || "").trim();
+  if (s.length <= max) return s;
+  const cut = s.slice(0, max);
+  const end = Math.max(cut.lastIndexOf(". "), cut.lastIndexOf("? "), cut.lastIndexOf("! "));
+  return end >= max * 0.5 ? cut.slice(0, end + 1) : cut.replace(/\s+\S*$/, "") + "…";
+}
 // "Give feedback" opens the person's own mail app, addressed to us. From a question it also fills in the question's id, subject and block;
 // from the account menu (no q) it is a blank note. Nothing is sent by OWORLD itself.
 function feedbackMailto(q, block) {
@@ -13868,6 +13916,10 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onAbortBl
   const { highlightsMap, pending, handleSelectionInContainer, commitPending, handleGlobalKeyDown, removeHighlight, clearPending, hlColor, setHlColor } = useHighlighter(blockState.highlights);
   const db = useContext(DbContext);
   const [dbFlash, setDbFlash] = useState(false); // the highlight popup briefly confirms "Saved to Database"
+  const [defineTerm, setDefineTerm] = useState(null); // Tutor mode only: the selected text to look up, set by the toolbar's Define button
+  const [defineAnchor, setDefineAnchor] = useState(null); // { x, top, bottom } of the selection when Define was pressed (the toolbar itself can vanish while the popover is read)
+  const [defineRes, setDefineRes] = useState(null); // { status: loading | ok | disambig | miss | unavailable, title, desc, extract, page }
+  const definePopRef = useRef(null);
 
   // Mirror question position and highlights into blockState so App's auto-save captures them.
   useEffect(() => {
@@ -13980,6 +14032,45 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onAbortBl
     document.addEventListener("mousedown", onDocMouseDown);
     return () => document.removeEventListener("mousedown", onDocMouseDown);
   }, [pending, clearPending]);
+
+  // Define: fetch the summary. Tutor only, one request per Define press, cancelled if the popover closes first.
+  useEffect(() => {
+    if (!tutorMode || !defineTerm) { setDefineRes(null); return undefined; }
+    const term = cleanDefineTerm(defineTerm);
+    if (!term || term.length > 120 || term.split(" ").length > 8) { setDefineRes({ status: "miss" }); return undefined; } // a sentence is not a term: skip the request
+    if (wikiSkipTerm(term)) { setDefineRes({ status: "skip" }); return undefined; } // too short, no letters, or a generic word: no request, nothing cached
+    const hit = wikiCacheGet(lang, term); // cached within the last 30 days: no request (works offline too)
+    if (hit) { setDefineRes({ status: "ok", title: hit.title || term, desc: hit.desc || "", extract: hit.extract, page: safeWikiUrl(hit.url) }); return undefined; }
+    if (typeof navigator !== "undefined" && navigator.onLine === false) { setDefineRes({ status: "unavailable" }); return undefined; }
+    const ctl = new AbortController();
+    setDefineRes({ status: "loading" });
+    fetch(`https://${wikiLang(lang)}.wikipedia.org/api/rest_v1/page/summary/${encodeURIComponent(term)}`, { signal: ctl.signal })
+      .then((r) => { if (r.status === 404) return null; if (!r.ok) throw new Error("http " + r.status); return r.json(); })
+      .then((d) => {
+        if (!d) { setDefineRes({ status: "miss" }); return; }
+        const page = safeWikiUrl(d.content_urls && d.content_urls.desktop && d.content_urls.desktop.page);
+        if (d.type === "disambiguation" || d.extract_type === "disambiguation") { setDefineRes({ status: "disambig", title: d.title || term, page }); return; } // the REST field is `type`; `extract_type` is also accepted
+        if (!d.extract) { setDefineRes({ status: "miss", page }); return; } // "no-extract" pages come back empty
+        const res = { title: d.title || term, desc: d.description || "", extract: clipExtract(d.extract, 400), page };
+        wikiCachePut(lang, term, res); // only plain articles are cached: not disambiguation pages, misses or errors
+        setDefineRes({ status: "ok", ...res });
+      })
+      .catch((e) => { if (!(e && e.name === "AbortError")) setDefineRes({ status: "unavailable" }); });
+    return () => ctl.abort();
+  }, [defineTerm, lang, tutorMode]);
+  useEffect(() => { setDefineTerm(null); }, [qIdx]); // a definition belongs to the question it was asked on
+  useEffect(() => { // click outside or Escape closes it (the selection toolbar counts as inside)
+    if (!defineTerm) return undefined;
+    const away = (e) => {
+      if (definePopRef.current && definePopRef.current.contains(e.target)) return;
+      if (highlightBtnRef.current && highlightBtnRef.current.contains(e.target)) return;
+      setDefineTerm(null);
+    };
+    const esc = (e) => { if (e.key === "Escape") setDefineTerm(null); };
+    document.addEventListener("mousedown", away);
+    document.addEventListener("keydown", esc);
+    return () => { document.removeEventListener("mousedown", away); document.removeEventListener("keydown", esc); };
+  }, [defineTerm]);
 
   const timed = blockState.timed && !blockState.timerOff; // false once the student turns the timer off
 
@@ -14799,11 +14890,66 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onAbortBl
                   <Check size={narrow ? 11 : 9} strokeWidth={4} color={T.green} style={{ position: "absolute", right: narrow ? -5 : -4, bottom: narrow ? -4 : -3 }} />
                 </span>
               </button>
+              {tutorMode && ( // Tutor only: never offered in Timed mode
+                <button
+                  type="button" onMouseDown={(e) => e.preventDefault()} onClick={() => { const r = pending.range.getBoundingClientRect(); setDefineAnchor({ x: pending.x, top: r.top, bottom: r.bottom }); setDefineTerm(pending.range.toString().trim()); }} title={t("defineBtn")} aria-label={t("defineBtn")}
+                  style={{
+                    display: "inline-flex", alignItems: "center", gap: 6, background: "transparent", border: "none", padding: narrow ? "4px 2px" : 0, cursor: "pointer",
+                    color: "inherit", fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(12.5), whiteSpace: "nowrap",
+                  }}
+                >
+                  <Search size={narrow ? 18 : 15} />
+                </button>
+              )}
             </>
           )}
         </div>
       )}
 
+
+      {/* Define popover: Wikipedia quick definition for the selected term. Tutor mode only. */}
+      {tutorMode && defineTerm && defineAnchor && defineRes && (() => {
+        const term = cleanDefineTerm(defineTerm);
+        const w = Math.min(340, vp.w - 24);
+        const left = Math.min(Math.max(defineAnchor.x - w / 2, 12), Math.max(12, vp.w - w - 12));
+        const below = defineAnchor.bottom + 10 + 300 <= vp.h; // room under the selection; otherwise it opens above the toolbar
+        const pos = below ? { top: defineAnchor.bottom + 10 } : { bottom: Math.max(8, vp.h - (defineAnchor.top - 56)) };
+        const st = defineRes.status;
+        const linkStyle = { display: "inline-flex", alignItems: "center", gap: 5, fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(13), color: T.blue, textDecoration: "none" };
+        const link = (href, label) => <a href={href} target="_blank" rel="noopener noreferrer" style={linkStyle}>{label} <ExternalLink size={12} /></a>;
+        return (
+          <div ref={definePopRef} role="dialog" aria-label={t("defineBtn")} style={{
+            position: "fixed", left, ...pos, width: w, zIndex: 81, boxSizing: "border-box", background: T.card, color: T.ink, border: `1px solid ${T.border}`,
+            borderRadius: 10, boxShadow: "0 8px 28px rgba(0,0,0,0.28)", padding: "14px 16px", fontFamily: FONT_UI, textAlign: "left",
+          }}>
+            <div style={{ display: "flex", alignItems: "flex-start", gap: 8, marginBottom: 6 }}>
+              <div style={{ flex: 1, minWidth: 0 }}>
+                <div style={{ fontWeight: 700, fontSize: fs(15), lineHeight: 1.3, wordBreak: "break-word" }}>{st === "ok" || st === "disambig" ? defineRes.title : term}</div>
+                {st === "ok" && defineRes.desc && <div style={{ fontSize: fs(12), color: T.muted, marginTop: 2 }}>{defineRes.desc}</div>}
+              </div>
+              <button type="button" onClick={() => setDefineTerm(null)} aria-label={t("close")} title={t("close")} style={{ background: "transparent", border: "none", padding: 2, cursor: "pointer", color: T.muted, display: "inline-flex" }}><X size={15} /></button>
+            </div>
+            {st === "loading" ? (
+              <div role="status" aria-live="polite" aria-busy="true" style={{ margin: "0 0 10px" }}>
+                <style>{`@keyframes owDefPulse{0%,100%{opacity:.45}50%{opacity:1}}@media (prefers-reduced-motion: reduce){.ow-def-sk{animation:none!important}}`}</style>
+                <span style={{ position: "absolute", width: 1, height: 1, overflow: "hidden", clip: "rect(0 0 0 0)", whiteSpace: "nowrap" }}>{t("defLoading")}</span>
+                {[100, 94, 100, 58].map((pct, i) => <div key={i} className="ow-def-sk" aria-hidden="true" style={{ height: 10, width: `${pct}%`, borderRadius: 5, marginBottom: 8, background: T.mutedBg || T.border, animation: "owDefPulse 1.3s ease-in-out infinite" }} />)}
+              </div>
+            ) : (
+              <p style={{ fontSize: fs(13.5), lineHeight: 1.55, color: st === "ok" ? T.ink : T.muted, margin: "0 0 10px" }}>
+                {st === "ok" ? defineRes.extract : st === "disambig" ? t("defDisambig") : st === "miss" ? t("defNoArticle") : st === "skip" ? t("defSkipped") : t("defUnavailable")}
+              </p>
+            )}
+            {st === "ok" && defineRes.page && link(defineRes.page, t("defReadFull"))}
+            {st === "disambig" && link(defineRes.page || wikiSearchUrl(lang, term), t("defSeeAll"))}
+            {(st === "miss" || st === "unavailable" || st === "skip") && link(defineRes.page || wikiSearchUrl(lang, term), t("defOpenWiki"))}
+            <div style={{ marginTop: 10, paddingTop: 8, borderTop: `1px solid ${T.border}`, fontSize: fs(11), color: T.muted }}>
+              <div style={{ marginBottom: 4, lineHeight: 1.4 }}>{t("defCaveat")}</div>
+              Wikipedia · <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer" style={{ color: "inherit" }}>CC BY-SA</a>
+            </div>
+          </div>
+        );
+      })()}
 
       {/* Lock overlay */}
       {locked && (
@@ -16656,7 +16802,7 @@ function OworldApp() {
 // that reads storage synchronously still sees the full library, session and logs.
 export default function App() {
   const [ready, setReady] = useState(false);
-  useEffect(() => { let live = true; hydrateBigStore().then(() => { if (live) setReady(true); }); return () => { live = false; }; }, []);
+  useEffect(() => { let live = true; hydrateBigStore().then(() => { wikiCacheSweep(); if (live) setReady(true); }); return () => { live = false; }; }, []);
   if (!ready) return <div aria-busy="true" style={{ minHeight: "100vh", background: loadPrefs().darkMode ? DARK.paper : LIGHT.paper }} />;
   return <OworldApp />;
 }
