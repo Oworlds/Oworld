@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef, useMemo, useCallback, createContext, useContext } from "react";
 import {
   Flag, Clock, MoreHorizontal, Mail, EyeOff, ChevronLeft, ChevronRight, Upload, Copy, RotateCcw,
-  Play, CheckCircle2, XCircle, AlertTriangle, ClipboardList, Activity,
+  Play, CheckCircle2, XCircle, Users, AlertTriangle, ClipboardList, Activity,
   Check, ChevronDown, ChevronUp, FileJson, FlaskConical, PencilLine,
   Calculator as CalcIcon, Settings as SettingsIcon, Lock, Unlock,
   Search, Eye, Trash2, X, XOctagon, Lightbulb, Sun, Moon, Highlighter, BookOpen, Stethoscope, Target, Save, Shuffle, Plus, Home as HomeIcon, Pencil, Share2, ExternalLink, Sparkles, Cloud, RefreshCw, LogIn, LogOut, Bell, Database, Bookmark, User as UserIcon, BarChart3, LayoutDashboard, Flame, TrendingUp, Download, CheckSquare, SlidersHorizontal, GraduationCap, CalendarDays, Globe, ShieldCheck, Star, LayoutGrid, List as ListIcon, Tag as TagIcon, Folder as FolderIcon, Layers, MapPin, Meh, Heart } from "lucide-react";
@@ -295,7 +295,7 @@ const STR = {
     tutorCorrect: "Correct", tutorIncorrect: "Incorrect — the correct answer is {a}", tutorIncorrectHidden: "Incorrect", showCorrectBtn: "Show Answer",
     resetQ: "Reset question", "sc.reset": "Reset question (Tutor mode)",
     attendingTip: "Tutor's Tip", keyClues: "Key Clues", keyLearningPoint: "Key Learning Point",
-    ankiGet: "Get Anki card", ankiInQueue: "In queue ✓", ankiQueueBtn: "Anki queue", ankiPanelTitle: "Anki queue", ankiDeckName: "Deck name", ankiIncludeTags: "Include tags", ankiDownloadTsv: "Download .tsv", ankiSupportText: "Building your deck for long-term retention. If Oworld is helping you study, consider supporting the project.", ankiSupportBtn: "Support Oworld", ankiSelectAll: "Select all", ankiDeselectAll: "Deselect all", ankiRemoveSel: "Remove selected ({n})", ankiClear: "Clear queue", ankiClearQ: "Remove all {n} cards from the queue?", ankiKeep: "Keep", ankiEmpty: "No cards queued. Use Get Anki card on a question to add it.", ankiMoveUp: "Move up", ankiMoveDown: "Move down", ankiRemove: "Remove from queue", ankiPreview: "Preview", ankiPreviewTitle: "Card preview", ankiClose: "Close", ankiQNum: "Q{n}", ankiSelectCard: "Select card {n}", keyInfoBtn: "Key Info", tipBtn: "Tutor's Tip", distractorBtn: "Why this is incorrect", noKeyInfo: "No key info available for this question.", noTipAvail: "No tip available for this question.", hintUsedBadge: "Hint used", hintsUsedN: "Hints used: {n}",
+    ankiGet: "Anki card", ankiInQueue: "In queue ✓", ankiQueueBtn: "Anki queue", ankiPanelTitle: "Anki queue", ankiDeckName: "Deck name", ankiIncludeTags: "Include tags", ankiDownloadTsv: "Download .tsv", ankiSupportText: "Building your deck for long-term retention. If Oworld is helping you study, consider supporting the project.", ankiSupportBtn: "Support Oworld", ankiSelectAll: "Select all", ankiDeselectAll: "Deselect all", ankiRemoveSel: "Remove selected ({n})", ankiClear: "Clear queue", ankiClearQ: "Remove all {n} cards from the queue?", ankiKeep: "Keep", ankiEmpty: "No cards queued. Use Get Anki card on a question to add it.", ankiMoveUp: "Move up", ankiMoveDown: "Move down", ankiRemove: "Remove from queue", ankiPreview: "Preview", ankiPreviewTitle: "Card preview", ankiClose: "Close", ankiQNum: "Q{n}", ankiSelectCard: "Select card {n}", keyInfoBtn: "Key Info", tipBtn: "Tutor's Tip", distractorBtn: "Why this is incorrect", noKeyInfo: "No key info available for this question.", noTipAvail: "No tip available for this question.", hintUsedBadge: "Hint used", hintsUsedN: "Hints used: {n}",
     difficulty: "Difficulty", diffTitle: "Difficulty: {n} of 5",
     timerLocked: "The timer can't be turned on once a block has started.",
     title: "Turn questions from any AI model into a realistic practice exam",
@@ -354,6 +354,7 @@ const STR = {
     libTypeAll: "Import", libTypeQbank: "Qbank", libTypeClinical: "Clinical", uniLibEmpty: "Nothing here yet. Use the Universal Importer to create or import a Qbank, a clinical case or a Crossover.", uniPractice: "Practice Qbank", uniOpenCase: "Open case", uniDeleteCase: "Delete", uniDeleteQ: "Delete this case and its linked Qbank block(s)?", uniQN: "{n} questions", uniCasesCount: "{n} case(s)", uniCrossCount: "{c} crossover(s)", uniLinkedQ: "Linked Qbank ({n})", uniNoMatch: "Nothing matches.", uniBadVersion: "This file was made by a newer version of OWORLD.", libHybrid: "Hybrid", moreActions: "More actions", omitQuestion: "Omit question", omitTitle: "Remove this question from your Qbank?", omitConfirmSaved: "This permanently deletes the question from \"{title}\". It will not appear when you practise, and it will not be included if you share or export that Qbank. This cannot be undone.", omitConfirmLocal: "This question is not saved in your library. It is removed from this block and from anything you share from it. This cannot be undone.", omitGo: "Omit permanently", omitLastHint: "Every block and Qbank needs at least one question, so this one cannot be omitted.", giveFeedback: "Give feedback", reportIssue: "Report an Issue", defineBtn: "Define", defLoading: "Looking up…", defDisambig: "This term has several meanings on Wikipedia.", defNoArticle: "No Wikipedia article matches this term.", defUnavailable: "Could not load a definition right now.", defReadFull: "Read full article", defSeeAll: "See all meanings", defOpenWiki: "Open on Wikipedia", defSkipped: "Select a more specific medical term to look it up.", defCaveat: "Definitions are for background only; rely on your source text for management.",
     recipeTitle: "Question Recipe — AI prompt", copied: "Copied", copy: "Copy", schema: "JSON schema", viewSchema: "View Developer JSON Schema", hideSchema: "Hide Developer JSON Schema",
     createdBy: "OWORLD is created by", role: "Medical student | Founder of Verde+", supportOworld: "Support Oworld",
+    joinDiscord: "Join our Discord", libGetCommunity: "Get Community Qbanks", guideDiscordTitle: "Join the Community", guideDiscordBody: "Oworld is built by students, for students. Join our Discord server to share Qbank bundles, vote on new features, get help, and talk to other students.",
     supportCardText: "Oworld is free and stays free. If it helps you, consider supporting the project.", supportCardBtn: "Support",
     supportResultsTitle: "You just finished a free block.", supportResultsBody: "Oworld will never lock its questions behind a paywall. If you found this valuable, consider supporting the project.", supportResultsBtn: "Support Oworld",
     notAffil: "Not affiliated with NBME or USMLE®", tmTitle: "Trademark disclaimer",
@@ -478,7 +479,7 @@ const STR = {
     tutorCorrect: "Correcto", tutorIncorrect: "Incorrecto — la respuesta correcta es {a}", tutorIncorrectHidden: "Incorrecto", showCorrectBtn: "Mostrar respuesta",
     resetQ: "Reiniciar pregunta", "sc.reset": "Reiniciar pregunta (modo tutor)",
     attendingTip: "Consejo del tutor", keyClues: "Pistas clave", keyLearningPoint: "Punto clave de aprendizaje",
-    ankiGet: "Obtener tarjeta Anki", ankiInQueue: "En la cola ✓", ankiQueueBtn: "Cola de Anki", ankiPanelTitle: "Cola de Anki", ankiDeckName: "Nombre del mazo", ankiIncludeTags: "Incluir etiquetas", ankiDownloadTsv: "Descargar .tsv", ankiSupportText: "Construyendo tu mazo para retención a largo plazo. Si Oworld te ayuda a estudiar, considera apoyar el proyecto.", ankiSupportBtn: "Apoyar a Oworld", ankiSelectAll: "Seleccionar todo", ankiDeselectAll: "Deseleccionar todo", ankiRemoveSel: "Quitar seleccionadas ({n})", ankiClear: "Vaciar cola", ankiClearQ: "¿Quitar las {n} tarjetas de la cola?", ankiKeep: "Conservar", ankiEmpty: "No hay tarjetas en la cola. Usa Obtener tarjeta Anki en una pregunta para añadirla.", ankiMoveUp: "Subir", ankiMoveDown: "Bajar", ankiRemove: "Quitar de la cola", ankiPreview: "Vista previa", ankiPreviewTitle: "Vista previa de la tarjeta", ankiClose: "Cerrar", ankiQNum: "P{n}", ankiSelectCard: "Seleccionar tarjeta {n}", keyInfoBtn: "Datos clave", tipBtn: "Consejo del tutor", distractorBtn: "Por qué es incorrecta", noKeyInfo: "No hay datos clave para esta pregunta.", noTipAvail: "No hay consejo para esta pregunta.", hintUsedBadge: "Pista usada", hintsUsedN: "Pistas usadas: {n}",
+    ankiGet: "Tarjeta Anki", ankiInQueue: "En la cola ✓", ankiQueueBtn: "Cola de Anki", ankiPanelTitle: "Cola de Anki", ankiDeckName: "Nombre del mazo", ankiIncludeTags: "Incluir etiquetas", ankiDownloadTsv: "Descargar .tsv", ankiSupportText: "Construyendo tu mazo para retención a largo plazo. Si Oworld te ayuda a estudiar, considera apoyar el proyecto.", ankiSupportBtn: "Apoyar a Oworld", ankiSelectAll: "Seleccionar todo", ankiDeselectAll: "Deseleccionar todo", ankiRemoveSel: "Quitar seleccionadas ({n})", ankiClear: "Vaciar cola", ankiClearQ: "¿Quitar las {n} tarjetas de la cola?", ankiKeep: "Conservar", ankiEmpty: "No hay tarjetas en la cola. Usa Obtener tarjeta Anki en una pregunta para añadirla.", ankiMoveUp: "Subir", ankiMoveDown: "Bajar", ankiRemove: "Quitar de la cola", ankiPreview: "Vista previa", ankiPreviewTitle: "Vista previa de la tarjeta", ankiClose: "Cerrar", ankiQNum: "P{n}", ankiSelectCard: "Seleccionar tarjeta {n}", keyInfoBtn: "Datos clave", tipBtn: "Consejo del tutor", distractorBtn: "Por qué es incorrecta", noKeyInfo: "No hay datos clave para esta pregunta.", noTipAvail: "No hay consejo para esta pregunta.", hintUsedBadge: "Pista usada", hintsUsedN: "Pistas usadas: {n}",
     difficulty: "Dificultad", diffTitle: "Dificultad: {n} de 5",
     timerLocked: "El temporizador no se puede activar una vez iniciado el bloque.",
     title: "Convierte preguntas de cualquier modelo de IA en un examen de práctica realista",
@@ -537,6 +538,7 @@ const STR = {
     libTypeAll: "Importar", libTypeQbank: "Qbank", libTypeClinical: "Clínicos", uniLibEmpty: "Aún no hay nada aquí. Usa el Importador universal para crear o importar un Qbank, un caso clínico o un Crossover.", uniPractice: "Practicar Qbank", uniOpenCase: "Abrir caso", uniDeleteCase: "Eliminar", uniDeleteQ: "¿Eliminar este caso y sus bloques de Qbank vinculados?", uniQN: "{n} preguntas", uniCasesCount: "{n} caso(s)", uniCrossCount: "{c} crossover(s)", uniLinkedQ: "Qbank vinculado ({n})", uniNoMatch: "Nada coincide.", uniBadVersion: "Este archivo lo creó una versión más reciente de OWORLD.", libHybrid: "Híbrido", moreActions: "Más acciones", omitQuestion: "Omitir pregunta", omitTitle: "¿Quitar esta pregunta de tu Qbank?", omitConfirmSaved: "Esto elimina la pregunta de \"{title}\" de forma permanente. No aparecerá al practicar y no se incluirá si compartes o exportas ese Qbank. No se puede deshacer.", omitConfirmLocal: "Esta pregunta no está guardada en tu biblioteca. Se quita de este bloque y de todo lo que compartas desde él. No se puede deshacer.", omitGo: "Omitir definitivamente", omitLastHint: "Cada bloque y cada Qbank necesita al menos una pregunta, así que no se puede omitir esta.", giveFeedback: "Enviar comentarios", reportIssue: "Informar de un problema", defineBtn: "Definir", defLoading: "Buscando…", defDisambig: "Este término tiene varios significados en Wikipedia.", defNoArticle: "Ningún artículo de Wikipedia coincide con este término.", defUnavailable: "No se pudo cargar una definición ahora mismo.", defReadFull: "Leer el artículo completo", defSeeAll: "Ver todos los significados", defOpenWiki: "Abrir en Wikipedia", defSkipped: "Selecciona un término médico más específico para buscarlo.", defCaveat: "Las definiciones son solo información de contexto; para el manejo, guíate por tu texto de referencia.",
     recipeTitle: "Receta de preguntas — prompt para IA", copied: "Copiado", copy: "Copiar", schema: "Esquema JSON", viewSchema: "Ver esquema JSON para desarrolladores", hideSchema: "Ocultar esquema JSON para desarrolladores",
     createdBy: "OWORLD fue creado por", role: "Estudiante de medicina | Fundador de Verde+", supportOworld: "Apoyar a Oworld",
+    joinDiscord: "Únete a nuestro Discord", libGetCommunity: "Obtener Qbanks de la comunidad", guideDiscordTitle: "Únete a la comunidad", guideDiscordBody: "Oworld está hecho por estudiantes, para estudiantes. Únete a nuestro servidor de Discord para compartir Qbanks, votar por nuevas funciones, obtener ayuda y hablar con otros estudiantes.",
     supportCardText: "Oworld es gratis y seguirá siéndolo. Si te ayuda, considera apoyar el proyecto.", supportCardBtn: "Apoyar",
     supportResultsTitle: "Acabas de terminar un bloque gratis.", supportResultsBody: "Oworld nunca bloqueará sus preguntas tras un muro de pago. Si te resultó valioso, considera apoyar el proyecto.", supportResultsBtn: "Apoyar a Oworld",
     notAffil: "Sin afiliación con NBME ni USMLE®", tmTitle: "Aviso de marcas registradas",
@@ -7798,6 +7800,14 @@ function SettingsMenu({ darkMode, setDarkMode, T, iconOnly = false, onHelp }) {
                 <ChevronRight size={15} color={T.muted} />
               </button>
             )}
+            <a href={DISCORD_URL} target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)} style={{
+              width: "100%", boxSizing: "border-box", display: "flex", alignItems: "center", gap: 10, background: "transparent", border: `1px solid ${T.border}`, borderRadius: 6, cursor: "pointer",
+              padding: "9px 12px", fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(13), color: T.ink, textAlign: "left", textDecoration: "none",
+            }}>
+              <Users size={15} color={T.muted} />
+              <span style={{ flex: 1 }}>{t("joinDiscord")}</span>
+              <ExternalLink size={14} color={T.muted} />
+            </a>
             <button onClick={() => { setOpen(false); setPopup("trash"); }} style={{
               width: "100%", display: "flex", alignItems: "center", gap: 10, background: "transparent", border: `1px solid ${T.border}`, borderRadius: 6, cursor: "pointer",
               padding: "9px 12px", fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(13), color: T.ink, textAlign: "left",
@@ -8782,6 +8792,14 @@ function QbankLibraryPanel({ library, onLaunch, onMix, onDelete, onRename, onSet
         <BookOpen size={17} color={T.ink} />
         <span style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(14), color: T.ink }}>{t("libTitle")}</span>
         <Pill T={T} tone="muted">{t("libCount", { n: library.length })}</Pill>
+        <GhostButton
+          T={T}
+          icon={Users}
+          onClick={() => window.open(DISCORD_URL, "_blank", "noopener,noreferrer")}
+          style={{ padding: "5px 12px", fontSize: fs(12.5) }}
+        >
+          {t("libGetCommunity")}
+        </GhostButton>
         {/* Contextual actions: only present while at least one Qbank is ticked */}
         {library.length > 0 && (
           <div role="toolbar" aria-label={t("libTitle")} style={{ marginLeft: "auto", display: "flex", gap: 6, flexWrap: "wrap", justifyContent: "flex-end" }}>
@@ -12328,6 +12346,8 @@ function UniversalSearchBar({ q, setQ, scope, setScope, pageScope, library, sess
 
 // Quick-start guide shown from the Home screen's "Help" button. Plain language, one idea per step, and the button /
 // feature names match the on-screen labels in each language.
+const DISCORD_URL = "https://discord.gg/ecYDZgumB";
+
 const GUIDE = {
   en: [
     { title: "Welcome to OWORLD", body: "OWORLD is a practice-exam simulator. You bring the questions, and it turns them into a realistic exam with answer tools, instant feedback and score tracking.",
@@ -12358,6 +12378,7 @@ const GUIDE = {
       points: ["Type at least 2 letters. It looks through your Library, Calendar, Database and Analytics at once, with results grouped by section.", "Tap a result to jump straight to it. In the calendar it opens that day or item, and in the database it opens the matching entry.", "It also understands dates and times, so you can try Oct 20, Tuesday or 9:00."] },
     { title: "13. The Calendar", body: "The Calendar page puts your whole term on one screen: classes, exams, tasks, breaks and the days you studied.",
       points: ["Switch between Month, Week and Agenda. Tap a day to see its details, tick things off, or add a task.", "The chips above the calendar are Key dates, Classes, Exam, Calendar, Task due and Studied. Tap one to show only that layer and hide the others. Tap it again to bring everything back.", "To combine layers, hold Shift (or Ctrl / Cmd) and tap the chips you want to turn on or off.", "Classes, exam dates and times can be edited, and a wrong exam date can be fixed in place. Your tutor follows the correction even after you update your profile.", "Without a Study Profile the calendar has little to show. Tap Set up profile on it to build one (see step 9)."] },
+    { titleKey: "guideDiscordTitle", bodyKey: "guideDiscordBody", cta: { labelKey: "joinDiscord", href: DISCORD_URL, icon: "users" } },
     { title: "Supporting Oworld", body: "Oworld is built by a student, for students, and will always be free. If you want to help cover costs and keep the project alive, you can support it on Patreon. No features are locked behind it—the app is the same whether you give or not.",
       cta: { label: "Support on Patreon", href: "https://www.patreon.com/cw/Oworld" } },
   ],
@@ -12390,6 +12411,7 @@ const GUIDE = {
       points: ["Escribe al menos 2 letras. Busca a la vez en tu Biblioteca, Calendario, Base de datos y Analíticas, con los resultados agrupados por sección.", "Toca un resultado para ir directo a él. En el calendario abre ese día o elemento, y en la base de datos abre la entrada correspondiente.", "También entiende fechas y horas, así que prueba Oct 20, martes o 9:00."] },
     { title: "13. El Calendario", body: "La página Calendario reúne todo tu periodo en una sola pantalla: clases, exámenes, tareas, descansos y los días que estudiaste.",
       points: ["Cambia entre Mes, Semana y Agenda. Toca un día para ver sus detalles, marcar cosas o agregar una tarea.", "Los botones sobre el calendario son Fechas clave, Clases, Examen, Calendario, Tarea y Estudio. Toca uno para mostrar solo esa capa y ocultar las demás. Tócalo otra vez para recuperar todo.", "Para combinar capas, mantén Shift (o Ctrl / Cmd) y toca los botones que quieras activar o desactivar.", "Las clases, y las fechas y horas de los exámenes, se pueden editar, y una fecha de examen equivocada se corrige ahí mismo. Tu tutor respeta la corrección aunque actualices tu perfil.", "Sin un Perfil de estudio el calendario tiene poco que mostrar. Toca Configurar perfil para crear uno (ver el paso 9)."] },
+    { titleKey: "guideDiscordTitle", bodyKey: "guideDiscordBody", cta: { labelKey: "joinDiscord", href: DISCORD_URL, icon: "users" } },
     { title: "Apoyar a Oworld", body: "Oworld está hecho por un estudiante, para estudiantes, y siempre será gratis. Si quieres ayudar a cubrir los costos y mantener el proyecto vivo, puedes apoyarlo en Patreon. Ninguna función está bloqueada: la app es la misma tanto si aportas como si no.",
       cta: { label: "Apoyar en Patreon", href: "https://www.patreon.com/cw/Oworld" } },
   ],
@@ -12451,8 +12473,8 @@ function HowItWorksGuide({ onClose, T }) {
           <div style={{ fontFamily: FONT_MONO, fontSize: fs(11.5), color: T.muted, marginBottom: 8 }}>
             {t("guideStep", { n: i + 1, total: steps.length })}
           </div>
-          <h2 style={{ fontFamily: FONT_DISPLAY, fontSize: fs(phone ? 20 : 24), fontWeight: 600, color: T.ink, margin: "0 0 10px", lineHeight: 1.25 }}>{step.title}</h2>
-          <p style={{ fontFamily: FONT_UI, fontSize: fs(phone ? 14 : 14.5), color: T.ink, lineHeight: 1.6, margin: "0 0 14px" }}>{step.body}</p>
+          <h2 style={{ fontFamily: FONT_DISPLAY, fontSize: fs(phone ? 20 : 24), fontWeight: 600, color: T.ink, margin: "0 0 10px", lineHeight: 1.25 }}>{step.titleKey ? t(step.titleKey) : step.title}</h2>
+          <p style={{ fontFamily: FONT_UI, fontSize: fs(phone ? 14 : 14.5), color: T.ink, lineHeight: 1.6, margin: "0 0 14px" }}>{step.bodyKey ? t(step.bodyKey) : step.body}</p>
           {step.points && step.points.length > 0 && <ul style={{ margin: 0, paddingLeft: phone ? 18 : 20, display: "grid", gap: phone ? 10 : 8 }}>
             {step.points.map((p, pi) => (
               <li key={pi} style={{ fontFamily: FONT_UI, fontSize: fs(phone ? 13.5 : 14), color: T.muted, lineHeight: 1.55 }}>{p}</li>
@@ -12461,7 +12483,7 @@ function HowItWorksGuide({ onClose, T }) {
           {step.cta && (
             <a href={step.cta.href} target="_blank" rel="noopener noreferrer"
               style={{ display: "inline-flex", alignItems: "center", gap: 6, marginTop: 4, fontFamily: FONT_UI, fontSize: fs(phone ? 14 : 14.5), fontWeight: 600, color: T.blue, textDecoration: "none" }}>
-              <Heart size={15} aria-hidden="true" /> {step.cta.label}
+              {step.cta.icon === "users" ? <Users size={15} aria-hidden="true" /> : <Heart size={15} aria-hidden="true" />} {step.cta.labelKey ? t(step.cta.labelKey) : step.cta.label}
             </a>
           )}
         </div>
@@ -13270,6 +13292,11 @@ function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], dri
       <div style={{ marginTop: 48, paddingTop: 20, borderTop: `1px solid ${T.border}`, textAlign: "center" }}>
         <p style={{ fontFamily: FONT_UI, fontSize: fs(12), color: T.muted, margin: "0 0 6px" }}>
           {t("createdBy")} <strong style={{ color: T.ink }}>Oscar Perez</strong> — {t("role")}
+          <span aria-hidden="true" style={{ margin: "0 8px" }}>•</span>
+          <a href={DISCORD_URL} target="_blank" rel="noopener noreferrer"
+            style={{ color: T.blue, textDecoration: "none", whiteSpace: "nowrap" }}>
+            {t("joinDiscord")}
+          </a>
         </p>
         <p style={{ margin: "0 0 6px" }}>
           <a
@@ -14264,6 +14291,8 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onAbortBl
   const [moreOpen, setMoreOpen] = useState(false); // the "..." menu beside Key Info / Tutor's Tip: Omit question, Give feedback
   const [omitAsk, setOmitAsk] = useState(false); // Omit asks once more before it removes the question
   const moreRef = useRef(null);
+  const ankiQ = useAnkiQueue(); // for the Anki item inside the "..." menu on phones
+  const [morePlace, setMorePlace] = useState({ right: 0 }); // which edge the "..." menu hangs from, so it never opens off-screen
   useEffect(() => {
     if (!moreOpen) return;
     const away = (e) => { if (moreRef.current && !moreRef.current.contains(e.target)) { setMoreOpen(false); setOmitAsk(false); } };
@@ -14961,7 +14990,8 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onAbortBl
                     </button>
                   );
                 })}
-                <AnkiButton q={q} block={block} qIdx={qIdx} T={T} variant="tab" style={{ marginLeft: "auto" }} />
+                <div style={{ marginLeft: "auto", display: "flex", alignItems: "center", gap: 4 }}>
+                {!narrow && <AnkiButton q={q} block={block} qIdx={qIdx} T={T} variant="tab" />}
                 <div ref={moreRef} style={{ position: "relative", display: "flex", marginBottom: -1 }}>
                   <button
                     type="button"
@@ -14969,11 +14999,34 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onAbortBl
                     title={t("moreActions")}
                     aria-haspopup="menu"
                     aria-expanded={moreOpen}
-                    onClick={() => { setMoreOpen((v) => !v); setOmitAsk(false); }}
+                    onClick={() => {
+                      if (!moreOpen && moreRef.current) {
+                        const r = moreRef.current.getBoundingClientRect();
+                        const vw = window.innerWidth; const W = Math.min(220, vw - 16);
+                        if (r.right - W >= 8) setMorePlace({ right: 0 });
+                        else if (r.left + W <= vw - 8) setMorePlace({ left: 0 });
+                        else setMorePlace({ left: 8 - r.left });
+                      }
+                      setMoreOpen((v) => !v); setOmitAsk(false);
+                    }}
                     style={tabBarStyle(T, moreOpen, { justifyContent: "center", padding: "12px 12px", marginBottom: 0 })}
                   ><MoreHorizontal size={16} /></button>
                   {moreOpen && (
-                    <div role="menu" style={{ position: "absolute", right: 0, top: "calc(100% + 6px)", zIndex: 30, minWidth: 220, background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, boxShadow: "0 8px 24px rgba(0,0,0,0.16)", padding: 6 }}>
+                    <div role="menu" style={{ position: "absolute", ...morePlace, top: "calc(100% + 6px)", zIndex: 30, minWidth: 220, maxWidth: "calc(100vw - 16px)", boxSizing: "border-box", background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, boxShadow: "0 8px 24px rgba(0,0,0,0.16)", padding: 6 }}>
+                      {narrow && (() => {
+                        const queued = ankiQ.has(q);
+                        return (
+                          <button
+                            type="button"
+                            role="menuitemcheckbox"
+                            aria-checked={queued}
+                            onClick={() => { if (queued) ankiQ.remove(q); else ankiQ.add(q, block, qIdx); setMoreOpen(false); setOmitAsk(false); }}
+                            onMouseEnter={(e) => { e.currentTarget.style.background = T.paper; }}
+                            onMouseLeave={(e) => { e.currentTarget.style.background = "transparent"; }}
+                            style={{ ...examMenuItemStyle(T, false), ...(queued ? { color: T.blue } : {}) }}
+                          ><Download size={15} /> {queued ? t("ankiInQueue") : t("ankiGet")}</button>
+                        );
+                      })()}
                       <button
                         type="button"
                         role="menuitem"
@@ -14994,6 +15047,7 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onAbortBl
                       ><Mail size={15} /> {t("giveFeedback")}</a>
                     </div>
                   )}
+                </div>
                 </div>
               </div>
               {qState.tipOpen && q.attendingTip && (
