@@ -253,7 +253,7 @@ const LAB_TABS = ["Serum", "Cerebrospinal", "Blood", "Urine and BMI"];
 // ---------------------------------------------------------------------------
 const STR = {
   en: {
-    searchScopeClin: "Cases", searchPhClin: "Search saved cases…", searchGrpClin: "Clinical cases", clClear: "Clear", clViewMore: "View more ({n})", clViewLess: "View less", clDdxSay: "I think it could be: {list}.", clQExamPick: "Which physical examinations would you perform? Choose all that are relevant to your differential.", clExamPickCount: "{n} selected", clQ1b: "Here are the findings for the examinations you chose. Tap any others you want to reveal, then tell me what you make of them.", clExamSay: "I would examine: {list}.", clExamNotIndicated: "Not indicated for this presentation; no additional findings.", clExamYours: "Your examinations", clExamScore: "{n} of {m} relevant examinations chosen", clQDdx: "Before you examine {n}, what is on your differential diagnosis? Choose the 3 conditions from this list that you think are most likely.", clDdxPick: "Choose 3 ({n}/3)", clDdxYours: "Your differential", clDdxScore: "{n} of 3 on the expected differential", clPmhTitle: "Past medical history", clSocialTitle: "Social history", clFamilyTitle: "Family history", clSocialFamilyTitle: "Social and family history", clDrugTitle: "Drug and other treatment history", clSelCount: "{n} selected", clRename: "Rename case", clShareBundle: "Oworld clinical cases", clShareText: "Oworld clinical case: {name}", clShareHybrid: "Share as hybrid", clShareHybridText: "Oworld hybrid (case + Qbank): {name}", clDeleteSelQ: "Delete {n} selected case(s)? This can't be undone.", clImportBundleOk: "Imported {n} case(s) into your library.", clImportBundleNone: "That file has no valid cases.", clDifficulty: "Difficulty", clEasy: "Easy", clModerate: "Moderate", clHard: "Hard", clSyncLocal: "Saved on this device. Sign in with Google to sync your cases to Drive.", clViewBuild: "Builder", clViewLib: "Library", clImport: "Import AI case", clImportHint: "Paste the JSON your AI tool returned for the recipe above, or upload a .json file.", clImportPh: "Paste the AI case JSON here…", clImportBtn: "Import case", clUpload: "Upload .json", clImportOk: "Case imported. Review it below, then save it to your library.", clImportWarn: "Imported, but these parts were missing: {w}.", clSave: "Save to Library", clSaved: "Saved", clSrcAi: "AI", clSrcTpl: "Template", clSrcAll: "All sources", clAllAges: "All ages", clLibEmpty: "Your case library is empty. Generate or import a case, then tap Save to Library, or add the sample case to try the workflow.", clAddSample: "Add sample case", clLibNoMatch: "No saved cases match.", clOpen: "Open", clCopyJson: "Copy JSON", clDelete: "Delete", clDeleteSure: "Tap again to delete", clSavedOn: "Saved {d}", clIce: "Ideas, concerns, expectations", clExit: "Save & exit", cqOpenBtn: "Open Qbank", cqOpen: "Open Qbank", hyTitle: "Hybrid review", hyDoneCase: "You've already completed the case half (score: {n}/{m}). Back to the Qbank, or finish the block?", hyDoneQbank: "You've already completed the Qbank half ({c}/{t} correct). Back to the Qbank, or finish the block?", hyOpenAgain: "Open again", hySkip: "Skip", hyBackToQbank: "Back to the Qbank", hyFinishBlock: "Finish block", hyTested: "This case tested", hyNoOverlap: "No Qbank questions in this block test the case's topics.", hyCasePendingBody: "The linked case is still open. Finish it to complete the Hybrid review.", hyCasePendingCta: "Open case", hyQbank: "Qbank", hyCase: "Clinical case", hyQScore: "{c} of {t} correct", hyBoth: "Both parts complete", hyCasePending: "Case not completed", hyFinish: "Finish case", hyNoCase: "You ended the Qbank before finishing the case, so there are no case marks.", cqTitle: "Make a Qbank from this case", cqHint: "Copy the prompt into your AI tool, then paste the Qbank JSON it returns. The questions are saved to your library and linked to this case.", cqSize: "Questions", cqCopy: "Copy prompt", cqPaste: "Paste the Qbank JSON here…", cqSave: "Save Qbank to Library", cqOk: "Saved {n} question(s) to your library, linked to this case.", cqDup: "That Qbank is already in your library.", cqNoCaseId: "This case has no id yet. Save the case first, then add a Qbank.", cqLinked: "{n} question(s) already linked to this case.", cqEmpty: "Paste the JSON your AI tool returned first.", clHiVitals: "Hi Doctor, here are {n}'s vital signs", clChart: "Patient chart", clHpiTitle: "History of present illness", clChief: "Chief complaint", clFullStory: "Full patient story: {n}", clHideStory: "Hide full patient story", clSenior: "Senior Clinician", clTypeTab: "Type response", clTypePh: "Type your response…", clTypeHint: "Type your answer to {d}", clSkip: "Skip response", clSubmit: "Submit response", clSkipped: "Response skipped", clStep: "Step {n} of {m}", clCaseDone: "Case complete", clRestart: "Restart case", clConversation: "Conversation with the senior clinician", clTapReveal: "Tap to reveal this finding", clQ0: "Hi, I'm {d}. I'll be your senior clinician during this case. Can you provide me with your patient presentation?", clQ1: "Thank you. Which examination findings would you look for? Tap the ones you want to reveal, then tell me what you expect to find.", clQ2: "What is your leading diagnosis, and what else is on your differential?", clQ3: "What investigations and management would you start?", clDone: "Thank you, that completes the case. Here is the examiner key and your marking checklist.", tabClinical: "Clinic", clTitle: "Clinical Cases", clHint: "Your saved clinical cases. Create or import new ones with the Universal Importer.", clBuilder: "Recipe Builder", clAge: "Age group", clAgePed: "Pediatric", clAgeAdult: "Adult", clAgeGeri: "Geriatric", clSex: "Sex", clSexF: "Female", clSexM: "Male", clSexAny: "Random", clSpecialty: "Specialty", clSystem: "Body system", clAny: "Any", clComplaint: "Chief complaint / presentation", clCustom: "Or type your own presentation…", clNoMatch: "No templates for these filters. Type your own presentation below.", clPreview: "Recipe preview", clJson: "JSON", clCopyPrompt: "Copy prompt", clGenerate: "Generate Patient Scenario", clPickComplaint: "Choose or type a chief complaint to enable generation.", clEmpty: "Set your recipe, then generate a patient.", clRegenerate: "Regenerate", clShell: "Custom presentation: no template matched, so this is a structured shell. Copy the prompt above into your AI tool to fill in the full case.", clFallbackAge: "No template for this complaint in the chosen age group. Showing the closest match.", clFallbackSex: "No template for this complaint in the chosen sex. Showing the closest match.", clStation: "Candidate instructions", clScript: "Patient script", clPmh: "Past history", clMeds: "Medicines and allergies", clBg: "Social and family", clVitals: "Vital signs", clExam: "Examination findings", clRevealAll: "Reveal all", clHidden: "Tap to reveal when the candidate asks", clChecklist: "Marking checklist", clScore: "{n}/{m} marks", clShowKey: "Show examiner key", clHideKey: "Hide examiner key", clDx: "Leading diagnosis", clDdx: "Differential", clIx: "Investigations", clMgmt: "Management", tabDatabase: "Database", dbTitle: "Personal Database", dbHint: "Questions, excerpts and notes you've saved while studying.", dbAdd: "Add to database", dbSavedToast: "Saved to Database", dbAll: "All", dbQuestions: "Questions", dbExcerpts: "Excerpts", dbNotes: "Notes", dbSearch: "Search your database", dbEmpty: "Your database is empty.", dbEmptyHint: "While taking a block, select text and tap Add to database, save a question with the bookmark, or save a note from the Notes panel.", dbNoMatch: "Nothing matches.", dbSaveQ: "Save question", dbSavedQ: "Saved to Database", dbSaveNote: "Save to Database", dbUpdateNote: "Update in Database", dbShowAns: "Show answer", dbHideAns: "Hide answer", dbEdit: "Edit", dbSave: "Save", dbCancel: "Cancel", dbCopy: "Copy", dbCopied: "Copied", dbDelete: "Delete", dbConfirmDel: "Delete?", dbClearAll: "Clear all", dbClearConfirm: "Move everything in your database to Trash? You can restore it for 30 days.", dbKindQ: "Question", dbKindE: "Excerpt", dbKindN: "Note", dbCommentPh: "Add your own comment…", dbAddComment: "Add comment", dbNoteTitle: "Your note", dbCorrectTag: "Correct",
+    tabDatabase: "Database", dbTitle: "Personal Database", dbHint: "Questions, excerpts and notes you've saved while studying.", dbAdd: "Add to database", dbSavedToast: "Saved to Database", dbAll: "All", dbQuestions: "Questions", dbExcerpts: "Excerpts", dbNotes: "Notes", dbSearch: "Search your database", dbEmpty: "Your database is empty.", dbEmptyHint: "While taking a block, select text and tap Add to database, save a question with the bookmark, or save a note from the Notes panel.", dbNoMatch: "Nothing matches.", dbSaveQ: "Save question", dbSavedQ: "Saved to Database", dbSaveNote: "Save to Database", dbUpdateNote: "Update in Database", dbShowAns: "Show answer", dbHideAns: "Hide answer", dbEdit: "Edit", dbSave: "Save", dbCancel: "Cancel", dbCopy: "Copy", dbCopied: "Copied", dbDelete: "Delete", dbConfirmDel: "Delete?", dbClearAll: "Clear all", dbClearConfirm: "Move everything in your database to Trash? You can restore it for 30 days.", dbKindQ: "Question", dbKindE: "Excerpt", dbKindN: "Note", dbCommentPh: "Add your own comment…", dbAddComment: "Add comment", dbNoteTitle: "Your note", dbCorrectTag: "Correct",
     dbSyncSignIn: "Sign in with Google from the account menu to sync it across your devices.", dbImport: "Import", dbImported: "Imported {a} item(s); {s} already in your database.", dbImportBad: "That file isn't a Personal Database export.",
     dbShared: "Shared {n} item(s) as one file.", dbDownloaded: "Downloaded {n} item(s) as one file.", dbExportFailed: "Export failed. Please try again.", dbShareText: "My OWORLD Personal Database ({n} items). In OWORLD, open Database and tap Import to add them.", dbDelSelQ: "Move {n} selected item(s) to Trash? You can restore them for 30 days.", dbManage: "Manage", dbExport: "Export",
     tabTrash: "Trash", trashTitle: "Trash", trashCount: "{n} item(s)", trashHint: "Deleted Qbanks, Analytics sessions and Database items stay here for {d} days. Restore them, or delete them forever.", trashEmpty: "Trash is empty.", trashEmptyHint: "Anything you delete from the Library, Analytics or Database lands here first, so you can get it back.", trashNoneHere: "Nothing of this kind in Trash.",
@@ -326,18 +326,21 @@ const STR = {
     removeSelBody: "{n} block(s) will be removed from this session. Copies saved in your Oworld Library aren't affected.",
     removeSelBodyUnsaved: "{n} block(s) will be removed from this session. {u} of them aren't saved to your library and will be gone for good — save them first if you want to keep them.",
     pasteChars: "{n} characters pasted", pasteClear: "Clear", pasteEmpty: "Nothing pasted yet — expand to paste, or use Upload.",
-    load: "Load exam", importQbank: "Import New Qbank", importInLibrary: "Already in your library — start it from there.", lobbySaveN: "Save to Library ({n})", lobbyRemoveN: "Remove ({n})", triageHint: "Tick this Qbank to save it to your library or remove it.", lobbyTriageNote: "These Qbanks were just imported. Tick the ones you want, then use Save to Library to keep them or Remove to dismiss them.", aiLaunchTitle: "AI Quick Launch", aiLaunchHint: "Open your AI tool, paste the Question Recipe Prompt below along with your topic or notes, then bring the reply back here.", aiLaunchOpens: "Opens in a new tab", nbTitle: "Subjects & Systems", nbHint: "Your study notebooks, by block. Each one opens in NotebookLM in a new tab.", nbAll: "USMLE (all-in-one notebook)", nbBlock1: "Block 1", nbBlock2: "Block 2", nbCore: "Core sciences", nbClinical: "Clinical", clSemiologyHint: "Need help with the history or the signs? Open the Semiology notebook.",
+    load: "Load exam", importQbank: "Import New Qbank", importInLibrary: "Already in your library — start it from there.", lobbySaveN: "Save to Library ({n})", lobbyRemoveN: "Remove ({n})", triageHint: "Tick this Qbank to save it to your library or remove it.", lobbyTriageNote: "These Qbanks were just imported. Tick the ones you want, then use Save to Library to keep them or Remove to dismiss them.", aiLaunchTitle: "AI Quick Launch", aiLaunchHint: "Open your AI tool, paste the prompt below along with your topic or notes, then bring the reply back here.", aiLaunchOpens: "Opens in a new tab", nbTitle: "Subjects & Systems", nbHint: "Your study notebooks, by block. Each one opens in NotebookLM in a new tab.", nbAll: "USMLE (all-in-one notebook)", nbBlock1: "Block 1", nbBlock2: "Block 2", nbCore: "Core sciences", nbClinical: "Clinical", 
     wasIncorrectBadge: "Missed before reset", missedBeforeN: "{n} missed before reset", explHide: "Hide explanation", explShow: "Show explanation",
     activeTitle: "Continue your test from another device?", activeTitleConflict: "A different version of this test is on another device",
     activeBody: "“{name}”: question {n} of {total}, {answered} answered. Last updated {time}.",
     activeReplaceWarn: "Continuing replaces the exam that is open on this device.", activeContinue: "Continue here", activeNotNow: "Not now", activeKeepMine: "Keep this device's",
     activeResumed: "Picked up “{name}” from another device.", activeEndedElsewhere: "This test was finished on another device.", activeEndedFinished: "“{name}” was finished on another device: {pct}% ({c}/{t}). The result is syncing to your Analytics and Qbank.", activeEndedRemoved: "This test was closed on another device.", csMigrate: "Migrate", csRemoteBody: "“{name}”: question {n} of {total}, {answered} answered. Last updated {time}.", csRemoteMigrating: "Migrating…",
     activeMissing: "Couldn't load that test from Google Drive. Check your connection and try again.", activeMixed: "Mixed from {banks}.",
-    themeLabel: "Theme", stTitle: "Storage", stUsed: "{u} used", stOfCap: "{u} of {c} used", stRefresh: "Refresh storage", stEmpty: "Nothing stored on this device yet.", stQbanks: "Qbanks and Decks", stHistory: "Exam history", stDatabase: "Database", stClinical: "Clinical cases", stProfile: "Study profile and tutor", stTrash: "Trash", stOther: "Other", stAvailable: "Available", themeLight: "Light", themeDark: "Dark",
+    themeLabel: "Theme", stTitle: "Storage", stUsed: "{u} used", stOfCap: "{u} of {c} used", stRefresh: "Refresh storage", stEmpty: "Nothing stored on this device yet.", stQbanks: "Qbanks and Decks", stHistory: "Exam history", stDatabase: "Database", stProfile: "Study profile and tutor", stTrash: "Trash", stOther: "Other", stAvailable: "Available", themeLight: "Light", themeDark: "Dark",
     accountBtn: "Account", viewAccount: "Manage account", signIn: "Sign in with Google", signOut: "Sign out", signedInAs: "Signed in with Google", signInHint: "Sign in to sync your library and Analytics across devices through your Google Drive.", signOutHint: "Signing out stops syncing on this device. Your data stays here and in your Drive.", signedOutNote: "Not signed in", "cpTitle": "Career & study profile", "cpHint": "Tell Oworld who you are and what you're preparing for. Your tutor uses it to set goals and to build your Study Profile.", "cpAbout": "About you", "cpStatus": "Current status", "cpStatus.pick": "Select…", "cpStatus.student": "Medical student", "cpStatus.graduate": "Medical graduate (IMG)", "cpStatus.resident": "Resident", "cpStatus.other": "Other", "cpGradYear": "Graduation year", "cpCountry": "Country", "cpCity": "City", "cpUniversity": "University", "cpSchool": "School or faculty", "cpPhCountry": "Dominican Republic", "cpPhCity": "Santo Domingo", "cpPhUniversity": "Universidad Iberoamericana (UNIBE)", "cpPhSchool": "School of Medicine", "cpObjective": "Study objective", "cpCoursework": "Medical school studies", "cpCourseworkHint": "Pick everything you're studying for right now.", "cpWork.generals": "Generals", "cpWork.preclinical": "Preclinical", "cpWork.clinical": "Clinical studies", "cpUsmle": "USMLE", "cpUsmleHint": "Pick the steps you're preparing for. Add a target date if you have one.", "cpStep.step1": "Step 1", "cpStep.step2ck": "Step 2 CK", "cpStep.step3": "Step 3", "cpTargetDate": "Target date", "cpClassOf": "Class of {y}", "cpNext": "Next target: {step}, {when} ({date})", "cpSavedLocal": "Saved on this device.", "acctSettings": "Account Settings", "acctName": "Name", "acctEmail": "Email", "acctLinked": "Linked via", "acctCreated": "Account created", "acctNone": "Not available", "acctLinkedGoogle": "Google", "acctSignedOutHint": "Sign in with Google to see your account details here.", "dzTitle": "Danger Zone", "dzDesc": "Deleting your account permanently removes your Qbanks, Analytics, Personal Database, Study Profile and settings from this device and signs you out.", "dzDelete": "Delete my account", "dzDownloadFirst": "Download all your files before you delete your account. This can't be undone.", "dzDownload": "Download all files", "dzDownloaded": "Downloaded. Your files are saved.", "dzDownloadFailed": "Download failed. Please try again.", "dzConfirmGo": "Delete permanently", "dzSkip": "Delete without downloading", "dzDriveNote": "A copy synced to your Google Drive stays there until you remove it from Drive.", "dzFileName": "oworld-account-backup-{d}.json", "spCareerEdit": "Edit in account", "spCareerAdd": "Add details", "spCareerEmpty": "Add your university, graduation year and USMLE targets in your account and they will show up here. Your tutor uses them too.", "spNoDate": "No target date",
-    syncTitle: "Cloud Sync", syncHint: "Keeps your Qbank library and Analytics in step across your devices through a private app folder in your own Google Drive. Share / Export to a friend still works separately.", syncOff: "Cloud sync isn't set up in this version of the app.", syncConnect: "Connect Google Drive", syncNow: "Sync now", syncDisconnect: "Disconnect", syncReconnect: "Reconnect", syncStNone: "Not connected", syncStBusy: "Syncing…", syncStDone: "Synced {time}", syncStReauth: "Reconnect needed", syncStError: "Sync problem", syncBlocked: "Google sign-in couldn't load here (blocked or offline).", syncDenied: "Drive access wasn't granted. Allow the app-data permission to sync.", syncGenericErr: "Couldn't sync with Google Drive. Your data on this device is safe.", syncReauthHint: "Your Google session expired. Tap Reconnect; local changes are kept and will sync.", syncGuide: "Google Drive sync (profile menu, top right) keeps your library and Analytics in step across devices. Share / Export is still the way to send a block to someone else.", homeBtn: "Home", removeExam: "Remove exam", removeTitle: "Remove this exam?", removeBody: "This clears the loaded exam and any progress or results in it. Your saved Oworld Library is not affected.", removeBodyUnsaved: "This clears the loaded exam and any progress or results in it. Some of its blocks are not saved to your Library and would be gone for good. Cancel and tap Save to Library first if you want to keep them.", removeGo: "Remove", libRename: "Rename Qbank", libRenameSave: "Save name", howItWorks: "Help", guideStep: "Step {n} of {total}", guideBack: "Back", guideNext: "Next", guideDone: "Got it", guideClose: "Close guide", navCollapse: "Collapse question list", navExpand: "Expand question list", resumeSession: "Resume Session", sessionInProgress: "Session in progress", sessionPos: "Question {n} of {total}", examLoadedLabel: "Exam loaded", openLobby: "Open exam lobby", inProgressTag: "In progress", discardTitle: "Discard in-progress session?", discardBody: "Starting something new replaces your in-progress block, and its answers will be lost.", discardGo: "Discard and continue", hide: "Hide", recipe: "Question Recipe Prompt",
+    syncTitle: "Cloud Sync", syncHint: "Keeps your Qbank library and Analytics in step across your devices through a private app folder in your own Google Drive. Share / Export to a friend still works separately.", syncOff: "Cloud sync isn't set up in this version of the app.", syncConnect: "Connect Google Drive", syncNow: "Sync now", syncDisconnect: "Disconnect", syncReconnect: "Reconnect", syncStNone: "Not connected", syncStBusy: "Syncing…", syncStDone: "Synced {time}", syncStReauth: "Reconnect needed", syncStError: "Sync problem", syncBlocked: "Google sign-in couldn't load here (blocked or offline).", syncDenied: "Drive access wasn't granted. Allow the app-data permission to sync.", syncGenericErr: "Couldn't sync with Google Drive. Your data on this device is safe.", syncReauthHint: "Your Google session expired. Tap Reconnect; local changes are kept and will sync.", syncGuide: "Google Drive sync (profile menu, top right) keeps your library and Analytics in step across devices. Share / Export is still the way to send a block to someone else.", homeBtn: "Home", removeExam: "Remove exam", removeTitle: "Remove this exam?", removeBody: "This clears the loaded exam and any progress or results in it. Your saved Oworld Library is not affected.", removeBodyUnsaved: "This clears the loaded exam and any progress or results in it. Some of its blocks are not saved to your Library and would be gone for good. Cancel and tap Save to Library first if you want to keep them.", removeGo: "Remove", libRename: "Rename Qbank", libRenameSave: "Save name", howItWorks: "Help", guideStep: "Step {n} of {total}", guideBack: "Back", guideNext: "Next", guideDone: "Got it", guideClose: "Close guide", navCollapse: "Collapse question list", navExpand: "Expand question list", resumeSession: "Resume Session", sessionInProgress: "Session in progress", sessionPos: "Question {n} of {total}", examLoadedLabel: "Exam loaded", openLobby: "Open exam lobby", inProgressTag: "In progress", discardTitle: "Discard in-progress session?", discardBody: "Starting something new replaces your in-progress block, and its answers will be lost.", discardGo: "Discard and continue", hide: "Hide", recipe: "Question Recipe & Prompt Generator",
     recipeIntro: "Configure a block below, then copy the generated recipe into the AI tool of your choice (add your source material if it supports it). It returns questions in the exact shape this app expects.",
     blockSize: "Block size", focus: "Focus",
+    recipeStyle: "Question style", "recipeStyle.vignette": "Vignettes", "recipeStyle.basic": "Basic", recipeStyleHintVignette: "Full USMLE-style clinical vignettes: a patient case with history, exam and data.", recipeStyleHintBasic: "Short, direct recall questions on a single fact. No patient case.",
+    recipeBasicFormat: "Recall format", "recipeBasicFormat.mixed": "Mixed", "recipeBasicFormat.mechanism": "Mechanism", "recipeBasicFormat.drugchoice": "Drug of choice", "recipeBasicFormat.adverse": "Adverse effects", "recipeBasicFormat.deficiency": "Deficiency to disease", "recipeBasicFormat.findings": "Classic findings", "recipeBasicFormat.association": "Associations", "recipeBasicFormat.anatomy": "Anatomy & physiology", "recipeBasicFormat.microbe": "Micro features",
+    "recipeBasicFormatHint.mixed": "A blend of every recall type below.", "recipeBasicFormatHint.mechanism": "Mechanism of action, drug class or target.", "recipeBasicFormatHint.drugchoice": "First-line drug or intervention for a disease or organism.", "recipeBasicFormatHint.adverse": "Characteristic adverse effects, contraindications and interactions.", "recipeBasicFormatHint.deficiency": "Defective enzyme, gene or vitamin linked to its disease.", "recipeBasicFormatHint.findings": "A condition paired with its classic histology, lab or sign.", "recipeBasicFormatHint.association": "Disease linked to its organism, gene, risk factor or complication.", "recipeBasicFormatHint.anatomy": "Normal structure and function: supply, innervation, actions, values.", "recipeBasicFormatHint.microbe": "Organism identifying features, toxins, transmission.",
     diffMode: "Difficulty", "diffMode.mixed": "Mixed (recommended)", "diffMode.easy": "Easy", "diffMode.medium": "Medium", "diffMode.hard": "Hard (USMLE standard)",
     diffHintMixed: "{e} Easy · {m} Medium · {h} Hard (about 20% / 60% / 20%), interleaved to mirror real exam variance. Every question is labeled by its difficulty rating for tracking.",
     diffHintEasy: "Recall and core triads: 1–3 sentence vignettes, 1–2 step recognition, 3–4 options with distinct distractors.",
@@ -349,10 +352,10 @@ const STR = {
     customSize: "Custom", customSizePh: "1–{n}", "dl.easy": "Easy", "dl.medium": "Medium", "dl.hard": "Hard", perfDifficulty: "Performance by difficulty",
     "focus.standard": "Standard USMLE mix", "focus.systems": "Single organ system", "focus.discipline": "Single discipline",
     recipeTutor: "Tutor suggests", recipeTutorHint: "Tap topics to build this recipe around them. Tap again to remove one.", phSystems: "e.g. Cardiovascular, Renal, Neuro…", phDisc: "e.g. Pharmacology, Biochemistry, Microbiology…",
-    uniTitle: "Recipe & Import Hub", uniHint: "One importer for everything: pick a recipe, copy the prompt into your AI tool, then paste what it returns. Qbank blocks and clinical cases share a case link, so a Hybrid keeps both together.", uniKindQbank: "Questions", uniKindClinical: "Patients", uniKindCross: "Hybrids", uniKindQbankHint: "Practice questions only.", uniKindClinicalHint: "An OSCE patient to work through.", uniKindCrossHint: "One patient plus a Qbank block on the same diagnosis, linked by a shared case.", uniCrossSize: "Linked Qbank questions", uniGenTpl: "Generate from template (no AI)", uniGenTplHint: "Builds a case instantly from the built-in templates and saves it to your library.",
-    uniDetected: "Detected:", uniDetQbank: "Qbank ({n} block(s))", uniDetClinical: "Clinical case", uniDetClinicalBundle: "Clinical cases ({n})", uniDetCross: "Crossover (case + Qbank)", uniSaveBtn: "Import to Library", uniCaseSaved: "Saved \"{name}\" to your case library.", uniCrossOk: "Crossover saved: case + {n} question(s) linked in your library.", uniCrossDup: "The case was saved, but that Qbank block was already in your library, so it is not linked.", uniCrossBadCase: "Case part: {e}", uniCrossBadQ: "Qbank part: {e}", uniNew: "Create / Import",
-    libTypeAll: "Import", libTypeQbank: "Qbank", libTypeClinical: "Clinical", uniLibEmpty: "Nothing here yet. Use the Universal Importer to create or import a Qbank, a clinical case or a Crossover.", uniPractice: "Practice Qbank", uniOpenCase: "Open case", uniDeleteCase: "Delete", uniDeleteQ: "Delete this case and its linked Qbank block(s)?", uniQN: "{n} questions", uniCasesCount: "{n} case(s)", uniCrossCount: "{c} crossover(s)", uniLinkedQ: "Linked Qbank ({n})", uniNoMatch: "Nothing matches.", uniBadVersion: "This file was made by a newer version of OWORLD.", libHybrid: "Hybrid", moreActions: "More actions", omitQuestion: "Omit question", omitTitle: "Remove this question from your Qbank?", omitConfirmSaved: "This permanently deletes the question from \"{title}\". It will not appear when you practise, and it will not be included if you share or export that Qbank. This cannot be undone.", omitConfirmLocal: "This question is not saved in your library. It is removed from this block and from anything you share from it. This cannot be undone.", omitGo: "Omit permanently", omitLastHint: "Every block and Qbank needs at least one question, so this one cannot be omitted.", giveFeedback: "Give feedback", reportIssue: "Report an Issue", defineBtn: "Define", defLoading: "Looking up…", defDisambig: "This term has several meanings on Wikipedia.", defNoArticle: "No Wikipedia article matches this term.", defUnavailable: "Could not load a definition right now.", defReadFull: "Read full article", defSeeAll: "See all meanings", defOpenWiki: "Open on Wikipedia", defSkipped: "Select a more specific medical term to look it up.", defCaveat: "Definitions are for background only; rely on your source text for management.",
-    recipeTitle: "Question Recipe — AI prompt", copied: "Copied", copy: "Copy", schema: "JSON schema", viewSchema: "View Developer JSON Schema", hideSchema: "Hide Developer JSON Schema",
+    uniTitle: "Recipe & Import Hub", uniHint: "One importer for everything: pick a recipe, copy the prompt into your AI tool, then paste what it returns.", 
+    
+    libTypeAll: "Import", libTypeQbank: "Qbank", moreActions: "More actions", omitQuestion: "Omit question", omitTitle: "Remove this question from your Qbank?", omitConfirmSaved: "This permanently deletes the question from \"{title}\". It will not appear when you practise, and it will not be included if you share or export that Qbank. This cannot be undone.", omitConfirmLocal: "This question is not saved in your library. It is removed from this block and from anything you share from it. This cannot be undone.", omitGo: "Omit permanently", omitLastHint: "Every block and Qbank needs at least one question, so this one cannot be omitted.", giveFeedback: "Give feedback", reportIssue: "Report an Issue", defineBtn: "Define", defLoading: "Looking up…", defDisambig: "This term has several meanings on Wikipedia.", defNoArticle: "No Wikipedia article matches this term.", defUnavailable: "Could not load a definition right now.", defReadFull: "Read full article", defSeeAll: "See all meanings", defOpenWiki: "Open on Wikipedia", defSkipped: "Select a more specific medical term to look it up.", defCaveat: "Definitions are for background only; rely on your source text for management.",
+    recipeTitle: "Copy & Paste this prompt to generate a Qbank", copied: "Copied", copy: "Copy", schema: "JSON schema", viewSchema: "View Developer JSON Schema", hideSchema: "Hide Developer JSON Schema",
     createdBy: "OWORLD is created by", role: "Medical student | Founder of Verde+", supportOworld: "Support Oworld",
     joinDiscord: "Join our Discord", libGetCommunity: "Get Community Qbanks", guideDiscordTitle: "Join the Community", guideDiscordBody: "Oworld is built by students, for students. Join our Discord server to share Qbank bundles, vote on new features, get help, and talk to other students.",
     supportCardText: "Oworld is free and stays free. If it helps you, consider supporting the project.", supportCardBtn: "Support",
@@ -371,7 +374,7 @@ const STR = {
     retestMode: "Retest Mode: {type} ({n} {items})", "rt.missed": "Missed Questions", "rt.full": "Full Block",
     item1: "Item", itemN: "Items", prev: "Previous", next: "Next",
     labValues: "Lab Values", notes: "Notes", calc: "Calculator",
-    ocBtn: "Open Clinic", ocBtnShort: "Clinic", ocTitle: "Clinic: this question's patient", ocHint: "Turn this vignette into a clinical case. Cases you create are saved to your Case Library and stay linked to this question.", ocCaution: "A case's examiner key reveals the diagnosis. If you want this question to stay a fair test, answer it first.", ocLinked: "Linked to this question", ocRelated: "Same Qbank, other questions", ocBuild: "Build a case from this vignette", ocDetected: "Read from the vignette", ocTplMatch: "Template match: {n}", ocTplNone: "No built-in template fits this presentation. Generate instantly would make a bare shell, so use the AI prompt for a full case.", ocTemplate: "Generate instantly", ocPrompt: "Copy AI prompt", ocPasteHint: "Paste the AI's JSON here to import it, link it to this question and open it.", ocPastePh: "Paste the AI case JSON…", ocImport: "Import and open", ocQbank: "Qbank", ocLabs: "Laboratory and imaging (from the vignette)", ocFound: "{v} vitals · {l} results",
+    
     timedBlock: "Timed block", hints: "Hints", shortcuts: "Keyboard shortcuts",
     "sc.next": "Next question", "sc.prev": "Previous question", "sc.mark": "Mark question",
     "sc.select": "Select answer", "sc.hl": "Highlight selection",
@@ -437,7 +440,7 @@ const STR = {
     "err.match": "Question \"{id}\": correctAnswer \"{ans}\" doesn't match any option key.",
   },
   es: {
-    searchScopeClin: "Casos", searchPhClin: "Buscar casos guardados…", searchGrpClin: "Casos clínicos", clClear: "Borrar", clViewMore: "Ver más ({n})", clViewLess: "Ver menos", clDdxSay: "Creo que podría ser: {list}.", clQExamPick: "¿Qué exploraciones físicas realizarías? Elige todas las relevantes para tu diagnóstico diferencial.", clExamPickCount: "{n} seleccionadas", clQ1b: "Aquí están los hallazgos de las exploraciones que elegiste. Toca cualquier otra que quieras revelar y dime qué interpretas.", clExamSay: "Exploraría: {list}.", clExamNotIndicated: "No indicada para esta presentación; sin hallazgos adicionales.", clExamYours: "Tus exploraciones", clExamScore: "{n} de {m} exploraciones relevantes elegidas", clQDdx: "Antes de explorar a {n}, ¿cuál es tu diagnóstico diferencial? Elige de esta lista las 3 enfermedades que consideres más probables.", clDdxPick: "Elige 3 ({n}/3)", clDdxYours: "Tu diagnóstico diferencial", clDdxScore: "{n} de 3 en el diferencial esperado", clPmhTitle: "Antecedentes médicos", clSocialTitle: "Antecedentes sociales", clFamilyTitle: "Antecedentes familiares", clSocialFamilyTitle: "Antecedentes sociales y familiares", clDrugTitle: "Medicamentos y otros tratamientos", clSelCount: "{n} seleccionados", clRename: "Renombrar caso", clShareBundle: "Casos clínicos de Oworld", clShareText: "Caso clínico de Oworld: {name}", clShareHybrid: "Compartir como híbrido", clShareHybridText: "Híbrido de Oworld (caso + Qbank): {name}", clDeleteSelQ: "¿Eliminar {n} caso(s) seleccionado(s)? No se puede deshacer.", clImportBundleOk: "Se importaron {n} caso(s) a tu biblioteca.", clImportBundleNone: "Ese archivo no contiene casos válidos.", clDifficulty: "Dificultad", clEasy: "Fácil", clModerate: "Moderada", clHard: "Difícil", clSyncLocal: "Guardado en este dispositivo. Inicia sesión con Google para sincronizar tus casos con Drive.", clViewBuild: "Constructor", clViewLib: "Biblioteca", clImport: "Importar caso de IA", clImportHint: "Pega el JSON que devolvió tu herramienta de IA para la receta de arriba, o sube un archivo .json.", clImportPh: "Pega aquí el JSON del caso de IA…", clImportBtn: "Importar caso", clUpload: "Subir .json", clImportOk: "Caso importado. Revísalo abajo y guárdalo en tu biblioteca.", clImportWarn: "Importado, pero faltaban estas partes: {w}.", clSave: "Guardar en la biblioteca", clSaved: "Guardado", clSrcAi: "IA", clSrcTpl: "Plantilla", clSrcAll: "Todas las fuentes", clAllAges: "Todas las edades", clLibEmpty: "Tu biblioteca de casos está vacía. Genera o importa un caso y toca Guardar en la biblioteca, o añade el caso de ejemplo para probar el flujo.", clAddSample: "Añadir caso de ejemplo", clLibNoMatch: "Ningún caso guardado coincide.", clOpen: "Abrir", clCopyJson: "Copiar JSON", clDelete: "Eliminar", clDeleteSure: "Toca otra vez para eliminar", clSavedOn: "Guardado {d}", clIce: "Ideas, preocupaciones, expectativas", clExit: "Guardar y salir", cqOpenBtn: "Abrir Qbank", cqOpen: "Abrir Qbank", hyTitle: "Revisión híbrida", hyDoneCase: "Ya completaste la parte del caso (puntaje: {n}/{m}). ¿Volver al Qbank o terminar el bloque?", hyDoneQbank: "Ya completaste la parte del Qbank ({c}/{t} correctas). ¿Volver al Qbank o terminar el bloque?", hyOpenAgain: "Abrir de nuevo", hySkip: "Omitir", hyBackToQbank: "Volver al Qbank", hyFinishBlock: "Terminar bloque", hyTested: "Lo que evaluó este caso", hyNoOverlap: "Ninguna pregunta del Qbank de este bloque evalúa los temas del caso.", hyCasePendingBody: "El caso vinculado sigue abierto. Termínalo para completar la revisión híbrida.", hyCasePendingCta: "Abrir caso", hyQbank: "Qbank", hyCase: "Caso clínico", hyQScore: "{c} de {t} correctas", hyBoth: "Ambas partes completas", hyCasePending: "Caso sin completar", hyFinish: "Terminar caso", hyNoCase: "Terminaste el Qbank sin completar el caso, así que no hay puntos del caso.", cqTitle: "Crear un Qbank con este caso", cqHint: "Copia el prompt en tu herramienta de IA y pega el JSON del Qbank que devuelva. Las preguntas se guardan en tu biblioteca vinculadas a este caso.", cqSize: "Preguntas", cqCopy: "Copiar prompt", cqPaste: "Pega aquí el JSON del Qbank…", cqSave: "Guardar Qbank en la biblioteca", cqOk: "Se guardaron {n} pregunta(s) en tu biblioteca, vinculadas a este caso.", cqDup: "Ese Qbank ya está en tu biblioteca.", cqNoCaseId: "Este caso aún no tiene id. Guarda el caso primero y luego añade un Qbank.", cqLinked: "{n} pregunta(s) ya vinculadas a este caso.", cqEmpty: "Primero pega el JSON que devolvió tu herramienta de IA.", clHiVitals: "Hola, doctor/a, estos son los signos vitales de {n}", clChart: "Historia clínica", clHpiTitle: "Enfermedad actual", clChief: "Motivo de consulta", clFullStory: "Historia completa: {n}", clHideStory: "Ocultar historia completa", clSenior: "Clínico sénior", clTypeTab: "Escribir respuesta", clTypePh: "Escribe tu respuesta…", clTypeHint: "Escribe tu respuesta para {d}", clSkip: "Omitir respuesta", clSubmit: "Enviar respuesta", clSkipped: "Respuesta omitida", clStep: "Paso {n} de {m}", clCaseDone: "Caso completado", clRestart: "Reiniciar caso", clConversation: "Conversación con el clínico sénior", clTapReveal: "Toca para revelar este hallazgo", clQ0: "Hola, soy {d}. Seré tu clínico sénior durante este caso. ¿Puedes darme la presentación del paciente?", clQ1: "Gracias. ¿Qué hallazgos de la exploración buscarías? Toca los que quieras revelar y dime qué esperas encontrar.", clQ2: "¿Cuál es tu diagnóstico principal y qué más hay en tu diagnóstico diferencial?", clQ3: "¿Qué estudios y qué manejo iniciarías?", clDone: "Gracias, con esto termina el caso. Aquí tienes la clave del examinador y tu lista de verificación.", tabClinical: "Clínica", clTitle: "Casos clínicos", clHint: "Tus casos clínicos guardados. Crea o importa casos nuevos con el Importador universal.", clBuilder: "Constructor de recetas", clAge: "Grupo de edad", clAgePed: "Pediátrico", clAgeAdult: "Adulto", clAgeGeri: "Geriátrico", clSex: "Sexo", clSexF: "Femenino", clSexM: "Masculino", clSexAny: "Aleatorio", clSpecialty: "Especialidad", clSystem: "Sistema corporal", clAny: "Cualquiera", clComplaint: "Motivo de consulta / presentación", clCustom: "O escribe tu propia presentación…", clNoMatch: "No hay plantillas para estos filtros. Escribe tu propia presentación abajo.", clPreview: "Vista previa de la receta", clJson: "JSON", clCopyPrompt: "Copiar prompt", clGenerate: "Generar escenario de paciente", clPickComplaint: "Elige o escribe un motivo de consulta para generar.", clEmpty: "Configura tu receta y genera un paciente.", clRegenerate: "Regenerar", clShell: "Presentación personalizada: ninguna plantilla coincide, así que esto es un esquema. Copia el prompt de arriba en tu herramienta de IA para completar el caso.", clFallbackAge: "No hay plantilla para este motivo en el grupo de edad elegido. Se muestra la más cercana.", clFallbackSex: "No hay plantilla para este motivo en el sexo elegido. Se muestra la más cercana.", clStation: "Instrucciones para el candidato", clScript: "Guion del paciente", clPmh: "Antecedentes", clMeds: "Medicamentos y alergias", clBg: "Social y familiar", clVitals: "Signos vitales", clExam: "Hallazgos del examen", clRevealAll: "Revelar todo", clHidden: "Toca para revelar cuando el candidato lo pida", clChecklist: "Lista de calificación", clScore: "{n}/{m} puntos", clShowKey: "Mostrar clave del examinador", clHideKey: "Ocultar clave del examinador", clDx: "Diagnóstico principal", clDdx: "Diferencial", clIx: "Estudios", clMgmt: "Manejo", tabDatabase: "Base de datos", dbTitle: "Base de datos personal", dbHint: "Preguntas, extractos y notas que guardaste mientras estudiabas.", dbAdd: "Añadir a la base de datos", dbSavedToast: "Guardado en la base de datos", dbAll: "Todo", dbQuestions: "Preguntas", dbExcerpts: "Extractos", dbNotes: "Notas", dbSearch: "Buscar en tu base de datos", dbEmpty: "Tu base de datos está vacía.", dbEmptyHint: "Mientras haces un bloque, selecciona texto y toca Añadir a la base de datos, guarda una pregunta con el marcador o guarda una nota desde el panel de Notas.", dbNoMatch: "No hay coincidencias.", dbSaveQ: "Guardar pregunta", dbSavedQ: "Guardada en la base de datos", dbSaveNote: "Guardar en la base de datos", dbUpdateNote: "Actualizar en la base de datos", dbShowAns: "Mostrar respuesta", dbHideAns: "Ocultar respuesta", dbEdit: "Editar", dbSave: "Guardar", dbCancel: "Cancelar", dbCopy: "Copiar", dbCopied: "Copiado", dbDelete: "Eliminar", dbConfirmDel: "¿Eliminar?", dbClearAll: "Borrar todo", dbClearConfirm: "¿Mover todo el contenido de tu base de datos a la papelera? Podrás restaurarlo durante 30 días.", dbKindQ: "Pregunta", dbKindE: "Extracto", dbKindN: "Nota", dbCommentPh: "Añade tu propio comentario…", dbAddComment: "Añadir comentario", dbNoteTitle: "Tu nota", dbCorrectTag: "Correcta",
+    tabDatabase: "Base de datos", dbTitle: "Base de datos personal", dbHint: "Preguntas, extractos y notas que guardaste mientras estudiabas.", dbAdd: "Añadir a la base de datos", dbSavedToast: "Guardado en la base de datos", dbAll: "Todo", dbQuestions: "Preguntas", dbExcerpts: "Extractos", dbNotes: "Notas", dbSearch: "Buscar en tu base de datos", dbEmpty: "Tu base de datos está vacía.", dbEmptyHint: "Mientras haces un bloque, selecciona texto y toca Añadir a la base de datos, guarda una pregunta con el marcador o guarda una nota desde el panel de Notas.", dbNoMatch: "No hay coincidencias.", dbSaveQ: "Guardar pregunta", dbSavedQ: "Guardada en la base de datos", dbSaveNote: "Guardar en la base de datos", dbUpdateNote: "Actualizar en la base de datos", dbShowAns: "Mostrar respuesta", dbHideAns: "Ocultar respuesta", dbEdit: "Editar", dbSave: "Guardar", dbCancel: "Cancelar", dbCopy: "Copiar", dbCopied: "Copiado", dbDelete: "Eliminar", dbConfirmDel: "¿Eliminar?", dbClearAll: "Borrar todo", dbClearConfirm: "¿Mover todo el contenido de tu base de datos a la papelera? Podrás restaurarlo durante 30 días.", dbKindQ: "Pregunta", dbKindE: "Extracto", dbKindN: "Nota", dbCommentPh: "Añade tu propio comentario…", dbAddComment: "Añadir comentario", dbNoteTitle: "Tu nota", dbCorrectTag: "Correcta",
     dbSyncSignIn: "Inicia sesión con Google desde el menú de la cuenta para sincronizarla entre tus dispositivos.", dbImport: "Importar", dbImported: "Se importaron {a} elemento(s); {s} ya estaban en tu base de datos.", dbImportBad: "Ese archivo no es una exportación de la base de datos personal.",
     dbShared: "Compartiste {n} elemento(s) en un solo archivo.", dbDownloaded: "Descargaste {n} elemento(s) en un solo archivo.", dbExportFailed: "Error al exportar. Inténtalo de nuevo.", dbShareText: "Mi base de datos personal de OWORLD ({n} elementos). En OWORLD, abre Base de datos y toca Importar para añadirlos.", dbDelSelQ: "¿Mover {n} elemento(s) seleccionado(s) a la papelera? Podrás restaurarlos durante 30 días.", dbManage: "Administrar", dbExport: "Exportar",
     tabTrash: "Papelera", trashTitle: "Papelera", trashCount: "{n} elemento(s)", trashHint: "Los Qbanks, sesiones de Analíticas y elementos de la base de datos eliminados permanecen aquí {d} días. Restáuralos o elimínalos para siempre.", trashEmpty: "La papelera está vacía.", trashEmptyHint: "Todo lo que elimines de la biblioteca, las Analíticas o la base de datos llega primero aquí, para que puedas recuperarlo.", trashNoneHere: "No hay nada de este tipo en la papelera.",
@@ -510,18 +513,21 @@ const STR = {
     removeSelBody: "{n} bloque(s) se quitarán de esta sesión. Las copias guardadas en tu Biblioteca Oworld no se ven afectadas.",
     removeSelBodyUnsaved: "{n} bloque(s) se quitarán de esta sesión. {u} de ellos no están guardados en tu biblioteca y se perderán definitivamente; guárdalos primero si quieres conservarlos.",
     pasteChars: "{n} caracteres pegados", pasteClear: "Borrar", pasteEmpty: "Aún no has pegado nada — expande para pegar o usa Subir archivo.",
-    load: "Cargar examen", importQbank: "Importar nuevo Qbank", importInLibrary: "Ya está en tu biblioteca — inícialo desde ahí.", lobbySaveN: "Guardar en la biblioteca ({n})", lobbyRemoveN: "Quitar ({n})", triageHint: "Márcalo para guardarlo en tu biblioteca o quitarlo.", lobbyTriageNote: "Estos Qbanks acaban de importarse. Marca los que quieras y usa Guardar en la biblioteca para conservarlos o Quitar para descartarlos.", aiLaunchTitle: "Acceso rápido a IA", aiLaunchHint: "Abre tu herramienta de IA, pega el Prompt de receta de preguntas de abajo junto con tu tema o apuntes y trae la respuesta aquí.", aiLaunchOpens: "Se abre en una pestaña nueva", nbTitle: "Materias y sistemas", nbHint: "Tus cuadernos de estudio, por bloque. Cada uno se abre en NotebookLM en una pestaña nueva.", nbAll: "USMLE (cuaderno general)", nbBlock1: "Bloque 1", nbBlock2: "Bloque 2", nbCore: "Ciencias básicas", nbClinical: "Clínica", clSemiologyHint: "¿Necesitas ayuda con la historia o los signos? Abre el cuaderno de Semiología.",
+    load: "Cargar examen", importQbank: "Importar nuevo Qbank", importInLibrary: "Ya está en tu biblioteca — inícialo desde ahí.", lobbySaveN: "Guardar en la biblioteca ({n})", lobbyRemoveN: "Quitar ({n})", triageHint: "Márcalo para guardarlo en tu biblioteca o quitarlo.", lobbyTriageNote: "Estos Qbanks acaban de importarse. Marca los que quieras y usa Guardar en la biblioteca para conservarlos o Quitar para descartarlos.", aiLaunchTitle: "Acceso rápido a IA", aiLaunchHint: "Abre tu herramienta de IA, pega el prompt de abajo junto con tu tema o apuntes y trae la respuesta aquí.", aiLaunchOpens: "Se abre en una pestaña nueva", nbTitle: "Materias y sistemas", nbHint: "Tus cuadernos de estudio, por bloque. Cada uno se abre en NotebookLM en una pestaña nueva.", nbAll: "USMLE (cuaderno general)", nbBlock1: "Bloque 1", nbBlock2: "Bloque 2", nbCore: "Ciencias básicas", nbClinical: "Clínica", 
     wasIncorrectBadge: "Fallada antes de reiniciar", missedBeforeN: "{n} falladas antes de reiniciar", explHide: "Ocultar explicación", explShow: "Mostrar explicación",
     activeTitle: "¿Continuar tu examen desde otro dispositivo?", activeTitleConflict: "Hay otra versión de este examen en otro dispositivo",
     activeBody: "«{name}»: pregunta {n} de {total}, {answered} respondidas. Última actualización {time}.",
     activeReplaceWarn: "Continuar reemplaza el examen abierto en este dispositivo.", activeContinue: "Continuar aquí", activeNotNow: "Ahora no", activeKeepMine: "Conservar el de este dispositivo",
     activeResumed: "Retomaste «{name}» desde otro dispositivo.", activeEndedElsewhere: "Este examen se terminó en otro dispositivo.", activeEndedFinished: "«{name}» se terminó en otro dispositivo: {pct}% ({c}/{t}). El resultado se está sincronizando con tus Analíticas y tu Qbank.", activeEndedRemoved: "Este examen se cerró en otro dispositivo.", csMigrate: "Migrar", csRemoteBody: "«{name}»: pregunta {n} de {total}, {answered} respondidas. Última actualización {time}.", csRemoteMigrating: "Migrando…",
     activeMissing: "No se pudo cargar ese examen desde Google Drive. Revisa tu conexión e inténtalo de nuevo.", activeMixed: "Mezcla de {banks}.",
-    themeLabel: "Tema", stTitle: "Almacenamiento", stUsed: "{u} usados", stOfCap: "{u} de {c} usados", stRefresh: "Actualizar almacenamiento", stEmpty: "Aún no hay nada guardado en este dispositivo.", stQbanks: "Qbanks y mazos", stHistory: "Historial de exámenes", stDatabase: "Base de datos", stClinical: "Casos clínicos", stProfile: "Perfil de estudio y tutor", stTrash: "Papelera", stOther: "Otros", stAvailable: "Disponible", themeLight: "Claro", themeDark: "Oscuro",
+    themeLabel: "Tema", stTitle: "Almacenamiento", stUsed: "{u} usados", stOfCap: "{u} de {c} usados", stRefresh: "Actualizar almacenamiento", stEmpty: "Aún no hay nada guardado en este dispositivo.", stQbanks: "Qbanks y mazos", stHistory: "Historial de exámenes", stDatabase: "Base de datos", stProfile: "Perfil de estudio y tutor", stTrash: "Papelera", stOther: "Otros", stAvailable: "Disponible", themeLight: "Claro", themeDark: "Oscuro",
     accountBtn: "Cuenta", viewAccount: "Administrar cuenta", signIn: "Iniciar sesión con Google", signOut: "Cerrar sesión", signedInAs: "Sesión iniciada con Google", signInHint: "Inicia sesión para sincronizar tu biblioteca y tus Analíticas entre dispositivos mediante tu Google Drive.", signOutHint: "Al cerrar sesión se detiene la sincronización en este dispositivo. Tus datos se conservan aquí y en tu Drive.", signedOutNote: "Sin sesión iniciada", "cpTitle": "Perfil profesional y de estudio", "cpHint": "Cuéntale a Oworld quién eres y para qué te estás preparando. Tu tutor lo usa para fijar metas y crear tu Perfil de estudio.", "cpAbout": "Sobre ti", "cpStatus": "Situación actual", "cpStatus.pick": "Seleccionar…", "cpStatus.student": "Estudiante de medicina", "cpStatus.graduate": "Médico graduado (IMG)", "cpStatus.resident": "Residente", "cpStatus.other": "Otro", "cpGradYear": "Año de graduación", "cpCountry": "País", "cpCity": "Ciudad", "cpUniversity": "Universidad", "cpSchool": "Escuela o facultad", "cpPhCountry": "República Dominicana", "cpPhCity": "Santo Domingo", "cpPhUniversity": "Universidad Iberoamericana (UNIBE)", "cpPhSchool": "Escuela de Medicina", "cpObjective": "Objetivo de estudio", "cpCoursework": "Estudios de la carrera", "cpCourseworkHint": "Elige todo lo que estás estudiando ahora.", "cpWork.generals": "Generales", "cpWork.preclinical": "Preclínicas", "cpWork.clinical": "Estudios clínicos", "cpUsmle": "USMLE", "cpUsmleHint": "Elige los pasos para los que te preparas. Añade una fecha objetivo si la tienes.", "cpStep.step1": "Step 1", "cpStep.step2ck": "Step 2 CK", "cpStep.step3": "Step 3", "cpTargetDate": "Fecha objetivo", "cpClassOf": "Promoción {y}", "cpNext": "Próximo objetivo: {step}, {when} ({date})", "cpSavedLocal": "Guardado en este dispositivo.", "acctSettings": "Ajustes de la cuenta", "acctName": "Nombre", "acctEmail": "Correo", "acctLinked": "Vinculada con", "acctCreated": "Cuenta creada", "acctNone": "No disponible", "acctLinkedGoogle": "Google", "acctSignedOutHint": "Inicia sesión con Google para ver aquí los datos de tu cuenta.", "dzTitle": "Zona de peligro", "dzDesc": "Eliminar tu cuenta borra de forma permanente tus Qbanks, Analíticas, Base de datos personal, Perfil de estudio y ajustes de este dispositivo, y cierra tu sesión.", "dzDelete": "Eliminar mi cuenta", "dzDownloadFirst": "Descarga todos tus archivos antes de eliminar tu cuenta. Esto no se puede deshacer.", "dzDownload": "Descargar todos los archivos", "dzDownloaded": "Descargado. Tus archivos están guardados.", "dzDownloadFailed": "Error al descargar. Inténtalo de nuevo.", "dzConfirmGo": "Eliminar definitivamente", "dzSkip": "Eliminar sin descargar", "dzDriveNote": "La copia sincronizada en tu Google Drive permanece allí hasta que la elimines de Drive.", "dzFileName": "oworld-copia-cuenta-{d}.json", "spCareerEdit": "Editar en la cuenta", "spCareerAdd": "Añadir datos", "spCareerEmpty": "Añade tu universidad, año de graduación y objetivos de USMLE en tu cuenta y aparecerán aquí. Tu tutor también los usa.", "spNoDate": "Sin fecha objetivo",
-    syncTitle: "Sincronización en la nube", syncHint: "Mantiene tu biblioteca de Qbank y tus Analíticas al día en todos tus dispositivos mediante una carpeta privada de la app en tu propio Google Drive. Compartir / Exportar a un amigo sigue funcionando por separado.", syncOff: "La sincronización en la nube no está configurada en esta versión de la app.", syncConnect: "Conectar Google Drive", syncNow: "Sincronizar ahora", syncDisconnect: "Desconectar", syncReconnect: "Reconectar", syncStNone: "Sin conexión", syncStBusy: "Sincronizando…", syncStDone: "Sincronizado {time}", syncStReauth: "Hay que reconectar", syncStError: "Problema de sincronización", syncBlocked: "No se pudo cargar el inicio de sesión de Google aquí (bloqueado o sin conexión).", syncDenied: "No se concedió acceso a Drive. Permite el permiso de datos de la app para sincronizar.", syncGenericErr: "No se pudo sincronizar con Google Drive. Tus datos en este dispositivo están a salvo.", syncReauthHint: "Tu sesión de Google caducó. Toca Reconectar; los cambios locales se conservan y se sincronizarán.", syncGuide: "La sincronización con Google Drive (menú de perfil, arriba a la derecha) mantiene tu biblioteca y tus Analíticas al día entre dispositivos. Compartir / Exportar sigue siendo la forma de enviar un bloque a otra persona.", homeBtn: "Inicio", removeExam: "Quitar examen", removeTitle: "¿Quitar este examen?", removeBody: "Esto borra el examen cargado y su progreso o resultados. Tu Biblioteca Oworld guardada no se ve afectada.", removeBodyUnsaved: "Esto borra el examen cargado y su progreso o resultados. Algunos de sus bloques no están guardados en tu biblioteca y se perderían para siempre. Cancela y toca Guardar en la biblioteca primero si quieres conservarlos.", removeGo: "Quitar", libRename: "Renombrar Qbank", libRenameSave: "Guardar nombre", howItWorks: "Ayuda", guideStep: "Paso {n} de {total}", guideBack: "Atrás", guideNext: "Siguiente", guideDone: "Entendido", guideClose: "Cerrar guía", navCollapse: "Contraer lista de preguntas", navExpand: "Expandir lista de preguntas", resumeSession: "Reanudar sesión", sessionInProgress: "Sesión en curso", sessionPos: "Pregunta {n} de {total}", examLoadedLabel: "Examen cargado", openLobby: "Abrir sala del examen", inProgressTag: "En curso", discardTitle: "¿Descartar la sesión en curso?", discardBody: "Iniciar algo nuevo reemplaza tu bloque en curso y se perderán sus respuestas.", discardGo: "Descartar y continuar", hide: "Ocultar", recipe: "Prompt de receta de preguntas",
+    syncTitle: "Sincronización en la nube", syncHint: "Mantiene tu biblioteca de Qbank y tus Analíticas al día en todos tus dispositivos mediante una carpeta privada de la app en tu propio Google Drive. Compartir / Exportar a un amigo sigue funcionando por separado.", syncOff: "La sincronización en la nube no está configurada en esta versión de la app.", syncConnect: "Conectar Google Drive", syncNow: "Sincronizar ahora", syncDisconnect: "Desconectar", syncReconnect: "Reconectar", syncStNone: "Sin conexión", syncStBusy: "Sincronizando…", syncStDone: "Sincronizado {time}", syncStReauth: "Hay que reconectar", syncStError: "Problema de sincronización", syncBlocked: "No se pudo cargar el inicio de sesión de Google aquí (bloqueado o sin conexión).", syncDenied: "No se concedió acceso a Drive. Permite el permiso de datos de la app para sincronizar.", syncGenericErr: "No se pudo sincronizar con Google Drive. Tus datos en este dispositivo están a salvo.", syncReauthHint: "Tu sesión de Google caducó. Toca Reconectar; los cambios locales se conservan y se sincronizarán.", syncGuide: "La sincronización con Google Drive (menú de perfil, arriba a la derecha) mantiene tu biblioteca y tus Analíticas al día entre dispositivos. Compartir / Exportar sigue siendo la forma de enviar un bloque a otra persona.", homeBtn: "Inicio", removeExam: "Quitar examen", removeTitle: "¿Quitar este examen?", removeBody: "Esto borra el examen cargado y su progreso o resultados. Tu Biblioteca Oworld guardada no se ve afectada.", removeBodyUnsaved: "Esto borra el examen cargado y su progreso o resultados. Algunos de sus bloques no están guardados en tu biblioteca y se perderían para siempre. Cancela y toca Guardar en la biblioteca primero si quieres conservarlos.", removeGo: "Quitar", libRename: "Renombrar Qbank", libRenameSave: "Guardar nombre", howItWorks: "Ayuda", guideStep: "Paso {n} de {total}", guideBack: "Atrás", guideNext: "Siguiente", guideDone: "Entendido", guideClose: "Cerrar guía", navCollapse: "Contraer lista de preguntas", navExpand: "Expandir lista de preguntas", resumeSession: "Reanudar sesión", sessionInProgress: "Sesión en curso", sessionPos: "Pregunta {n} de {total}", examLoadedLabel: "Examen cargado", openLobby: "Abrir sala del examen", inProgressTag: "En curso", discardTitle: "¿Descartar la sesión en curso?", discardBody: "Iniciar algo nuevo reemplaza tu bloque en curso y se perderán sus respuestas.", discardGo: "Descartar y continuar", hide: "Ocultar", recipe: "Receta de preguntas y generador de prompts",
     recipeIntro: "Configura un bloque abajo y luego copia la receta generada en la herramienta de IA que prefieras (agrega tu material de estudio si lo permite). Devuelve las preguntas en el formato exacto que esta app espera.",
     blockSize: "Tamaño del bloque", focus: "Enfoque",
+    recipeStyle: "Estilo de pregunta", "recipeStyle.vignette": "Viñetas", "recipeStyle.basic": "Básicas", recipeStyleHintVignette: "Viñetas clínicas completas estilo USMLE: un caso con historia, examen y datos.", recipeStyleHintBasic: "Preguntas cortas y directas de recuerdo sobre un solo dato. Sin caso clínico.",
+    recipeBasicFormat: "Formato de recuerdo", "recipeBasicFormat.mixed": "Mixto", "recipeBasicFormat.mechanism": "Mecanismo", "recipeBasicFormat.drugchoice": "Fármaco de elección", "recipeBasicFormat.adverse": "Efectos adversos", "recipeBasicFormat.deficiency": "Deficiencia a enfermedad", "recipeBasicFormat.findings": "Hallazgos clásicos", "recipeBasicFormat.association": "Asociaciones", "recipeBasicFormat.anatomy": "Anatomía y fisiología", "recipeBasicFormat.microbe": "Rasgos de micro",
+    "recipeBasicFormatHint.mixed": "Una mezcla de todos los tipos de recuerdo.", "recipeBasicFormatHint.mechanism": "Mecanismo de acción, clase o diana del fármaco.", "recipeBasicFormatHint.drugchoice": "Fármaco o intervención de primera línea para una enfermedad o microorganismo.", "recipeBasicFormatHint.adverse": "Efectos adversos, contraindicaciones e interacciones característicos.", "recipeBasicFormatHint.deficiency": "Enzima, gen o vitamina defectuosos y su enfermedad.", "recipeBasicFormatHint.findings": "Una enfermedad con su histología, laboratorio o signo clásico.", "recipeBasicFormatHint.association": "Enfermedad ligada a su microorganismo, gen, factor de riesgo o complicación.", "recipeBasicFormatHint.anatomy": "Estructura y función normales: irrigación, inervación, acciones, valores.", "recipeBasicFormatHint.microbe": "Rasgos identificadores, toxinas y transmisión de microorganismos.",
     diffMode: "Dificultad", "diffMode.mixed": "Mixta (recomendada)", "diffMode.easy": "Fácil", "diffMode.medium": "Media", "diffMode.hard": "Difícil (estándar USMLE)",
     diffHintMixed: "{e} fáciles · {m} medias · {h} difíciles (aprox. 20% / 60% / 20%), intercaladas para reflejar la variación de un examen real. Cada pregunta se etiqueta según su nivel de dificultad para el seguimiento.",
     diffHintEasy: "Recuerdo y tríadas básicas: viñetas de 1–3 oraciones, reconocimiento en 1–2 pasos, 3–4 opciones con distractores distintos.",
@@ -533,10 +539,10 @@ const STR = {
     customSize: "Personalizado", customSizePh: "1–{n}", "dl.easy": "Fácil", "dl.medium": "Media", "dl.hard": "Difícil", perfDifficulty: "Desempeño por dificultad",
     "focus.standard": "Mezcla USMLE estándar", "focus.systems": "Un solo sistema", "focus.discipline": "Una sola disciplina",
     recipeTutor: "El tutor sugiere", recipeTutorHint: "Toca los temas para basar esta receta en ellos. Toca de nuevo para quitar uno.", phSystems: "p. ej. Cardiovascular, Renal, Neuro…", phDisc: "p. ej. Farmacología, Bioquímica, Microbiología…",
-    uniTitle: "Centro de recetas e importación", uniHint: "Un solo importador para todo: elige una receta, copia el prompt en tu herramienta de IA y pega lo que devuelva. Los bloques de Qbank y los casos clínicos comparten un vínculo de caso, así que un Crossover mantiene ambos juntos.", uniKindQbank: "Preguntas", uniKindClinical: "Pacientes", uniKindCross: "Híbridos", uniKindQbankHint: "Solo preguntas de práctica.", uniKindClinicalHint: "Un paciente tipo ECOE para trabajar.", uniKindCrossHint: "Un paciente más un bloque de Qbank sobre el mismo diagnóstico, vinculados por un caso compartido.", uniCrossSize: "Preguntas de Qbank vinculadas", uniGenTpl: "Generar desde plantilla (sin IA)", uniGenTplHint: "Crea un caso al instante con las plantillas integradas y lo guarda en tu biblioteca.",
-    uniDetected: "Detectado:", uniDetQbank: "Qbank ({n} bloque(s))", uniDetClinical: "Caso clínico", uniDetClinicalBundle: "Casos clínicos ({n})", uniDetCross: "Crossover (caso + Qbank)", uniSaveBtn: "Importar a la biblioteca", uniCaseSaved: "Se guardó «{name}» en tu biblioteca de casos.", uniCrossOk: "Crossover guardado: el caso y {n} pregunta(s) de Qbank quedaron vinculados en tu biblioteca.", uniCrossDup: "El caso se guardó, pero ese bloque de Qbank ya estaba en tu biblioteca, así que no queda vinculado.", uniCrossBadCase: "Parte del caso: {e}", uniCrossBadQ: "Parte del Qbank: {e}", uniNew: "Crear / Importar",
-    libTypeAll: "Importar", libTypeQbank: "Qbank", libTypeClinical: "Clínicos", uniLibEmpty: "Aún no hay nada aquí. Usa el Importador universal para crear o importar un Qbank, un caso clínico o un Crossover.", uniPractice: "Practicar Qbank", uniOpenCase: "Abrir caso", uniDeleteCase: "Eliminar", uniDeleteQ: "¿Eliminar este caso y sus bloques de Qbank vinculados?", uniQN: "{n} preguntas", uniCasesCount: "{n} caso(s)", uniCrossCount: "{c} crossover(s)", uniLinkedQ: "Qbank vinculado ({n})", uniNoMatch: "Nada coincide.", uniBadVersion: "Este archivo lo creó una versión más reciente de OWORLD.", libHybrid: "Híbrido", moreActions: "Más acciones", omitQuestion: "Omitir pregunta", omitTitle: "¿Quitar esta pregunta de tu Qbank?", omitConfirmSaved: "Esto elimina la pregunta de \"{title}\" de forma permanente. No aparecerá al practicar y no se incluirá si compartes o exportas ese Qbank. No se puede deshacer.", omitConfirmLocal: "Esta pregunta no está guardada en tu biblioteca. Se quita de este bloque y de todo lo que compartas desde él. No se puede deshacer.", omitGo: "Omitir definitivamente", omitLastHint: "Cada bloque y cada Qbank necesita al menos una pregunta, así que no se puede omitir esta.", giveFeedback: "Enviar comentarios", reportIssue: "Informar de un problema", defineBtn: "Definir", defLoading: "Buscando…", defDisambig: "Este término tiene varios significados en Wikipedia.", defNoArticle: "Ningún artículo de Wikipedia coincide con este término.", defUnavailable: "No se pudo cargar una definición ahora mismo.", defReadFull: "Leer el artículo completo", defSeeAll: "Ver todos los significados", defOpenWiki: "Abrir en Wikipedia", defSkipped: "Selecciona un término médico más específico para buscarlo.", defCaveat: "Las definiciones son solo información de contexto; para el manejo, guíate por tu texto de referencia.",
-    recipeTitle: "Receta de preguntas — prompt para IA", copied: "Copiado", copy: "Copiar", schema: "Esquema JSON", viewSchema: "Ver esquema JSON para desarrolladores", hideSchema: "Ocultar esquema JSON para desarrolladores",
+    uniTitle: "Centro de recetas e importación", uniHint: "Un solo importador para todo: elige una receta, copia el prompt en tu herramienta de IA y pega lo que devuelva.", 
+    
+    libTypeAll: "Importar", libTypeQbank: "Qbank", moreActions: "Más acciones", omitQuestion: "Omitir pregunta", omitTitle: "¿Quitar esta pregunta de tu Qbank?", omitConfirmSaved: "Esto elimina la pregunta de \"{title}\" de forma permanente. No aparecerá al practicar y no se incluirá si compartes o exportas ese Qbank. No se puede deshacer.", omitConfirmLocal: "Esta pregunta no está guardada en tu biblioteca. Se quita de este bloque y de todo lo que compartas desde él. No se puede deshacer.", omitGo: "Omitir definitivamente", omitLastHint: "Cada bloque y cada Qbank necesita al menos una pregunta, así que no se puede omitir esta.", giveFeedback: "Enviar comentarios", reportIssue: "Informar de un problema", defineBtn: "Definir", defLoading: "Buscando…", defDisambig: "Este término tiene varios significados en Wikipedia.", defNoArticle: "Ningún artículo de Wikipedia coincide con este término.", defUnavailable: "No se pudo cargar una definición ahora mismo.", defReadFull: "Leer el artículo completo", defSeeAll: "Ver todos los significados", defOpenWiki: "Abrir en Wikipedia", defSkipped: "Selecciona un término médico más específico para buscarlo.", defCaveat: "Las definiciones son solo información de contexto; para el manejo, guíate por tu texto de referencia.",
+    recipeTitle: "Copia y pega este prompt para generar un Qbank", copied: "Copiado", copy: "Copiar", schema: "Esquema JSON", viewSchema: "Ver esquema JSON para desarrolladores", hideSchema: "Ocultar esquema JSON para desarrolladores",
     createdBy: "OWORLD fue creado por", role: "Estudiante de medicina | Fundador de Verde+", supportOworld: "Apoyar a Oworld",
     joinDiscord: "Únete a nuestro Discord", libGetCommunity: "Obtener Qbanks de la comunidad", guideDiscordTitle: "Únete a la comunidad", guideDiscordBody: "Oworld está hecho por estudiantes, para estudiantes. Únete a nuestro servidor de Discord para compartir Qbanks, votar por nuevas funciones, obtener ayuda y hablar con otros estudiantes.",
     supportCardText: "Oworld es gratis y seguirá siéndolo. Si te ayuda, considera apoyar el proyecto.", supportCardBtn: "Apoyar",
@@ -555,7 +561,7 @@ const STR = {
     retestMode: "Modo repaso: {type} ({n} {items})", "rt.missed": "Preguntas falladas", "rt.full": "Bloque completo",
     item1: "ítem", itemN: "ítems", prev: "Anterior", next: "Siguiente",
     labValues: "Valores de laboratorio", notes: "Notas", calc: "Calculadora",
-    ocBtn: "Abrir Clínica", ocBtnShort: "Clínica", ocTitle: "Clínica: el paciente de esta pregunta", ocHint: "Convierte esta viñeta en un caso clínico. Los casos que crees se guardan en tu biblioteca de casos y quedan vinculados a esta pregunta.", ocCaution: "La clave del examinador de un caso revela el diagnóstico. Si quieres que esta pregunta siga siendo una prueba justa, respóndela primero.", ocLinked: "Vinculados a esta pregunta", ocRelated: "Mismo Qbank, otras preguntas", ocBuild: "Crear un caso a partir de esta viñeta", ocDetected: "Leído de la viñeta", ocTplMatch: "Plantilla coincidente: {n}", ocTplNone: "Ninguna plantilla integrada encaja con esta presentación. Generar al instante crearía solo un esquema, así que usa el prompt de IA para un caso completo.", ocTemplate: "Generar al instante", ocPrompt: "Copiar prompt de IA", ocPasteHint: "Pega aquí el JSON de la IA para importarlo, vincularlo a esta pregunta y abrirlo.", ocPastePh: "Pega el JSON del caso de IA…", ocImport: "Importar y abrir", ocQbank: "Qbank", ocLabs: "Laboratorio e imagen (de la viñeta)", ocFound: "{v} signos vitales · {l} resultados",
+    
     timedBlock: "Bloque cronometrado", hints: "Pistas", shortcuts: "Atajos de teclado",
     "sc.next": "Siguiente pregunta", "sc.prev": "Pregunta anterior", "sc.mark": "Marcar pregunta",
     "sc.select": "Seleccionar respuesta", "sc.hl": "Resaltar selección",
@@ -1155,14 +1161,149 @@ function difficultyBreakdown(entries) {
 // prompt as short as possible while still fully specifying the shape.
 const PROMPT_SCHEMA_TEXT = `{"examTitle":"string","blocks":[{"blockName":"string","timeLimitMinutes":number,"questions":[{"id":"unique string","subject":"organ system/discipline","difficultyRating":number,"difficultyLabel":"Easy|Medium|Hard","vignette":"string","keyInfoPhrases":["string"],"stem":"string","options":[{"key":"A","text":"string"}],"correctAnswer":"matching key","attendingTip":"string","explanation":"string","keyLearningPoint":"string","distractorAnalysis":{"key":"string"},"hint":"string","educationalObjective":"string","sourceReferences":[{"sourceTitle":"string","chapterSection":"string","pageNumber":"string (optional)","relevance":"string"}],"variants":[{"vignette":"string","keyInfoPhrases":["string"],"stem":"string","options":[{"key":"A","text":"string"}],"correctAnswer":"matching key","attendingTip":"string","explanation":"string","keyLearningPoint":"string","distractorAnalysis":{"key":"string"},"hint":"string"}]}]}]}`;
 
-function buildQuestionRecipe({ size, focusMode, focusValue, lang, difficulty = "mixed" }) {
-  if (lang === "es") return buildQuestionRecipeEs({ size, focusMode, focusValue, difficulty });
+// "Basic" recall formats: optional narrowing of the Basic style to ONE kind of recall question. "mixed" (default) adds nothing, so the original Basic prompt is unchanged.
+const BASIC_FORMATS = ["mixed", "mechanism", "drugchoice", "adverse", "deficiency", "findings", "association", "anatomy", "microbe"];
+const BASIC_FORMAT_NOTE = {
+  en: {
+    mechanism: `MECHANISM. Every question asks what a drug, toxin or molecule does at the molecular or cellular level: mechanism of action, drug class, receptor or enzyme target, or the physiologic effect that follows. Name the agent in "vignette" and ask for its mechanism, class or target in "stem" (or describe the mechanism and ask which agent it is). All options in a question are the same kind of answer (all mechanisms, all targets or all agents).`,
+    drugchoice: `DRUG OF CHOICE. Every question asks for the first-line or preferred drug, procedure or intervention for a named disease, organism or situation (or, reversed, the one indication a named drug is chosen for). Include the classic exceptions (pregnancy, allergy, resistant organism) at higher difficulty. All options are the same kind of answer (all drugs or all interventions).`,
+    adverse: `ADVERSE EFFECTS. Every question asks for the characteristic adverse effect, toxicity, contraindication, black-box warning or key drug interaction of a named agent (or which agent causes a named effect). Include the monitoring test or antidote when it is high-yield. All options are the same kind of answer (all adverse effects or all agents).`,
+    deficiency: `DEFICIENCY TO DISEASE. Every question links a defective enzyme, gene, protein, receptor, vitamin or mineral to its disease, its inheritance pattern, its accumulated or missing product, or its hallmark feature (or the reverse direction). Name the defect in "vignette" and ask for the one linked fact in "stem". All options are the same kind of answer.`,
+    findings: `CLASSIC FINDINGS. Every question pairs a named condition with its pathognomonic or classic finding: histology, gross pathology, lab value or pattern, imaging sign, physical sign, or the eponymous or buzzword feature (or the reverse: the finding is named and the condition is asked). No patient case. All options are the same kind of answer (all findings or all conditions).`,
+    association: `ASSOCIATIONS. Every question asks for one high-yield association: a disease with its causative organism, gene, risk factor, associated cancer or complication, a syndrome with its component features, or a lesion with the structure it affects. Ask for exactly one link in "stem". All options are the same kind of answer.`,
+    anatomy: `ANATOMY AND PHYSIOLOGY. Every question tests a normal-structure or normal-function fact: nerve or vessel supply, innervation or action of a muscle, embryologic origin, a landmark or relation, a normal value or physiologic response, or what a hormone or reflex does. No disease or patient case. All options are the same kind of answer (all structures or all values).`,
+    microbe: `MICROBIOLOGY FEATURES. Every question asks for one identifying feature of an organism: Gram stain and morphology, virulence factor or toxin and what it does, mode of transmission or vector, reservoir, culture or lab characteristic, or the disease it classically causes. Name the organism in "vignette" (or give the feature and ask for the organism). All options are the same kind of answer.`,
+  },
+  es: {
+    mechanism: `MECANISMO. Cada pregunta pide lo que hace un fármaco, toxina o molécula a nivel molecular o celular: mecanismo de acción, clase de fármaco, receptor o enzima diana, o el efecto fisiológico resultante. Nombra el agente en "vignette" y pide su mecanismo, clase o diana en "stem" (o describe el mecanismo y pide cuál es el agente). Todas las opciones de una pregunta son del mismo tipo de respuesta (todas mecanismos, todas dianas o todos agentes).`,
+    drugchoice: `FÁRMACO DE ELECCIÓN. Cada pregunta pide el fármaco, procedimiento o intervención de primera línea o preferido para una enfermedad, microorganismo o situación concretos (o, a la inversa, la única indicación para la que se elige un fármaco dado). Incluye las excepciones clásicas (embarazo, alergia, microorganismo resistente) en dificultad alta. Todas las opciones son del mismo tipo (todos fármacos o todas intervenciones).`,
+    adverse: `EFECTOS ADVERSOS. Cada pregunta pide el efecto adverso, la toxicidad, la contraindicación, la advertencia de recuadro negro o la interacción clave característicos de un agente (o qué agente causa un efecto dado). Incluye la prueba de monitorización o el antídoto cuando sea de alto rendimiento. Todas las opciones son del mismo tipo (todos efectos adversos o todos agentes).`,
+    deficiency: `DEFICIENCIA A ENFERMEDAD. Cada pregunta une una enzima, gen, proteína, receptor, vitamina o mineral defectuoso con su enfermedad, su patrón de herencia, el producto que se acumula o falta, o su rasgo distintivo (o en sentido inverso). Nombra el defecto en "vignette" y pide el único dato relacionado en "stem". Todas las opciones son del mismo tipo de respuesta.`,
+    findings: `HALLAZGOS CLÁSICOS. Cada pregunta une una enfermedad con su hallazgo patognomónico o clásico: histología, anatomía patológica, valor o patrón de laboratorio, signo de imagen, signo físico, o el rasgo epónimo o "buzzword" (o a la inversa: se nombra el hallazgo y se pide la enfermedad). Sin caso de paciente. Todas las opciones son del mismo tipo (todos hallazgos o todas enfermedades).`,
+    association: `ASOCIACIONES. Cada pregunta pide una asociación de alto rendimiento: una enfermedad con su microorganismo causal, gen, factor de riesgo, cáncer asociado o complicación, un síndrome con sus rasgos componentes, o una lesión con la estructura que afecta. Pide exactamente un vínculo en "stem". Todas las opciones son del mismo tipo de respuesta.`,
+    anatomy: `ANATOMÍA Y FISIOLOGÍA. Cada pregunta evalúa un dato de estructura o función normal: irrigación o inervación, acción de un músculo, origen embriológico, un punto de referencia o relación, un valor normal o respuesta fisiológica, o lo que hace una hormona o un reflejo. Sin enfermedad ni caso de paciente. Todas las opciones son del mismo tipo (todas estructuras o todos valores).`,
+    microbe: `RASGOS DE MICROBIOLOGÍA. Cada pregunta pide un rasgo identificador de un microorganismo: tinción de Gram y morfología, factor de virulencia o toxina y lo que hace, mecanismo de transmisión o vector, reservorio, característica de cultivo o laboratorio, o la enfermedad que causa clásicamente. Nombra el microorganismo en "vignette" (o da el rasgo y pide el microorganismo). Todas las opciones son del mismo tipo de respuesta.`,
+  },
+};
+const BASIC_MIXED_NOTE = {
+  en: "Recall types: MIXED. Spread the block across these types and never ask the same type more than twice in a row: mechanism of action or drug class; drug of choice; adverse effects; deficiency to disease; classic findings; associations; anatomy and physiology; microbiology features. All options within one question must be the same kind of answer.",
+  es: "Tipos de recuerdo: MIXTO. Reparte el bloque entre estos tipos y nunca pidas el mismo tipo más de dos veces seguidas: mecanismo de acción o clase de fármaco; fármaco de elección; efectos adversos; deficiencia a enfermedad; hallazgos clásicos; asociaciones; anatomía y fisiología; rasgos de microbiología. Todas las opciones de una misma pregunta deben ser del mismo tipo de respuesta.",
+};
+function basicFormatNote(lang, format) {
+  const l = lang === "es" ? "es" : "en";
+  const body = format === "mixed" || !BASIC_FORMAT_NOTE[l][format] ? BASIC_MIXED_NOTE[l] : (l === "es" ? "Formato de recuerdo: " : "Recall format: ") + BASIC_FORMAT_NOTE[l][format] +
+    (l === "es" ? " Todas las preguntas de este bloque usan este mismo formato, y cada variante conserva ese formato." : " Every question in this block uses this same format, and each variant keeps the same format.");
+  return body;
+}
+
+// Basic difficulty = how deep the recall goes and how close the distractors are (never case complexity).
+const BASIC_PROFILES = {
+  en: {
+    easy: { q: "1 plain sentence naming one classic, well-known fact", step: "direct recall of a single fact", options: "3-4 options (A-D at most) with distinct, non-overlapping distractors", phrases: "1" },
+    medium: { q: "1-2 plain sentences", step: "recall plus one link (e.g. drug to class to mechanism)", options: "5 options (A-E) with plausible distractors from the same category", phrases: "1-2" },
+    hard: { q: "1-2 plain sentences naming a less common agent or entity, or an exception", step: "recall of a specific, often-confused detail that needs a subtle discriminator", options: "5 options (A-E) with closely related distractors from the same category", phrases: "1-2" },
+  },
+  es: {
+    easy: { q: "1 oración sencilla que nombre un dato clásico y muy conocido", step: "recuerdo directo de un solo dato", options: "3 a 4 opciones (como máximo A-D) con distractores distintos que no se solapen", phrases: "1" },
+    medium: { q: "1 a 2 oraciones sencillas", step: "recuerdo más un vínculo (p. ej., fármaco a clase a mecanismo)", options: "5 opciones (A-E) con distractores verosímiles de la misma categoría", phrases: "1-2" },
+    hard: { q: "1 a 2 oraciones sencillas que nombren un agente o entidad poco común, o una excepción", step: "recuerdo de un detalle específico y a menudo confundido que exige un discriminador sutil", options: "5 opciones (A-E) con distractores muy cercanos de la misma categoría", phrases: "1-2" },
+  },
+};
+function buildBasicDifficulty(size, difficulty, lang) {
+  const es = lang === "es";
+  const P = RECIPE_PROFILES[es ? "es" : "en"];
+  const B = BASIC_PROFILES[es ? "es" : "en"];
+  const tierLine = (id) => es
+    ? `Pregunta: ${B[id].q}. Paso cognitivo: ${B[id].step}. Opciones: ${B[id].options}, exactamente 1 correcta.`
+    : `Question: ${B[id].q}. Cognitive step: ${B[id].step}. Options: ${B[id].options}, exactly 1 correct.`;
+  const pair = (id) => `difficultyLabel "${TIER_LABEL[id]}" ${es ? "con" : "with"} difficultyRating ${P.ratings[id]}`;
+  if (difficulty === "easy" || difficulty === "medium" || difficulty === "hard") {
+    const id = difficulty;
+    return { text: `${es ? "Dificultad" : "Difficulty"}: ${P.names[id]}. ${es ? "En todas las preguntas usa" : "On every question use"} ${pair(id)}.\n${tierLine(id)}`, phrases: B[id].phrases };
+  }
+  const counts = mixedCounts(size);
+  const tiers = ["easy", "medium", "hard"].filter((id) => counts[id] > 0);
+  const countList = tiers.map((id) => `${counts[id]} ${P.names[id]}`).join(", ");
+  const head = es
+    ? `Dificultad: Mixta — exactamente ${countList}, intercaladas en orden aleatorio (nunca agrupadas por dificultad). Construye cada pregunta según su nivel y etiquétala: ${tiers.map(pair).join("; ")}.`
+    : `Difficulty: Mixed — exactly ${countList}, interleaved in random order (never grouped by difficulty). Build each question to its tier and label it: ${tiers.map(pair).join("; ")}.`;
+  return { text: `${head}\n${tiers.map((id) => `- ${P.names[id]}: ${tierLine(id)}`).join("\n")}`, phrases: tiers.length === 1 ? B[tiers[0]].phrases : "1-2" };
+}
+
+// The dedicated Basic prompt: a different body from the vignette prompt (not the vignette prompt with a note stuck on the end).
+function buildBasicRecipe({ size, focusMode, focusValue, lang, difficulty = "mixed", basicFormat = "mixed" }) {
+  const es = lang === "es";
+  const baseName = es
+    ? (focusMode === "systems" && focusValue ? `Bloque de sistema ${focusValue}` : focusMode === "discipline" && focusValue ? `Bloque de ${focusValue}` : "Bloque mixto")
+    : (focusMode === "systems" && focusValue ? `${focusValue} System Block` : focusMode === "discipline" && focusValue ? `${focusValue} Block` : "Mixed Block");
+  const blockName = difficulty === "mixed" ? baseName : `${baseName} (${RECIPE_PROFILES[es ? "es" : "en"].names[difficulty]})`;
+  const timeLimit = recipeTimeLimit(size, "easy"); // basic recall questions get the faster 1 min/question clock
+  const diff = buildBasicDifficulty(size, difficulty, lang);
+  const fmt = basicFormatNote(lang, basicFormat);
+  if (es) {
+    const focusLine = focusMode === "systems" ? `Todas las preguntas de un solo sistema — ${focusValue || "[SISTEMA]"}. Varía la disciplina evaluada.`
+      : focusMode === "discipline" ? `Todas las preguntas de una sola disciplina — ${focusValue || "[DISCIPLINA]"}. Varía el sistema evaluado.`
+      : "Mezcla sistemas/disciplinas como un bloque real de USMLE: cobertura amplia, sin repetir el mismo sistema en preguntas consecutivas, con énfasis proporcional en los sistemas de alto rendimiento.";
+    return `Genera ${size} preguntas BÁSICAS de recuerdo directo estilo USMLE (SIN viñetas clínicas) como ÚNICAMENTE JSON válido (sin markdown ni comentarios), con este esquema (los nombres de los campos van en inglés, exactamente como se muestran):
+${PROMPT_SCHEMA_TEXT}
+
+Escribe TODO el contenido (preguntas, opciones, explicaciones, pistas, etc.) en español.
+Bloque: "${blockName}", timeLimitMinutes ${timeLimit}.
+${diff.text}
+Estilo de pregunta: BÁSICO. Cada pregunta evalúa UN solo dato o concepto de forma directa. NO escribas un caso de paciente, historia, examen, signos vitales ni laboratorios. Pon la pregunta completa en "vignette" como oración(es) sencilla(s) (extensión según el nivel de dificultad) y usa "stem" para la línea corta de la pregunta (p. ej. "¿Cuál de los siguientes es el mecanismo de acción?"); nunca repitas la misma oración en ambos.
+${fmt}
+keyInfoPhrases: extrae ${diff.phrases} subcadena(s) EXACTA(S) de "vignette" que nombren el/los término(s) clave, para el resaltado inteligente.
+attendingTip: ancla de memoria en 1-2 oraciones, como la de un médico adjunto docente (regla mnemotécnica, lógica o asociación clásica) que ayude a dominar el dato.
+explanation: 2-4 oraciones que expliquen por qué la opción correcta es la correcta.
+keyLearningPoint: conclusión de alto rendimiento en 1 oración.
+distractorAnalysis: 1 oración concisa por opción incorrecta que explique por qué es incorrecta y de qué es realmente cierta.
+hint: 1 oración corta que señale la categoría o la lógica sin revelar la respuesta.
+educationalObjective: 1 oración que nombre el dato evaluado.
+sourceReferences: 1-3 fuentes reales (First Aid, BRS, Pathoma, etc.) — sourceTitle, chapterSection, pageNumber (omítelo si no estás seguro), relevance.
+variants: EXACTAMENTE 2 por pregunta, como arreglo [variante1, variante2], para repetición espaciada. Todo lo anterior es la versión PRIMARIA; cada variante vuelve a preguntar el MISMO dato (el mismo educationalObjective) desde otro ángulo, con redacción nueva, para que no se pueda acertar recordando la redacción ni la posición de la respuesta:
+- Sin pacientes. Cambia el ángulo (p. ej. la primaria pide el fármaco, la variante 1 su mecanismo, la variante 2 su efecto adverso) sin añadir un tema nuevo.
+- Escribe un conjunto nuevo de opciones (distractores nuevos, no solo reordenados) con el mismo número de opciones que la primaria, y coloca correctAnswer en una letra distinta en cada una de las tres versiones.
+- Mismo nivel de dificultad que la primaria. Una variante nunca debe mencionar ni hacer referencia a la primaria ni a la otra variante.
+- Cada variante tiene lo suyo: vignette, keyInfoPhrases (subcadenas exactas de la viñeta DE ESA variante), stem, options, correctAnswer, attendingTip, explanation, keyLearningPoint, distractorAnalysis, hint. NO incluyas id, subject, dificultad, educationalObjective ni sourceReferences dentro de una variante (se heredan de la pregunta).
+subject: sistema/disciplina específica. Cada id único. difficultyRating: entero de 1 a 5, acorde con el nivel de dificultad indicado. difficultyLabel: exactamente "Easy", "Medium" o "Hard" (en inglés), coherente con difficultyRating. Distribuye correctAnswer de forma uniforme entre las letras de opción usadas (nunca la misma letra más de dos veces seguidas).
+Enfoque: ${focusLine}`;
+  }
+  const focusLine = focusMode === "systems" ? `All questions from one organ system — ${focusValue || "[SYSTEM]"}. Vary discipline tested (anatomy/physio/path/pharm/micro).`
+    : focusMode === "discipline" ? `All questions from one discipline — ${focusValue || "[DISCIPLINE]"}. Vary organ system tested.`
+    : "Mix systems/disciplines like a real USMLE block: broad coverage, no back-to-back repeats of the same system, proportional emphasis on high-yield systems (cardio, GI, renal, endocrine, neuro, repro, MSK, heme/onc, psych, resp).";
+  return `Generate ${size} USMLE-style BASIC recall questions (direct recall, NO clinical vignettes) as ONLY valid JSON (no markdown, no commentary), matching this schema:
+${PROMPT_SCHEMA_TEXT}
+
+Block: "${blockName}", timeLimitMinutes ${timeLimit}.
+${diff.text}
+Question style: BASIC. Each question tests exactly ONE fact or concept directly. Do NOT write a patient case, history, exam, vitals or labs. Put the complete question in "vignette" as plain sentence(s) (length per difficulty tier) and use "stem" for the short question line (e.g. "Which of the following is the mechanism of action?"); never repeat the same sentence in both.
+${fmt}
+keyInfoPhrases: Extract ${diff.phrases} EXACT substring(s) of "vignette" naming the key term(s), for smart-highlighting.
+attendingTip: 1-2 sentence memory anchor from a teaching attending (mnemonic, logic or classic association) that helps the student own the fact.
+explanation: 2-4 sentences on why the correct option is right.
+keyLearningPoint: 1 sentence high-yield takeaway.
+distractorAnalysis: 1 concise sentence per wrong option on why it is wrong and what it is actually true of.
+hint: 1 short sentence pointing at the category or logic without revealing the answer.
+educationalObjective: 1 sentence naming the fact being tested.
+sourceReferences: 1-3 real sources (First Aid, BRS, Pathoma, etc.) — sourceTitle, chapterSection, pageNumber (omit if unsure), relevance.
+variants: EXACTLY 2 per question, as an array [variant1, variant2], for spaced repetition. Everything above is the PRIMARY version; each variant re-asks the SAME fact (the same educationalObjective) from a different angle with new wording, so it cannot be passed by recalling the primary's wording or answer position:
+- No patients. Change the angle (e.g. primary asks the drug, variant 1 its mechanism, variant 2 its adverse effect) without adding a new topic.
+- Write a new option set (new distractors, not just a reorder) with the same number of options as the primary, and put correctAnswer on a different letter in each of the three versions.
+- Same difficulty tier as the primary. A variant must never mention or refer to the primary or the other variant.
+- Each variant has its own: vignette, keyInfoPhrases (exact substrings of THAT variant's vignette), stem, options, correctAnswer, attendingTip, explanation, keyLearningPoint, distractorAnalysis, hint. Do NOT put id, subject, difficulty, educationalObjective or sourceReferences inside a variant (they are inherited from the question).
+subject: specific system/discipline. Every id unique. difficultyRating: integer 1 to 5, matching the difficulty tier above. difficultyLabel: exactly "Easy", "Medium" or "Hard", consistent with difficultyRating. Spread correctAnswer evenly across the option letters used (never the same letter more than twice in a row).
+Focus: ${focusLine}`;
+}
+
+function buildQuestionRecipe({ size, focusMode, focusValue, lang, difficulty = "mixed", style = "vignette", basicFormat = "mixed" }) {
+  if (style === "basic") return buildBasicRecipe({ size, focusMode, focusValue, lang, difficulty, basicFormat });
+  if (lang === "es") return buildQuestionRecipeEs({ size, focusMode, focusValue, difficulty, style });
   const baseName =
     focusMode === "systems" && focusValue ? `${focusValue} System Block`
     : focusMode === "discipline" && focusValue ? `${focusValue} Block`
     : "Mixed Block";
   const blockName = difficulty === "mixed" ? baseName : `${baseName} (${RECIPE_PROFILES.en.names[difficulty]})`;
-  const timeLimit = recipeTimeLimit(size, difficulty);
+  const timeLimit = recipeTimeLimit(size, difficulty); // basic recall questions get the faster 1 min/question clock
   const diff = buildDifficultySection(size, difficulty, "en");
 
   let focusLine;
@@ -1827,7 +1968,7 @@ function validateExamData(raw, t) {
   return { valid: true, data, warnings, stats: { questions: total, skipped: skipped.length } };
 }
 
-function buildQuestionRecipeEs({ size, focusMode, focusValue, difficulty = "mixed" }) {
+function buildQuestionRecipeEs({ size, focusMode, focusValue, difficulty = "mixed", style = "vignette" }) {
   const baseName =
     focusMode === "systems" && focusValue ? `Bloque de sistema ${focusValue}`
     : focusMode === "discipline" && focusValue ? `Bloque de ${focusValue}`
@@ -1938,8 +2079,6 @@ function makeInitialBlockState(block) {
     score: null,
     currentQuestionIndex: 0, // persisted so a refresh resumes on the same question
     highlights: {}, // qId -> { field -> [{ id, start, end }] } — persisted with the block
-    hybrid: null, // Hybrid (Tutor only): { caseId, result, opened } written when a paired block is finished; Timed blocks never carry one
-    pairedCaseId: null, // Hybrid: id of the clinical case paired with this block, decided once when the block starts (null = no pair)
   };
 }
 
@@ -2101,7 +2240,7 @@ const LS_SESSION = "activeSession";
 const LS_LIBRARY = "qbankLibrary";
 const LS_HISTVIEW = "owordHistoryView"; // { view: "grid" | "list", sort: "az" | "za" | "added" | "modified" }: how the Analysis page lists past sessions (this device only)
 const LS_DECKS = "owordDecks"; // [{ id, name, color, createdAt, updatedAt, kind?: "course" | "test" | "deck", parentId?, order? }]: the organization tree (Course > Test > Deck) as one flat list, so it syncs, renames and deletes like decks do. A missing kind means a deck. The deck list (so empty decks exist). Synced to Drive in the sync file (decks + deleted.decks). Which deck a Qbank is in is saved on the Qbank itself (entry.deck).
-const LS_LIBTYPE = "owordLibraryType"; // { type: "all" | "qbank" | "clinical" }: which kind of content the unified Library shows (this device only)
+const LS_LIBTYPE = "owordLibraryType"; // { type: "all" | "qbank" }: whether the Library shows the Qbank cards or the Import / recipe page (this device only)
 const LS_ALLVIEW = "owordAllView"; // { view: "grid" | "list", sort: "az" | "za" | "added" | "modified" }: how the All page is shown (this device only)
 const LS_LIBVIEW = "owordLibraryView"; // { view: "grid" | "list", sort: "az" | "za" | "added" | "modified" }: how the Qbank Library is shown (this device only)
 const LS_TUTOR_HIDE = "owordTutorHidden"; // { [qbankId]: hiddenAt }: Qbanks the student told the tutor card not to suggest (this device only)
@@ -2141,7 +2280,6 @@ const NOTEBOOKS = {
   ],
 };
 
-const SEMIOLOGY_NB = NOTEBOOKS.groups.find((g) => g.key === "nbClinical").items[0]; // also linked from the Clinical import card
 
 const LS_PREFS = "oworldPrefs";
 const LS_HISTORY = "sessionHistory";
@@ -2883,106 +3021,15 @@ function blockSignature(title, questions) {
     return `${q.vignette}\u0002${q.stem}\u0002${right ? right.text : q.correctAnswer}`;
   }).join("\u0003"));
 }
-function makeLibraryEntry(block, caseId) {
+function makeLibraryEntry(block) {
   return {
     id: `qb_${Date.now().toString(36)}_${Math.random().toString(36).slice(2, 8)}`,
-    caseId: caseId || block.caseId || newCaseId(), // the shared anchor: a clinical case saved with the same caseId is linked to this block
     title: block.blockName,
     importDate: Date.now(),
     questions: block.questions,
     lastScore: null, // { correct, total, pct, date } — the BEST first-pass attempt of this block (set when one is submitted)
     timeLimitMinutes: typeof block.timeLimitMinutes === "number" ? block.timeLimitMinutes : null,
   };
-}
-
-// ---------------------------------------------------------------------------
-// Unified case anchor: every Qbank block and every Clinical case carries a `caseId`. A Crossover is one caseId that holds
-// BOTH a clinical case and its Qbank block(s). Items saved before this existed have none, so they get a stable, derived one
-// (`case_<id>`): the same on every device, never colliding with another item, and nothing needs migrating or syncing.
-// ---------------------------------------------------------------------------
-const newCaseId = () => `case_${Date.now().toString(36)}${Math.random().toString(36).slice(2, 7)}`;
-const caseIdOf = (e) => (e && (e.caseId || (e.id != null ? `case_${e.id}` : null))) || null;
-// A case's most recent completion marks. completedMarks is an array, oldest first; cases saved before that held one bare object.
-// The "take the last" rule lives here and nowhere else.
-function latestMarks(sc) {
-  const m = sc && sc.completedMarks;
-  return Array.isArray(m) ? (m.length ? m[m.length - 1] : null) : m || null;
-}
-// caseId -> { caseId, qbanks: [library entries], cases: [clinical cases] }
-function buildCaseIndex(library, clinicalItems) {
-  const m = new Map();
-  const slot = (id) => { if (!m.has(id)) m.set(id, { caseId: id, qbanks: [], cases: [] }); return m.get(id); };
-  for (const e of library || []) { const id = caseIdOf(e); if (id) slot(id).qbanks.push(e); }
-  for (const c of clinicalItems || []) { const id = caseIdOf(c); if (id) slot(id).cases.push(c); }
-  return m;
-}
-const caseKind = (g) => (g.qbanks.length && g.cases.length ? "crossover" : g.cases.length ? "clinical" : "qbank");
-
-// A hybrid file stamped with any version other than 1 was made by a build this one doesn't understand: reject it, don't guess.
-function isBadHybridVersion(o) {
-  return !!o && typeof o === "object" && !Array.isArray(o) && o.type === "oworld-hybrid" && o.v !== 1;
-}
-
-// What did the AI (or a shared file) hand the Universal Importer?  qbank | clinical | clinical-list | clinical-bundle | crossover | unknown
-// A rejected-version hybrid comes back as { kind: "unknown", badVersion: true } so callers can show the uniBadVersion message
-// instead of falling through to the plain Qbank loader (which would find the nested qbank and quietly import half the file).
-function detectUniporterKind(raw) {
-  const p = tolerantParseJson(String(raw || ""));
-  if (!p.ok) return { kind: "unknown" };
-  const v = p.value;
-  const isObj = (x) => !!x && typeof x === "object" && !Array.isArray(x);
-  if (isBadHybridVersion(v)) return { kind: "unknown", badVersion: true };
-  const looksClinical = (o) => isObj(o) && !!(o.complaint || o.chiefComplaint) && !!(o.script || o.exam || o.examination || o.vitals || o.key || o.hpi);
-  if (isObj(v) && v.type === CLINICAL_SHARE_TYPE && Array.isArray(v.items)) return { kind: "clinical-bundle", items: v.items };
-  if (isObj(v)) {
-    const cs = v.case || v.clinicalCase || v.clinical || v.clinical_case;
-    const qb = v.qbank || v.qBank || v.Qbank || v.questionBank;
-    if (looksClinical(cs) && qb && typeof qb === "object") return { kind: "crossover", cs, qb };
-    if (looksClinical(v)) return { kind: "clinical", cs: v };
-  }
-  if (Array.isArray(v) && v.length && v.every(looksClinical)) return { kind: "clinical-list", items: v };
-  if (locateBlocks(v)) return { kind: "qbank" };
-  return { kind: "unknown" };
-}
-
-// The Crossover recipe: ONE prompt that asks for a clinical case and a Qbank block about the same patient, in one JSON object.
-function buildCrossoverRecipe({ spec, size, lang }) {
-  const es = lang === "es";
-  const sys = [...OSCE_SYSTEMS, ...OSCE_SYSTEMS_MORE].find((x) => x.id === spec.system);
-  const complaint = (spec.complaint || "").trim() || (es ? "(elige un motivo de consulta)" : "(choose a chief complaint)");
-  // The case's own topics, offered to the AI as Qbank `subject` values. Only real choices: "any" and the empty-complaint placeholder are left out.
-  const topics = [(spec.complaint || "").trim(), spec.specialty === "any" ? "" : spec.specialty, sys ? sys.label : ""].filter(Boolean);
-  const topicList = (dxPhrase) => (topics.length ? `${topics.join(", ")}${es ? " o " : ", or "}${dxPhrase}` : dxPhrase); // the diagnosis is the AI's to write, so it is named by its key rather than its value
-  const clinical = compileOscePrompt(spec, lang);
-  const qbank = buildQuestionRecipe({ size, focusMode: sys ? "systems" : "standard", focusValue: sys ? sys.label : "", lang, difficulty: { easy: "easy", moderate: "medium", hard: "hard" }[spec.difficulty] || "mixed" });
-  if (es) return [
-    "RECETA CROSSOVER — un caso clínico más un bloque de Qbank vinculado", "",
-    "Devuelve UN solo objeto JSON y nada más (sin comentarios ni bloque de código), con exactamente dos claves:",
-    '{ "case": { ...el objeto del caso clínico descrito en la PARTE A }, "qbank": { ...el objeto de Qbank descrito en la PARTE B } }', "",
-    "Reglas para el par:",
-    "- Ambas partes describen el mismo paciente, diagnóstico y puntos de enseñanza.",
-    "- Las preguntas de Qbank evalúan el razonamiento que necesita este caso (mecanismo, mejor siguiente paso diagnóstico, manejo, complicaciones, farmacología). No deben copiar el guion del caso palabra por palabra.",
-    "- No inventes un caseId; la app vincula las dos partes por sí misma.",
-    "- Si la PARTE A y la PARTE B difieren sobre el formato de salida, sigue cada una dentro de su propia clave.", "",
-    "PARTE A — Caso clínico (clave \"case\"):", clinical, "",
-    `PARTE B — Qbank (clave "qbank"), ${size} preguntas ancladas en: ${complaint}:`,
-    `Asigna a \`subject\` de cada pregunta uno de estos temas del caso cuando corresponda: ${topicList("el diagnóstico principal del caso (key.diagnosis)")}. La app vincula el Qbank con el caso comparando \`subject\`.`,
-    qbank,
-  ].join("\n");
-  return [
-    "CROSSOVER RECIPE — one clinical case plus one linked Qbank block", "",
-    "Return ONE JSON object and nothing else (no commentary, no code fence), with exactly two keys:",
-    '{ "case": { ...the clinical case object described in PART A }, "qbank": { ...the Qbank object described in PART B } }', "",
-    "Rules for the pair:",
-    "- Both parts describe the same patient, diagnosis and teaching points.",
-    "- The Qbank questions test the reasoning this case needs (mechanism, next best step in diagnosis, management, complications, pharmacology). They must not copy the case script word for word.",
-    "- Do not invent a caseId; the app links the two parts itself.",
-    "- Where PART A and PART B disagree about the output format, follow each part inside its own key.", "",
-    "PART A — Clinical case (key \"case\"):", clinical, "",
-    `PART B — Qbank (key "qbank"), ${size} questions anchored on: ${complaint}:`,
-    `Set every question's \`subject\` to one of these case topics where it fits: ${topicList("the case's primary diagnosis (key.diagnosis)")}. The app matches on \`subject\` to link the Qbank to the case.`,
-    qbank,
-  ].join("\n");
 }
 
 // Lets any Settings menu reach the app-level "wipe local data" action without prop-drilling.
@@ -5973,132 +6020,6 @@ function useDatabaseSync({ drive, database }) {
   return { available: !!(configured && linked), status, lastSync, syncNow: () => run({ interactive: true }) };
 }
 
-// ---- Clinical Case Library store + Google Drive sync (same pattern as the Personal Database; its own Drive file) ----
-const LS_CLINICAL = "owordClinicalCases";            // [{ ...case, savedAt, updatedAt, source: "template" | "ai" }]: the Clinical Case Library
-const LS_CLINICAL_TOMBS = "owordClinicalTombs";      // { caseId: deletedAt } so a deletion on one device isn't undone by another device's copy
-const LS_CLINICAL_FILE = "owordClinicalFile";        // { fileId, lastSync } of the Drive file below
-const CLINICAL_FILE_NAME = "oword_clinical_cases.json";
-const CLINICAL_SHARE_TYPE = "oworld-clinical-cases";
-const CLINICAL_MAX = 300;
-const validClinicalCase = (c) => !!c && c.id != null && typeof c.complaint === "string" && Array.isArray(c.hpi) && Array.isArray(c.exam) && Array.isArray(c.vitals);
-const normClinical = (c) => (typeof c.id === "string" ? c : { ...c, id: String(c.id) });
-const clinicalStamp = (c) => c.updatedAt || c.savedAt || 0;
-function loadClinicalCases() {
-  const a = lsGet(LS_CLINICAL);
-  return Array.isArray(a) ? a.filter(validClinicalCase).map(normClinical).slice(0, CLINICAL_MAX) : [];
-}
-const ClinicalContext = createContext({ items: [], save: () => {}, remove: () => {}, wipe: () => {}, applyMerged: () => {}, sync: { available: false, status: "idle", lastSync: 0, syncNow: () => {} } });
-// Union by id (the newer edit wins); only an explicit delete (tombstone) removes anything.
-function mergeClinical(local, remote) {
-  const r = remote && typeof remote === "object" ? remote : {};
-  const dead = unionDbTombs(local.deleted, r.deleted);
-  const map = new Map();
-  for (const raw of [...(local.items || []), ...(Array.isArray(r.items) ? r.items : [])]) {
-    if (!validClinicalCase(raw)) continue;
-    const c = normClinical(raw);
-    if (isBuried(dead[c.id], c)) continue;
-    const prev = map.get(c.id);
-    if (!prev || clinicalStamp(c) > clinicalStamp(prev)) map.set(c.id, c);
-  }
-  const items = [...map.values()].sort((a, b) => (b.savedAt || 0) - (a.savedAt || 0) || (a.id < b.id ? -1 : 1)).slice(0, CLINICAL_MAX);
-  return { items, deleted: dead };
-}
-const clinicalCore = (m) => hashStr(JSON.stringify({ i: m.items, d: Object.keys(m.deleted).sort().map((k) => [k, m.deleted[k]]) }));
-
-function useClinicalCases() {
-  const [items, setItems] = useState(loadClinicalCases);
-  const [tombs, setTombs] = useState(() => { const v = lsGet(LS_CLINICAL_TOMBS); return v && typeof v === "object" ? unionDbTombs(v, {}) : {}; });
-  const itemsRef = useRef(items); const tombsRef = useRef(tombs);
-  useEffect(() => { lsSet(LS_CLINICAL, JSON.stringify(items)); }, [items]);
-  useEffect(() => { lsSet(LS_CLINICAL_TOMBS, JSON.stringify(tombs)); }, [tombs]);
-  const commit = (next) => { itemsRef.current = next; setItems(next); };
-  const save = useCallback((sc) => {
-    const now = Date.now(); const id = String(sc.id);
-    const prior = itemsRef.current.find((c) => c.id === id);
-    const rec = { ...sc, id, caseId: sc.caseId || (prior && prior.caseId) || caseIdOf({ id }), savedAt: prior ? prior.savedAt : now, updatedAt: now, restoredAt: undefined };
-    commit([rec, ...itemsRef.current.filter((c) => c.id !== id)].slice(0, CLINICAL_MAX));
-  }, []);
-  const remove = useCallback((id) => {
-    const key = String(id); const next = { ...tombsRef.current, [key]: Date.now() };
-    tombsRef.current = next; setTombs(next);
-    commit(itemsRef.current.filter((c) => c.id !== key));
-  }, []);
-  // Local wipe ("Reset all data"): no tombstones, so Drive keeps its copy and reconnecting restores it.
-  const wipe = useCallback(() => { itemsRef.current = []; tombsRef.current = {}; setItems([]); setTombs({}); lsRemove(LS_CLINICAL); lsRemove(LS_CLINICAL_TOMBS); lsRemove(LS_CLINICAL_FILE); }, []);
-  // Result of a Drive merge. Only touches state when something changed (avoids a sync loop).
-  const applyMerged = useCallback((m) => {
-    if (clinicalCore(m) === clinicalCore({ items: itemsRef.current, deleted: tombsRef.current })) return;
-    itemsRef.current = m.items; tombsRef.current = m.deleted; setItems(m.items); setTombs(m.deleted);
-  }, []);
-  return { items, tombs, save, remove, wipe, applyMerged };
-}
-
-function useClinicalSync({ drive, store }) {
-  const { configured, linked, acquireToken, peekToken } = drive;
-  const latest = useRef({}); latest.current = { items: store.items, tombs: store.tombs, applyMerged: store.applyMerged };
-  const fileRef = useRef((lsGet(LS_CLINICAL_FILE) || {}).fileId || null);
-  const modRef = useRef(null);
-  const running = useRef(false);
-  const rerun = useRef(false);
-  const linkedRef = useRef(linked); linkedRef.current = linked;
-  const [status, setStatus] = useState("idle"); // idle | busy | done | error
-  const [lastSync, setLastSync] = useState((lsGet(LS_CLINICAL_FILE) || {}).lastSync || 0);
-
-  const run = useCallback(async ({ interactive = false } = {}) => {
-    if (!configured || !linkedRef.current) return;
-    if (running.current) { rerun.current = true; return; }
-    running.current = true; setStatus("busy");
-    try {
-      const token = await acquireToken({ interactive });
-      if (!token) { setStatus("idle"); return; }
-      let fileId = fileRef.current; let remote = null;
-      if (fileId) { try { remote = await driveDownload(token, fileId); } catch (e) { if (e.status === 404) fileId = null; else throw e; } }
-      if (!fileId) { fileId = await driveFindSyncFile(token, CLINICAL_FILE_NAME); if (fileId) remote = await driveDownload(token, fileId); }
-      const cur = latest.current;
-      const merged = mergeClinical({ items: cur.items, deleted: cur.tombs }, remote);
-      cur.applyMerged(merged);
-      const remoteMerged = remote ? mergeClinical({ items: [], deleted: {} }, remote) : null;
-      if (!fileId || !remoteMerged || clinicalCore(merged) !== clinicalCore(remoteMerged)) {
-        const payload = JSON.stringify({ v: 1, app: "oworld", type: CLINICAL_SHARE_TYPE, updatedAt: Date.now(), items: merged.items, deleted: merged.deleted });
-        fileId = await driveUpload(token, fileId, payload, CLINICAL_FILE_NAME);
-      }
-      fileRef.current = fileId;
-      try { modRef.current = await driveModified(token, fileId); } catch (e) { /* polling just does a full sync next time */ }
-      const now = Date.now();
-      lsSet(LS_CLINICAL_FILE, JSON.stringify({ fileId, lastSync: now }));
-      setLastSync(now); setStatus("done");
-    } catch (e) { setStatus("error"); }
-    finally { running.current = false; if (rerun.current) { rerun.current = false; setTimeout(() => run(), 0); } }
-  }, [configured, acquireToken]);
-
-  // After the library sync succeeds (first sign-in, reconnect, app start) the token is ready: sync the cases too.
-  useEffect(() => { if (configured && linked && drive.status === "done") run(); }, [configured, linked, drive.status]); // eslint-disable-line
-  useEffect(() => { if (!linked) { fileRef.current = null; modRef.current = null; lsRemove(LS_CLINICAL_FILE); setStatus("idle"); setLastSync(0); } }, [linked]);
-  // Local changes (debounced so a burst becomes one sync).
-  const first = useRef(true);
-  useEffect(() => {
-    if (first.current) { first.current = false; return undefined; }
-    if (!linked) return undefined;
-    const id = setTimeout(() => run(), 3000);
-    return () => clearTimeout(id);
-  }, [store.items, store.tombs, linked, run]);
-  // Another device's changes: a cheap metadata check every 45 s and when the tab returns to the foreground.
-  const poll = useCallback(async () => {
-    const tk = peekToken();
-    if (!configured || !linkedRef.current || running.current || !fileRef.current || !tk) return;
-    try { const mod = await driveModified(tk, fileRef.current); if (mod && modRef.current && mod !== modRef.current) run(); } catch (e) { /* ignore */ }
-  }, [configured, peekToken, run]);
-  useEffect(() => {
-    if (!configured) return undefined;
-    const onVis = () => { if (document.visibilityState === "visible") poll(); };
-    const id = setInterval(() => { if (document.visibilityState === "visible") poll(); }, 45000);
-    document.addEventListener("visibilitychange", onVis);
-    return () => { clearInterval(id); document.removeEventListener("visibilitychange", onVis); };
-  }, [configured, poll]);
-
-  return { available: !!(configured && linked), status, lastSync, syncNow: () => run({ interactive: true }) };
-}
-
 // ---- Sharing: a selection goes out as one .json file (share sheet where available, download otherwise) and can be imported from a file.
 function serializeDatabase(list) {
   const items = list.map((n) => ({
@@ -7311,8 +7232,8 @@ const openAccountWindow = () => { try { window.dispatchEvent(new Event(OPEN_ACCO
 
 // Account settings + deletion. The creation date is the day this device first saw the signed-in account.
 const LS_ACCOUNT_CREATED = "owordAccountCreated";
-const ACCOUNT_DATA_KEYS = [LS_DECKS, LS_SESSION, LS_LIBRARY, LS_PREFS, LS_HISTORY, LS_TOMBS, LS_TRASH, LS_CAREER, LS_NOTIFS, LS_SP, LS_BP, LS_DB, LS_DB_TOMBS, LS_CLINICAL, LS_CLINICAL_TOMBS];
-const ACCOUNT_SYNC_KEYS = [LS_SYNC, LS_CAREER_FILE, LS_SP_FILE, LS_SP_LEDGER, LS_BP_FILE, LS_BP_LEDGER, LS_DB_FILE, LS_CLINICAL_FILE, LS_ACTIVE_SYNC, LS_SESSION_FILE, LS_ACCOUNT_CREATED];
+const ACCOUNT_DATA_KEYS = [LS_DECKS, LS_SESSION, LS_LIBRARY, LS_PREFS, LS_HISTORY, LS_TOMBS, LS_TRASH, LS_CAREER, LS_NOTIFS, LS_SP, LS_BP, LS_DB, LS_DB_TOMBS];
+const ACCOUNT_SYNC_KEYS = [LS_SYNC, LS_CAREER_FILE, LS_SP_FILE, LS_SP_LEDGER, LS_BP_FILE, LS_BP_LEDGER, LS_DB_FILE, LS_ACTIVE_SYNC, LS_SESSION_FILE, LS_ACCOUNT_CREATED];
 function accountStoredKeys() {
   return [...ACCOUNT_DATA_KEYS, ...lsKeysWithPrefix(LS_REVIEW)];
 }
@@ -7542,7 +7463,6 @@ const ST_CATS = [
   { id: "qbanks", key: "stQbanks", color: "#2D6CB4" },
   { id: "history", key: "stHistory", color: "#2E7D4F" },
   { id: "database", key: "stDatabase", color: "#7B3FB8" },
-  { id: "clinical", key: "stClinical", color: "#0E8A8A" },
   { id: "profile", key: "stProfile", color: "#D9892B" },
   { id: "trash", key: "stTrash", color: "#B23B35" },
   { id: "other", key: "stOther", color: "#8A949C" },
@@ -7551,7 +7471,6 @@ function stCatOf(k) {
   if (k === "qbankLibrary" || k === "owordDecks" || k === "owordLibraryView") return "qbanks";
   if (k === "sessionHistory" || k.indexOf("sessionReview:") === 0 || k === "activeSession" || k === "owordActiveSync" || k === "owordSessionFile" || k === "owordHistoryView") return "history";
   if (k === "owordDatabase" || k === "owordDbTombs" || k === "owordDbFile") return "database";
-  if (k.indexOf("owordClinical") === 0) return "clinical";
   if (/^(owordStudentProfile|owordBlueprint|owordCareerProfile|owordNotifications|owordNudgeLedger|owordBpNudgeLedger|owordTutor)/.test(k)) return "profile";
   if (k === "owordTrash") return "trash";
   return "other";
@@ -8111,8 +8030,6 @@ const libAddUnique = (list, tag) => {
 function QbankLibraryPanel({ library, onLaunch, onMix, onDelete, onRename, onSetMeta, deckDefs: nodeDefs = [], onDecksChange = () => {}, resumeId, onResume, sessionLog = [], uq = "", onClearSearch = () => {}, T }) {
   const { t, lang } = useI18n();
   const spCtx = useContext(ProfileContext);
-  const clinicalCtx = useContext(ClinicalContext);
-  const caseIdsWithCase = useMemo(() => new Set(clinicalCtx.items.map(caseIdOf)), [clinicalCtx.items]); // a Qbank card is a Hybrid when its caseId matches a saved case
   const tutorBrief_ = useMemo(() => (spCtx.profile ? tutorBrief(spCtx.profile, sessionLog, new Date()) : null), [spCtx.profile, sessionLog, new Date().toDateString()]); // eslint-disable-line
   const tutorIds = useMemo(() => new Set(tutorLibraryPicks(library, tutorBrief_).map((x) => x.e.id)), [library, tutorBrief_]);
   const [queue, setQueue] = useState([]); // entry ids in the order they were ticked
@@ -8740,7 +8657,6 @@ function QbankLibraryPanel({ library, onLaunch, onMix, onDelete, onRename, onSet
               {tutorIds.has(e.id) && <span title={t("spLibStrip", { w: tutorBrief_.week })} aria-label={t("spLibStrip", { w: tutorBrief_.week })} style={{ display: "inline-flex", opacity: 0.7 }}><GraduationCap size={15} color={T.blue} /></span>}
               {pos >= 0 && <Pill T={T} tone="blue">#{pos + 1}</Pill>}
               {resumeId === e.id && <Pill T={T} tone="amber">{t("inProgressTag")}</Pill>}
-              {caseIdsWithCase.has(caseIdOf(e)) && <Pill T={T} tone="purple"><Layers size={11} style={{ marginRight: 4, verticalAlign: "-1px" }} />{t("libHybrid")}</Pill>}
               {ls
                 ? <Pill T={T} tone={ls.pct >= 70 ? "green" : "red"}>{t("libCompleted", { pct: ls.pct, c: ls.correct, t: ls.total })}</Pill>
                 : resumeId !== e.id && <Pill T={T} tone="muted">{t("libNoScore")}</Pill>}
@@ -10607,1508 +10523,6 @@ function SessionHistoryPanel({ history, qbankCount = 0, qbankQuestions = 0, onDe
   );
 }
 
-// Menu bar under the logo / account row: the Home pages. Console | Qbank | Analysis | Schedule | Database.
-// ---------------------------------------------------------------------------
-// Clinical page: OSCE patient recipe builder (demographics + clinical focus + presenting complaint) -> live prompt preview -> local patient scenario
-// The case content below is teaching-template text kept in English; the interface labels are translated.
-// ---------------------------------------------------------------------------
-const OSCE_AGES = [
-  { id: "pediatric", labelKey: "clAgePed", span: "0–17 years" },
-  { id: "adult", labelKey: "clAgeAdult", span: "18–64 years" },
-  { id: "geriatric", labelKey: "clAgeGeri", span: "65+ years" },
-];
-const OSCE_SPECIALTIES = ["Pediatrics", "Emergency Medicine", "Cardiology", "Neurology", "Pulmonology", "Gastroenterology", "Endocrinology", "Psychiatry", "Internal Medicine", "Obstetrics & Gynecology"];
-const OSCE_SYSTEMS = [
-  { id: "nervous", label: "Nervous System" }, { id: "respiratory", label: "Respiratory" }, { id: "cardiovascular", label: "Cardiovascular" },
-  { id: "gastrointestinal", label: "Gastrointestinal" }, { id: "endocrine", label: "Endocrine" }, { id: "mental", label: "Psychiatric / Behavioral" },
-  { id: "immune", label: "Immune / Infectious" },
-];
-// Extra body systems, shown behind "View more" in the case builder. (Behavioral Health, Cardiovascular, Endocrine, Gastrointestinal,
-// Immune, Nervous System & Special Senses and Respiratory are already covered by the chips above.)
-const OSCE_SYSTEMS_MORE = [
-  { id: "blood", label: "Blood & Lymphoreticular System" }, { id: "femalerepro", label: "Female Reproductive & Breast" },
-  { id: "malerepro", label: "Male Reproductive" }, { id: "multisystem", label: "Multisystem Processes & Disorders" },
-  { id: "musculoskeletal", label: "Musculoskeletal System" }, { id: "pregnancy", label: "Pregnancy, Childbirth, & the Puerperium" },
-  { id: "renal", label: "Renal & Urinary System" }, { id: "skin", label: "Skin & Subcutaneous Tissue" },
-];
-const OSCE_COMMON_CHECK = [
-  "Introduces self, confirms the patient's identity and gains consent",
-  "Opens with an open question and lets the patient finish",
-  "Explores the presenting complaint fully (onset, course, severity, associated symptoms)",
-  "Screens past history, medications, allergies, family and social history",
-  "Explores ideas, concerns and expectations",
-  "Performs a focused examination with hand hygiene and explanation",
-  "Summarises, offers a differential and a plan in plain language",
-  "Closes: checks understanding, safety-nets and thanks the patient",
-];
-const OSCE_CASES = [
-  { id: "speech", label: "Speech delay", kw: ["language delay", "not talking", "late talker"], spec: ["Pediatrics", "Neurology"], sys: ["nervous"], v: [
-    { ages: ["pediatric"], age: [2.2, 2.8], informant: "parent", setting: "paediatric outpatient clinic", dx: "Speech and language delay due to conductive hearing loss (otitis media with effusion)",
-      opener: "He only says a few words and I'm worried he's behind. His nursery teacher mentioned it too.",
-      hpi: ["About 10 single words at 30 months and no two-word phrases", "Several ear infections since 12 months; snores, mouth-breathes", "Often does not respond when called from another room; TV is loud", "Points, waves and makes good eye contact; plays with other children", "Walked at 13 months; no regression of skills"],
-      pmh: "Term birth, no neonatal problems; newborn hearing screen not remembered", meds: "None; allergies: none known", bg: "Lives with both parents; one older sibling who spoke normally; no family history of deafness; little screen time",
-      vitals: ["104", "92/56", "24", "36.7", "99%"], exam: [["General and growth", "Weight and height on the 50th centile; head circumference 50th centile; no dysmorphic features"], ["Ears", "Both eardrums dull and retracted with a fluid level; no perforation"], ["Social and play", "Good eye contact, shares attention, pretend play present"], ["Tympanometry", "Flat (type B) trace on both sides"]],
-      ddx: ["Hearing loss (conductive)", "Autism spectrum disorder", "Isolated developmental language disorder"], ix: ["Formal audiology", "Tympanometry", "Developmental screen"], mgmt: ["Refer to audiology and ENT (consider grommets if effusion persists with hearing loss)", "Speech and language therapy", "Reassure and review development"],
-      check: ["Asks about hearing, ear infections and response to name", "Checks milestones across all domains and any regression", "Asks about birth history and family history of hearing loss or language problems", "Tests or requests hearing assessment before labelling a language disorder"] },
-    { ages: ["pediatric"], age: [2.0, 2.6], informant: "parent", setting: "paediatric outpatient clinic", dx: "Autism spectrum disorder presenting with speech delay and loss of language",
-      opener: "She used to say a few words but now hardly speaks, and she doesn't seem to want to play with us.",
-      hpi: ["Had about 6 words at 15 months, lost them by 20 months", "Does not point, wave or show objects; rarely looks at faces", "Lines up toys, spins wheels, distressed by routine changes", "Does not respond to name but startles at loud noises", "Walked at 12 months"],
-      pmh: "Term birth, uncomplicated; no seizures", meds: "None; allergies: none known", bg: "Only child; cousin diagnosed with autism; screen time about 3 hours a day",
-      vitals: ["102", "90/55", "24", "36.6", "99%"], exam: [["General and growth", "Growth normal; head circumference 60th centile; no dysmorphism, no skin lesions"], ["Social behaviour", "Minimal eye contact, no joint attention, lines up cars during the visit"], ["Neurology", "Tone, reflexes and gait normal"], ["Screening tool", "M-CHAT-R/F high risk"]],
-      ddx: ["Autism spectrum disorder", "Hearing loss", "Global developmental delay", "Landau-Kleffner syndrome"], ix: ["Audiology", "M-CHAT-R/F and developmental assessment", "Consider genetic testing (microarray, fragile X)"], mgmt: ["Refer to developmental paediatrics for diagnostic assessment", "Early intervention and speech therapy without waiting for the diagnosis", "Support and information for the family"],
-      check: ["Asks specifically about regression and social communication", "Asks about repetitive behaviours and sensory responses", "Arranges hearing assessment", "Responds to the parent's worry with empathy and a clear next step"] },
-  ] },
-  { id: "chest", label: "Chest pain", kw: ["chest tightness", "angina"], spec: ["Cardiology", "Emergency Medicine", "Pediatrics"], sys: ["cardiovascular"], v: [
-    { ages: ["adult", "geriatric"], age: [54, 72], setting: "emergency department", dx: "Non-ST-elevation acute coronary syndrome",
-      opener: "I've got a heavy pressure in the middle of my chest and it's gone into my left arm.",
-      hpi: ["Started 40 minutes ago while climbing stairs, not settled with rest", "Crushing, 7/10, spreads to left arm and jaw", "Sweaty and nauseated, mildly short of breath", "Similar shorter episodes with exertion over the last 2 weeks"],
-      pmh: "Hypertension, high cholesterol, type 2 diabetes", meds: "Amlodipine, metformin, atorvastatin; allergies: none known", bg: "Smokes 15 cigarettes a day; father died of a heart attack at 58; works as a driver",
-      vitals: ["96", "148/90", "20", "36.8", "96%"], exam: [["General", "Pale, sweaty, in discomfort"], ["Cardiovascular", "Heart sounds normal, no murmur, JVP not raised; calves soft"], ["Chest", "Clear; chest wall not tender"], ["ECG", "ST depression and T-wave inversion in V4-V6"]],
-      ddx: ["Acute coronary syndrome", "Pulmonary embolism", "Aortic dissection", "Pericarditis", "GORD"], ix: ["12-lead ECG within 10 minutes", "Serial high-sensitivity troponin", "Chest X-ray", "Bloods: CBC, renal function, glucose, lipids"], mgmt: ["Aspirin (chewed), analgesia and nitrate if no contraindication", "Oxygen only if SpO2 is low", "Anticoagulation and urgent cardiology review"],
-      check: ["Characterises the pain (site, radiation, character, severity, timing)", "Asks about cardiac risk factors and family history", "Asks for an ECG and troponin promptly", "Recognises that aspirin is the first treatment"] },
-    { ages: ["adult"], sex: "female", age: [25, 38], setting: "emergency department", dx: "Pulmonary embolism (combined oral contraceptive pill, long-haul travel)",
-      opener: "It hurts when I breathe in, and I've been so out of breath since I got home from my flight.",
-      hpi: ["Sharp right-sided pain, worse on deep breath, started yesterday", "Landed from a 9-hour flight 4 days ago", "Left calf swollen and sore for 3 days", "One streak of blood when coughing"],
-      pmh: "Migraine without aura", meds: "Combined oral contraceptive pill; allergies: none known", bg: "Non-smoker, works in an office; mother had a clot in her leg",
-      vitals: ["112", "118/74", "22", "37.4", "94% on air"], exam: [["Cardiovascular", "Tachycardic, regular; loud second heart sound not heard"], ["Chest", "Clear; pleural rub not heard"], ["Legs", "Left calf swollen 3 cm more than the right, tender, pitting oedema"], ["Wells score", "Wells score 6 (high probability)"]],
-      ddx: ["Pulmonary embolism", "Pneumonia", "Pneumothorax", "Pericarditis", "Musculoskeletal pain"], ix: ["Pregnancy test", "CT pulmonary angiogram (Wells high, so no D-dimer)", "ECG, chest X-ray, bloods"], mgmt: ["Start therapeutic anticoagulation straight away", "Oxygen if hypoxic", "Review the contraceptive pill and arrange follow-up"],
-      check: ["Asks about travel, leg symptoms and haemoptysis", "Asks about contraception and clot risk factors", "Uses a pre-test probability score to choose the test", "Starts anticoagulation without waiting for imaging when suspicion is high"] },
-    { ages: ["pediatric"], age: [13, 16], setting: "paediatric clinic", dx: "Costochondritis (musculoskeletal chest pain)",
-      opener: "I have a sharp pain on the left side of my chest. It hurts more when I breathe in deeply.",
-      hpi: ["Three days of sharp pain next to the breastbone, lasting seconds to minutes", "Worse with deep breaths, twisting and lying on the left side", "Started after a heavy weights session at school", "No palpitations, fainting or breathlessness on exercise", "No fever or cough"],
-      pmh: "Healthy; no asthma", meds: "None; allergies: none known", bg: "Plays football; no family history of sudden death or heart conditions; no drugs or vaping",
-      vitals: ["78", "112/66", "16", "36.7", "99%"], exam: [["Chest wall", "Sharp tenderness over the 3rd and 4th left costochondral junctions that reproduces the pain"], ["Heart", "Normal sounds, no murmur"], ["Lungs", "Clear, equal air entry"], ["ECG", "Normal sinus rhythm"]],
-      ddx: ["Costochondritis", "Pneumothorax", "Pericarditis", "Asthma", "Cardiac cause (rare)"], ix: ["Often none needed", "ECG if any cardiac red flag", "Chest X-ray if pleuritic or reduced air entry"], mgmt: ["Reassure", "Simple analgesia or NSAID and heat", "Explain red flags that need review"],
-      check: ["Asks about exertional symptoms, fainting and palpitations", "Asks about family history of sudden death", "Finds reproducible tenderness on examination", "Reassures the teenager and parent clearly"] },
-  ] },
-  { id: "confusion", label: "Acute confusion", kw: ["delirium", "confused", "disorientation"], spec: ["Emergency Medicine", "Neurology", "Internal Medicine"], sys: ["nervous"], v: [
-    { ages: ["geriatric"], age: [79, 88], informant: "daughter", setting: "emergency department", dx: "Delirium secondary to urinary tract infection",
-      opener: "(Daughter) Mum has been muddled for two days. She doesn't know where she is and she's hardly eating.",
-      hpi: ["Two days of new confusion, worse in the evening, drowsy by day", "More frequent urination and a smell to the urine for 3 days", "Not eating or drinking much; no fall, no head injury", "Normally independent and sharp"],
-      pmh: "Hypertension, overactive bladder, mild osteoarthritis", meds: "Amlodipine, oxybutynin; allergies: none known", bg: "Lives alone, daughter visits daily; does not drink alcohol",
-      vitals: ["98", "110/68", "18", "37.9", "95%"], exam: [["General", "Dry mouth, drowsy but rousable"], ["Mental state", "Disoriented to time and place; cannot recite months backwards (inattention)"], ["Abdomen", "Suprapubic tenderness, bladder not palpable"], ["Neurology", "No focal deficit, no neck stiffness"]],
-      ddx: ["Delirium due to infection", "Dehydration or medication effect", "Stroke", "Subdural haematoma", "Dementia"], ix: ["Urinalysis and culture", "Glucose, CBC, renal function, calcium, CRP", "ECG and chest X-ray; CT head if focal signs or fall"], mgmt: ["Treat the cause (antibiotics, fluids)", "Stop or review anticholinergic medicines", "Non-drug delirium care: reorientation, glasses, sleep, mobilise"],
-      check: ["Establishes baseline function and onset with the daughter", "Uses a structured attention test", "Reviews medicines, especially anticholinergics", "Looks for the infection source and other reversible causes"] },
-  ] },
-  { id: "sob", label: "Shortness of breath", kw: ["dyspnea", "dyspnoea", "wheeze", "breathless"], spec: ["Pulmonology", "Emergency Medicine", "Pediatrics", "Cardiology"], sys: ["respiratory", "cardiovascular"], v: [
-    { ages: ["adult"], age: [19, 32], setting: "emergency department", dx: "Acute severe asthma exacerbation",
-      opener: "I can't get my breath and my inhaler isn't helping. I can hardly finish a sentence.",
-      hpi: ["Cold for 3 days then chest tightness, cough and wheeze since last night", "Blue inhaler used every hour with little relief", "Asthma since childhood, one admission 2 years ago", "Eczema and hay fever"],
-      pmh: "Asthma, eczema, hay fever", meds: "Salbutamol inhaler, low-dose inhaled steroid used inconsistently; allergies: none known", bg: "Non-smoker; cat at home; student",
-      vitals: ["118", "128/76", "26", "37.1", "93% on air"], exam: [["General", "Sitting forward, speaks in short phrases"], ["Chest", "Widespread expiratory wheeze, reduced air entry at bases"], ["Peak flow", "45% of predicted"], ["Other", "No cyanosis, no tracheal deviation"]],
-      ddx: ["Asthma exacerbation", "Pneumonia", "Pneumothorax", "Anaphylaxis", "Pulmonary embolism"], ix: ["Peak flow", "Pulse oximetry and blood gas if severe", "Chest X-ray if atypical"], mgmt: ["Oxygen to target saturation, nebulised salbutamol and ipratropium", "Oral or IV corticosteroid", "Escalate (magnesium, ICU review) if no improvement; review inhaler technique and plan"],
-      check: ["Grades severity (speech, rate, peak flow, saturation)", "Starts treatment before completing a long history", "Asks about triggers and adherence to the steroid inhaler", "Arranges a written asthma action plan"] },
-    { ages: ["pediatric"], age: [0.5, 0.8], informant: "parent", setting: "paediatric emergency department", dx: "Bronchiolitis (likely RSV)",
-      opener: "She's had a cold for three days and now she's breathing fast and hardly feeding.",
-      hpi: ["Runny nose and cough for 3 days, then noisy fast breathing", "Taking about half her usual feeds; fewer wet nappies", "Low-grade fever, no vomiting", "Older sibling at nursery with a cold"],
-      pmh: "Born at term, no lung problems; fully immunised for age", meds: "None; allergies: none known", bg: "Both parents smoke outside; no family history of asthma",
-      vitals: ["168", "88/52", "56", "37.8", "91% on air"], exam: [["General", "Alert, tired, nasal flaring"], ["Chest", "Subcostal and intercostal recession; widespread crackles and wheeze"], ["Hydration", "Dry mouth, capillary refill 2 seconds"], ["ENT", "Clear nasal discharge, ears normal"]],
-      ddx: ["Bronchiolitis", "Pneumonia", "Asthma (rare at this age)", "Heart failure", "Foreign body"], ix: ["Clinical diagnosis", "Pulse oximetry", "Swab or X-ray only if the diagnosis is unclear"], mgmt: ["Supportive care: suction, oxygen if saturation is low, fluids or tube feeding", "No routine bronchodilators, steroids or antibiotics", "Admit for oxygen and feeding support; safety-net advice"],
-      check: ["Assesses work of breathing and hydration", "Asks about feeding, wet nappies and apnoea", "Explains why antibiotics and inhalers are not routine", "Gives clear admission and safety-net advice"] },
-    { ages: ["geriatric"], age: [72, 84], setting: "emergency department", dx: "Acute decompensated heart failure",
-      opener: "I can't lie flat any more and my legs are huge. I'm so breathless I can barely walk to the toilet.",
-      hpi: ["Two weeks of worsening breathlessness and ankle swelling", "Needs three pillows and wakes at night gasping", "Gained about 4 kg; ran out of water tablets last week", "Previous heart attack 6 years ago"],
-      pmh: "Myocardial infarction, hypertension, type 2 diabetes", meds: "Ramipril, bisoprolol, furosemide (stopped), metformin; allergies: none known", bg: "Ex-smoker, lives with his wife",
-      vitals: ["102", "150/92", "24", "36.8", "90% on air"], exam: [["General", "Sitting upright, breathless on talking"], ["Cardiovascular", "Raised JVP, third heart sound, displaced apex"], ["Chest", "Bibasal crackles"], ["Legs", "Pitting oedema to the knees"]],
-      ddx: ["Acute heart failure", "Pneumonia", "COPD exacerbation", "Pulmonary embolism"], ix: ["ECG, troponin, natriuretic peptide", "Chest X-ray", "Echocardiogram, renal function and electrolytes"], mgmt: ["Sit upright, oxygen if saturation is low", "IV loop diuretic and strict fluid balance", "Find the trigger and restart long-term heart failure treatment"],
-      check: ["Asks about orthopnoea, PND, weight gain and adherence", "Examines JVP, heart sounds, chest and legs", "Orders chest X-ray, ECG and natriuretic peptide", "Explains the diagnosis and plan simply"] },
-  ] },
-  { id: "headache", label: "Headache", kw: ["migraine", "head pain", "thunderclap"], spec: ["Neurology", "Emergency Medicine"], sys: ["nervous"], v: [
-    { ages: ["adult"], age: [38, 52], setting: "emergency department", dx: "Subarachnoid haemorrhage",
-      opener: "It came on like a bang. It's the worst headache of my life.",
-      hpi: ["Sudden severe headache at the back of the head 2 hours ago while lifting weights", "Vomited twice, light hurts the eyes, stiff neck", "Brief blackout at onset", "No previous headaches like this"],
-      pmh: "Hypertension", meds: "Ramipril; allergies: none known", bg: "Smokes 10 a day; mother died young from a brain bleed",
-      vitals: ["88", "168/96", "16", "37.0", "98%"], exam: [["General", "Distressed, photophobic"], ["Neurology", "GCS 15, pupils equal and reactive, no limb weakness"], ["Neck", "Marked neck stiffness"], ["Fundi", "No papilloedema"]],
-      ddx: ["Subarachnoid haemorrhage", "Meningitis", "Migraine", "Cervical artery dissection"], ix: ["Non-contrast CT head as soon as possible", "Lumbar puncture (xanthochromia) or CT angiography if CT is negative and the history is typical", "Clotting, CBC, renal function"], mgmt: ["Neurosurgical referral, bed rest and analgesia", "Blood pressure control, nimodipine", "Secure the aneurysm (coiling or clipping)"],
-      check: ["Recognises thunderclap onset as a red flag", "Asks about collapse, neck stiffness and family history", "Does a neurological examination including the neck", "Requests an urgent CT head"] },
-    { ages: ["adult"], sex: "female", age: [24, 36], setting: "general practice", dx: "Migraine with aura (on combined oral contraceptive)",
-      opener: "I get these awful headaches and see zigzag lights first. I'm sick of losing days to them.",
-      hpi: ["Throbbing right-sided headache, 4 to 12 hours, 2 to 3 times a month", "Zigzag flickering vision for 20 minutes before the pain", "Nausea, light and sound make it worse; lies in a dark room", "Normal between attacks; no weakness or speech problems"],
-      pmh: "None", meds: "Combined oral contraceptive pill, paracetamol; allergies: none known", bg: "Mother has migraines; drinks 1 to 2 coffees a day; stressful job",
-      vitals: ["72", "114/70", "14", "36.7", "99%"], exam: [["General", "Well, no photophobia now"], ["Neurology", "Cranial nerves, power, reflexes and gait normal"], ["Fundi", "Normal discs"], ["Blood pressure", "114/70, no hypertension"]],
-      ddx: ["Migraine with aura", "Tension-type headache", "TIA", "Cluster headache"], ix: ["Usually none", "Neuroimaging only if red flags"], mgmt: ["Acute: NSAID or triptan with an antiemetic", "Stop the combined pill (oestrogen raises stroke risk with aura); offer a progestogen-only or non-hormonal method", "Headache diary and trigger review; consider prophylaxis if frequent"],
-      check: ["Characterises aura and distinguishes it from stroke or TIA", "Asks about red flags", "Identifies the contraceptive pill as a problem", "Offers acute and preventive treatment"] },
-  ] },
-  { id: "abdo", label: "Abdominal pain", kw: ["stomach pain", "belly pain", "tummy pain"], spec: ["Gastroenterology", "Emergency Medicine", "Pediatrics", "Obstetrics & Gynecology"], sys: ["gastrointestinal"], v: [
-    { ages: ["pediatric"], age: [9, 13], informant: "parent", setting: "paediatric emergency department", dx: "Acute appendicitis",
-      opener: "My tummy hurts and it's gotten worse. I don't want to eat anything.",
-      hpi: ["Pain started around the belly button yesterday and moved to the right lower side", "Vomited once, no appetite, low-grade fever", "Hurts when walking or going over bumps in the car", "Normal bowels, no urinary symptoms"],
-      pmh: "Healthy", meds: "None; allergies: none known", bg: "Lives with parents; no sick contacts",
-      vitals: ["104", "108/64", "20", "38.1", "99%"], exam: [["General", "Lies still, flushed"], ["Abdomen", "Right iliac fossa tenderness with guarding and rebound"], ["Special signs", "Rovsing sign positive; pain on coughing"], ["Genitals", "Normal"]],
-      ddx: ["Appendicitis", "Mesenteric adenitis", "Gastroenteritis", "Urinary tract infection", "Testicular torsion in boys"], ix: ["CBC and CRP", "Urinalysis", "Abdominal ultrasound"], mgmt: ["Nil by mouth, IV fluids and analgesia", "IV antibiotics", "Urgent surgical review"],
-      check: ["Describes pain migration and associated symptoms", "Examines gently, building the child's trust", "Excludes urinary and testicular causes", "Plans analgesia, fluids and surgical referral"] },
-    { ages: ["adult"], sex: "female", age: [24, 34], setting: "emergency department", dx: "Ruptured or leaking ectopic pregnancy",
-      opener: "I have this stabbing pain low on my left side and I feel dizzy.",
-      hpi: ["Left lower abdominal pain for 12 hours, getting worse", "Last period 7 weeks ago, light spotting today", "Shoulder-tip pain and lightheadedness", "Chlamydia treated 3 years ago; uses no contraception"],
-      pmh: "Pelvic infection (chlamydia) 3 years ago", meds: "None; allergies: none known", bg: "Works in retail, not smoking, partner supportive",
-      vitals: ["108", "98/60", "20", "36.9", "98%"], exam: [["General", "Pale and anxious"], ["Abdomen", "Left iliac fossa tenderness with guarding"], ["Pelvic", "Cervical motion tenderness; closed os; left adnexal tenderness"], ["Pregnancy test", "Positive"]],
-      ddx: ["Ectopic pregnancy", "Miscarriage", "Ovarian torsion", "Appendicitis", "Pelvic inflammatory disease"], ix: ["Urine and serum beta-hCG", "Transvaginal ultrasound", "Blood group and crossmatch, CBC"], mgmt: ["IV access and fluid resuscitation", "Urgent gynaecology review", "Surgery if unstable; methotrexate only if stable and criteria are met"],
-      check: ["Asks about menstrual history and a possible pregnancy early", "Recognises early shock", "Arranges a pregnancy test before further imaging", "Escalates to gynaecology promptly"] },
-  ] },
-  { id: "fever_rash", label: "Fever and rash", kw: ["kawasaki", "high temperature", "child fever"], spec: ["Pediatrics", "Emergency Medicine"], sys: ["immune", "cardiovascular"], v: [
-    { ages: ["pediatric"], age: [2.5, 4], informant: "parent", setting: "paediatric emergency department", dx: "Kawasaki disease",
-      opener: "He's had a fever for six days, his eyes are red and he's so grumpy. Paracetamol isn't touching it.",
-      hpi: ["Fever up to 39.5 C for 6 days", "Red eyes without discharge, rash on trunk, cracked red lips", "Swollen, red hands and feet", "Irritable, eating little, one episode of diarrhoea"],
-      pmh: "Healthy, immunisations up to date", meds: "Paracetamol, ibuprofen; allergies: none known", bg: "Of East Asian descent; no sick contacts",
-      vitals: ["140", "92/58", "28", "39.2", "98%"], exam: [["General", "Irritable but consolable"], ["Eyes and mouth", "Bilateral non-purulent conjunctival injection, strawberry tongue, cracked lips"], ["Neck and skin", "Right cervical lymph node 2 cm; polymorphous rash; peeling not yet present"], ["Extremities", "Red, swollen palms and soles"]],
-      ddx: ["Kawasaki disease", "Scarlet fever", "Measles", "Adenovirus", "Toxic shock syndrome"], ix: ["CBC, CRP, ESR, albumin and liver tests", "Urinalysis (sterile pyuria)", "Echocardiogram and ECG"], mgmt: ["IV immunoglobulin plus aspirin", "Cardiology follow-up with serial echocardiograms", "Admit for monitoring"],
-      check: ["Counts days of fever and the five principal features", "Asks about contacts, travel and vaccination", "Names the coronary artery risk", "Treats early without waiting for the full set of signs"] },
-  ] },
-  { id: "polyuria", label: "Excessive thirst and weight loss", kw: ["polyuria", "diabetes", "polydipsia", "dka"], spec: ["Endocrinology", "Pediatrics", "Emergency Medicine"], sys: ["endocrine"], v: [
-    { ages: ["pediatric"], age: [10, 13], informant: "parent", setting: "paediatric emergency department", dx: "New type 1 diabetes with diabetic ketoacidosis",
-      opener: "She's been drinking constantly and losing weight. Now she's been sick and breathing strangely.",
-      hpi: ["3 weeks of thirst and passing a lot of urine; wetting the bed again", "Lost about 4 kg", "2 days of abdominal pain and vomiting", "Deep, sighing breathing and drowsy today"],
-      pmh: "Healthy; hypothyroid aunt", meds: "None; allergies: none known", bg: "Lives with parents; uncle has type 1 diabetes",
-      vitals: ["128", "98/58", "30", "36.8", "99%"], exam: [["General", "Drowsy but rousable, dry mucous membranes"], ["Breathing", "Deep sighing (Kussmaul) breathing, ketotic breath"], ["Perfusion", "Capillary refill 3 seconds"], ["Glucose and ketones", "Glucose 28 mmol/L (504 mg/dL), blood ketones 4.5 mmol/L"]],
-      ddx: ["Diabetic ketoacidosis", "Gastroenteritis", "Appendicitis", "Sepsis"], ix: ["Venous blood gas (pH, bicarbonate)", "Electrolytes, urea, glucose and ketones", "Infection screen if febrile"], mgmt: ["Careful fluid resuscitation (avoid over-rapid fluids: cerebral oedema risk)", "IV insulin infusion started after fluids, with potassium replacement", "Hourly monitoring; specialist diabetes team"],
-      check: ["Recognises DKA from the history and signs", "Asks about new bedwetting and weight loss", "Stresses cautious fluids and monitoring", "Counsels the family compassionately"] },
-  ] },
-  { id: "weakness", label: "Sudden weakness and speech difficulty", kw: ["stroke", "facial droop", "slurred speech", "arm weakness"], spec: ["Neurology", "Emergency Medicine"], sys: ["nervous", "cardiovascular"], v: [
-    { ages: ["geriatric"], age: [68, 82], informant: "spouse", setting: "emergency department", dx: "Acute ischaemic stroke (cardioembolic, atrial fibrillation)",
-      opener: "(Spouse) His face drooped and his words came out wrong about an hour and a half ago. His right arm is useless.",
-      hpi: ["Sudden right arm and leg weakness and facial droop 90 minutes ago", "Struggles to find words; understands what is said", "No headache, no seizure, no head injury", "Known atrial fibrillation but stopped his blood thinner last month"],
-      pmh: "Atrial fibrillation, hypertension, high cholesterol", meds: "Amlodipine, atorvastatin (anticoagulant stopped); allergies: none known", bg: "Lives with his wife, independent in daily activities",
-      vitals: ["92 irregular", "178/96", "16", "36.8", "97%"], exam: [["General", "Alert, not obeying complex commands"], ["Face and speech", "Right facial droop sparing the forehead; non-fluent speech"], ["Limbs", "Right arm power 2/5, right leg 3/5"], ["Cardiovascular", "Irregularly irregular pulse, no carotid bruit"]],
-      ddx: ["Ischaemic stroke", "Intracerebral haemorrhage", "Hypoglycaemia", "Todd's paralysis", "Brain tumour"], ix: ["Immediate glucose", "Non-contrast CT head, then CT angiography", "ECG, bloods including clotting"], mgmt: ["Activate the stroke pathway", "Thrombolysis if within the window and no contraindication; thrombectomy for large-vessel occlusion", "Secondary prevention including anticoagulation later"],
-      check: ["Establishes the exact time last seen well", "Checks glucose and screens for stroke mimics", "Does a rapid neurological assessment (FAST/NIHSS)", "Requests an immediate CT head and activates the stroke team"] },
-  ] },
-  { id: "palpitations", label: "Palpitations", kw: ["racing heart", "fast heartbeat", "heart racing"], spec: ["Cardiology", "Emergency Medicine"], sys: ["cardiovascular"], v: [
-    { ages: ["adult"], age: [26, 40], setting: "emergency department", dx: "Supraventricular tachycardia (AVNRT)",
-      opener: "My heart suddenly started racing 20 minutes ago. It feels like it's going to burst out of my chest.",
-      hpi: ["Sudden-onset fast regular heartbeat while sitting at work", "Lightheaded and a little breathless, no chest pain or fainting", "Had two short episodes before that settled by themselves", "Two coffees and an energy drink today"],
-      pmh: "None; no thyroid disease known", meds: "None; allergies: none known", bg: "Non-smoker, occasional alcohol; no family history of sudden death",
-      vitals: ["180 regular", "108/70", "20", "36.8", "98%"], exam: [["General", "Anxious but comfortable"], ["Cardiovascular", "Fast regular pulse, no murmur, no signs of heart failure"], ["ECG", "Regular narrow-complex tachycardia at 180 per minute, no visible P waves"], ["Thyroid", "No goitre, no tremor"]],
-      ddx: ["AVNRT / SVT", "Atrial flutter with 2:1 block", "Sinus tachycardia", "Thyrotoxicosis"], ix: ["12-lead ECG", "Electrolytes and thyroid function", "Pregnancy test"], mgmt: ["Modified Valsalva or other vagal manoeuvre first", "IV adenosine if that fails (6 mg, then 12 mg)", "Synchronised cardioversion if unstable; outpatient cardiology follow-up"],
-      check: ["Checks for instability (chest pain, syncope, low BP)", "Asks about triggers, caffeine and drugs", "Reads the ECG pattern correctly", "Names the first-line and second-line treatments"] },
-  ] },
-  { id: "low_mood", label: "Low mood", kw: ["depression", "sad", "anhedonia", "feeling down"], spec: ["Psychiatry"], sys: ["mental"], v: [
-    { ages: ["adult"], age: [28, 46], setting: "general practice", dx: "Major depressive episode (moderate to severe)",
-      opener: "I just feel flat all the time. I've lost interest in everything and I can't sleep.",
-      hpi: ["6 weeks of low mood, loss of interest and energy", "Wakes at 4 am and cannot get back to sleep", "Reduced appetite, lost about 4 kg", "Feels guilty and worthless, cannot concentrate at work", "Has had passing thoughts that life is not worth living, with no plan"],
-      pmh: "None; no previous mental health problems", meds: "None; allergies: none known", bg: "Redundancy 2 months ago; drinks 2 glasses of wine most evenings; partner supportive; no drug use",
-      vitals: ["74", "122/78", "14", "36.7", "99%"], exam: [["Appearance", "Neat, slowed movement, tearful"], ["Speech and mood", "Slow, quiet speech; mood low, affect restricted"], ["Thoughts", "Guilt and hopelessness; no psychotic symptoms"], ["PHQ-9", "Score 18 (moderately severe)"]],
-      ddx: ["Major depressive disorder", "Adjustment disorder", "Hypothyroidism", "Alcohol-related mood disorder", "Bipolar disorder"], ix: ["PHQ-9", "TSH, CBC, glucose, B12", "Alcohol screen (AUDIT)"], mgmt: ["Structured risk assessment and safety plan", "CBT and an SSRI", "Follow-up within 1 to 2 weeks, alcohol reduction advice"],
-      check: ["Screens core symptoms (mood, interest, energy) and biological features", "Asks directly and sensitively about suicidal thoughts, plans and protective factors", "Asks about alcohol, mania and past episodes", "Offers treatment options and a follow-up plan"] },
-  ] },
-];
-const OSCE_NAMES = { female: ["Maria", "Aisha", "Emily", "Priya", "Grace", "Sofia", "Hannah", "Lucia"], male: ["James", "Omar", "Daniel", "Arjun", "Michael", "Carlos", "Samuel", "Leo"] };
-const OSCE_SURNAMES = ["Patel", "Johnson", "Nguyen", "Garcia", "Okafor", "Kim", "Hughes", "Rossi", "Haddad", "Silva"];
-const OSCE_VITALS_BASE = { pediatric: ["100", "95/58", "24", "36.8", "99%"], adult: ["76", "120/78", "14", "36.8", "98%"], geriatric: ["74", "132/80", "16", "36.6", "96%"] };
-const OSCE_VITAL_LABELS = ["HR", "BP", "RR", "Temp", "SpO2"];
-
-function osceAgeText(age) { return age < 2 ? `${Math.max(1, Math.round(age * 12))}-month-old` : `${Math.round(age)}-year-old`; }
-function osceSpecLabel(spec) { return spec === "any" ? "Any" : spec; }
-
-// ---- AI case importer ----
-const osceNewId = () => `cc_${Date.now().toString(36)}${Math.random().toString(36).slice(2, 6)}`;
-function osceSexWord(sc) { return sc.sex === "female" ? (sc.ageGroup === "pediatric" ? "girl" : "woman") : sc.sex === "male" ? (sc.ageGroup === "pediatric" ? "boy" : "man") : "patient"; }
-
-// One-line patient summary, shared by the case chart and the Case Library cards.
-function osceSummary(sc) {
-  const fullName = sc.name || sc.who || "Patient";
-  const complaint = String(sc.complaint || "");
-  return sc.summary || `${fullName} is ${/^(8|11|18)/.test(sc.ageText || "") ? "an" : "a"} ${[sc.ageText, osceSexWord(sc)].filter(Boolean).join(" ")} presenting with ${complaint.toLowerCase()}${sc.informant ? `, accompanied by their ${sc.informant}` : ""}.`;
-}
-// A case-relevant emoji for the patient picture: matched on the chief complaint first, then the diagnosis and specialty, then a person emoji by age and sex.
-const OSCE_EMOJI = [
-  [/speech|language|talk/, "🗣️"], [/\bear\b|ears|hearing|otitis|tinnitus/, "👂"], [/\beyes?\b|vision|diplopia|red eye|visual/, "👁️"],
-  [/pregnan|antepartum|postpartum|labou?r|obstetric|vaginal|menstru|pelvic|vulv|gestation/, "🤰"], [/breast/, "🎗️"],
-  [/chest pain|cardi|heart|palpitat|murmur|hypertens|blood pressure|claudicat|myocard|oedema|edema|ankle swelling|cold, painful/, "❤️"],
-  [/breath|cough|asthma|respir|h(a)?emopt|stridor|pneumon|copd|wheez|dyspn/, "🫁"],
-  [/headache|migraine|seizure|fits|faint|blackout|stroke|confus|dizz|vertigo|tremor|unsteady|numb|tingling|facial weak|neuro|dementia|memory/, "🧠"],
-  [/anxi|depress|mood|psych|suicid|overdose|self-harm|behaviou?r|panic|mental|elat|personality|ocd|eating/, "💭"],
-  [/diabet|glucose|dka|polydips|thirst/, "🩸"], [/thyroid|weight|endocr/, "⚖️"],
-  [/vomit|nausea|diarrh|constipat|bowel|swallow|jaundice|abdom|gastro|liver|bleeding from lower|perianal/, "🤢"],
-  [/urin|renal|loin|h(a)?ematuria|kidney|incontinen|scrot|testic|groin|genital|sexual/, "🚽"],
-  [/rash|skin|prurit|itch|ulcer|lump|dermat|lesion|swelling/, "🧴"], [/fever|infect|sepsis|sweat|febrile/, "🤒"],
-  [/joint|bone|back pain|neck pain|fractur|musculo|limb|muscle|trauma|injur|lacerat|sprain/, "🦴"],
-  [/fatigue|tired|lethargy/, "😴"], [/development|growth|child|newborn|neonat/, "🧸"], [/pain|ache/, "🤕"],
-];
-function osceEmoji(sc) {
-  for (const hay of [String(sc.complaint || ""), `${sc.dx || ""} ${sc.specialty || ""}`]) {
-    const low = hay.toLowerCase();
-    const hit = OSCE_EMOJI.find(([re]) => re.test(low));
-    if (hit) return hit[1];
-  }
-  const f = sc.sex === "female", m = sc.sex === "male";
-  if (sc.ageGroup === "pediatric") return /month|week|day/i.test(String(sc.ageText || "")) || /^[01]-year/.test(String(sc.ageText || "")) ? "👶" : f ? "👧" : m ? "👦" : "🧒";
-  if (sc.ageGroup === "geriatric") return f ? "👵" : m ? "👴" : "🧓";
-  return f ? "👩" : m ? "👨" : "🧑";
-}
-// A history slot (text or list) as bullet lines: a list is kept as is, text is split into sentences; "Not provided" placeholders are dropped.
-function osceList(v) {
-  const parts = Array.isArray(v) ? v : typeof v === "string" ? v.split(/\n+|;\s+|(?<=[.!?])\s+(?=[A-Z])/) : [];
-  return parts.map((x) => String(x == null ? "" : x).trim().replace(/^./, (ch) => ch.toUpperCase())).filter((x) => x && !/^not provided\.?$/i.test(x));
-}
-// "57-year-old" -> "57 years", "8-month-old" -> "8 months" (compact form for list rows)
-function osceAgeShort(sc) {
-  const m = /^(\d+)-(year|month)-old/.exec(String(sc.ageText || ""));
-  return m ? `${m[1]} ${m[2]}${m[1] === "1" ? "" : "s"}` : String(sc.ageText || "");
-}
-// Turns the JSON an AI tool returns for the recipe into a case. Tolerant of code fences, commentary around the JSON and loose field names.
-function parseOsceCase(raw) {
-  let txt = String(raw || "").trim().replace(/^```(?:json)?\s*/i, "").replace(/```\s*$/i, "");
-  const a = txt.indexOf("{"); const b = txt.lastIndexOf("}");
-  if (a < 0 || b <= a) return { error: "No JSON object found. Paste the full JSON the AI returned." };
-  let o;
-  try { o = JSON.parse(txt.slice(a, b + 1)); } catch (e) { return { error: "That is not valid JSON (" + (e && e.message ? e.message : "parse error") + "). Ask the AI to return only the JSON object." }; }
-  if (Array.isArray(o)) o = o[0];
-  if (!o || typeof o !== "object") return { error: "The JSON must be one case object." };
-  const str = (v) => (v == null ? "" : typeof v === "string" ? v.trim() : typeof v === "number" ? String(v) : "");
-  const arr = (v) => (Array.isArray(v) ? v : typeof v === "string" && v.trim() ? [v] : []).map((x) => (typeof x === "string" ? x.trim() : x && typeof x === "object" ? Object.values(x).map(str).filter(Boolean).join(": ") : str(x))).filter(Boolean);
-  const pt = o.patient && typeof o.patient === "object" ? o.patient : {};
-  const sc0 = o.script && typeof o.script === "object" ? o.script : {};
-  const key = o.key && typeof o.key === "object" ? o.key : o.examinerKey && typeof o.examinerKey === "object" ? o.examinerKey : {};
-  const complaint = str(o.complaint || o.chiefComplaint || o.title);
-  const opener = str(sc0.opening || sc0.openingStatement || o.opener);
-  // History items may be plain strings or { category, prompt, response } objects; objects become "prompt: response" (category kept when it is not HPI).
-  const hpiRaw = sc0.history || sc0.hpi || o.history;
-  const hpi = (Array.isArray(hpiRaw) ? hpiRaw : typeof hpiRaw === "string" && hpiRaw.trim() ? [hpiRaw] : []).map((x) => {
-    if (x && typeof x === "object" && !Array.isArray(x)) {
-      const cat = str(x.category || x.section), q = str(x.prompt || x.topic || x.question), a = str(x.response || x.answer || x.reply);
-      const body = [q, a].filter(Boolean).join(": ") || Object.values(x).map(str).filter(Boolean).join(": ");
-      return cat && !/^hpi$/i.test(cat) && body ? `${cat} – ${body}` : body;
-    }
-    return arr([x])[0] || "";
-  }).filter(Boolean);
-  const missing = [];
-  if (!complaint) missing.push("complaint");
-  if (!opener && hpi.length === 0) missing.push("script.opening or script.history");
-  if (missing.length) return { error: "Missing required field(s): " + missing.join(", ") + "." };
-  let age = parseFloat(str(pt.age != null ? pt.age : o.age));
-  const ageStr = str(pt.age != null ? pt.age : o.age).toLowerCase();
-  if (!isNaN(age) && /month/.test(ageStr)) age = age / 12;
-  else if (!isNaN(age) && /week|day/.test(ageStr)) age = age / 52;
-  const sx = str(pt.sex || o.sex).toLowerCase();
-  const sex = /^(f|female|woman|girl)/.test(sx) ? "female" : /^(m|male|man|boy)/.test(sx) ? "male" : "other";
-  let ageGroup = str(pt.ageGroup || o.ageGroup).toLowerCase();
-  ageGroup = /ped|child|infant/.test(ageGroup) ? "pediatric" : /ger|old|elder/.test(ageGroup) ? "geriatric" : /adult/.test(ageGroup) ? "adult" : !isNaN(age) ? (age < 18 ? "pediatric" : age >= 65 ? "geriatric" : "adult") : "adult";
-  const v = o.vitals;
-  const vit = Array.isArray(v) ? v.slice(0, 5).map(str) : v && typeof v === "object"
-    ? [v.hr || v.heartRate || v.pulse, v.bp || v.bloodPressure, v.rr || v.respiratoryRate, v.temp || v.temperature, v.spo2 || v.oxygenSaturation].map(str) : [];
-  while (vit.length < 5) vit.push("");
-  const exam = (Array.isArray(o.exam) ? o.exam : Array.isArray(o.examination) ? o.examination : []).map((e) => Array.isArray(e) ? [str(e[0]), str(e[1])] : e && typeof e === "object" ? [str(e.label || e.name || e.item), str(e.finding || e.result || e.value)] : [str(e), ""]).filter((e) => e[0]);
-  const check = arr(o.checklist || o.marking);
-  const warn = [];
-  if (!str(key.diagnosis || key.dx)) warn.push("key.diagnosis");
-  if (vit.every((x) => !x)) warn.push("vitals");
-  if (exam.length === 0) warn.push("exam");
-  if (check.length === 0) warn.push("checklist");
-  const meds = [...arr(sc0.drugHistory || sc0.medicines || sc0.meds), ...(str(sc0.allergies) ? ["Allergies: " + str(sc0.allergies)] : [])];
-  const name = str(pt.name || o.name);
-  const sc = {
-    id: osceNewId(), source: "ai", name, avatarKeyword: str(pt.avatarKeyword || o.avatarKeyword), who: name || "The patient", title: "", sex, ageGroup, ageText: !isNaN(age) ? osceAgeText(age) : str(pt.age || o.age), complaint,
-    shell: false, notice: "", setting: str(o.setting) || "clinic", instructions: str(o.candidateInstructions || o.instructions), dx: str(key.diagnosis || key.dx) || "Not provided",
-    opener, hpi, pmh: arr(sc0.pastHistory || sc0.pmh), meds, social: arr(sc0.socialHistory || sc0.social), family: arr(sc0.familyHistory), bg: arr(sc0.socialFamily), ice: str(sc0.ideasConcernsExpectations || sc0.ice),
-    informant: str(pt.informant || o.informant) || null, vitals: vit.map((x) => x || "—"), exam: exam.map(([l, f]) => [l, f || "Not provided"]),
-    ddx: arr(key.differential || key.ddx), ddxOptions: arr(key.differentialOptions || o.differentialOptions || key.ddxOptions), ix: arr(key.investigations || key.ix), mgmt: arr(key.management || key.mgmt), check: check.length ? check : OSCE_COMMON_CHECK,
-  };
-  return { sc, warn };
-}
-
-// The case in the same JSON shape the recipe asks the AI for, so a library case can be shared and re-imported.
-// Returns a plain object (not a string); callers that need text do JSON.stringify(osceCaseToJson(sc), null, 2).
-function osceCaseToJson(sc) {
-  return {
-    title: `${sc.who || sc.name || "Patient"} — ${sc.complaint}`, complaint: sc.complaint, setting: sc.setting,
-    patient: { name: sc.name || "", age: sc.ageText, ageGroup: sc.ageGroup, sex: sc.sex, informant: sc.informant || "" },
-    candidateInstructions: sc.instructions || "", script: { opening: sc.opener, history: sc.hpi, pastHistory: sc.pmh, medicines: sc.meds, ...(osceList(sc.social).length ? { socialHistory: sc.social } : {}), ...(osceList(sc.family).length ? { familyHistory: sc.family } : {}), socialFamily: sc.bg || "", ideasConcernsExpectations: sc.ice || "" },
-    vitals: { hr: sc.vitals[0], bp: sc.vitals[1], rr: sc.vitals[2], temp: sc.vitals[3], spo2: sc.vitals[4] }, exam: sc.exam.map(([label, finding]) => ({ label, finding })),
-    key: { diagnosis: sc.dx, differential: sc.ddx, ...(Array.isArray(sc.ddxOptions) && sc.ddxOptions.length ? { differentialOptions: sc.ddxOptions } : {}), investigations: sc.ix, management: sc.mgmt }, checklist: sc.check,
-  };
-}
-
-// The recipe the builder compiles; shown live in PromptPreview and pasted into any AI tool to generate a richer case.
-function compileOscePrompt(spec, lang) {
-  const age = OSCE_AGES.find((a) => a.id === spec.age) || OSCE_AGES[1];
-  const sex = spec.sex === "female" ? "Female" : spec.sex === "male" ? "Male" : "Any (you choose one and state it)";
-  const diffTxt = { easy: "Easy: a classic textbook presentation with one clear diagnosis and a cooperative patient", moderate: "Moderate: a typical presentation with one or two red flags or distractors", hard: "Hard: atypical or overlapping features, several plausible differentials, subtle clues and a guarded or anxious patient" }[spec.difficulty || "moderate"];
-  const sys = [...OSCE_SYSTEMS, ...OSCE_SYSTEMS_MORE].find((s) => s.id === spec.system);
-  const complaint = (spec.complaint || "").trim() || "(choose a chief complaint)";
-  const language = lang === "es" ? "Spanish" : "English";
-  const ageTxt = `${age.id.charAt(0).toUpperCase() + age.id.slice(1)} (${age.span})`;
-  const responseSchema = {
-    title: "short station title", complaint: "chief complaint", setting: "e.g. emergency department",
-    patient: { name: "", age: "number of years (decimal for infants)", ageGroup: "pediatric | adult | geriatric", sex: "female | male", informant: "optional: parent, spouse, carer", avatarKeyword: "e.g., young female portrait" },
-    candidateInstructions: "door sign text for an 8-minute station",
-    script: { opening: "the patient's first sentence", history: [{ category: "HPI", prompt: "question topic", response: "lay-language response" }], pastHistory: "", medicines: "", allergies: "", socialFamily: "", ideasConcernsExpectations: "" },
-    vitals: { hr: "e.g. 92 bpm", bp: "e.g. 118/76 mmHg", rr: "e.g. 18 /min", temp: "e.g. 36.8 °C", spo2: "e.g. 99% RA" }, exam: [{ label: "system or maneuver", finding: "clinical finding description" }],
-    key: { diagnosis: "primary diagnosis", differential: ["top 3-5 differentials"], differentialOptions: ["10 to 14 candidate diagnoses for the candidate to choose 3 from: include the primary diagnosis and the true differentials plus plausible distractors, in alphabetical order"], investigations: ["essential labs/imaging"], management: ["initial management steps"] }, checklist: ["10 to 14 marking items"],
-  };
-  const rules = ["Be clinically accurate and realistic for the age group and sex", "Include one or two red flags or distractors a candidate should pick up", "Keep patient speech natural and lay; do not name the diagnosis in the script", "Do not include real patient data", "differentialOptions must contain the primary diagnosis and at least two of the differentials, each worded as a short diagnosis name"];
-  return JSON.stringify({ task: "Create a standardized-patient OSCE station", language, patient: { ageGroup: ageTxt, sex }, clinicalFocus: { specialty: osceSpecLabel(spec.specialty), bodySystem: sys ? sys.label : "Any" }, difficulty: diffTxt, chiefComplaint: complaint, responseFormat: "Return ONLY one JSON object with exactly these keys: no commentary, no code fences", responseSchema, rules }, null, 2);
-}
-
-// Picks a variant of the chosen template that best fits the recipe (age match first, then sex) and fills in a patient.
-function buildOsceCase(spec, lang) {
-  const text = (spec.complaint || "").trim();
-  const low = text.toLowerCase();
-  const tpl = OSCE_CASES.find((c) => c.label.toLowerCase() === low) || OSCE_CASES.find((c) => low.length >= 3 && (c.label.toLowerCase().includes(low) || c.kw.some((k) => k.includes(low) || low.includes(k))));
-  const rnd = (a) => a[Math.floor(Math.random() * a.length)];
-  let sexPick = spec.sex && spec.sex !== "any" ? spec.sex : null;
-  let variant = null; let notice = "";
-  if (tpl) {
-    const scored = tpl.v.map((v) => ({ v, score: (v.ages.includes(spec.age) ? 2 : 0) + (!v.sex || !sexPick || v.sex === sexPick ? 3 : 0) })); // a sex-specific case never goes to the other sex if any other case exists
-    const best = Math.max(...scored.map((s) => s.score));
-    variant = rnd(scored.filter((s) => s.score === best)).v;
-    if (!variant.ages.includes(spec.age)) notice = "age";
-    else if (variant.sex && sexPick && variant.sex !== sexPick) notice = "sex";
-  }
-  const ageGroup = variant ? (variant.ages.includes(spec.age) ? spec.age : variant.ages[0]) : spec.age;
-  const sex = variant && variant.sex ? variant.sex : sexPick || rnd(["female", "male"]);
-  const age = variant ? variant.age[0] + Math.random() * (variant.age[1] - variant.age[0]) : ageGroup === "pediatric" ? 2 + Math.random() * 14 : ageGroup === "geriatric" ? 66 + Math.random() * 20 : 20 + Math.random() * 40;
-  const name = `${rnd(OSCE_NAMES[sex])} ${rnd(OSCE_SURNAMES)}`;
-  const label = variant ? tpl.label : text;
-  const base = variant || {
-    ages: [ageGroup], setting: "clinic", dx: "Not specified: no template matches this presentation", opener: `I came in because of ${text.toLowerCase()}.`,
-    hpi: ["Onset, duration and course", "Character, severity and what makes it better or worse", "Associated symptoms and red flags", "Previous episodes and any treatment tried"],
-    pmh: "To be defined by the examiner", meds: "To be defined by the examiner", bg: "To be defined by the examiner",
-    vitals: OSCE_VITALS_BASE[ageGroup], exam: [["General inspection", "To be defined by the examiner"], ["Relevant system examination", "To be defined by the examiner"]],
-    ddx: [], ix: [], mgmt: [], check: ["Takes a structured history of the presenting complaint", "Examines the relevant system appropriately", "Offers a reasonable differential and plan"],
-  };
-  const isChild = ageGroup === "pediatric";
-  const title = sex === "female" ? (isChild ? "Miss" : "Ms.") : isChild ? "Master" : "Mr.";
-  const specialty = spec.specialty !== "any" ? spec.specialty : (tpl && Array.isArray(tpl.spec) && tpl.spec[0]) || null;
-  return { id: osceNewId(), source: "template", name, who: `${title} ${name.split(" ")[1]}`, title, sex, ageGroup, specialty, ageText: osceAgeText(age), complaint: label, difficulty: spec.difficulty || "moderate", shell: !variant, notice, ...base, informant: base.informant || null, vitals: base.vitals, check: [...OSCE_COMMON_CHECK, ...base.check] };
-}
-
-// A selectable chip used by the Recipe Builder.
-function ClChip({ on, onClick, children, T }) {
-  return (
-    <button type="button" aria-pressed={on} onClick={onClick} style={{
-      fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(13), padding: "7px 13px", borderRadius: 999, cursor: "pointer", whiteSpace: "nowrap",
-      border: `1px solid ${on ? T.blue : T.border}`, background: on ? T.blueLight : "transparent", color: on ? T.blue : T.ink,
-    }}>{children}</button>
-  );
-}
-
-// Live preview of the compiled recipe (JSON) plus the Generate button.
-function PromptPreview({ text, T, fill = false }) {
-  const { t } = useI18n();
-  const [copied, setCopied] = useState(false);
-  const copy = () => { try { navigator.clipboard.writeText(text).then(() => { setCopied(true); setTimeout(() => setCopied(false), 1500); }).catch(() => {}); } catch (e) { /* ignore */ } };
-  return (
-    <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, padding: 20, display: "flex", flexDirection: "column", gap: 12, minWidth: 0, ...(fill ? { position: "absolute", inset: 0, boxSizing: "border-box" } : {}) }}>
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: 10, flexWrap: "wrap" }}>
-        <span style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(12.5), color: T.ink, textTransform: "uppercase", letterSpacing: "0.05em" }}>{t("clPreview")}</span>
-        <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-          <span style={{ fontFamily: FONT_MONO, fontSize: fs(12), fontWeight: 600, color: T.muted }}>{t("clJson")}</span>
-          <button type="button" onClick={copy} style={{ fontFamily: FONT_UI, fontSize: fs(12.5), fontWeight: 600, color: copied ? T.green : T.blue, background: "transparent", border: "none", cursor: "pointer", display: "flex", alignItems: "center", gap: 5 }}>
-            {copied ? <Check size={14} /> : <Copy size={14} />} {copied ? t("copied") : t("clCopyPrompt")}
-          </button>
-        </div>
-      </div>
-      <pre aria-live="polite" style={{ fontFamily: FONT_MONO, fontSize: fs(12), color: T.ink, background: T.paper, border: `1px solid ${T.border}`, borderRadius: 8, padding: 14, margin: 0, whiteSpace: "pre-wrap", wordBreak: "break-word", lineHeight: 1.55, overflowY: "auto", ...(fill ? { flex: 1, minHeight: 0 } : { maxHeight: 340 }) }}>{text}</pre>
-    </div>
-  );
-}
-
-// ---- Clinical case work screen: patient card | conversation with the senior clinician | patient chart ----
-const CL_EXAMINER = "Dr Tutor";
-// "A, B, or C" / "A, B o C"
-function osceJoin(list, word) { return list.length < 2 ? list.join("") : list.length === 2 ? `${list[0]} ${word} ${list[1]}` : `${list.slice(0, -1).join(", ")}, ${word} ${list[list.length - 1]}`; }
-// The examinations offered in the "choose the relevant examinations" step: the case's own examinations (relevant) mixed with a few from
-// other built-in cases that do not apply here (same body system first), stable per case. Returns [] when the case has no real examinations.
-function osceExamOptions(sc) {
-  const own = (Array.isArray(sc.exam) ? sc.exam : []).map((e) => String(e && e[0] || "").trim()).filter(Boolean);
-  if (own.length === 0 || (Array.isArray(sc.exam) && sc.exam.every((e) => /to be defined|not provided/i.test(String(e && e[1] || ""))))) return [];
-  let h = 7; for (const ch of String(sc.id || sc.complaint || "")) h = (Math.imul(h, 31) + ch.charCodeAt(0)) | 0;
-  const rnd = () => { h = (h + 0x6D2B79F5) | 0; let x = Math.imul(h ^ (h >>> 15), 1 | h); x = (x + Math.imul(x ^ (x >>> 7), 61 | x)) ^ x; return ((x ^ (x >>> 14)) >>> 0) / 4294967296; };
-  const shuffle = (a) => { const r = [...a]; for (let i = r.length - 1; i > 0; i--) { const j = Math.floor(rnd() * (i + 1)); [r[i], r[j]] = [r[j], r[i]]; } return r; };
-  const tpl = OSCE_CASES.find((c) => c.label === sc.complaint);
-  const mine = tpl && Array.isArray(tpl.sys) ? tpl.sys : [];
-  const grab = (cases) => cases.flatMap((c) => c.v.flatMap((v) => (Array.isArray(v.exam) ? v.exam.map((e) => e[0]) : []))).filter((x) => typeof x === "string" && x.trim());
-  const ownLow = own.map((x) => x.toLowerCase());
-  const clash = (x) => ownLow.some((r) => r === x.toLowerCase() || r.includes(x.toLowerCase()) || x.toLowerCase().includes(r));
-  const pool = [...shuffle(grab(OSCE_CASES.filter((c) => c !== tpl && Array.isArray(c.sys) && c.sys.some((y) => mine.includes(y))))), ...shuffle(grab(OSCE_CASES.filter((c) => c !== tpl)))].filter((x) => !clash(x));
-  const out = [...own]; const want = Math.min(12, own.length + 4);
-  for (const x of pool) { if (out.length >= want) break; if (!out.some((y) => y.toLowerCase() === x.toLowerCase())) out.push(x); }
-  return out.sort((a, b) => a.localeCompare(b));
-}
-// The pick-3 differential list shown before the examination. A case can carry its own list (ddxOptions); otherwise the list is the case's
-// own diagnosis + differential mixed with plausible distractors from the built-in cases (same body system first), stable per case.
-// Returns [] when the case has no known diagnosis, and the differential step is then skipped.
-function osceDdxOptions(sc) {
-  const seen = new Set();
-  const uniq = (a) => a.filter((x) => { const k = x.toLowerCase(); if (seen.has(k)) return false; seen.add(k); return true; });
-  const own = uniq((Array.isArray(sc.ddxOptions) ? sc.ddxOptions : []).map((x) => String(x == null ? "" : x).trim()).filter(Boolean));
-  if (own.length >= 6) return own;
-  seen.clear();
-  const dxOk = sc.dx && !/^not (specified|provided)/i.test(sc.dx);
-  const right = uniq([dxOk ? sc.dx : "", ...(Array.isArray(sc.ddx) ? sc.ddx : [])].map((x) => String(x || "").trim()).filter(Boolean));
-  if (right.length < 3) return [];
-  let h = 0; for (const ch of String(sc.id || sc.complaint || "")) h = (Math.imul(h, 31) + ch.charCodeAt(0)) | 0;
-  const rnd = () => { h = (h + 0x6D2B79F5) | 0; let x = Math.imul(h ^ (h >>> 15), 1 | h); x = (x + Math.imul(x ^ (x >>> 7), 61 | x)) ^ x; return ((x ^ (x >>> 14)) >>> 0) / 4294967296; };
-  const shuffle = (a) => { const r = [...a]; for (let i = r.length - 1; i > 0; i--) { const j = Math.floor(rnd() * (i + 1)); [r[i], r[j]] = [r[j], r[i]]; } return r; };
-  const tpl = OSCE_CASES.find((c) => c.label === sc.complaint);
-  const mine = tpl && Array.isArray(tpl.sys) ? tpl.sys : [];
-  const grab = (cases) => cases.flatMap((c) => c.v.flatMap((v) => [v.dx, ...(Array.isArray(v.ddx) ? v.ddx : [])])).filter((x) => typeof x === "string" && x.trim());
-  const rightLow = right.map((x) => x.toLowerCase());
-  const clash = (x) => rightLow.some((r) => r.includes(x.toLowerCase()) || x.toLowerCase().includes(r));
-  const pool = [...shuffle(grab(OSCE_CASES.filter((c) => c !== tpl && Array.isArray(c.sys) && c.sys.some((y) => mine.includes(y))))), ...shuffle(grab(OSCE_CASES.filter((c) => c !== tpl)))].filter((x) => !clash(x));
-  const out = [...right];
-  for (const x of pool) { if (out.length >= 12) break; if (!out.some((y) => y.toLowerCase() === x.toLowerCase())) out.push(x); }
-  return out.sort((a, b) => a.localeCompare(b));
-}
-const clVitalText = (i, v, es) => {
-  const s = String(v == null ? "" : v).trim();
-  if (!s) return "";
-  if (i === 0 && /^\d+$/.test(s)) return `${s} ${es ? "lat/min" : "beats/min"}`;
-  if (i === 1 && /^\d+\/\d+$/.test(s)) return `${s} mmHg`;
-  if (i === 2 && /^\d+$/.test(s)) return `${s} ${es ? "resp/min" : "breaths/min"}`;
-  if (i === 3 && /^\d+(\.\d+)?$/.test(s)) return `${s}°C (${(parseFloat(s) * 9 / 5 + 32).toFixed(1)}°F)`;
-  if (i === 4 && /^\d+%$/.test(s)) return `${s} ${es ? "con aire ambiente" : "on room air"}`;
-  return s;
-};
-
-function ClBullets({ T, items }) {
-  return (
-    <div style={{ display: "flex", flexDirection: "column", gap: 5 }}>
-      {items.map((x, i) => (
-        <div key={i} style={{ display: "flex", gap: 10, fontFamily: FONT_UI, fontSize: fs(14.5), color: T.ink, lineHeight: 1.45, overflowWrap: "anywhere" }}>
-          <span aria-hidden="true" style={{ width: 6, height: 6, borderRadius: "50%", background: T.blue, flexShrink: 0, marginTop: "0.6em" }} />
-          <span style={{ minWidth: 0 }}>{x}</span>
-        </div>
-      ))}
-    </div>
-  );
-}
-
-// Case -> Qbank: the AI prompt is built from the open case, the JSON it returns is saved to the library linked to the case.
-function buildCaseQbankPrompt(sc, size, lang) {
-  const es = lang === "es";
-  const pick = {};
-  ["complaint", "specialty", "ageText", "sex", "summary", "hpi", "pmh", "social", "family", "meds", "ice", "vitals", "exam", "dx", "ddx", "ix", "mgmt"].forEach((k) => { if (sc[k] != null && sc[k] !== "" && !(Array.isArray(sc[k]) && !sc[k].length)) pick[k] = sc[k]; });
-  const diff = { easy: "easy", moderate: "medium", hard: "hard" }[sc.difficulty] || "mixed";
-  const recipe = buildQuestionRecipe({ size, focusMode: "standard", focusValue: "", lang, difficulty: diff });
-  const topic = sc.complaint || sc.name || "";
-  if (es) return [
-    "RECETA QBANK A PARTIR DE UN CASO CLÍNICO", "",
-    "Devuelve UN solo objeto JSON de Qbank y nada más (sin comentarios ni bloque de código), con " + size + " preguntas.", "",
-    "Reglas:",
-    "- Las preguntas evalúan el razonamiento que necesita este caso (mecanismo, mejor siguiente paso diagnóstico, manejo, complicaciones, farmacología). No copies el guion del caso palabra por palabra.",
-    "- Usa a este paciente y su diagnóstico como ancla, pero cada pregunta debe tener su propia viñeta.",
-    "- No inventes un caseId; la app vincula el Qbank al caso por sí misma.", "",
-    "CASO CLÍNICO (" + topic + "):", JSON.stringify(pick, null, 1), "",
-    "FORMATO DEL QBANK:", recipe,
-  ].join("\n");
-  return [
-    "QBANK RECIPE FROM A CLINICAL CASE", "",
-    "Return ONE Qbank JSON object and nothing else (no commentary, no code fence), with " + size + " questions.", "",
-    "Rules:",
-    "- The questions test the reasoning this case needs (mechanism, next best step in diagnosis, management, complications, pharmacology). Do not copy the case script word for word.",
-    "- Anchor on this patient and diagnosis, but give every question its own vignette.",
-    "- Do not invent a caseId; the app links the Qbank to the case itself.", "",
-    "CLINICAL CASE (" + topic + "):", JSON.stringify(pick, null, 1), "",
-    "QBANK FORMAT:", recipe,
-  ].join("\n");
-}
-
-function CaseQbankPanel({ sc, T, linked = 0, onClose, onSave, onOpen = null }) {
-  const { t, lang } = useI18n();
-  const narrow = useViewport().w < 640;
-  const [size, setSize] = useState(10);
-  const [text, setText] = useState("");
-  const [copied, setCopied] = useState(false);
-  const [msg, setMsg] = useState(null); // { tone: "green" | "red" | "muted", text }
-  const prompt = useMemo(() => buildCaseQbankPrompt(sc, size, lang), [sc, size, lang]);
-  const copy = () => { navigator.clipboard.writeText(prompt).then(() => { setCopied(true); setTimeout(() => setCopied(false), 1800); }).catch(() => {}); };
-  const save = () => {
-    if (!text.trim()) { setMsg({ tone: "red", text: t("cqEmpty") }); return; }
-    const r = validateExamData(text, t);
-    if (!r.valid) { setMsg({ tone: "red", text: r.error }); return; }
-    const label = sc.complaint || sc.name || "";
-    const blocks = r.data.blocks.map((b, i) => (/^(Mixed Block|Bloque mixto|Block \d+)$/i.test(String(b.blockName || "").trim()) ? { ...b, blockName: `${label} · Qbank${r.data.blocks.length > 1 ? ` ${i + 1}` : ""}` } : b));
-    const res = onSave({ ...r.data, blocks }, sc);
-    if (res.failed && res.reason === "no-case-id") { setMsg({ tone: "red", text: t("cqNoCaseId") }); return; }
-    if (res.failed) { setMsg({ tone: "red", text: t("storageFull") }); return; }
-    if (!res.added) { setMsg({ tone: "muted", text: t("cqDup") }); return; }
-    setMsg({ tone: "green", text: t("cqOk", { n: blocks.reduce((a, b) => a + b.questions.length, 0) }) });
-    setText("");
-  };
-  const tone = msg && (msg.tone === "green" ? T.green : msg.tone === "red" ? T.red : T.muted);
-  return (
-    <div onClick={onClose} style={{ position: "fixed", inset: 0, zIndex: 80, background: "rgba(0,0,0,0.45)", display: "flex", alignItems: narrow ? "flex-end" : "center", justifyContent: "center", padding: narrow ? 0 : 20 }}>
-      <div onClick={(e) => e.stopPropagation()} role="dialog" aria-label={t("cqTitle")} style={{
-        background: T.card, color: T.ink, border: `1px solid ${T.border}`, borderRadius: narrow ? "14px 14px 0 0" : 12, width: "min(560px, 100%)", maxHeight: "88vh", overflowY: "auto",
-        padding: 18, boxSizing: "border-box", boxShadow: "0 12px 40px rgba(0,0,0,0.4)", textAlign: "left", display: "flex", flexDirection: "column", gap: 12,
-      }}>
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: 10 }}>
-          <span style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(16), display: "inline-flex", alignItems: "center", gap: 8 }}><ClipboardList size={18} color={T.blue} />{t("cqTitle")}</span>
-          <button onClick={onClose} aria-label={t("guideClose")} style={{ background: "transparent", border: "none", cursor: "pointer", color: T.muted, minWidth: 36, minHeight: 36 }}><X size={18} /></button>
-        </div>
-        <p style={{ fontFamily: FONT_UI, fontSize: fs(13), color: T.muted, lineHeight: 1.5, margin: 0 }}>{t("cqHint")}{linked > 0 ? ` ${t("cqLinked", { n: linked })}` : ""}</p>
-        <div>
-          <div style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(12), textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: 8 }}>{t("cqSize")}</div>
-          <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
-            {[5, 10, 15, 25].map((n) => <ClChip key={n} T={T} on={size === n} onClick={() => setSize(n)}>{n}</ClChip>)}
-          </div>
-        </div>
-        <GhostButton T={T} icon={copied ? Check : Copy} onClick={copy} style={{ alignSelf: "flex-start" }}>{copied ? t("copied") : t("cqCopy")}</GhostButton>
-        <textarea value={text} onChange={(e) => { setText(e.target.value); setMsg(null); }} placeholder={t("cqPaste")}
-          style={{ width: "100%", minHeight: 140, fontFamily: FONT_MONO, fontSize: fs(12), border: `1px solid ${T.border}`, borderRadius: 6, padding: 8, resize: "vertical", boxSizing: "border-box", background: T.paper, color: T.ink }} />
-        {msg && <div role="status" style={{ fontFamily: FONT_UI, fontSize: fs(13), color: tone, lineHeight: 1.45 }}>{msg.text}</div>}
-        <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
-          <PrimaryButton T={T} icon={Save} onClick={save} disabled={!text.trim()}>{t("cqSave")}</PrimaryButton>
-          {onOpen && linked > 0 && <PrimaryButton T={T} icon={ClipboardList} onClick={() => { onClose(); onOpen(caseIdOf(sc)); }}>{t("cqOpen")}</PrimaryButton>}
-        </div>
-      </div>
-    </div>
-  );
-}
-
-// Lab Values panel for screens outside the Qbank test (same content and look as the test screen's panel).
-function LabValuesPanel({ T, onClose, compact, narrow }) {
-  const { t, lang } = useI18n();
-  const [labSearch, setLabSearch] = useState("");
-  const [labTab, setLabTab] = useState("Serum");
-  const [siUnits, setSiUnits] = useState(false);
-  const labW = Math.round(400 * Math.min(Math.max(1, TEXT_SCALE), 1.4));
-  const lh = (h) => (lang === "es" ? LAB_HDR_ES[h] || h : h);
-  const lv = (v) => labVal(v, lang);
-  const activeLabRows = LAB_DATA[labTab] || [];
-  const rows = (() => {
-    if (!labSearch.trim()) return activeLabRows;
-    const q = labSearch.toLowerCase(); const out = []; let pendingHeader = null;
-    activeLabRows.forEach((row) => {
-      if (row.h) { pendingHeader = row; return; }
-      if (row.name.toLowerCase().includes(q)) { if (pendingHeader) { out.push(pendingHeader); pendingHeader = null; } out.push(row); }
-    });
-    return out;
-  })();
-  return (
-    <div style={{
-      ...(compact
-        ? { position: "absolute", top: 0, right: 0, bottom: 0, zIndex: 40, width: `min(${labW}px, 100%)`, boxShadow: "-8px 0 24px rgba(0,0,0,0.35)" }
-        : { width: labW, flexShrink: 0 }),
-      background: T.card, borderLeft: `1px solid ${T.border}`, textAlign: "left",
-      display: "flex", flexDirection: "column", minHeight: 0, overflow: "hidden",
-    }}>
-      <div style={{ flexShrink: 0, padding: "18px 18px 12px", borderBottom: `1px solid ${T.border}` }}>
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 12 }}>
-          <span style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(14), color: T.ink }}>{t("labValues")}</span>
-          <button onClick={onClose} aria-label={t("guideClose")} style={{ background: "transparent", border: "none", cursor: "pointer", color: T.muted, ...(narrow ? { minWidth: 44, minHeight: 44 } : {}) }}>
-            <X size={16} />
-          </button>
-        </div>
-        <div style={{ display: "flex", alignItems: "center", gap: 6, border: `1px solid ${T.border}`, borderRadius: 6, padding: "6px 10px", marginBottom: 12 }}>
-          <Search size={14} color={T.muted} />
-          <input value={labSearch} onChange={(e) => setLabSearch(e.target.value)} placeholder={t("search")}
-            style={{ border: "none", outline: "none", fontFamily: FONT_UI, fontSize: fs(13), flex: 1, background: "transparent", color: T.ink }} />
-        </div>
-        <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
-          {LAB_TABS.map((tab) => (
-            <button key={tab} onClick={() => setLabTab(tab)}
-              style={{
-                fontFamily: FONT_UI, fontSize: fs(12), fontWeight: 600, padding: "6px 10px", borderRadius: 999,
-                border: `1px solid ${labTab === tab ? T.blue : T.border}`,
-                background: labTab === tab ? T.blueLight : "transparent",
-                color: labTab === tab ? T.blue : T.muted, cursor: "pointer",
-              }}>{t("tab." + tab)}</button>
-          ))}
-        </div>
-      </div>
-      <div style={{ flex: 1, overflowY: "auto", padding: 18 }}>
-        <label style={{ display: "flex", alignItems: "center", gap: 8, fontFamily: FONT_UI, fontSize: fs(12.5), color: T.ink, marginBottom: 14, cursor: "pointer" }}>
-          <input type="checkbox" checked={siUnits} onChange={() => setSiUnits((v) => !v)} />
-          {t("siIntervals")}
-        </label>
-        <div style={{
-          display: "flex", justifyContent: "space-between", padding: "4px 4px 8px", borderBottom: `1.5px solid ${T.border}`,
-          fontFamily: FONT_UI, fontSize: fs(11.5), fontWeight: 700, color: T.muted, textTransform: "uppercase", letterSpacing: "0.04em",
-        }}>
-          <span>{t("tab." + labTab)}</span>
-          <span>{siUnits ? t("siHdr") : t("refRange")}</span>
-        </div>
-        <table style={{ width: "100%", borderCollapse: "collapse", fontFamily: FONT_UI, fontSize: fs(12.5) }}>
-          <tbody>
-            {rows.map((row, i) =>
-              row.h ? (
-                <tr key={`h-${i}`}><td colSpan={2} style={{ padding: "12px 4px 4px", fontWeight: 700, color: T.blue, fontSize: fs(12.5) }}>{lh(row.h)}</td></tr>
-              ) : (
-                <tr key={row.name} style={{ borderBottom: `1px solid ${T.border}` }}>
-                  <td style={{ padding: "6px 4px 6px", paddingLeft: row.sub ? 16 : 4, color: T.ink }}>{row.name}</td>
-                  <td style={{ padding: "6px 4px", color: T.muted, textAlign: "right", whiteSpace: "nowrap" }}>{lv(siUnits ? row.si : row.value)}</td>
-                </tr>
-              )
-            )}
-            {rows.length === 0 && (
-              <tr><td colSpan={2} style={{ padding: "16px 4px", color: T.muted, fontStyle: "italic" }}>{t("noMatches", { tab: t("tab." + labTab) })}</td></tr>
-            )}
-          </tbody>
-        </table>
-      </div>
-    </div>
-  );
-}
-
-function ClinicalWorkspace({ sc, T, isSaved, onExit, embedded = false, darkMode = false, setDarkMode = null, onSaveQbank = null, linked = 0, onOpenQbank = null, onComplete = null }) {
-  const { t, lang } = useI18n();
-  const vp = useViewport();
-  const wide = vp.w >= 1000;
-  const compact = vp.w < 980; // same breakpoints as the Qbank test screen
-  const narrow = vp.w < 640;
-  const short = vp.h < 480;
-  const es = lang === "es";
-  const [stage, setStage] = useState(0);
-  const [answers, setAnswers] = useState([]); // one entry per answered stage: the text, or null when skipped
-  const [text, setText] = useState("");
-  const [shown, setShown] = useState({});
-  const [ticks, setTicks] = useState({});
-  const [story, setStory] = useState(false);
-  const [picks, setPicks] = useState([]); // the 3 differential diagnoses chosen before the examination
-  const [examPicks, setExamPicks] = useState([]); // the examinations chosen before their findings are shown
-  const [chartOpen, setChartOpen] = useState(false);
-  // Exam-style top bar tools (same buttons as the Qbank test screen): Lab Values, Notes, Calculator, Settings
-  const [labOpen, setLabOpen] = useState(false);
-  const [notesOpen, setNotesOpen] = useState(false);
-  const [calcOpen, setCalcOpen] = useState(false);
-  const [settingsOpen, setSettingsOpen] = useState(false);
-  const [noteText, setNoteText] = useState("");
-  const [qbOpen, setQbOpen] = useState(false); // Qbank from this case
-  const db = useContext(DbContext);
-  const cc = useContext(ClinicalContext);
-  const threadRef = useRef(null);
-  const mounted = useRef(false);
-
-  useEffect(() => { // bring the new clinician question into view
-    if (!mounted.current) { mounted.current = true; return undefined; }
-    const id = setTimeout(() => {
-      const el = threadRef.current; const a = el && el.querySelector("[data-active='1']");
-      if (el && a) el.scrollTo({ top: Math.max(0, a.offsetTop - 90), behavior: "smooth" });
-    }, 60);
-    return () => clearTimeout(id);
-  }, [stage]);
-
-  const advance = (val) => { setAnswers((a) => [...a, val]); setText(""); setStage((s) => s + 1); };
-  const ddxOptions = useMemo(() => osceDdxOptions(sc), [sc]);
-  const examOptions = useMemo(() => osceExamOptions(sc), [sc]);
-  // stage order: presentation, differential (pick 3), choose the relevant examinations, their findings, diagnosis, plan
-  const kinds = ["presentation", ...(ddxOptions.length >= 6 ? ["ddx"] : []), ...(examOptions.length >= 3 ? ["examPick"] : []), "exam", "dx", "mgmt"];
-  const nStages = kinds.length;
-  const kind = kinds[stage];
-  const qKey = { presentation: "clQ0", ddx: "clQDdx", examPick: "clQExamPick", exam: kinds.includes("examPick") ? "clQ1b" : "clQ1", dx: "clQ2", mgmt: "clQ3" };
-  const submit = () => {
-    if (kind === "ddx") { if (picks.length === 3) advance(t("clDdxSay", { list: osceJoin(picks, es ? "o" : "or") })); return; }
-    if (kind === "examPick") {
-      if (!examPicks.length) return;
-      setShown(Object.fromEntries(sc.exam.map((e, i) => [i, examPicks.includes(e[0])]).filter(([, v]) => v))); // the chosen examinations' findings are shown next
-      advance(t("clExamSay", { list: osceJoin(examPicks, es ? "y" : "and") })); return;
-    }
-    if (kind !== "presentation") { advance(null); return; } // no typed response after the patient presentation
-    const v = text.trim(); if (v) advance(v);
-  };
-  const restart = () => { setStage(0); setAnswers([]); setText(""); setShown({}); setTicks({}); setStory(false); setPicks([]); setExamPicks([]); };
-
-  const fullName = sc.name || sc.who || "Patient";
-  const first = String(fullName).split(" ")[0];
-  const sexWord = osceSexWord(sc);
-  const sexLabel = sc.sex === "female" ? t("clSexF") : sc.sex === "male" ? t("clSexM") : "";
-  const complaint = String(sc.complaint || "");
-  const summary = osceSummary(sc);
-  const vNames = es ? ["Frecuencia cardíaca", "Presión arterial", "Frecuencia respiratoria", "Temperatura", "Saturación de oxígeno"] : ["Heart rate", "Blood pressure", "Respiration rate", "Temperature", "Oxygen saturation"];
-  const vitalLines = [2, 4, 0, 1, 3].map((i) => [i, clVitalText(i, sc.vitals[i], es)]).filter(([, v]) => v).map(([i, v]) => `${vNames[i]}: ${v}`);
-  const revealed = sc.exam.map((e, i) => [e, i]).filter(([, i]) => shown[i]).map(([e]) => `${e[0]}: ${e[1]}`);
-  const score = sc.check.filter((_, i) => ticks[i]).length;
-  const finished = stage >= nStages;
-  const canSubmit = kind === "ddx" ? picks.length === 3 : kind === "examPick" ? examPicks.length > 0 : kind === "presentation" ? text.trim().length > 0 : true;
-
-  const panel = { background: T.card, border: `1px solid ${T.border}`, borderRadius: 4, minWidth: 0 };
-  const sect = { fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(19), color: T.ink, margin: "0 0 12px" };
-  const small = { fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(12), color: T.muted, textTransform: "uppercase", letterSpacing: "0.05em", margin: "0 0 6px" };
-  const bubble = { background: T.mutedBg, color: T.ink, borderRadius: 26, padding: "14px 24px", fontFamily: FONT_UI, fontSize: fs(16), lineHeight: 1.45, alignSelf: "flex-start", maxWidth: "92%", overflowWrap: "anywhere" };
-  const mine = { ...bubble, alignSelf: "flex-end", background: T.blueLight, borderRadius: 22, whiteSpace: "pre-wrap" };
-  const bigBtn = { flex: 1, minWidth: 0, fontFamily: FONT_UI, fontWeight: 500, fontSize: fs(18), padding: "13px 12px", borderRadius: 4, cursor: "pointer" };
-
-  const patientCard = (
-    <aside aria-label={fullName} style={{ ...panel, padding: wide ? 16 : 14, overflowY: wide ? "auto" : "visible", minHeight: 0 }}>
-      <div style={wide ? undefined : { display: "flex", gap: 14, alignItems: "center" }}>
-        <div aria-hidden="true" style={{ width: wide ? "100%" : 84, height: wide ? 170 : 84, flexShrink: 0, borderRadius: 4, background: `linear-gradient(160deg, ${T.blueLight}, ${T.mutedBg})`, display: "flex", alignItems: "center", justifyContent: "center", color: T.blue }}>
-          <span style={{ fontSize: wide ? 84 : 46, lineHeight: 1, fontFamily: '"Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif' }}>{osceEmoji(sc)}</span>
-        </div>
-        <div style={{ minWidth: 0, marginTop: wide ? 14 : 0 }}>
-          <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(wide ? 26 : 20), color: T.ink, lineHeight: 1.15, overflowWrap: "anywhere" }}>{fullName}</div>
-          <div style={{ fontFamily: FONT_UI, fontSize: fs(15), color: T.muted, marginTop: 4 }}>{[sc.ageText, sexLabel].filter(Boolean).join("  ·  ")}</div>
-        </div>
-      </div>
-      <div style={{ display: "flex", flexDirection: "column", gap: 8, marginTop: 12, fontFamily: FONT_UI, fontSize: fs(15), color: T.muted }}>
-        <div style={{ display: "flex", gap: 8, alignItems: "flex-start" }}><ClipboardList size={17} style={{ flexShrink: 0, marginTop: 2 }} /><span style={{ overflowWrap: "anywhere" }}>{complaint}</span></div>
-        {sc.specialty && <div style={{ display: "flex", gap: 8, alignItems: "center" }}><Stethoscope size={17} style={{ flexShrink: 0 }} />{sc.specialty}</div>}
-        {sc.setting && <div style={{ display: "flex", gap: 8, alignItems: "flex-start" }}><MapPin size={17} style={{ flexShrink: 0, marginTop: 2 }} /><span style={{ overflowWrap: "anywhere" }}>{String(sc.setting).charAt(0).toUpperCase() + String(sc.setting).slice(1)}</span></div>}
-      </div>
-      <hr style={{ border: "none", borderTop: `1px solid ${T.border}`, margin: "14px 0" }} />
-      <p style={{ fontFamily: FONT_UI, fontSize: fs(15), color: T.ink, lineHeight: 1.6, margin: 0 }}>{summary}</p>
-      <button type="button" onClick={() => setStory((v) => !v)} aria-expanded={story} style={{ background: "transparent", border: "none", padding: 0, marginTop: 14, cursor: "pointer", textAlign: "left", fontFamily: FONT_UI, fontSize: fs(15), color: T.blue }}>
-        {story ? t("clHideStory") : t("clFullStory", { n: fullName })}
-      </button>
-      {story && (
-        <div style={{ marginTop: 12, display: "flex", flexDirection: "column", gap: 10, fontFamily: FONT_UI, fontSize: fs(14), color: T.ink, lineHeight: 1.55 }}>
-          {sc.instructions && <div><p style={small}>{t("clStation")}</p>{sc.instructions}</div>}
-          {sc.opener && <div style={{ fontStyle: "italic" }}>“{sc.opener}”</div>}
-          {sc.ice && <div><p style={small}>{t("clIce")}</p>{sc.ice}</div>}
-        </div>
-      )}
-    </aside>
-  );
-
-  // Past medical, social, family and drug/treatment history slots (shown in the chart under the presentation).
-  const histSoc = osceList(sc.social), histFam = osceList(sc.family), histBg = osceList(sc.bg);
-  const historySlots = [
-    [t("clPmhTitle"), osceList(sc.pmh)],
-    ...(histFam.length ? [[t("clSocialTitle"), histSoc.length ? histSoc : histBg], [t("clFamilyTitle"), histFam]]
-      : histSoc.length && !histBg.length ? [[t("clSocialTitle"), histSoc]] : [[t("clSocialFamilyTitle"), [...histSoc, ...histBg]]]),
-    [t("clDrugTitle"), osceList(sc.meds)],
-  ].filter(([, items]) => items.length > 0);
-  const chartBody = (
-    <div style={{ padding: "18px 20px 22px", display: "flex", flexDirection: "column", gap: 18 }}>
-      <div><h3 style={sect}>{t("clVitals")}</h3><ClBullets T={T} items={vitalLines} /></div>
-      <div style={{ borderTop: `1px solid ${T.border}`, paddingTop: 18 }}>
-        <h3 style={sect}>{t("clHpiTitle")}</h3>
-        <ClBullets T={T} items={[`${t("clChief")}: ${complaint}`, ...sc.hpi]} />
-      </div>
-      {historySlots.map(([label, items]) => (
-        <div key={label} style={{ borderTop: `1px solid ${T.border}`, paddingTop: 18 }}>
-          <h3 style={sect}>{label}</h3>
-          <ClBullets T={T} items={items} />
-        </div>
-      ))}
-      {Array.isArray(sc.labs) && sc.labs.length > 0 && (
-        <div style={{ borderTop: `1px solid ${T.border}`, paddingTop: 18 }}>
-          <h3 style={sect}>{t("ocLabs")}</h3>
-          <ClBullets T={T} items={sc.labs} />
-        </div>
-      )}
-      {revealed.length > 0 && (
-        <div style={{ borderTop: `1px solid ${T.border}`, paddingTop: 18 }}>
-          <h3 style={sect}>{t("clExam")}</h3>
-          <ClBullets T={T} items={revealed} />
-        </div>
-      )}
-    </div>
-  );
-  const chartHead = (
-    <div style={{ borderBottom: `1px solid ${T.border}`, padding: "0 16px" }}>
-      <span style={{ display: "inline-flex", alignItems: "center", gap: 10, padding: "16px 0 12px", borderBottom: `4px solid ${T.blue}`, marginBottom: -1, fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(20), color: T.ink }}>
-        <ClipboardList size={20} color={T.blue} />{t("clChart")}
-      </span>
-    </div>
-  );
-  const chartCard = wide ? (
-    <aside aria-label={t("clChart")} style={{ ...panel, overflowY: "auto", minHeight: 0 }}>{chartHead}{chartBody}</aside>
-  ) : (
-    <aside aria-label={t("clChart")} style={panel}>
-      <button type="button" onClick={() => setChartOpen((v) => !v)} aria-expanded={chartOpen} style={{ width: "100%", display: "flex", alignItems: "center", justifyContent: "space-between", gap: 8, background: "transparent", border: "none", padding: "14px 16px", cursor: "pointer", fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(17), color: T.ink }}>
-        <span style={{ display: "inline-flex", alignItems: "center", gap: 10 }}><ClipboardList size={19} color={T.blue} />{t("clChart")}</span>
-        {chartOpen ? <ChevronUp size={18} color={T.muted} /> : <ChevronDown size={18} color={T.muted} />}
-      </button>
-      {chartOpen && <div style={{ borderTop: `1px solid ${T.border}` }}>{chartBody}</div>}
-    </aside>
-  );
-
-  // ---- conversation ----
-  const textarea = (rows, ph) => (
-    <textarea value={text} rows={rows} onChange={(e) => setText(e.target.value)} placeholder={ph} aria-label={t("clTypeTab")}
-      style={{ width: "100%", boxSizing: "border-box", resize: "vertical", display: "block", fontFamily: FONT_UI, fontSize: Math.max(16, fs(15)), lineHeight: 1.5, color: T.ink, background: T.card, border: `1px solid ${T.border}`, borderRadius: 6, padding: "10px 12px" }} />
-  );
-  const responseBox = (
-    <div style={{ borderTop: `1px solid ${T.border}` }}>
-      <div style={{ padding: "0 24px", borderBottom: `1px solid ${T.border}` }}>
-        <span style={{ display: "inline-block", padding: "16px 0 12px", marginBottom: -1, fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(17), color: T.ink, borderBottom: `4px solid ${T.blue}` }}>{t("clTypeTab")}</span>
-      </div>
-      <div style={{ background: T.paper, padding: "20px 24px 24px" }}>
-        <div style={{ fontFamily: FONT_UI, fontSize: fs(15), color: T.muted, marginBottom: 10 }}>{t("clTypeHint", { d: CL_EXAMINER })}</div>
-        {textarea(5, t("clTypePh"))}
-      </div>
-    </div>
-  );
-
-  const clin = (key, prompt, extra, box, past) => (
-    <div key={key} data-active={past ? "0" : "1"} style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 4, overflow: "hidden", flexShrink: 0 }}>
-      <div style={{ display: "flex", gap: 14, padding: "18px 22px", alignItems: "flex-start" }}>
-        <div aria-hidden="true" style={{ width: 44, height: 44, borderRadius: "50%", background: T.blueLight, color: T.blueDeep, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}><Stethoscope size={22} /></div>
-        <div style={{ minWidth: 0 }}>
-          <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(17), color: T.ink }}>{CL_EXAMINER}</div>
-          <div style={{ fontFamily: FONT_UI, fontSize: fs(14), color: T.muted, marginBottom: 4 }}>{t("clSenior")}</div>
-          <div style={{ fontFamily: FONT_UI, fontStyle: "italic", fontSize: fs(16), color: T.ink, lineHeight: 1.5 }}>{prompt}</div>
-        </div>
-      </div>
-      {extra}
-      {box}
-    </div>
-  );
-
-  const ownExamLow = sc.exam.map((e) => String(e[0]).toLowerCase());
-  const examHit = (x) => ownExamLow.includes(x.toLowerCase());
-  const examExtra = (
-    <div style={{ padding: "0 24px 22px" }}>
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: 8, marginBottom: 8 }}>
-        <span style={small}>{t("clExam")}</span>
-        <button type="button" onClick={() => setShown(Object.fromEntries(sc.exam.map((_, i) => [i, true])))} style={{ fontFamily: FONT_UI, fontSize: fs(13), fontWeight: 600, color: T.blue, background: "transparent", border: "none", cursor: "pointer" }}>{t("clRevealAll")}</button>
-      </div>
-      <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-        {sc.exam.map(([l, f], i) => (
-          <button key={i} type="button" onClick={() => setShown((s) => ({ ...s, [i]: !s[i] }))} aria-expanded={!!shown[i]} style={{ textAlign: "left", background: shown[i] ? T.paper : "transparent", border: `1px solid ${T.border}`, borderRadius: 6, padding: "9px 12px", cursor: "pointer", fontFamily: FONT_UI, color: T.ink }}>
-            <div style={{ display: "flex", justifyContent: "space-between", gap: 8, fontWeight: 600, fontSize: fs(14) }}>{l}{shown[i] ? <ChevronUp size={15} color={T.muted} /> : <ChevronDown size={15} color={T.muted} />}</div>
-            <div style={{ fontSize: fs(14), color: shown[i] ? T.ink : T.muted, marginTop: 3, lineHeight: 1.5 }}>{shown[i] ? f : t("clTapReveal")}</div>
-          </button>
-        ))}
-        {examPicks.filter((l) => !examHit(l)).map((l) => (
-          <div key={"ni" + l} style={{ border: `1px dashed ${T.border}`, borderRadius: 6, padding: "9px 12px", fontFamily: FONT_UI }}>
-            <div style={{ fontWeight: 600, fontSize: fs(14) }}>{l}</div>
-            <div style={{ fontSize: fs(14), color: T.muted, marginTop: 3, lineHeight: 1.5 }}>{t("clExamNotIndicated")}</div>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-
-  const ddxExtra = (
-    <div style={{ padding: "0 24px 22px" }}>
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: 8, marginBottom: 8 }}>
-        <span style={small}>{t("clDdx")}</span>
-        <Pill T={T} tone={picks.length === 3 ? "green" : "muted"}>{t("clDdxPick", { n: picks.length })}</Pill>
-      </div>
-      <div role="group" aria-label={t("clDdx")} style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(min(100%, 230px), 1fr))", gap: 8 }}>
-        {ddxOptions.map((o) => {
-          const on = picks.includes(o); const locked = !on && picks.length >= 3;
-          return (
-            <button key={o} type="button" aria-pressed={on} disabled={locked} onClick={() => setPicks((q) => (q.includes(o) ? q.filter((x) => x !== o) : q.length < 3 ? [...q, o] : q))}
-              style={{ display: "flex", alignItems: "center", gap: 10, textAlign: "left", fontFamily: FONT_UI, fontSize: fs(14.5), lineHeight: 1.35, color: T.ink, background: on ? T.blueLight : "transparent", border: `1px solid ${on ? T.blue : T.border}`, borderRadius: 6, padding: "10px 12px", cursor: locked ? "not-allowed" : "pointer", opacity: locked ? 0.5 : 1, overflowWrap: "anywhere" }}>
-              <span aria-hidden="true" style={{ width: 18, height: 18, borderRadius: 4, border: `2px solid ${on ? T.blue : T.border}`, background: on ? T.blue : "transparent", color: T.onBlue, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>{on && <Check size={13} strokeWidth={3} />}</span>
-              <span style={{ minWidth: 0 }}>{o}</span>
-            </button>
-          );
-        })}
-      </div>
-    </div>
-  );
-  const examPickExtra = (
-    <div style={{ padding: "0 24px 22px" }}>
-      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: 8, marginBottom: 8 }}>
-        <span style={small}>{t("clExam")}</span>
-        <Pill T={T} tone={examPicks.length > 0 ? "green" : "muted"}>{t("clExamPickCount", { n: examPicks.length })}</Pill>
-      </div>
-      <div role="group" aria-label={t("clExam")} style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(min(100%, 230px), 1fr))", gap: 8 }}>
-        {examOptions.map((o) => {
-          const on = examPicks.includes(o);
-          return (
-            <button key={o} type="button" aria-pressed={on} onClick={() => setExamPicks((q) => (q.includes(o) ? q.filter((x) => x !== o) : [...q, o]))}
-              style={{ display: "flex", alignItems: "center", gap: 10, textAlign: "left", fontFamily: FONT_UI, fontSize: fs(14.5), lineHeight: 1.35, color: T.ink, background: on ? T.blueLight : "transparent", border: `1px solid ${on ? T.blue : T.border}`, borderRadius: 6, padding: "10px 12px", cursor: "pointer", overflowWrap: "anywhere" }}>
-              <span aria-hidden="true" style={{ width: 18, height: 18, borderRadius: 4, border: `2px solid ${on ? T.blue : T.border}`, background: on ? T.blue : "transparent", color: T.onBlue, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>{on && <Check size={13} strokeWidth={3} />}</span>
-              <span style={{ minWidth: 0 }}>{o}</span>
-            </button>
-          );
-        })}
-      </div>
-    </div>
-  );
-  const examIdx = kinds.indexOf("examPick");
-  const examAnswered = examIdx >= 0 && stage > examIdx && answers[examIdx] != null && examPicks.length > 0;
-  const ddxIdx = kinds.indexOf("ddx");
-  const ddxAnswered = ddxIdx >= 0 && stage > ddxIdx && answers[ddxIdx] != null && picks.length === 3;
-  const expectedLow = [sc.dx, ...(sc.ddx || [])].map((x) => String(x || "").toLowerCase()).filter((x) => x && !/^not (specified|provided)/.test(x));
-  const ddxHit = (x) => expectedLow.some((e) => e.includes(x.toLowerCase()) || x.toLowerCase().includes(e));
-  const listStyle = { margin: 0, paddingLeft: 20, fontFamily: FONT_UI, fontSize: fs(14.5), color: T.ink, lineHeight: 1.6 };
-  const feedback = (
-    <div style={{ padding: "0 24px 24px", display: "flex", flexDirection: "column", gap: 16 }}>
-      <div>
-        <p style={small}>{t("clDx")}</p>
-        <p style={{ ...listStyle, paddingLeft: 0 }}>{sc.dx}</p>
-      </div>
-      {ddxAnswered && (
-        <div>
-          <p style={small}>{t("clDdxYours")} · {t("clDdxScore", { n: picks.filter(ddxHit).length })}</p>
-          <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
-            {picks.map((x) => (
-              <div key={x} style={{ display: "flex", alignItems: "center", gap: 8, fontFamily: FONT_UI, fontSize: fs(14.5), color: T.ink, lineHeight: 1.45 }}>
-                {ddxHit(x) ? <Check size={16} color={T.green} style={{ flexShrink: 0 }} aria-label="✓" /> : <X size={16} color={T.red} style={{ flexShrink: 0 }} aria-label="✗" />}<span style={{ overflowWrap: "anywhere" }}>{x}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
-      {examAnswered && (
-        <div>
-          <p style={small}>{t("clExamYours")} · {t("clExamScore", { n: examPicks.filter(examHit).length, m: sc.exam.length })}</p>
-          <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
-            {examPicks.map((x) => (
-              <div key={x} style={{ display: "flex", alignItems: "center", gap: 8, fontFamily: FONT_UI, fontSize: fs(14.5), color: T.ink, lineHeight: 1.45 }}>
-                {examHit(x) ? <Check size={16} color={T.green} style={{ flexShrink: 0 }} aria-label="✓" /> : <X size={16} color={T.red} style={{ flexShrink: 0 }} aria-label="✗" />}<span style={{ overflowWrap: "anywhere" }}>{x}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
-      {sc.ddx.length > 0 && <div><p style={small}>{t("clDdx")}</p><ul style={listStyle}>{sc.ddx.map((x, i) => <li key={i}>{x}</li>)}</ul></div>}
-      {sc.ix.length > 0 && <div><p style={small}>{t("clIx")}</p><ul style={listStyle}>{sc.ix.map((x, i) => <li key={i}>{x}</li>)}</ul></div>}
-      {sc.mgmt.length > 0 && <div><p style={small}>{t("clMgmt")}</p><ul style={listStyle}>{sc.mgmt.map((x, i) => <li key={i}>{x}</li>)}</ul></div>}
-      <div style={{ borderTop: `1px solid ${T.border}`, paddingTop: 16 }}>
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: 8, marginBottom: 10, flexWrap: "wrap" }}>
-          <span style={{ ...small, margin: 0 }}>{t("clChecklist")}</span>
-          <Pill T={T} tone={score === sc.check.length ? "green" : "muted"}>{t("clScore", { n: score, m: sc.check.length })}</Pill>
-        </div>
-        <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-          {sc.check.map((c, i) => (
-            <label key={i} style={{ display: "flex", alignItems: "flex-start", gap: 10, fontFamily: FONT_UI, fontSize: fs(14.5), color: T.ink, lineHeight: 1.45, cursor: "pointer" }}>
-              <input type="checkbox" checked={!!ticks[i]} onChange={() => setTicks((s) => ({ ...s, [i]: !s[i] }))} style={{ width: 18, height: 18, marginTop: 1, flexShrink: 0, cursor: "pointer" }} />{c}
-            </label>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-
-  const thread = [
-    <div key="hi" style={bubble}>{t("clHiVitals", { n: first })}</div>,
-    <div key="vitals" style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 4, padding: "18px 22px 20px", alignSelf: "flex-start", maxWidth: "100%", boxSizing: "border-box", flexShrink: 0 }}>
-      <h3 style={sect}>{t("clVitals")}</h3>
-      <ClBullets T={T} items={vitalLines} />
-    </div>,
-  ];
-  for (let i = 0; i < Math.min(stage, nStages); i++) {
-    thread.push(clin(`q${i}`, t(qKey[kinds[i]], { d: CL_EXAMINER, n: first }), null, null, true));
-    if (answers[i] == null && kinds[i] !== "presentation" && kinds[i] !== "ddx" && kinds[i] !== "examPick") continue; // no typed response was asked for here
-    thread.push(answers[i] == null
-      ? <div key={`a${i}`} style={{ ...mine, background: "transparent", border: `1px dashed ${T.border}`, color: T.muted, fontStyle: "italic" }}>{t("clSkipped")}</div>
-      : <div key={`a${i}`} style={mine}>{answers[i]}</div>);
-  }
-  if (!finished) thread.push(clin(`q${stage}`, t(qKey[kind], { d: CL_EXAMINER, n: first }), kind === "exam" ? examExtra : kind === "ddx" ? ddxExtra : kind === "examPick" ? examPickExtra : null, kind === "presentation" ? responseBox : null, false));
-  else thread.push(clin("done", t("clDone"), feedback, null, false));
-
-  const panelH = wide ? "100%" : Math.max(480, vp.h - 120);
-  const centerCard = (
-    <section aria-label={t("clConversation")} style={{ ...panel, display: "flex", flexDirection: "column", height: panelH, minHeight: 0, overflow: "hidden" }}>
-      <div ref={threadRef} style={{ flex: 1, minHeight: 0, overflowY: "auto", padding: wide ? 24 : 14, display: "flex", flexDirection: "column", gap: 22, position: "relative" }}>{thread}</div>
-      <div style={{ display: "flex", gap: 16, padding: "16px 20px", borderTop: `1px solid ${T.border}`, background: T.card, flexShrink: 0 }}>
-        {!finished ? (
-          kind === "exam" || kind === "dx" || kind === "mgmt" ? (
-            <button type="button" onClick={submit} style={{ ...bigBtn, background: T.blue, color: T.onBlue, border: "2px solid transparent" }}>{t("guideNext")}</button>
-          ) : (
-          <>
-            <button type="button" onClick={() => advance(null)} style={{ ...bigBtn, background: T.card, color: T.ink, border: `2px solid ${T.blue}` }}>{t("clSkip")}</button>
-            <button type="button" onClick={submit} disabled={!canSubmit} style={{ ...bigBtn, background: canSubmit ? T.blue : "#C5CBD0", color: canSubmit ? T.onBlue : "#FFFFFF", border: "2px solid transparent", cursor: canSubmit ? "pointer" : "not-allowed" }}>{t("clSubmit")}</button>
-          </>
-          )
-        ) : (
-          <>
-            <button type="button" onClick={restart} style={{ ...bigBtn, background: T.card, color: T.ink, border: `2px solid ${T.blue}` }}>{t("clRestart")}</button>
-            <button type="button" onClick={() => { const sum = { complaint: sc.complaint || sc.name || "", check: { n: score, m: sc.check.length }, ddx: ddxAnswered ? { n: picks.filter(ddxHit).length, m: 3 } : null, exam: examAnswered ? { n: examPicks.filter(examHit).length, m: sc.exam.length } : null, finishedAt: Date.now() }; const prevMarks = Array.isArray(sc.completedMarks) ? sc.completedMarks : sc.completedMarks ? [sc.completedMarks] : []; cc.save({ ...sc, completedMarks: [...prevMarks, sum] }); if (onComplete) onComplete(sum); else onExit(); }} style={{ ...bigBtn, background: T.blue, color: T.onBlue, border: "2px solid transparent" }}>{onComplete ? t("hyFinish") : t("clExit")}</button>
-          </>
-        )}
-      </div>
-    </section>
-  );
-
-  const padSide = wide ? 20 : 10;
-  const bodyStyle = { background: T.paper, textAlign: "left", display: "flex", flexDirection: "column", gap: 14, boxSizing: "border-box", overflowY: wide ? "hidden" : "auto", overflowX: "hidden", overscrollBehavior: "contain",
-    padding: `${embedded ? `max(${wide ? 14 : 10}px, env(safe-area-inset-top, 0px))` : `${wide ? 14 : 10}px`} max(${padSide}px, env(safe-area-inset-right, 0px)) max(${wide ? 20 : 14}px, env(safe-area-inset-bottom, 0px)) max(${padSide}px, env(safe-area-inset-left, 0px))` };
-  const bodyInner = (
-    <>
-      {sc.shell && <div style={{ ...panel, flexShrink: 0, padding: 14, background: T.blueLight, borderColor: T.blue, fontFamily: FONT_UI, fontSize: fs(13.5), color: T.ink, lineHeight: 1.5 }}>{t("clShell")}</div>}
-      {sc.notice && <div style={{ ...panel, flexShrink: 0, padding: 14, background: T.amberLight, borderColor: T.amber, fontFamily: FONT_UI, fontSize: fs(13.5), color: T.ink, lineHeight: 1.5 }}>{t(sc.notice === "age" ? "clFallbackAge" : "clFallbackSex")}</div>}
-      {wide ? (
-        <div style={{ display: "grid", gridTemplateColumns: "minmax(220px, 270px) minmax(0, 1fr) minmax(240px, 320px)", gridTemplateRows: "minmax(0, 1fr)", gap: 16, flex: 1, minHeight: 0, alignItems: "stretch" }}>
-          {patientCard}{centerCard}{chartCard}
-        </div>
-      ) : (
-        <div style={{ display: "flex", flexDirection: "column", gap: 14, flexShrink: 0 }}>{patientCard}{centerCard}{chartCard}</div>
-      )}
-    </>
-  );
-
-  // Embedded in the Qbank test screen, the exam's own top bar is already there.
-  if (embedded) return <div style={{ position: "absolute", inset: 0, zIndex: 1, ...bodyStyle }}>{bodyInner}</div>;
-
-  // Opened from the Clinical tab (AI, template, vignette-derived or saved case): the same top bar as the Qbank test screen.
-  const labW = Math.round(400 * Math.min(Math.max(1, TEXT_SCALE), 1.4));
-  const toolBtnStyle = (active) => ({
-    display: "flex", flexDirection: "column", alignItems: "center", gap: 3, background: "transparent",
-    border: "none", cursor: "pointer", color: active ? T.blue : "#fff", fontFamily: FONT_UI, fontSize: fs(11), fontWeight: 600,
-    ...(narrow ? { justifyContent: "center", minWidth: 48, minHeight: 48, padding: "4px 6px", borderRadius: 8, background: active ? "rgba(255,255,255,0.12)" : "transparent" } : {}),
-  });
-  const toolStyle = (active) => ({ ...toolBtnStyle(active), ...(narrow ? { width: "100%" } : {}) });
-  const toolLabel = (text) => (narrow
-    ? <span style={{ maxWidth: "100%", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{text}</span>
-    : text);
-  const toolIcon = narrow ? 24 : 20;
-  const stepLabel = finished ? t("clCaseDone") : t("clStep", { n: stage + 1, m: nStages });
-  const caseLabel = sc.name || sc.complaint || t("clTitle");
-  const noteKey = `cn:${sc.id}`;
-  const noteSaved = db.items.some((n) => n.key === noteKey);
-  const saveNoteToDb = () => {
-    const text = noteText.trim(); if (!text) return;
-    db.add({ key: noteKey, kind: "note", text, source: { block: t("clTitle"), num: stage + 1, subject: sc.complaint || "", field: "" } });
-  };
-
-  return (
-    <div style={{ position: "fixed", inset: 0, zIndex: 40, textAlign: "left", display: "flex", flexDirection: "column", background: T.paper, overflow: "hidden" }}>
-      {/* Top toolbar: identical to the Qbank test screen's */}
-      <div style={{
-        background: T.navy, color: "#fff", padding: narrow || short ? "6px 10px" : "10px 20px", paddingTop: `max(${narrow || short ? 6 : 10}px, env(safe-area-inset-top, 0px))`,
-        display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: narrow ? 8 : 14, borderBottom: `1px solid ${T.border}`, flexShrink: 0,
-      }}>
-        <div style={{ display: "flex", alignItems: "center", gap: narrow ? 10 : 18, ...(narrow ? { order: 1 } : {}) }}>
-          {/* Furthest left, where the Qbank test screen has Home: Save & exit */}
-          <button onClick={onExit} style={toolBtnStyle(false)} title={t("clExit")} aria-label={t("clExit")}>
-            <ChevronLeft size={22} />
-            {!narrow && t("clExit")}
-          </button>
-          {!narrow && (
-            <div style={{ border: `1.5px solid #fff`, borderRadius: 4, padding: "6px 14px", fontFamily: FONT_UI, fontSize: fs(13), lineHeight: 1.5 }}>
-              <div>{stepLabel}</div>
-              <div style={{ maxWidth: 240, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{caseLabel}</div>
-            </div>
-          )}
-        </div>
-        {narrow && <span style={{ order: 2, marginLeft: "auto", fontFamily: FONT_UI, fontSize: fs(13) }}>{stepLabel}</span>}
-
-        <div style={narrow ? { display: "grid", gridTemplateColumns: `repeat(${onSaveQbank ? 5 : 4}, 1fr)`, gap: 4, width: "100%", order: 4 } : { display: "flex", alignItems: "center", gap: 22 }}>
-          {onSaveQbank && (
-            <button onClick={() => (linked > 0 && onOpenQbank ? onOpenQbank(caseIdOf(sc)) : setQbOpen(true))} style={toolStyle(qbOpen)} title={linked > 0 && onOpenQbank ? t("cqOpenBtn") : t("cqTitle")} aria-label={linked > 0 && onOpenQbank ? t("cqOpenBtn") : t("cqTitle")}>
-              <ClipboardList size={toolIcon} /> {toolLabel(t("cqOpenBtn"))}
-            </button>
-          )}
-          <button onClick={() => setLabOpen((v) => !v)} style={toolStyle(labOpen)} title={t("labValues")} aria-label={t("labValues")}>
-            <FlaskConical size={toolIcon} /> {toolLabel(t("labValues"))}
-          </button>
-          <button onClick={() => setNotesOpen((v) => !v)} style={toolStyle(notesOpen)} title={t("notes")} aria-label={t("notes")}>
-            <PencilLine size={toolIcon} /> {toolLabel(t("notes"))}
-          </button>
-          <button onClick={() => setCalcOpen((v) => !v)} style={toolStyle(calcOpen)} title={t("calc")} aria-label={t("calc")}>
-            <CalcIcon size={toolIcon} /> {toolLabel(t("calc"))}
-          </button>
-          <div style={{ position: "relative" }}>
-            <button onClick={() => setSettingsOpen((v) => !v)} style={toolStyle(settingsOpen)} title={t("settings")} aria-label={t("settings")}>
-              <SettingsIcon size={toolIcon} /> {toolLabel(t("settings"))}
-            </button>
-            {settingsOpen && (
-              <div style={{
-                position: "absolute", top: narrow ? 58 : 44, right: 0, background: T.card, color: T.ink, border: `1px solid ${T.border}`,
-                borderRadius: 8, padding: 14, width: narrow ? "min(280px, calc(100vw - 16px))" : 230, zIndex: 70, boxShadow: "0 8px 24px rgba(0,0,0,0.3)",
-                ...(narrow ? { maxHeight: "70vh", overflowY: "auto" } : {}),
-              }}>
-                {setDarkMode && (
-                  <label style={{ display: "flex", alignItems: "center", gap: 8, fontFamily: FONT_UI, fontSize: fs(13), cursor: "pointer", marginBottom: 12, minHeight: narrow ? 40 : undefined }}>
-                    <input type="checkbox" style={narrow ? { width: 22, height: 22 } : undefined} checked={!!darkMode} onChange={() => setDarkMode((v) => !v)} />
-                    {t("dark")}
-                  </label>
-                )}
-                <LangSelect T={T} />
-                <TextSizeControl T={T} />
-              </div>
-            )}
-          </div>
-        </div>
-      </div>
-
-      <div style={{ flex: 1, display: "flex", minHeight: 0, overflow: "hidden", position: "relative" }}>
-        <div style={{ flex: 1, minWidth: 0, minHeight: 0, display: "flex", flexDirection: "column", ...bodyStyle }}>{bodyInner}</div>
-        {labOpen && <LabValuesPanel T={T} compact={compact} narrow={narrow} onClose={() => setLabOpen(false)} />}
-      </div>
-
-      {notesOpen && (
-        <div style={{
-          position: "fixed", right: !compact && labOpen ? labW + 20 : narrow ? 8 : 24, bottom: narrow ? 8 : 24, width: `min(${Math.round(320 * Math.max(1, TEXT_SCALE))}px, calc(100vw - 16px))`, background: T.card,
-          border: `1px solid ${T.border}`, borderRadius: 10, padding: 14, zIndex: 55, boxShadow: "0 8px 28px rgba(0,0,0,0.3)",
-        }}>
-          <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 8 }}>
-            <span style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(13), color: T.ink }}>{t("notes")}</span>
-            <button onClick={() => setNotesOpen(false)} aria-label={t("guideClose")} style={{ background: "transparent", border: "none", cursor: "pointer", color: T.muted, ...(narrow ? { minWidth: 44, minHeight: 44, margin: "-10px -10px 0 0" } : {}) }}>
-              <X size={narrow ? 22 : 16} />
-            </button>
-          </div>
-          <textarea value={noteText} onChange={(e) => setNoteText(e.target.value)}
-            style={{ width: "100%", minHeight: 130, fontFamily: FONT_UI, fontSize: fs(13), border: `1px solid ${T.border}`, borderRadius: 6, padding: 8, resize: "vertical", boxSizing: "border-box", background: T.paper, color: T.ink }} />
-          <GhostButton T={T} icon={Database} disabled={!noteText.trim()} onClick={saveNoteToDb} style={{ width: "100%", marginTop: 10 }}>
-            {noteSaved ? t("dbUpdateNote") : t("dbSaveNote")}
-          </GhostButton>
-          <div style={{ display: "flex", justifyContent: "space-between", marginTop: 10 }}>
-            <GhostButton T={T} icon={Trash2} onClick={() => setNoteText("")}>{t("delNote")}</GhostButton>
-            <PrimaryButton T={T} onClick={() => setNotesOpen(false)}>{t("saveClose")}</PrimaryButton>
-          </div>
-        </div>
-      )}
-
-      {calcOpen && <CalculatorPanel T={T} onClose={() => setCalcOpen(false)} />}
-      {qbOpen && onSaveQbank && (
-        <CaseQbankPanel sc={sc} T={T} linked={linked} onOpen={onOpenQbank} onClose={() => setQbOpen(false)}
-          onSave={(data, c) => {
-            const cid = caseIdOf(c);
-            if (!cid) return { added: 0, dup: 0, failed: true, reason: "no-case-id" };
-            const r = onSaveQbank(data, cid);
-            if (!r.failed && r.added && !isSaved) cc.save(c);
-            return r;
-          }} />
-      )}
-    </div>
-  );
-}
-
-// A ready-made case for trying the Clinical workflow (patient card, vitals, presentation, examination, diagnosis, plan, key and checklist).
-function buildSampleCase() {
-  return {
-    id: osceNewId(), source: "template", sample: true, name: "Alyssa Hawkins", who: "Miss Hawkins", title: "Miss", sex: "female", ageGroup: "pediatric", ageText: "2-year-old",
-    complaint: "Speech delay", specialty: "Pediatrics", setting: "paediatric outpatient clinic", informant: "mother", shell: false, notice: "",
-    summary: "Alyssa Hawkins is a 2-year-old female who was born healthy at 39 weeks. She does not talk and is not babbling significantly.",
-    instructions: "You are a doctor in the paediatric outpatient clinic. Alyssa's mother is worried that she is not talking. Present the case to your senior clinician, decide what to examine, then give your leading diagnosis, differential and plan.",
-    opener: "She still isn't saying any words and I'm worried she is behind.",
-    hpi: [
-      "At her 9-month visit, Alyssa could babble and scream but she mostly remained quiet",
-      "Her mother reports that concerns were identified at the 1-year visit for language delay, including inconsistent babbling and no identifiable words",
-      "She turns when her name is called",
-      "Alyssa continues to display delays with speech and language without any identifiable words or pointing or grunting behaviors",
-      "Frequent ear infections in the first year; no known hearing test since the newborn screen",
-    ],
-    pmh: ["Unremarkable pregnancy and delivery at 39 weeks (7 lbs. 6 oz.)", "Healthy at birth with jaundice", "History of ear infections beginning at age 10 months"],
-    social: ["Lives with her mother and father", "Alyssa does not attend daycare", "Non-smoking household"],
-    family: ["No significant family history"],
-    meds: ["Not taking any medication"],
-    ice: "Mother worries something is seriously wrong and wants to know whether Alyssa will catch up.",
-    vitals: ["98", "105/62", "22", "36.8", "98%"],
-    exam: [
-      ["General and growth", "Growth normal for age; head circumference on the 50th centile; no dysmorphic features; no skin lesions"],
-      ["Ears", "Left tympanic membrane dull with air-fluid level; right membrane normal; no discharge"],
-      ["Hearing and response", "Turns to her name and to a quiet rattle out of sight, though inconsistently on the left"],
-      ["Social behaviour", "Good eye contact, shares enjoyment, brings objects to show her mother, imitates a wave"],
-      ["Neurological and motor", "Normal tone, power and reflexes; walks and runs steadily; stacks four blocks"],
-    ],
-    dx: "Speech and language delay secondary to conductive hearing loss (otitis media with effusion)",
-    ddxOptions: ["Acetaminophen overdose", "Acute stress reaction", "Anxiety disorder: generalized", "Anxiety disorder: post-traumatic stress disorder", "Attention deficit hyperactivity disorder", "Autism spectrum disorder", "Bipolar affective disorder", "Depression", "Developmental delay", "Eating disorder", "Hyperthyroidism", "Otitis media", "Personality disorder", "Self-harm"],
-    ddx: ["Sensorineural hearing loss", "Autism spectrum disorder", "Global developmental delay", "Developmental language disorder", "Environmental or psychosocial deprivation"],
-    ix: ["Formal audiology (pure-tone or play audiometry) and tympanometry", "Developmental assessment and referral to speech and language therapy", "Consider genetic or metabolic tests only if audiology and developmental assessment point to it"],
-    mgmt: ["Refer to audiology and ENT for management of persistent effusion (watchful waiting, grommets if persistent)", "Start speech and language therapy while hearing is addressed", "Reassure and advise on language-rich play, reading and limited screens", "Review development after hearing is corrected"],
-    check: [...OSCE_COMMON_CHECK, "Gives a concise presentation with age, presenting complaint and key negatives", "Asks about hearing, ear infections and the newborn hearing screen", "Assesses social communication to separate autism from a hearing cause", "Names conductive hearing loss as the leading diagnosis with a sensible differential", "Arranges audiology and speech therapy and explains the plan to the mother"],
-  };
-}
-
-const LS_CLVIEW = "owordClinicalView"; // { view: "grid" | "list", sort } for the Clinical Case Library (this device only)
-// Share / Export selected cases: ONE .json bundle ({ type: CLINICAL_SHARE_TYPE, items: [...] }) through the native share sheet,
-// or a download when there is none. Importing the file (Import AI case) puts every case back into the library.
-async function exportClinicalCases(list, { title, text } = {}) {
-  let json, fileName;
-  try {
-    json = JSON.stringify({ v: 1, app: "oworld", type: CLINICAL_SHARE_TYPE, updatedAt: Date.now(), items: list.map((c) => { const { restoredAt, ...rest } = c; return rest; }) }, null, 2);
-    const slug = String(title || "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "").slice(0, 60) || "clinical-cases";
-    fileName = `${slug}.json`;
-  } catch (e) { return "error"; }
-  try {
-    if (typeof navigator !== "undefined" && typeof navigator.share === "function" && typeof navigator.canShare === "function" && typeof File === "function") {
-      for (const type of ["application/json", "text/plain"]) {
-        const file = new File([json], fileName, { type });
-        if (!navigator.canShare({ files: [file] })) continue;
-        await navigator.share({ files: [file], title: title || fileName, text: text || "" });
-        return "shared";
-      }
-    }
-  } catch (err) {
-    if (err && err.name === "AbortError") return "cancelled"; // closing the share sheet is a choice, not a failure
-  }
-  try { downloadBlob(new Blob([json], { type: "application/json" }), fileName); return "downloaded"; } catch (e) { return "error"; }
-}
-// Share one HYBRID (a clinical case plus the Qbank block(s) saved under its caseId) as ONE file: { case, qbank }, the shape the
-// Universal Importer reads as a Crossover, so importing it brings both halves back, linked under a fresh caseId. The case is
-// written in the AI recipe's own JSON shape (osceCaseToJson) and the Qbank through the normal block export, so none of the
-// student's progress (answers, ratings, scores) travels with it.
-async function exportHybrid(sc, entries, { title, text } = {}) {
-  let json, fileName;
-  try {
-    // exportableQuestion keeps the student's private meta (ratings, SM-2) and the mixer's sourceBank out of the file
-    const blocks = entries.map((e, i) => ({
-      blockName: e.title || `Block ${i + 1}`,
-      ...(typeof e.timeLimitMinutes === "number" ? { timeLimitMinutes: e.timeLimitMinutes } : {}),
-      questions: (e.questions || []).map(exportableQuestion),
-    }));
-    json = JSON.stringify({
-      v: 1, app: "oworld",
-      type: "oworld-hybrid",
-      // No caseId on purpose: the importer mints a fresh one, so two imports (or the sender's own copy) never collide.
-      case: osceCaseToJson(sc),
-      qbank: { examTitle: title, blocks },
-    }, null, 2);
-    fileName = exportFileName(title);
-  } catch (e) { return "error"; }
-  return shareJsonFile({ json, fileName, title, text }); // no await before the share call: the share sheet needs the tap's user activation
-}
-// A shared bundle (or a Drive sync file): the valid cases inside it, or null when the text is not one.
-function parseClinicalBundle(raw) {
-  try {
-    const o = JSON.parse(String(raw || "").trim());
-    if (isBadHybridVersion(o)) return null; // a hybrid from a newer build: not ours to read
-    if (o && typeof o === "object" && o.type === CLINICAL_SHARE_TYPE && Array.isArray(o.items)) return o.items.filter(validClinicalCase).map(normClinical);
-  } catch (e) { /* not a bundle */ }
-  return null;
-}
-const CL_MORE_COMPLAINTS = ["Abdominal distension", "Abnormal development/Developmental delay", "Acute abdominal pain", "Acute change in or loss of vision", "Acute joint pain/swelling", "Acute rash", "Altered sensation, numbness and tingling", "Anxiety, phobias, OCD", "Back pain", "Behavior/personality change", "Behavioral difficulties in childhood", "Blackouts and faints", "Bleeding antepartum", "Bleeding from lower GI tract", "Bleeding postpartum", "Bone pain", "Breast lump", "Breast tenderness", "Breathlessness", "Cardiorespiratory arrest", "Change in bowel habit", "Chest pain", "Chronic abdominal pain", "Chronic joint pain/stiffness", "Chronic rash", "Cold, painful, pale, pulseless leg/foot", "Complications of labor", "Confusion", "Constipation", "Cough", "Diarrhea", "Diplopia", "Elation/elated mood", "Epistaxis", "Eye pain/discomfort", "Facial pain", "Facial weakness", "Facial/periorbital swelling", "Family history of possible genetic disorder", "Fatigue", "Fever", "Fits/seizures", "Gradual change in or loss of vision", "Gradual loss of vision", "Headache", "Hearing loss", "Heart murmurs", "Hematuria", "Hemoptysis", "High blood pressure", "Incontinence", "Jaundice", "Lacerations", "Limb claudication", "Limb weakness", "Loin pain", "Low mood/affective problems", "Lump in groin", "Menstrual problems", "Minor trauma", "Muscle pain/myalgia", "Neck lump", "Neck pain", "Night sweats", "Overdose", "Painful ear", "Painful sexual intercourse", "Painful swollen leg", "Palpitations", "Pelvic pain", "Perianal symptoms", "Peripheral edema and ankle swelling", "Polydipsia (thirst)", "Post-surgical care and complications", "Pregnancy risk assessment", "Pruritus", "Red eye", "Scrotal/testicular pain and/or lump/swelling", "Skin or subcutaneous lump", "Skin ulcers", "Small for gestational age/large for gestational age", "Soft tissue injury/other injury", "Sore throat", "Speech and language problems", "Stridor", "Swallowing problems", "Tinnitus", "Trauma in children and young people", "Tremor", "Unsteadiness", "Urethral discharge and genital ulcers/warts", "Urinary symptoms", "Vaginal discharge", "Vertigo", "Vomiting", "Vulval itching/lesion", "Weight gain", "Weight loss", "Wellbeing checks"]; // extra chief complaints, shown behind "View more" in the case builder
-function ClinicalPage({ T, query = "", onNew = () => {}, openReq = null, qLinks = {}, library = [], darkMode = false, setDarkMode = null, onSaveQbank = null, onOpenQbank = null }) {
-  const { t, lang } = useI18n();
-  const vp = useViewport();
-  const wide = vp.w >= 960;
-  const [view, setView] = useState("library"); // build | library (Library is the default)
-  const [scenario, setScenario] = useState(null);
-  const [shown, setShown] = useState({});
-  const [ticks, setTicks] = useState({});
-  const [showKey, setShowKey] = useState(false);
-  const cc = useContext(ClinicalContext);
-  const cases = cc.items;
-  const [srcF, setSrcF] = useState("all");
-  const [ageF, setAgeF] = useState("all");
-  const [confirmDel, setConfirmDel] = useState(false);
-  const [sel, setSel] = useState([]); // ticked case ids (the Case Library works on the ticked cases, like the Qbank Library)
-  const [orgOpen, setOrgOpen] = useState(false);
-  const [orgGroup, setOrgGroup] = useState("");
-  const [orgTag, setOrgTag] = useState("");
-  const [renameQueue, setRenameQueue] = useState([]);
-  const [renameVal, setRenameVal] = useState("");
-  const [shareSt, setShareSt] = useState(null); // null | running | shared | downloaded | error
-  const [hybridSt, setHybridSt] = useState(null); // same states, for the hybrid (case + Qbank) share
-  const [groupF, setGroupF] = useState("all");
-  const [tagF, setTagF] = useState("all");
-  const [clPrefs, setClPrefs] = useState(() => { const v = lsGet(LS_CLVIEW) || {}; return { view: v.view === "list" ? "list" : "grid", sort: ["az", "za", "added", "modified"].includes(v.sort) ? v.sort : "added" }; });
-  const setClPref = (patch) => { const next = { ...clPrefs, ...patch }; setClPrefs(next); lsSet(LS_CLVIEW, JSON.stringify(next)); };
-  const outRef = useRef(null);
-  useEffect(() => { if (query.trim()) setView("library"); }, [query]); // a universal-search query aimed at this page filters the library
-  const showScenario = (sc) => {
-    setScenario(sc); setShown({}); setTicks({}); setShowKey(false);
-    setTimeout(() => { if (outRef.current) outRef.current.scrollIntoView({ behavior: "smooth", block: "start" }); }, 50);
-  };
-  const isSaved = !!scenario && cases.some((c) => c.id === scenario.id);
-  const saveScenario = () => { if (scenario && !isSaved) cc.save(scenario); };
-  useEffect(() => { if (!openReq) return; const oc = cases.find((x) => x.id === openReq.id); if (oc) showScenario(oc); }, [openReq]); // eslint-disable-line
-  const hasSample = cases.some((c) => c.sample);
-  const addSample = () => { if (!hasSample) cc.save(buildSampleCase()); };
-  const exitCase = () => { if (scenario && !isSaved) cc.save(scenario); setScenario(null); setShown({}); setTicks({}); setShowKey(false); };
-  const needle = query.trim().toLowerCase();
-  const nameOf = (c) => c.name || c.who || c.complaint || "";
-  const phone = vp.w < 600;
-  const asGrid = clPrefs.view === "grid";
-  const modStamp = (c) => Number(c.updatedAt) || Number(c.savedAt) || 0;
-  const shownCases = cases.filter((c) => (srcF === "all" || (c.source || "template") === srcF) && (ageF === "all" || c.ageGroup === ageF)
-    && (groupF === "all" || String(c.group || "").trim() === groupF) && (tagF === "all" || (Array.isArray(c.tags) ? c.tags : []).includes(tagF))
-    && (!needle || [c.who, c.name, c.complaint, c.setting, c.dx, c.group, ...(Array.isArray(c.tags) ? c.tags : [])].filter(Boolean).join(" ").toLowerCase().includes(needle)))
-    .sort((a, b) => clPrefs.sort === "az" ? nameOf(a).localeCompare(nameOf(b)) : clPrefs.sort === "za" ? nameOf(b).localeCompare(nameOf(a)) : clPrefs.sort === "modified" ? modStamp(b) - modStamp(a) : (b.savedAt || 0) - (a.savedAt || 0));
-  // Selection, organizing, sharing, renaming and deleting: the same flow as the Qbank Library.
-  const liveSel = sel.filter((id) => cases.some((c) => c.id === id));
-  const selCases = liveSel.map((id) => cases.find((c) => c.id === id)).filter(Boolean);
-  const allSelected = shownCases.length > 0 && shownCases.every((c) => liveSel.includes(c.id));
-  const toggleSel = (id) => { setConfirmDel(false); setSel((q) => (q.includes(id) ? q.filter((x) => x !== id) : [...q, id])); };
-  const toggleAll = () => { setConfirmDel(false); setSel(allSelected ? liveSel.filter((id) => !shownCases.some((c) => c.id === id)) : [...new Set([...liveSel, ...shownCases.map((c) => c.id)])]); };
-  const allGroups = [...new Set(cases.map((c) => String(c.group || "").trim()).filter(Boolean))].sort();
-  const allTags = [...new Set(cases.flatMap((c) => (Array.isArray(c.tags) ? c.tags : [])))].sort();
-  const selHasGroup = selCases.some((c) => String(c.group || "").trim());
-  const selTags = [...selCases.flatMap((c) => (Array.isArray(c.tags) ? c.tags : [])).reduce((m, x) => m.set(x, (m.get(x) || 0) + 1), new Map())].map(([label, n]) => ({ label, n }));
-  const applyGroup = (g) => { const v = String(g || "").trim(); selCases.forEach((c) => cc.save({ ...c, group: v })); setOrgGroup(""); };
-  const addTag = () => { const v = orgTag.trim(); if (!v) return; selCases.forEach((c) => { const tg = Array.isArray(c.tags) ? c.tags : []; if (!tg.some((x) => x.toLowerCase() === v.toLowerCase())) cc.save({ ...c, tags: [...tg, v] }); }); setOrgTag(""); };
-  const removeTag = (label) => selCases.forEach((c) => { const tg = Array.isArray(c.tags) ? c.tags : []; if (tg.includes(label)) cc.save({ ...c, tags: tg.filter((x) => x !== label) }); });
-  const deleteSelected = () => { selCases.forEach((c) => cc.remove(c.id)); setSel([]); setConfirmDel(false); setOrgOpen(false); };
-  const renameId = renameQueue[0] || null;
-  const renameTotal = useRef(0);
-  const startEdit = () => { if (!liveSel.length) return; setConfirmDel(false); setOrgOpen(false); renameTotal.current = liveSel.length; setRenameQueue(liveSel); const c = cases.find((x) => x.id === liveSel[0]); setRenameVal(c ? nameOf(c) : ""); };
-  const nextRename = () => { const rest = renameQueue.slice(1); setRenameQueue(rest); const c = rest[0] && cases.find((x) => x.id === rest[0]); if (c) setRenameVal(nameOf(c)); };
-  const commitRename = () => { const c = cases.find((x) => x.id === renameId); const v = renameVal.trim(); if (c && v) cc.save({ ...c, name: v }); nextRename(); };
-  const shareSelected = async () => {
-    if (!selCases.length || shareSt === "running") return;
-    const title = selCases.length === 1 ? nameOf(selCases[0]) : t("clShareBundle");
-    setShareSt("running"); // no await before the share call: the share sheet needs the tap's user activation
-    const r = await exportClinicalCases(selCases, { title, text: t("clShareText", { name: title }) });
-    if (r === "cancelled") { setShareSt(null); return; }
-    setShareSt(r); setTimeout(() => setShareSt(null), 2800);
-  };
-  // A hybrid is available when exactly one case is ticked and the library holds Qbank block(s) under its caseId.
-  const hybridEntries = selCases.length === 1 ? library.filter((e) => caseIdOf(e) === caseIdOf(selCases[0])) : [];
-  const shareHybrid = async () => {
-    if (!hybridEntries.length || hybridSt === "running") return;
-    const title = nameOf(selCases[0]);
-    setHybridSt("running"); // no await before the share call: the share sheet needs the tap's user activation
-    const r = await exportHybrid(selCases[0], hybridEntries, { title, text: t("clShareHybridText", { name: title }) });
-    if (r === "cancelled") { setHybridSt(null); return; }
-    setHybridSt(r); setTimeout(() => setHybridSt(null), 2800);
-  };
-  const card = { background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, padding: 20 };
-  const label = { fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(12), color: T.muted, textTransform: "uppercase", letterSpacing: "0.05em", margin: "0 0 8px" };
-  const chips = { display: "flex", gap: 6, flexWrap: "wrap" };
-  const centerChips = { ...chips, justifyContent: "center" };
-  const h3 = { fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(15), color: T.ink, margin: "0 0 10px" };
-  const list = { margin: 0, paddingLeft: 20, fontFamily: FONT_UI, fontSize: fs(14), color: T.ink, lineHeight: 1.6 };
-  const sc = scenario;
-  const score = sc ? sc.check.filter((_, i) => ticks[i]).length : 0;
-  const sexWord = sc ? osceSexWord(sc) : "";
-  const who = sc ? sc.who || sc.name || "The patient" : "";
-  const dateFmt = (ms) => { try { return new Date(ms).toLocaleDateString(lang === "es" ? "es" : "en", { month: "short", day: "numeric", year: "numeric" }); } catch (e) { return ""; } };
-  return (
-    <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
-      {!sc && (<div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, padding: 24, marginBottom: 20 }}>
-      <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 14, flexWrap: "wrap" }}>
-        <Stethoscope size={17} color={T.ink} />
-        <span style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(14), color: T.ink }}>{t("clTitle")}</span>
-        <Pill T={T} tone="muted">{t("libCount", { n: cases.length })}</Pill>
-        {view === "library" && cases.length > 0 && (
-          <GhostButton T={T} onClick={toggleAll} disabled={shownCases.length === 0} style={{ marginLeft: "auto" }}>{allSelected ? t("histDeselect") : t("histSelectAll")}</GhostButton>
-        )}
-      </div>
-      {view === "library" && (
-        <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
-          {!hasSample && <div style={{ display: "flex", justifyContent: "center" }}><GhostButton T={T} icon={Plus} onClick={addSample}>{t("clAddSample")}</GhostButton></div>}
-          {cases.length > 0 && liveSel.length > 0 && (
-            <div role="toolbar" aria-label={t("clViewLib")} style={{ display: "flex", alignItems: "center", gap: 6, flexWrap: "wrap", justifyContent: "flex-end" }}>
-              {liveSel.length > 0 && <Pill T={T} tone="blue">{t("clSelCount", { n: liveSel.length })}</Pill>}
-              {liveSel.length > 0 && [
-                { id: "share", icon: shareSt === "shared" || shareSt === "downloaded" ? Check : shareSt === "error" ? AlertTriangle : Share2, label: shareSt === "shared" ? t("exportShared") : shareSt === "downloaded" ? t("exportDownloaded") : shareSt === "error" ? t("exportFailed") : t("libShareSel"), onClick: shareSelected, disabled: shareSt === "running", color: shareSt === "error" ? T.red : shareSt === "shared" || shareSt === "downloaded" ? T.green : null },
-                ...(hybridEntries.length ? [{ id: "hybrid", icon: hybridSt === "shared" || hybridSt === "downloaded" ? Check : hybridSt === "error" ? AlertTriangle : Layers, label: hybridSt === "shared" ? t("exportShared") : hybridSt === "downloaded" ? t("exportDownloaded") : hybridSt === "error" ? t("exportFailed") : t("clShareHybrid"), onClick: shareHybrid, disabled: hybridSt === "running", color: hybridSt === "error" ? T.red : hybridSt === "shared" || hybridSt === "downloaded" ? T.green : null }] : []),
-                { id: "edit", icon: Pencil, label: t("libEditSel"), onClick: startEdit },
-                { id: "organize", icon: TagIcon, label: t("libOrganize"), onClick: () => { setConfirmDel(false); setRenameQueue([]); setOrgOpen((o) => !o); } },
-                { id: "delete", icon: Trash2, label: t("libDeleteSel"), onClick: () => { setRenameQueue([]); setOrgOpen(false); setConfirmDel(true); }, color: T.red },
-              ].map((a) => (
-                <GhostButton key={a.id} T={T} icon={a.icon} onClick={a.onClick} disabled={a.disabled} title={`${a.label} (${liveSel.length})`}
-                  style={{ ...(a.color ? { color: a.color, borderColor: a.color } : {}), ...(phone ? { padding: "11px 12px" } : {}) }}>{!phone && a.label}</GhostButton>
-              ))}
-            </div>
-          )}
-          {confirmDel && liveSel.length > 0 && (
-            <div role="alert" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 10, flexWrap: "wrap", padding: "12px 14px", borderRadius: 8, border: `1px solid ${T.red}`, background: T.paper }}>
-              <span style={{ fontFamily: FONT_UI, fontSize: fs(13.5), color: T.ink }}>{t("clDeleteSelQ", { n: liveSel.length })}</span>
-              <span style={{ display: "inline-flex", gap: 8 }}>
-                <GhostButton T={T} icon={Trash2} onClick={deleteSelected} style={{ color: T.red, borderColor: T.red }}>{t("clDelete")}</GhostButton>
-                <GhostButton T={T} onClick={() => setConfirmDel(false)}>{t("cancel")}</GhostButton>
-              </span>
-            </div>
-          )}
-          {orgOpen && liveSel.length > 0 && (
-            <div role="group" aria-label={t("libOrgTitle", { n: liveSel.length })} style={{ padding: "12px 14px", borderRadius: 8, border: `1px solid ${T.border}`, background: T.paper, display: "grid", gap: 12 }}>
-              <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 8 }}>
-                <span style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(13), color: T.ink }}>{t("libOrgTitle", { n: liveSel.length })}</span>
-                <button type="button" onClick={() => setOrgOpen(false)} title={t("close")} aria-label={t("close")} style={{ background: "transparent", border: "none", cursor: "pointer", color: T.muted, display: "flex", padding: 4 }}><X size={16} /></button>
-              </div>
-              <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap" }}>
-                <span style={{ fontFamily: FONT_UI, fontSize: fs(12.5), color: T.muted, minWidth: 52 }}>{t("libOrgGroup")}</span>
-                <input list="cl-groups" value={orgGroup} maxLength={60} placeholder={t("libOrgGroupPh")} aria-label={t("libOrgGroup")}
-                  onChange={(ev) => setOrgGroup(ev.target.value)} onKeyDown={(ev) => { if (ev.key === "Enter" && orgGroup.trim()) applyGroup(orgGroup); }}
-                  style={{ flex: 1, minWidth: 160, fontFamily: FONT_UI, fontSize: fs(13), color: T.ink, background: T.card, border: `1px solid ${T.border}`, borderRadius: 6, padding: "7px 10px", outline: "none" }} />
-                <datalist id="cl-groups">{allGroups.map((g) => <option key={g} value={g} />)}</datalist>
-                <GhostButton T={T} icon={FolderIcon} onClick={() => applyGroup(orgGroup)} disabled={!orgGroup.trim()}>{t("libOrgMove")}</GhostButton>
-                {selHasGroup && <GhostButton T={T} onClick={() => applyGroup("")}>{t("libOrgUngroup")}</GhostButton>}
-              </div>
-              <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap" }}>
-                <span style={{ fontFamily: FONT_UI, fontSize: fs(12.5), color: T.muted, minWidth: 52 }}>{t("libOrgTags")}</span>
-                <input list="cl-tags" value={orgTag} maxLength={40} placeholder={t("libOrgTagPh")} aria-label={t("libOrgTags")}
-                  onChange={(ev) => setOrgTag(ev.target.value)} onKeyDown={(ev) => { if (ev.key === "Enter" && orgTag.trim()) addTag(); }}
-                  style={{ flex: 1, minWidth: 160, fontFamily: FONT_UI, fontSize: fs(13), color: T.ink, background: T.card, border: `1px solid ${T.border}`, borderRadius: 6, padding: "7px 10px", outline: "none" }} />
-                <datalist id="cl-tags">{allTags.map((g) => <option key={g} value={g} />)}</datalist>
-                <GhostButton T={T} icon={TagIcon} onClick={addTag} disabled={!orgTag.trim()}>{t("libOrgAdd")}</GhostButton>
-              </div>
-              <div style={{ display: "flex", alignItems: "center", gap: 6, flexWrap: "wrap", paddingLeft: phone ? 0 : 60 }}>
-                {selTags.length === 0
-                  ? <span style={{ fontFamily: FONT_UI, fontSize: fs(12), color: T.muted }}>{t("libOrgNoTags")}</span>
-                  : selTags.map((c) => (
-                    <button type="button" key={c.label} onClick={() => removeTag(c.label)} title={t("libOrgRemoveTag", { g: c.label })} aria-label={t("libOrgRemoveTag", { g: c.label })}
-                      style={{ display: "inline-flex", alignItems: "center", gap: 4, fontFamily: FONT_UI, fontSize: fs(12), fontWeight: 600, padding: "3px 6px 3px 9px", borderRadius: 999, border: `1px solid ${T.border}`, background: T.mutedBg, color: T.ink, cursor: "pointer" }}>
-                      {c.label}{c.n < liveSel.length ? ` (${c.n})` : ""}<X size={12} />
-                    </button>
-                  ))}
-              </div>
-            </div>
-          )}
-          <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 8 }}>
-            <div role="group" style={centerChips}>
-              {OSCE_AGES.map((a) => <ClChip key={a.id} T={T} on={ageF === a.id} onClick={() => setAgeF(ageF === a.id ? "all" : a.id)}>{t(a.labelKey)}</ClChip>)}
-            </div>
-          </div>
-          {cases.length > 0 && (
-            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 10, flexWrap: "wrap" }}>
-              <label style={{ display: "inline-flex", alignItems: "center", gap: 8, fontFamily: FONT_UI, fontSize: fs(12.5), color: T.muted }}>
-                {t("libSortLabel")}
-                <select value={clPrefs.sort} onChange={(ev) => setClPref({ sort: ev.target.value })} aria-label={t("libSortLabel")}
-                  style={{ fontFamily: FONT_UI, fontSize: fs(13), fontWeight: 600, color: T.ink, background: T.paper, border: `1px solid ${T.border}`, borderRadius: 6, padding: "7px 8px", cursor: "pointer" }}>
-                  {[["az", "libSortAZ"], ["za", "libSortZA"], ["added", "libSortAdded"], ["modified", "libSortModified"]].map(([id, key]) => <option key={id} value={id}>{t(key)}</option>)}
-                </select>
-              </label>
-              <div role="group" aria-label={t("libViewLabel")} style={{ display: "inline-flex", border: `1px solid ${T.border}`, borderRadius: 6, overflow: "hidden" }}>
-                {[["list", t("libViewList"), ListIcon], ["grid", t("libViewGrid"), LayoutGrid]].map(([id, lbl, Ic]) => (
-                  <button type="button" key={id} aria-pressed={clPrefs.view === id} title={lbl} aria-label={lbl} onClick={() => setClPref({ view: id })} style={{
-                    display: "flex", alignItems: "center", gap: 6, fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(12.5), padding: phone ? "9px 12px" : "7px 14px", border: "none",
-                    cursor: "pointer", background: clPrefs.view === id ? T.blue : "transparent", color: clPrefs.view === id ? T.onBlue : T.ink,
-                  }}><Ic size={14} />{!phone && lbl}</button>
-                ))}
-              </div>
-            </div>
-          )}
-          {(allGroups.length > 0 || allTags.length > 0) && (
-            <div role="group" aria-label={t("libOrgGroup")} style={centerChips}>
-              {allGroups.map((g) => <ClChip key={"g" + g} T={T} on={groupF === g} onClick={() => setGroupF(groupF === g ? "all" : g)}><FolderIcon size={12} style={{ marginRight: 5, verticalAlign: "-1px" }} />{g}</ClChip>)}
-              {allTags.map((g) => <ClChip key={"t" + g} T={T} on={tagF === g} onClick={() => setTagF(tagF === g ? "all" : g)}><TagIcon size={12} style={{ marginRight: 5, verticalAlign: "-1px" }} />{g}</ClChip>)}
-            </div>
-          )}
-          {shownCases.length === 0 ? (
-            <p style={{ fontFamily: FONT_UI, fontSize: fs(13.5), color: T.muted, textAlign: "center", margin: "8px 0 0" }}>{t(cases.length === 0 ? "clLibEmpty" : "clLibNoMatch")}</p>
-          ) : (
-            <div style={{ display: "grid", gridTemplateColumns: asGrid ? "repeat(auto-fill, minmax(min(100%, 420px), 1fr))" : "minmax(0, 1fr)", gap: 12 }}>
-              {shownCases.map((c) => {
-                const on = liveSel.includes(c.id);
-                const renaming = renameId === c.id;
-                const tg = Array.isArray(c.tags) ? c.tags : [];
-                const grp = String(c.group || "").trim();
-                return (
-                <div key={c.id} onClick={() => { if (!renaming) toggleSel(c.id); }} style={{ ...card, padding: 16, display: "flex", flexDirection: "column", gap: 8, minWidth: 0, cursor: "pointer", border: `1px solid ${on ? T.blue : T.border}`, background: on ? T.blueLight : T.card }}>
-                  <div style={{ display: "flex", alignItems: "flex-start", gap: 10 }}>
-                    <input type="checkbox" checked={on} onChange={() => toggleSel(c.id)} onClick={(ev) => ev.stopPropagation()} aria-label={nameOf(c)} style={{ cursor: "pointer", width: 18, height: 18, marginTop: 8, flexShrink: 0 }} />
-                    {renaming ? (
-                      <span onClick={(ev) => ev.stopPropagation()} style={{ display: "inline-flex", alignItems: "center", gap: 6, flex: 1, minWidth: 0, flexWrap: "wrap" }}>
-                        <input autoFocus value={renameVal} maxLength={120} aria-label={t("clRename")} onChange={(ev) => setRenameVal(ev.target.value)} onFocus={(ev) => ev.target.select()}
-                          onKeyDown={(ev) => { if (ev.key === "Enter") commitRename(); else if (ev.key === "Escape") nextRename(); }}
-                          style={{ flex: 1, minWidth: 140, fontFamily: FONT_UI, fontWeight: 700, fontSize: Math.max(16, fs(16)), color: T.ink, background: T.paper, border: `1px solid ${T.blue}`, borderRadius: 6, padding: "5px 8px", outline: "none" }} />
-                        <button type="button" onClick={commitRename} disabled={!renameVal.trim()} title={t("libRenameSave")} aria-label={t("libRenameSave")}
-                          style={{ background: "transparent", border: `1px solid ${T.blue}`, borderRadius: 6, cursor: renameVal.trim() ? "pointer" : "not-allowed", color: T.blue, padding: 5, display: "flex", opacity: renameVal.trim() ? 1 : 0.4 }}><Check size={15} /></button>
-                        <button type="button" onClick={nextRename} title={t("cancel")} aria-label={t("cancel")}
-                          style={{ background: "transparent", border: `1px solid ${T.border}`, borderRadius: 6, cursor: "pointer", color: T.muted, padding: 5, display: "flex" }}><X size={15} /></button>
-                        {renameTotal.current > 1 && <Pill T={T} tone="muted">{t("libEditing", { i: renameTotal.current - renameQueue.length + 1, n: renameTotal.current })}</Pill>}
-                      </span>
-                    ) : (
-                      <button type="button" onClick={(ev) => { ev.stopPropagation(); showScenario(c); }} style={{ background: "transparent", border: "none", padding: 0, margin: 0, cursor: "pointer", textAlign: "left", fontFamily: FONT_UI, fontWeight: 400, fontSize: fs(24), lineHeight: 1.2, color: T.blue, overflowWrap: "anywhere", minWidth: 0 }}>{nameOf(c)}</button>
-                    )}
-                  </div>
-                  <div style={{ display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap", fontFamily: FONT_UI, fontSize: fs(15), color: T.muted }}>
-                    <Meh size={26} strokeWidth={1.6} aria-hidden="true" style={{ flexShrink: 0, color: T.muted, opacity: 0.7 }} />
-                    <span style={{ fontWeight: 700, color: T.ink, overflowWrap: "anywhere" }}>{c.complaint}</span>
-                    {[osceAgeShort(c), c.sex === "female" ? t("clSexF") : c.sex === "male" ? t("clSexM") : ""].filter(Boolean).map((part, i) => (
-                      <React.Fragment key={i}>
-                        <span aria-hidden="true" style={{ width: 6, height: 6, borderRadius: "50%", background: T.border, flexShrink: 0 }} />
-                        <span>{part}</span>
-                      </React.Fragment>
-                    ))}
-                  </div>
-                  <p style={{ fontFamily: FONT_UI, fontSize: fs(14.5), color: T.ink, lineHeight: 1.5, margin: "2px 0 0", overflowWrap: "anywhere" }}>{osceSummary(c)}</p>
-                  <div style={{ display: "flex", gap: 6, flexWrap: "wrap", alignItems: "center" }}>
-                    <Pill T={T} tone={c.source === "ai" ? "purple" : "blue"}>{t(c.source === "ai" ? "clSrcAi" : "clSrcTpl")}</Pill>
-                    {(qLinks[caseIdOf(c)] || 0) > 0 && <Pill T={T} tone="amber"><Layers size={11} style={{ marginRight: 4, verticalAlign: "-1px" }} />{t("uniLinkedQ", { n: qLinks[caseIdOf(c)] })}</Pill>}
-                    <Pill T={T} tone="muted">{t(OSCE_AGES.find((a) => a.id === c.ageGroup)?.labelKey || "clAgeAdult")}</Pill>
-                    {c.difficulty && <Pill T={T} tone="muted">{t({ easy: "clEasy", moderate: "clModerate", hard: "clHard" }[c.difficulty] || "clModerate")}</Pill>}
-                    {grp && <Pill T={T} tone="muted"><FolderIcon size={11} style={{ marginRight: 4, verticalAlign: "-1px" }} />{grp}</Pill>}
-                    {tg.map((x) => <Pill key={x} T={T} tone="muted"><TagIcon size={11} style={{ marginRight: 4, verticalAlign: "-1px" }} />{x}</Pill>)}
-                    {c.savedAt && <span style={{ fontFamily: FONT_UI, fontSize: fs(11.5), color: T.muted }}>{t("clSavedOn", { d: dateFmt(c.savedAt) })}</span>}
-                  </div>
-                  <div style={{ display: "flex", gap: 8, flexWrap: "wrap", justifyContent: "center", marginTop: "auto", paddingTop: 4 }}>
-                    <PrimaryButton T={T} onClick={(ev) => { ev.stopPropagation(); showScenario(c); }} style={{ padding: "7px 14px", fontSize: fs(13) }}>{t("clOpen")}</PrimaryButton>
-                  </div>
-                </div>
-                );
-              })}
-            </div>
-          )}
-        </div>
-      )}
-
-      </div>)}
-
-      <div ref={outRef} style={{ scrollMarginTop: 90 }}>
-        {!sc ? (
-          null
-        ) : (
-          <ClinicalWorkspace key={sc.id} sc={sc} T={T} isSaved={isSaved} onExit={exitCase} darkMode={darkMode} setDarkMode={setDarkMode} onSaveQbank={onSaveQbank} onOpenQbank={onOpenQbank} linked={qLinks[caseIdOf(sc)] || 0} />
-        )}
-      </div>
-    </div>
-  );
-}
-
 // The underline look of the page tabs (Console, Library, ...): no outline, a 3px blue bar under the selected one. Also used by the Tutor-mode action row.
 function tabBarStyle(T, on, extra) {
   return {
@@ -12117,6 +10531,7 @@ function tabBarStyle(T, on, extra) {
     fontFamily: FONT_UI, fontWeight: on ? 700 : 600, fontSize: fs(14), color: on ? T.blue : T.ink, ...extra,
   };
 }
+// Menu bar under the logo / account row: the Home pages. Console | Qbank | Analysis | Schedule | Database.
 function PageNav({ tab, setTab, T }) {
   const { t } = useI18n();
   const items = [["console", t("tabConsole"), LayoutDashboard], ["library", t("tabLibrary"), BookOpen], ["analytics", t("tabHistory"), BarChart3], ["calendar", t("tabCalendar"), CalendarDays]];
@@ -12147,7 +10562,6 @@ function PageNav({ tab, setTab, T }) {
 // Choosing a result opens the page that holds it.
 function GlobalSearch({ library, sessionLog, onGo, onClose, q, scope = "all", T }) {
   const { t, lang } = useI18n();
-  const clinicalStore = useContext(ClinicalContext);
   const db = useContext(DbContext);
   const sp = useContext(ProfileContext);
   const profile = sp.profile;
@@ -12217,7 +10631,7 @@ function GlobalSearch({ library, sessionLog, onGo, onClose, q, scope = "all", T 
     return out.map((r) => ({ ...r, hay: norm(r.hay) }));
   }, [profile, lang]); // eslint-disable-line
   const res = useMemo(() => {
-    if (!on) return { lib: [], db: [], hist: [], cal: [], clin: [] };
+    if (!on) return { lib: [], db: [], hist: [], cal: [] };
     const inScope = (k) => scope === "all" || scope === k; // scoping: only the chosen area is searched
     const lib = [];
     (inScope("library") ? library || [] : []).forEach((e) => {
@@ -12236,11 +10650,10 @@ function GlobalSearch({ library, sessionLog, onGo, onClose, q, scope = "all", T 
     const hist = (inScope("history") ? sessionLog || [] : []).filter((h) => String(h.title || h.blockName || "").toLowerCase().includes(needle)).map((h) => ({ id: h.id, title: h.title || h.blockName }));
     const nn = norm(q);
     const cal = (inScope("calendar") ? calIndex : []).filter((r) => r.hay.includes(nn)).sort((a, b) => String(a.date || "9999").localeCompare(String(b.date || "9999"))).slice(0, 10);
-    const clin = (inScope("clinical") ? clinicalStore.items : []).filter((c) => [c.who, c.name, c.complaint, c.setting, c.dx].filter(Boolean).join(" ").toLowerCase().includes(needle)).map((c) => ({ id: c.id, title: `${c.who || c.name || ""} — ${c.complaint}` }));
-    return { lib: lib.slice(0, 8), db: dbHits.slice(0, 10), hist: hist.slice(0, 6), cal, clin: clin.slice(0, 6) };
+    return { lib: lib.slice(0, 8), db: dbHits.slice(0, 10), hist: hist.slice(0, 6), cal };
   }, [needle, scope, library, sessionLog, db && db.items, calIndex]); // eslint-disable-line
   const showJump = !!jumpDate && (scope === "all" || scope === "calendar");
-  const total = res.lib.length + res.db.length + res.hist.length + res.cal.length + res.clin.length + (showJump ? 1 : 0);
+  const total = res.lib.length + res.db.length + res.hist.length + res.cal.length + (showJump ? 1 : 0);
   const grp = { fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(11), color: T.muted, textTransform: "uppercase", letterSpacing: "0.05em", margin: "14px 0 4px" };
   const row = { width: "100%", textAlign: "left", display: "block", background: "transparent", border: "none", borderBottom: `1px solid ${T.border}`, padding: "10px 4px", cursor: "pointer", fontFamily: FONT_UI, color: T.ink };
   const go = (tab, dateKey, query) => { onGo(tab, dateKey, query); onClose(); };
@@ -12275,10 +10688,6 @@ function GlobalSearch({ library, sessionLog, onGo, onClose, q, scope = "all", T 
             {(r.match || r.src) && <div style={{ fontSize: fs(12), color: T.muted, marginTop: 2, overflowWrap: "anywhere" }}>{[r.match, r.src].filter(Boolean).join(" · ")}</div>}
           </button>
         ))}
-        {res.clin.length > 0 && <div style={grp}>{t("searchGrpClin")}</div>}
-        {res.clin.map((r) => (
-          <button key={r.id} onClick={() => go("clinical")} style={row}><div style={{ fontWeight: 600, fontSize: fs(13.5), overflowWrap: "anywhere" }}>{r.title}</div></button>
-        ))}
         {res.hist.length > 0 && <div style={grp}>{t("searchGrpHist")}</div>}
         {res.hist.map((r) => (
           <button key={r.id} onClick={() => go("analytics")} style={row}><div style={{ fontWeight: 600, fontSize: fs(13.5), overflowWrap: "anywhere" }}>{r.title}</div></button>
@@ -12290,7 +10699,7 @@ function GlobalSearch({ library, sessionLog, onGo, onClose, q, scope = "all", T 
 // The universal search bar: the ONE search field in the app. It sits centered in the top bar. On Qbank / Calendar / Database / Analysis it filters
 // that page in place as you type (each page keeps only its own centered filter chips); the scope chips under the bar widen or narrow it
 // (This page, Everywhere, or one area). Any scope other than the current page lists its matches in a panel; choosing one opens that page, filtered.
-const SEARCH_SCOPES = [["library", "searchScopeLib"], ["calendar", "searchScopeCal"], ["clinical", "searchScopeClin"], ["database", "searchScopeDb"], ["history", "searchScopeHist"]];
+const SEARCH_SCOPES = [["library", "searchScopeLib"], ["calendar", "searchScopeCal"], ["database", "searchScopeDb"], ["history", "searchScopeHist"]];
 function UniversalSearchBar({ q, setQ, scope, setScope, pageScope, library, sessionLog, onGo, T, wide, autoFocus = false }) {
   const { t } = useI18n();
   const [open, setOpen] = useState(false);
@@ -12306,7 +10715,7 @@ function UniversalSearchBar({ q, setQ, scope, setScope, pageScope, library, sess
     document.addEventListener("mousedown", down); document.addEventListener("touchstart", down); document.addEventListener("keydown", key);
     return () => { document.removeEventListener("mousedown", down); document.removeEventListener("touchstart", down); document.removeEventListener("keydown", key); };
   }, [open]);
-  const ph = { library: "libSearchPh", calendar: "calFind", database: "dbSearch", history: "searchPhHist", clinical: "searchPhClin", all: "searchPhAll" }[effScope] || "searchPh";
+  const ph = { library: "libSearchPh", calendar: "calFind", database: "dbSearch", history: "searchPhHist", all: "searchPhAll" }[effScope] || "searchPh";
   const chips = [...(pageScope !== "all" ? [["auto", "searchScopeThis"]] : []), ["all", "searchScopeAll"], ...SEARCH_SCOPES.filter(([id]) => id !== pageScope)];
   const chipOn = (id) => (id === "auto" ? effScope === pageScope : id === "all" ? effScope === "all" : scope === id);
   return (
@@ -12520,89 +10929,6 @@ function HowItWorksGuide({ onClose, T }) {
 }
 
 // ---------------------------------------------------------------------------
-// Universal Importer: the clinical half of the recipe (filters + prompt preview). The Qbank recipe keeps its own controls in the
-// Import card; the Crossover recipe is these filters plus a question count.
-// ---------------------------------------------------------------------------
-function UniClinicalRecipe({ kind, spec, setSpec, qSize, setQSize, text, T }) {
-  const { t } = useI18n();
-  const [moreOpen, setMoreOpen] = useState(false);
-  const [sysMoreOpen, setSysMoreOpen] = useState(false);
-  const set = (patch) => setSpec((x) => ({ ...x, ...patch }));
-  const label = { fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(12), color: T.muted, textTransform: "uppercase", letterSpacing: "0.05em", margin: "0 0 8px" };
-  const chips = { display: "flex", gap: 6, flexWrap: "wrap" };
-  const suggestions = OSCE_CASES.filter((c) => (spec.specialty === "any" || c.spec.includes(spec.specialty)) && (spec.system === "any" || c.sys.includes(spec.system)) && c.v.some((v) => v.ages.includes(spec.age)));
-  const moreComplaints = useMemo(() => { const have = new Set(OSCE_CASES.map((c) => c.label.toLowerCase())); return CL_MORE_COMPLAINTS.filter((l) => !have.has(l.toLowerCase())); }, []);
-  const moreBtn = { display: "inline-flex", alignItems: "center", gap: 4, background: "transparent", border: "none", padding: "4px 0", cursor: "pointer", fontFamily: FONT_UI, fontSize: fs(13), fontWeight: 600, color: T.blue };
-  return (
-    <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, padding: 20, display: "flex", flexDirection: "column", gap: 18 }}>
-      <div>
-        <p style={label}>{t("clAge")}</p>
-        <div style={chips} role="group" aria-label={t("clAge")}>
-          {OSCE_AGES.map((a) => <ClChip key={a.id} T={T} on={spec.age === a.id} onClick={() => set({ age: a.id })}>{t(a.labelKey)} <span style={{ opacity: 0.65, fontWeight: 500 }}>{a.span}</span></ClChip>)}
-        </div>
-      </div>
-      <div>
-        <p style={label}>{t("clSex")}</p>
-        <div style={chips} role="group" aria-label={t("clSex")}>
-          {[["any", "clSexAny"], ["female", "clSexF"], ["male", "clSexM"]].map(([id, k]) => <ClChip key={id} T={T} on={spec.sex === id} onClick={() => set({ sex: id })}>{t(k)}</ClChip>)}
-        </div>
-      </div>
-      <div>
-        <p style={label}>{t("clDifficulty")}</p>
-        <div style={chips} role="group" aria-label={t("clDifficulty")}>
-          {[["easy", "clEasy"], ["moderate", "clModerate"], ["hard", "clHard"]].map(([id, k]) => <ClChip key={id} T={T} on={spec.difficulty === id} onClick={() => set({ difficulty: id })}>{t(k)}</ClChip>)}
-        </div>
-      </div>
-      <div>
-        <p style={label}>{t("clSpecialty")}</p>
-        <div style={chips} role="group" aria-label={t("clSpecialty")}>
-          <ClChip T={T} on={spec.specialty === "any"} onClick={() => set({ specialty: "any" })}>{t("clAny")}</ClChip>
-          {OSCE_SPECIALTIES.map((x) => <ClChip key={x} T={T} on={spec.specialty === x} onClick={() => set({ specialty: x })}>{x}</ClChip>)}
-        </div>
-      </div>
-      <div>
-        <p style={label}>{t("clSystem")}</p>
-        <div style={chips} role="group" aria-label={t("clSystem")}>
-          <ClChip T={T} on={spec.system === "any"} onClick={() => set({ system: "any" })}>{t("clAny")}</ClChip>
-          {OSCE_SYSTEMS.map((x) => <ClChip key={x.id} T={T} on={spec.system === x.id} onClick={() => set({ system: x.id })}>{x.label}</ClChip>)}
-          {sysMoreOpen && OSCE_SYSTEMS_MORE.map((x) => <ClChip key={x.id} T={T} on={spec.system === x.id} onClick={() => set({ system: x.id })}>{x.label}</ClChip>)}
-        </div>
-        <div style={{ marginTop: 8 }}>
-          <button type="button" onClick={() => setSysMoreOpen((v) => !v)} aria-expanded={sysMoreOpen} style={moreBtn}>
-            {sysMoreOpen ? t("clViewLess") : t("clViewMore", { n: OSCE_SYSTEMS_MORE.length })}
-            {sysMoreOpen ? <ChevronUp size={15} /> : <ChevronDown size={15} />}
-          </button>
-        </div>
-      </div>
-      <div>
-        <p style={label}>{t("clComplaint")}</p>
-        <div style={chips} role="group" aria-label={t("clComplaint")}>
-          {suggestions.map((c) => <ClChip key={c.id} T={T} on={spec.complaint.trim().toLowerCase() === c.label.toLowerCase()} onClick={() => set({ complaint: c.label })}>{c.label}</ClChip>)}
-          {suggestions.length === 0 && <span style={{ fontFamily: FONT_UI, fontSize: fs(13), color: T.muted }}>{t("clNoMatch")}</span>}
-          {moreOpen && moreComplaints.map((l) => <ClChip key={l} T={T} on={spec.complaint.trim().toLowerCase() === l.toLowerCase()} onClick={() => set({ complaint: l })}>{l}</ClChip>)}
-        </div>
-        <div style={{ marginTop: 8 }}>
-          <button type="button" onClick={() => setMoreOpen((v) => !v)} aria-expanded={moreOpen} style={moreBtn}>
-            {moreOpen ? t("clViewLess") : t("clViewMore", { n: moreComplaints.length })}
-            {moreOpen ? <ChevronUp size={15} /> : <ChevronDown size={15} />}
-          </button>
-        </div>
-        <textarea value={spec.complaint} rows={2} maxLength={120} onChange={(e) => set({ complaint: e.target.value })} placeholder={t("clCustom")} aria-label={t("clComplaint")}
-          style={{ width: "100%", boxSizing: "border-box", marginTop: 10, minHeight: 66, resize: "vertical", display: "block", fontFamily: FONT_UI, fontSize: Math.max(16, fs(14)), color: T.ink, background: T.paper, border: `1px solid ${T.border}`, borderRadius: 8, padding: 12, lineHeight: 1.5 }} />
-      </div>
-      {kind === "crossover" && (
-        <div>
-          <p style={label}>{t("uniCrossSize")}</p>
-          <div style={chips} role="group" aria-label={t("uniCrossSize")}>
-            {[5, 10, 15, 25].map((n) => <ClChip key={n} T={T} on={qSize === n} onClick={() => setQSize(n)}>{n}</ClChip>)}
-          </div>
-        </div>
-      )}
-      <PromptPreview T={T} text={text} />
-    </div>
-  );
-}
-
 function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], drive, onDeleteSession, onClearSessions, onReviewSession, libTab, setLibTab, session, remoteSession, onMigrate, onResume, onOpenLobby, onLaunchLibrary, onMixLibrary, onSmartReview = () => {}, onDeleteLibraryEntry, onRenameLibraryEntry, onSetLibraryMeta, deckDefs, onDecksChange, T, darkMode, setDarkMode }) {
   const { t, lang } = useI18n();
   const [text, setText] = useState("");
@@ -12613,19 +10939,15 @@ function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], dri
   const [copied, setCopied] = useState(false);
   const [recipeSize, setRecipeSize] = useState(25);
   const [recipeCustom, setRecipeCustom] = useState(""); // typed custom question count; "" = a preset is active
+  const [recipeStyle, setRecipeStyle] = useState("vignette"); // vignette (default) | basic
+  const [recipeBasicFormat, setRecipeBasicFormat] = useState("mixed"); // only used when recipeStyle === "basic"
   const [recipeDifficulty, setRecipeDifficulty] = useState("mixed"); // mixed (recommended) | easy | medium | hard
   const [recipeFocusMode, setRecipeFocusMode] = useState("standard");
   const [recipeFocusValue, setRecipeFocusValue] = useState("");
   const [showDisclaimer, setShowDisclaimer] = useState(false);
   const [bundleCount, setBundleCount] = useState(0); // blocks detected in the pasted text (>= 2 → a bundle)
-  const cc = useContext(ClinicalContext);
-  const [uniKind, setUniKind] = useState("qbank"); // the Universal Importer's recipe chip: qbank | clinical | crossover
-  const [uniSpec, setUniSpec] = useState({ age: "adult", sex: "any", difficulty: "moderate", specialty: "any", system: "any", complaint: "" });
-  const [uniSize, setUniSize] = useState(10); // Crossover: how many linked Qbank questions
-  const [det, setDet] = useState(null); // what the pasted text was detected as
-  const [libType, setLibTypeRaw] = useState(() => { const v = lsGet(LS_LIBTYPE); return v && ["all", "qbank", "clinical"].includes(v.type) ? v.type : "qbank"; });
+  const [libType, setLibTypeRaw] = useState(() => { const v = lsGet(LS_LIBTYPE); return v && ["all", "qbank"].includes(v.type) ? v.type : "qbank"; });
   const setLibType = (type) => { setLibTypeRaw(type); lsSet(LS_LIBTYPE, JSON.stringify({ type })); };
-  const [openReq, setOpenReq] = useState(null); // { id, n }: open this clinical case in the Clinical library view
   const importRef = useRef(null);
   const [nbOpen, setNbOpen] = useState(false); // NotebookLM Notebooks: second chevron beside it, also collapsed by default
   const [pasteOpen, setPasteOpen] = useState(true); // the paste box can be collapsed; Load / Save stay available
@@ -12637,7 +10959,7 @@ function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], dri
   const [uq, setUq] = useState("");
   const [uScope, setUScope] = useState("auto"); // auto | all | library | calendar | database | history
   const keepScopeRef = useRef(false);
-  const TAB_SCOPE = { library: "library", calendar: "calendar", clinical: "clinical", database: "database", analytics: "history" };
+  const TAB_SCOPE = { library: "library", calendar: "calendar", database: "database", analytics: "history" };
   const pageScope = TAB_SCOPE[libTab] || "all";
   const effScope = uScope === "auto" ? pageScope : uScope;
   const scopedQ = (area) => (effScope === area ? uq : ""); // the text a page filters by (empty when the search is aimed elsewhere)
@@ -12663,7 +10985,6 @@ function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], dri
     setTimeout(() => { if (importRef.current) importRef.current.scrollIntoView({ behavior: "smooth", block: "start" }); }, 80);
   }, [libTab]); // eslint-disable-line
   useEffect(() => { if (libTab !== "calendar") setCalFocus(null); }, [libTab]);
-  useEffect(() => { if (libTab === "clinical") { setLibTab("library"); setLibType("clinical"); } }, [libTab]); // eslint-disable-line -- the old Clinic tab is now a filter of the Library
   // Choosing a universal-search result opens the page that holds it, with the search aimed at that page so it filters in place.
   // The Calendar result is a date, so there the text is cleared and the day is shown instead.
   const onSearchGo = (tab, key) => {
@@ -12694,71 +11015,11 @@ function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], dri
   // Library entry (if any) that owns the in-progress block — it gets the Resume Session button.
   const resumeId = session?.block?.libraryId && library.some((e) => e.id === session.block.libraryId) ? session.block.libraryId : null;
 
-  const recipeText = buildQuestionRecipe({ size: recipeSize, focusMode: recipeFocusMode, focusValue: recipeFocusValue.trim(), lang, difficulty: recipeDifficulty });
-  const uniText = useMemo(() => (uniKind === "crossover" ? buildCrossoverRecipe({ spec: uniSpec, size: uniSize, lang }) : compileOscePrompt(uniSpec, lang)), [uniKind, uniSpec, uniSize, lang]);
-  const qLinks = useMemo(() => { const m = {}; for (const e of library) { const id = caseIdOf(e); m[id] = (m[id] || 0) + e.questions.length; } return m; }, [library]);
-  const openCaseQbank = (caseId) => { const ids = library.filter((e) => caseIdOf(e) === caseId).map((e) => e.id); if (ids.length) onMixLibrary(ids, null, "all", "tutor"); }; // start the Qbank(s) linked to this case, in Tutor mode
-  const openCase = (id) => { setLibTab("library"); setLibType("clinical"); setOpenReq({ id, n: Date.now() }); window.scrollTo({ top: 0, behavior: "smooth" }); };
-  const newUni = (kind) => { setUniKind(kind); setSaveMsg(null); setLibType("all"); setTimeout(() => { if (importRef.current) importRef.current.scrollIntoView({ behavior: "smooth", block: "start" }); }, 160); };
-  const detLabel = !det || det.kind === "unknown" ? null
-    : det.kind === "qbank" ? t("uniDetQbank", { n: bundleCount || 1 })
-    : det.kind === "crossover" ? t("uniDetCross")
-    : det.kind === "clinical" ? t("uniDetClinical")
-    : t("uniDetClinicalBundle", { n: det.items.length });
-
-  // Clinical cases and Crossovers pasted into the Universal Importer are saved straight to the library. A Crossover mints ONE caseId and
-  // stamps it on the case and on every Qbank block it brings, which is what links them.
-  function importUniversal(d) {
-    setError(""); setReview(null);
-    const asCase = (raw, caseId) => {
-      const r = parseOsceCase(typeof raw === "string" ? raw : JSON.stringify(raw));
-      return r.error ? { error: r.error } : { sc: { ...r.sc, caseId, source: "ai" }, warn: r.warn };
-    };
-    if (d.kind === "clinical-bundle") {
-      const items = d.items.filter(validClinicalCase).map(normClinical);
-      if (!items.length) { setError(t("clImportBundleNone")); setPasteOpen(true); return; }
-      items.forEach((c) => cc.save({ ...c, caseId: c.caseId || caseIdOf(c) }));
-      setSaveMsg({ tone: "green", text: t("clImportBundleOk", { n: items.length }) }); setText(""); setPasteOpen(false); return;
-    }
-    if (d.kind === "clinical-list") {
-      const ok = d.items.map((x) => asCase(x, newCaseId())).filter((r) => !r.error);
-      if (!ok.length) { setError(t("clImportBundleNone")); setPasteOpen(true); return; }
-      ok.forEach((r) => cc.save(r.sc));
-      setSaveMsg({ tone: "green", text: t("clImportBundleOk", { n: ok.length }) }); setText(""); setPasteOpen(false); return;
-    }
-    if (d.kind === "clinical") {
-      const r = asCase(d.cs, newCaseId());
-      if (r.error) { setError(r.error); setPasteOpen(true); return; }
-      cc.save(r.sc);
-      setSaveMsg({ tone: "green", text: [t("uniCaseSaved", { name: r.sc.complaint }), r.warn.length ? t("clImportWarn", { w: r.warn.join(", ") }) : ""].filter(Boolean).join(" "), openId: r.sc.id });
-      setText(""); setPasteOpen(false); return;
-    }
-    const caseId = newCaseId(); // crossover
-    const r = asCase(d.cs, caseId);
-    if (r.error) { setError(t("uniCrossBadCase", { e: r.error })); setPasteOpen(true); return; }
-    const q = validateExamData(d.qb, t);
-    if (!q.valid) { setError(t("uniCrossBadQ", { e: q.error })); setPasteOpen(true); return; }
-    // Both halves validated before either is written: no orphaned Qbank blocks pointing at a missing case.
-    const blocks = q.data.blocks.map((b, i) => (/^Block \d+$/.test(b.blockName) ? { ...b, blockName: `${r.sc.complaint} · Qbank${q.data.blocks.length > 1 ? ` ${i + 1}` : ""}` } : b));
-    const res = onSaveToLibrary({ ...q.data, blocks }, caseId);
-    if (res.failed) { setError(t("storageFull")); return; } // nothing was saved: the case is not stored without its Qbank half
-    // Every block was already in the library: the case adopts their caseId, so it links to them instead of being saved unlinked.
-    const linkId = res.added === 0 && res.existingCaseId ? res.existingCaseId : caseId;
-    // cc.save only updates state; localStorage is written later by useClinicalCases' effect, and a failure there is not reported,
-    // so a full disk at that moment can still leave the Qbank saved without its case.
-    cc.save({ ...r.sc, caseId: linkId });
-    const nq = blocks.reduce((a, b) => a + b.questions.length, 0);
-    const linked = res.added > 0 || linkId !== caseId;
-    setSaveMsg({ tone: linked ? "green" : "muted", text: [linked ? t("uniCrossOk", { n: nq }) : t("uniCrossDup"), res.added && res.dup ? t("libDup", { d: res.dup }) : ""].filter(Boolean).join(" "), openId: r.sc.id });
-    setText(""); setPasteOpen(false);
-  }
+  const recipeText = buildQuestionRecipe({ size: recipeSize, focusMode: recipeFocusMode, focusValue: recipeFocusValue.trim(), lang, difficulty: recipeDifficulty, style: recipeStyle, basicFormat: recipeBasicFormat });
 
   // Shared by "Load exam" and "Save to Library". The loader is tolerant, but if anything was left out or changed in a way
   // that matters, show it and let the student confirm rather than silently loading less than they pasted.
   function attempt(action) {
-    const d0 = detectUniporterKind(text);
-    if (d0.badVersion) { setError(t("uniBadVersion")); setSaveMsg(null); setReview(null); setPasteOpen(true); return; }
-    if (d0.kind !== "qbank" && d0.kind !== "unknown") { importUniversal(d0); return; }
     const result = validateExamData(text, t);
     if (!result.valid) { setError(result.error); setSaveMsg(null); setReview(null); setPasteOpen(true); return; }
     setError("");
@@ -12777,11 +11038,9 @@ function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], dri
 
   // Live bundle detection (debounced so typing / pasting a large file stays smooth).
   useEffect(() => {
-    if (!text.trim()) { setBundleCount(0); setDet(null); return undefined; }
+    if (!text.trim()) { setBundleCount(0); return undefined; }
     const id = setTimeout(() => {
-      const d = detectUniporterKind(text);
-      setDet(d);
-      if (d.kind === "qbank") { const r = validateExamData(text, t); setBundleCount(r.valid ? r.data.blocks.length : 0); } else setBundleCount(0);
+      const r = validateExamData(text, t); setBundleCount(r.valid ? r.data.blocks.length : 0);
     }, 300);
     return () => clearTimeout(id);
   }, [text]);
@@ -12798,9 +11057,6 @@ function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], dri
       const content = ev.target.result;
       setText(content);
       setSaveMsg(null);
-      const d0 = detectUniporterKind(content);
-      if (d0.badVersion) { setError(t("uniBadVersion")); setReview(null); setPasteOpen(true); return; }
-      if (d0.kind !== "qbank" && d0.kind !== "unknown") { setError(""); setReview(null); setPasteOpen(false); return; }
       const result = validateExamData(content, t);
       if (!result.valid) { setError(result.error); setReview(null); setPasteOpen(true); return; }
       setError("");
@@ -12857,7 +11113,7 @@ function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], dri
       {libTab === "library" && (
         <nav aria-label={t("tabLibrary")} style={{ borderBottom: `1px solid ${T.border}`, overflowX: "auto", overflowY: "hidden", touchAction: "pan-x", overscrollBehaviorY: "none" }}>
           <div style={{ display: "flex", gap: 4, width: "max-content", margin: "0 auto" }}>
-            {[["qbank", "libTypeQbank", ClipboardList], ["clinical", "libTypeClinical", Stethoscope], ["all", "libTypeAll", Download]].map(([id, k, Ic]) => {
+            {[["qbank", "libTypeQbank", ClipboardList], ["all", "libTypeAll", Download]].map(([id, k, Ic]) => {
               const on = libType === id;
               return (
                 <button key={id} onClick={() => setLibType(id)} aria-current={on ? "true" : undefined} style={tabBarStyle(T, on, { gap: 7 })}><Ic size={16} style={{ flexShrink: 0 }} />{t(k)}</button>
@@ -12873,7 +11129,6 @@ function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], dri
       {/* Library top row: compact active-session widget (Resume lives here) */}
       {libTab === "library" && <LibraryTopRow session={session} resumeId={resumeId} library={library} onResume={onResume} onOpenLobby={onOpenLobby} T={T} />}
 
-      {libTab === "library" && libType === "clinical" && <ClinicalPage query={scopedQ("clinical") || scopedQ("library")} T={T} onNew={() => newUni("clinical")} openReq={openReq} qLinks={qLinks} library={library} darkMode={darkMode} setDarkMode={setDarkMode} onSaveQbank={onSaveToLibrary} onOpenQbank={openCaseQbank} />}
       {/* Import Qbank page: its own page, no longer an accordion under the library. */}
       <div ref={importRef} style={{ marginBottom: 20 }}>
         {libTab === "library" && libType === "all" && (
@@ -12885,15 +11140,7 @@ function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], dri
           <div style={{ padding: "0 24px 24px" }}>
         <div style={{ marginBottom: 16 }}>
           <p style={{ fontFamily: FONT_UI, fontSize: fs(13), color: T.muted, lineHeight: 1.55, margin: "0 0 12px" }}>{t("uniHint")}</p>
-          <div role="group" aria-label={t("uniTitle")} style={{ display: "flex", gap: 6, flexWrap: "wrap", justifyContent: "center" }}>
-            {[["qbank", "uniKindQbank", ClipboardList], ["clinical", "uniKindClinical", Stethoscope], ["crossover", "uniKindCross", Layers]].map(([id, k, Ic]) => (
-              <ClChip key={id} T={T} on={uniKind === id} onClick={() => { setUniKind(id); setSaveMsg(null); }}><span style={{ display: "inline-flex", alignItems: "center", gap: 6 }}><Ic size={14} />{t(k)}</span></ClChip>
-            ))}
-          </div>
-          <p style={{ fontFamily: FONT_UI, fontSize: fs(12.5), color: T.muted, lineHeight: 1.45, margin: "8px 0 0" }}>{t(uniKind === "qbank" ? "uniKindQbankHint" : uniKind === "clinical" ? "uniKindClinicalHint" : "uniKindCrossHint")}</p>
         </div>
-        {uniKind !== "qbank" && <UniClinicalRecipe kind={uniKind} spec={uniSpec} setSpec={setUniSpec} qSize={uniSize} setQSize={setUniSize} text={uniText} T={T} />}
-        {uniKind === "qbank" && (
         <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, overflow: "hidden" }}>
           <button
             onClick={() => setShowSchema((v) => !v)}
@@ -12934,6 +11181,63 @@ function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], dri
                 <div style={{ fontFamily: FONT_UI, fontSize: fs(11.5), color: T.muted, marginTop: 6 }}>{t("recipeTutorHint")}</div>
               </div>
             )}
+
+            <div style={{ marginBottom: 18 }}>
+              <div>
+                <div style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(12), color: T.ink, textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: 8 }}>
+                  {t("recipeStyle")}
+                </div>
+                <div role="group" aria-label={t("recipeStyle")} style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
+                  {["vignette", "basic"].map((id) => (
+                    <button
+                      key={id}
+                      type="button"
+                      onClick={() => setRecipeStyle(id)}
+                      aria-pressed={recipeStyle === id}
+                      style={{
+                        fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(13), padding: "7px 14px", borderRadius: 6,
+                        border: `1.5px solid ${recipeStyle === id ? T.blue : T.border}`,
+                        background: recipeStyle === id ? T.blueLight : "transparent",
+                        color: recipeStyle === id ? T.blueDeep : T.ink, cursor: "pointer",
+                      }}
+                    >
+                      {t("recipeStyle." + id)}
+                    </button>
+                  ))}
+                </div>
+                <div style={{ fontFamily: FONT_UI, fontSize: fs(12), color: T.muted, lineHeight: 1.5, marginTop: 6 }}>
+                  {recipeStyle === "basic" ? t("recipeStyleHintBasic") : t("recipeStyleHintVignette")}
+                </div>
+                {recipeStyle === "basic" && (
+                  <div style={{ marginTop: 14 }}>
+                    <div style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(12), color: T.ink, textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: 8 }}>
+                      {t("recipeBasicFormat")}
+                    </div>
+                    <div role="group" aria-label={t("recipeBasicFormat")} style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
+                      {BASIC_FORMATS.map((id) => (
+                        <button
+                          key={id}
+                          type="button"
+                          onClick={() => setRecipeBasicFormat(id)}
+                          aria-pressed={recipeBasicFormat === id}
+                          style={{
+                            fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(13), padding: "7px 14px", borderRadius: 6,
+                            border: `1.5px solid ${recipeBasicFormat === id ? T.blue : T.border}`,
+                            background: recipeBasicFormat === id ? T.blueLight : "transparent",
+                            color: recipeBasicFormat === id ? T.blueDeep : T.ink, cursor: "pointer",
+                          }}
+                        >
+                          {t("recipeBasicFormat." + id)}
+                        </button>
+                      ))}
+                    </div>
+                    <div style={{ fontFamily: FONT_UI, fontSize: fs(12), color: T.muted, lineHeight: 1.5, marginTop: 6 }}>
+                      {t("recipeBasicFormatHint." + recipeBasicFormat)}
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
 
             <div style={{ display: "flex", flexWrap: "wrap", gap: 24, marginBottom: 18 }}>
               <div>
@@ -13095,7 +11399,6 @@ function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], dri
           </div>
           )}
         </div>
-        )}
 
         <div style={{ display: "flex", flexWrap: "wrap", gap: 12, alignItems: "flex-start", marginTop: 12 }}>
         <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, overflow: "hidden", flex: "1 1 300px", minWidth: 0 }}>
@@ -13199,12 +11502,6 @@ function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], dri
             </div>
           )}
 
-          {detLabel && (
-            <div style={{ display: "flex", alignItems: "center", gap: 8, marginTop: 8, fontFamily: FONT_UI, fontSize: fs(12.5), color: T.muted }}>
-              <span>{t("uniDetected")}</span><Pill T={T} tone={det.kind === "crossover" ? "amber" : det.kind === "qbank" ? "blue" : "green"}>{detLabel}</Pill>
-            </div>
-          )}
-
           {error && (
             <div style={{
               marginTop: 12, display: "flex", gap: 8, alignItems: "flex-start", background: T.redLight,
@@ -13251,14 +11548,13 @@ function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], dri
             }}>
               {saveMsg.tone === "green" ? <CheckCircle2 size={16} /> : <AlertTriangle size={16} />}
               <span>{saveMsg.text}</span>
-              {saveMsg.openId && <button type="button" onClick={() => openCase(saveMsg.openId)} style={{ fontFamily: FONT_UI, fontSize: fs(13), fontWeight: 700, color: T.blue, background: "transparent", border: "none", cursor: "pointer", padding: 0 }}>{t("clOpen")}</button>}
             </div>
           )}
 
           <div style={{ display: "flex", gap: 10, marginTop: 16, flexWrap: "wrap" }}>
             {isBundle
               ? <PrimaryButton T={T} onClick={handleSubmit} icon={Plus} disabled={!text.trim()}>{t("importBundle")}</PrimaryButton>
-              : <PrimaryButton T={T} onClick={handleSaveToLibrary} icon={Save} disabled={!text.trim()}>{det && det.kind !== "qbank" && det.kind !== "unknown" ? t("uniSaveBtn") : t("saveToLibrary")}</PrimaryButton>}
+              : <PrimaryButton T={T} onClick={handleSaveToLibrary} icon={Save} disabled={!text.trim()}>{t("saveToLibrary")}</PrimaryButton>}
           </div>
 
           <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 10, flexWrap: "wrap", marginTop: 16, paddingTop: 12, borderTop: `1px solid ${T.border}` }}>
@@ -13883,328 +12179,6 @@ function vignettePreview(q) {
   return String(q?.vignette || "").replace(/\s+/g, " ").trim().slice(0, 160);
 }
 
-// ---------------------------------------------------------------------------
-// Open Clinic (test screen): connects the ACTIVE question's vignette to a clinical case. It reads the patient (age, sex,
-// presenting complaint) out of the vignette, then either builds an instant case from the built-in templates or hands the
-// student a ready AI prompt and takes the AI's JSON straight back. Every case it saves carries `fromQuestion` and shares the
-// Qbank block's caseId, so it shows up linked in the Library and reopens from the same question. The exam stays mounted
-// underneath, so the timer, answers and position are untouched.
-// ---------------------------------------------------------------------------
-function parseVignettePatient(text) {
-  const s = String(text || "");
-  const m = s.match(/(\d+(?:\.\d+)?)[\s-]*(year|month|week|day)s?[\s-]*old\b(?:\s+(?:[\w-]+\s+){0,3}?(man|woman|boy|girl|male|female|infant|baby|neonate|newborn|child|patient)\b)?/i);
-  let age = null; let noun = "";
-  if (m) {
-    const n = parseFloat(m[1]); const u = m[2].toLowerCase();
-    age = u === "year" ? n : u === "month" ? n / 12 : u === "week" ? n / 52 : n / 365;
-    noun = (m[3] || "").toLowerCase();
-  }
-  let sex = /^(woman|girl|female)$/.test(noun) ? "female" : /^(man|boy|male)$/.test(noun) ? "male" : null;
-  if (!sex) { // no sex noun after the age: fall back to whichever pronoun the vignette uses more
-    const f = (s.match(/\b(she|her|hers|herself)\b/gi) || []).length;
-    const mm = (s.match(/\b(he|him|his|himself)\b/gi) || []).length;
-    if (f > mm) sex = "female"; else if (mm > f) sex = "male";
-  }
-  const group = age == null ? "adult" : age < 18 ? "pediatric" : age >= 65 ? "geriatric" : "adult";
-  return { age, sex, group };
-}
-// Same matching rule buildOsceCase uses to pick a template, so the panel can say up front whether one will fit.
-function findClinicTemplate(text) {
-  const low = String(text || "").toLowerCase().trim();
-  if (low.length < 3) return null;
-  return OSCE_CASES.find((c) => c.label.toLowerCase() === low)
-    || OSCE_CASES.find((c) => c.label.toLowerCase().includes(low) || c.kw.some((k) => k.includes(low) || low.includes(k))) || null;
-}
-// The template whose label or keyword appears in the vignette (longest keyword wins), for when the complaint text alone matches none.
-function scanClinicTemplate(q) {
-  const hay = String(q.vignette || "").toLowerCase();
-  let best = null; let bestLen = 0;
-  for (const c of OSCE_CASES) {
-    for (const k of [c.label.toLowerCase(), ...c.kw]) {
-      if (k.length >= 4 && k.length > bestLen && hay.includes(k)) { best = c; bestLen = k.length; }
-    }
-  }
-  return best;
-}
-// The chief complaint, read from the vignette: the stated reason for the visit ("because of ...", "presents with ...", or the
-// "N-day history of ..." phrase); failing that a template keyword found in the text, and last the question's subject.
-function guessClinicComplaint(q) {
-  const v = String(q.vignette || "");
-  const clean = (x) => {
-    const c = x.replace(/^\d+[\s-]*(?:hour|day|week|month|year|hora|día|dia|semana|mes|año)s?[\s-]*(?:history\s+|de\s+evolución\s+)?(?:of\s+|de\s+)?/i, "")
-      .split(/,|\s+(?:that|which|who|since|after|when|while|began|beginning|starting|que|desde|después)\b/i)[0].replace(/\s+\d+\s*(?:hours?|days?|weeks?|months?|years?)$/i, "").trim();
-    return c.length >= 3 ? c.charAt(0).toUpperCase() + c.slice(1) : "";
-  };
-  const m = v.match(/\b(?:because of|complaining of|complains of|presents? with|presented with|for evaluation of|debido a|consulta por|acude por|presenta|refiere|(?:brought|taken)\s+(?:in|to\s+[^.]{3,40}?)\s+(?:with|because of|for))\s+(?:an?\s+|the\s+|un\s+|una\s+)?([^.;:]{4,90})/i)
-    || v.match(/\b\d+[\s-]*(?:hour|day|week|month|year)s?[\s-]*history of\s+([^.;:]{4,90})/i);
-  const phrase = m ? clean(m[1]) : "";
-  if (phrase) return phrase;
-  const tpl = scanClinicTemplate(q);
-  return tpl ? tpl.label : String(q.subject || "").trim();
-}
-// Vitals (HR, BP, RR, Temp in °C, SpO2: the case's own order) and laboratory / imaging sentences found in the vignette.
-const CLINIC_LAB_WORDS = /\b(serum|plasma|urinalysis|laboratory|labs?|hemoglobin|hematocrit|leukocyte|platelet|creatinine|BUN|glucose|sodium|potassium|calcium|ECG|EKG|electrocardiogra\w*|x-ray|radiograph\w*|CT|MRI|ultrasonograph\w*|ultrasound|echocardiogra\w*|biopsy|culture|smear|troponin|HbA1c|TSH|ferritin|cerebrospinal|CSF|arterial blood gas|PO2|PCO2|pH|bilirubin|albumin|lipase|amylase|INR|ESR|CRP|hemograma|glucosa|creatinina|radiograf\w*|tomograf\w*|resonancia|ecograf\w*)\b/i;
-const CLINIC_LAB_UNITS = /(mg\/dL|mEq\/L|g\/dL|U\/L|IU\/L|\/mm3|\/mm³|\/µL|\/μL|ng\/mL|pg\/mL|µg\/dL|μg\/dL|mmol\/L|mIU\/L)/i;
-function parseVignetteData(text) {
-  const raw = String(text || "");
-  const s = raw.replace(/\s+/g, " ");
-  const grab = (re) => { const m = s.match(re); return m ? m : null; };
-  const hr = grab(/\b(?:pulse|heart rate)\b[^.\d]{0,15}(\d{2,3})\s*(?:\/\s*min|beats|bpm|per min)/i);
-  const bp = grab(/\b(?:blood pressure|BP)\b[^.\d]{0,15}(\d{2,3})\s*\/\s*(\d{2,3})/i);
-  const rr = grab(/\b(?:respirations?|respiratory rate|RR)\b[^.\d]{0,15}(\d{1,2})\s*(?:\/\s*min|breaths|per min)/i);
-  const tp = grab(/\b(?:temperature|temp)\b[^.\d]{0,15}(\d{2,3}(?:\.\d+)?)\s*°?\s*([CF])\b/i);
-  const ox = grab(/\b(?:oxygen saturation|O2 saturation|SpO2|saturation)\b[^%\d]{0,30}(\d{2,3})\s*%/i);
-  const tempC = tp ? (tp[2].toUpperCase() === "F" ? ((parseFloat(tp[1]) - 32) * 5 / 9).toFixed(1) : String(parseFloat(tp[1]))) : null;
-  const vitals = [hr ? hr[1] : null, bp ? `${bp[1]}/${bp[2]}` : null, rr ? rr[1] : null, tempC, ox ? `${ox[1]}%` : null];
-  const labs = []; let table = false; // a "Laboratory studies show:" header turns the short lines under it into result rows
-  for (const line of raw.split(/\n+/)) {
-    const ln = line.replace(/\s+/g, " ").trim();
-    if (!ln) continue;
-    if (/:\s*$/.test(ln) && (CLINIC_LAB_WORDS.test(ln) || /studies|results|findings/i.test(ln))) { table = true; continue; }
-    if (table && ln.length <= 90 && !/[.!?]$/.test(ln)) { labs.push(ln); continue; }
-    table = false;
-    for (const sent of ln.replace(/([.?!])\s+(?=[A-Z])/g, "$1\u0001").split("\u0001")) {
-      const x = sent.trim();
-      if (x && (CLINIC_LAB_WORDS.test(x) || CLINIC_LAB_UNITS.test(x))) labs.push(x.length > 320 ? `${x.slice(0, 317)}…` : x);
-    }
-  }
-  labs.splice(8);
-  return { vitals, labs };
-}
-// Writes what the vignette states into a case: its vitals and its laboratory / imaging results replace the template's
-// invented ones. `force` makes the vignette's chief complaint override the case's own (templates); an AI case keeps its own.
-function withVignetteData(sc, data, complaint, force) {
-  const vitals = Array.isArray(sc.vitals) ? [...sc.vitals] : ["", "", "", "", ""];
-  data.vitals.forEach((v, i) => { if (v) vitals[i] = v; });
-  const cc = force ? (complaint || sc.complaint) : (sc.complaint || complaint);
-  return { ...sc, vitals, complaint: cc, ...(data.labs.length ? { labs: data.labs } : {}) };
-}
-// The normal recipe prompt, plus the question itself, so the AI writes THIS patient and lands on THIS diagnosis.
-function buildClinicPrompt(spec, q, lang) {
-  const raw = compileOscePrompt(spec, lang);
-  let base; try { base = JSON.parse(raw); } catch (e) { return raw; }
-  const right = (q.options || []).find((o) => o.key === q.correctAnswer);
-  const data = parseVignetteData(q.vignette);
-  base.task = "Create a standardized-patient OSCE station for the patient in this Qbank question";
-  base.sourceQuestion = { vignette: q.vignette, stem: q.stem, correctAnswer: right ? right.text : q.correctAnswer };
-  const rules = [...(Array.isArray(base.rules) ? base.rules : []), "Keep the same patient as sourceQuestion.vignette (age, sex, presentation, key findings and results) and make the primary diagnosis the condition the question's correctAnswer points to", "Rewrite the vignette as a live patient: lay-language history and examination findings to be revealed; do not copy the vignette text and do not name the diagnosis in the script"];
-  if (data.vitals.some(Boolean) || data.labs.length) rules.push("Use the vital signs and the laboratory / imaging results stated in sourceQuestion.vignette exactly as given: put the vitals in the vitals object and mention the results among the case's findings and investigations");
-  base.rules = rules;
-  return JSON.stringify(base, null, 2);
-}
-
-function OpenClinicPanel({ q, block, caseAnchor, T, onClose, onOpenCase }) {
-  const { t, lang } = useI18n();
-  const vp = useViewport();
-  const narrow = vp.w < 640;
-  const cc = useContext(ClinicalContext);
-  const vh = useMemo(() => hashString(String(q.vignette || "")), [q.vignette]);
-  const patient = useMemo(() => parseVignettePatient(q.vignette), [q.vignette]);
-  const [spec, setSpec] = useState(() => {
-    const d = String(q.difficultyLabel || "").toLowerCase();
-    const raw = guessClinicComplaint(q);
-    const tpl = findClinicTemplate(raw) || scanClinicTemplate(q);
-    return { age: patient.group, sex: patient.sex || "any", difficulty: d === "easy" ? "easy" : d === "hard" ? "hard" : "moderate", specialty: "any", system: "any", complaint: tpl ? tpl.label : raw };
-  });
-  const [pasteText, setPasteText] = useState("");
-  const [err, setErr] = useState("");
-  const [note, setNote] = useState("");
-  const [copied, setCopied] = useState(false);
-  const set = (patch) => { setSpec((x) => ({ ...x, ...patch })); setErr(""); };
-
-  useEffect(() => {
-    const onKey = (e) => { if (e.key === "Escape") onClose(); };
-    document.addEventListener("keydown", onKey);
-    return () => document.removeEventListener("keydown", onKey);
-  }, [onClose]);
-
-  const link = { vh, qid: String(q.id), block: String(block.blockName || "") };
-  const mine = cc.items.filter((c) => c.fromQuestion && c.fromQuestion.vh === vh);
-  const related = caseAnchor ? cc.items.filter((c) => caseIdOf(c) === caseAnchor && !(c.fromQuestion && c.fromQuestion.vh === vh)).slice(0, 4) : [];
-  const complaint = spec.complaint.trim();
-  const template = findClinicTemplate(complaint) || scanClinicTemplate(q);
-  const data = useMemo(() => parseVignetteData(q.vignette), [q.vignette]);
-
-  // Saved with the Qbank block's caseId (when the block is in the library) so Library shows the pair as a Crossover.
-  const openIt = (c) => { onOpenCase(c); onClose(); }; // the case opens under the exam toolbar, in place of the question
-  const saveLinked = (sc) => { const rec = { ...sc, caseId: caseAnchor || newCaseId(), fromQuestion: link }; cc.save(rec); openIt(rec); };
-  const fromTemplate = () => {
-    setNote("");
-    const sc = buildOsceCase({ ...spec, complaint: template ? template.label : complaint }, lang); // match on the template, but keep the vignette's own complaint
-    const aged = patient.age != null && sc.notice !== "age" ? { ...sc, ageText: osceAgeText(patient.age) } : sc;
-    saveLinked(withVignetteData(aged, data, complaint, true));
-  };
-  const copyPrompt = () => {
-    try { navigator.clipboard.writeText(buildClinicPrompt(spec, q, lang)).then(() => { setCopied(true); setTimeout(() => setCopied(false), 1600); }).catch(() => {}); } catch (e) { /* ignore */ }
-  };
-  const importPasted = () => {
-    const r = parseOsceCase(pasteText);
-    if (r.error) { setErr(r.error); return; }
-    setErr(""); setPasteText("");
-    saveLinked(withVignetteData({ ...r.sc, source: "ai" }, data, complaint, false));
-    setNote(r.warn && r.warn.length ? t("clImportWarn", { w: r.warn.join(", ") }) : "");
-  };
-
-  const inp = { width: "100%", boxSizing: "border-box", fontFamily: FONT_UI, fontSize: fs(14), color: T.ink, background: T.paper, border: `1px solid ${T.border}`, borderRadius: 6, padding: "9px 12px" };
-  const lab = { fontFamily: FONT_UI, fontSize: fs(12), fontWeight: 700, letterSpacing: 0.4, textTransform: "uppercase", color: T.muted, margin: "16px 0 8px" };
-  const caseRow = (c) => (
-    <div key={c.id} style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 10, flexWrap: "wrap", border: `1px solid ${T.border}`, borderRadius: 8, padding: "10px 12px", background: T.paper }}>
-      <div style={{ minWidth: 0, flex: "1 1 220px" }}>
-        <div style={{ fontWeight: 700, fontSize: fs(14), color: T.ink }}>{c.complaint}</div>
-        <div style={{ fontSize: fs(12.5), color: T.muted, lineHeight: 1.4 }}>{osceSummary(c)}</div>
-      </div>
-      <PrimaryButton T={T} icon={Stethoscope} onClick={() => openIt(c)} style={{ padding: "7px 14px", fontSize: fs(13) }}>{t("clOpen")}</PrimaryButton>
-    </div>
-  );
-  const excerpt = String(q.vignette || "").replace(/\s+/g, " ").trim();
-
-  return (
-    <div role="dialog" aria-modal="true" aria-label={t("ocTitle")} onMouseDown={(e) => { if (e.target === e.currentTarget) onClose(); }}
-      style={{ position: "fixed", inset: 0, zIndex: 85, background: "rgba(8,16,26,0.55)", display: "flex", alignItems: narrow ? "stretch" : "center", justifyContent: "center", padding: narrow ? 0 : 20 }}>
-      <div style={{ background: T.card, color: T.ink, border: `1px solid ${T.border}`, borderRadius: narrow ? 0 : 12, width: "min(760px, 100%)", maxHeight: narrow ? "100%" : "90vh", overflowY: "auto", padding: narrow ? 16 : 22, boxShadow: "0 12px 40px rgba(0,0,0,0.4)", fontFamily: FONT_UI, textAlign: "left" }}>
-        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 10 }}>
-          <span style={{ display: "inline-flex", alignItems: "center", gap: 8, fontWeight: 700, fontSize: fs(17) }}><Stethoscope size={20} color={T.blue} />{t("ocTitle")}</span>
-          <button type="button" onClick={onClose} aria-label={t("guideClose")} style={{ background: "transparent", border: "none", cursor: "pointer", color: T.muted, minWidth: 40, minHeight: 40 }}><X size={20} /></button>
-        </div>
-        <p style={{ margin: "8px 0 12px", fontSize: fs(13.5), color: T.muted, lineHeight: 1.5 }}>{t("ocHint")}</p>
-        <div style={{ background: T.blueLight, border: `1px solid ${T.border}`, borderRadius: 8, padding: "10px 12px", fontSize: fs(13), lineHeight: 1.5, color: T.ink }}>
-          {excerpt.length > 280 ? `${excerpt.slice(0, 280)}…` : excerpt}
-        </div>
-        <div style={{ marginTop: 10, background: T.amberLight, border: `1px solid ${T.amber}`, borderRadius: 8, padding: "9px 12px", fontSize: fs(12.5), lineHeight: 1.5, color: T.ink }}>{t("ocCaution")}</div>
-
-        {(mine.length > 0 || related.length > 0) && (
-          <div>
-            {mine.length > 0 && <><div style={lab}>{t("ocLinked")}</div><div style={{ display: "flex", flexDirection: "column", gap: 8 }}>{mine.map(caseRow)}</div></>}
-            {related.length > 0 && <><div style={lab}>{t("ocRelated")}</div><div style={{ display: "flex", flexDirection: "column", gap: 8 }}>{related.map(caseRow)}</div></>}
-          </div>
-        )}
-
-        <div style={lab}>{t("ocBuild")}</div>
-        {(patient.age != null || data.vitals.some(Boolean) || data.labs.length > 0) && (
-          <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap", marginBottom: 10, fontSize: fs(12.5), color: T.muted }}>
-            {t("ocDetected")}:
-            {patient.age != null && <Pill T={T} tone="blue">{osceAgeText(patient.age)} {osceSexWord({ sex: patient.sex, ageGroup: patient.group })}</Pill>}
-            {(data.vitals.some(Boolean) || data.labs.length > 0) && <Pill T={T} tone="blue">{t("ocFound", { v: data.vitals.filter(Boolean).length, l: data.labs.length })}</Pill>}
-          </div>
-        )}
-        <div style={{ display: "flex", flexWrap: "wrap", gap: 6, alignItems: "center", marginBottom: 8 }}>
-          <span style={{ fontSize: fs(12.5), fontWeight: 600, color: T.muted, minWidth: 74 }}>{t("clAge")}</span>
-          {OSCE_AGES.map((a) => <ClChip key={a.id} T={T} on={spec.age === a.id} onClick={() => set({ age: a.id })}>{t(a.labelKey)}</ClChip>)}
-        </div>
-        <div style={{ display: "flex", flexWrap: "wrap", gap: 6, alignItems: "center", marginBottom: 10 }}>
-          <span style={{ fontSize: fs(12.5), fontWeight: 600, color: T.muted, minWidth: 74 }}>{t("clSex")}</span>
-          {[["female", "clSexF"], ["male", "clSexM"], ["any", "clSexAny"]].map(([id, k]) => <ClChip key={id} T={T} on={spec.sex === id} onClick={() => set({ sex: id })}>{t(k)}</ClChip>)}
-        </div>
-        <label style={{ display: "block", fontSize: fs(12.5), fontWeight: 600, color: T.muted, marginBottom: 4 }}>{t("clComplaint")}</label>
-        <input value={spec.complaint} onChange={(e) => set({ complaint: e.target.value })} maxLength={120} style={inp} />
-        {complaint && <div style={{ marginTop: 6, fontSize: fs(12.5), color: template ? T.green : T.amber, lineHeight: 1.45 }}>{template ? t("ocTplMatch", { n: template.label }) : t("ocTplNone")}</div>}
-        <div style={{ display: "flex", gap: 10, flexWrap: "wrap", marginTop: 12 }}>
-          <PrimaryButton T={T} icon={Sparkles} disabled={!complaint} onClick={fromTemplate}>{t("ocTemplate")}</PrimaryButton>
-          <GhostButton T={T} icon={copied ? Check : Copy} disabled={!complaint} onClick={copyPrompt}>{copied ? t("copied") : t("ocPrompt")}</GhostButton>
-        </div>
-
-        <div style={lab}>{t("ocPasteHint")}</div>
-        <textarea value={pasteText} onChange={(e) => { setPasteText(e.target.value); setErr(""); }} placeholder={t("ocPastePh")} rows={4} style={{ ...inp, resize: "vertical", fontFamily: "ui-monospace, Menlo, Consolas, monospace", fontSize: fs(12.5) }} />
-        {err && <div role="alert" style={{ marginTop: 6, fontSize: fs(12.5), color: T.red, lineHeight: 1.45 }}>{err}</div>}
-        {note && <div style={{ marginTop: 6, fontSize: fs(12.5), color: T.amber, lineHeight: 1.45 }}>{note}</div>}
-        <div style={{ marginTop: 10 }}>
-          <GhostButton T={T} icon={Upload} disabled={!pasteText.trim()} onClick={importPasted}>{t("ocImport")}</GhostButton>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-// Hybrid review: shown on top of the Qbank results once both halves of a paired Qbank + clinical case session are done.
-// Both halves done -> the full linked review (two score cards + "This case tested"). Only the Qbank half done -> in Tutor a small
-// pending card with Open case; in Timed nothing at all (a Timed block never carries a case, so this card must not appear).
-function HybridReview({ hybrid, blockState, block, T, darkMode = false, setDarkMode = null, onUpdate = () => {} }) {
-  const { t } = useI18n();
-  const cc = useContext(ClinicalContext);
-  const [caseOpen, setCaseOpen] = useState(false);
-  const sc = blockState && blockState.score;
-  const r = latestMarks({ completedMarks: hybrid.result }); // hybrid.result is the snapshot taken when the block ended (one marks object); this only guards against an array
-  const pc = blockState && blockState.pairedCaseId ? cc.items.find((c) => c.id === blockState.pairedCaseId) || null : null;
-  // The case's topics: examScope.qbankFocus + examScope.topics + specialty + complaint + dx (placeholders like "Not provided" are skipped).
-  const hits = useMemo(() => {
-    if (!pc || !block) return [];
-    const topics = [];
-    const add = (x) => { const v = String(x == null ? "" : x).trim(); if (v && !/^(not (provided|specified)|n\/a|[-—])$/i.test(v) && !topics.some((y) => y.toLowerCase() === v.toLowerCase())) topics.push(v); };
-    const scope = pc.examScope || {};
-    (Array.isArray(scope.qbankFocus) ? scope.qbankFocus : []).forEach(add);
-    (Array.isArray(scope.topics) ? scope.topics : []).forEach(add);
-    add(pc.specialty); add(pc.complaint); add(pc.dx);
-    return block.questions.map((q, i) => ({ q, i })).filter(({ q }) => topics.some((tp) => topicMatch(tp, q.subject)));
-  }, [pc, block]);
-  if (!sc) return null;
-  const card = { flex: "1 1 260px", minWidth: 0, background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, padding: 16 };
-  const head = { fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(12), color: T.muted, textTransform: "uppercase", letterSpacing: "0.05em", margin: "0 0 8px", display: "flex", alignItems: "center", gap: 6 };
-  const big = { fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(28), color: T.ink, lineHeight: 1.1 };
-  const line = { fontFamily: FONT_UI, fontSize: fs(14), color: T.ink, lineHeight: 1.5, margin: "4px 0 0" };
-  const title = (
-    <div style={{ display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap", marginBottom: 12 }}>
-      <Layers size={20} color={T.blue} />
-      <h2 style={{ margin: 0, fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(20), color: T.ink }}>{t("hyTitle")}</h2>
-      {r && <Pill T={T} tone="green">{t("hyBoth")}</Pill>}
-    </div>
-  );
-
-  if (!r) {
-    if (blockState.timed) return null;
-    return (
-      <div style={{ textAlign: "left", marginBottom: 24 }}>
-        <div style={{ ...card, flex: "none" }}>
-          {title}
-          <p style={{ ...line, margin: "0 0 14px", color: T.muted }}>{t(hybrid.opened ? "hyCasePendingBody" : "hyNoCase")}</p>
-          {pc && <PrimaryButton T={T} icon={Stethoscope} onClick={() => { onUpdate({ opened: true }); setCaseOpen(true); }}>{t("hyCasePendingCta")}</PrimaryButton>}
-        </div>
-        {caseOpen && pc && (
-          <div style={{ position: "fixed", inset: 0, zIndex: 30, background: T.paper }}>
-            <ClinicalWorkspace key={pc.id} sc={pc} T={T} isSaved darkMode={darkMode} setDarkMode={setDarkMode}
-              onComplete={(sum) => { setCaseOpen(false); onUpdate({ result: sum, opened: true }); }} onExit={() => setCaseOpen(false)} />
-          </div>
-        )}
-      </div>
-    );
-  }
-
-  return (
-    <div style={{ textAlign: "left", marginBottom: 24 }}>
-      {title}
-      <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
-        <div style={card}>
-          <p style={head}><ClipboardList size={14} />{t("hyQbank")}</p>
-          <div style={big}>{sc.pct}%</div><p style={line}>{t("hyQScore", { c: sc.correct, t: sc.total })}</p>
-        </div>
-        <div style={card}>
-          <p style={head}><Stethoscope size={14} />{t("hyCase")}</p>
-          <div style={{ ...line, fontWeight: 700, margin: 0 }}>{r.complaint}</div>
-          <p style={line}>{t("clScore", { n: r.check.n, m: r.check.m })}</p>
-          {r.ddx && <p style={line}>{t("clDdxScore", { n: r.ddx.n })}</p>}
-          {r.exam && <p style={line}>{t("clExamScore", { n: r.exam.n, m: r.exam.m })}</p>}
-        </div>
-      </div>
-      <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(13), color: T.ink, margin: "18px 0 10px", textTransform: "uppercase", letterSpacing: "0.04em" }}>{t("hyTested")}</div>
-      {hits.length === 0 ? (
-        <p style={{ fontFamily: FONT_UI, fontSize: fs(13.5), color: T.muted, lineHeight: 1.5, margin: 0 }}>{t("hyNoOverlap")}</p>
-      ) : (
-        <div style={{ display: "grid", gap: 10 }}>
-          {hits.map(({ q, i }) => {
-            const ok = blockState.answers[q.id]?.selected === q.correctAnswer;
-            return (
-              <div key={q.id} style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 8, display: "flex", alignItems: "center", gap: 12, padding: "13px 16px" }}>
-                <span style={{ display: "inline-flex", flexShrink: 0 }}>{ok ? <CheckCircle2 size={17} color={T.green} /> : <XCircle size={17} color={T.red} />}</span>
-                <span style={{ fontFamily: FONT_MONO, fontSize: fs(12.5), color: T.muted, width: 24, flexShrink: 0 }}>{i + 1}</span>
-                <span style={{ flex: 1, minWidth: 0, fontFamily: FONT_UI, fontSize: fs(14), color: T.ink, lineHeight: 1.45, overflowWrap: "anywhere" }}>{q.subject || t("general")}</span>
-              </div>
-            );
-          })}
-        </div>
-      )}
-    </div>
-  );
-}
-
 // Home / lobby / results / summary render in their own full-viewport scroll layer, exactly like the exam screen does, so
 // they are not boxed in by whatever container the app is mounted in.
 function FullPage({ T, children }) {
@@ -14276,7 +12250,7 @@ const examMenuItemStyle = (T, disabled) => ({
   cursor: disabled ? "not-allowed" : "pointer", opacity: disabled ? 0.45 : 1,
 });
 
-function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onAbortBlock, onOmitQuestion = () => {}, omitInfo = () => ({ saved: false, title: "", last: false }), onRate, onHome, darkMode, setDarkMode, caseAnchor = null }) {
+function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onAbortBlock, onOmitQuestion = () => {}, omitInfo = () => ({ saved: false, title: "", last: false }), onRate, onHome, darkMode, setDarkMode }) {
   // Resume on the question the student was last viewing (clamped in case the stored value is stale).
   const [qIdx, setQIdx] = useState(() => {
     const n = Math.floor(Number(blockState.currentQuestionIndex) || 0);
@@ -14314,39 +12288,6 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onAbortBl
   const [labOpen, setLabOpen] = useState(false);
   const [notesOpen, setNotesOpen] = useState(false);
   const [calcOpen, setCalcOpen] = useState(false);
-  const clinicCtx = useContext(ClinicalContext);
-  const [clinicOpen, setClinicOpen] = useState(false); // Open Clinic: the active vignette -> a clinical case
-  const [hyPrompt, setHyPrompt] = useState(null); // Hybrid: "case" | "qbank" = the half that is done (the copy says so); the buttons are about the OTHER, still-open half
-  const hyDialogRef = useRef(null);
-  const hyOpenedIdRef = useRef(null); // Hybrid: id of the paired case that has been opened this session (compared per pair, so another case never inherits "opened")
-  const hyReturnFocusRef = useRef(null); // the element that had focus when the prompt opened
-  // Hybrid prompt: focus trap. Focus moves into the dialog, Tab / Shift+Tab cycle inside it, and focus returns where it was on close.
-  useEffect(() => {
-    if (!hyPrompt) return;
-    const dlg = hyDialogRef.current;
-    if (!dlg) return;
-    hyReturnFocusRef.current = document.activeElement; // captured before focus moves into the dialog
-    const focusables = () => Array.from(dlg.querySelectorAll('button:not([disabled]), [href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'));
-    (focusables()[0] || dlg).focus();
-    const onKey = (e) => {
-      if (e.key !== "Tab") return;
-      const f = focusables();
-      const a = document.activeElement;
-      if (f.length === 0) { e.preventDefault(); dlg.focus(); return; }
-      if (!dlg.contains(a)) { e.preventDefault(); f[e.shiftKey ? f.length - 1 : 0].focus(); return; }
-      if (e.shiftKey && a === f[0]) { e.preventDefault(); f[f.length - 1].focus(); }
-      else if (!e.shiftKey && a === f[f.length - 1]) { e.preventDefault(); f[0].focus(); }
-    };
-    document.addEventListener("keydown", onKey, true);
-    return () => {
-      document.removeEventListener("keydown", onKey, true);
-      const back = hyReturnFocusRef.current; hyReturnFocusRef.current = null;
-      if (back && typeof back.focus === "function" && document.contains(back)) back.focus();
-    };
-  }, [hyPrompt]);
-  const [qbEnded, setQbEnded] = useState(false); // Hybrid: the Qbank half is finished
-  const [caseResult, setCaseResult] = useState(null); // Hybrid: the case half is finished (its marks)
-  const [clinicCase, setClinicCase] = useState(null); // the case being worked, shown in place of the question under the same top bar
   const [locked, setLocked] = useState(false);
   const [hintsEnabled, setHintsEnabled] = useState(true);
   const [showHint, setShowHint] = useState(false);
@@ -14436,7 +12377,7 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onAbortBl
     function handler(e) {
       const tag = document.activeElement?.tagName;
       const isTyping = tag === "INPUT" || tag === "TEXTAREA";
-      if (locked || confirmSubmit || confirmTimerOff || timeUp || clinicOpen) return;
+      if (locked || confirmSubmit || confirmTimerOff || timeUp) return;
 
       if (e.altKey) {
         const k = e.key.toLowerCase();
@@ -14447,7 +12388,7 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onAbortBl
         return;
       }
 
-      if (isTyping || e.ctrlKey || e.metaKey || e.shiftKey || clinicCase) return;
+      if (isTyping || e.ctrlKey || e.metaKey || e.shiftKey) return;
 
       const digitIdx = ["1", "2", "3", "4", "5"].indexOf(e.key);
       if (digitIdx !== -1 && digitIdx < q.options.length) {
@@ -14463,7 +12404,7 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onAbortBl
     }
     document.addEventListener("keydown", handler);
     return () => document.removeEventListener("keydown", handler);
-  }, [q, qState, locked, confirmSubmit, confirmTimerOff, timeUp, tutorMode, clinicOpen, clinicCase]);
+  }, [q, qState, locked, confirmSubmit, confirmTimerOff, timeUp, tutorMode]);
 
   const highlightBtnRef = useRef(null);
   useEffect(() => {
@@ -14601,12 +12542,10 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onAbortBl
     setTimeout(() => { setDbFlash(false); clearPending(); }, 900);
   }
   function goNext() {
-    setClinicCase(null);
     if (qIdx < questions.length - 1) setQIdx((i) => i + 1);
     else setConfirmSubmit(true);
   }
   function goPrev() {
-    setClinicCase(null);
     setQIdx((i) => Math.max(0, i - 1));
   }
 
@@ -14637,7 +12576,7 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onAbortBl
     // Phones: every toolbar button gets at least a 48x48 hit area (the old 20px icons were far below touch guidelines).
     ...(narrow ? { justifyContent: "center", minWidth: 48, minHeight: 48, padding: "4px 6px", borderRadius: 8, background: active ? "rgba(255,255,255,0.12)" : "transparent" } : {}),
   });
-  // The five tool buttons (Open Clinic / Lab Values / Notes / Calculator / Settings) share one full-width row of equal, labelled cells on phones.
+  // The five tool buttons (Lab Values / Notes / Calculator / Settings) share one full-width row of equal, labelled cells on phones.
   const toolStyle = (active) => ({ ...toolBtnStyle(active), ...(narrow ? { width: "100%" } : {}) });
   const toolLabel = (text) => (narrow
     ? <span style={{ maxWidth: "100%", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{text}</span>
@@ -14645,56 +12584,15 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onAbortBl
   const toolIcon = narrow ? 24 : 20;
 
   // Previous / counter / Next. On phones it is pushed to the far right, away from Home, to avoid accidental Home taps.
-  // Hybrid = a Tutor session whose Qbank shares a caseId with a saved clinical case. Finishing one half sends you to the other;
-  // when both are done the block is submitted and the results open with a Hybrid review.
-  // Tutor-only: Hybrid requires Tutor mode plus a paired case; do not widen to Timed blocks.
-  const pairCase = blockState.tutor && blockState.pairedCaseId
-    ? clinicCtx.items.find((c) => c.id === blockState.pairedCaseId) || null
-    : null;
-  useEffect(() => { if (clinicCase && pairCase && clinicCase.id === pairCase.id) hyOpenedIdRef.current = pairCase.id; }, [clinicCase, pairCase]);
-  // A Hybrid is a Tutor-mode study object: only a Tutor block with a paired case records one (on blockState, so it survives reloads
-  // and is read by BlockResults). A Timed block never gets `hybrid`. `opened` says whether the case was ever opened, which decides the
-  // wording of the pending card when the case half was left unfinished.
-  const finalizeBlock = (res = caseResult) => {
-    if (blockState.tutor && pairCase) {
-      const hy = { caseId: caseIdOf(pairCase), result: res, opened: hyOpenedIdRef.current === pairCase.id };
-      setBlockState((prev) => (prev.status === "done" ? prev : { ...prev, hybrid: hy }));
-    }
-    onSubmitBlock();
-  };
-  const qbCorrect = block.questions.filter((x) => blockState.answers[x.id]?.selected === x.correctAnswer).length;
-  // The prompt is only ever about the half that is still open; whichever half is finished first, the app offers the other.
-  // The Qbank half ends (End block): no pair -> submit; case already finished -> submit with its result; otherwise open the case, no prompt.
-  const endBlock = () => {
-    if (!pairCase) { finalizeBlock(null); return; }
-    const done = caseResult || latestMarks(pairCase) || null;
-    if (done) { setCaseResult(done); finalizeBlock(done); return; }
-    setQbEnded(true);
-    setClinicCase(pairCase);
-  };
-  // The case half finishes: Qbank already ended -> submit with the case result; otherwise ask about the Qbank half, which is still open.
-  const caseCompleted = (sum) => {
-    setCaseResult(sum);
-    if (qbEnded) { setClinicCase(null); finalizeBlock(sum); return; }
-    setHyPrompt("case");
-  };
-  // Closes whichever half is open and opens the other.
-  const hyOpenAgain = () => {
-    setClinicCase(clinicCase ? null : pairCase);
-    setHyPrompt(null);
-  };
-  // "Finish block" goes through the usual End block confirmation, so a half-blank Qbank still shows the answered X of N warning;
-  // confirming runs endBlock, which submits with the case result already stored. The case view closes so "Keep working" lands on the Qbank.
-  const hySkip = () => { setHyPrompt(null); setClinicCase(null); setConfirmSubmit(true); };
   const prevNextEl = (
         <div style={{ display: "flex", alignItems: "center", gap: narrow ? 2 : 18, ...(narrow ? { order: 2, marginLeft: "auto" } : {}) }}>
-          <button onClick={goPrev} disabled={qIdx === 0 || !!clinicCase} style={toolBtnStyle(false)} title={t("prev")} aria-label={t("prev")}>
-            <ChevronLeft size={26} style={{ opacity: qIdx === 0 || clinicCase ? 0.35 : 1 }} />
+          <button onClick={goPrev} disabled={qIdx === 0} style={toolBtnStyle(false)} title={t("prev")} aria-label={t("prev")}>
+            <ChevronLeft size={26} style={{ opacity: qIdx === 0 ? 0.35 : 1 }} />
             {!narrow && t("prev")}
           </button>
           <span style={{ fontFamily: FONT_UI, fontSize: fs(13) }}>{qIdx + 1} / {questions.length}</span>
-          <button onClick={goNext} disabled={!!clinicCase} style={toolBtnStyle(false)} title={t("next")} aria-label={t("next")}>
-            <ChevronRight size={26} style={{ opacity: clinicCase ? 0.35 : 1 }} />
+          <button onClick={goNext} style={toolBtnStyle(false)} title={t("next")} aria-label={t("next")}>
+            <ChevronRight size={26} />
             {!narrow && t("next")}
           </button>
         </div>
@@ -14724,7 +12622,7 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onAbortBl
               {t("item", { n: qIdx + 1, total: questions.length })}<br />{t("blockOf")}
             </div>
           )}
-          {blockState.tutor && tutorSources.length > 0 && !clinicCase && (
+          {blockState.tutor && tutorSources.length > 0 && (
             <button onClick={() => setSrcOpen(true)} style={toolBtnStyle(srcOpen)} title={t("tutorSrcTitle")} aria-label={t("tutorSrcTitle")}>
               <Lightbulb size={22} />
               {!narrow && t("tutorSrcBtn")}
@@ -14733,22 +12631,9 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onAbortBl
           {srcOpen && <TutorSourcesWindow sources={tutorSources} T={T} onClose={() => setSrcOpen(false)} />}
         </div>
 
-        {!clinicCase && prevNextEl}
+        {prevNextEl}
 
         <div style={narrow ? { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(0, 1fr))", gap: 4, width: "100%", order: 4 } : { display: "flex", alignItems: "center", gap: 22 }}>
-          {clinicCase ? (qbEnded ? null : (
-            <button onClick={() => setClinicCase(null)} style={toolStyle(false)} title={t("cqOpenBtn")} aria-label={t("cqOpenBtn")}>
-              <ClipboardList size={toolIcon} /> {toolLabel(t("cqOpenBtn"))}
-            </button>
-          )) : (() => {
-            // Tutor sessions only. A case that shares this Qbank's caseId opens straight away; otherwise the Open Clinic card.
-            if (!blockState.tutor) return null;
-            return (
-              <button onClick={() => (pairCase ? setClinicCase(pairCase) : setClinicOpen(true))} style={toolStyle(clinicOpen)} title={t("ocBtn")} aria-label={t("ocBtn")}>
-                <Stethoscope size={toolIcon} /> {toolLabel(t("ocBtn"))}
-              </button>
-            );
-          })()}
           <button onClick={() => setLabOpen((v) => !v)} style={toolStyle(labOpen)} title={t("labValues")} aria-label={t("labValues")}>
             <FlaskConical size={toolIcon} /> {toolLabel(t("labValues"))}
           </button>
@@ -14808,12 +12693,6 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onAbortBl
       </div>
 
       <div style={{ flex: 1, display: "flex", minHeight: 0, overflow: "hidden", position: "relative" }}>
-        {/* Open Clinic: the case takes the place of the navigator + question, under the same top bar; the lab panel stays beside it */}
-        {clinicCase && (
-          <div style={{ position: "absolute", top: 0, left: 0, bottom: 0, right: !compact && labOpen ? labW : 0, zIndex: 30 }}>
-            <ClinicalWorkspace key={clinicCase.id} sc={clinicCase} T={T} isSaved embedded onComplete={pairCase && clinicCase.id === pairCase.id ? caseCompleted : null} onExit={() => { setClinicCase(null); if (qbEnded) finalizeBlock(); else setClinicOpen(true); }} />
-          </div>
-        )}
         {/* Left navigator. Tutor mode (on screens wide enough) adds a progress header and a one-line vignette preview per row. */}
         {/* Phones: the question list is hidden entirely so the question gets the full width. */}
         {!narrow && (
@@ -15457,27 +13336,11 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onAbortBl
             <div style={{ display: "flex", gap: 10, justifyContent: "flex-end", flexWrap: "wrap" }}>
               <GhostButton T={T} onClick={() => setConfirmSubmit(false)}>{t("keepWorking")}</GhostButton>
               {tutorMode && onAbortBlock && <GhostButton T={T} style={{ color: T.red, borderColor: T.red }} onClick={() => { setConfirmSubmit(false); setConfirmAbort(true); }}>{t("abortBtn")}</GhostButton>}
-              <PrimaryButton T={T} onClick={() => { setConfirmSubmit(false); endBlock(); }}>{t("endBlockBtn")}</PrimaryButton>
+              <PrimaryButton T={T} onClick={() => { setConfirmSubmit(false); onSubmitBlock(); }}>{t("endBlockBtn")}</PrimaryButton>
             </div>
           </div>
         </div>
       )}
-      {hyPrompt && pairCase && (
-        <div ref={hyDialogRef} tabIndex={-1} role="dialog" aria-modal="true" style={{ position: "fixed", inset: 0, background: "rgba(10,15,20,0.6)", display: "flex", alignItems: "center", justifyContent: "center", zIndex: 96, padding: 20, outline: "none" }}>
-          <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, padding: 20, maxWidth: 360 }}>
-            <p style={{ fontFamily: FONT_UI, fontSize: fs(14), color: T.ink, lineHeight: 1.55, margin: "0 0 16px" }}>
-              {hyPrompt === "case"
-                ? t("hyDoneCase", { n: caseResult ? caseResult.check.n : 0, m: caseResult ? caseResult.check.m : 0 })
-                : /* unreachable under the current flow: nothing sets hyPrompt to "qbank" (ending the Qbank half opens the case with no prompt) */ t("hyDoneQbank", { c: qbCorrect, t: questions.length })}
-            </p>
-            <div style={{ display: "flex", gap: 10, justifyContent: "flex-end", flexWrap: "wrap" }}>
-              <GhostButton T={T} onClick={hySkip}>{t("hyFinishBlock")}</GhostButton>
-              <PrimaryButton T={T} onClick={hyOpenAgain}>{t("hyBackToQbank")}</PrimaryButton>
-            </div>
-          </div>
-        </div>
-      )}
-
       {/* Abort confirmation */}
       {confirmAbort && onAbortBlock && (
         <div role="alertdialog" aria-modal="true" aria-label={t("abortQ")} style={{
@@ -15518,7 +13381,6 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onAbortBl
       )}
 
       {/* Time's up notice — shown instead of silently auto-submitting when the countdown hits zero */}
-      {clinicOpen && <OpenClinicPanel key={q.id} q={q} block={block} caseAnchor={caseAnchor} T={T} onClose={() => setClinicOpen(false)} onOpenCase={setClinicCase} />}
 
       {timeUp && (
         <div style={{
@@ -15536,7 +13398,7 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onAbortBl
               {t("timesUpBody", { a: answeredCount, n: questions.length })}
             </p>
             <div style={{ display: "flex", justifyContent: "flex-end" }}>
-              <PrimaryButton T={T} onClick={() => { setTimeUp(false); finalizeBlock(); }}>{t("viewResults")}</PrimaryButton>
+              <PrimaryButton T={T} onClick={() => { setTimeUp(false); onSubmitBlock(); }}>{t("viewResults")}</PrimaryButton>
             </div>
           </div>
         </div>
@@ -15790,7 +13652,7 @@ function DifficultyBreakdown({ rows, T }) {
   );
 }
 
-function BlockResults({ block, blockState, blockIdx, history, onBackToLobby, onRetest, onRate, onHome, T, darkMode, setDarkMode, onHybridUpdate = () => {} }) {
+function BlockResults({ block, blockState, blockIdx, history, onBackToLobby, onRetest, onRate, onHome, T, darkMode, setDarkMode }) {
   const { t, lang } = useI18n();
   const [expanded, setExpanded] = useState(null);
   const [retestCfg, setRetestCfg] = useState(null); // { pool, mode } while the modal is open
@@ -15856,7 +13718,6 @@ function BlockResults({ block, blockState, blockIdx, history, onBackToLobby, onR
         <GhostButton T={T} onClick={onHome} icon={HomeIcon}>{t("homeBtn")}</GhostButton>
       </div>
 
-      {blockState.hybrid && <HybridReview hybrid={blockState.hybrid} blockState={blockState} block={block} T={T} darkMode={darkMode} setDarkMode={setDarkMode} onUpdate={onHybridUpdate} />}
 
       {attempts.length > 1 && (
         <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, padding: "18px 22px", marginBottom: 22 }}>
@@ -16197,11 +14058,6 @@ function FinalSummary({ examData, blockStates, onBackToLobby, T, darkMode, setDa
 
 // ---------------------------------------------------------------------------
 // Root app
-// ---------------------------------------------------------------------------
-// Dev-only checks. `process` does not exist in a browser-only build, so it is probed with typeof inside a try; when the
-// environment can't say, assertions stay on (they only log).
-const DEV = (() => { try { return typeof process === "undefined" || !process.env || process.env.NODE_ENV !== "production"; } catch (e) { return true; } })();
-
 function OworldApp() {
   // Everything persisted is read ONCE, synchronously, before the first render — so a refresh drops the
   // student straight back into the exam (no flash of the import screen) and the save effects below can
@@ -16302,13 +14158,13 @@ function OworldApp() {
 
   // --- Qbank library ------------------------------------------------------------
   // Adds blocks that aren't already stored. Returns the library ids for every input block (new or existing).
-  function addBlocksToLibrary(blocks, caseId = undefined) {
+  function addBlocksToLibrary(blocks) {
     const existing = new Map(library.map((e) => [blockSignature(e.title, e.questions), e.id]));
     const fresh = [];
     const ids = blocks.map((b) => {
       const sig = blockSignature(b.blockName, b.questions);
       if (existing.has(sig)) return { id: existing.get(sig), isNew: false };
-      const entry = makeLibraryEntry(b, caseId);
+      const entry = makeLibraryEntry(b);
       existing.set(sig, entry.id);
       fresh.push(entry);
       return { id: entry.id, isNew: true };
@@ -16317,9 +14173,9 @@ function OworldApp() {
   }
 
   // "Save to Library" on the import screen: store the pasted/uploaded blocks without starting an exam.
-  function saveImportToLibrary(data, caseId = undefined) {
-    const { fresh, ids } = addBlocksToLibrary(data.blocks.map(debiasBlock), caseId);
-    if (fresh.length === 0) { const hit = ids.length ? library.find((e) => e.id === ids[0].id) : null; return { added: 0, dup: ids.length, existingCaseId: hit ? caseIdOf(hit) : null }; } // existingCaseId: lets a Crossover link its case to blocks that were already stored
+  function saveImportToLibrary(data) {
+    const { fresh, ids } = addBlocksToLibrary(data.blocks.map(debiasBlock));
+    if (fresh.length === 0) return { added: 0, dup: ids.length };
     const next = [...library, ...fresh];
     if (!lsSet(LS_LIBRARY, JSON.stringify(next))) return { failed: true }; // quota / disabled storage: tell the user now
     setLibrary(next);
@@ -16360,19 +14216,6 @@ function OworldApp() {
     setActiveBlockIdx((cur) => (cur == null ? cur : remap.has(cur) ? remap.get(cur) : null));
   }
 
-  // Hybrid pairing is decided once, when a block starts: the library entry's caseId -> the saved clinical case with that caseId.
-  // Returns that case's id, or null. Takes one entry, or the entries a mixed block was built from (they pair only if they all
-  // resolve to the same case).
-  function pairedCaseIdFor(libraryEntry) {
-    const list = Array.isArray(libraryEntry) ? libraryEntry : [libraryEntry];
-    const found = list.map((e) => {
-      const cid = e ? caseIdOf(e) : null;
-      const c = cid ? clinicalStore.items.find((x) => caseIdOf(x) === cid) : null;
-      return c ? c.id : null;
-    });
-    return found.length > 0 && found[0] && found.every((id) => id === found[0]) ? found[0] : null;
-  }
-
   // Start one saved block, or several as a continuous session (the lobby already runs multiple blocks in order).
   function launchFromLibrary(ids) {
     const entries = ids.map((id) => library.find((e) => e.id === id)).filter(Boolean);
@@ -16384,8 +14227,7 @@ function OworldApp() {
       libraryId: e.id,
     }));
     setExamData({ blocks });
-    // The mode (Tutor / Timed) is picked later in the lobby; ExamScreen only uses pairedCaseId when the block runs in Tutor mode.
-    setBlockStates(blocks.map((b, i) => ({ ...makeInitialBlockState(b), pairedCaseId: pairedCaseIdFor(entries[i]) })));
+    setBlockStates(blocks.map((b) => makeInitialBlockState(b)));
     setHistory([]);
     setActiveBlockIdx(null);
     setView("lobby");
@@ -16405,7 +14247,7 @@ function OworldApp() {
     // only logged under Analytics and the source cards are left exactly as they were.
     if (entries.length === 1 && size == null && difficulty === "all") block.libraryId = entries[0].id;
     setExamData({ blocks: [block] });
-    setBlockStates([{ ...makeInitialBlockState(block), timed: mode !== "tutor", tutor: mode === "tutor", pairedCaseId: mode === "tutor" ? pairedCaseIdFor(entries) : null, status: "in-progress", startedAt: Date.now() }]);
+    setBlockStates([{ ...makeInitialBlockState(block), timed: mode !== "tutor", tutor: mode === "tutor", status: "in-progress", startedAt: Date.now() }]);
     setHistory([]);
     setActiveBlockIdx(0);
     setView("exam");
@@ -16419,9 +14261,7 @@ function OworldApp() {
     const block = buildSmartReviewBlock(library, tr("srdBlockName"));
     if (!block || block.questions.length === 0) return;
     setExamData({ blocks: [block] });
-    const srcIds = new Set(block.questions.map((q) => String(q.id).split("::")[0])); // ids are "<entryId>::<questionId>"
-    const srcEntries = library.filter((e) => srcIds.has(e.id));
-    setBlockStates([{ ...makeInitialBlockState(block), timed: false, tutor: true, pairedCaseId: pairedCaseIdFor(srcEntries), status: "in-progress", startedAt: Date.now() }]);
+    setBlockStates([{ ...makeInitialBlockState(block), timed: false, tutor: true, status: "in-progress", startedAt: Date.now() }]);
     setHistory([]);
     setActiveBlockIdx(0);
     setView("exam");
@@ -16664,9 +14504,6 @@ function OworldApp() {
   const database = useDatabase(trashDbItems);
   const dbSync = useDatabaseSync({ drive, database });
   const dbCtx = { ...database, sync: dbSync };
-  const clinicalStore = useClinicalCases();
-  const clinicalSync = useClinicalSync({ drive, store: clinicalStore });
-  const clinicalCtx = { ...clinicalStore, sync: clinicalSync };
   const studentProfile = useStudentProfile();
   const profileSync = useProfileSync({ drive, store: studentProfile });
   const blueprintStore = useBlueprintStore();
@@ -16786,7 +14623,7 @@ function OworldApp() {
     setRestoredNotice(false);
     setExamData(null); setBlockStates([]); setHistory([]); setActiveBlockIdx(null);
     clearAnkiQueue(); lsRemove(LS_ANKI); closeAnkiPanel();
-    removeAllReviewSnapshots(); notifs.clearAll(); database.wipe(); clinicalStore.wipe(); studentProfile.wipe(); blueprintStore.wipe(); careerStore.wipe(); setLibrary([]); setSessionLog([]); setTrash([]); setDarkMode(true); setLang("en"); setTextScale(1);
+    removeAllReviewSnapshots(); notifs.clearAll(); database.wipe(); studentProfile.wipe(); blueprintStore.wipe(); careerStore.wipe(); setLibrary([]); setSessionLog([]); setTrash([]); setDarkMode(true); setLang("en"); setTextScale(1);
     setView("import");
   }
 
@@ -17016,7 +14853,7 @@ function OworldApp() {
       setActiveBlockIdx(remap.has(parent) ? remap.get(parent) : null);
       setView(remap.has(parent) ? "results" : "lobby");
     } else {
-      setBlockStates((prev) => prev.map((b, i) => (i === idx ? { ...makeInitialBlockState(examData.blocks[idx]), pairedCaseId: b.pairedCaseId ?? null } : b)));
+      setBlockStates((prev) => prev.map((b, i) => (i === idx ? makeInitialBlockState(examData.blocks[idx]) : b)));
       setActiveBlockIdx(null);
       setView("lobby");
     }
@@ -17029,22 +14866,13 @@ function OworldApp() {
     if (blockStates.some((b) => b.status === "in-progress") && !window.confirm(tr("leaveConfirm"))) return;
     setExamData(null); setBlockStates([]); setHistory([]); setActiveBlockIdx(null); setView("import");
   }
-  // Dev assertion: a Timed block never carries a paired case or a hybrid result (Hybrid is Tutor-only).
-  useEffect(() => {
-    if (!DEV) return;
-    blockStates.forEach((b, i) => { if (b && b.timed && (b.pairedCaseId || b.hybrid)) console.warn(`[Hybrid] Block ${i} is Timed but carries ${b.pairedCaseId ? `pairedCaseId "${b.pairedCaseId}"` : "a hybrid result"}; Timed blocks must not be paired.`); });
-  }, [blockStates]);
   // Timed and Tutor are mutually exclusive; the choice is locked once a block has started.
-  // Switching to Timed clears pairedCaseId (Timed never carries a case); switching back to Tutor re-derives it from the saved entry.
   function setBlockMode(idx, mode) {
-    const b = examData && examData.blocks[idx];
-    const entry = b && b.libraryId ? library.find((e) => e.id === b.libraryId) : null;
-    const pairedCaseId = mode === "tutor" && entry ? pairedCaseIdFor(entry) : null;
     setBlockStates((prev) => {
       const cur = prev[idx];
       if (cur.status !== "pending") return prev;
       const copy = [...prev];
-      copy[idx] = { ...cur, timed: mode === "timed", tutor: mode === "tutor", pairedCaseId };
+      copy[idx] = { ...cur, timed: mode === "timed", tutor: mode === "tutor" };
       return copy;
     });
   }
@@ -17086,7 +14914,7 @@ function OworldApp() {
   function launchBlock(newBlock, mode) {
     const newIndex = examData.blocks.length;
     setExamData((prev) => ({ ...prev, blocks: [...prev.blocks, newBlock] }));
-    setBlockStates((prev) => [...prev, { ...makeInitialBlockState(newBlock), timed: mode !== "tutor", tutor: mode === "tutor", pairedCaseId: (prev[newBlock.retestOf] || {}).pairedCaseId ?? null, status: "in-progress", startedAt: Date.now() }]);
+    setBlockStates((prev) => [...prev, { ...makeInitialBlockState(newBlock), timed: mode !== "tutor", tutor: mode === "tutor", status: "in-progress", startedAt: Date.now() }]);
     setActiveBlockIdx(newIndex); // fresh block → question index always starts at 1 in ExamScreen's own state
     setView("exam");
   }
@@ -17100,7 +14928,6 @@ function OworldApp() {
     <DriveContext.Provider value={drive}>
     <NotifContext.Provider value={notifs}>
     <DbContext.Provider value={dbCtx}>
-    <ClinicalContext.Provider value={clinicalCtx}>
     <ProfileContext.Provider value={profileCtx}>
     <SrcAutoContext.Provider value={{ on: srcAuto, set: setSrcAuto }}>
     <CareerContext.Provider value={careerCtx}>
@@ -17218,7 +15045,6 @@ function OworldApp() {
       {view === "exam" && examData && activeBlockIdx !== null && (
         <ExamScreen
           key={`${activeBlockIdx}:${restoreNonce}`}
-          caseAnchor={(() => { const b = examData.blocks[activeBlockIdx]; const base = b && b.isRetest ? examData.blocks[b.retestOf] : b; const e = base && base.libraryId ? library.find((x) => x.id === base.libraryId) : null; return e ? caseIdOf(e) : null; })()}
           block={examData.blocks[activeBlockIdx]}
           blockState={blockStates[activeBlockIdx]}
           setBlockState={setActiveBlockState}
@@ -17241,7 +15067,6 @@ function OworldApp() {
           onBackToLobby={removeLoadedExam}
           blockIdx={activeBlockIdx}
           history={history}
-          onHybridUpdate={(patch) => setActiveBlockState((b) => (b.hybrid ? { ...b, hybrid: { ...b.hybrid, ...patch } } : b))}
           onRetest={launchRetest}
           onRate={(q, k) => rateQuestion(activeBlockIdx, q, k)}
           onHome={removeLoadedExam}
@@ -17279,7 +15104,6 @@ function OworldApp() {
     </CareerContext.Provider>
     </SrcAutoContext.Provider>
     </ProfileContext.Provider>
-    </ClinicalContext.Provider>
     </DbContext.Provider>
     </NotifContext.Provider>
     </DriveContext.Provider>
