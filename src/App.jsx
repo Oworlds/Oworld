@@ -256,7 +256,7 @@ const STR = {
     tabDatabase: "Database", dbTitle: "Personal Database", dbHint: "Questions, excerpts and notes you've saved while studying.", dbAdd: "Add to database", dbSavedToast: "Saved to Database", dbAll: "All", dbQuestions: "Questions", dbExcerpts: "Excerpts", dbNotes: "Notes", dbSearch: "Search your database", dbEmpty: "Your database is empty.", dbEmptyHint: "While taking a block, select text and tap Add to database, save a question with the bookmark, or save a note from the Notes panel.", dbNoMatch: "Nothing matches.", dbSaveQ: "Save question", dbSavedQ: "Saved to Database", dbSaveNote: "Save to Database", dbUpdateNote: "Update in Database", dbShowAns: "Show answer", dbHideAns: "Hide answer", dbEdit: "Edit", dbSave: "Save", dbCancel: "Cancel", dbCopy: "Copy", dbCopied: "Copied", dbDelete: "Delete", dbConfirmDel: "Delete?", dbClearAll: "Clear all", dbClearConfirm: "Move everything in your database to Trash? You can restore it for 30 days.", dbKindQ: "Question", dbKindE: "Excerpt", dbKindN: "Note", dbCommentPh: "Add your own comment…", dbAddComment: "Add comment", dbNoteTitle: "Your note", dbCorrectTag: "Correct",
     dbSyncSignIn: "Sign in with Google from the account menu to sync it across your devices.", dbImport: "Import", dbImported: "Imported {a} item(s); {s} already in your database.", dbImportBad: "That file isn't a Personal Database export.",
     dbShared: "Shared {n} item(s) as one file.", dbDownloaded: "Downloaded {n} item(s) as one file.", dbExportFailed: "Export failed. Please try again.", dbShareText: "My OWORLD Personal Database ({n} items). In OWORLD, open Database and tap Import to add them.", dbDelSelQ: "Move {n} selected item(s) to Trash? You can restore them for 30 days.", dbManage: "Manage", dbExport: "Export",
-    tabTrash: "Trash", trashTitle: "Trash", trashCount: "{n} item(s)", trashHint: "Deleted Qbanks, Analytics sessions and Database items stay here for {d} days. Restore them, or delete them forever.", trashEmpty: "Trash is empty.", trashEmptyHint: "Anything you delete from the Library, Analytics or Database lands here first, so you can get it back.", trashNoneHere: "Nothing of this kind in Trash.",
+    tabTrash: "Trash", trashTitle: "Trash", trashCount: "{n} item(s)", trashHint: "Deleted Qbanks, omitted questions, Analytics sessions and Database items stay here for {d} days. Restore them, or delete them forever.", trashEmpty: "Trash is empty.", trashEmptyHint: "Anything you delete from the Library, Analytics or Database lands here first, so you can get it back.", trashNoneHere: "Nothing of this kind in Trash.",
     trashAll: "All", trashQbanks: "Qbanks", trashSessions: "Analytics", trashDb: "Database", trashKindQbank: "Qbank", trashKindSession: "Session",
     trashRestore: "Restore", trashRestoreSel: "Restore Selected", trashDeleteForever: "Delete forever", trashEmptyBtn: "Empty Trash",
     trashPurgeQ: "Permanently delete {n} item(s)? This can't be undone.", trashEmptyQ: "Permanently delete all {n} item(s) in Trash? This can't be undone.",
@@ -355,7 +355,7 @@ const STR = {
     recipeTutor: "Tutor suggests", recipeTutorHint: "Tap topics to build this recipe around them. Tap again to remove one.", phSystems: "e.g. Cardiovascular", phDisc: "e.g. Pharmacology",
     uniTitle: "Recipe & Import Hub", uniHint: "One importer for everything: pick a recipe, copy the prompt into your AI tool, then paste what it returns.", 
     
-    libTypeAll: "Import", libTypeQbank: "Qbank", moreActions: "More actions", omitQuestion: "Omit question", omitTitle: "Remove this question from your Qbank?", omitConfirmSaved: "This permanently deletes the question from \"{title}\". It will not appear when you practise, and it will not be included if you share or export that Qbank. This cannot be undone.", omitConfirmLocal: "This question is not saved in your library. It is removed from this block and from anything you share from it. This cannot be undone.", omitGo: "Omit permanently", omitLastHint: "Every block and Qbank needs at least one question, so this one cannot be omitted.", giveFeedback: "Give feedback", reportIssue: "Report an Issue", defineBtn: "Define", defLoading: "Looking up…", defDisambig: "This term has several meanings on Wikipedia.", defNoArticle: "No Wikipedia article matches this term.", defUnavailable: "Could not load a definition right now.", defReadFull: "Read full article", defSeeAll: "See all meanings", defOpenWiki: "Open on Wikipedia", defSkipped: "Select a more specific medical term to look it up.", defCaveat: "Definitions are for background only; rely on your source text for management.",
+    libTypeAll: "Import", libTypeQbank: "Qbank", moreActions: "More actions", omitQuestion: "Omit question", omitTitle: "Remove this question from your Qbank?", omitConfirmSaved: "This permanently deletes the question from \"{title}\". It will not appear when you practise, and it will not be included if you share or export that Qbank. This cannot be undone.", omitConfirmLocal: "This question is not saved in your library. It is removed from this block and from anything you share from it. This cannot be undone.", omitGo: "Omit permanently", omitLastHint: "Every block and Qbank needs at least one question, so this one cannot be omitted.", trashQuestions: "Questions", trashKindQuestion: "Question", trashQuestionNoBank: "{s} omitted question(s) could not be restored because their Qbank is no longer in your library.", syncQHint: "Syncs your progress and omitted questions to your other devices and your Qbank.", giveFeedback: "Give feedback", reportIssue: "Report an Issue", defineBtn: "Define", defLoading: "Looking up…", defDisambig: "This term has several meanings on Wikipedia.", defNoArticle: "No Wikipedia article matches this term.", defUnavailable: "Could not load a definition right now.", defReadFull: "Read full article", defSeeAll: "See all meanings", defOpenWiki: "Open on Wikipedia", defSkipped: "Select a more specific medical term to look it up.", defCaveat: "Definitions are for background only; rely on your source text for management.",
     recipeTitle: "Copy & Paste this prompt to generate a Qbank", copied: "Copied", copy: "Copy", schema: "JSON schema",     createdBy: "OWORLD is created by", role: "Medical student | Founder of Verde+", supportOworld: "Support Oworld",
     joinDiscord: "Join our Discord", libGetCommunity: "Get Community Qbanks", guideDiscordTitle: "Join the Community", guideDiscordBody: "Oworld is built by students, for students. Join our Discord server to share Qbank bundles, vote on new features, get help, and talk to other students.",
     supportCardText: "Oworld is free and stays free. If it helps you, consider supporting the project.", supportCardBtn: "Support",
@@ -443,7 +443,7 @@ const STR = {
     tabDatabase: "Base de datos", dbTitle: "Base de datos personal", dbHint: "Preguntas, extractos y notas que guardaste mientras estudiabas.", dbAdd: "Añadir a la base de datos", dbSavedToast: "Guardado en la base de datos", dbAll: "Todo", dbQuestions: "Preguntas", dbExcerpts: "Extractos", dbNotes: "Notas", dbSearch: "Buscar en tu base de datos", dbEmpty: "Tu base de datos está vacía.", dbEmptyHint: "Mientras haces un bloque, selecciona texto y toca Añadir a la base de datos, guarda una pregunta con el marcador o guarda una nota desde el panel de Notas.", dbNoMatch: "No hay coincidencias.", dbSaveQ: "Guardar pregunta", dbSavedQ: "Guardada en la base de datos", dbSaveNote: "Guardar en la base de datos", dbUpdateNote: "Actualizar en la base de datos", dbShowAns: "Mostrar respuesta", dbHideAns: "Ocultar respuesta", dbEdit: "Editar", dbSave: "Guardar", dbCancel: "Cancelar", dbCopy: "Copiar", dbCopied: "Copiado", dbDelete: "Eliminar", dbConfirmDel: "¿Eliminar?", dbClearAll: "Borrar todo", dbClearConfirm: "¿Mover todo el contenido de tu base de datos a la papelera? Podrás restaurarlo durante 30 días.", dbKindQ: "Pregunta", dbKindE: "Extracto", dbKindN: "Nota", dbCommentPh: "Añade tu propio comentario…", dbAddComment: "Añadir comentario", dbNoteTitle: "Tu nota", dbCorrectTag: "Correcta",
     dbSyncSignIn: "Inicia sesión con Google desde el menú de la cuenta para sincronizarla entre tus dispositivos.", dbImport: "Importar", dbImported: "Se importaron {a} elemento(s); {s} ya estaban en tu base de datos.", dbImportBad: "Ese archivo no es una exportación de la base de datos personal.",
     dbShared: "Compartiste {n} elemento(s) en un solo archivo.", dbDownloaded: "Descargaste {n} elemento(s) en un solo archivo.", dbExportFailed: "Error al exportar. Inténtalo de nuevo.", dbShareText: "Mi base de datos personal de OWORLD ({n} elementos). En OWORLD, abre Base de datos y toca Importar para añadirlos.", dbDelSelQ: "¿Mover {n} elemento(s) seleccionado(s) a la papelera? Podrás restaurarlos durante 30 días.", dbManage: "Administrar", dbExport: "Exportar",
-    tabTrash: "Papelera", trashTitle: "Papelera", trashCount: "{n} elemento(s)", trashHint: "Los Qbanks, sesiones de Analíticas y elementos de la base de datos eliminados permanecen aquí {d} días. Restáuralos o elimínalos para siempre.", trashEmpty: "La papelera está vacía.", trashEmptyHint: "Todo lo que elimines de la biblioteca, las Analíticas o la base de datos llega primero aquí, para que puedas recuperarlo.", trashNoneHere: "No hay nada de este tipo en la papelera.",
+    tabTrash: "Papelera", trashTitle: "Papelera", trashCount: "{n} elemento(s)", trashHint: "Los Qbanks, preguntas omitidas, sesiones de Analíticas y elementos de la base de datos eliminados permanecen aquí {d} días. Restáuralos o elimínalos para siempre.", trashEmpty: "La papelera está vacía.", trashEmptyHint: "Todo lo que elimines de la biblioteca, las Analíticas o la base de datos llega primero aquí, para que puedas recuperarlo.", trashNoneHere: "No hay nada de este tipo en la papelera.",
     trashAll: "Todo", trashQbanks: "Qbanks", trashSessions: "Analíticas", trashDb: "Base de datos", trashKindQbank: "Qbank", trashKindSession: "Sesión",
     trashRestore: "Restaurar", trashRestoreSel: "Restaurar selección", trashDeleteForever: "Eliminar para siempre", trashEmptyBtn: "Vaciar papelera",
     trashPurgeQ: "¿Eliminar definitivamente {n} elemento(s)? No se puede deshacer.", trashEmptyQ: "¿Eliminar definitivamente los {n} elemento(s) de la papelera? No se puede deshacer.",
@@ -542,7 +542,7 @@ const STR = {
     recipeTutor: "El tutor sugiere", recipeTutorHint: "Toca los temas para basar esta receta en ellos. Toca de nuevo para quitar uno.", phSystems: "p. ej. Cardiovascular", phDisc: "p. ej. Farmacología",
     uniTitle: "Centro de recetas e importación", uniHint: "Un solo importador para todo: elige una receta, copia el prompt en tu herramienta de IA y pega lo que devuelva.", 
     
-    libTypeAll: "Importar", libTypeQbank: "Qbank", moreActions: "Más acciones", omitQuestion: "Omitir pregunta", omitTitle: "¿Quitar esta pregunta de tu Qbank?", omitConfirmSaved: "Esto elimina la pregunta de \"{title}\" de forma permanente. No aparecerá al practicar y no se incluirá si compartes o exportas ese Qbank. No se puede deshacer.", omitConfirmLocal: "Esta pregunta no está guardada en tu biblioteca. Se quita de este bloque y de todo lo que compartas desde él. No se puede deshacer.", omitGo: "Omitir definitivamente", omitLastHint: "Cada bloque y cada Qbank necesita al menos una pregunta, así que no se puede omitir esta.", giveFeedback: "Enviar comentarios", reportIssue: "Informar de un problema", defineBtn: "Definir", defLoading: "Buscando…", defDisambig: "Este término tiene varios significados en Wikipedia.", defNoArticle: "Ningún artículo de Wikipedia coincide con este término.", defUnavailable: "No se pudo cargar una definición ahora mismo.", defReadFull: "Leer el artículo completo", defSeeAll: "Ver todos los significados", defOpenWiki: "Abrir en Wikipedia", defSkipped: "Selecciona un término médico más específico para buscarlo.", defCaveat: "Las definiciones son solo información de contexto; para el manejo, guíate por tu texto de referencia.",
+    libTypeAll: "Importar", libTypeQbank: "Qbank", moreActions: "Más acciones", omitQuestion: "Omitir pregunta", omitTitle: "¿Quitar esta pregunta de tu Qbank?", omitConfirmSaved: "Esto elimina la pregunta de \"{title}\" de forma permanente. No aparecerá al practicar y no se incluirá si compartes o exportas ese Qbank. No se puede deshacer.", omitConfirmLocal: "Esta pregunta no está guardada en tu biblioteca. Se quita de este bloque y de todo lo que compartas desde él. No se puede deshacer.", omitGo: "Omitir definitivamente", omitLastHint: "Cada bloque y cada Qbank necesita al menos una pregunta, así que no se puede omitir esta.", trashQuestions: "Preguntas", trashKindQuestion: "Pregunta", trashQuestionNoBank: "No se pudieron restaurar {s} pregunta(s) omitida(s) porque su Qbank ya no está en tu biblioteca.", syncQHint: "Sincroniza tu progreso y las preguntas omitidas con tus otros dispositivos y tu Qbank.", giveFeedback: "Enviar comentarios", reportIssue: "Informar de un problema", defineBtn: "Definir", defLoading: "Buscando…", defDisambig: "Este término tiene varios significados en Wikipedia.", defNoArticle: "Ningún artículo de Wikipedia coincide con este término.", defUnavailable: "No se pudo cargar una definición ahora mismo.", defReadFull: "Leer el artículo completo", defSeeAll: "Ver todos los significados", defOpenWiki: "Abrir en Wikipedia", defSkipped: "Selecciona un término médico más específico para buscarlo.", defCaveat: "Las definiciones son solo información de contexto; para el manejo, guíate por tu texto de referencia.",
     recipeTitle: "Copia y pega este prompt para generar un Qbank", copied: "Copiado", copy: "Copiar", schema: "Esquema JSON",     createdBy: "OWORLD fue creado por", role: "Estudiante de medicina | Fundador de Verde+", supportOworld: "Apoyar a Oworld",
     joinDiscord: "Únete a nuestro Discord", libGetCommunity: "Obtener Qbanks de la comunidad", guideDiscordTitle: "Únete a la comunidad", guideDiscordBody: "Oworld está hecho por estudiantes, para estudiantes. Únete a nuestro servidor de Discord para compartir Qbanks, votar por nuevas funciones, obtener ayuda y hablar con otros estudiantes.",
     supportCardText: "Oworld es gratis y seguirá siéndolo. Si te ayuda, considera apoyar el proyecto.", supportCardBtn: "Apoyar",
@@ -2574,10 +2574,10 @@ const TOMB_TTL = 180 * 24 * 3600 * 1000;
 const isBuried = (ts, e) => !!ts && ts >= ((e && e.restoredAt) || 0);
 
 // Trash: one bin for everything deleted from the Library, Analytics and Database (kept on this device, newest first).
-//   { tid, kind: "qbank" | "session" | "dbitem", deletedAt, data: <the deleted entry>, review?: <saved Review Exam snapshot> }
+//   { tid, kind: "qbank" | "session" | "dbitem" | "question", deletedAt, data: <the deleted entry>, review?: <saved Review Exam snapshot> }
 const LS_TRASH = "owordTrash";
 const TRASH_TTL = 30 * 24 * 3600 * 1000;
-const TRASH_KINDS = ["qbank", "session", "dbitem"];
+const TRASH_KINDS = ["qbank", "session", "dbitem", "question"]; // "question" = a question omitted from a Qbank: data { id: "<entryId>::<qId>", entryId, title, index, question }
 function loadTrash() {
   const v = lsGet(LS_TRASH); const cutoff = Date.now() - TRASH_TTL;
   if (!Array.isArray(v)) return [];
@@ -2707,7 +2707,7 @@ function stableJson(v) { // key-order independent, so a state rebuilt on another
 function activeSig(bs) {
   const a = {};
   for (const [qid, x] of Object.entries(bs.answers || {})) a[qid] = [x.selected || null, x.struck && x.struck.length ? x.struck : 0, !!x.flagged, !!x.checked, !!x.answerRevealed, !!x.hintUsed, !!x.teamRevealed];
-  return hashStr(stableJson([bs.currentQuestionIndex || 0, a, bs.highlights || {}, bs.notes || {}]));
+  return hashStr(stableJson([bs.currentQuestionIndex || 0, a, bs.highlights || {}, bs.notes || {}, [...(bs.omitted || [])].sort()]));
 }
 
 // Local state → the session-state payload (no questions: those live in the block file).
@@ -2730,7 +2730,7 @@ function buildActiveSession(block, bs, rec) {
     sessionId: rec.sessionId, ended: false, qbankId, currentIndex: bs.currentQuestionIndex || 0,
     answers, flagged, highlights: bs.highlights || {}, timeElapsed, updatedAt: rec.updatedAt,
     blockFileId: rec.blockFileId || null, blockName: block.blockName || "", mode: bs.team ? "team" : bs.tutor ? "tutor" : "timed", timeLeft: bs.timeLeft, timerOff: !!bs.timerOff,
-    notes: bs.notes || {}, states, questionCount: block.questions.length, answeredCount: answered,
+    notes: bs.notes || {}, omitted: Array.isArray(bs.omitted) ? bs.omitted.slice(0, 500) : [], states, questionCount: block.questions.length, answeredCount: answered,
     isMixed: !!block.isMixed, sourceBanks: Array.isArray(block.sourceBanks) ? block.sourceBanks.slice(0, 12).map(String) : [], sourceIds,
     deviceId: lsGet("owordDeviceId") || null,
   };
@@ -2767,9 +2767,11 @@ function hydrateActiveState(block, r, parked) {
     timeLeft: Number.isFinite(r.timeLeft) ? r.timeLeft : base.timeLeft,
     startedAt: Date.now() - elapsed * 1000, pausedAt: parked && tutor ? Date.now() : null,
     answers, notes: r.notes && typeof r.notes === "object" ? r.notes : {}, highlights: r.highlights && typeof r.highlights === "object" ? r.highlights : {},
-    currentQuestionIndex: idx, syncId: r.sessionId,
+    currentQuestionIndex: idx, syncId: r.sessionId, omitted: Array.isArray(r.omitted) ? r.omitted.map(String) : [],
   };
 }
+// Questions omitted during a live session travel in the session payload (the block file is written once, so it still holds them).
+const withoutOmitted = (block, ids) => { const gone = new Set(ids || []); return gone.size ? { ...block, questions: block.questions.filter((q) => !gone.has(q.id)) } : block; };
 
 // Same test open on two devices that both moved on: combine them question by question instead of letting one overwrite the other,
 // so questions finished on either device survive whatever order they were done in.
@@ -2813,13 +2815,14 @@ function mergeActiveSessions(L, R) {
   const both = Number.isFinite(L.timeLeft) && Number.isFinite(R.timeLeft);
   return {
     ...N, answers, states, flagged, notes: byQ(L.notes, R.notes), highlights: byQ(L.highlights, R.highlights),
+    omitted: [...new Set([...(L.omitted || []), ...(R.omitted || [])])], // an omit on either device sticks
     timeElapsed: Math.max(L.timeElapsed || 0, R.timeElapsed || 0), timerOff: !!(L.timerOff || R.timerOff),
     timeLeft: both ? Math.min(L.timeLeft, R.timeLeft) : N.timeLeft, answeredCount: Object.keys(answers).length,
     blockFileId: R.blockFileId || L.blockFileId || null, updatedAt: Math.max(L.updatedAt, R.updatedAt) + 1,
   };
 }
 // What the student has done, ignoring clocks: lets the app skip re-loading a merged state that adds nothing new here.
-const activeCore = (a) => stableJson([a.answers || {}, a.states || {}, [...(a.flagged || [])].sort(), a.notes || {}, a.highlights || {}]);
+const activeCore = (a) => stableJson([a.answers || {}, a.states || {}, [...(a.flagged || [])].sort(), a.notes || {}, a.highlights || {}, [...(a.omitted || [])].sort()]);
 
 // Pull-side reconciliation. `local` / `remote` are activeSession payloads (or tombstones / null); `baseAt` is the updatedAt both sides last agreed on.
 //   push     this device's version wins → upload it
@@ -6559,7 +6562,7 @@ function TrashPanel({ trash, onRestore, onPurge, T, onClose }) {
   const [sel, setSel] = useState([]);           // ticked tids
   const [confirm, setConfirm] = useState(null); // null | { ids } (delete forever) | "empty"
   const live = useMemo(() => trash.filter((e) => e.deletedAt + TRASH_TTL > Date.now()), [trash]);
-  const counts = { all: live.length, qbank: 0, session: 0, dbitem: 0 };
+  const counts = { all: live.length, qbank: 0, session: 0, dbitem: 0, question: 0 };
   live.forEach((e) => { counts[e.kind] += 1; });
   const shown = filter === "all" ? live : live.filter((e) => e.kind === filter);
   const liveIds = new Set(live.map((e) => e.tid));
@@ -6569,7 +6572,7 @@ function TrashPanel({ trash, onRestore, onPurge, T, onClose }) {
   const loc = lang === "es" ? "es" : "en-US";
   const fmtDate = (ms) => new Date(ms).toLocaleDateString(loc, { month: "short", day: "numeric", year: "numeric" });
   const daysLeft = (e) => Math.max(0, Math.ceil((e.deletedAt + TRASH_TTL - Date.now()) / 86400000));
-  const chips = [["all", "trashAll"], ["qbank", "trashQbanks"], ["session", "trashSessions"], ["dbitem", "trashDb"]];
+  const chips = [["all", "trashAll"], ["qbank", "trashQbanks"], ["question", "trashQuestions"], ["session", "trashSessions"], ["dbitem", "trashDb"]];
   const danger = { color: T.red, border: `1px solid ${T.red}` }; // the border shorthand, so toggling it on a button never mixes shorthand and longhand
   const drop = (ids) => setSel((cur) => cur.filter((x) => !ids.includes(x)));
   const restore = (ids) => { onRestore(ids); drop(ids); setConfirm(null); };
@@ -6644,6 +6647,10 @@ function TrashPanel({ trash, onRestore, onPurge, T, onClose }) {
             let title, kindLabel, tone, meta, score = null;
             if (e.kind === "qbank") {
               title = d.title; kindLabel = t("trashKindQbank"); tone = "blue"; meta = t("histQ", { n: (d.questions || []).length });
+            } else if (e.kind === "question") {
+              const qd = d.question || {};
+              title = trashSnippet(qd.stem || qd.vignette) || t("trashKindQuestion"); kindLabel = t("trashKindQuestion"); tone = "purple";
+              meta = [d.title, qd.subject].filter(Boolean).join(" \u00b7 ");
             } else if (e.kind === "session") {
               title = sessionTitle(d, t); kindLabel = t("trashKindSession"); tone = "amber"; meta = t("histDone", { d: fmtDate(d.finishedAt) });
               score = <Pill T={T} tone={d.pct >= 70 ? "green" : "red"}>{d.pct}% ({d.correct}/{d.total})</Pill>;
@@ -12567,7 +12574,8 @@ const examMenuItemStyle = (T, disabled) => ({
   cursor: disabled ? "not-allowed" : "pointer", opacity: disabled ? 0.45 : 1,
 });
 
-function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onAbortBlock, onOmitQuestion = () => {}, omitInfo = () => ({ saved: false, title: "", last: false }), onRate, onHome, darkMode, setDarkMode }) {
+function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onAbortBlock, onOmitQuestion = () => {}, omitInfo = () => ({ saved: false, title: "", last: false }), onRate, onHome, darkMode, setDarkMode, onSyncNow = () => {} }) {
+  const driveCtx = useContext(DriveContext);
   // Resume on the question the student was last viewing (clamped in case the stored value is stale).
   const [qIdx, setQIdx] = useState(() => {
     const n = Math.floor(Number(blockState.currentQuestionIndex) || 0);
@@ -13002,6 +13010,22 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onAbortBl
                     <div style={{ fontSize: fs(11.5), color: T.muted, lineHeight: 1.45, margin: "4px 0 0 24px" }}>
                       {timed ? t("timerOnHint") : t("timerOffNote")}
                     </div>
+                  </div>
+                )}
+                {driveCtx && driveCtx.configured && (
+                  <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap", marginBottom: 12, paddingTop: 10, borderTop: `1px solid ${T.border}` }}>
+                    <button
+                      type="button"
+                      onClick={onSyncNow}
+                      disabled={!driveCtx.linked || driveCtx.status === "busy"}
+                      title={t("syncQHint")}
+                      aria-label={t("syncShort")}
+                      style={{ display: "inline-flex", alignItems: "center", gap: 6, fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(12), color: T.ink, background: "transparent", border: `1px solid ${T.border}`, borderRadius: 6, padding: narrow ? "9px 12px" : "5px 10px", cursor: !driveCtx.linked || driveCtx.status === "busy" ? "not-allowed" : "pointer", opacity: !driveCtx.linked || driveCtx.status === "busy" ? 0.6 : 1 }}
+                    ><RefreshCw size={13} /> {t("syncShort")}</button>
+                    <span style={{ fontFamily: FONT_UI, fontSize: fs(11.5), color: T.muted }}>
+                      {!driveCtx.linked ? t("syncStNone") : driveCtx.status === "busy" ? t("syncStBusy") : driveCtx.status === "reauth" ? t("syncStReauth") : driveCtx.status === "error" ? t("syncStError")
+                        : driveCtx.lastSync ? t("syncStDone", { time: new Date(driveCtx.lastSync).toLocaleTimeString(undefined, { hour: "numeric", minute: "2-digit" }) }) : ""}
+                    </span>
                   </div>
                 )}
                 <LangSelect T={T} />
@@ -14643,7 +14667,7 @@ function OworldApp() {
   // --- Trash ------------------------------------------------------------------
   // Deleting anything from the Library, Analytics or Database moves it here first. The tombstone is still written at once, so
   // Drive sync behaves exactly as before; restoring stamps the entry with restoredAt so that tombstone no longer applies to it.
-  // items: [{ kind: "qbank" | "session" | "dbitem", data, review? }]
+  // items: [{ kind: "qbank" | "session" | "dbitem" | "question", data, review? }]
   function trashPush(items) {
     if (!items.length) return;
     const now = Date.now();
@@ -14657,7 +14681,7 @@ function OworldApp() {
   function restoreTrash(tids) {
     const picked = trash.filter((e) => tids.includes(e.tid));
     if (!picked.length) return;
-    let restored = 0, skipped = 0;
+    let restored = 0, skipped = 0, qNoBank = 0;
     const done = new Set();
 
     const qb = picked.filter((e) => e.kind === "qbank");
@@ -14698,8 +14722,27 @@ function OworldApp() {
       restored += r.restored; skipped += r.skipped;
     }
 
+    const qq = picked.filter((e) => e.kind === "question");
+    if (qq.length) {
+      const byEntry = new Map(); let noBank = 0;
+      qq.forEach((e) => {
+        done.add(e.tid);
+        const ent = library.find((x) => x.id === e.data.entryId);
+        if (!ent) { noBank++; return; }
+        if (ent.questions.some((x) => x.id === e.data.question.id) || (byEntry.get(ent.id) || []).some((x) => x.question.id === e.data.question.id)) { skipped++; return; }
+        byEntry.set(ent.id, [...(byEntry.get(ent.id) || []), e.data]); restored++;
+      });
+      if (byEntry.size) setLibrary((lib) => lib.map((e) => {
+        const back = byEntry.get(e.id); if (!back) return e;
+        const qs = [...e.questions];
+        back.sort((a, b) => (a.index || 0) - (b.index || 0)).forEach((b) => qs.splice(Math.min(Math.max(0, b.index || 0), qs.length), 0, b.question));
+        return { ...e, updatedAt: Date.now(), questions: qs };
+      }));
+      qNoBank = noBank;
+    }
+
     setTrash((cur) => cur.filter((e) => !done.has(e.tid)));
-    setFlash([restored ? tr("trashRestored").replace("{n}", restored) : "", skipped ? tr("trashRestoredDup").replace("{s}", skipped) : ""].filter(Boolean).join(" "));
+    setFlash([restored ? tr("trashRestored").replace("{n}", restored) : "", skipped ? tr("trashRestoredDup").replace("{s}", skipped) : "", qNoBank ? tr("trashQuestionNoBank").replace("{s}", qNoBank) : ""].filter(Boolean).join(" "));
   }
   function purgeTrash(tids) { const gone = new Set(tids); setTrash((cur) => cur.filter((e) => !gone.has(e.tid))); }
 
@@ -14818,8 +14861,23 @@ function OworldApp() {
   // Otherwise the block comes from the session's block file (the exact question set, mixed blocks included).
   function applyRemoteActive(r, block, { silent }) {
     const lv = syncableLive(liveRef.current.examData, liveRef.current.blockStates);
-    const blk = block || (silent && lv && lv.bs.syncId === r.sessionId ? lv.block : null);
+    let blk = block || (silent && lv && lv.bs.syncId === r.sessionId ? lv.block : null);
     if (!blk) { if (!silent) setFlash(tr("activeMissing")); return false; }
+    // Questions omitted on the other device: drop them from this test and from the saved Qbank here too.
+    const om = Array.isArray(r.omitted) ? r.omitted.map(String) : [];
+    if (om.length) {
+      const f = withoutOmitted(blk, om);
+      if (f.questions.length) blk = f;
+      const sepOf = (id) => id.indexOf("::");
+      const owner = (id) => (sepOf(id) > 0 ? id.slice(0, sepOf(id)) : blk.libraryId || null);
+      const orig = (id) => (sepOf(id) > 0 ? id.slice(sepOf(id) + 2) : id);
+      setLibrary((lib) => lib.map((e) => {
+        const rm = new Set(om.filter((id) => owner(id) === e.id).map(orig));
+        if (!rm.size) return e;
+        const qs = e.questions.filter((qq) => !rm.has(qq.id));
+        return qs.length && qs.length !== e.questions.length ? { ...e, updatedAt: Date.now(), questions: qs } : e;
+      }));
+    }
     const bs = hydrateActiveState(blk, r, silent && liveRef.current.view !== "exam");
     setRec({ sessionId: r.sessionId, updatedAt: r.updatedAt, baseAt: r.updatedAt, ended: false, sig: activeSig(bs), blockFileId: r.blockFileId || null });
     liveRef.current = { ...liveRef.current, examData: { blocks: [blk] }, blockStates: [bs] }; // a second pull in this same sync round must see the merged state, not the old one
@@ -15113,11 +15171,17 @@ function OworldApp() {
   function omitQuestion(qId) {
     const p = omitPlan(qId);
     if (p.last || p.hit.length === 0) return;
-    if (p.saved) setLibrary((lib) => lib.map((e) => (e.id !== p.entryId ? e : { ...e, updatedAt: Date.now(), questions: e.questions.filter((qq) => qq.id !== p.origId) })));
+    if (p.saved) {
+      // The omitted question goes to Trash (restorable for 30 days) as well as leaving the Qbank, so it can be brought back.
+      const ent = library.find((e) => e.id === p.entryId);
+      const at = ent ? ent.questions.findIndex((qq) => qq.id === p.origId) : -1;
+      if (ent && at >= 0) trashPush([{ kind: "question", data: { id: `${p.entryId}::${p.origId}`, entryId: p.entryId, title: ent.title, index: at, question: ent.questions[at] } }]);
+      setLibrary((lib) => lib.map((e) => (e.id !== p.entryId ? e : { ...e, updatedAt: Date.now(), questions: e.questions.filter((qq) => qq.id !== p.origId) })));
+    }
     const hit = new Set(p.hit);
     const drop = (o) => { const c = { ...(o || {}) }; delete c[qId]; return c; };
     setExamData((prev) => ({ ...prev, blocks: prev.blocks.map((b, i) => (hit.has(i) ? { ...b, questions: b.questions.filter((q) => q.id !== qId) } : b)) }));
-    setBlockStates((prev) => prev.map((bs, i) => (hit.has(i) ? { ...bs, answers: drop(bs.answers), notes: drop(bs.notes), highlights: drop(bs.highlights) } : bs)));
+    setBlockStates((prev) => prev.map((bs, i) => (hit.has(i) ? { ...bs, answers: drop(bs.answers), notes: drop(bs.notes), highlights: drop(bs.highlights), omitted: [...new Set([...(bs.omitted || []), qId])] } : bs)));
   }
 
   function submitActiveBlock() {
@@ -15424,6 +15488,7 @@ function OworldApp() {
           onSubmitBlock={submitActiveBlock}
           onAbortBlock={abortActiveBlock}
           onOmitQuestion={omitQuestion}
+          onSyncNow={() => { sessionSync.syncNow(); drive.syncNow(); }}
           omitInfo={omitPlan}
           onRate={(q, k) => rateQuestion(activeBlockIdx, q, k)}
           onHome={goHome}
