@@ -268,7 +268,7 @@ const STR = {
     "nf.syncLinked.t": "Google Drive connected", "nf.syncLinked.b": "Your library and Analytics now sync across your devices.",
     saveToLibrary: "Save to Library", libSaved: "Saved {n} new block(s) to your library.", libDup: "{d} already in your library.", libNothing: "Already in your library — nothing new to save.",
     libTitle: "Oworld Library", libCount: "{n} saved", libEmpty: "Nothing saved yet. Paste or upload a question bank and choose \u201cSave to Library\u201d to keep it on this device. Sign in with Google to also sync it through your Drive.",
-    libMeta: "{q} questions · imported {d}", libLastScore: "Last score {pct}% ({c}/{t})", libNoScore: "Not attempted yet", libCompleted: "Completed · Best {pct}% ({c}/{t})", tabLibrary: "Library", tabHistory: "Analysis", tabImport: "Import", importPageTitle: "Import Qbank", histTitle: "Analytics", histPast: "Past Sessions", histEmpty: "No finished sessions yet. Every block you complete is logged here, including custom and mixed sessions.", histNote: "Each finished session is saved as its own log. Custom and mixed sessions never change your Qbank cards; a card is marked Completed only when you run that whole Qbank on its own. The 25 most recent sessions also keep their full question-by-question review; older ones keep a summary.", histKindBank: "Qbank", histKindCustom: "Custom", histKindRetest: "Retest", histQ: "{n} questions", histAnswered: "{a}/{n} answered", histSources: "From: {s}", histBySubject: "By subject", histDelete: "Delete this log", histClear: "Clear history", histClearQ: "Delete all {n} logged sessions? They move to Trash for 30 days. Your Qbank cards are not affected.", histClearGo: "Delete all", histToggle: "Show details", histSelectAll: "Select all", histDeselect: "Deselect all", histDeleteSelQ: "Delete {n} selected session(s)? They move to Trash for 30 days. Your Qbank cards are not affected.", histReview: "Review Exam", histNoReview: "Review unavailable", histNoReviewFlash: "The full review for this session is no longer stored.", histMixed: "Mixed: {n} blocks · {q} Questions", histNamed: "{name} · {q} Questions", histDone: "Completed {d}", anOverall: "Overall you answered {n} questions:", anCorrect: "correctly", anHints: "correctly using hints", anIncorrect: "incorrectly", anCenter: "Correct + using hints", anQ: "({n} questions)", anQ1: "(1 question)", tabConsole: "Console", csGoodMorning: "Good morning", csGoodAfternoon: "Good afternoon", csGoodEvening: "Good evening", csStreakLine: "{n}-day study streak", csReadyLine: "Ready when you are.", csNoSession: "No session in progress", csNoSessionHint: "Start a Qbank from your library, or import a new one.", csOpenLibrary: "Open Library", csImportNew: "Import a Qbank", csViewAll: "View all", csStatSessions: "Sessions", csStatWeek: "{n} this week", csStatAnswered: "Questions answered", csStatAccuracy: "Accuracy", csStatStreak: "Day streak", csStatDays: "{n} days", csStatDay1: "1 day", csHighlights: "Analytics highlights", csTrend: "Recent scores", csTrendHint: "Last {n} sessions · dashed line = 70%", csTrendNeed: "Finish 2 sessions to see your trend.", csStrong: "Strongest subjects", csWeak: "Needs work", csSubjNeed: "Answer at least 5 questions in a subject to rank it.", csRecent: "Recent sessions", csYourLibrary: "Your library", csLibSub: "{n} Qbanks saved", csLibEmpty: "Your library is empty. Import a Qbank to get started.", csFirstTitle: "Let's get your first session going", csFirstBody: "Import a Qbank (the JSON your AI tool writes), save it to your library, then run it as a timed or tutor block. Your stats will show up right here.", csProgress: "{a} of {n} answered",
+    libMeta: "{q} questions · imported {d}", libLastScore: "Last score {pct}% ({c}/{t})", libNoScore: "Not attempted yet", libCompleted: "Completed · Best {pct}% ({c}/{t})", tabLibrary: "Library", tabHistory: "Analysis", tabImport: "Import", importPageTitle: "Import Qbank", histTitle: "Analytics", histPast: "Past Sessions", histEmpty: "No finished sessions yet. Every block you complete is logged here, including custom and mixed sessions.", histNote: "Each finished session is saved as its own log. Custom and mixed sessions never change your Qbank cards; a card is marked Completed only when you run that whole Qbank on its own. The 25 most recent sessions also keep their full question-by-question review; older ones keep a summary.", histKindBank: "Qbank", histKindCustom: "Custom", histKindRetest: "Retest", histQ: "{n} questions", histAnswered: "{a}/{n} answered", histSources: "From: {s}", histBySubject: "By subject", histDelete: "Delete this log", histClear: "Clear history", histClearQ: "Delete all {n} logged sessions? They move to Trash for 30 days. Your Qbank cards are not affected.", histClearGo: "Delete all", histToggle: "Show details", histSelectAll: "Select all", histDeselect: "Deselect all", histDeleteSelQ: "Delete {n} selected session(s)? They move to Trash for 30 days. Your Qbank cards are not affected.", histReview: "Review Exam", histNoReview: "Review unavailable", histNoReviewFlash: "The full review for this session is no longer stored.", histMixed: "Mixed: {n} blocks · {q} Questions", histNamed: "{name} · {q} Questions", histDone: "Completed {d}", anOverall: "On first exposure you answered {n} questions:", anCorrect: "correct, no hint", anHints: "correct with a hint", anIncorrect: "incorrect", anCenter: "First-exposure correct", anQ: "({n} questions)", anQ1: "(1 question)", tabConsole: "Console", csGoodMorning: "Good morning", csGoodAfternoon: "Good afternoon", csGoodEvening: "Good evening", csStreakLine: "{n}-day study streak", csReadyLine: "Ready when you are.", csNoSession: "No session in progress", csNoSessionHint: "Start a Qbank from your library, or import a new one.", csOpenLibrary: "Open Library", csImportNew: "Import a Qbank", csViewAll: "View all", csStatSessions: "Sessions", csStatWeek: "{n} this week", csStatAnswered: "Questions answered", csStatAccuracy: "Accuracy", csStatStreak: "Day streak", csStatDays: "{n} days", csStatDay1: "1 day", csHighlights: "Analytics highlights", csTrend: "Recent scores", csTrendHint: "Last {n} sessions · dashed line = 70%", csTrendNeed: "Finish 2 sessions to see your trend.", csStrong: "Strongest subjects", csWeak: "Needs work", csSubjNeed: "Answer at least 5 questions in a subject to rank it.", csRecent: "Recent sessions", csYourLibrary: "Your library", csLibSub: "{n} Qbanks saved", csLibEmpty: "Your library is empty. Import a Qbank to get started.", csFirstTitle: "Let's get your first session going", csFirstBody: "Import a Qbank (the JSON your AI tool writes), save it to your library, then run it as a timed or tutor block. Your stats will show up right here.", csProgress: "{a} of {n} answered",
     libStart: "Start", libSearchPh: "Search Qbanks, tags, subjects…", libSearchLabel: "Search Qbanks", libSearchClear: "Clear search", libFilterAll: "All", libFilterNew: "Not started", libFilterProgress: "In progress", libFilterDone: "Completed", libFilterWeak: "Below 70%", libFilterDue: "Due for review", libShowing: "Showing {n} of {total}", libNoMatch: "No Qbanks match your search or filter.", libClearFilters: "Clear filters", libSortStudied: "Recently studied", libSortBest: "Best score: high to low", libSortWeak: "Best score: low to high", libSortSize: "Most questions", libStartAs: "Start as", libStartTitle: "{mode}: {name}", libStudied: "Studied {n}× · last {d}", libStudiedOnly: "Last studied {d}", libDue: "{n} due", libSumQ: "{q} questions", libSumDone: "{c} completed", libSumAvg: "avg best {pct}%", libSumDue: "{n} due for review", rateTitle: "How well did you know this?", "rate.again": "Again", "rate.hard": "Hard", "rate.good": "Good", "rate.easy": "Easy", srsDays: "{n}d", srsMonths: "{n}mo", srsYears: "{n}y", srsNext: "Next review: {d}", srsNextTitle: "Review again in {n}", srdTitle: "Tutor's Review Deck", srdBlockName: "Tutor's Review", srdBadgeDue: "{n} due", srdCaughtUp: "All caught up", srdNone: "Nothing scheduled yet", srdOverdue: "{n} overdue", srdToday: "{n} due today", srdNextBlock: "next block: {n}", srdNextDue: "Next review {d}", srdEmptyHint: "Rate questions in Tutor Mode (Again, Hard, Good, Easy) and they return here when they are due.", srdStart: "Start review", srdHint: "Builds a Tutor block from every question across your Qbanks whose next review date is today or earlier, most overdue first.", srsHint: "Spaced repetition (SM-2): the number under each button is when this question comes back.",
     poolAgain: "Rated Again", poolHard: "Rated Hard", poolAgainHard: "Again + Hard",
     "rt.again": "Rated Again", "rt.hard": "Rated Hard", "rt.againhard": "Rated Again/Hard",
@@ -291,11 +291,11 @@ const STR = {
     "csCalendar": "Semester calendar", "csCalPrev": "Previous month", "csCalNext": "Next month", "csCalToday": "Today", "csCalNothing": "Nothing scheduled.", "csCalStudied": "Studied: {n} session(s) · {q} questions", "csCalLegExam": "Exam", "csCalLegTask": "Task due", "csCalLegEvent": "Calendar", "csCalLegStudy": "Studied", "csCalNoProfile": "Set up your Study Profile to see your exams, tasks and breaks here.", "csCalSetup": "Set up profile", "csCalMore": "+{n} more",
     "tabCalendar": "Schedule", "calTitle": "Schedule", "calHint": "Your whole term on one calendar: classes, exams, tasks, breaks and the days you studied. Tap a day to see and edit it.", "calMonth": "Month", "calWeek": "Week", "calAgenda": "Agenda", "calPrev": "Previous", "calNext": "Next", "calLayerKey": "Key dates", "calTermStart": "Term starts", "calTermEnd": "Term ends", "calTargetExam": "Target exam", "calClassesN": "{n} classes", "calStatTerm": "Term", "calStatOpen": "Open tasks", "calStatWeekQ": "Questions this week", "calAgendaEmpty": "Nothing scheduled in this stretch.", "calOpenFull": "Full schedule", "spMapNote": "Showing the weeks around today. Expand to see the full syllabus map.",
     tbGapTitle: "Gap analysis", tbGapHint: "Your logged blocks grouped by subject tag and compared with the blueprint: exam weight, your share of practice, your accuracy and the gap to target (points).", tbColExam: "Exam", tbColPractice: "You", tbColAcc: "Acc.", tbColGap: "Gap", tbGapWorst: "Largest accuracy gap: {a} ({n} pts below target).", tbGapUnder: "Most under-practiced: {b}.", tbGapNone: "Finish a block to see your gaps.", tbUnmapped: "Not mapped to the blueprint", tbUnmappedHint: "These subject tags in your results match no blueprint item. Add them to a match list.", tbBpPrompt: "Blueprint — AI prompt", tbBpSchema: "Blueprint — JSON template", tbCourses: "Priority course", tbStarOn: "Make {c} your priority course", tbStarOff: "Remove priority course", tbStarHint: "The starred course is studied first: its topics lead this week's focus and its blueprint items rank higher.", "calNew.task": "New task", "calNew.event": "New event", "calNew.exam": "New exam", "calEdit.task": "Edit task", "calEdit.event": "Edit event", "calEdit.exam": "Edit exam", "calAdd.task": "Task", "calAdd.event": "Event", "calAdd.exam": "Exam", "calF.title": "Title", "calF.date": "Date", "calF.time": "Time", "calF.endDate": "Ends on", "calF.endTime": "Ends at", "calF.type": "Type", "calF.repeat": "Repeats", "calF.until": "Repeat until", "calF.subject": "Subject", "calF.weight": "Weight %", "calF.place": "Location", "calF.course": "Course", "calF.topics": "Topics (comma separated)", "calF.notes": "Notes", "calF.done": "Already happened", "calRep.none": "Does not repeat", "calRep.daily": "Daily", "calRep.weekly": "Weekly", "calRep.monthly": "Monthly", calRepeats: "repeats {r}", calSave: "Save", calCancel: "Cancel", calDelete: "Delete", calEdit: "Edit", calDeleted: "Deleted “{s}”.", calMoved: "Moved “{s}” to {d}.", calUndo: "Undo", calFind: "Find in calendar", calJump: "Go to date", calExport: "Export .ics", tbScale: "Scale weights to 100%", tbScaleHint: "Overlapping ranges (a question can count toward several disciplines) can add up to more than 100%. This rescales each group and keeps the original numbers as the official range. Comparisons already use the scaled shares.", tbConf: "Source confidence", "tbConfLvl.high": "High", "tbConfLvl.medium": "Medium", "tbConfLvl.low": "Low", "tbCg.official": "Cites official sources ({h}).", "tbCg.version": "Outline edition recorded: {v}.", "tbCg.fresh": "Retrieved {n} days ago.", "tbCg.weights": "Weights add up to about 100% in every group.", "tbCf.noSource": "No source cited.", "tbCf.unofficial": "The cited pages are not official USMLE, NBME or FSMB sites.", "tbCf.noVersion": "No outline edition recorded.", "tbCf.noDate": "No retrieval date recorded.", "tbCf.old": "Last checked {n} days ago, longer than a semester.", "tbCf.weights": "{g} weights add up to {n}%, not 100%.", "tbCf.noWeights": "No exam weights given.", "tbCf.template": "Template with placeholder weights, not the official outline.", tbCadence: "Update your blueprint at least once every semester: the outline can change and your tutor plans from it.", tbDueOn: "Next update due by {d}.", tbUpdate: "Update blueprint", tbDue: "Your blueprint was last checked {n} days ago. Update it at least once a semester.", tbDueTerm: "A new term started since your blueprint was last checked. Update it so your tutor follows the current outline.", tbSoon: "Your blueprint is {n} days old. Plan an update this semester.", "nf.bpDue.t": "Update your blueprint", "nf.bpDue.b": "It was last checked {n} days ago. Refresh it at least once a semester so your tutor follows the current USMLE outline.", "nf.bpDueTerm.t": "New semester: update your blueprint", "nf.bpDueTerm.b": "Your term started after your blueprint was last checked. Re-run the AI prompt to confirm the current USMLE outline.", tbSource: "Source: {v} {u}", tbNoSource: "No official source recorded: re-run the AI prompt so it can search the current USMLE outline.", tabTutor: "Tutor", tbTitle: "Tutor Dashboard", tbOpenTutor: "Open Study Hub", tabStudyHub: "Study Hub", shTitle: "Study Hub", shSub: "Your tutor, blueprint and Study Profile in one place: where you are in your term, what to study next and how ready you are.", shNavOverview: "Overview", shNavPriorities: "Priorities", shNavBlueprint: "Blueprint", shNavProfile: "Study Profile", shJumpTo: "Jump to section", shSetupCta: "Set up your Study Profile", "plAddAs": "Add as…", "plSrc.exam": "Exam", "plSrc.event": "Event", "plSrc.class": "Class", "plAct.study": "Study", "plAct.task": "Add task", "plAct.skip": "Skip class", "plAct.editClass": "Edit classes", "plPrepTitle": "Prepare: {s}", "plReviewTitle": "Review: {s}", "plTaskAdded": "Added task “{s}”.", "plSkipped": "Skipped “{s}” on {d}.", plAgendaHint: "Exams, classes and events in the next 7 days appear here with their own actions.", tbBpTitle: "Blueprint", tbBpBody: "A blueprint is one JSON file with your exam's test domains, system weights and target competencies. Give the prompt to an AI tool that can browse the web: it looks up the latest official USMLE outline (usmle.org, NBME, FSMB) and returns the JSON to paste here. The built-in template is only a placeholder. The tutor ranks what to study by weight, your accuracy and this week's syllabus.", tbTemplate: "Use USMLE template", tbCopyPrompt: "Copy AI prompt", tbCopySchema: "Copy template JSON", tbCopied: "Copied", tbPaste: "Paste the blueprint JSON here…", tbLoad: "Load blueprint", tbRemove: "Remove blueprint", tbErrParse: "That doesn't look like JSON. Paste only the blueprint (or upload the file).", tbErrShape: "This JSON has no domains, systems or competencies.", tbReady: "Blueprint readiness", tbCoverage: "Coverage", tbCoverageSub: "items with 5+ answers", tbCountdown: "Days to exam", tbTarget: "target {n}%", tbPriority: "Priority targets", tbPriorityHint: "Ranked by exam weight, the gap to your target and this week's topics. Tick items to build one block, or tap a name to start it.", tbBuild: "Build block from {n} selected", tbShareLine: "{n} answered · {share}% of your practice vs {w}% of the exam · target {target}%", tbMatches: "Qbanks that match", tbNoMatches: "No Qbank in your library matches these topics yet.", tbSystems: "Systems", tbDomains: "Test domains", tbComps: "Competencies", tbLegend: "Bar = your accuracy, black tick = target. Weights are a study guide: check them against the current official outline.", tbNoBpTitle: "No blueprint loaded", tbNoBpBody: "Load a blueprint to see priorities by exam weight.", "nf.blueprintLoaded.t": "Blueprint loaded", "nf.blueprintLoaded.b": "Your tutor now plans around {exam}.",
-    tutorShort: "Tutor", modeLabel: "Test mode", modeLocked: "Locked once the block starts", modeTimedHint: "Countdown timer. You can turn it off during the exam, but not back on.", timerLabel: "Timer", timerOnHint: "You can turn the timer off, but you can't turn it back on.", timerOffNote: "Timer is off for this block and can't be turned back on.", timerOffTitle: "Turn off the timer?", timerOffBody: "The countdown will stop and this block will become untimed. This can't be undone: you won't be able to turn the timer back on for this block. Your answers and progress are kept.", keepTimer: "Keep timer on", turnOffTimer: "Turn off timer", timerOffSuffix: "timer off", modeTutorHint: "No timer. Instant feedback after each answer.", tutor: "Tutor mode", tutorHint: "Instant right/wrong feedback and explanations after each answer, plus question reset.",
-    tutorCorrect: "Correct", tutorIncorrect: "Incorrect — the correct answer is {a}", tutorIncorrectHidden: "Incorrect", showCorrectBtn: "Show Answer",
-    resetQ: "Reset question", "sc.reset": "Reset question (Tutor mode)",
+    tutorShort: "Tutor", modeLabel: "Test mode", modeLocked: "Locked once the block starts", modeTimedHint: "Countdown timer. You can turn it off during the exam, but not back on.", timerLabel: "Timer", timerOnHint: "You can turn the timer off, but you can't turn it back on.", timerOffNote: "Timer is off for this block and can't be turned back on.", timerOffTitle: "Turn off the timer?", timerOffBody: "The countdown will stop and this block will become untimed. This can't be undone: you won't be able to turn the timer back on for this block. Your answers and progress are kept.", keepTimer: "Keep timer on", turnOffTimer: "Turn off timer", timerOffSuffix: "timer off", modeTutorHint: "No timer. Instant feedback after each answer.", tutor: "Tutor mode", tutorHint: "Instant right/wrong feedback and explanations after each answer, plus question retry.",
+    tutorCorrect: "Correct", tutorIncorrect: "Incorrect — the correct answer is {a}", tutorIncorrectHidden: "Incorrect", showCorrectBtn: "Show Answer", revealBtn: "Reveal",
+    resetQ: "Retry question", "sc.reset": "Retry question (Tutor mode)",
     attendingTip: "Tutor's Tip", keyClues: "Key Clues", keyLearningPoint: "Key Learning Point",
-    ankiGet: "Anki card", ankiInQueue: "In queue ✓", ankiQueueBtn: "Anki queue", ankiPanelTitle: "Anki queue", ankiDeckName: "Deck name", ankiIncludeTags: "Include tags", ankiDownloadTsv: "Download .tsv", ankiSupportText: "Building your deck for long-term retention. If Oworld is helping you study, consider supporting the project.", ankiSupportBtn: "Support Oworld", ankiSelectAll: "Select all", ankiDeselectAll: "Deselect all", ankiRemoveSel: "Remove selected ({n})", ankiClear: "Clear queue", ankiClearQ: "Remove all {n} cards from the queue?", ankiKeep: "Keep", ankiEmpty: "No cards queued. Use Get Anki card on a question to add it.", ankiMoveUp: "Move up", ankiMoveDown: "Move down", ankiRemove: "Remove from queue", ankiPreview: "Preview", ankiPreviewTitle: "Card preview", ankiClose: "Close", ankiQNum: "Q{n}", ankiSelectCard: "Select card {n}", keyInfoBtn: "Key Info", tipBtn: "Tutor's Tip", distractorBtn: "Why this is incorrect", noKeyInfo: "No key info available for this question.", noTipAvail: "No tip available for this question.", hintUsedBadge: "Hint used", hintsUsedN: "Hints used: {n}",
+    ankiGet: "Anki card", ankiInQueue: "In queue ✓", ankiQueueBtn: "Anki queue", ankiPanelTitle: "Anki queue", ankiDeckName: "Deck name", ankiIncludeTags: "Include tags", ankiDownloadTsv: "Download .tsv", ankiSupportText: "Building your deck for long-term retention. If Oworld is helping you study, consider supporting the project.", ankiSupportBtn: "Support Oworld", ankiSelectAll: "Select all", ankiDeselectAll: "Deselect all", ankiRemoveSel: "Remove selected ({n})", ankiClear: "Clear queue", ankiClearQ: "Remove all {n} cards from the queue?", ankiKeep: "Keep", ankiEmpty: "No cards queued. Use Get Anki card on a question to add it.", ankiMoveUp: "Move up", ankiMoveDown: "Move down", ankiRemove: "Remove from queue", ankiPreview: "Preview", ankiPreviewTitle: "Card preview", ankiClose: "Close", ankiQNum: "Q{n}", ankiSelectCard: "Select card {n}", keyInfoBtn: "Key Info", tipBtn: "Tutor's Tip", distractorBtn: "Why this is incorrect", noKeyInfo: "No key info available for this question.", noTipAvail: "No tip available for this question.", hintUsedBadge: "Hint used", hintsUsedN: "Hints used: {n}", feTitle: "First exposure", feNote: "Your first answer to each question, before any retry.", feCorrectN: "Correct: {n}", feIncorrectN: "Incorrect: {n}", feHintCorrectN: "Correct with hint: {n}", feCorrectBadge: "1st: correct", feIncorrectBadge: "1st: incorrect", feHintCorrectBadge: "1st: correct with hint",
     difficulty: "Difficulty", diffTitle: "Difficulty: {n} of 5",
     timerLocked: "The timer can't be turned on once a block has started.",
     title: "Turn questions from any AI model into a realistic practice exam",
@@ -327,7 +327,7 @@ const STR = {
     removeSelBodyUnsaved: "{n} block(s) will be removed from this session. {u} of them aren't saved to your library and will be gone for good — save them first if you want to keep them.",
     pasteChars: "{n} characters pasted", pasteClear: "Clear", pasteEmpty: "Nothing pasted yet — expand to paste, or use Upload.",
     load: "Load exam", importQbank: "Import New Qbank", importInLibrary: "Already in your library — start it from there.", lobbySaveN: "Save to Library ({n})", lobbyRemoveN: "Remove ({n})", triageHint: "Tick this Qbank to save it to your library or remove it.", lobbyTriageNote: "These Qbanks were just imported. Tick the ones you want, then use Save to Library to keep them or Remove to dismiss them.", aiLaunchTitle: "AI Quick Launch", aiLaunchHint: "Open your AI tool, paste the prompt below along with your topic or notes, then bring the reply back here.", aiLaunchOpens: "Opens in a new tab", nbTitle: "Subjects & Systems", nbHint: "Your study notebooks, by block. Each one opens in NotebookLM in a new tab.", nbAll: "USMLE (all-in-one notebook)", nbBlock1: "Block 1", nbBlock2: "Block 2", nbCore: "Core sciences", nbClinical: "Clinical", 
-    wasIncorrectBadge: "Missed before reset", missedBeforeN: "{n} missed before reset", explHide: "Hide explanation", explShow: "Show explanation",
+    wasIncorrectBadge: "Missed before retry", missedBeforeN: "{n} missed before retry", explHide: "Hide explanation", explShow: "Show explanation",
     activeTitle: "Continue your test from another device?", activeTitleConflict: "A different version of this test is on another device",
     activeBody: "“{name}”: question {n} of {total}, {answered} answered. Last updated {time}.",
     activeReplaceWarn: "Continuing replaces the exam that is open on this device.", activeContinue: "Continue here", activeNotNow: "Not now", activeKeepMine: "Keep this device's",
@@ -338,9 +338,10 @@ const STR = {
     syncTitle: "Cloud Sync", syncHint: "Keeps your Qbank library and Analytics in step across your devices through a private app folder in your own Google Drive. Share / Export to a friend still works separately.", syncOff: "Cloud sync isn't set up in this version of the app.", syncConnect: "Connect Google Drive", syncNow: "Sync now", syncDisconnect: "Disconnect", syncReconnect: "Reconnect", syncStNone: "Not connected", syncStBusy: "Syncing…", syncStDone: "Synced {time}", syncStReauth: "Reconnect needed", syncStError: "Sync problem", syncBlocked: "Google sign-in couldn't load here (blocked or offline).", syncDenied: "Drive access wasn't granted. Allow the app-data permission to sync.", syncGenericErr: "Couldn't sync with Google Drive. Your data on this device is safe.", syncReauthHint: "Your Google session expired. Tap Reconnect; local changes are kept and will sync.", syncGuide: "Google Drive sync (profile menu, top right) keeps your library and Analytics in step across devices. Share / Export is still the way to send a block to someone else.", homeBtn: "Home", removeExam: "Remove exam", removeTitle: "Remove this exam?", removeBody: "This clears the loaded exam and any progress or results in it. Your saved Oworld Library is not affected.", removeBodyUnsaved: "This clears the loaded exam and any progress or results in it. Some of its blocks are not saved to your Library and would be gone for good. Cancel and tap Save to Library first if you want to keep them.", removeGo: "Remove", libRename: "Rename Qbank", libRenameSave: "Save name", howItWorks: "Help", guideStep: "Step {n} of {total}", guideBack: "Back", guideNext: "Next", guideDone: "Got it", guideClose: "Close guide", navCollapse: "Collapse question list", navExpand: "Expand question list", resumeSession: "Resume Session", sessionInProgress: "Session in progress", sessionPos: "Question {n} of {total}", examLoadedLabel: "Exam loaded", openLobby: "Open exam lobby", inProgressTag: "In progress", discardTitle: "Discard in-progress session?", discardBody: "Starting something new replaces your in-progress block, and its answers will be lost.", discardGo: "Discard and continue", hide: "Hide", recipe: "Question Recipe & Prompt Generator",
     recipeIntro: "Configure a block below, then copy the generated recipe into the AI tool of your choice (add your source material if it supports it). It returns questions in the exact shape this app expects.",
     blockSize: "Block size", focus: "Focus",
-    recipeStyle: "Question style", "recipeStyle.vignette": "Vignettes", "recipeStyle.basic": "Basic", recipeStyleHintVignette: "Full USMLE-style clinical vignettes: a patient case with history, exam and data.", recipeStyleHintBasic: "Short, direct recall questions on a single fact. No patient case.",
-    recipeBasicFormat: "Recall format", "recipeBasicFormat.mixed": "Mixed", "recipeBasicFormat.mechanism": "Mechanism", "recipeBasicFormat.drugchoice": "Drug of choice", "recipeBasicFormat.adverse": "Adverse effects", "recipeBasicFormat.deficiency": "Deficiency to disease", "recipeBasicFormat.findings": "Classic findings", "recipeBasicFormat.association": "Associations", "recipeBasicFormat.anatomy": "Anatomy & physiology", "recipeBasicFormat.microbe": "Micro features",
-    "recipeBasicFormatHint.mixed": "A blend of every recall type below.", "recipeBasicFormatHint.mechanism": "Mechanism of action, drug class or target.", "recipeBasicFormatHint.drugchoice": "First-line drug or intervention for a disease or organism.", "recipeBasicFormatHint.adverse": "Characteristic adverse effects, contraindications and interactions.", "recipeBasicFormatHint.deficiency": "Defective enzyme, gene or vitamin linked to its disease.", "recipeBasicFormatHint.findings": "A condition paired with its classic histology, lab or sign.", "recipeBasicFormatHint.association": "Disease linked to its organism, gene, risk factor or complication.", "recipeBasicFormatHint.anatomy": "Normal structure and function: supply, innervation, actions, values.", "recipeBasicFormatHint.microbe": "Organism identifying features, toxins, transmission.",
+    recipeStyle: "Question style", "recipeStyle.vignette": "Vignettes", "recipeStyle.basic": "Basic", "recipeStyle.mixed": "Mixed", recipeStyleHintMixed: "70% clinical vignettes and 30% basic recall, interleaved and tagged by format. Analytics scores knowing and applying separately and shows the gap.", recipeStyleMixedCounts: "{v} Vignette + {b} Basic in this block.",
+    anFmtTitle: "Knowing vs. applying", anFmtHint: "Basic questions measure what you know; vignettes measure whether you can apply it. The gap is Basic minus Vignette accuracy.", anFmtKnow: "Knowing (Basic)", anFmtApply: "Applying (Vignette)", anFmtGap: "Gap", anFmtPts: "pts", anFmtBySubject: "Gap by subject", anFmtNeed: "Take a Mixed 70/30 block to compare your recall with how well you apply it.", anFmtMin: "Needs at least {n} questions in each format for a reliable read ({b} Basic, {v} Vignette so far).", anFmtBig: "You know the facts but lose points applying them. Practise vignettes on the subjects with the biggest gap.", anFmtSmall: "Knowing and applying are close. Keep mixing both formats.", anFmtNeg: "You apply better than you recall. Shore up the bare facts with Basic questions.", anFmtNone: "Not enough in both formats yet.", recipeStyleHintVignette: "Full USMLE-style clinical vignettes: a patient case with history, exam and data.", recipeStyleHintBasic: "Short, direct recall questions on a single fact. No patient case.",
+    recipeBasicFormat: "Recall format", "recipeBasicFormat.mixed": "Mixed", "recipeBasicFormat.fact": "Fact", "recipeBasicFormat.mechanism": "Mechanism", "recipeBasicFormat.causal": "Cause & effect", "recipeBasicFormat.identify": "Identify", "recipeBasicFormat.pathway": "Pathway", "recipeBasicFormat.value": "Value", "recipeBasicFormat.principle": "Principle",
+    "recipeBasicFormatHint.mixed": "A blend of every recall format below.", "recipeBasicFormatHint.fact": "One discrete fact: a definition, classification, name or association.", "recipeBasicFormatHint.mechanism": "How something works: mechanism of action or the process behind an effect.", "recipeBasicFormatHint.causal": "What causes or follows from something: causes, risk factors, consequences.", "recipeBasicFormatHint.identify": "Features are given; name the organism, drug, structure or condition.", "recipeBasicFormatHint.pathway": "An ordered process: pathway steps, sequence of events, rate-limiting step.", "recipeBasicFormatHint.value": "A number or direction: normal ranges, cutoffs, increase or decrease.", "recipeBasicFormatHint.principle": "A general rule or concept: physiologic, pharmacologic, statistical or ethical.",
     diffMode: "Difficulty", "diffMode.mixed": "Mixed (recommended)", "diffMode.easy": "Easy", "diffMode.medium": "Medium", "diffMode.hard": "Hard (USMLE standard)",
     diffHintMixed: "{e} Easy · {m} Medium · {h} Hard (about 20% / 60% / 20%), interleaved to mirror real exam variance. Every question is labeled by its difficulty rating for tracking.",
     diffHintEasy: "Recall and core triads: 1–3 sentence vignettes, 1–2 step recognition, 3–4 options with distinct distractors.",
@@ -350,13 +351,12 @@ const STR = {
     exportTitle: "Send this block to another student as a .json file (AirDrop / share sheet where supported, otherwise a download)", exportShareText: "Oworld question block: {name}",
     mixDiffAll: "All", mixBalanced: "Balanced", mixBalancedShort: "Balanced", mixBalancedHint: "20% Easy / 60% Medium / 20% Hard, e.g. {e} · {m} · {h} at this size.", mixUnrated: "{n} question(s) without a difficulty label are left out.",
     customSize: "Custom", customSizePh: "1–{n}", "dl.easy": "Easy", "dl.medium": "Medium", "dl.hard": "Hard", perfDifficulty: "Performance by difficulty",
-    "focus.standard": "Standard USMLE mix", "focus.systems": "Single organ system", "focus.discipline": "Single discipline",
-    recipeTutor: "Tutor suggests", recipeTutorHint: "Tap topics to build this recipe around them. Tap again to remove one.", phSystems: "e.g. Cardiovascular, Renal, Neuro…", phDisc: "e.g. Pharmacology, Biochemistry, Microbiology…",
+    "focus.standard": "Balanced", "focus.systems": "Focused system", "focus.discipline": "Focused discipline", focusSystemLbl: "Organ system", focusDiscLbl: "Discipline", focusTopicsLbl: "Topic(s)", phTopicsSys: "e.g. heart failure, MI, arrhythmias, valvular disease", phTopicsDisc: "e.g. antihypertensives, antiarrhythmics, anticoagulants",
+    recipeTutor: "Tutor suggests", recipeTutorHint: "Tap topics to build this recipe around them. Tap again to remove one.", phSystems: "e.g. Cardiovascular", phDisc: "e.g. Pharmacology",
     uniTitle: "Recipe & Import Hub", uniHint: "One importer for everything: pick a recipe, copy the prompt into your AI tool, then paste what it returns.", 
     
     libTypeAll: "Import", libTypeQbank: "Qbank", moreActions: "More actions", omitQuestion: "Omit question", omitTitle: "Remove this question from your Qbank?", omitConfirmSaved: "This permanently deletes the question from \"{title}\". It will not appear when you practise, and it will not be included if you share or export that Qbank. This cannot be undone.", omitConfirmLocal: "This question is not saved in your library. It is removed from this block and from anything you share from it. This cannot be undone.", omitGo: "Omit permanently", omitLastHint: "Every block and Qbank needs at least one question, so this one cannot be omitted.", giveFeedback: "Give feedback", reportIssue: "Report an Issue", defineBtn: "Define", defLoading: "Looking up…", defDisambig: "This term has several meanings on Wikipedia.", defNoArticle: "No Wikipedia article matches this term.", defUnavailable: "Could not load a definition right now.", defReadFull: "Read full article", defSeeAll: "See all meanings", defOpenWiki: "Open on Wikipedia", defSkipped: "Select a more specific medical term to look it up.", defCaveat: "Definitions are for background only; rely on your source text for management.",
-    recipeTitle: "Copy & Paste this prompt to generate a Qbank", copied: "Copied", copy: "Copy", schema: "JSON schema", viewSchema: "View Developer JSON Schema", hideSchema: "Hide Developer JSON Schema",
-    createdBy: "OWORLD is created by", role: "Medical student | Founder of Verde+", supportOworld: "Support Oworld",
+    recipeTitle: "Copy & Paste this prompt to generate a Qbank", copied: "Copied", copy: "Copy", schema: "JSON schema",     createdBy: "OWORLD is created by", role: "Medical student | Founder of Verde+", supportOworld: "Support Oworld",
     joinDiscord: "Join our Discord", libGetCommunity: "Get Community Qbanks", guideDiscordTitle: "Join the Community", guideDiscordBody: "Oworld is built by students, for students. Join our Discord server to share Qbank bundles, vote on new features, get help, and talk to other students.",
     supportCardText: "Oworld is free and stays free. If it helps you, consider supporting the project.", supportCardBtn: "Support",
     supportResultsTitle: "You just finished a free block.", supportResultsBody: "Oworld will never lock its questions behind a paywall. If you found this valuable, consider supporting the project.", supportResultsBtn: "Support Oworld",
@@ -399,7 +399,7 @@ const STR = {
     scoreLine: "{c} correct out of {t} · {u} unanswered",
     retestIncBtn: "Retest Incorrects (Tutor Mode)", retestFullBtn: "Retest Full Block", retestTitle: "Configure retest",
     poolLabel: "Question pool", poolIncorrect: "Incorrect only", poolFlagged: "Flagged only", poolAll: "All questions",
-    modeSel: "Test mode", modeTutorOpt: "Tutor Mode", modeTimedOpt: "Timed Mode", poolEmpty: "No questions in this pool.",
+    modeSel: "Test mode", modeTutorOpt: "Tutor Mode", modeTimedOpt: "Timed Mode", teamShort: "Team", modeTeamOpt: "Team Mode", modeTeamHint: "Answers and explanations stay hidden until you agree to reveal them.", poolEmpty: "No questions in this pool.",
     retestSaveNote: "Your first-attempt score and timing are saved and will not be changed by this retest.",
     startRetest: "Start retest", cancel: "Cancel", attemptHistory: "Attempt history", firstAttempt: "First attempt (baseline)",
     retestN: "Retest {n}", timerOffTag: "timer turned off", elapsed: "Time", retestsExcluded: "{n} retest attempt(s) are not counted in these totals; first-attempt scores are kept as the baseline.",
@@ -455,7 +455,7 @@ const STR = {
     "nf.syncLinked.t": "Google Drive conectado", "nf.syncLinked.b": "Tu biblioteca y tus Analíticas ahora se sincronizan entre tus dispositivos.",
     saveToLibrary: "Guardar en la biblioteca", libSaved: "Se guardaron {n} bloque(s) nuevo(s) en tu biblioteca.", libDup: "{d} ya estaba(n) en tu biblioteca.", libNothing: "Ya está en tu biblioteca; no hay nada nuevo que guardar.",
     libTitle: "Biblioteca Oworld", libCount: "{n} guardados", libEmpty: "Aún no hay nada guardado. Pega o sube un banco de preguntas y elige \u201cGuardar en la biblioteca\u201d para conservarlo en este dispositivo. Inicia sesión con Google para sincronizarlo también con tu Drive.",
-    libMeta: "{q} preguntas · importado {d}", libLastScore: "Último puntaje {pct}% ({c}/{t})", libNoScore: "Sin intentos aún", libCompleted: "Completado · Mejor {pct}% ({c}/{t})", tabLibrary: "Biblioteca", tabHistory: "Análisis", tabImport: "Importar", importPageTitle: "Importar Qbank", histTitle: "Analíticas", histPast: "Sesiones anteriores", histEmpty: "Aún no hay sesiones terminadas. Cada bloque que completes queda registrado aquí, incluidas las sesiones personalizadas y mezcladas.", histNote: "Cada sesión terminada se guarda como un registro independiente. Las sesiones personalizadas y mezcladas nunca cambian tus tarjetas de Qbank; una tarjeta se marca como Completada solo cuando haces ese Qbank completo por sí solo. Las 25 sesiones más recientes también conservan su revisión completa pregunta por pregunta; las anteriores conservan un resumen.", histKindBank: "Qbank", histKindCustom: "Personalizada", histKindRetest: "Repetición", histQ: "{n} preguntas", histAnswered: "{a}/{n} respondidas", histSources: "De: {s}", histBySubject: "Por materia", histDelete: "Eliminar este registro", histClear: "Borrar historial", histClearQ: "¿Eliminar las {n} sesiones registradas? Pasan a la papelera durante 30 días. Tus tarjetas de Qbank no se ven afectadas.", histClearGo: "Eliminar todo", histToggle: "Ver detalles", histSelectAll: "Seleccionar todo", histDeselect: "Deseleccionar todo", histDeleteSelQ: "¿Eliminar {n} sesión(es) seleccionada(s)? Pasan a la papelera durante 30 días. Tus tarjetas de Qbank no se ven afectadas.", histReview: "Revisar examen", histNoReview: "Revisión no disponible", histNoReviewFlash: "La revisión completa de esta sesión ya no está guardada.", histMixed: "Mezcla: {n} bloques · {q} preguntas", histNamed: "{name} · {q} preguntas", histDone: "Completado {d}", anOverall: "En total respondiste {n} preguntas:", anCorrect: "correctas", anHints: "correctas con pistas", anIncorrect: "incorrectas", anCenter: "Correctas + con pistas", anQ: "({n} preguntas)", anQ1: "(1 pregunta)", tabConsole: "Consola", csGoodMorning: "Buenos días", csGoodAfternoon: "Buenas tardes", csGoodEvening: "Buenas noches", csStreakLine: "Racha de estudio de {n} días", csReadyLine: "Listo cuando tú lo estés.", csNoSession: "Ninguna sesión en curso", csNoSessionHint: "Inicia un Qbank de tu biblioteca o importa uno nuevo.", csOpenLibrary: "Abrir biblioteca", csImportNew: "Importar un Qbank", csViewAll: "Ver todo", csStatSessions: "Sesiones", csStatWeek: "{n} esta semana", csStatAnswered: "Preguntas respondidas", csStatAccuracy: "Precisión", csStatStreak: "Racha de días", csStatDays: "{n} días", csStatDay1: "1 día", csHighlights: "Resumen de analíticas", csTrend: "Puntajes recientes", csTrendHint: "Últimas {n} sesiones · línea punteada = 70%", csTrendNeed: "Termina 2 sesiones para ver tu tendencia.", csStrong: "Materias más fuertes", csWeak: "Por mejorar", csSubjNeed: "Responde al menos 5 preguntas de una materia para clasificarla.", csRecent: "Sesiones recientes", csYourLibrary: "Tu biblioteca", csLibSub: "{n} Qbanks guardados", csLibEmpty: "Tu biblioteca está vacía. Importa un Qbank para comenzar.", csFirstTitle: "Empecemos tu primera sesión", csFirstBody: "Importa un Qbank (el JSON que escribe tu herramienta de IA), guárdalo en tu biblioteca y ejecútalo como bloque cronometrado o con tutor. Tus estadísticas aparecerán aquí.", csProgress: "{a} de {n} respondidas",
+    libMeta: "{q} preguntas · importado {d}", libLastScore: "Último puntaje {pct}% ({c}/{t})", libNoScore: "Sin intentos aún", libCompleted: "Completado · Mejor {pct}% ({c}/{t})", tabLibrary: "Biblioteca", tabHistory: "Análisis", tabImport: "Importar", importPageTitle: "Importar Qbank", histTitle: "Analíticas", histPast: "Sesiones anteriores", histEmpty: "Aún no hay sesiones terminadas. Cada bloque que completes queda registrado aquí, incluidas las sesiones personalizadas y mezcladas.", histNote: "Cada sesión terminada se guarda como un registro independiente. Las sesiones personalizadas y mezcladas nunca cambian tus tarjetas de Qbank; una tarjeta se marca como Completada solo cuando haces ese Qbank completo por sí solo. Las 25 sesiones más recientes también conservan su revisión completa pregunta por pregunta; las anteriores conservan un resumen.", histKindBank: "Qbank", histKindCustom: "Personalizada", histKindRetest: "Repetición", histQ: "{n} preguntas", histAnswered: "{a}/{n} respondidas", histSources: "De: {s}", histBySubject: "Por materia", histDelete: "Eliminar este registro", histClear: "Borrar historial", histClearQ: "¿Eliminar las {n} sesiones registradas? Pasan a la papelera durante 30 días. Tus tarjetas de Qbank no se ven afectadas.", histClearGo: "Eliminar todo", histToggle: "Ver detalles", histSelectAll: "Seleccionar todo", histDeselect: "Deseleccionar todo", histDeleteSelQ: "¿Eliminar {n} sesión(es) seleccionada(s)? Pasan a la papelera durante 30 días. Tus tarjetas de Qbank no se ven afectadas.", histReview: "Revisar examen", histNoReview: "Revisión no disponible", histNoReviewFlash: "La revisión completa de esta sesión ya no está guardada.", histMixed: "Mezcla: {n} bloques · {q} preguntas", histNamed: "{name} · {q} preguntas", histDone: "Completado {d}", anOverall: "En la primera exposición respondiste {n} preguntas:", anCorrect: "correctas, sin pista", anHints: "correctas con pista", anIncorrect: "incorrectas", anCenter: "Correctas en 1.ª exposición", anQ: "({n} preguntas)", anQ1: "(1 pregunta)", tabConsole: "Consola", csGoodMorning: "Buenos días", csGoodAfternoon: "Buenas tardes", csGoodEvening: "Buenas noches", csStreakLine: "Racha de estudio de {n} días", csReadyLine: "Listo cuando tú lo estés.", csNoSession: "Ninguna sesión en curso", csNoSessionHint: "Inicia un Qbank de tu biblioteca o importa uno nuevo.", csOpenLibrary: "Abrir biblioteca", csImportNew: "Importar un Qbank", csViewAll: "Ver todo", csStatSessions: "Sesiones", csStatWeek: "{n} esta semana", csStatAnswered: "Preguntas respondidas", csStatAccuracy: "Precisión", csStatStreak: "Racha de días", csStatDays: "{n} días", csStatDay1: "1 día", csHighlights: "Resumen de analíticas", csTrend: "Puntajes recientes", csTrendHint: "Últimas {n} sesiones · línea punteada = 70%", csTrendNeed: "Termina 2 sesiones para ver tu tendencia.", csStrong: "Materias más fuertes", csWeak: "Por mejorar", csSubjNeed: "Responde al menos 5 preguntas de una materia para clasificarla.", csRecent: "Sesiones recientes", csYourLibrary: "Tu biblioteca", csLibSub: "{n} Qbanks guardados", csLibEmpty: "Tu biblioteca está vacía. Importa un Qbank para comenzar.", csFirstTitle: "Empecemos tu primera sesión", csFirstBody: "Importa un Qbank (el JSON que escribe tu herramienta de IA), guárdalo en tu biblioteca y ejecútalo como bloque cronometrado o con tutor. Tus estadísticas aparecerán aquí.", csProgress: "{a} de {n} respondidas",
     libStart: "Iniciar", libSearchPh: "Buscar Qbanks, etiquetas, materias…", libSearchLabel: "Buscar Qbanks", libSearchClear: "Borrar búsqueda", libFilterAll: "Todos", libFilterNew: "Sin iniciar", libFilterProgress: "En curso", libFilterDone: "Completados", libFilterWeak: "Menos de 70%", libFilterDue: "Por repasar", libShowing: "Mostrando {n} de {total}", libNoMatch: "Ningún Qbank coincide con tu búsqueda o filtro.", libClearFilters: "Quitar filtros", libSortStudied: "Estudiados recientemente", libSortBest: "Mejor puntaje: de mayor a menor", libSortWeak: "Mejor puntaje: de menor a mayor", libSortSize: "Más preguntas", libStartAs: "Iniciar como", libStartTitle: "{mode}: {name}", libStudied: "Estudiado {n}× · último {d}", libStudiedOnly: "Último estudio {d}", libDue: "{n} por repasar", libSumQ: "{q} preguntas", libSumDone: "{c} completados", libSumAvg: "mejor prom. {pct}%", libSumDue: "{n} por repasar", rateTitle: "¿Qué tan bien lo sabías?", "rate.again": "Otra vez", "rate.hard": "Difícil", "rate.good": "Bien", "rate.easy": "Fácil", srsDays: "{n} d", srsMonths: "{n} m", srsYears: "{n} a", srsNext: "Próximo repaso: {d}", srsNextTitle: "Repasar de nuevo en {n}", srdTitle: "Mazo de repaso del tutor", srdBlockName: "Repaso del tutor", srdBadgeDue: "{n} pendientes", srdCaughtUp: "Al día", srdNone: "Nada programado aún", srdOverdue: "{n} atrasadas", srdToday: "{n} para hoy", srdNextBlock: "próximo bloque: {n}", srdNextDue: "Próximo repaso {d}", srdEmptyHint: "Califica preguntas en modo tutor (Otra vez, Difícil, Bien, Fácil) y volverán aquí cuando toque repasarlas.", srdStart: "Iniciar repaso", srdHint: "Crea un bloque de tutor con todas las preguntas de tus Qbanks cuya fecha de repaso es hoy o anterior, empezando por las más atrasadas.", srsHint: "Repetición espaciada (SM-2): el número bajo cada botón indica cuándo vuelve esta pregunta.",
     poolAgain: "Calificadas Otra vez", poolHard: "Calificadas Difícil", poolAgainHard: "Otra vez + Difícil",
     "rt.again": "Calificadas Otra vez", "rt.hard": "Calificadas Difícil", "rt.againhard": "Calificadas Otra vez/Difícil",
@@ -478,11 +478,11 @@ const STR = {
     "csCalendar": "Calendario del semestre", "csCalPrev": "Mes anterior", "csCalNext": "Mes siguiente", "csCalToday": "Hoy", "csCalNothing": "Nada programado.", "csCalStudied": "Estudiaste: {n} sesión(es) · {q} preguntas", "csCalLegExam": "Examen", "csCalLegTask": "Tarea", "csCalLegEvent": "Calendario", "csCalLegStudy": "Estudio", "csCalNoProfile": "Configura tu Perfil de estudio para ver aquí tus exámenes, tareas y descansos.", "csCalSetup": "Configurar perfil", "csCalMore": "+{n} más",
     "tabCalendar": "Horario", "calTitle": "Horario", "calHint": "Todo tu periodo en un solo calendario: clases, exámenes, tareas, descansos y los días que estudiaste. Toca un día para verlo y editarlo.", "calMonth": "Mes", "calWeek": "Semana", "calAgenda": "Agenda", "calPrev": "Anterior", "calNext": "Siguiente", "calLayerKey": "Fechas clave", "calTermStart": "Inicio del periodo", "calTermEnd": "Fin del periodo", "calTargetExam": "Examen objetivo", "calClassesN": "{n} clases", "calStatTerm": "Periodo", "calStatOpen": "Tareas abiertas", "calStatWeekQ": "Preguntas esta semana", "calAgendaEmpty": "No hay nada programado en este lapso.", "calOpenFull": "Horario completo", "spMapNote": "Se muestran las semanas cercanas a hoy. Expande para ver el mapa completo del programa.",
     tbGapTitle: "Análisis de brechas", tbGapHint: "Tus bloques registrados agrupados por etiqueta de materia y comparados con el blueprint: peso en el examen, tu parte de la práctica, tu precisión y la brecha con la meta (puntos).", tbColExam: "Examen", tbColPractice: "Tú", tbColAcc: "Prec.", tbColGap: "Brecha", tbGapWorst: "Mayor brecha de precisión: {a} ({n} pts bajo la meta).", tbGapUnder: "Menos practicado: {b}.", tbGapNone: "Termina un bloque para ver tus brechas.", tbUnmapped: "Sin asignar al blueprint", tbUnmappedHint: "Estas etiquetas de materia de tus resultados no coinciden con ningún ítem del blueprint. Agrégalas a una lista de coincidencias.", tbBpPrompt: "Blueprint — prompt para IA", tbBpSchema: "Blueprint — plantilla JSON", tbCourses: "Curso prioritario", tbStarOn: "Hacer de {c} tu curso prioritario", tbStarOff: "Quitar curso prioritario", tbStarHint: "El curso con estrella se estudia primero: sus temas encabezan el enfoque de la semana y sus ítems del blueprint suben en el ranking.", "calNew.task": "Nueva tarea", "calNew.event": "Nuevo evento", "calNew.exam": "Nuevo examen", "calEdit.task": "Editar tarea", "calEdit.event": "Editar evento", "calEdit.exam": "Editar examen", "calAdd.task": "Tarea", "calAdd.event": "Evento", "calAdd.exam": "Examen", "calF.title": "Título", "calF.date": "Fecha", "calF.time": "Hora", "calF.endDate": "Termina el", "calF.endTime": "Termina a las", "calF.type": "Tipo", "calF.repeat": "Se repite", "calF.until": "Repetir hasta", "calF.subject": "Materia", "calF.weight": "Peso %", "calF.place": "Lugar", "calF.course": "Curso", "calF.topics": "Temas (separados por comas)", "calF.notes": "Notas", "calF.done": "Ya ocurrió", "calRep.none": "No se repite", "calRep.daily": "Cada día", "calRep.weekly": "Cada semana", "calRep.monthly": "Cada mes", calRepeats: "se repite: {r}", calSave: "Guardar", calCancel: "Cancelar", calDelete: "Eliminar", calEdit: "Editar", calDeleted: "Se eliminó «{s}».", calMoved: "«{s}» se movió al {d}.", calUndo: "Deshacer", calFind: "Buscar en el calendario", calJump: "Ir a la fecha", calExport: "Exportar .ics", tbScale: "Escalar pesos a 100%", tbScaleHint: "Los rangos que se superponen (una pregunta puede contar para varias disciplinas) pueden sumar más de 100%. Esto reescala cada grupo y conserva los números originales como rango oficial. Las comparaciones ya usan las proporciones escaladas.", tbConf: "Confianza en la fuente", "tbConfLvl.high": "Alta", "tbConfLvl.medium": "Media", "tbConfLvl.low": "Baja", "tbCg.official": "Cita fuentes oficiales ({h}).", "tbCg.version": "Edición del esquema registrada: {v}.", "tbCg.fresh": "Consultado hace {n} días.", "tbCg.weights": "Los pesos suman cerca de 100% en cada grupo.", "tbCf.noSource": "No cita ninguna fuente.", "tbCf.unofficial": "Las páginas citadas no son sitios oficiales de USMLE, NBME ni FSMB.", "tbCf.noVersion": "No se registró la edición del esquema.", "tbCf.noDate": "No se registró la fecha de consulta.", "tbCf.old": "Última revisión hace {n} días, más de un semestre.", "tbCf.weights": "Los pesos de {g} suman {n}%, no 100%.", "tbCf.noWeights": "No hay pesos del examen.", "tbCf.template": "Plantilla con pesos de ejemplo, no es el esquema oficial.", tbCadence: "Actualiza tu blueprint al menos una vez por semestre: el esquema puede cambiar y tu tutor planifica con él.", tbDueOn: "Próxima actualización antes del {d}.", tbUpdate: "Actualizar blueprint", tbDue: "Tu blueprint se revisó por última vez hace {n} días. Actualízalo al menos una vez por semestre.", tbDueTerm: "Empezó un nuevo periodo desde la última revisión de tu blueprint. Actualízalo para que tu tutor siga el esquema vigente.", tbSoon: "Tu blueprint tiene {n} días. Planea una actualización este semestre.", "nf.bpDue.t": "Actualiza tu blueprint", "nf.bpDue.b": "Se revisó por última vez hace {n} días. Renuévalo al menos una vez por semestre para que tu tutor siga el esquema USMLE vigente.", "nf.bpDueTerm.t": "Nuevo semestre: actualiza tu blueprint", "nf.bpDueTerm.b": "Tu periodo empezó después de la última revisión de tu blueprint. Vuelve a usar el prompt de IA para confirmar el esquema USMLE vigente.", tbSource: "Fuente: {v} {u}", tbNoSource: "Sin fuente oficial registrada: vuelve a usar el prompt de IA para que busque el esquema USMLE vigente.", tabTutor: "Tutor", tbTitle: "Panel del tutor", tbOpenTutor: "Abrir Centro de estudio", tabStudyHub: "Centro de estudio", shTitle: "Centro de estudio", shSub: "Tu tutor, el blueprint y tu Perfil de estudio en un solo lugar: en qué punto de tu periodo estás, qué estudiar después y qué tan listo estás.", shNavOverview: "Resumen", shNavPriorities: "Prioridades", shNavBlueprint: "Blueprint", shNavProfile: "Perfil de estudio", shJumpTo: "Ir a la sección", shSetupCta: "Configura tu Perfil de estudio", "plAddAs": "Añadir como…", "plSrc.exam": "Examen", "plSrc.event": "Evento", "plSrc.class": "Clase", "plAct.study": "Estudiar", "plAct.task": "Añadir tarea", "plAct.skip": "Omitir clase", "plAct.editClass": "Editar clases", "plPrepTitle": "Preparar: {s}", "plReviewTitle": "Repasar: {s}", "plTaskAdded": "Se añadió la tarea «{s}».", "plSkipped": "Se omitió «{s}» el {d}.", plAgendaHint: "Los exámenes, clases y eventos de los próximos 7 días aparecen aquí con sus propias acciones.", tbBpTitle: "Blueprint", tbBpBody: "Un blueprint es un archivo JSON con los dominios de la prueba, el peso de cada sistema y las competencias objetivo de tu examen. Dale el prompt a una herramienta de IA con acceso a internet: busca el esquema oficial más reciente de USMLE (usmle.org, NBME, FSMB) y te devuelve el JSON para pegar aquí. La plantilla incluida es solo un ejemplo. El tutor ordena qué estudiar según el peso, tu precisión y el programa de esta semana.", tbTemplate: "Usar plantilla USMLE", tbCopyPrompt: "Copiar prompt de IA", tbCopySchema: "Copiar JSON de plantilla", tbCopied: "Copiado", tbPaste: "Pega aquí el JSON del blueprint…", tbLoad: "Cargar blueprint", tbRemove: "Quitar blueprint", tbErrParse: "Eso no parece JSON. Pega solo el blueprint (o sube el archivo).", tbErrShape: "Este JSON no tiene dominios, sistemas ni competencias.", tbReady: "Preparación del blueprint", tbCoverage: "Cobertura", tbCoverageSub: "ítems con 5+ respuestas", tbCountdown: "Días al examen", tbTarget: "meta {n}%", tbPriority: "Objetivos prioritarios", tbPriorityHint: "Ordenados por peso en el examen, la brecha con tu meta y los temas de esta semana. Marca ítems para armar un bloque, o toca un nombre para iniciarlo.", tbBuild: "Armar bloque con {n} seleccionados", tbShareLine: "{n} respondidas · {share}% de tu práctica vs {w}% del examen · meta {target}%", tbMatches: "Qbanks que coinciden", tbNoMatches: "Ningún Qbank de tu biblioteca coincide con estos temas todavía.", tbSystems: "Sistemas", tbDomains: "Dominios de la prueba", tbComps: "Competencias", tbLegend: "Barra = tu precisión, marca negra = meta. Los pesos son una guía de estudio: verifícalos con el esquema oficial vigente.", tbNoBpTitle: "Sin blueprint cargado", tbNoBpBody: "Carga un blueprint para ver prioridades según el peso en el examen.", "nf.blueprintLoaded.t": "Blueprint cargado", "nf.blueprintLoaded.b": "Tu tutor ahora planifica con {exam}.",
-    tutorShort: "Tutor", modeLabel: "Modo del examen", modeLocked: "Se bloquea al iniciar el bloque", modeTimedHint: "Cuenta regresiva. Puedes desactivarla durante el examen, pero no volver a activarla.", timerLabel: "Cronómetro", timerOnHint: "Puedes desactivar el cronómetro, pero no volver a activarlo.", timerOffNote: "El cronómetro está desactivado en este bloque y no se puede volver a activar.", timerOffTitle: "¿Desactivar el cronómetro?", timerOffBody: "La cuenta regresiva se detendrá y este bloque quedará sin límite de tiempo. No se puede deshacer: no podrás volver a activar el cronómetro en este bloque. Tus respuestas y tu progreso se conservan.", keepTimer: "Mantener cronómetro", turnOffTimer: "Desactivar cronómetro", timerOffSuffix: "cronómetro desactivado", modeTutorHint: "Sin cronómetro. Retroalimentación instantánea tras cada respuesta.", tutor: "Modo tutor", tutorHint: "Retroalimentación instantánea de correcto/incorrecto y explicaciones tras cada respuesta, más reinicio de pregunta.",
-    tutorCorrect: "Correcto", tutorIncorrect: "Incorrecto — la respuesta correcta es {a}", tutorIncorrectHidden: "Incorrecto", showCorrectBtn: "Mostrar respuesta",
-    resetQ: "Reiniciar pregunta", "sc.reset": "Reiniciar pregunta (modo tutor)",
+    tutorShort: "Tutor", modeLabel: "Modo del examen", modeLocked: "Se bloquea al iniciar el bloque", modeTimedHint: "Cuenta regresiva. Puedes desactivarla durante el examen, pero no volver a activarla.", timerLabel: "Cronómetro", timerOnHint: "Puedes desactivar el cronómetro, pero no volver a activarlo.", timerOffNote: "El cronómetro está desactivado en este bloque y no se puede volver a activar.", timerOffTitle: "¿Desactivar el cronómetro?", timerOffBody: "La cuenta regresiva se detendrá y este bloque quedará sin límite de tiempo. No se puede deshacer: no podrás volver a activar el cronómetro en este bloque. Tus respuestas y tu progreso se conservan.", keepTimer: "Mantener cronómetro", turnOffTimer: "Desactivar cronómetro", timerOffSuffix: "cronómetro desactivado", modeTutorHint: "Sin cronómetro. Retroalimentación instantánea tras cada respuesta.", tutor: "Modo tutor", tutorHint: "Retroalimentación instantánea de correcto/incorrecto y explicaciones tras cada respuesta, más reintento de pregunta.",
+    tutorCorrect: "Correcto", tutorIncorrect: "Incorrecto — la respuesta correcta es {a}", tutorIncorrectHidden: "Incorrecto", showCorrectBtn: "Mostrar respuesta", revealBtn: "Revelar",
+    resetQ: "Reintentar pregunta", "sc.reset": "Reintentar pregunta (modo tutor)",
     attendingTip: "Consejo del tutor", keyClues: "Pistas clave", keyLearningPoint: "Punto clave de aprendizaje",
-    ankiGet: "Tarjeta Anki", ankiInQueue: "En la cola ✓", ankiQueueBtn: "Cola de Anki", ankiPanelTitle: "Cola de Anki", ankiDeckName: "Nombre del mazo", ankiIncludeTags: "Incluir etiquetas", ankiDownloadTsv: "Descargar .tsv", ankiSupportText: "Construyendo tu mazo para retención a largo plazo. Si Oworld te ayuda a estudiar, considera apoyar el proyecto.", ankiSupportBtn: "Apoyar a Oworld", ankiSelectAll: "Seleccionar todo", ankiDeselectAll: "Deseleccionar todo", ankiRemoveSel: "Quitar seleccionadas ({n})", ankiClear: "Vaciar cola", ankiClearQ: "¿Quitar las {n} tarjetas de la cola?", ankiKeep: "Conservar", ankiEmpty: "No hay tarjetas en la cola. Usa Obtener tarjeta Anki en una pregunta para añadirla.", ankiMoveUp: "Subir", ankiMoveDown: "Bajar", ankiRemove: "Quitar de la cola", ankiPreview: "Vista previa", ankiPreviewTitle: "Vista previa de la tarjeta", ankiClose: "Cerrar", ankiQNum: "P{n}", ankiSelectCard: "Seleccionar tarjeta {n}", keyInfoBtn: "Datos clave", tipBtn: "Consejo del tutor", distractorBtn: "Por qué es incorrecta", noKeyInfo: "No hay datos clave para esta pregunta.", noTipAvail: "No hay consejo para esta pregunta.", hintUsedBadge: "Pista usada", hintsUsedN: "Pistas usadas: {n}",
+    ankiGet: "Tarjeta Anki", ankiInQueue: "En la cola ✓", ankiQueueBtn: "Cola de Anki", ankiPanelTitle: "Cola de Anki", ankiDeckName: "Nombre del mazo", ankiIncludeTags: "Incluir etiquetas", ankiDownloadTsv: "Descargar .tsv", ankiSupportText: "Construyendo tu mazo para retención a largo plazo. Si Oworld te ayuda a estudiar, considera apoyar el proyecto.", ankiSupportBtn: "Apoyar a Oworld", ankiSelectAll: "Seleccionar todo", ankiDeselectAll: "Deseleccionar todo", ankiRemoveSel: "Quitar seleccionadas ({n})", ankiClear: "Vaciar cola", ankiClearQ: "¿Quitar las {n} tarjetas de la cola?", ankiKeep: "Conservar", ankiEmpty: "No hay tarjetas en la cola. Usa Obtener tarjeta Anki en una pregunta para añadirla.", ankiMoveUp: "Subir", ankiMoveDown: "Bajar", ankiRemove: "Quitar de la cola", ankiPreview: "Vista previa", ankiPreviewTitle: "Vista previa de la tarjeta", ankiClose: "Cerrar", ankiQNum: "P{n}", ankiSelectCard: "Seleccionar tarjeta {n}", keyInfoBtn: "Datos clave", tipBtn: "Consejo del tutor", distractorBtn: "Por qué es incorrecta", noKeyInfo: "No hay datos clave para esta pregunta.", noTipAvail: "No hay consejo para esta pregunta.", hintUsedBadge: "Pista usada", hintsUsedN: "Pistas usadas: {n}", feTitle: "Primera exposición", feNote: "Tu primera respuesta a cada pregunta, antes de cualquier reintento.", feCorrectN: "Correctas: {n}", feIncorrectN: "Incorrectas: {n}", feHintCorrectN: "Correctas con pista: {n}", feCorrectBadge: "1.ª: correcta", feIncorrectBadge: "1.ª: incorrecta", feHintCorrectBadge: "1.ª: correcta con pista",
     difficulty: "Dificultad", diffTitle: "Dificultad: {n} de 5",
     timerLocked: "El temporizador no se puede activar una vez iniciado el bloque.",
     title: "Convierte preguntas de cualquier modelo de IA en un examen de práctica realista",
@@ -514,7 +514,7 @@ const STR = {
     removeSelBodyUnsaved: "{n} bloque(s) se quitarán de esta sesión. {u} de ellos no están guardados en tu biblioteca y se perderán definitivamente; guárdalos primero si quieres conservarlos.",
     pasteChars: "{n} caracteres pegados", pasteClear: "Borrar", pasteEmpty: "Aún no has pegado nada — expande para pegar o usa Subir archivo.",
     load: "Cargar examen", importQbank: "Importar nuevo Qbank", importInLibrary: "Ya está en tu biblioteca — inícialo desde ahí.", lobbySaveN: "Guardar en la biblioteca ({n})", lobbyRemoveN: "Quitar ({n})", triageHint: "Márcalo para guardarlo en tu biblioteca o quitarlo.", lobbyTriageNote: "Estos Qbanks acaban de importarse. Marca los que quieras y usa Guardar en la biblioteca para conservarlos o Quitar para descartarlos.", aiLaunchTitle: "Acceso rápido a IA", aiLaunchHint: "Abre tu herramienta de IA, pega el prompt de abajo junto con tu tema o apuntes y trae la respuesta aquí.", aiLaunchOpens: "Se abre en una pestaña nueva", nbTitle: "Materias y sistemas", nbHint: "Tus cuadernos de estudio, por bloque. Cada uno se abre en NotebookLM en una pestaña nueva.", nbAll: "USMLE (cuaderno general)", nbBlock1: "Bloque 1", nbBlock2: "Bloque 2", nbCore: "Ciencias básicas", nbClinical: "Clínica", 
-    wasIncorrectBadge: "Fallada antes de reiniciar", missedBeforeN: "{n} falladas antes de reiniciar", explHide: "Ocultar explicación", explShow: "Mostrar explicación",
+    wasIncorrectBadge: "Fallada antes de reintentar", missedBeforeN: "{n} falladas antes de reintentar", explHide: "Ocultar explicación", explShow: "Mostrar explicación",
     activeTitle: "¿Continuar tu examen desde otro dispositivo?", activeTitleConflict: "Hay otra versión de este examen en otro dispositivo",
     activeBody: "«{name}»: pregunta {n} de {total}, {answered} respondidas. Última actualización {time}.",
     activeReplaceWarn: "Continuar reemplaza el examen abierto en este dispositivo.", activeContinue: "Continuar aquí", activeNotNow: "Ahora no", activeKeepMine: "Conservar el de este dispositivo",
@@ -525,9 +525,10 @@ const STR = {
     syncTitle: "Sincronización en la nube", syncHint: "Mantiene tu biblioteca de Qbank y tus Analíticas al día en todos tus dispositivos mediante una carpeta privada de la app en tu propio Google Drive. Compartir / Exportar a un amigo sigue funcionando por separado.", syncOff: "La sincronización en la nube no está configurada en esta versión de la app.", syncConnect: "Conectar Google Drive", syncNow: "Sincronizar ahora", syncDisconnect: "Desconectar", syncReconnect: "Reconectar", syncStNone: "Sin conexión", syncStBusy: "Sincronizando…", syncStDone: "Sincronizado {time}", syncStReauth: "Hay que reconectar", syncStError: "Problema de sincronización", syncBlocked: "No se pudo cargar el inicio de sesión de Google aquí (bloqueado o sin conexión).", syncDenied: "No se concedió acceso a Drive. Permite el permiso de datos de la app para sincronizar.", syncGenericErr: "No se pudo sincronizar con Google Drive. Tus datos en este dispositivo están a salvo.", syncReauthHint: "Tu sesión de Google caducó. Toca Reconectar; los cambios locales se conservan y se sincronizarán.", syncGuide: "La sincronización con Google Drive (menú de perfil, arriba a la derecha) mantiene tu biblioteca y tus Analíticas al día entre dispositivos. Compartir / Exportar sigue siendo la forma de enviar un bloque a otra persona.", homeBtn: "Inicio", removeExam: "Quitar examen", removeTitle: "¿Quitar este examen?", removeBody: "Esto borra el examen cargado y su progreso o resultados. Tu Biblioteca Oworld guardada no se ve afectada.", removeBodyUnsaved: "Esto borra el examen cargado y su progreso o resultados. Algunos de sus bloques no están guardados en tu biblioteca y se perderían para siempre. Cancela y toca Guardar en la biblioteca primero si quieres conservarlos.", removeGo: "Quitar", libRename: "Renombrar Qbank", libRenameSave: "Guardar nombre", howItWorks: "Ayuda", guideStep: "Paso {n} de {total}", guideBack: "Atrás", guideNext: "Siguiente", guideDone: "Entendido", guideClose: "Cerrar guía", navCollapse: "Contraer lista de preguntas", navExpand: "Expandir lista de preguntas", resumeSession: "Reanudar sesión", sessionInProgress: "Sesión en curso", sessionPos: "Pregunta {n} de {total}", examLoadedLabel: "Examen cargado", openLobby: "Abrir sala del examen", inProgressTag: "En curso", discardTitle: "¿Descartar la sesión en curso?", discardBody: "Iniciar algo nuevo reemplaza tu bloque en curso y se perderán sus respuestas.", discardGo: "Descartar y continuar", hide: "Ocultar", recipe: "Receta de preguntas y generador de prompts",
     recipeIntro: "Configura un bloque abajo y luego copia la receta generada en la herramienta de IA que prefieras (agrega tu material de estudio si lo permite). Devuelve las preguntas en el formato exacto que esta app espera.",
     blockSize: "Tamaño del bloque", focus: "Enfoque",
-    recipeStyle: "Estilo de pregunta", "recipeStyle.vignette": "Viñetas", "recipeStyle.basic": "Básicas", recipeStyleHintVignette: "Viñetas clínicas completas estilo USMLE: un caso con historia, examen y datos.", recipeStyleHintBasic: "Preguntas cortas y directas de recuerdo sobre un solo dato. Sin caso clínico.",
-    recipeBasicFormat: "Formato de recuerdo", "recipeBasicFormat.mixed": "Mixto", "recipeBasicFormat.mechanism": "Mecanismo", "recipeBasicFormat.drugchoice": "Fármaco de elección", "recipeBasicFormat.adverse": "Efectos adversos", "recipeBasicFormat.deficiency": "Deficiencia a enfermedad", "recipeBasicFormat.findings": "Hallazgos clásicos", "recipeBasicFormat.association": "Asociaciones", "recipeBasicFormat.anatomy": "Anatomía y fisiología", "recipeBasicFormat.microbe": "Rasgos de micro",
-    "recipeBasicFormatHint.mixed": "Una mezcla de todos los tipos de recuerdo.", "recipeBasicFormatHint.mechanism": "Mecanismo de acción, clase o diana del fármaco.", "recipeBasicFormatHint.drugchoice": "Fármaco o intervención de primera línea para una enfermedad o microorganismo.", "recipeBasicFormatHint.adverse": "Efectos adversos, contraindicaciones e interacciones característicos.", "recipeBasicFormatHint.deficiency": "Enzima, gen o vitamina defectuosos y su enfermedad.", "recipeBasicFormatHint.findings": "Una enfermedad con su histología, laboratorio o signo clásico.", "recipeBasicFormatHint.association": "Enfermedad ligada a su microorganismo, gen, factor de riesgo o complicación.", "recipeBasicFormatHint.anatomy": "Estructura y función normales: irrigación, inervación, acciones, valores.", "recipeBasicFormatHint.microbe": "Rasgos identificadores, toxinas y transmisión de microorganismos.",
+    recipeStyle: "Estilo de pregunta", "recipeStyle.vignette": "Viñetas", "recipeStyle.basic": "Básicas", "recipeStyle.mixed": "Mixto", recipeStyleHintMixed: "70% viñetas clínicas y 30% recuerdo básico, intercaladas y etiquetadas por formato. Analíticas puntúa por separado el saber y el aplicar y muestra la brecha.", recipeStyleMixedCounts: "{v} Vignette + {b} Basic en este bloque.",
+    anFmtTitle: "Saber vs. aplicar", anFmtHint: "Las preguntas Basic miden lo que sabes; las viñetas miden si puedes aplicarlo. La brecha es la precisión Basic menos la de Vignette.", anFmtKnow: "Saber (Basic)", anFmtApply: "Aplicar (Vignette)", anFmtGap: "Brecha", anFmtPts: "pts", anFmtBySubject: "Brecha por materia", anFmtNeed: "Haz un bloque Mixto 70/30 para comparar tu recuerdo con lo bien que lo aplicas.", anFmtMin: "Se necesitan al menos {n} preguntas de cada formato para una lectura fiable ({b} Basic, {v} Vignette por ahora).", anFmtBig: "Sabes los datos pero pierdes puntos al aplicarlos. Practica viñetas en las materias con mayor brecha.", anFmtSmall: "Saber y aplicar van parejos. Sigue mezclando ambos formatos.", anFmtNeg: "Aplicas mejor de lo que recuerdas. Refuerza los datos puros con preguntas Basic.", anFmtNone: "Aún no hay suficiente en ambos formatos.", recipeStyleHintVignette: "Viñetas clínicas completas estilo USMLE: un caso con historia, examen y datos.", recipeStyleHintBasic: "Preguntas cortas y directas de recuerdo sobre un solo dato. Sin caso clínico.",
+    recipeBasicFormat: "Formato de recuerdo", "recipeBasicFormat.mixed": "Mixto", "recipeBasicFormat.fact": "Dato", "recipeBasicFormat.mechanism": "Mecanismo", "recipeBasicFormat.causal": "Causa y efecto", "recipeBasicFormat.identify": "Identificar", "recipeBasicFormat.pathway": "Vía", "recipeBasicFormat.value": "Valor", "recipeBasicFormat.principle": "Principio",
+    "recipeBasicFormatHint.mixed": "Una mezcla de todos los formatos de recuerdo.", "recipeBasicFormatHint.fact": "Un dato puntual: definición, clasificación, nombre o asociación.", "recipeBasicFormatHint.mechanism": "Cómo funciona algo: mecanismo de acción o el proceso detrás de un efecto.", "recipeBasicFormatHint.causal": "Qué causa algo o qué se deriva de ello: causas, factores de riesgo, consecuencias.", "recipeBasicFormatHint.identify": "Se dan las características; nombra el microorganismo, fármaco, estructura o condición.", "recipeBasicFormatHint.pathway": "Un proceso ordenado: pasos de una vía, secuencia de eventos, paso limitante.", "recipeBasicFormatHint.value": "Un número o una dirección: rangos normales, puntos de corte, aumento o disminución.", "recipeBasicFormatHint.principle": "Una regla o concepto general: fisiológico, farmacológico, estadístico o ético.",
     diffMode: "Dificultad", "diffMode.mixed": "Mixta (recomendada)", "diffMode.easy": "Fácil", "diffMode.medium": "Media", "diffMode.hard": "Difícil (estándar USMLE)",
     diffHintMixed: "{e} fáciles · {m} medias · {h} difíciles (aprox. 20% / 60% / 20%), intercaladas para reflejar la variación de un examen real. Cada pregunta se etiqueta según su nivel de dificultad para el seguimiento.",
     diffHintEasy: "Recuerdo y tríadas básicas: viñetas de 1–3 oraciones, reconocimiento en 1–2 pasos, 3–4 opciones con distractores distintos.",
@@ -537,13 +538,12 @@ const STR = {
     exportTitle: "Envía este bloque a otro estudiante como archivo .json (AirDrop / menú de compartir cuando esté disponible; si no, se descarga)", exportShareText: "Bloque de preguntas de Oworld: {name}",
     mixDiffAll: "Todas", mixBalanced: "Equilibrada", mixBalancedShort: "Equilibrada", mixBalancedHint: "20% fáciles / 60% medias / 20% difíciles, p. ej. {e} · {m} · {h} con este tamaño.", mixUnrated: "Se omiten {n} pregunta(s) sin etiqueta de dificultad.",
     customSize: "Personalizado", customSizePh: "1–{n}", "dl.easy": "Fácil", "dl.medium": "Media", "dl.hard": "Difícil", perfDifficulty: "Desempeño por dificultad",
-    "focus.standard": "Mezcla USMLE estándar", "focus.systems": "Un solo sistema", "focus.discipline": "Una sola disciplina",
-    recipeTutor: "El tutor sugiere", recipeTutorHint: "Toca los temas para basar esta receta en ellos. Toca de nuevo para quitar uno.", phSystems: "p. ej. Cardiovascular, Renal, Neuro…", phDisc: "p. ej. Farmacología, Bioquímica, Microbiología…",
+    "focus.standard": "Equilibrado", "focus.systems": "Sistema específico", "focus.discipline": "Disciplina específica", focusSystemLbl: "Sistema", focusDiscLbl: "Disciplina", focusTopicsLbl: "Tema(s)", phTopicsSys: "p. ej. insuficiencia cardíaca, IAM, arritmias, valvulopatías", phTopicsDisc: "p. ej. antihipertensivos, antiarrítmicos, anticoagulantes",
+    recipeTutor: "El tutor sugiere", recipeTutorHint: "Toca los temas para basar esta receta en ellos. Toca de nuevo para quitar uno.", phSystems: "p. ej. Cardiovascular", phDisc: "p. ej. Farmacología",
     uniTitle: "Centro de recetas e importación", uniHint: "Un solo importador para todo: elige una receta, copia el prompt en tu herramienta de IA y pega lo que devuelva.", 
     
     libTypeAll: "Importar", libTypeQbank: "Qbank", moreActions: "Más acciones", omitQuestion: "Omitir pregunta", omitTitle: "¿Quitar esta pregunta de tu Qbank?", omitConfirmSaved: "Esto elimina la pregunta de \"{title}\" de forma permanente. No aparecerá al practicar y no se incluirá si compartes o exportas ese Qbank. No se puede deshacer.", omitConfirmLocal: "Esta pregunta no está guardada en tu biblioteca. Se quita de este bloque y de todo lo que compartas desde él. No se puede deshacer.", omitGo: "Omitir definitivamente", omitLastHint: "Cada bloque y cada Qbank necesita al menos una pregunta, así que no se puede omitir esta.", giveFeedback: "Enviar comentarios", reportIssue: "Informar de un problema", defineBtn: "Definir", defLoading: "Buscando…", defDisambig: "Este término tiene varios significados en Wikipedia.", defNoArticle: "Ningún artículo de Wikipedia coincide con este término.", defUnavailable: "No se pudo cargar una definición ahora mismo.", defReadFull: "Leer el artículo completo", defSeeAll: "Ver todos los significados", defOpenWiki: "Abrir en Wikipedia", defSkipped: "Selecciona un término médico más específico para buscarlo.", defCaveat: "Las definiciones son solo información de contexto; para el manejo, guíate por tu texto de referencia.",
-    recipeTitle: "Copia y pega este prompt para generar un Qbank", copied: "Copiado", copy: "Copiar", schema: "Esquema JSON", viewSchema: "Ver esquema JSON para desarrolladores", hideSchema: "Ocultar esquema JSON para desarrolladores",
-    createdBy: "OWORLD fue creado por", role: "Estudiante de medicina | Fundador de Verde+", supportOworld: "Apoyar a Oworld",
+    recipeTitle: "Copia y pega este prompt para generar un Qbank", copied: "Copiado", copy: "Copiar", schema: "Esquema JSON",     createdBy: "OWORLD fue creado por", role: "Estudiante de medicina | Fundador de Verde+", supportOworld: "Apoyar a Oworld",
     joinDiscord: "Únete a nuestro Discord", libGetCommunity: "Obtener Qbanks de la comunidad", guideDiscordTitle: "Únete a la comunidad", guideDiscordBody: "Oworld está hecho por estudiantes, para estudiantes. Únete a nuestro servidor de Discord para compartir Qbanks, votar por nuevas funciones, obtener ayuda y hablar con otros estudiantes.",
     supportCardText: "Oworld es gratis y seguirá siéndolo. Si te ayuda, considera apoyar el proyecto.", supportCardBtn: "Apoyar",
     supportResultsTitle: "Acabas de terminar un bloque gratis.", supportResultsBody: "Oworld nunca bloqueará sus preguntas tras un muro de pago. Si te resultó valioso, considera apoyar el proyecto.", supportResultsBtn: "Apoyar a Oworld",
@@ -586,7 +586,7 @@ const STR = {
     scoreLine: "{c} correctas de {t} · {u} sin responder",
     retestIncBtn: "Repetir falladas (modo tutor)", retestFullBtn: "Repetir bloque completo", retestTitle: "Configurar repaso",
     poolLabel: "Grupo de preguntas", poolIncorrect: "Solo falladas", poolFlagged: "Solo marcadas", poolAll: "Todas las preguntas",
-    modeSel: "Modo del examen", modeTutorOpt: "Modo tutor", modeTimedOpt: "Modo cronometrado", poolEmpty: "No hay preguntas en este grupo.",
+    modeSel: "Modo del examen", modeTutorOpt: "Modo tutor", modeTimedOpt: "Modo cronometrado", teamShort: "Equipo", modeTeamOpt: "Modo equipo", modeTeamHint: "Las respuestas y explicaciones permanecen ocultas hasta que acuerden revelarlas.", poolEmpty: "No hay preguntas en este grupo.",
     retestSaveNote: "Tu puntaje y tiempo del primer intento se guardan y este repaso no los modificará.",
     startRetest: "Iniciar repaso", cancel: "Cancelar", attemptHistory: "Historial de intentos", firstAttempt: "Primer intento (línea base)",
     retestN: "Repaso {n}", timerOffTag: "cronómetro desactivado", elapsed: "Tiempo", retestsExcluded: "{n} intento(s) de repaso no se cuentan en estos totales; los puntajes del primer intento se conservan como línea base.",
@@ -631,7 +631,7 @@ const STR = {
 const LangContext = createContext({ lang: "en", setLang: () => {} });
 
 // Tutor mode (AMBOSS-style): instant correct/incorrect feedback after each answer,
-// plus per-question reset. Global setting, off by default, toggled from any Settings menu.
+// plus per-question retry. Global setting, off by default, toggled from any Settings menu.
 
 function useI18n() {
   const { lang, setLang } = useContext(LangContext);
@@ -1159,35 +1159,76 @@ function difficultyBreakdown(entries) {
 // stays in the "JSON schema" reference panel for humans to read — this is a
 // field-name/type skeleton only, no prose example values, to keep the copied
 // prompt as short as possible while still fully specifying the shape.
-const PROMPT_SCHEMA_TEXT = `{"examTitle":"string","blocks":[{"blockName":"string","timeLimitMinutes":number,"questions":[{"id":"unique string","subject":"organ system/discipline","difficultyRating":number,"difficultyLabel":"Easy|Medium|Hard","vignette":"string","keyInfoPhrases":["string"],"stem":"string","options":[{"key":"A","text":"string"}],"correctAnswer":"matching key","attendingTip":"string","explanation":"string","keyLearningPoint":"string","distractorAnalysis":{"key":"string"},"hint":"string","educationalObjective":"string","sourceReferences":[{"sourceTitle":"string","chapterSection":"string","pageNumber":"string (optional)","relevance":"string"}],"variants":[{"vignette":"string","keyInfoPhrases":["string"],"stem":"string","options":[{"key":"A","text":"string"}],"correctAnswer":"matching key","attendingTip":"string","explanation":"string","keyLearningPoint":"string","distractorAnalysis":{"key":"string"},"hint":"string"}]}]}]}`;
+const PROMPT_SCHEMA_TEXT = `{"examTitle":"string","blocks":[{"blockName":"string","timeLimitMinutes":number,"questions":[{"id":"unique string","subject":"organ system/discipline","difficultyRating":number,"difficultyLabel":"Easy|Medium|Hard","questionFormat":"Vignette|Basic","recallType":"fact|mechanism|causal|identify|pathway|value|principle (Basic only, omit for Vignette)","vignette":"string","keyInfoPhrases":["string"],"stem":"string","options":[{"key":"A","text":"string"}],"correctAnswer":"matching key","attendingTip":"string","explanation":"string","keyLearningPoint":"string","distractorAnalysis":{"key":"string"},"hint":"string","educationalObjective":"string","sourceReferences":[{"sourceTitle":"string","chapterSection":"string","pageNumber":"string (optional)","relevance":"string"}],"variants":[{"vignette":"string","keyInfoPhrases":["string"],"stem":"string","options":[{"key":"A","text":"string"}],"correctAnswer":"matching key","attendingTip":"string","explanation":"string","keyLearningPoint":"string","distractorAnalysis":{"key":"string"},"hint":"string"}]}]}]}`;
 
 // "Basic" recall formats: optional narrowing of the Basic style to ONE kind of recall question. "mixed" (default) adds nothing, so the original Basic prompt is unchanged.
-const BASIC_FORMATS = ["mixed", "mechanism", "drugchoice", "adverse", "deficiency", "findings", "association", "anatomy", "microbe"];
+// Formal question-format tags. Every question carries questionFormat ("Vignette" = applying, "Basic" = knowing) and Basic questions also carry
+// recallType. The tags let Analytics score recall and clinical application separately and show the gap between them. Banks made before the
+// tag existed are read by questionFormat() below, which infers the format from the text.
+const QUESTION_FORMATS = ["Vignette", "Basic"];
+const RECALL_TYPES = ["fact", "mechanism", "causal", "identify", "pathway", "value", "principle"]; // the seven cognitive-task recall formats a Basic question can test
+const FMT_MIN = 5; // questions needed in EACH format before Analytics reports the knowing-vs-applying gap
+const MIX_VIGNETTE_PCT = 70; // Mixed question style: 70% Vignette / 30% Basic
+function mixedFormatCounts(size) {
+  const basic = size >= 2 ? Math.max(1, Math.round(size * (100 - MIX_VIGNETTE_PCT) / 100)) : 0;
+  return { vignette: size - basic, basic };
+}
+function formatTag(v) {
+  if (typeof v !== "string") return null;
+  const x = v.trim().toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+  if (/^(vignette|vineta|clinical|case|applied|application|apply)/.test(x)) return "Vignette";
+  if (/^(basic|basica|recall|fact|knowing|knowledge)/.test(x)) return "Basic";
+  return null;
+}
+function recallTag(v) {
+  if (typeof v !== "string") return null;
+  const x = v.trim().toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z]/g, "");
+  if (!x) return null;
+  if (x.startsWith("fact") || x.startsWith("dato")) return "fact";
+  if (x.startsWith("mech") || x.startsWith("mecan")) return "mechanism";
+  if (x.startsWith("caus")) return "causal";
+  if (x.startsWith("identif")) return "identify";
+  if (x.startsWith("path") || x.startsWith("sequen") || x.startsWith("via")) return "pathway";
+  if (x.startsWith("value") || x.startsWith("valor") || x.startsWith("number") || x.startsWith("quant")) return "value";
+  if (x.startsWith("princip") || x.startsWith("concept") || x.startsWith("rule")) return "principle";
+  // tags written under the earlier eight-format list
+  if (x.startsWith("drug") || x.startsWith("associat") || x.startsWith("anat") || x.startsWith("physio")) return "fact";
+  if (x.startsWith("adverse") || x.startsWith("sideeffect") || x.startsWith("toxic") || x.startsWith("deficien")) return "causal";
+  if (x.startsWith("finding") || x.startsWith("microb")) return "identify";
+  return null;
+}
+// -> "Vignette" | "Basic". The tag wins; without one, a short text with no patient in it reads as Basic.
+function questionFormat(q) {
+  const tag = formatTag(q && q.questionFormat);
+  if (tag) return tag;
+  const v = String((q && q.vignette) || "");
+  const patient = /\b\d{1,3}[- ]?(?:year|month|week|day)s?[- ]old\b|\b\d{1,3}\s*(?:años|meses|semanas|días)\b|\b(?:man|woman|boy|girl|patient|infant|newborn|hombre|mujer|niño|niña|paciente|lactante|recién nacido)\b/i.test(v);
+  return !patient && v.length < 260 ? "Basic" : "Vignette";
+}
+const BASIC_FORMATS = ["mixed", "fact", "mechanism", "causal", "identify", "pathway", "value", "principle"];
 const BASIC_FORMAT_NOTE = {
   en: {
-    mechanism: `MECHANISM. Every question asks what a drug, toxin or molecule does at the molecular or cellular level: mechanism of action, drug class, receptor or enzyme target, or the physiologic effect that follows. Name the agent in "vignette" and ask for its mechanism, class or target in "stem" (or describe the mechanism and ask which agent it is). All options in a question are the same kind of answer (all mechanisms, all targets or all agents).`,
-    drugchoice: `DRUG OF CHOICE. Every question asks for the first-line or preferred drug, procedure or intervention for a named disease, organism or situation (or, reversed, the one indication a named drug is chosen for). Include the classic exceptions (pregnancy, allergy, resistant organism) at higher difficulty. All options are the same kind of answer (all drugs or all interventions).`,
-    adverse: `ADVERSE EFFECTS. Every question asks for the characteristic adverse effect, toxicity, contraindication, black-box warning or key drug interaction of a named agent (or which agent causes a named effect). Include the monitoring test or antidote when it is high-yield. All options are the same kind of answer (all adverse effects or all agents).`,
-    deficiency: `DEFICIENCY TO DISEASE. Every question links a defective enzyme, gene, protein, receptor, vitamin or mineral to its disease, its inheritance pattern, its accumulated or missing product, or its hallmark feature (or the reverse direction). Name the defect in "vignette" and ask for the one linked fact in "stem". All options are the same kind of answer.`,
-    findings: `CLASSIC FINDINGS. Every question pairs a named condition with its pathognomonic or classic finding: histology, gross pathology, lab value or pattern, imaging sign, physical sign, or the eponymous or buzzword feature (or the reverse: the finding is named and the condition is asked). No patient case. All options are the same kind of answer (all findings or all conditions).`,
-    association: `ASSOCIATIONS. Every question asks for one high-yield association: a disease with its causative organism, gene, risk factor, associated cancer or complication, a syndrome with its component features, or a lesion with the structure it affects. Ask for exactly one link in "stem". All options are the same kind of answer.`,
-    anatomy: `ANATOMY AND PHYSIOLOGY. Every question tests a normal-structure or normal-function fact: nerve or vessel supply, innervation or action of a muscle, embryologic origin, a landmark or relation, a normal value or physiologic response, or what a hormone or reflex does. No disease or patient case. All options are the same kind of answer (all structures or all values).`,
-    microbe: `MICROBIOLOGY FEATURES. Every question asks for one identifying feature of an organism: Gram stain and morphology, virulence factor or toxin and what it does, mode of transmission or vector, reservoir, culture or lab characteristic, or the disease it classically causes. Name the organism in "vignette" (or give the feature and ask for the organism). All options are the same kind of answer.`,
+    fact: `FACT. Every question asks for one discrete fact: a definition, classification, name, characteristic, association or standard recommendation (term to attribute, or the reverse). Ask for exactly one fact in "stem". All options in a question are the same kind of answer.`,
+    mechanism: `MECHANISM. Every question asks how something works: the mechanism of action of a drug, toxin or molecule, the way a structure or process operates, or the molecular or cellular event behind an effect. Name the agent or process in "vignette" and ask for its mechanism in "stem" (or describe the mechanism and ask which agent or process it is). All options are the same kind of answer (all mechanisms or all agents).`,
+    causal: `CAUSE AND EFFECT. Every question asks what causes or follows from something: the cause or risk factor of a condition, the consequence or complication of a defect or exposure, or what changes downstream when one factor changes. Name the cause (or the effect) in "vignette" and ask for the link in "stem". All options are the same kind of answer (all causes or all effects).`,
+    identify: `IDENTIFY. Every question describes one or more distinguishing features and asks for the thing they identify: an organism, drug, structure, cell, molecule, condition or finding. Put the identifying features in "vignette" with no patient case, and ask which of the options is described in "stem". All options are the same kind of answer (candidates from the same category).`,
+    pathway: `PATHWAY AND SEQUENCE. Every question tests an ordered process: a biochemical or signaling pathway, a sequence of events, a route of flow or conduction, an embryologic or developmental order, or a rate-limiting step. Ask for the next step, the missing step, the order, or the enzyme or structure at a named step. All options are the same kind of answer (all steps or all components of the same pathway).`,
+    value: `VALUE. Every question asks for a number or a direction: a normal range, a threshold or cutoff, a typical magnitude, or the direction of change (increase, decrease or no change) in a named variable when another one changes. Give quantities as numbers with units in the options where possible. All options are the same kind of answer (all numbers with the same unit, or all directions of change).`,
+    principle: `PRINCIPLE. Every question tests a general rule or concept rather than one named fact: a physiologic law, a pharmacokinetic or statistical principle, an ethical or professionalism rule, a study-design concept, or a general reasoning rule. State the situation abstractly in "vignette" (no patient case) and ask which principle applies, or what follows from it, in "stem". All options are the same kind of answer.`,
   },
   es: {
-    mechanism: `MECANISMO. Cada pregunta pide lo que hace un fármaco, toxina o molécula a nivel molecular o celular: mecanismo de acción, clase de fármaco, receptor o enzima diana, o el efecto fisiológico resultante. Nombra el agente en "vignette" y pide su mecanismo, clase o diana en "stem" (o describe el mecanismo y pide cuál es el agente). Todas las opciones de una pregunta son del mismo tipo de respuesta (todas mecanismos, todas dianas o todos agentes).`,
-    drugchoice: `FÁRMACO DE ELECCIÓN. Cada pregunta pide el fármaco, procedimiento o intervención de primera línea o preferido para una enfermedad, microorganismo o situación concretos (o, a la inversa, la única indicación para la que se elige un fármaco dado). Incluye las excepciones clásicas (embarazo, alergia, microorganismo resistente) en dificultad alta. Todas las opciones son del mismo tipo (todos fármacos o todas intervenciones).`,
-    adverse: `EFECTOS ADVERSOS. Cada pregunta pide el efecto adverso, la toxicidad, la contraindicación, la advertencia de recuadro negro o la interacción clave característicos de un agente (o qué agente causa un efecto dado). Incluye la prueba de monitorización o el antídoto cuando sea de alto rendimiento. Todas las opciones son del mismo tipo (todos efectos adversos o todos agentes).`,
-    deficiency: `DEFICIENCIA A ENFERMEDAD. Cada pregunta une una enzima, gen, proteína, receptor, vitamina o mineral defectuoso con su enfermedad, su patrón de herencia, el producto que se acumula o falta, o su rasgo distintivo (o en sentido inverso). Nombra el defecto en "vignette" y pide el único dato relacionado en "stem". Todas las opciones son del mismo tipo de respuesta.`,
-    findings: `HALLAZGOS CLÁSICOS. Cada pregunta une una enfermedad con su hallazgo patognomónico o clásico: histología, anatomía patológica, valor o patrón de laboratorio, signo de imagen, signo físico, o el rasgo epónimo o "buzzword" (o a la inversa: se nombra el hallazgo y se pide la enfermedad). Sin caso de paciente. Todas las opciones son del mismo tipo (todos hallazgos o todas enfermedades).`,
-    association: `ASOCIACIONES. Cada pregunta pide una asociación de alto rendimiento: una enfermedad con su microorganismo causal, gen, factor de riesgo, cáncer asociado o complicación, un síndrome con sus rasgos componentes, o una lesión con la estructura que afecta. Pide exactamente un vínculo en "stem". Todas las opciones son del mismo tipo de respuesta.`,
-    anatomy: `ANATOMÍA Y FISIOLOGÍA. Cada pregunta evalúa un dato de estructura o función normal: irrigación o inervación, acción de un músculo, origen embriológico, un punto de referencia o relación, un valor normal o respuesta fisiológica, o lo que hace una hormona o un reflejo. Sin enfermedad ni caso de paciente. Todas las opciones son del mismo tipo (todas estructuras o todos valores).`,
-    microbe: `RASGOS DE MICROBIOLOGÍA. Cada pregunta pide un rasgo identificador de un microorganismo: tinción de Gram y morfología, factor de virulencia o toxina y lo que hace, mecanismo de transmisión o vector, reservorio, característica de cultivo o laboratorio, o la enfermedad que causa clásicamente. Nombra el microorganismo en "vignette" (o da el rasgo y pide el microorganismo). Todas las opciones son del mismo tipo de respuesta.`,
+    fact: `DATO. Cada pregunta pide un dato puntual: una definición, clasificación, nombre, característica, asociación o recomendación estándar (del término al atributo, o a la inversa). Pide exactamente un dato en "stem". Todas las opciones de una pregunta son del mismo tipo de respuesta.`,
+    mechanism: `MECANISMO. Cada pregunta pide cómo funciona algo: el mecanismo de acción de un fármaco, toxina o molécula, la manera en que opera una estructura o un proceso, o el evento molecular o celular detrás de un efecto. Nombra el agente o proceso en "vignette" y pide su mecanismo en "stem" (o describe el mecanismo y pide cuál es el agente o proceso). Todas las opciones son del mismo tipo de respuesta (todos mecanismos o todos agentes).`,
+    causal: `CAUSA Y EFECTO. Cada pregunta pide qué causa algo o qué se deriva de ello: la causa o el factor de riesgo de una condición, la consecuencia o complicación de un defecto o una exposición, o qué cambia a continuación cuando cambia un factor. Nombra la causa (o el efecto) en "vignette" y pide el vínculo en "stem". Todas las opciones son del mismo tipo de respuesta (todas causas o todos efectos).`,
+    identify: `IDENTIFICAR. Cada pregunta describe una o más características distintivas y pide lo que identifican: un microorganismo, fármaco, estructura, célula, molécula, condición o hallazgo. Pon las características en "vignette" sin caso de paciente y pregunta en "stem" cuál de las opciones se describe. Todas las opciones son del mismo tipo de respuesta (candidatos de la misma categoría).`,
+    pathway: `VÍA Y SECUENCIA. Cada pregunta evalúa un proceso ordenado: una vía bioquímica o de señalización, una secuencia de eventos, una ruta de flujo o conducción, un orden embriológico o del desarrollo, o un paso limitante. Pide el siguiente paso, el paso faltante, el orden, o la enzima o estructura en un paso indicado. Todas las opciones son del mismo tipo de respuesta (todos pasos o todos componentes de la misma vía).`,
+    value: `VALOR. Cada pregunta pide un número o una dirección: un rango normal, un umbral o punto de corte, una magnitud típica, o el sentido del cambio (aumenta, disminuye o no cambia) en una variable cuando otra cambia. Da las cantidades como números con unidades en las opciones cuando sea posible. Todas las opciones son del mismo tipo de respuesta (todos números con la misma unidad, o todos sentidos de cambio).`,
+    principle: `PRINCIPIO. Cada pregunta evalúa una regla o concepto general y no un dato concreto: una ley fisiológica, un principio farmacocinético o estadístico, una norma ética o de profesionalismo, un concepto de diseño de estudios, o una regla general de razonamiento. Plantea la situación de forma abstracta en "vignette" (sin caso de paciente) y pregunta en "stem" qué principio aplica o qué se deriva de él. Todas las opciones son del mismo tipo de respuesta.`,
   },
 };
 const BASIC_MIXED_NOTE = {
-  en: "Recall types: MIXED. Spread the block across these types and never ask the same type more than twice in a row: mechanism of action or drug class; drug of choice; adverse effects; deficiency to disease; classic findings; associations; anatomy and physiology; microbiology features. All options within one question must be the same kind of answer.",
-  es: "Tipos de recuerdo: MIXTO. Reparte el bloque entre estos tipos y nunca pidas el mismo tipo más de dos veces seguidas: mecanismo de acción o clase de fármaco; fármaco de elección; efectos adversos; deficiencia a enfermedad; hallazgos clásicos; asociaciones; anatomía y fisiología; rasgos de microbiología. Todas las opciones de una misma pregunta deben ser del mismo tipo de respuesta.",
+  en: "Recall types: MIXED. Spread the block across these types and never ask the same type more than twice in a row: fact; mechanism; cause and effect; identify; pathway and sequence; value; principle. All options within one question must be the same kind of answer.",
+  es: "Tipos de recuerdo: MIXTO. Reparte el bloque entre estos tipos y nunca pidas el mismo tipo más de dos veces seguidas: dato; mecanismo; causa y efecto; identificar; vía y secuencia; valor; principio. Todas las opciones de una misma pregunta deben ser del mismo tipo de respuesta.",
 };
 function basicFormatNote(lang, format) {
   const l = lang === "es" ? "es" : "en";
@@ -1252,6 +1293,7 @@ Bloque: "${blockName}", timeLimitMinutes ${timeLimit}.
 ${diff.text}
 Estilo de pregunta: BÁSICO. Cada pregunta evalúa UN solo dato o concepto de forma directa. NO escribas un caso de paciente, historia, examen, signos vitales ni laboratorios. Pon la pregunta completa en "vignette" como oración(es) sencilla(s) (extensión según el nivel de dificultad) y usa "stem" para la línea corta de la pregunta (p. ej. "¿Cuál de los siguientes es el mecanismo de acción?"); nunca repitas la misma oración en ambos.
 ${fmt}
+questionFormat: "Basic" en todas las preguntas. recallType: el tipo de recuerdo evaluado, exactamente uno de fact, mechanism, causal, identify, pathway, value, principle.
 keyInfoPhrases: extrae ${diff.phrases} subcadena(s) EXACTA(S) de "vignette" que nombren el/los término(s) clave, para el resaltado inteligente.
 attendingTip: ancla de memoria en 1-2 oraciones, como la de un médico adjunto docente (regla mnemotécnica, lógica o asociación clásica) que ayude a dominar el dato.
 explanation: 2-4 oraciones que expliquen por qué la opción correcta es la correcta.
@@ -1264,7 +1306,7 @@ variants: EXACTAMENTE 2 por pregunta, como arreglo [variante1, variante2], para 
 - Sin pacientes. Cambia el ángulo (p. ej. la primaria pide el fármaco, la variante 1 su mecanismo, la variante 2 su efecto adverso) sin añadir un tema nuevo.
 - Escribe un conjunto nuevo de opciones (distractores nuevos, no solo reordenados) con el mismo número de opciones que la primaria, y coloca correctAnswer en una letra distinta en cada una de las tres versiones.
 - Mismo nivel de dificultad que la primaria. Una variante nunca debe mencionar ni hacer referencia a la primaria ni a la otra variante.
-- Cada variante tiene lo suyo: vignette, keyInfoPhrases (subcadenas exactas de la viñeta DE ESA variante), stem, options, correctAnswer, attendingTip, explanation, keyLearningPoint, distractorAnalysis, hint. NO incluyas id, subject, dificultad, educationalObjective ni sourceReferences dentro de una variante (se heredan de la pregunta).
+- Cada variante tiene lo suyo: vignette, keyInfoPhrases (subcadenas exactas de la viñeta DE ESA variante), stem, options, correctAnswer, attendingTip, explanation, keyLearningPoint, distractorAnalysis, hint. NO incluyas id, subject, dificultad, questionFormat, recallType, educationalObjective ni sourceReferences dentro de una variante (se heredan de la pregunta).
 subject: sistema/disciplina específica. Cada id único. difficultyRating: entero de 1 a 5, acorde con el nivel de dificultad indicado. difficultyLabel: exactamente "Easy", "Medium" o "Hard" (en inglés), coherente con difficultyRating. Distribuye correctAnswer de forma uniforme entre las letras de opción usadas (nunca la misma letra más de dos veces seguidas).
 Enfoque: ${focusLine}`;
   }
@@ -1278,6 +1320,7 @@ Block: "${blockName}", timeLimitMinutes ${timeLimit}.
 ${diff.text}
 Question style: BASIC. Each question tests exactly ONE fact or concept directly. Do NOT write a patient case, history, exam, vitals or labs. Put the complete question in "vignette" as plain sentence(s) (length per difficulty tier) and use "stem" for the short question line (e.g. "Which of the following is the mechanism of action?"); never repeat the same sentence in both.
 ${fmt}
+questionFormat: "Basic" on every question. recallType: the recall type tested, exactly one of fact, mechanism, causal, identify, pathway, value, principle.
 keyInfoPhrases: Extract ${diff.phrases} EXACT substring(s) of "vignette" naming the key term(s), for smart-highlighting.
 attendingTip: 1-2 sentence memory anchor from a teaching attending (mnemonic, logic or classic association) that helps the student own the fact.
 explanation: 2-4 sentences on why the correct option is right.
@@ -1290,12 +1333,88 @@ variants: EXACTLY 2 per question, as an array [variant1, variant2], for spaced r
 - No patients. Change the angle (e.g. primary asks the drug, variant 1 its mechanism, variant 2 its adverse effect) without adding a new topic.
 - Write a new option set (new distractors, not just a reorder) with the same number of options as the primary, and put correctAnswer on a different letter in each of the three versions.
 - Same difficulty tier as the primary. A variant must never mention or refer to the primary or the other variant.
-- Each variant has its own: vignette, keyInfoPhrases (exact substrings of THAT variant's vignette), stem, options, correctAnswer, attendingTip, explanation, keyLearningPoint, distractorAnalysis, hint. Do NOT put id, subject, difficulty, educationalObjective or sourceReferences inside a variant (they are inherited from the question).
+- Each variant has its own: vignette, keyInfoPhrases (exact substrings of THAT variant's vignette), stem, options, correctAnswer, attendingTip, explanation, keyLearningPoint, distractorAnalysis, hint. Do NOT put id, subject, difficulty, questionFormat, recallType, educationalObjective or sourceReferences inside a variant (they are inherited from the question).
 subject: specific system/discipline. Every id unique. difficultyRating: integer 1 to 5, matching the difficulty tier above. difficultyLabel: exactly "Easy", "Medium" or "Hard", consistent with difficultyRating. Spread correctAnswer evenly across the option letters used (never the same letter more than twice in a row).
 Focus: ${focusLine}`;
 }
 
-function buildQuestionRecipe({ size, focusMode, focusValue, lang, difficulty = "mixed", style = "vignette", basicFormat = "mixed" }) {
+// The Mixed question style: 70% Vignette (applying) + 30% Basic (knowing), interleaved and tagged with questionFormat so Analytics can score
+// the two separately and show the gap between knowing a fact and applying it.
+function buildMixedFormatRecipe({ size, focusMode, focusValue, lang, difficulty = "mixed" }) {
+  const es = lang === "es";
+  const P = RECIPE_PROFILES[es ? "es" : "en"];
+  const B = BASIC_PROFILES[es ? "es" : "en"];
+  const { vignette: nV, basic: nB } = mixedFormatCounts(size);
+  const baseName = es
+    ? (focusMode === "systems" && focusValue ? `Bloque de sistema ${focusValue}` : focusMode === "discipline" && focusValue ? `Bloque de ${focusValue}` : "Bloque mixto")
+    : (focusMode === "systems" && focusValue ? `${focusValue} System Block` : focusMode === "discipline" && focusValue ? `${focusValue} Block` : "Mixed Block");
+  const blockName = difficulty === "mixed" ? baseName : `${baseName} (${P.names[difficulty]})`;
+  const timeLimit = Math.max(1, Math.round(nV * 1.5 + nB)); // Vignettes 1.5 min each, Basic recall 1 min each
+  const diff = buildDifficultySection(size, difficulty, lang);
+  const tiers = difficulty === "mixed" ? ["easy", "medium", "hard"] : [difficulty];
+  const basicTiers = tiers.map((id) => es
+    ? `- ${P.names[id]}: Pregunta: ${B[id].q}. Paso cognitivo: ${B[id].step}. Opciones: ${B[id].options}.`
+    : `- ${P.names[id]}: Question: ${B[id].q}. Cognitive step: ${B[id].step}. Options: ${B[id].options}.`).join("\n");
+  if (es) {
+    const focusLine = focusMode === "systems" ? `Todas las preguntas de un solo sistema — ${focusValue || "[SISTEMA]"}. Varía la disciplina evaluada.`
+      : focusMode === "discipline" ? `Todas las preguntas de una sola disciplina — ${focusValue || "[DISCIPLINA]"}. Varía el sistema evaluado.`
+      : "Mezcla sistemas/disciplinas como un bloque real de USMLE: cobertura amplia, sin repetir el mismo sistema en preguntas consecutivas, con énfasis proporcional en los sistemas de alto rendimiento.";
+    return `Genera ${size} preguntas de práctica estilo USMLE como ÚNICAMENTE JSON válido (sin markdown ni comentarios), con este esquema (los nombres de los campos van en inglés, exactamente como se muestran):
+${PROMPT_SCHEMA_TEXT}
+
+Escribe TODO el contenido (viñetas, opciones, explicaciones, pistas, etc.) en español.
+Bloque: "${blockName}", timeLimitMinutes ${timeLimit}.
+Mezcla de formatos (70% Vignette / 30% Basic): exactamente ${nV} preguntas Vignette y ${nB} Basic, intercaladas en orden aleatorio (nunca más de 3 seguidas del mismo formato). Etiqueta cada pregunta con questionFormat "Vignette" o "Basic": esa etiqueta sirve para puntuar por separado el saber (Basic) y el aplicar (Vignette), así que debe coincidir con la pregunta que realmente escribiste. Cuando el bloque lo permita, cubre las mismas materias en ambos formatos para poder comparar las dos puntuaciones por materia.
+${diff.text}
+Los perfiles de arriba describen las preguntas Vignette. Las preguntas Basic usan el mismo difficultyLabel y difficultyRating, pero siguen esta forma:
+${basicTiers}
+Preguntas VIGNETTE (questionFormat "Vignette"): un caso clínico completo en "vignette" (edad/sexo, presentación, historia, examen, datos según el perfil del nivel) y una línea de pregunta en "stem". keyInfoPhrases: ${diff.phrases} subcadenas EXACTAS de "vignette".
+Preguntas BASIC (questionFormat "Basic"): recuerdo directo de UN solo dato, SIN caso de paciente, historia, examen, signos vitales ni laboratorios. Pon la pregunta completa en "vignette" como oración(es) sencilla(s) y una línea corta de pregunta en "stem" (nunca repitas la misma oración en ambos). Asigna recallType según el recuerdo evaluado: fact, mechanism, causal, identify, pathway, value o principle, repartidos entre estos tipos. Todas las opciones de una pregunta son del mismo tipo de respuesta. keyInfoPhrases: 1-2 subcadenas EXACTAS de "vignette" que nombren el/los término(s) clave.
+attendingTip: 1-2 oraciones (Vignette: razonamiento clínico de un médico adjunto; Basic: ancla de memoria como una regla mnemotécnica o asociación clásica). explanation: 3-5 oraciones en Vignette y 2-4 en Basic sobre por qué la opción correcta es la correcta. keyLearningPoint: conclusión de alto rendimiento en 1-2 oraciones. distractorAnalysis: 1 oración concisa por opción incorrecta que explique por qué es incorrecta y de qué es realmente cierta. hint: 1 oración corta que señale la lógica sin revelar la respuesta. educationalObjective: resumen en 1-2 oraciones del concepto o dato evaluado. sourceReferences: 1-3 fuentes reales (First Aid, BRS, Pathoma, etc.) — sourceTitle, chapterSection, pageNumber (omítelo si no estás seguro), relevance.
+variants: EXACTAMENTE 2 por pregunta, como arreglo [variante1, variante2], para repetición espaciada. Todo lo anterior es la versión PRIMARIA; cada variante vuelve a evaluar el MISMO educationalObjective en el MISMO formato que su primaria (las variantes de una Vignette son Vignette y las de una Basic son Basic), con redacción nueva para que no se pueda acertar recordando la redacción ni la posición de la respuesta:
+- Vignette: cambia al paciente y las pistas de presentación conservando el/los hallazgo(s) decisivo(s), y cambia el enfoque (diagnóstico, mecanismo o siguiente paso, tratamiento, complicación) sin añadir un tema nuevo. Basic: sin pacientes; cambia el enfoque (p. ej. el fármaco, luego su mecanismo, luego su efecto adverso) sin añadir un tema nuevo.
+- Escribe un conjunto nuevo de opciones (distractores nuevos, no solo reordenados) con el mismo número de opciones que la primaria, y coloca correctAnswer en una letra distinta en cada una de las tres versiones.
+- Mismo nivel de dificultad que la primaria. Una variante nunca debe mencionar ni hacer referencia a la primaria ni a la otra variante.
+- Cada variante tiene lo suyo: vignette, keyInfoPhrases (subcadenas exactas de la viñeta DE ESA variante), stem, options, correctAnswer, attendingTip, explanation, keyLearningPoint, distractorAnalysis, hint. NO incluyas id, subject, dificultad, questionFormat, recallType, educationalObjective ni sourceReferences dentro de una variante (se heredan de la pregunta).
+subject: sistema/disciplina específica. Cada id único. difficultyRating: entero de 1 a 5, acorde con el nivel de dificultad indicado. difficultyLabel: exactamente "Easy", "Medium" o "Hard" (en inglés), coherente con difficultyRating. Distribuye correctAnswer de forma uniforme entre las letras de opción usadas (nunca la misma letra más de dos veces seguidas).
+Enfoque: ${focusLine}`;
+  }
+  const focusLine = focusMode === "systems" ? `All questions from one organ system — ${focusValue || "[SYSTEM]"}. Vary discipline tested (anatomy/physio/path/pharm/micro).`
+    : focusMode === "discipline" ? `All questions from one discipline — ${focusValue || "[DISCIPLINE]"}. Vary organ system tested.`
+    : "Mix systems/disciplines like a real USMLE block: broad coverage, no back-to-back repeats of the same system, proportional emphasis on high-yield systems (cardio, GI, renal, endocrine, neuro, repro, MSK, heme/onc, psych, resp).";
+  return `Generate ${size} USMLE-style practice questions as ONLY valid JSON (no markdown, no commentary), matching this schema:
+${PROMPT_SCHEMA_TEXT}
+
+Block: "${blockName}", timeLimitMinutes ${timeLimit}.
+Format mix (70% Vignette / 30% Basic): exactly ${nV} Vignette and ${nB} Basic questions, interleaved in random order (never more than 3 of the same format in a row). Tag every question with questionFormat "Vignette" or "Basic": the tag is used to score knowing (Basic) and applying (Vignette) separately, so it must match the question you actually wrote. Where the block allows, cover the same subjects in both formats so the two scores can be compared by subject.
+${diff.text}
+The tier profiles above describe the Vignette questions. Basic questions use the same difficultyLabel and difficultyRating but follow this shape:
+${basicTiers}
+VIGNETTE questions (questionFormat "Vignette"): a full patient case in "vignette" (age/sex, presentation, history, exam, data as the tier profile says) and a one-line question in "stem". keyInfoPhrases: ${diff.phrases} EXACT substrings of "vignette".
+BASIC questions (questionFormat "Basic"): direct recall of ONE fact with NO patient case, history, exam, vitals or labs. Put the whole question in "vignette" as plain sentence(s) and a short question line in "stem" (never repeat the same sentence in both). Set recallType to the kind of recall tested: fact, mechanism, causal, identify, pathway, value or principle, spread across these types. All options in a question are the same kind of answer. keyInfoPhrases: 1-2 EXACT substrings of "vignette" naming the key term(s).
+attendingTip: 1-2 sentences (Vignette: clinical reasoning from an attending; Basic: a memory anchor such as a mnemonic or classic association). explanation: 3-5 sentences for Vignette and 2-4 for Basic on why the correct option is right. keyLearningPoint: 1-2 sentence high-yield takeaway. distractorAnalysis: 1 concise sentence per wrong option on why it is wrong and what it is actually true of. hint: 1 short sentence pointing at the logic without revealing the answer. educationalObjective: 1-2 sentence summary of the concept or fact tested. sourceReferences: 1-3 real sources (First Aid, BRS, Pathoma, etc.) — sourceTitle, chapterSection, pageNumber (omit if unsure), relevance.
+variants: EXACTLY 2 per question, as an array [variant1, variant2], for spaced repetition. Everything above is the PRIMARY version; each variant re-tests the SAME educationalObjective in the SAME format as its primary (a Vignette's variants are Vignettes, a Basic's variants are Basic), with new wording so it cannot be passed by recalling the primary's wording or answer position:
+- Vignette: change the patient and presenting clues while keeping the decisive finding(s), and change the angle (diagnosis, mechanism or next step, treatment, complication) without adding a new topic. Basic: no patients; change the angle (e.g. the drug, then its mechanism, then its adverse effect) without adding a new topic.
+- Write a new option set (new distractors, not just a reorder) with the same number of options as the primary, and put correctAnswer on a different letter in each of the three versions.
+- Same difficulty tier as the primary. A variant must never mention or refer to the primary or the other variant.
+- Each variant has its own: vignette, keyInfoPhrases (exact substrings of THAT variant's vignette), stem, options, correctAnswer, attendingTip, explanation, keyLearningPoint, distractorAnalysis, hint. Do NOT put id, subject, difficulty, questionFormat, recallType, educationalObjective or sourceReferences inside a variant (they are inherited from the question).
+subject: specific system/discipline. Every id unique. difficultyRating: integer 1 to 5, matching the difficulty tier above. difficultyLabel: exactly "Easy", "Medium" or "Hard", consistent with difficultyRating. Spread correctAnswer evenly across the option letters used (never the same letter more than twice in a row).
+Focus: ${focusLine}`;
+}
+
+// Focus = Balanced (standard) | Focused system | Focused discipline, plus "Topics this week" for either focused choice. Topics only, with no
+// system or discipline picked, behave like a Balanced block weighted toward those topics.
+function buildQuestionRecipe({ size, focusMode, focusValue, focusTopics = "", lang, difficulty = "mixed", style = "vignette", basicFormat = "mixed" }) {
+  const topics = focusMode !== "standard" ? String(focusTopics || "").trim() : "";
+  const mode = topics && !String(focusValue || "").trim() ? "standard" : focusMode;
+  const text = buildQuestionRecipeBase({ size, focusMode: mode, focusValue, lang, difficulty, style, basicFormat });
+  if (!topics) return text;
+  return text + (lang === "es"
+    ? `\nTemas: ${topics}. Concentra las preguntas en estos temas, repartidas entre ellos, y cubre cada uno al menos una vez cuando el tamaño del bloque lo permita.`
+    : `\nTopics: ${topics}. Concentrate the questions on these topics, spread across them, and cover each at least once where the block size allows.`);
+}
+function buildQuestionRecipeBase({ size, focusMode, focusValue, lang, difficulty = "mixed", style = "vignette", basicFormat = "mixed" }) {
+  if (style === "mixed") return buildMixedFormatRecipe({ size, focusMode, focusValue, lang, difficulty });
   if (style === "basic") return buildBasicRecipe({ size, focusMode, focusValue, lang, difficulty, basicFormat });
   if (lang === "es") return buildQuestionRecipeEs({ size, focusMode, focusValue, difficulty, style });
   const baseName =
@@ -1320,6 +1439,7 @@ ${PROMPT_SCHEMA_TEXT}
 
 Block: "${blockName}", timeLimitMinutes ${timeLimit}.
 ${diff.text}
+questionFormat: "Vignette" on every question (omit recallType).
 keyInfoPhrases: Extract ${diff.phrases} exact key diagnostic substring phrases directly from vignette text for smart-highlighting.
 attendingTip: 1-2 sentence clinical reasoning breakdown written from the perspective of an attending physician guiding a student to the diagnosis.
 explanation: 3-5 sentences analyzing why the correct option is right.
@@ -1333,7 +1453,7 @@ variants: EXACTLY 2 per question, as an array [variant1, variant2], for spaced r
 - Change the angle of the question across the three versions (for example: primary asks the diagnosis, variant 1 the mechanism or next best step, variant 2 the treatment, complication or expected lab/imaging finding). Every version must still hinge on the same concept; never add a new topic.
 - Write a new option set (new distractors, not just a reorder) with the same number of options as the primary, and put correctAnswer on a different letter in each of the three versions.
 - Same difficulty tier as the primary. A variant must never mention or refer to the primary or the other variant.
-- Each variant has its own: vignette, keyInfoPhrases (exact substrings of THAT variant's vignette), stem, options, correctAnswer, attendingTip, explanation, keyLearningPoint, distractorAnalysis, hint, all written fresh and following the same length rules as the primary. Do NOT put id, subject, difficulty, educationalObjective or sourceReferences inside a variant (they are inherited from the question).
+- Each variant has its own: vignette, keyInfoPhrases (exact substrings of THAT variant's vignette), stem, options, correctAnswer, attendingTip, explanation, keyLearningPoint, distractorAnalysis, hint, all written fresh and following the same length rules as the primary. Do NOT put id, subject, difficulty, questionFormat, recallType, educationalObjective or sourceReferences inside a variant (they are inherited from the question).
 subject: specific system/discipline. Every id unique. difficultyRating: integer 1 to 5, matching the difficulty tier above. difficultyLabel: exactly "Easy", "Medium" or "Hard", consistent with difficultyRating. Spread correctAnswer evenly across the option letters used (never the same letter more than twice in a row).
 Focus: ${focusLine}`;
 }
@@ -1610,6 +1730,8 @@ const Q_ALIASES = {
   keyLearningPoint: ["keylearningpoint", "learningpoint", "keytakeaway", "takeaway", "highyieldpearl"],
   distractorAnalysis: ["distractoranalysis", "distractors", "incorrectexplanations", "wronganswerexplanations", "optionanalysis"],
   hint: ["hint"],
+  questionFormat: ["questionformat", "questionstyle", "formattag"],
+  recallType: ["recalltype", "recallformat", "basictype"],
   educationalObjective: ["educationalobjective", "learningobjective", "objective"],
   sourceReferences: ["sourcereferences", "sources", "references"],
   variants: ["variants", "variations", "alternateversions", "alternativeversions", "altversions", "rewrites"],
@@ -1813,6 +1935,11 @@ function normalizeQuestion(q, n, usedIds, ctx, isVariant = false) {
   const out = { ...q, id, vignette, stem, options, correctAnswer: options[res.idx].key };
   const setText = (field) => { const v = toText(get(field)); if (v !== undefined) out[field] = v; else delete out[field]; };
   ["subject", "attendingTip", "explanation", "keyLearningPoint", "hint", "educationalObjective"].forEach(setText);
+  // Format tags: questionFormat (Vignette | Basic) and, on Basic questions only, recallType. Untagged banks stay untagged (questionFormat() infers).
+  const qfTag = formatTag(get("questionFormat"));
+  if (qfTag) out.questionFormat = qfTag; else delete out.questionFormat;
+  const rcTag = recallTag(get("recallType"));
+  if (rcTag && out.questionFormat === "Basic") out.recallType = rcTag; else delete out.recallType;
 
   // Difficulty: an explicit label (Easy/Medium/Hard) and a 1-5 rating. Either may be missing, or an AI may put the
   // label in the "difficulty" field; resolveDifficulty reconciles them so the label always wins and the rating stays inside its band.
@@ -1985,6 +2112,7 @@ ${PROMPT_SCHEMA_TEXT}
 Escribe TODO el contenido (viñetas, opciones, explicaciones, pistas, etc.) en español.
 Bloque: "${blockName}", timeLimitMinutes ${recipeTimeLimit(size, difficulty)}.
 ${diff.text}
+questionFormat: "Vignette" en todas las preguntas (omite recallType).
 keyInfoPhrases: extrae ${diff.phrases} frases diagnósticas clave, copiadas EXACTAMENTE como subcadenas del texto de la viñeta, para el resaltado inteligente.
 attendingTip: desglose del razonamiento clínico en 1-2 oraciones, escrito desde la perspectiva de un médico adjunto que guía al estudiante hacia el diagnóstico.
 explanation: 3-5 oraciones que analicen por qué la opción correcta es la correcta.
@@ -1998,7 +2126,7 @@ variants: EXACTAMENTE 2 por pregunta, como arreglo [variante1, variante2], para 
 - Cambia el enfoque de la pregunta entre las tres versiones (por ejemplo: la primaria pregunta el diagnóstico, la variante 1 el mecanismo o el siguiente mejor paso, la variante 2 el tratamiento, la complicación o el hallazgo esperado de laboratorio/imagen). Todas deben seguir girando en torno al mismo concepto; nunca agregues un tema nuevo.
 - Escribe un conjunto nuevo de opciones (distractores nuevos, no solo reordenados) con el mismo número de opciones que la primaria, y coloca correctAnswer en una letra distinta en cada una de las tres versiones.
 - Mismo nivel de dificultad que la primaria. Una variante nunca debe mencionar ni hacer referencia a la primaria ni a la otra variante.
-- Cada variante tiene lo suyo: vignette, keyInfoPhrases (subcadenas exactas de la viñeta DE ESA variante), stem, options, correctAnswer, attendingTip, explanation, keyLearningPoint, distractorAnalysis, hint, todo escrito de nuevo y con las mismas reglas de extensión que la primaria. NO incluyas id, subject, dificultad, educationalObjective ni sourceReferences dentro de una variante (se heredan de la pregunta).
+- Cada variante tiene lo suyo: vignette, keyInfoPhrases (subcadenas exactas de la viñeta DE ESA variante), stem, options, correctAnswer, attendingTip, explanation, keyLearningPoint, distractorAnalysis, hint, todo escrito de nuevo y con las mismas reglas de extensión que la primaria. NO incluyas id, subject, dificultad, questionFormat, recallType, educationalObjective ni sourceReferences dentro de una variante (se heredan de la pregunta).
 subject: sistema/disciplina específica. Cada id único. difficultyRating: entero de 1 a 5, acorde con el nivel de dificultad indicado. difficultyLabel: exactamente "Easy", "Medium" o "Hard" (en inglés), coherente con difficultyRating. Distribuye correctAnswer de forma uniforme entre las letras de opción usadas (nunca la misma letra más de dos veces seguidas).
 Enfoque: ${focusLine}`;
 }
@@ -2017,13 +2145,19 @@ function fmtTime(totalSeconds) {
 // in their original letter sequence so the UI stays clean while the underlying
 // content order — and therefore the "right answer position" — is randomized.
 // correctAnswer is remapped to whichever new key now holds that option's text.
-function shuffleQuestionOptions(q) {
+// `rng` is optional (a seeded generator makes the shuffle repeatable); anything else, such as the index that Array.map passes, is ignored.
+function seededRng(seed) { // mulberry32: a small, repeatable pseudo-random generator
+  let a = (typeof seed === "number" ? seed : parseInt(String(seed), 36) || 1) >>> 0;
+  return () => { a = (a + 0x6D2B79F5) >>> 0; let t = a; t = Math.imul(t ^ (t >>> 15), t | 1); t ^= t + Math.imul(t ^ (t >>> 7), t | 61); return ((t ^ (t >>> 14)) >>> 0) / 4294967296; };
+}
+function shuffleQuestionOptions(q, rng) {
+  const rand = typeof rng === "function" ? rng : Math.random;
   const originalKeys = q.options.map((o) => o.key);
   const correctText = q.options.find((o) => o.key === q.correctAnswer)?.text;
 
   const shuffled = [...q.options];
   for (let i = shuffled.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
+    const j = Math.floor(rand() * (i + 1));
     [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
   }
 
@@ -2068,13 +2202,14 @@ function makeInitialBlockState(block) {
   const hasLimit = typeof block.timeLimitMinutes === "number";
   return {
     status: "pending", // pending | in-progress | done
-    answers: {}, // qId -> { selected, struck, flagged, checked, keyInfoOn, tipOpen, hintUsed } — always fresh, never inherited
+    answers: {}, // qId -> { selected, struck, flagged, checked, keyInfoOn, tipOpen, hintUsed, wasIncorrect, firstResult, firstHint, firstAt, at } — always fresh, never inherited
     notes: {}, // qId -> note text
     // Exactly one of timed / tutor is true. Chosen in the lobby; locked once the block starts.
     timed: false,
     startedAt: null, // wall-clock ms when the block was first started (for elapsed-time analytics)
     timerOff: false, // Timed mode only: the student may switch the countdown off mid-block, never back on
     tutor: true,
+    team: false, // Team (group study) is a Tutor-style block (tutor stays true) with no Key Info / Tutor's Tip and no retries; its content order is fixed
     timeLeft: (hasLimit ? block.timeLimitMinutes : 60) * 60,
     score: null,
     currentQuestionIndex: 0, // persisted so a refresh resumes on the same question
@@ -2089,7 +2224,8 @@ function debiasBlock(b) {
   const counts = {};
   b.questions.forEach((q) => { counts[q.correctAnswer] = (counts[q.correctAnswer] || 0) + 1; });
   const maxShare = Math.max(...Object.values(counts)) / b.questions.length;
-  if (b.questions.length >= 5 && maxShare > 0.5) return { ...b, questions: b.questions.map(shuffleQuestionOptions) };
+  // Seeded by the block's content, so the same Qbank file imported by different people ends up with the same option order (Team mode needs that).
+  if (b.questions.length >= 5 && maxShare > 0.5) { const rng = seededRng(hashString(blockSignature(b.blockName || "", b.questions))); return { ...b, questions: b.questions.map((q) => shuffleQuestionOptions(q, rng)) }; }
   return b;
 }
 
@@ -2101,7 +2237,7 @@ function debiasBlock(b) {
 // ---------------------------------------------------------------------------
 const subjectKey = (q) => (q.subject || "").trim().toLowerCase() || "general";
 
-function buildMixPool(entries) {
+function buildMixPool(entries, { serve = true } = {}) {
   const multi = true; // always namespace: even a single-bank subset must map ids back to its library entry (ratings)
   // AI tools reuse ids like "q1" in every bank, so namespace them per bank or answers/notes would collide.
   const tagged = entries.flatMap((e) =>
@@ -2112,7 +2248,7 @@ function buildMixPool(entries) {
     if (seen.has(k)) return false; // same question present in two banks
     seen.add(k);
     return true;
-  }).map(serveQuestion); // the version to show follows the SM-2 lapse count (primary / variant 1 / variant 2)
+  }).map(serve ? serveQuestion : (q) => q); // the version to show follows the SM-2 lapse count (primary / variant 1 / variant 2); Team always shows the primary
   const subjects = new Set(pool.map(subjectKey)).size;
   return { pool, subjects, dupes: tagged.length - pool.length };
 }
@@ -2140,8 +2276,9 @@ function spreadBySubject(buckets) {
 // size = null → use every question (just spread evenly).
 // size < pool → equal share per subject (round-robin), so a huge subject can't crowd out the small ones.
 // Equal share per subject (round-robin) so a huge subject can't crowd out the small ones.
-function pickBySubject(items, n) {
+function pickBySubject(items, n, ordered = false) {
   if (n >= items.length) return [...items];
+  if (ordered) return items.slice(0, n); // Team: the first n in authored order, nothing shuffled
   const map = new Map();
   items.forEach((q) => { const k = subjectKey(q); if (!map.has(k)) map.set(k, []); map.get(k).push(q); });
   const buckets = shuffleArray([...map.entries()]).map(([key, its]) => ({ key, items: shuffleArray(its) }));
@@ -2184,10 +2321,10 @@ function mixCapacity(pool, difficulty) {
 }
 
 // Picks the questions for a mix: filter by difficulty, then take a subject-balanced share of the requested size.
-function selectByDifficulty(pool, difficulty, size) {
+function selectByDifficulty(pool, difficulty, size, ordered = false) {
   if (difficulty === "easy" || difficulty === "medium" || difficulty === "hard") {
     const items = pool.filter((q) => questionTier(q) === difficulty);
-    return pickBySubject(items, size && size < items.length ? size : items.length);
+    return pickBySubject(items, size && size < items.length ? size : items.length, ordered);
   }
   if (difficulty === "balanced") {
     const by = { easy: [], medium: [], hard: [] };
@@ -2201,9 +2338,9 @@ function selectByDifficulty(pool, difficulty, size) {
       const spare = Math.min(short, by[id].length - take[id]);
       take[id] += spare; short -= spare;
     }
-    return ["easy", "medium", "hard"].flatMap((id) => pickBySubject(by[id], take[id]));
+    return ["easy", "medium", "hard"].flatMap((id) => pickBySubject(by[id], take[id], ordered));
   }
-  return pickBySubject(pool, size && size < pool.length ? size : pool.length);
+  return pickBySubject(pool, size && size < pool.length ? size : pool.length, ordered);
 }
 
 // size = null → use every question the difficulty filter allows (just spread evenly).
@@ -2226,6 +2363,26 @@ function mixQbanks(entries, { size = null, difficulty = "all" } = {}) {
     timeLimitMinutes: Math.max(5, Math.round(n * 1.5)),
     questions: spreadBySubject(buckets),
   });
+}
+
+// Team (group study) block: every user who loads the same Qbank(s) with the same size / difficulty gets the identical sequence.
+// Nothing is shuffled: questions stay in authored order and each question keeps the option order it was saved with. Several banks
+// are joined in a fixed order (by title, then content), not the order they were ticked, and the SM-2 variant a student would
+// normally see is ignored: everyone gets the primary version. A size cap takes the first questions in that order.
+function teamQbanks(entries, { size = null, difficulty = "all" } = {}) {
+  const sig = (e) => blockSignature(e.title, e.questions);
+  const sorted = [...entries].sort((a, b) => String(a.title).localeCompare(String(b.title), "en") || sig(a).localeCompare(sig(b)));
+  const { pool } = buildMixPool(sorted, { serve: false });
+  const keep = new Set(selectByDifficulty(pool, difficulty, size, true).map((q) => q.id));
+  const chosen = pool.filter((q) => keep.has(q.id)); // back in authored order (the balanced filter groups by tier)
+  return {
+    blockName: sorted.length === 1 ? sorted[0].title : "Mixed Qbank",
+    isMixed: true, isTeam: true,
+    mixCount: sorted.length, mixDifficulty: difficulty,
+    sourceBanks: sorted.map((e) => e.title), sourceIds: sorted.map((e) => e.id),
+    timeLimitMinutes: Math.max(5, Math.round(chosen.length * 1.5)),
+    questions: chosen,
+  };
 }
 
 // ---------------------------------------------------------------------------
@@ -2549,7 +2706,7 @@ function stableJson(v) { // key-order independent, so a state rebuilt on another
 }
 function activeSig(bs) {
   const a = {};
-  for (const [qid, x] of Object.entries(bs.answers || {})) a[qid] = [x.selected || null, x.struck && x.struck.length ? x.struck : 0, !!x.flagged, !!x.checked, !!x.answerRevealed, !!x.hintUsed];
+  for (const [qid, x] of Object.entries(bs.answers || {})) a[qid] = [x.selected || null, x.struck && x.struck.length ? x.struck : 0, !!x.flagged, !!x.checked, !!x.answerRevealed, !!x.hintUsed, !!x.teamRevealed];
   return hashStr(stableJson([bs.currentQuestionIndex || 0, a, bs.highlights || {}, bs.notes || {}]));
 }
 
@@ -2562,7 +2719,7 @@ function buildActiveSession(block, bs, rec) {
     if (a.flagged) flagged.push(qid);
     const st = {};
     if (a.struck && a.struck.length) st.struck = a.struck;
-    for (const k of ["checked", "answerRevealed", "hintUsed", "keyInfoOn", "tipOpen"]) if (a[k]) st[k] = a[k];
+    for (const k of ["checked", "answerRevealed", "teamRevealed", "hintUsed", "wasIncorrect", "keyInfoOn", "tipOpen", "firstResult", "firstHint", "firstAt", "at"]) if (a[k]) st[k] = a[k];
     if (Object.keys(st).length) states[qid] = st;
   }
   const sourceIds = Array.isArray(block.sourceIds) ? block.sourceIds.slice(0, 50) : [];
@@ -2572,7 +2729,7 @@ function buildActiveSession(block, bs, rec) {
   return {
     sessionId: rec.sessionId, ended: false, qbankId, currentIndex: bs.currentQuestionIndex || 0,
     answers, flagged, highlights: bs.highlights || {}, timeElapsed, updatedAt: rec.updatedAt,
-    blockFileId: rec.blockFileId || null, blockName: block.blockName || "", mode: bs.tutor ? "tutor" : "timed", timeLeft: bs.timeLeft, timerOff: !!bs.timerOff,
+    blockFileId: rec.blockFileId || null, blockName: block.blockName || "", mode: bs.team ? "team" : bs.tutor ? "tutor" : "timed", timeLeft: bs.timeLeft, timerOff: !!bs.timerOff,
     notes: bs.notes || {}, states, questionCount: block.questions.length, answeredCount: answered,
     isMixed: !!block.isMixed, sourceBanks: Array.isArray(block.sourceBanks) ? block.sourceBanks.slice(0, 12).map(String) : [], sourceIds,
     deviceId: lsGet("owordDeviceId") || null,
@@ -2601,11 +2758,12 @@ function hydrateActiveState(block, r, parked) {
     if (!ids.has(qid)) continue;
     answers[qid] = { selected: null, struck: [], flagged: false, checked: false, ...((r.states || {})[qid] || {}), selected: (r.answers || {})[qid] ?? null, flagged: flagged.has(qid) };
   }
-  const tutor = r.mode === "tutor";
+  const team = r.mode === "team";
+  const tutor = r.mode === "tutor" || team;
   const elapsed = Math.max(0, Number(r.timeElapsed) || 0);
   const idx = Math.min(Math.max(0, Math.floor(Number(r.currentIndex) || 0)), block.questions.length - 1);
   return {
-    ...base, status: "in-progress", timed: !tutor, tutor, timerOff: !!r.timerOff,
+    ...base, status: "in-progress", timed: !tutor, tutor, team, timerOff: !!r.timerOff,
     timeLeft: Number.isFinite(r.timeLeft) ? r.timeLeft : base.timeLeft,
     startedAt: Date.now() - elapsed * 1000, pausedAt: parked && tutor ? Date.now() : null,
     answers, notes: r.notes && typeof r.notes === "object" ? r.notes : {}, highlights: r.highlights && typeof r.highlights === "object" ? r.highlights : {},
@@ -2613,12 +2771,63 @@ function hydrateActiveState(block, r, parked) {
   };
 }
 
+// Same test open on two devices that both moved on: combine them question by question instead of letting one overwrite the other,
+// so questions finished on either device survive whatever order they were done in.
+//   - per question the newest edit (`at`) wins, so a Retry made later on one device is not undone by an older answer on the other;
+//     without timestamps (older builds) the further-along state wins: checked > picked > untouched
+//   - hintUsed and wasIncorrect are sticky: either device having them keeps them
+//   - first exposure (firstResult / firstHint / firstAt) is the EARLIEST one recorded on either device
+//   - position, notes and highlights follow the more recently updated device; the clock keeps the longer elapsed time
+function mergeActiveSessions(L, R) {
+  const N = L.updatedAt >= R.updatedAt ? L : R; // the more recently touched device
+  const lA = L.answers || {}, rA = R.answers || {}, lS = L.states || {}, rS = R.states || {};
+  const lF = new Set(L.flagged || []), rF = new Set(R.flagged || []);
+  const rank = (sel, st) => (sel != null && st.checked ? 2 : sel != null ? 1 : 0);
+  const qids = new Set([...Object.keys(lA), ...Object.keys(rA), ...Object.keys(lS), ...Object.keys(rS), ...lF, ...rF]);
+  const answers = {}, states = {}, flagged = [], fromL = {};
+  for (const qid of qids) {
+    const ls = lS[qid] || {}, rs = rS[qid] || {};
+    const lsel = lA[qid] ?? null, rsel = rA[qid] ?? null;
+    const la = Number(ls.at) || 0, ra = Number(rs.at) || 0;
+    let useL;
+    if (la !== ra) useL = la > ra;
+    else { const lr = rank(lsel, ls), rr = rank(rsel, rs); useL = lr !== rr ? lr > rr : N === L; }
+    fromL[qid] = useL;
+    const src = useL ? ls : rs, sel = useL ? lsel : rsel;
+    if (sel != null) answers[qid] = sel;
+    if ((useL ? lF : rF).has(qid)) flagged.push(qid);
+    const st = { ...src };
+    for (const k of ["hintUsed", "wasIncorrect"]) if (ls[k] || rs[k]) st[k] = true;
+    const firsts = [ls, rs].filter((x) => x.firstResult);
+    delete st.firstResult; delete st.firstHint; delete st.firstAt;
+    if (firsts.length) {
+      const f = firsts.length === 2 ? ((Number(ls.firstAt) || Infinity) <= (Number(rs.firstAt) || Infinity) ? ls : rs) : firsts[0];
+      st.firstResult = f.firstResult; if (f.firstHint) st.firstHint = true; if (f.firstAt) st.firstAt = f.firstAt;
+    }
+    if (Object.keys(st).length) states[qid] = st;
+  }
+  const byQ = (a, b) => { // notes / highlights are keyed by question id: keep both sides' questions, the newer device wins a clash
+    const out = { ...(N === L ? (b || {}) : (a || {})), ...(N === L ? (a || {}) : (b || {})) };
+    return out;
+  };
+  const both = Number.isFinite(L.timeLeft) && Number.isFinite(R.timeLeft);
+  return {
+    ...N, answers, states, flagged, notes: byQ(L.notes, R.notes), highlights: byQ(L.highlights, R.highlights),
+    timeElapsed: Math.max(L.timeElapsed || 0, R.timeElapsed || 0), timerOff: !!(L.timerOff || R.timerOff),
+    timeLeft: both ? Math.min(L.timeLeft, R.timeLeft) : N.timeLeft, answeredCount: Object.keys(answers).length,
+    blockFileId: R.blockFileId || L.blockFileId || null, updatedAt: Math.max(L.updatedAt, R.updatedAt) + 1,
+  };
+}
+// What the student has done, ignoring clocks: lets the app skip re-loading a merged state that adds nothing new here.
+const activeCore = (a) => stableJson([a.answers || {}, a.states || {}, [...(a.flagged || [])].sort(), a.notes || {}, a.highlights || {}]);
+
 // Pull-side reconciliation. `local` / `remote` are activeSession payloads (or tombstones / null); `baseAt` is the updatedAt both sides last agreed on.
 //   push     this device's version wins → upload it
 //   none     nothing to do
 //   adopt    same session, the other device moved on and this one has no unsynced changes → fast-forward silently
 //   offer    another device has a live test and this one has none → ask before restoring
-//   conflict both sides changed (or two different tests are open) and the remote is newer → ask which to keep
+//   merge    the same session moved on both devices → combine them question by question (winner = the merged payload)
+//   conflict two different tests are open and the remote is newer → ask which to keep
 //   end      the same session was finished / removed elsewhere → close it here
 function reconcileActiveSession(local, remote, baseAt = 0) {
   const L = validActive(local) ? local : null;
@@ -2636,8 +2845,9 @@ function reconcileActiveSession(local, remote, baseAt = 0) {
   if (R.sessionId === L.sessionId) {
     if (R.ended) return { winner: R, action: "end" };
     if (R.updatedAt === L.updatedAt) return (L.timeElapsed || 0) > (R.timeElapsed || 0) ? { winner: L, action: "push" } : { winner: R, action: "none" };
+    if (L.updatedAt > baseAt && R.updatedAt > baseAt) return { winner: mergeActiveSessions(L, R), action: "merge" };
     if (L.updatedAt > R.updatedAt) return { winner: L, action: "push" };
-    return L.updatedAt > baseAt ? { winner: R, action: "conflict" } : { winner: R, action: "adopt" };
+    return { winner: R, action: "adopt" };
   }
   if (R.ended) return { winner: L, action: "push" };
   return R.updatedAt > L.updatedAt ? { winner: R, action: "conflict" } : { winner: L, action: "push" };
@@ -2905,9 +3115,10 @@ function useSessionSync({ drive, stamp, getLocal, onDecision, onSynced, onBlockS
           let block = null; try { block = await fetchSessionBlock(token, remote); } catch (e) { /* the prompt retries the download on accept */ }
           cur.onDecision({ action, remote, block });
         } else if (action === "adopt" || action === "end") cur.onDecision({ action, remote });
+        else if (action === "merge") cur.onDecision({ action, remote: winner, changed: activeCore(winner) !== activeCore(local.active) });
 
-        // 4. push this device's version when it wins
-        if (action === "push" && winner) {
+        // 4. push this device's version when it wins (a merge is pushed too: it now holds both devices' work)
+        if ((action === "push" || action === "merge") && winner) {
           let payload = winner;
           if (winner.ended) {
             payload = { sessionId: winner.sessionId, ended: true, updatedAt: winner.updatedAt, outcome: winner.outcome || null, score: winner.score || null, finishedAt: winner.finishedAt || null };
@@ -7153,7 +7364,7 @@ function Pill({ children, tone = "muted", T = LIGHT }) {
       style={{
         background: t.bg, color: t.fg, fontFamily: FONT_UI, fontSize: fs(11), fontWeight: 600,
         letterSpacing: "0.04em", textTransform: "uppercase", padding: "3px 9px",
-        borderRadius: 999, display: "inline-block",
+        borderRadius: 999, display: "inline-flex", alignItems: "center", gap: 5, whiteSpace: "nowrap", lineHeight: 1.3,
       }}
     >
       {children}
@@ -8080,7 +8291,7 @@ function QbankLibraryPanel({ library, onLaunch, onMix, onDelete, onRename, onSet
     setExp(r === "cancelled" ? null : { phase: "done", n: entries.length, result: r }); // closing the share sheet is not an error
   }
   const [mixSize, setMixSize] = useState("all");
-  const [mode, setMode] = useState("tutor"); // how the next Load starts: "timed" | "tutor" (Tutor is preselected)
+  const [mode, setMode] = useState("tutor"); // how the next Load starts: "timed" | "tutor" | "team" (Tutor is preselected)
   const [mixDiff, setMixDiff] = useState("all"); // all | easy | medium | hard | balanced
   const mixInfo = useMemo(
     () => (liveQueue.length >= 1 ? buildMixPool(liveQueue.map((id) => library.find((e) => e.id === id))) : null),
@@ -8671,7 +8882,7 @@ function QbankLibraryPanel({ library, onLaunch, onMix, onDelete, onRename, onSet
             </span>
             {(dueMap.get(e.id) > 0 || (studyInfo.get(e.id) && studyInfo.get(e.id).last > 0)) && (
               <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: 8, marginTop: 6 }}>
-                {dueMap.get(e.id) > 0 && <Pill T={T} tone="amber"><RefreshCw size={11} style={{ marginRight: 4, verticalAlign: "-1px" }} />{t("libDue", { n: dueMap.get(e.id) })}</Pill>}
+                {dueMap.get(e.id) > 0 && <Pill T={T} tone="amber"><RefreshCw size={11} style={{ flexShrink: 0 }} />{t("libDue", { n: dueMap.get(e.id) })}</Pill>}
                 {studyInfo.get(e.id) && studyInfo.get(e.id).last > 0 && (
                   <span style={{ fontFamily: FONT_MONO, fontSize: fs(12), color: T.muted }}>
                     {studyInfo.get(e.id).runs > 0 ? t("libStudied", { n: studyInfo.get(e.id).runs, d: fmtDate(studyInfo.get(e.id).last) }) : t("libStudiedOnly", { d: fmtDate(studyInfo.get(e.id).last) })}
@@ -8681,9 +8892,9 @@ function QbankLibraryPanel({ library, onLaunch, onMix, onDelete, onRename, onSet
             )}
             {(String(e.group || "").trim() || (Array.isArray(e.tags) && e.tags.length > 0) || (opts.showDeck && e.deck)) && (
               <div style={{ display: "flex", flexWrap: "wrap", gap: 6, marginTop: 6 }}>
-                {opts.showDeck && e.deck && <Pill T={T} tone="muted"><Layers size={11} style={{ marginRight: 4, verticalAlign: "-1px" }} />{e.deck.name}</Pill>}
-                {String(e.group || "").trim() && <Pill T={T} tone="muted"><FolderIcon size={11} style={{ marginRight: 4, verticalAlign: "-1px" }} />{e.group}</Pill>}
-                {(Array.isArray(e.tags) ? e.tags : []).map((x) => <Pill key={x} T={T} tone="muted"><TagIcon size={11} style={{ marginRight: 4, verticalAlign: "-1px" }} />{x}</Pill>)}
+                {opts.showDeck && e.deck && <Pill T={T} tone="muted"><Layers size={11} style={{ flexShrink: 0 }} />{e.deck.name}</Pill>}
+                {String(e.group || "").trim() && <Pill T={T} tone="muted"><FolderIcon size={11} style={{ flexShrink: 0 }} />{e.group}</Pill>}
+                {(Array.isArray(e.tags) ? e.tags : []).map((x) => <Pill key={x} T={T} tone="muted"><TagIcon size={11} style={{ flexShrink: 0 }} />{x}</Pill>)}
               </div>
             )}
           </div>
@@ -8691,7 +8902,7 @@ function QbankLibraryPanel({ library, onLaunch, onMix, onDelete, onRename, onSet
           {renameId !== e.id && (
             <button
               onClick={(ev) => { ev.stopPropagation(); if (resumeId === e.id) onResume(); else onMix([e.id], null, "all", mode); }}
-              title={resumeId === e.id ? t("resume") : t("libStartTitle", { mode: mode === "tutor" ? t("tutorShort") : t("timed"), name: e.title })}
+              title={resumeId === e.id ? t("resume") : t("libStartTitle", { mode: mode === "team" ? t("teamShort") : mode === "tutor" ? t("tutorShort") : t("timed"), name: e.title })}
               aria-label={resumeId === e.id ? `${t("resume")}: ${e.title}` : t("libStartTitle", { mode: t("libStart"), name: e.title })}
               style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", gap: 8, fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(13), padding: "7px 14px", whiteSpace: "nowrap", borderRadius: 6, border: "none", cursor: "pointer", flexShrink: 0,
                 background: resumeId === e.id ? T.amber : T.blue, color: T.onBlue, ...(asGrid ? { alignSelf: "center" } : { marginLeft: "auto" }) }}>
@@ -8784,7 +8995,7 @@ function QbankLibraryPanel({ library, onLaunch, onMix, onDelete, onRename, onSet
           <div role="group" aria-label={t("libStartAs")} style={{ display: "inline-flex", alignItems: "center", gap: 8, fontFamily: FONT_UI, fontSize: fs(12.5), color: T.muted }}>
             {!phone && t("libStartAs")}
             <span style={{ display: "inline-flex", border: `1px solid ${T.border}`, borderRadius: 6, overflow: "hidden" }}>
-              {[["timed", t("timed"), Clock], ["tutor", t("tutorShort"), Lightbulb]].map(([m, label, Ic]) => (
+              {[["timed", t("timed"), Clock], ["tutor", t("tutorShort"), Lightbulb], ["team", t("teamShort"), Users]].map(([m, label, Ic]) => (
                 <button key={m} aria-pressed={mode === m} title={label} aria-label={label} onClick={() => setMode(m)} style={{
                   display: "flex", alignItems: "center", gap: 6, fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(12.5), padding: phone ? "9px 12px" : "7px 12px", border: "none",
                   cursor: "pointer", background: mode === m ? T.blue : "transparent", color: mode === m ? T.onBlue : T.ink,
@@ -9053,14 +9264,14 @@ function QbankLibraryPanel({ library, onLaunch, onMix, onDelete, onRename, onSet
               </div>
               <div style={{ display: "flex", flexDirection: "column", gap: 6, alignItems: "flex-start" }}>
                 <div role="group" aria-label={t("modeLabel")} style={{ display: "inline-flex", border: `1px solid ${T.border}`, borderRadius: 6, overflow: "hidden" }}>
-                  {[["timed", t("timed"), Clock], ["tutor", t("tutorShort"), Lightbulb]].map(([m, label, Ic]) => (
+                  {[["timed", t("timed"), Clock], ["tutor", t("tutorShort"), Lightbulb], ["team", t("teamShort"), Users]].map(([m, label, Ic]) => (
                     <button key={m} aria-pressed={mode === m} onClick={() => setMode(m)} style={{
                       display: "flex", alignItems: "center", gap: 6, fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(12.5), padding: "8px 14px", border: "none",
                       cursor: "pointer", background: mode === m ? T.blue : "transparent", color: mode === m ? T.onBlue : T.ink,
                     }}><Ic size={14} /> {label}</button>
                   ))}
                 </div>
-                <span style={{ fontFamily: FONT_UI, fontSize: fs(11.5), color: T.muted, lineHeight: 1.4, maxWidth: 300 }}>{mode === "tutor" ? t("modeTutorHint") : t("modeTimedHint")}</span>
+                <span style={{ fontFamily: FONT_UI, fontSize: fs(11.5), color: T.muted, lineHeight: 1.4, maxWidth: 300 }}>{mode === "team" ? t("modeTeamHint") : mode === "tutor" ? t("modeTutorHint") : t("modeTimedHint")}</span>
                 <PrimaryButton T={T} onClick={() => onMix(liveQueue, effSize, effDiff, mode)} icon={Shuffle} disabled={blockCount < 1}>
                   {liveQueue.length >= 2
                     ? (blockCount === 1 ? t("libMixOne") : t("libMix", { n: blockCount }))
@@ -9105,22 +9316,48 @@ const libraryQuestionCount = (library) => (library || []).reduce((n, e) => n + (
 // "answered/total": questions answered so far over every question in the added Qbanks
 const fmtAnsweredOf = (answered, total) => `${Number(answered).toLocaleString()}/${Number(total).toLocaleString()}`;
 
+// First exposure = the first answer the student locked in for a question, before any Retry. Tutor mode records it
+// (firstResult / firstHint). Timed blocks have no retry, so the final pick is the first exposure. Older sessions have no record:
+// a recorded miss (wasIncorrect) means the first pick was wrong; otherwise the final pick stands.
+function firstExposure(a, q) {
+  if (!a || !a.selected) return null; // unanswered: not an exposure
+  if (a.firstResult) return { correct: a.firstResult === "correct", hint: !!a.firstHint };
+  return { correct: a.selected === q.correctAnswer && !a.wasIncorrect, hint: !!a.hintUsed };
+}
+// firstHintCorrect is its own metric: correct on first exposure AFTER opening a hint. It is a subset of firstCorrect.
+function firstExposureTally(block, bs) {
+  let firstCorrect = 0, firstIncorrect = 0, firstHintCorrect = 0;
+  block.questions.forEach((q) => {
+    const fe = firstExposure(bs.answers && bs.answers[q.id], q);
+    if (!fe) return;
+    if (fe.correct) { firstCorrect += 1; if (fe.hint) firstHintCorrect += 1; } else firstIncorrect += 1;
+  });
+  return { firstCorrect, firstIncorrect, firstHintCorrect };
+}
+
+// Analytics overview: first-exposure tallies. Retest blocks re-ask questions already counted, so they are left out.
 function overviewTotals(history) {
-  let answered = 0, correct = 0, hinted = 0;
+  let plain = 0, hinted = 0, incorrect = 0;
   history.forEach((h) => {
-    const a = Number.isFinite(h.answered) ? h.answered : (Number(h.total) || 0);
-    const c = Math.min(Number(h.correct) || 0, a);
-    let hc = Number.isFinite(h.hintCorrect) ? h.hintCorrect : null;
-    if (hc === null) {
-      hc = 0;
+    if (h.isRetest) return;
+    let fc = Number.isFinite(h.firstCorrect) ? h.firstCorrect : null;
+    let fi = Number.isFinite(h.firstIncorrect) ? h.firstIncorrect : null;
+    let fh = Number.isFinite(h.firstHintCorrect) ? h.firstHintCorrect : null;
+    if (fc === null || fi === null) {
       const snap = lsGet(LS_REVIEW + h.id);
       if (snap && snap.block && snap.blockState && snap.blockState.answers) {
-        hc = snap.block.questions.filter((q) => { const x = snap.blockState.answers[q.id]; return x && x.hintUsed && x.selected === q.correctAnswer; }).length;
+        const tl = firstExposureTally(snap.block, snap.blockState);
+        fc = tl.firstCorrect; fi = tl.firstIncorrect; fh = tl.firstHintCorrect;
+      } else { // an older entry with no snapshot: the final score is the best record left
+        const a = Number.isFinite(h.answered) ? h.answered : (Number(h.total) || 0);
+        fc = Math.min(Number(h.correct) || 0, a); fi = a - fc; fh = Number.isFinite(h.hintCorrect) ? h.hintCorrect : 0;
       }
     }
-    answered += a; correct += c; hinted += Math.min(hc, c);
+    fh = Math.min(fh || 0, fc);
+    hinted += fh; plain += fc - fh; incorrect += fi;
   });
-  return { answered, plain: correct - hinted, hinted, incorrect: answered - correct, correct };
+  const correct = plain + hinted;
+  return { answered: correct + incorrect, plain, hinted, incorrect, correct };
 }
 
 function DonutRing({ totals, T, maxW = 240 }) {
@@ -9240,7 +9477,27 @@ function AnalyticsOverview({ history, qbankCount = 0, qbankQuestions = 0, T }) {
     history.forEach((e) => { const k = new Date(e.finishedAt).toDateString(); const d = days.find((x) => x.key === k); if (d) d.n += Number(e.answered != null ? e.answered : e.total) || 0; });
     const ts = sessionTimeStats(history);
     const pcts = ordered.map((e) => Number(e.pct) || 0);
-    return { trend: recent.map((e) => Number(e.pct) || 0), trendLabels: recent.map((e) => fmt(e.finishedAt)), subjects, days, avgSec: ts.avgSec, totalSec: ts.totalSec, best: pcts.length ? Math.max(...pcts) : 0 };
+    // Knowing (Basic) vs applying (Vignette), from the per-format tallies each finished block saved.
+    const ft = { vc: 0, vt: 0, bc: 0, bt: 0 };
+    const sf = new Map();
+    history.forEach((e) => {
+      const bf = e.byFormat;
+      if (bf && typeof bf === "object") {
+        ft.vc += Number(bf.vignette && bf.vignette.correct) || 0; ft.vt += Number(bf.vignette && bf.vignette.total) || 0;
+        ft.bc += Number(bf.basic && bf.basic.correct) || 0; ft.bt += Number(bf.basic && bf.basic.total) || 0;
+      }
+      (Array.isArray(e.bySubjectFormat) ? e.bySubjectFormat : []).forEach((x) => {
+        const cur = sf.get(x.subject) || { subject: x.subject, vc: 0, vt: 0, bc: 0, bt: 0 };
+        cur.vc += Number(x.vc) || 0; cur.vt += Number(x.vt) || 0; cur.bc += Number(x.bc) || 0; cur.bt += Number(x.bt) || 0; sf.set(x.subject, cur);
+      });
+    });
+    const pctOf = (c, n) => (n > 0 ? Math.round((c / n) * 100) : 0);
+    const fmtGap = {
+      ...ft, vPct: pctOf(ft.vc, ft.vt), bPct: pctOf(ft.bc, ft.bt), ready: ft.vt >= FMT_MIN && ft.bt >= FMT_MIN,
+      rows: [...sf.values()].filter((x) => x.vt >= 2 && x.bt >= 2).map((x) => ({ ...x, vPct: pctOf(x.vc, x.vt), bPct: pctOf(x.bc, x.bt), gap: pctOf(x.bc, x.bt) - pctOf(x.vc, x.vt) })).sort((a, b) => b.gap - a.gap).slice(0, 6),
+    };
+    fmtGap.gap = fmtGap.bPct - fmtGap.vPct;
+    return { fmtGap, trend: recent.map((e) => Number(e.pct) || 0), trendLabels: recent.map((e) => fmt(e.finishedAt)), subjects, days, avgSec: ts.avgSec, totalSec: ts.totalSec, best: pcts.length ? Math.max(...pcts) : 0 };
   }, [history, locale]);
   const noAnswers = totals.answered <= 0;
   if (noAnswers && !qbankQuestions) return null; // nothing answered and no Qbank added yet
@@ -9313,6 +9570,60 @@ function AnalyticsOverview({ history, qbankCount = 0, qbankQuestions = 0, T }) {
             <div style={hint}>{t("anActHint")}</div>
           </div>
         </div>
+      </div>
+
+      {/* Knowing vs applying: Basic (recall) and Vignette (application) accuracy, scored separately, with the gap between them */}
+      <div style={card}>
+        <div style={{ ...head, marginBottom: 4 }}>{t("anFmtTitle")}</div>
+        <div style={{ ...hint, marginTop: 0, marginBottom: 12 }}>{t("anFmtHint")}</div>
+        {data.fmtGap.vt + data.fmtGap.bt === 0 ? (
+          <p style={{ fontFamily: FONT_UI, fontSize: fs(13.5), color: T.muted, margin: 0 }}>{t("anFmtNeed")}</p>
+        ) : !data.fmtGap.ready ? (
+          <p style={{ fontFamily: FONT_UI, fontSize: fs(13.5), color: T.muted, margin: 0 }}>{t("anFmtMin", { n: FMT_MIN, b: data.fmtGap.bt, v: data.fmtGap.vt })}</p>
+        ) : (() => {
+          const g = data.fmtGap;
+          const tone = g.gap >= 15 ? T.red : g.gap >= 5 ? T.amber : T.green;
+          const bar = (label, pct, c, n, color) => (
+            <div>
+              <div style={{ display: "flex", alignItems: "baseline", gap: 8, marginBottom: 3 }}>
+                <span style={{ flex: 1, minWidth: 0, fontFamily: FONT_UI, fontSize: fs(12.5), color: T.ink }}>{label}</span>
+                <span style={{ fontFamily: FONT_MONO, fontSize: fs(11), color: T.muted }}>{c}/{n}</span>
+                <span style={{ fontFamily: FONT_MONO, fontSize: fs(11.5), fontWeight: 700, color, minWidth: 34, textAlign: "right" }}>{pct}%</span>
+              </div>
+              <div style={{ height: 8, borderRadius: 999, background: T.mutedBg }}>
+                <div style={{ width: `${pct}%`, height: "100%", borderRadius: 999, background: color }} />
+              </div>
+            </div>
+          );
+          return (
+            <div style={{ display: "flex", flexWrap: "wrap", gap: 20, alignItems: "center" }}>
+              <div style={{ flex: "1 1 260px", minWidth: 0, display: "grid", gap: 12 }}>
+                {bar(t("anFmtKnow"), g.bPct, g.bc, g.bt, T.blue)}
+                {bar(t("anFmtApply"), g.vPct, g.vc, g.vt, T.purple)}
+              </div>
+              <div style={{ flex: "0 1 220px", textAlign: "center" }}>
+                <div style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(11.5), color: T.muted, textTransform: "uppercase", letterSpacing: "0.05em" }}>{t("anFmtGap")}</div>
+                <div style={{ fontFamily: FONT_UI, fontWeight: 800, fontSize: fs(30), color: tone, lineHeight: 1.2 }}>{g.gap > 0 ? "+" : ""}{g.gap} <span style={{ fontSize: fs(13), fontWeight: 600 }}>{t("anFmtPts")}</span></div>
+                <div style={{ fontFamily: FONT_UI, fontSize: fs(12.5), color: T.muted, lineHeight: 1.45, marginTop: 2 }}>{g.gap >= 15 ? t("anFmtBig") : g.gap <= -5 ? t("anFmtNeg") : t("anFmtSmall")}</div>
+              </div>
+            </div>
+          );
+        })()}
+        {data.fmtGap.ready && data.fmtGap.rows.length > 0 && (
+          <div style={{ marginTop: 16, borderTop: `1px solid ${T.border}`, paddingTop: 12 }}>
+            <div style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(12), color: T.muted, textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: 8 }}>{t("anFmtBySubject")}</div>
+            <div style={{ display: "grid", gap: 6 }}>
+              {data.fmtGap.rows.map((r) => (
+                <div key={r.subject} style={{ display: "flex", alignItems: "baseline", gap: 10 }}>
+                  <span style={{ flex: 1, minWidth: 0, fontFamily: FONT_UI, fontSize: fs(12.5), color: T.ink, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{r.subject}</span>
+                  <span style={{ fontFamily: FONT_MONO, fontSize: fs(11.5), color: T.blue }} title={t("anFmtKnow")}>{r.bPct}%</span>
+                  <span style={{ fontFamily: FONT_MONO, fontSize: fs(11.5), color: T.purple }} title={t("anFmtApply")}>{r.vPct}%</span>
+                  <span style={{ fontFamily: FONT_MONO, fontSize: fs(11.5), fontWeight: 700, minWidth: 40, textAlign: "right", color: r.gap >= 15 ? T.red : r.gap >= 5 ? T.amber : T.green }}>{r.gap > 0 ? "+" : ""}{r.gap}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
       </div>
       </>)}
     </div>
@@ -10499,7 +10810,7 @@ function SessionHistoryPanel({ history, qbankCount = 0, qbankQuestions = 0, onDe
                   <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap" }}>
                     <span style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(14.5), color: T.ink, overflowWrap: "anywhere" }}>{label}</span>
                     <Pill T={T} tone={kindTone[h.kind] || "muted"}>{t(kindKey[h.kind] || "histKindCustom")}</Pill>
-                    <Pill T={T} tone="muted">{h.mode === "tutor" ? t("tutorShort") : t("timed")}</Pill>
+                    <Pill T={T} tone="muted">{h.team ? t("teamShort") : h.mode === "tutor" ? t("tutorShort") : t("timed")}</Pill>
                     <Pill T={T} tone={h.pct >= 70 ? "green" : "red"}>{h.pct}% ({h.correct}/{h.total})</Pill>
                   </div>
                   <span style={{ fontFamily: FONT_MONO, fontSize: fs(12), color: T.muted }}>
@@ -10934,20 +11245,19 @@ function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], dri
   const [text, setText] = useState("");
   const [error, setError] = useState("");
   const [showSchema, setShowSchema] = useState(false);
-  const [showDevSchema, setShowDevSchema] = useState(false);
   const [showRecipe, setShowRecipe] = useState(false); // the recipe text itself stays folded until the chevron is tapped; Copy works either way
   const [copied, setCopied] = useState(false);
   const [recipeSize, setRecipeSize] = useState(25);
-  const [recipeCustom, setRecipeCustom] = useState(""); // typed custom question count; "" = a preset is active
-  const [recipeStyle, setRecipeStyle] = useState("vignette"); // vignette (default) | basic
+  const [recipeStyle, setRecipeStyle] = useState("vignette"); // vignette (default) | basic | mixed (70% vignette / 30% basic)
   const [recipeBasicFormat, setRecipeBasicFormat] = useState("mixed"); // only used when recipeStyle === "basic"
   const [recipeDifficulty, setRecipeDifficulty] = useState("mixed"); // mixed (recommended) | easy | medium | hard
   const [recipeFocusMode, setRecipeFocusMode] = useState("standard");
-  const [recipeFocusValue, setRecipeFocusValue] = useState("");
+  const [recipeFocusValue, setRecipeFocusValue] = useState(""); // the organ system or discipline picked for a focused block
+  const [recipeFocusTopics, setRecipeFocusTopics] = useState(""); // "Topics this week" (comma separated)
   const [showDisclaimer, setShowDisclaimer] = useState(false);
   const [bundleCount, setBundleCount] = useState(0); // blocks detected in the pasted text (>= 2 → a bundle)
-  const [libType, setLibTypeRaw] = useState(() => { const v = lsGet(LS_LIBTYPE); return v && ["all", "qbank"].includes(v.type) ? v.type : "qbank"; });
-  const setLibType = (type) => { setLibTypeRaw(type); lsSet(LS_LIBTYPE, JSON.stringify({ type })); };
+  const [libType, setLibTypeRaw] = useState("qbank"); // the Library always opens on its Qbank tab (the last-used sub-tab is no longer restored)
+  const setLibType = (type) => { setLibTypeRaw(type); };
   const importRef = useRef(null);
   const [nbOpen, setNbOpen] = useState(false); // NotebookLM Notebooks: second chevron beside it, also collapsed by default
   const [pasteOpen, setPasteOpen] = useState(true); // the paste box can be collapsed; Load / Save stay available
@@ -11002,20 +11312,20 @@ function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], dri
     const rows = (b.exams && b.exams[0] && b.exams[0].ready && b.exams[0].ready.rows) || [];
     return (b.studyFocus || []).map((topic) => { const r = rows.find((x) => topicMatch(x.topic, topic)); return { topic, pct: r && r.pct != null ? r.pct : null }; });
   }, [spCtx.profile, sessionLog, new Date().toDateString()]); // eslint-disable-line
-  const focusList = recipeFocusValue.split(",").map((x) => x.trim()).filter(Boolean);
+  const focusList = (recipeFocusMode === "standard" ? "" : recipeFocusTopics).split(",").map((x) => x.trim()).filter(Boolean);
   const toggleTutorTopic = (topic) => {
     const has = focusList.some((x) => topicMatch(x, topic));
     const next = has ? focusList.filter((x) => !topicMatch(x, topic)) : [...focusList, topic];
-    setRecipeFocusMode(next.length ? "systems" : recipeFocusMode); setRecipeFocusValue(next.join(", "));
+    setRecipeFocusMode(next.length && recipeFocusMode === "standard" ? "systems" : recipeFocusMode); setRecipeFocusTopics(next.join(", "));
   };
   useEffect(() => { // the tutor's "Start a <subject> block": pre-fill the Question Recipe
     if (!spCtx.pendingFocus) return;
-    setRecipeFocusMode("systems"); setRecipeFocusValue(spCtx.pendingFocus); spCtx.consumeFocus();
+    setRecipeFocusMode("systems"); setRecipeFocusValue(""); setRecipeFocusTopics(spCtx.pendingFocus); spCtx.consumeFocus();
   }, [spCtx.pendingFocus]); // eslint-disable-line
   // Library entry (if any) that owns the in-progress block — it gets the Resume Session button.
   const resumeId = session?.block?.libraryId && library.some((e) => e.id === session.block.libraryId) ? session.block.libraryId : null;
 
-  const recipeText = buildQuestionRecipe({ size: recipeSize, focusMode: recipeFocusMode, focusValue: recipeFocusValue.trim(), lang, difficulty: recipeDifficulty, style: recipeStyle, basicFormat: recipeBasicFormat });
+  const recipeText = buildQuestionRecipe({ size: recipeSize, focusMode: recipeFocusMode, focusValue: recipeFocusValue.trim(), focusTopics: recipeFocusTopics, lang, difficulty: recipeDifficulty, style: recipeStyle, basicFormat: recipeBasicFormat });
 
   // Shared by "Load exam" and "Save to Library". The loader is tolerant, but if anything was left out or changed in a way
   // that matters, show it and let the student confirm rather than silently loading less than they pasted.
@@ -11188,7 +11498,7 @@ function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], dri
                   {t("recipeStyle")}
                 </div>
                 <div role="group" aria-label={t("recipeStyle")} style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
-                  {["vignette", "basic"].map((id) => (
+                  {["vignette", "basic", "mixed"].map((id) => (
                     <button
                       key={id}
                       type="button"
@@ -11206,7 +11516,7 @@ function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], dri
                   ))}
                 </div>
                 <div style={{ fontFamily: FONT_UI, fontSize: fs(12), color: T.muted, lineHeight: 1.5, marginTop: 6 }}>
-                  {recipeStyle === "basic" ? t("recipeStyleHintBasic") : t("recipeStyleHintVignette")}
+                  {recipeStyle === "basic" ? t("recipeStyleHintBasic") : recipeStyle === "mixed" ? `${t("recipeStyleHintMixed")} ${(() => { const c = mixedFormatCounts(recipeSize); return t("recipeStyleMixedCounts", { v: c.vignette, b: c.basic }); })()}` : t("recipeStyleHintVignette")}
                 </div>
                 {recipeStyle === "basic" && (
                   <div style={{ marginTop: 14 }}>
@@ -11240,47 +11550,49 @@ function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], dri
             </div>
 
             <div style={{ display: "flex", flexWrap: "wrap", gap: 24, marginBottom: 18 }}>
-              <div>
+              <div style={{ width: "min(75vw, 100%)", minWidth: 220 }}>
                 <div style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(12), color: T.ink, textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: 8 }}>
                   {t("blockSize")}
                 </div>
-                <div style={{ display: "flex", gap: 6, flexWrap: "wrap", alignItems: "center" }}>
-                  {BLOCK_SIZES.map((n) => {
-                    const active = recipeCustom === "" && recipeSize === n;
-                    return (
-                      <button
-                        key={n}
-                        onClick={() => { setRecipeSize(n); setRecipeCustom(""); }}
-                        style={{
-                          fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(13), padding: "7px 14px", borderRadius: 6,
-                          border: `1.5px solid ${active ? T.blue : T.border}`,
-                          background: active ? T.blueLight : "transparent",
-                          color: active ? T.blueDeep : T.ink, cursor: "pointer",
-                        }}
-                      >
-                        {n}
-                      </button>
-                    );
-                  })}
+                <div style={{ width: "100%" }}>
+                  <div style={{ display: "flex", alignItems: "baseline", gap: 6, marginBottom: 6 }}>
+                    <span style={{ fontFamily: FONT_MONO, fontWeight: 700, fontSize: fs(20), color: T.blueDeep, minWidth: 28 }}>{recipeSize}</span>
+                    <span style={{ fontFamily: FONT_UI, fontSize: fs(12), color: T.muted }}>{t("qCount", { n: "" }).trim() || "questions"}</span>
+                  </div>
                   <input
-                    type="text"
-                    inputMode="numeric"
-                    value={recipeCustom}
-                    aria-label={t("customSize")}
-                    placeholder={`${t("customSize")} (${t("customSizePh", { n: MAX_RECIPE_SIZE })})`}
-                    onChange={(e) => {
-                      const digits = e.target.value.replace(/\D/g, "").slice(0, 3);
-                      if (digits === "") { setRecipeCustom(""); return; }
-                      const n = Math.max(1, Math.min(MAX_RECIPE_SIZE, parseInt(digits, 10)));
-                      setRecipeCustom(String(n));
-                      setRecipeSize(n);
-                    }}
-                    style={{
-                      width: Math.round(150 * Math.max(1, TEXT_SCALE)), boxSizing: "border-box", fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(13), color: T.ink,
-                      background: recipeCustom !== "" ? T.blueLight : "transparent",
-                      border: `1.5px solid ${recipeCustom !== "" ? T.blue : T.border}`, borderRadius: 6, padding: "7px 10px",
-                    }}
+                    type="range"
+                    min={1}
+                    max={MAX_RECIPE_SIZE}
+                    step={1}
+                    value={recipeSize}
+                    aria-label={t("blockSize")}
+                    aria-valuetext={String(recipeSize)}
+                    onChange={(e) => setRecipeSize(Math.max(1, Math.min(MAX_RECIPE_SIZE, parseInt(e.target.value, 10) || 1)))}
+                    style={{ width: "100%", margin: 0, accentColor: T.blue, cursor: "pointer", display: "block" }}
                   />
+                  {/* Notches: tap one to jump there, or drag the slider anywhere between 1 and 40. Positions match the native thumb travel (8px inset each side). */}
+                  <div style={{ position: "relative", height: 34, marginTop: 2 }}>
+                    {BLOCK_SIZES.map((n) => {
+                      const frac = (n - 1) / (MAX_RECIPE_SIZE - 1);
+                      const active = recipeSize === n;
+                      return (
+                        <button
+                          key={n}
+                          type="button"
+                          onClick={() => setRecipeSize(n)}
+                          aria-label={`${t("blockSize")}: ${n}`}
+                          style={{
+                            position: "absolute", top: 0, left: `calc(8px + (100% - 16px) * ${frac})`, transform: "translateX(-50%)",
+                            display: "flex", flexDirection: "column", alignItems: "center", gap: 2,
+                            background: "transparent", border: "none", padding: "0 4px", cursor: "pointer",
+                          }}
+                        >
+                          <span aria-hidden="true" style={{ width: 2, height: 8, borderRadius: 1, background: active ? T.blue : T.muted, opacity: active ? 1 : 0.6 }} />
+                          <span style={{ fontFamily: FONT_UI, fontWeight: active ? 700 : 600, fontSize: fs(12), color: active ? T.blueDeep : T.muted }}>{n}</span>
+                        </button>
+                      );
+                    })}
+                  </div>
                 </div>
               </div>
 
@@ -11288,21 +11600,58 @@ function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], dri
                 <div style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(12), color: T.ink, textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: 8 }}>
                   {t("focus")}
                 </div>
-                <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
-                  {FOCUS_MODES.map((m) => (
-                    <button
-                      key={m.id}
-                      onClick={() => setRecipeFocusMode(m.id)}
-                      style={{
-                        fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(13), padding: "7px 14px", borderRadius: 6,
-                        border: `1.5px solid ${recipeFocusMode === m.id ? T.blue : T.border}`,
-                        background: recipeFocusMode === m.id ? T.blueLight : "transparent",
-                        color: recipeFocusMode === m.id ? T.blueDeep : T.ink, cursor: "pointer",
-                      }}
-                    >
-                      {t("focus." + m.id)}
-                    </button>
-                  ))}
+                <div role="radiogroup" aria-label={t("focus")} style={{ display: "grid", gap: 10 }}>
+                  {FOCUS_MODES.map((m) => {
+                    const on = recipeFocusMode === m.id;
+                    const sys = m.id === "systems";
+                    const fieldBox = { flex: "1 1 200px", minWidth: 0, boxSizing: "border-box", fontFamily: FONT_UI, fontSize: Math.max(16, fs(13.5)), color: T.ink, background: T.paper, border: `1px solid ${T.border}`, borderRadius: 6, padding: "8px 10px" }; // 16px text also stops iOS zooming in
+                    const fieldLbl = { flex: "0 0 auto", minWidth: 118, fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(12.5), color: T.muted };
+                    return (
+                      <div key={m.id}>
+                        <label style={{ display: "inline-flex", alignItems: "center", gap: 8, cursor: "pointer", fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(13.5), color: on ? T.blueDeep : T.ink }}>
+                          <input
+                            type="radio"
+                            name="recipe-focus"
+                            checked={on}
+                            onChange={() => { if (!on) { setRecipeFocusMode(m.id); setRecipeFocusValue(""); } }}
+                            style={{ accentColor: T.blue, margin: 0, width: 16, height: 16, flexShrink: 0 }}
+                          />
+                          {t("focus." + m.id)}
+                        </label>
+                        {on && m.id !== "standard" && (
+                          <div style={{ marginLeft: 24, marginTop: 8, display: "grid", gap: 8, maxWidth: 720 }}>
+                            <div style={{ display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap" }}>
+                              <label htmlFor="recipe-focus-value" style={fieldLbl}>{t(sys ? "focusSystemLbl" : "focusDiscLbl")}</label>
+                              <input
+                                id="recipe-focus-value"
+                                type="text"
+                                list={sys ? "recipe-systems-list" : "recipe-disciplines-list"}
+                                value={recipeFocusValue}
+                                onChange={(e) => setRecipeFocusValue(e.target.value)}
+                                placeholder={t(sys ? "phSystems" : "phDisc")}
+                                autoComplete="off"
+                                style={fieldBox}
+                              />
+                              <datalist id={sys ? "recipe-systems-list" : "recipe-disciplines-list"}>
+                                {(sys ? LIB_SYSTEMS : LIB_DISCIPLINES).map(([name]) => <option key={name} value={name} />)}
+                              </datalist>
+                            </div>
+                            <div style={{ display: "flex", alignItems: "flex-start", gap: 10, flexWrap: "wrap" }}>
+                              <label htmlFor="recipe-focus-topics" style={{ ...fieldLbl, paddingTop: 9 }}>{t("focusTopicsLbl")}</label>
+                              <textarea
+                                id="recipe-focus-topics"
+                                value={recipeFocusTopics}
+                                rows={4}
+                                onChange={(e) => setRecipeFocusTopics(e.target.value)}
+                                placeholder={t(sys ? "phTopicsSys" : "phTopicsDisc")}
+                                style={{ ...fieldBox, lineHeight: 1.5, minHeight: 120, resize: "vertical", display: "block" }}
+                              />
+                            </div>
+                          </div>
+                        )}
+                      </div>
+                    );
+                  })}
                 </div>
               </div>
 
@@ -11336,19 +11685,6 @@ function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], dri
                 : t("diffHint" + recipeDifficulty.charAt(0).toUpperCase() + recipeDifficulty.slice(1))}
             </p>
 
-            {recipeFocusMode !== "standard" && (
-              <textarea
-                value={recipeFocusValue}
-                rows={2}
-                onChange={(e) => setRecipeFocusValue(e.target.value)}
-                placeholder={recipeFocusMode === "systems" ? t("phSystems") : t("phDisc")}
-                style={{
-                  width: "100%", boxSizing: "border-box", fontFamily: FONT_UI, fontSize: Math.max(16, fs(13.5)), color: T.ink, lineHeight: 1.4,
-                  minHeight: 78, resize: "vertical", display: "block", // twice the old one-line height: easier to type into on a phone (16px text also stops iOS zooming in)
-                  background: T.paper, border: `1px solid ${T.border}`, borderRadius: 6, padding: "9px 12px", marginBottom: 18,
-                }}
-              />
-            )}
 
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 8 }}>
               <button type="button" onClick={() => setShowRecipe((v) => !v)} aria-expanded={showRecipe}
@@ -11373,27 +11709,6 @@ function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], dri
                 wordBreak: "break-word", lineHeight: 1.6, margin: 0,
               }}>
                 {recipeText}
-              </pre>
-            )}
-            <button
-              onClick={() => setShowDevSchema((v) => !v)}
-              aria-expanded={showDevSchema}
-              style={{
-                marginTop: 18, width: "100%", display: "flex", alignItems: "center", justifyContent: "center", gap: 8,
-                fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(13), color: T.ink, background: T.mutedBg,
-                border: `1px solid ${T.border}`, borderRadius: 6, padding: "10px 14px", cursor: "pointer",
-              }}
-            >
-              {showDevSchema ? <ChevronUp size={15} /> : <ChevronDown size={15} />}
-              {showDevSchema ? t("hideSchema") : t("viewSchema")}
-            </button>
-            {showDevSchema && (
-              <pre style={{
-                fontFamily: FONT_MONO, fontSize: fs(11.5), color: T.ink, background: T.paper,
-                border: `1px solid ${T.border}`, borderRadius: 8, padding: 14, marginTop: 10, marginBottom: 0,
-                whiteSpace: "pre-wrap", wordBreak: "break-word", lineHeight: 1.6,
-              }}>
-                {SCHEMA_TEXT}
               </pre>
             )}
           </div>
@@ -12008,10 +12323,10 @@ function Lobby({ examData, blockStates, library = [], onStart, onReview, onHome,
                 : { display: "flex", alignItems: "center", gap: 16, marginLeft: "auto", flexWrap: "wrap" }}>
                 <ExportShareButton T={T} fullWidth={narrow} wrapStyle={narrow ? { order: 3 } : undefined} getBlock={() => ({ block: examData.blocks[idx], examTitle: examData.examTitle })} />
                 {bs.status !== "done" && (
-                  <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: 4, width: narrow ? "100%" : 270, maxWidth: "100%" }}>
+                  <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: 4, width: narrow ? "100%" : 320, maxWidth: "100%" }}>
                     <div role="group" aria-label={t("modeLabel")} style={{ display: narrow ? "flex" : "inline-flex", width: narrow ? "100%" : undefined, border: `1px solid ${T.border}`, borderRadius: 6, overflow: "hidden", opacity: bs.status === "pending" ? 1 : 0.6 }}>
-                      {[["timed", t("timed"), Clock], ["tutor", t("tutorShort"), Lightbulb]].map(([m, label, Ic]) => {
-                        const on = m === "tutor" ? bs.tutor : bs.timed;
+                      {[["timed", t("timed"), Clock], ["tutor", t("tutorShort"), Lightbulb], ["team", t("teamShort"), Users]].map(([m, label, Ic]) => {
+                        const on = m === "team" ? !!bs.team : m === "tutor" ? bs.tutor && !bs.team : bs.timed;
                         return (
                           <button key={m} aria-pressed={on} disabled={bs.status !== "pending"} onClick={() => onSetMode(idx, m)}
                             style={{
@@ -12024,21 +12339,23 @@ function Lobby({ examData, blockStates, library = [], onStart, onReview, onHome,
                       })}
                     </div>
                     <span style={{ fontFamily: FONT_UI, fontSize: fs(11.5), color: T.muted, lineHeight: 1.4, minHeight: narrow ? undefined : "2.8em" }}>
-                      {bs.status !== "pending" ? t("modeLocked") : bs.tutor ? t("modeTutorHint") : t("modeTimedHint")}
+                      {bs.status !== "pending" ? t("modeLocked") : bs.team ? t("modeTeamHint") : bs.tutor ? t("modeTutorHint") : t("modeTimedHint")}
                     </span>
                   </div>
                 )}
                 {bs.status === "done" ? (
                   <>
                     <GhostButton T={T} onClick={() => onReview(idx)} icon={ChevronRight} style={narrow ? { width: "100%" } : undefined}>{t("review")}</GhostButton>
-                    {bs.score.correct < bs.score.total && (
+                    {!bs.team && bs.score.correct < bs.score.total && ( // Team has no retries
                       <GhostButton T={T} onClick={() => onRetestMissed(idx)} icon={RotateCcw} style={narrow ? { width: "100%" } : undefined}>
                         {t("retestMissed", { n: bs.score.total - bs.score.correct })}
                       </GhostButton>
                     )}
-                    <GhostButton T={T} onClick={() => onRetestAll(idx)} icon={RotateCcw} style={narrow ? { width: "100%" } : undefined}>
-                      {t("retestAll", { n: total })}
-                    </GhostButton>
+                    {!bs.team && (
+                      <GhostButton T={T} onClick={() => onRetestAll(idx)} icon={RotateCcw} style={narrow ? { width: "100%" } : undefined}>
+                        {t("retestAll", { n: total })}
+                      </GhostButton>
+                    )}
                   </>
                 ) : (
                   <PrimaryButton T={T} onClick={() => onStart(idx)} icon={Play} style={narrow ? { width: "100%" } : undefined}>
@@ -12316,6 +12633,7 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onAbortBl
   const T = darkMode ? DARK : LIGHT;
   const { t, lang } = useI18n();
   const tutorMode = !!blockState.tutor;
+  const teamMode = !!blockState.team; // Team: Tutor-style instant feedback, but no Key Info / Tutor's Tip and no retries
   const navCollapsed = tutorMode ? navCollapsedPref : false; // Timed mode (like the real exam) has a fixed question list: no collapse control, never collapsed
   const vp = useViewport();
   const compact = vp.w < 980;           // tablets / small windows: lab panel overlays, navigator slims down
@@ -12328,17 +12646,20 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onAbortBl
   const q = questions[qIdx];
   const qState = blockState.answers[q.id] || { selected: null, struck: [], flagged: false, checked: false };
   const omitI = moreOpen || omitAsk ? omitInfo(q.id) : null; // where this question lives (saved Qbank or only this session) and whether it is the last one standing
-  // Tutor mode: once an answer is checked, show right/wrong + explanations and lock the question until reset.
+  // Tutor mode: once an answer is checked, show right/wrong + explanations and lock the question until retry.
   const revealed = tutorMode && !!qState.checked && !!qState.selected;
   // A wrong pick does NOT disclose the correct answer: the student asks for it with a button (qState.answerRevealed).
   const isCorrectPick = revealed && qState.selected === q.correctAnswer;
   const showAnswer = revealed && (isCorrectPick || !!qState.answerRevealed);
+  // Team mode: once a choice is picked, every explanation stays hidden and Show Answer is replaced by a Reveal button
+  // until the team taps Reveal (qState.teamRevealed).
+  const teamHold = teamMode && revealed && !qState.teamRevealed;
   // "Show / hide all explanations": enabled once the correct answer is showing. It drives the correct answer's explanation and
   // every wrong choice's analysis together (an own wrong pick opens by default, the others closed — see analysisOpen below).
   const distractorKeys = q.options.filter((o) => o.key !== q.correctAnswer && q.distractorAnalysis?.[o.key]).map((o) => o.key);
   const allExplShown = showAnswer && !explHidden[q.id] && distractorKeys.every((k) => (qState.selected === k) !== toggledDistractors.includes(k));
   function toggleAllExplanations() {
-    if (!showAnswer) return;
+    if (!showAnswer || teamHold) return;
     const open = !allExplShown;
     setExplHidden((cur) => ({ ...cur, [q.id]: !open }));
     setToggledDistractors(distractorKeys.filter((k) => (qState.selected === k) !== open));
@@ -12384,7 +12705,7 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onAbortBl
         if (k === "n") { e.preventDefault(); goNext(); return; }
         if (k === "p") { e.preventDefault(); goPrev(); return; }
         if (k === "j") { e.preventDefault(); toggleFlag(); return; }
-        if (k === "r" && tutorMode) { e.preventDefault(); resetQuestion(); return; }
+        if (k === "r" && tutorMode && !teamMode) { e.preventDefault(); retryQuestion(); return; }
         return;
       }
 
@@ -12404,7 +12725,7 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onAbortBl
     }
     document.addEventListener("keydown", handler);
     return () => document.removeEventListener("keydown", handler);
-  }, [q, qState, locked, confirmSubmit, confirmTimerOff, timeUp, tutorMode]);
+  }, [q, qState, locked, confirmSubmit, confirmTimerOff, timeUp, tutorMode, teamMode]);
 
   const highlightBtnRef = useRef(null);
   useEffect(() => {
@@ -12476,7 +12797,9 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onAbortBl
   }, [blockState.timeLeft, blockState.status, timed]);
 
   function updateQState(patch) {
-    setBlockState((prev) => ({ ...prev, answers: { ...prev.answers, [q.id]: { ...qState, ...patch } } }));
+    // `at` stamps the last edit of this question so a cross-device merge can keep the newest version of each question.
+    const at = Date.now();
+    setBlockState((prev) => ({ ...prev, answers: { ...prev.answers, [q.id]: { ...qState, ...patch, at } } }));
   }
   function setNote(text) {
     setBlockState((prev) => ({ ...prev, notes: { ...prev.notes, [q.id]: text } }));
@@ -12485,16 +12808,20 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onAbortBl
     if (revealed || qState.struck.includes(key)) return;
     if (tutorMode) {
       // Tutor mode: picking an option checks it immediately and locks the question.
-      // wasIncorrect is sticky like hintUsed: a wrong pick stays on record even after Reset Question and a later correct answer.
-      updateQState({ selected: key, checked: true, ...(key !== q.correctAnswer ? { wasIncorrect: true } : {}) });
+      // wasIncorrect is sticky like hintUsed: a wrong pick stays on record even after Retry Question and a later correct answer.
+      // First exposure: the very first answer locked in for this question, with whether a hint was opened before it. Recorded once.
+      const firstPatch = qState.firstResult ? {} : { firstResult: key === q.correctAnswer ? "correct" : "incorrect", firstHint: !!qState.hintUsed, firstAt: Date.now() };
+      updateQState({ selected: key, checked: true, ...firstPatch, ...(key !== q.correctAnswer ? { wasIncorrect: true } : {}) });
       return;
     }
     updateQState({ selected: qState.selected === key ? null : key, checked: false });
   }
   // Tutor mode: wipe this question's answer, strikeouts and feedback so it can be retried. The flag is kept.
-  // hintUsed and wasIncorrect are deliberately sticky: a hint seen, or a wrong pick made, before a reset still counts afterwards.
-  function resetQuestion() {
-    updateQState({ selected: null, struck: [], checked: false, answerRevealed: false, keyInfoOn: false, tipOpen: false });
+  // hintUsed and wasIncorrect are deliberately sticky: a hint seen, or a wrong pick made, before a retry still counts afterwards.
+  // firstResult / firstHint are never touched here: they record the FIRST exposure only and survive every retry.
+  function retryQuestion() {
+    if (teamMode) return; // Team has no retries
+    updateQState({ selected: null, struck: [], checked: false, answerRevealed: false, teamRevealed: false, keyInfoOn: false, tipOpen: false });
     setShowHint(false);
     setToggledDistractors([]);
   }
@@ -12503,6 +12830,7 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onAbortBl
   }
   // Toggle Key Info / Tutor's Tip. Opening either one before the answer is checked flags the question as hintUsed.
   function toggleTutorAid(field) {
+    if (teamMode) return; // Team has no Key Info / Tutor's Tip
     const next = !qState[field];
     const patch = { [field]: next };
     if (next && !revealed) patch.hintUsed = true;
@@ -12662,7 +12990,7 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onAbortBl
                   {t("hints")}
                 </label>
                 <div style={{ fontFamily: FONT_UI, fontSize: fs(13), marginBottom: 12 }}>
-                  <span style={{ color: T.muted }}>{t("modeLabel")}: </span><strong>{tutorMode ? t("tutorShort") : t("timed")}</strong>
+                  <span style={{ color: T.muted }}>{t("modeLabel")}: </span><strong>{teamMode ? t("teamShort") : tutorMode ? t("tutorShort") : t("timed")}</strong>
                   <div style={{ fontSize: fs(11.5), color: T.muted, lineHeight: 1.45, marginTop: 2 }}>{t("modeLocked")}</div>
                 </div>
                 {!tutorMode && (
@@ -12796,7 +13124,7 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onAbortBl
 
             {hintAvailable && (
               <button
-                onClick={() => setShowHint((v) => !v)}
+                onClick={() => { if (!showHint && !qState.hintUsed) updateQState({ hintUsed: true }); setShowHint((v) => !v); }}
                 style={{
                   display: "flex", alignItems: "center", gap: 6, background: "transparent",
                   border: `1px solid ${T.border}`, borderRadius: 6, padding: "6px 12px", cursor: "pointer",
@@ -12836,7 +13164,7 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onAbortBl
             onKeyUp={(e) => handleSelectionInContainer(q.id, "vignette", e.currentTarget)}
             style={{ fontFamily: FONT_DISPLAY, fontSize: fs(17), lineHeight: 1.75, color: T.ink, margin: "0", cursor: "text" }}
           >
-            {renderHighlightedText(q.vignette, highlightsMap[q.id]?.vignette, (hlId) => removeHighlight(q.id, "vignette", hlId), tutorMode && qState.keyInfoOn ? clueInfo.ranges : null, clueStyleFor(T))}
+            {renderHighlightedText(q.vignette, highlightsMap[q.id]?.vignette, (hlId) => removeHighlight(q.id, "vignette", hlId), tutorMode && !teamMode && qState.keyInfoOn ? clueInfo.ranges : null, clueStyleFor(T))}
           </p>
           <p
             data-hl-field="stem"
@@ -12849,10 +13177,10 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onAbortBl
           {tutorMode && (
             <div style={{ margin: "0 0 18px" }}>
               <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: 4, borderBottom: `1px solid ${T.border}` }}>
-                {[
+                {(teamMode ? [] : [
                   { id: "keyInfoOn", label: "keyInfoBtn", available: clueInfo.phrases.length > 0, missing: "noKeyInfo", on: !!qState.keyInfoOn, click: () => toggleTutorAid("keyInfoOn") },
                   { id: "tipOpen", label: "tipBtn", available: !!q.attendingTip, missing: "noTipAvail", on: !!qState.tipOpen, expandable: true, click: () => toggleTutorAid("tipOpen") },
-                ].map((b) => {
+                ]).map((b) => {
                   const on = b.on && b.available;
                   return (
                     <button
@@ -12929,7 +13257,7 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onAbortBl
                 </div>
                 </div>
               </div>
-              {qState.tipOpen && q.attendingTip && (
+              {!teamMode && qState.tipOpen && q.attendingTip && (
                 <div style={{ background: T.paper, borderLeft: `3px solid ${T.blue}`, borderRadius: 8, padding: "12px 14px", marginTop: 10, maxWidth: 720 }}>
                   <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(12), color: T.blue, marginBottom: 4, textTransform: "uppercase", letterSpacing: "0.05em", display: "flex", alignItems: "center", gap: 6 }}>
                     <Stethoscope size={14} /> {t("attendingTip")}
@@ -12952,10 +13280,10 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onAbortBl
               const showOtherWrong = showAnswer && !isCorrectOpt && !showWrong;
               // Distractor dropdown: on the student's own wrong pick right away, on every wrong choice once the answer is shown
               // (offering it only on wrong choices before that would reveal the correct one by omission).
-              const hasAnalysis = revealed && !isCorrectOpt && !!q.distractorAnalysis?.[opt.key] && (showAnswer || isSelected);
+              const hasAnalysis = revealed && !teamHold && !isCorrectOpt && !!q.distractorAnalysis?.[opt.key] && (showAnswer || isSelected);
               const analysisOpen = hasAnalysis && (isSelected !== toggledDistractors.includes(opt.key)); // own wrong pick auto-opens
               // Once revealed, the choice itself is the toggle: tap it to show / hide its explanation (no separate buttons).
-              const canToggle = hasAnalysis || showCorrect;
+              const canToggle = hasAnalysis || (showCorrect && !teamHold);
               const expanded = showCorrect ? !explHidden[q.id] : analysisOpen;
               const toggleExpl = () => { if (showCorrect) setExplHidden((cur) => ({ ...cur, [q.id]: !cur[q.id] })); else toggleDistractor(opt.key); };
               return (
@@ -13017,7 +13345,7 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onAbortBl
                       </div>
                     </div>
                   )}
-                  {showCorrect && !explHidden[q.id] && (
+                  {showCorrect && !teamHold && !explHidden[q.id] && (
                     <div style={{ background: hinted ? HINT_YELLOW_SOFT : T.greenSoft, padding: "12px 14px 14px 42px" }}>
                       <ExplanationPanels q={q} T={T} showTip={false} showClues={false} flat rating={q.meta?.rating ?? null} onRate={tutorMode && onRate ? (k) => onRate(q, k) : null} srs={tutorMode} />
                     </div>
@@ -13030,16 +13358,19 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onAbortBl
           {/* Tutor mode: a wrong pick does not disclose the answer until asked for */}
           {tutorMode && (showAnswer || (revealed && !isCorrectPick) || qState.selected || qState.struck.length > 0 || retestPill) && (
             <div style={{ marginTop: 12, display: "flex", gap: 10, flexWrap: "wrap", alignItems: "center", maxWidth: 640 }}>
-              {revealed && !isCorrectPick && !showAnswer && (
+              {teamHold && (
+                <GhostButton T={T} onClick={() => updateQState({ teamRevealed: true, answerRevealed: true })}>{t("revealBtn")}</GhostButton>
+              )}
+              {!teamHold && revealed && !isCorrectPick && !showAnswer && (
                 <GhostButton T={T} onClick={() => updateQState({ answerRevealed: true })}>{t("showCorrectBtn")}</GhostButton>
               )}
-              {showAnswer && (qState.selected || qState.struck.length > 0) && (
+              {showAnswer && !teamHold && (qState.selected || qState.struck.length > 0) && (
                 <GhostButton T={T} icon={allExplShown ? ChevronUp : ChevronDown} onClick={toggleAllExplanations}>
                   {allExplShown ? t("explHideAll") : t("explShowAll")}
                 </GhostButton>
               )}
-              {(qState.selected || qState.struck.length > 0) && (
-                <GhostButton T={T} icon={RotateCcw} onClick={resetQuestion} style={{ marginLeft: "auto" }}>{t("resetQ")}</GhostButton>
+              {!teamMode && (qState.selected || qState.struck.length > 0) && (
+                <GhostButton T={T} icon={RotateCcw} onClick={retryQuestion} style={{ marginLeft: "auto" }}>{t("resetQ")}</GhostButton>
               )}
               {retestPill && <div style={{ marginLeft: (qState.selected || qState.struck.length > 0) ? 0 : "auto" }}>{retestPill}</div>}
             </div>
@@ -13673,6 +14004,7 @@ function BlockResults({ block, blockState, blockIdx, history, onBackToLobby, onR
   const attempts = history.filter((h) => h.originIdx === originIdx);
   const hintCount = block.questions.filter((q) => blockState.answers[q.id]?.hintUsed).length;
   const missedBeforeCount = block.questions.filter((q) => blockState.answers[q.id]?.wasIncorrect).length;
+  const fe = useMemo(() => firstExposureTally(block, blockState), [block, blockState]);
 
   const subjectRows = useMemo(() => {
     const map = {};
@@ -13714,6 +14046,18 @@ function BlockResults({ block, blockState, blockIdx, history, onBackToLobby, onR
         {missedBeforeCount > 0 && <Pill T={T} tone="red">{t("missedBeforeN", { n: missedBeforeCount })}</Pill>}
       </div>
 
+      {fe.firstCorrect + fe.firstIncorrect > 0 && (
+        <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, padding: phone ? "14px 16px" : "16px 20px", marginBottom: 20 }}>
+          <div style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(14), color: T.ink }}>{t("feTitle")}</div>
+          <p style={{ fontFamily: FONT_UI, fontSize: fs(12.5), color: T.muted, margin: "2px 0 10px" }}>{t("feNote")}</p>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
+            <Pill T={T} tone="green">{t("feCorrectN", { n: fe.firstCorrect })}</Pill>
+            <Pill T={T} tone="red">{t("feIncorrectN", { n: fe.firstIncorrect })}</Pill>
+            <Pill T={T} tone="amber">{t("feHintCorrectN", { n: fe.firstHintCorrect })}</Pill>
+          </div>
+        </div>
+      )}
+
       <div style={{ display: "flex", flexWrap: "wrap", gap: 10, marginBottom: 28 }}>
         <GhostButton T={T} onClick={onHome} icon={HomeIcon}>{t("homeBtn")}</GhostButton>
       </div>
@@ -13731,7 +14075,7 @@ function BlockResults({ block, blockState, blockIdx, history, onBackToLobby, onR
                   {i === 0 ? t("firstAttempt") : t("retestN", { n: i })}
                   <span style={{ fontWeight: 400, color: T.muted }}>
                     {i === 0 ? "" : ` — ${t(RETEST_POOL_LABEL[h.pool] || "poolAll")}`}
-                    {` · ${t(h.mode === "tutor" ? "modeTutorOpt" : "modeTimedOpt")}${h.timerOff ? ` (${t("timerOffTag")})` : ""}`}
+                    {` · ${t(h.team ? "modeTeamOpt" : h.mode === "tutor" ? "modeTutorOpt" : "modeTimedOpt")}${h.timerOff ? ` (${t("timerOffTag")})` : ""}`}
                   </span>
                 </span>
                 <span style={{ fontFamily: FONT_MONO, color: T.muted }}>{t("elapsed")} {fmtTime(h.elapsedSec)}</span>
@@ -13778,6 +14122,8 @@ function BlockResults({ block, blockState, blockIdx, history, onBackToLobby, onR
           const correct = a?.selected === q.correctAnswer;
           const answered = !!a?.selected;
           const isOpen = expanded === q.id;
+          const qfe = firstExposure(a, q);
+          const feBadge = qfe && (qfe.correct ? (qfe.hint ? <Pill T={T} tone="amber">{t("feHintCorrectBadge")}</Pill> : <Pill T={T} tone="green">{t("feCorrectBadge")}</Pill>) : <Pill T={T} tone="red">{t("feIncorrectBadge")}</Pill>);
           return (
             <div key={q.id} style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 8, overflow: "hidden" }}>
               <div onClick={() => setExpanded(isOpen ? null : q.id)} style={{ display: "flex", alignItems: phone ? "flex-start" : "center", gap: phone ? 10 : 12, padding: phone ? "12px 12px" : "13px 16px", cursor: "pointer" }}>
@@ -13789,12 +14135,14 @@ function BlockResults({ block, blockState, blockIdx, history, onBackToLobby, onR
                   <span style={{ display: "block", fontFamily: FONT_UI, fontSize: fs(14), color: T.ink, lineHeight: 1.45, overflowWrap: "anywhere" }}>{q.stem}</span>
                   {phone && (
                     <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: 6, marginTop: 6 }}>
+                      {feBadge}
                       {a?.hintUsed && <Pill T={T} tone="amber">{t("hintUsedBadge")}</Pill>}
                       {a?.wasIncorrect && <Pill T={T} tone="red">{t("wasIncorrectBadge")}</Pill>}
                       <span style={{ fontFamily: FONT_UI, fontSize: fs(12), color: T.muted, lineHeight: 1.35, overflowWrap: "anywhere" }}>{q.subject || t("general")}</span>
                     </div>
                   )}
                 </div>
+                {!phone && feBadge}
                 {!phone && a?.hintUsed && <Pill T={T} tone="amber">{t("hintUsedBadge")}</Pill>}
                 {!phone && a?.wasIncorrect && <Pill T={T} tone="red">{t("wasIncorrectBadge")}</Pill>}
                 {!phone && <Pill T={T} tone="muted">{q.subject || t("general")}</Pill>}
@@ -13874,7 +14222,7 @@ function BlockResults({ block, blockState, blockIdx, history, onBackToLobby, onR
       )}
 
       {/* Retest options bar (hidden while reviewing a past exam beside a session in progress) */}
-      {onRetest && <div style={{
+      {onRetest && !blockState.team && <div style={{
         position: "sticky", bottom: 0, zIndex: 30, margin: `28px -${pad}px -80px`, padding: `14px ${pad}px`,
         background: T.paper, borderTop: `1px solid ${T.border}`, display: "flex", flexWrap: "wrap", gap: 10,
       }}>
@@ -14237,21 +14585,21 @@ function OworldApp() {
   // The result isn't tied to a single library entry, so it never overwrites a bank's "last score".
   // The lobby is only for sorting freshly imported Qbanks, so a saved Qbank never passes through it: Load starts the exam
   // right away in the mode chosen next to the Load button.
-  function mixFromLibrary(ids, size, difficulty = "all", mode = "timed") {
+  function mixFromLibrary(ids, size, difficulty = "all", mode = "timed") { // mode: "timed" | "tutor" | "team"
     const entries = ids.map((id) => library.find((e) => e.id === id)).filter(Boolean);
     if (entries.length < 1) return;
-    const block = mixQbanks(entries, { size, difficulty });
+    const block = mode === "team" ? teamQbanks(entries, { size, difficulty }) : mixQbanks(entries, { size, difficulty });
     if (block.questions.length === 0) return;
     // Running ONE Qbank in full (no size cap, no difficulty filter) is that card's own attempt, so it is linked to the card and
     // its badge flips to Completed. Anything else (a subset, a difficulty filter, several banks) is a custom session: it is
     // only logged under Analytics and the source cards are left exactly as they were.
     if (entries.length === 1 && size == null && difficulty === "all") block.libraryId = entries[0].id;
     setExamData({ blocks: [block] });
-    setBlockStates([{ ...makeInitialBlockState(block), timed: mode !== "tutor", tutor: mode === "tutor", status: "in-progress", startedAt: Date.now() }]);
+    setBlockStates([{ ...makeInitialBlockState(block), timed: mode === "timed", tutor: mode === "tutor" || mode === "team", team: mode === "team", status: "in-progress", startedAt: Date.now() }]);
     setHistory([]);
     setActiveBlockIdx(0);
     setView("exam");
-    if (mode === "tutor" && srcAuto) { const list = collectTutorSources(block.questions); setSrcWin(list.length ? { sources: list } : null); } else setSrcWin(null);
+    if ((mode === "tutor" || mode === "team") && srcAuto) { const list = collectTutorSources(block.questions); setSrcWin(list.length ? { sources: list } : null); } else setSrcWin(null);
   }
 
   // Smart Review: filters every Qbank's JSON for questions whose meta.sm2.due <= end of today, builds ONE Tutor block from them
@@ -14429,11 +14777,14 @@ function OworldApp() {
     return { active, baseAt: rec ? rec.baseAt || 0 : 0, block: owns ? lv.block : null, blockFileId: rec ? rec.blockFileId || null : null };
   }
   // The hook found something to act on after comparing remote vs local activeSession.updatedAt.
-  function handleActiveDecision({ action, remote, block }) {
+  function handleActiveDecision({ action, remote, block, changed }) {
     holdRef.current = action === "offer" || action === "conflict";
     setRemoteOffer(action === "offer" ? { remote, block: block || null } : null);
     if (action === "adopt") applyRemoteActive(remote, null, { silent: true });
-    else if (action === "end") {
+    else if (action === "merge") {
+      if (changed) applyRemoteActive(remote, null, { silent: true });  // the other device added work: load the combined state here
+      else { const rec = recRef.current; if (rec && rec.sessionId === remote.sessionId) setRec({ ...rec, updatedAt: remote.updatedAt }); } // nothing new here: no reload, just move the clock on
+    } else if (action === "end") {
       const ex0 = liveRef.current.examData;
       const nm = ex0 && ex0.blocks && ex0.blocks[0] ? ex0.blocks[0].blockName || "" : "";
       setRec({ sessionId: remote.sessionId, updatedAt: remote.updatedAt, baseAt: remote.updatedAt, ended: true, sig: "",
@@ -14471,6 +14822,7 @@ function OworldApp() {
     if (!blk) { if (!silent) setFlash(tr("activeMissing")); return false; }
     const bs = hydrateActiveState(blk, r, silent && liveRef.current.view !== "exam");
     setRec({ sessionId: r.sessionId, updatedAt: r.updatedAt, baseAt: r.updatedAt, ended: false, sig: activeSig(bs), blockFileId: r.blockFileId || null });
+    liveRef.current = { ...liveRef.current, examData: { blocks: [blk] }, blockStates: [bs] }; // a second pull in this same sync round must see the merged state, not the old one
     setExamData({ blocks: [blk] }); setBlockStates([bs]); setHistory([]); setActiveBlockIdx(0);
     if (!silent) setView("exam");
     setRestoreNonce((n) => n + 1); setRestoredNotice(false);
@@ -14548,9 +14900,10 @@ function OworldApp() {
     const block = snap.block.isRetest ? { ...snap.block, retestOf: 0 } : snap.block; // the first-pass block isn't loaded with it
     const bs = snap.blockState;
     const hist = [{
-      id: 1, blockIdx: 0, originIdx: 0, pool: block.isRetest ? block.retestType : "first", mode: bs.tutor ? "tutor" : "timed", timerOff: !!bs.timerOff,
+      id: 1, blockIdx: 0, originIdx: 0, pool: block.isRetest ? block.retestType : "first", mode: bs.tutor ? "tutor" : "timed", team: !!bs.team, timerOff: !!bs.timerOff,
       correct: bs.score.correct, total: bs.score.total, answered: bs.score.answered, pct: bs.score.pct, elapsedSec: bs.elapsedSec || 0, finishedAt: bs.finishedAt || Date.now(),
       hintsUsed: block.questions.filter((q) => bs.answers[q.id]?.hintUsed).length,
+      ...firstExposureTally(block, bs), isRetest: !!block.isRetest,
     }];
     // A session is in progress: open the review as a read-only overlay so the session (answers, timer, position) stays exactly as it is.
     if (hasInProgress) { setReviewSnap({ block, bs, history: hist }); setLibTab("analytics"); window.scrollTo({ top: 0 }); return; }
@@ -14785,9 +15138,10 @@ function OworldApp() {
     });
     setHistory((h) => [...h, {
       id: h.length + 1, blockIdx: idx, originIdx: block.isRetest ? block.retestOf : idx,
-      pool: block.isRetest ? block.retestType : "first", mode: bs.tutor ? "tutor" : "timed", timerOff: !!bs.timerOff,
+      pool: block.isRetest ? block.retestType : "first", mode: bs.tutor ? "tutor" : "timed", team: !!bs.team, timerOff: !!bs.timerOff,
       correct, total, answered, pct, elapsedSec, finishedAt,
       hintsUsed: block.questions.filter((q) => bs.answers[q.id]?.hintUsed).length,
+      ...firstExposureTally(block, bs),
     }]);
     // Independent session log: a self-contained snapshot, written for EVERY finished block (card run, custom/mixed, retest).
     const subj = new Map();
@@ -14798,18 +15152,32 @@ function OworldApp() {
       if (bs.answers[q.id]?.selected === q.correctAnswer) cur.correct += 1;
       subj.set(k, cur);
     });
+    // Knowing vs applying: the same answers split by questionFormat (Basic = knowing, Vignette = applying), overall and per subject.
+    const byFormat = { vignette: { correct: 0, total: 0 }, basic: { correct: 0, total: 0 } };
+    const subjFmt = new Map();
+    block.questions.forEach((q) => {
+      const f = questionFormat(q) === "Basic" ? "basic" : "vignette";
+      const ok = bs.answers[q.id]?.selected === q.correctAnswer;
+      byFormat[f].total += 1; if (ok) byFormat[f].correct += 1;
+      const k = (q.subject || "").trim() || "General";
+      const cur = subjFmt.get(k) || { subject: k, vc: 0, vt: 0, bc: 0, bt: 0 };
+      if (f === "basic") { cur.bt += 1; if (ok) cur.bc += 1; } else { cur.vt += 1; if (ok) cur.vc += 1; }
+      subjFmt.set(k, cur);
+    });
     const parent = block.isRetest ? examData.blocks[block.retestOf] : null;
     const logEntry = {
       id: `ses_${finishedAt.toString(36)}_${Math.random().toString(36).slice(2, 7)}`,
       finishedAt, elapsedSec, correct, total, answered, pct,
       kind: block.isRetest ? "retest" : block.libraryId ? "bank" : "custom",
-      mode: bs.tutor ? "tutor" : "timed",
+      mode: bs.tutor ? "tutor" : "timed", team: !!bs.team,
       blockName: block.blockName, isMixed: !!block.isMixed, mixCount: block.mixCount || 0, mixDifficulty: block.mixDifficulty || null,
       isRetest: !!block.isRetest, retestType: block.retestType || null,
       sourceBanks: block.sourceBanks || (parent && parent.sourceBanks) || [],
       libraryId: block.isRetest ? (parent && parent.libraryId) || null : block.libraryId || null,
       bySubject: [...subj.values()].sort((a, b) => b.total - a.total),
+      byFormat, bySubjectFormat: [...subjFmt.values()],
       hintCorrect: block.questions.filter((q) => bs.answers[q.id]?.hintUsed && bs.answers[q.id]?.selected === q.correctAnswer).length,
+      ...firstExposureTally(block, bs), // first-exposure correct / incorrect / correct-with-hint, for Analytics
     };
     // Full snapshot for "Review Exam" (kept in its own key; only the newest REVIEW_MAX runs keep one, and a full disk just drops the oldest).
     const snapshot = JSON.stringify({ v: 1, block, blockState: { ...bs, status: "done", finishedAt, elapsedSec, score: { correct, total, answered, pct } } });
@@ -14872,9 +15240,14 @@ function OworldApp() {
       const cur = prev[idx];
       if (cur.status !== "pending") return prev;
       const copy = [...prev];
-      copy[idx] = { ...cur, timed: mode === "timed", tutor: mode === "tutor" };
+      copy[idx] = { ...cur, timed: mode === "timed", tutor: mode === "tutor" || mode === "team", team: mode === "team" };
       return copy;
     });
+    // Team shows every question exactly as authored: swap this block's questions for the Qbank's saved copy (the load step may have
+    // picked an SM-2 variant for this student), so everyone in the group sees the same version.
+    const blk = examData && examData.blocks[idx];
+    const entry = mode === "team" && blk && blk.libraryId && blockStates[idx] && blockStates[idx].status === "pending" ? library.find((x) => x.id === blk.libraryId) : null;
+    if (entry && entry.questions.length === blk.questions.length) setExamData((ed) => (ed ? { ...ed, blocks: ed.blocks.map((b, i) => (i === idx ? { ...b, questions: entry.questions } : b)) } : ed));
   }
 
   // --- Instant retest system --------------------------------------------
