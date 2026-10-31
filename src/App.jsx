@@ -72,6 +72,7 @@ const DARK = {
 const FONT_DISPLAY = "'Source Serif 4', Georgia, 'Times New Roman', serif";
 const FONT_UI = "'Inter', Arial, 'Segoe UI', sans-serif";
 const FONT_MONO = "'IBM Plex Mono', 'SF Mono', Menlo, monospace";
+const FONT_LOGO = "'Montserrat', 'Inter', Arial, 'Segoe UI', sans-serif"; // OWORLD wordmark: bold geometric sans
 
 // Text size: App writes TEXT_SCALE on every render and every fontSize goes through fs(), so one
 // setting rescales all text. Layout widths that hold text grow with it (see ExamScreen).
@@ -94,7 +95,7 @@ function useViewport() {
 }
 
 const FONT_IMPORT_URL =
-  "https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap";
+  "https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Montserrat:wght@700;800&display=swap";
 
 // Full NBME "Laboratory Values" reference table, grouped by the tabs used in the
 // real interface (Serum / Cerebrospinal / Blood / Urine and BMI). Each row has a
@@ -11411,7 +11412,7 @@ function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], dri
           display: "flex", alignItems: "center", gap: 10, background: "transparent", border: "none", padding: "4px 2px", cursor: "pointer", flexShrink: 0, ...(wideBar ? { justifySelf: "start" } : {}),
         }}>
           <Activity size={phone ? 24 : 30} color={T.blue} strokeWidth={2.5} />
-          <span style={{ fontFamily: FONT_MONO, fontSize: fs(phone ? 22 : 30), letterSpacing: "0.1em", color: T.blue, fontWeight: 700 }}>OWORLD</span>
+          <span style={{ fontFamily: FONT_LOGO, fontSize: fs(phone ? 22 : 30), letterSpacing: "0.01em", color: T.blue, fontWeight: 700 }}>OWORLD</span>
         </button>
         {wideBar && <UniversalSearchBar q={uq} setQ={setUq} scope={uScope} setScope={setUScope} pageScope={pageScope} library={library} sessionLog={sessionLog} onGo={onSearchGo} T={T} wide />}
         <div style={{ display: "flex", alignItems: "center", gap: phone ? 8 : 10, ...(wideBar ? { justifySelf: "end" } : {}) }}>
@@ -12004,7 +12005,7 @@ function ImportReview({ examData, library, onAdd, onCancel, T, darkMode, setDark
         <div style={{ flex: "1 1 320px", minWidth: 0 }}>
           <button onClick={onCancel} aria-label={t("homeBtn")} title={t("homeBtn")} style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 6, background: "transparent", border: "none", padding: 0, cursor: "pointer" }}>
             <Activity size={20} color={T.blue} strokeWidth={2.5} />
-            <span style={{ fontFamily: FONT_MONO, fontSize: fs(12), letterSpacing: "0.12em", color: T.blue, fontWeight: 600 }}>OWORLD</span>
+            <span style={{ fontFamily: FONT_LOGO, fontSize: fs(12), letterSpacing: "0.04em", color: T.blue, fontWeight: 700 }}>OWORLD</span>
           </button>
           <h1 style={{ fontFamily: FONT_DISPLAY, fontSize: fs(30), fontWeight: 600, color: T.ink, margin: "0 0 6px" }}>{t("irTitle")}</h1>
           <p style={{ fontFamily: FONT_UI, fontSize: fs(14), color: T.muted, lineHeight: 1.55, margin: 0 }}>{t("irSub", { n: examData.blocks.length })}</p>
@@ -12199,7 +12200,7 @@ function Lobby({ examData, blockStates, library = [], onStart, onReview, onHome,
       <div style={{ textAlign: "center", marginBottom: 28 }}>
         <button onClick={onHome} aria-label={t("homeBtn")} title={t("homeBtn")} style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 12, margin: "0 auto", background: "transparent", border: "none", padding: 0, cursor: "pointer" }}>
           <Activity size={narrow ? 28 : 34} color={T.blue} strokeWidth={2.5} />
-          <span style={{ fontFamily: FONT_MONO, fontSize: fs(narrow ? 34 : 44), letterSpacing: "0.1em", color: T.blue, fontWeight: 700 }}>
+          <span style={{ fontFamily: FONT_LOGO, fontSize: fs(narrow ? 34 : 44), letterSpacing: "0.01em", color: T.blue, fontWeight: 700 }}>
             OWORLD
           </span>
         </button>
