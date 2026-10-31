@@ -72,7 +72,7 @@ const DARK = {
 const FONT_DISPLAY = "'Source Serif 4', Georgia, 'Times New Roman', serif";
 const FONT_UI = "'Inter', Arial, 'Segoe UI', sans-serif";
 const FONT_MONO = "'IBM Plex Mono', 'SF Mono', Menlo, monospace";
-const FONT_LOGO = "'Montserrat', 'Inter', Arial, 'Segoe UI', sans-serif"; // OWORLD wordmark: bold geometric sans
+const FONT_LOGO = FONT_UI; // OWORLD wordmark: bold Inter, same as the landing page
 
 // Text size: App writes TEXT_SCALE on every render and every fontSize goes through fs(), so one
 // setting rescales all text. Layout widths that hold text grow with it (see ExamScreen).
@@ -95,7 +95,7 @@ function useViewport() {
 }
 
 const FONT_IMPORT_URL =
-  "https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Montserrat:wght@700;800&display=swap";
+  "https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap";
 
 // Full NBME "Laboratory Values" reference table, grouped by the tabs used in the
 // real interface (Serum / Cerebrospinal / Blood / Urine and BMI). Each row has a
@@ -11411,8 +11411,7 @@ function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], dri
         <button onClick={goHomePage} aria-label={t("homeBtn")} title={t("homeBtn")} style={{
           display: "flex", alignItems: "center", gap: 10, background: "transparent", border: "none", padding: "4px 2px", cursor: "pointer", flexShrink: 0, ...(wideBar ? { justifySelf: "start" } : {}),
         }}>
-          <Activity size={phone ? 24 : 30} color={T.blue} strokeWidth={2.5} />
-          <span style={{ fontFamily: FONT_LOGO, fontSize: fs(phone ? 22 : 30), letterSpacing: "0.01em", color: T.blue, fontWeight: 700 }}>OWORLD</span>
+          <span style={{ fontFamily: FONT_LOGO, fontSize: fs(phone ? 18 : 20), lineHeight: 1.2, letterSpacing: 0, color: T.blue, fontWeight: 700 }}>OWORLD</span>
         </button>
         {wideBar && <UniversalSearchBar q={uq} setQ={setUq} scope={uScope} setScope={setUScope} pageScope={pageScope} library={library} sessionLog={sessionLog} onGo={onSearchGo} T={T} wide />}
         <div style={{ display: "flex", alignItems: "center", gap: phone ? 8 : 10, ...(wideBar ? { justifySelf: "end" } : {}) }}>
