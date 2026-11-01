@@ -342,7 +342,7 @@ const STR = {
     activeTitle: "Continue your test from another device?", activeTitleConflict: "A different version of this test is on another device",
     activeBody: "“{name}”: question {n} of {total}, {answered} answered. Last updated {time}.",
     activeReplaceWarn: "Continuing replaces the exam that is open on this device.", activeContinue: "Continue here", activeNotNow: "Not now", activeKeepMine: "Keep this device's",
-    activeResumed: "Picked up “{name}” from another device.", activeEndedElsewhere: "This test was finished on another device.", activeEndedFinished: "“{name}” was finished on another device: {pct}% ({c}/{t}). The result is syncing to your Analytics and Qbank.", activeEndedRemoved: "This test was closed on another device.", csMigrate: "Migrate", csRemoteBody: "“{name}”: question {n} of {total}, {answered} answered. Last updated {time}.", csRemoteMigrating: "Migrating…", csRemoteAbort: "Abort", csRemoteAbortHint: "Ignore the other device's session and keep working here.", csRemoteConflictTitle: "Newer session on another device", csRemoteConflictBody: "“{name}” was last updated at {time} on another device (question {n} of {total}). Migrate replaces the session on this device; Abort keeps this one.", activeBlockGone: "That test's questions are no longer in Google Drive. Open it once on the other device so it re-uploads, or abort.", activeSignIn: "Couldn't sign in to Google Drive. Allow the sign-in pop-up and try again.",
+    activeResumed: "Picked up “{name}” from another device.", activeEndedElsewhere: "This test was finished on another device.", activeEndedFinished: "“{name}” was finished on another device: {pct}% ({c}/{t}). The result is syncing to your Analytics and Qbank.", activeEndedRemoved: "This test was closed on another device.", csMigrate: "Migrate", csRemoteBody: "“{name}”: question {n} of {total}, {answered} answered. Last updated {time}.", csRemoteMigrating: "Migrating…", csRemoteAbort: "Abort", csRemoteDiscard: "Discard", csRemoteDiscardQ: "Discard that test on all your devices? Its progress can't be recovered.", csRemoteBroken: "Its questions are no longer in Google Drive, so it can't be loaded here. Open it on the device that was running it, or discard it.", csRemoteBrokenConflict: "Its questions are no longer in Google Drive, so it can't be loaded here. Abort replaces it with the session on this device.", csRemoteAbortHint: "Ignore the other device's session and keep working here.", csRemoteConflictTitle: "Newer session on another device", csRemoteConflictBody: "“{name}” was last updated at {time} on another device (question {n} of {total}). Migrate replaces the session on this device; Abort keeps this one.", activeBlockGone: "That test's questions are no longer in Google Drive. Open it once on the other device so it re-uploads, or abort.", activeSignIn: "Couldn't sign in to Google Drive. Allow the sign-in pop-up and try again.",
     activeMissing: "Couldn't load that test from Google Drive. Check your connection and try again.", activeMixed: "Mixed from {banks}.",
     themeLabel: "Theme", stTitle: "Storage", stUsed: "{u} used", stOfCap: "{u} of {c} used", stRefresh: "Refresh storage", stEmpty: "Nothing stored on this device yet.", stQbanks: "Qbanks and Decks", stHistory: "Exam history", stDatabase: "Database", stProfile: "Study profile and tutor", stTrash: "Trash", stOther: "Other", stAvailable: "Available", themeLight: "Light", themeDark: "Dark",
     accountBtn: "Account", viewAccount: "Manage account", signIn: "Sign in with Google", signOut: "Sign out", signedInAs: "Signed in with Google", signInHint: "Sign in to sync your library and Analytics across devices through your Google Drive.", signOutHint: "Signing out stops syncing on this device. Your data stays here and in your Drive.", signedOutNote: "Not signed in", "cpTitle": "Career & study profile", "cpHint": "Tell Oworld who you are and what you're preparing for. Your tutor uses it to set goals and to build your Study Profile.", "cpAbout": "About you", "cpStatus": "Current status", "cpStatus.pick": "Select…", "cpStatus.student": "Medical student", "cpStatus.graduate": "Medical graduate (IMG)", "cpStatus.resident": "Resident", "cpStatus.other": "Other", "cpGradYear": "Graduation year", "cpCountry": "Country", "cpCity": "City", "cpUniversity": "University", "cpSchool": "School or faculty", "cpPhCountry": "Dominican Republic", "cpPhCity": "Santo Domingo", "cpPhUniversity": "Universidad Iberoamericana (UNIBE)", "cpPhSchool": "School of Medicine", "cpObjective": "Study objective", "cpCoursework": "Medical school studies", "cpCourseworkHint": "Pick everything you're studying for right now.", "cpWork.generals": "Generals", "cpWork.preclinical": "Preclinical", "cpWork.clinical": "Clinical studies", "cpUsmle": "USMLE", "cpUsmleHint": "Pick the steps you're preparing for. Add a target date if you have one.", "cpStep.step1": "Step 1", "cpStep.step2ck": "Step 2 CK", "cpStep.step3": "Step 3", "cpTargetDate": "Target date", "cpClassOf": "Class of {y}", "cpNext": "Next target: {step}, {when} ({date})", "cpSavedLocal": "Saved on this device.", "acctSettings": "Account Settings", "acctName": "Name", "acctEmail": "Email", "acctLinked": "Linked via", "acctCreated": "Account created", "acctNone": "Not available", "acctLinkedGoogle": "Google", "acctSignedOutHint": "Sign in with Google to see your account details here.", "dzTitle": "Danger Zone", "dzDesc": "Deleting your account permanently removes your Qbanks, Analytics, Personal Database, Study Profile and settings from this device and signs you out.", "dzDelete": "Delete my account", "dzDownloadFirst": "Download all your files before you delete your account. This can't be undone.", "dzDownload": "Download all files", "dzDownloaded": "Downloaded. Your files are saved.", "dzDownloadFailed": "Download failed. Please try again.", "dzConfirmGo": "Delete permanently", "dzSkip": "Delete without downloading", "dzDriveNote": "A copy synced to your Google Drive stays there until you remove it from Drive.", "dzFileName": "oworld-account-backup-{d}.json", "spCareerEdit": "Edit in account", "spCareerAdd": "Add details", "spCareerEmpty": "Add your university, graduation year and USMLE targets in your account and they will show up here. Your tutor uses them too.", "spNoDate": "No target date",
@@ -543,7 +543,7 @@ const STR = {
     activeTitle: "¿Continuar tu examen desde otro dispositivo?", activeTitleConflict: "Hay otra versión de este examen en otro dispositivo",
     activeBody: "«{name}»: pregunta {n} de {total}, {answered} respondidas. Última actualización {time}.",
     activeReplaceWarn: "Continuar reemplaza el examen abierto en este dispositivo.", activeContinue: "Continuar aquí", activeNotNow: "Ahora no", activeKeepMine: "Conservar el de este dispositivo",
-    activeResumed: "Retomaste «{name}» desde otro dispositivo.", activeEndedElsewhere: "Este examen se terminó en otro dispositivo.", activeEndedFinished: "«{name}» se terminó en otro dispositivo: {pct}% ({c}/{t}). El resultado se está sincronizando con tus Analíticas y tu Qbank.", activeEndedRemoved: "Este examen se cerró en otro dispositivo.", csMigrate: "Migrar", csRemoteBody: "«{name}»: pregunta {n} de {total}, {answered} respondidas. Última actualización {time}.", csRemoteMigrating: "Migrando…", csRemoteAbort: "Cancelar", csRemoteAbortHint: "Ignorar la sesión del otro dispositivo y seguir trabajando aquí.", csRemoteConflictTitle: "Sesión más reciente en otro dispositivo", csRemoteConflictBody: "«{name}» se actualizó por última vez a las {time} en otro dispositivo (pregunta {n} de {total}). Migrar reemplaza la sesión de este dispositivo; Cancelar conserva esta.", activeBlockGone: "Las preguntas de ese examen ya no están en Google Drive. Ábrelo una vez en el otro dispositivo para que se vuelvan a subir, o cancela.", activeSignIn: "No se pudo iniciar sesión en Google Drive. Permite la ventana de inicio de sesión e inténtalo de nuevo.",
+    activeResumed: "Retomaste «{name}» desde otro dispositivo.", activeEndedElsewhere: "Este examen se terminó en otro dispositivo.", activeEndedFinished: "«{name}» se terminó en otro dispositivo: {pct}% ({c}/{t}). El resultado se está sincronizando con tus Analíticas y tu Qbank.", activeEndedRemoved: "Este examen se cerró en otro dispositivo.", csMigrate: "Migrar", csRemoteBody: "«{name}»: pregunta {n} de {total}, {answered} respondidas. Última actualización {time}.", csRemoteMigrating: "Migrando…", csRemoteAbort: "Cancelar", csRemoteDiscard: "Descartar", csRemoteDiscardQ: "¿Descartar ese examen en todos tus dispositivos? Su progreso no se puede recuperar.", csRemoteBroken: "Sus preguntas ya no están en Google Drive, así que no se puede cargar aquí. Ábrelo en el dispositivo donde lo estabas haciendo, o descártalo.", csRemoteBrokenConflict: "Sus preguntas ya no están en Google Drive, así que no se puede cargar aquí. Cancelar lo reemplaza con la sesión de este dispositivo.", csRemoteAbortHint: "Ignorar la sesión del otro dispositivo y seguir trabajando aquí.", csRemoteConflictTitle: "Sesión más reciente en otro dispositivo", csRemoteConflictBody: "«{name}» se actualizó por última vez a las {time} en otro dispositivo (pregunta {n} de {total}). Migrar reemplaza la sesión de este dispositivo; Cancelar conserva esta.", activeBlockGone: "Las preguntas de ese examen ya no están en Google Drive. Ábrelo una vez en el otro dispositivo para que se vuelvan a subir, o cancela.", activeSignIn: "No se pudo iniciar sesión en Google Drive. Permite la ventana de inicio de sesión e inténtalo de nuevo.",
     activeMissing: "No se pudo cargar ese examen desde Google Drive. Revisa tu conexión e inténtalo de nuevo.", activeMixed: "Mezcla de {banks}.",
     themeLabel: "Tema", stTitle: "Almacenamiento", stUsed: "{u} usados", stOfCap: "{u} de {c} usados", stRefresh: "Actualizar almacenamiento", stEmpty: "Aún no hay nada guardado en este dispositivo.", stQbanks: "Qbanks y mazos", stHistory: "Historial de exámenes", stDatabase: "Base de datos", stProfile: "Perfil de estudio y tutor", stTrash: "Papelera", stOther: "Otros", stAvailable: "Disponible", themeLight: "Claro", themeDark: "Oscuro",
     accountBtn: "Cuenta", viewAccount: "Administrar cuenta", signIn: "Iniciar sesión con Google", signOut: "Cerrar sesión", signedInAs: "Sesión iniciada con Google", signInHint: "Inicia sesión para sincronizar tu biblioteca y tus Analíticas entre dispositivos mediante tu Google Drive.", signOutHint: "Al cerrar sesión se detiene la sincronización en este dispositivo. Tus datos se conservan aquí y en tu Drive.", signedOutNote: "Sin sesión iniciada", "cpTitle": "Perfil profesional y de estudio", "cpHint": "Cuéntale a Oworld quién eres y para qué te estás preparando. Tu tutor lo usa para fijar metas y crear tu Perfil de estudio.", "cpAbout": "Sobre ti", "cpStatus": "Situación actual", "cpStatus.pick": "Seleccionar…", "cpStatus.student": "Estudiante de medicina", "cpStatus.graduate": "Médico graduado (IMG)", "cpStatus.resident": "Residente", "cpStatus.other": "Otro", "cpGradYear": "Año de graduación", "cpCountry": "País", "cpCity": "Ciudad", "cpUniversity": "Universidad", "cpSchool": "Escuela o facultad", "cpPhCountry": "República Dominicana", "cpPhCity": "Santo Domingo", "cpPhUniversity": "Universidad Iberoamericana (UNIBE)", "cpPhSchool": "Escuela de Medicina", "cpObjective": "Objetivo de estudio", "cpCoursework": "Estudios de la carrera", "cpCourseworkHint": "Elige todo lo que estás estudiando ahora.", "cpWork.generals": "Generales", "cpWork.preclinical": "Preclínicas", "cpWork.clinical": "Estudios clínicos", "cpUsmle": "USMLE", "cpUsmleHint": "Elige los pasos para los que te preparas. Añade una fecha objetivo si la tienes.", "cpStep.step1": "Step 1", "cpStep.step2ck": "Step 2 CK", "cpStep.step3": "Step 3", "cpTargetDate": "Fecha objetivo", "cpClassOf": "Promoción {y}", "cpNext": "Próximo objetivo: {step}, {when} ({date})", "cpSavedLocal": "Guardado en este dispositivo.", "acctSettings": "Ajustes de la cuenta", "acctName": "Nombre", "acctEmail": "Correo", "acctLinked": "Vinculada con", "acctCreated": "Cuenta creada", "acctNone": "No disponible", "acctLinkedGoogle": "Google", "acctSignedOutHint": "Inicia sesión con Google para ver aquí los datos de tu cuenta.", "dzTitle": "Zona de peligro", "dzDesc": "Eliminar tu cuenta borra de forma permanente tus Qbanks, Analíticas, Base de datos personal, Perfil de estudio y ajustes de este dispositivo, y cierra tu sesión.", "dzDelete": "Eliminar mi cuenta", "dzDownloadFirst": "Descarga todos tus archivos antes de eliminar tu cuenta. Esto no se puede deshacer.", "dzDownload": "Descargar todos los archivos", "dzDownloaded": "Descargado. Tus archivos están guardados.", "dzDownloadFailed": "Error al descargar. Inténtalo de nuevo.", "dzConfirmGo": "Eliminar definitivamente", "dzSkip": "Eliminar sin descargar", "dzDriveNote": "La copia sincronizada en tu Google Drive permanece allí hasta que la elimines de Drive.", "dzFileName": "oworld-copia-cuenta-{d}.json", "spCareerEdit": "Editar en la cuenta", "spCareerAdd": "Añadir datos", "spCareerEmpty": "Añade tu universidad, año de graduación y objetivos de USMLE en tu cuenta y aparecerán aquí. Tu tutor también los usa.", "spNoDate": "Sin fecha objetivo",
@@ -3136,6 +3136,7 @@ function useSessionSync({ drive, stamp, getLocal, onDecision, onSynced, onBlockS
   const latest = useRef({}); latest.current = { getLocal, onDecision, onSynced, onBlockSaved };
   const fileRef = useRef((lsGet(LS_SESSION_FILE) || {}).fileId || null);
   const verRef = useRef(null);
+  const blockChecked = useRef(""); // sessionId whose block file was verified (or re-uploaded) since this page loaded
   const running = useRef(false);
   const rerun = useRef(false);
   const linkedRef = useRef(linked); linkedRef.current = linked;
@@ -3160,6 +3161,24 @@ function useSessionSync({ drive, stamp, getLocal, onDecision, onSynced, onBlockS
         const local = cur.getLocal();
         const { winner, action } = reconcileActiveSession(local.active, remote, local.baseAt);
 
+        // 2b. self-heal: this device owns the test (it has the questions in memory) but the question copy on Drive has gone missing
+        // (deleted by housekeeping on another device, or a stale id). Without it no other device can ever pick the test up.
+        let healed = null;
+        if (local.block && local.active && !local.active.ended && blockChecked.current !== local.active.sessionId) {
+          const sid = local.active.sessionId;
+          const knownId = (remote && remote.sessionId === sid && remote.blockFileId) || local.blockFileId || null;
+          let found = null, unsure = false;
+          try {
+            if (knownId) { try { await driveVersion(token, knownId); found = knownId; } catch (e) { if (e.status !== 404) throw e; } }
+            if (!found) found = (await driveFindSyncFile(token, blockFileName(sid))) || null;
+          } catch (e) { unsure = true; } // offline / transient: say nothing, check again on the next run
+          if (!unsure) {
+            if (!found) found = await driveUpload(token, null, JSON.stringify({ v: 1, sessionId: sid, block: local.block }), blockFileName(sid));
+            blockChecked.current = sid;
+            if (found !== knownId) { healed = found; cur.onBlockSaved(sid, found); }
+          }
+        }
+
         // 3. act on what the other device did
         if (action === "offer" || action === "conflict") {
           let block = null; try { block = await fetchSessionBlock(token, remote); } catch (e) { /* the prompt retries the download on accept */ }
@@ -3168,18 +3187,19 @@ function useSessionSync({ drive, stamp, getLocal, onDecision, onSynced, onBlockS
         else if (action === "merge") cur.onDecision({ action, remote: winner, changed: activeCore(winner) !== activeCore(local.active) });
 
         // 4. push this device's version when it wins (a merge is pushed too: it now holds both devices' work)
-        if ((action === "push" || action === "merge") && winner) {
+        const healPush = !!(healed && winner && !winner.ended && winner.sessionId === local.active.sessionId && action !== "end");
+        if ((action === "push" || action === "merge" || healPush) && winner) {
           let payload = winner;
           if (winner.ended) {
             payload = { sessionId: winner.sessionId, ended: true, updatedAt: winner.updatedAt, outcome: winner.outcome || null, score: winner.score || null, finishedAt: winner.finishedAt || null };
             if (local.blockFileId) { driveDelete(token, local.blockFileId).catch(() => {}); cur.onBlockSaved(winner.sessionId, null); } // the test is over: its question copy can go
           } else {
-            let bf = winner.blockFileId;
+            let bf = healed || winner.blockFileId;
             if (!bf && local.block) { // first push of this test: the exact question set goes up once, BEFORE the state that points at it
               bf = await driveUpload(token, null, JSON.stringify({ v: 1, sessionId: winner.sessionId, block: local.block }), blockFileName(winner.sessionId));
               cur.onBlockSaved(winner.sessionId, bf);
-              driveListByPrefix(token, "oword_block_").then((files) => { // housekeeping: copies left behind by crashed devices, older than 3 days
-                const old = Date.now() - 3 * 24 * 3600 * 1000;
+              driveListByPrefix(token, "oword_block_").then((files) => { // housekeeping: copies left behind by crashed devices, older than 30 days (a long review test must keep its copy)
+                const old = Date.now() - 30 * 24 * 3600 * 1000;
                 files.filter((f) => f.name !== blockFileName(winner.sessionId) && Date.parse(f.createdTime) < old).forEach((f) => driveDelete(token, f.id).catch(() => {}));
               }).catch(() => {});
             }
@@ -10574,7 +10594,7 @@ function CalendarPage({ sessionLog, onNavigate, T, focusDate, query = "" }) {
 }
 const CAL_LAYERS = [["key", "calLayerKey"], ["class", "csClasses"], ["exam", "csCalLegExam"], ["event", "csCalLegEvent"], ["task", "csCalLegTask"], ["study", "csCalLegStudy"]];
 
-function ConsolePanel({ library, sessionLog, session, remoteSession, onMigrate, onAbortRemote, onResume, onOpenLobby, onReview, onNavigate, T }) {
+function ConsolePanel({ library, sessionLog, session, remoteSession, remoteBroken, onMigrate, onAbortRemote, onDiscardRemote, onResume, onOpenLobby, onReview, onNavigate, T }) {
   const { t, lang } = useI18n();
   const [migrating, setMigrating] = useState(false);
   const doMigrate = async () => { if (migrating || !onMigrate) return; setMigrating(true); try { await onMigrate(); } finally { setMigrating(false); } };
@@ -10731,6 +10751,11 @@ function ConsolePanel({ library, sessionLog, session, remoteSession, onMigrate, 
                     </div>
                     <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(17), color: T.ink, overflowWrap: "anywhere" }}>{r.blockName || t("sessionInProgress")}</div>
                     <div style={{ fontFamily: FONT_MONO, fontSize: fs(12), color: T.muted, margin: "4px 0 8px" }}>{body}</div>
+                    {remoteBroken && (
+                      <div role="alert" style={{ display: "flex", alignItems: "flex-start", gap: 6, fontFamily: FONT_UI, fontSize: fs(12.5), lineHeight: 1.5, color: T.red, margin: "0 0 10px", maxWidth: 520 }}>
+                        <AlertTriangle size={14} style={{ flexShrink: 0, marginTop: 2 }} />{t("csRemoteBroken")}
+                      </div>
+                    )}
                     {total > 0 && (
                       <div style={{ height: 6, borderRadius: 999, background: T.mutedBg, overflow: "hidden", maxWidth: 420 }}>
                         <div style={{ width: `${Math.min(100, Math.round((done / total) * 100))}%`, height: "100%", background: T.blue }} />
@@ -10740,6 +10765,7 @@ function ConsolePanel({ library, sessionLog, session, remoteSession, onMigrate, 
                   <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
                     <PrimaryButton T={T} onClick={doMigrate} disabled={migrating} icon={Play}>{t("activeContinue")}</PrimaryButton>
                     <GhostButton T={T} onClick={doAbort} disabled={migrating} icon={X}>{t("csRemoteAbort")}</GhostButton>
+                    {remoteBroken && onDiscardRemote && <GhostButton T={T} onClick={onDiscardRemote} disabled={migrating} icon={Trash2} style={{ color: T.red, borderColor: T.red }}>{t("csRemoteDiscard")}</GhostButton>}
                   </div>
                 </>
               );
@@ -10768,6 +10794,11 @@ function ConsolePanel({ library, sessionLog, session, remoteSession, onMigrate, 
                 <div style={{ fontFamily: FONT_UI, fontSize: fs(12.5), color: T.muted, marginTop: 3, lineHeight: 1.5 }}>
                   {t("csRemoteConflictBody", { name: r.blockName || "", time: when, n: (Number(r.currentIndex) || 0) + 1, total: r.questionCount || "?" })}
                 </div>
+                {remoteBroken && (
+                  <div role="alert" style={{ display: "flex", alignItems: "flex-start", gap: 6, fontFamily: FONT_UI, fontSize: fs(12.5), lineHeight: 1.5, color: T.red, marginTop: 6 }}>
+                    <AlertTriangle size={14} style={{ flexShrink: 0, marginTop: 2 }} />{t("csRemoteBrokenConflict")}
+                  </div>
+                )}
               </div>
               <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
                 <PrimaryButton T={T} onClick={doMigrate} disabled={migrating} icon={Cloud}>{migrating ? t("csRemoteMigrating") : t("csMigrate")}</PrimaryButton>
@@ -11180,7 +11211,7 @@ const HELP_URL = "https://help.oworld.pro"; // external docs site (account menu 
 const SKY_400 = "#38bdf8"; // electric blue used for the Help link hover state
 
 // ---------------------------------------------------------------------------
-function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], drive, onDeleteSession, onClearSessions, onReviewSession, libTab, setLibTab, session, remoteSession, onMigrate, onAbortRemote, onResume, onOpenLobby, onLaunchLibrary, onMixLibrary, onSmartReview = () => {}, onDeleteLibraryEntry, onRenameLibraryEntry, onSetLibraryMeta, deckDefs, onDecksChange, T, darkMode, setDarkMode }) {
+function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], drive, onDeleteSession, onClearSessions, onReviewSession, libTab, setLibTab, session, remoteSession, remoteBroken, onMigrate, onAbortRemote, onDiscardRemote, onResume, onOpenLobby, onLaunchLibrary, onMixLibrary, onSmartReview = () => {}, onDeleteLibraryEntry, onRenameLibraryEntry, onSetLibraryMeta, deckDefs, onDecksChange, T, darkMode, setDarkMode }) {
   const { t, lang } = useI18n();
   const [text, setText] = useState("");
   const [error, setError] = useState("");
@@ -11830,7 +11861,7 @@ function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], dri
       {libTab === "database" && <DatabasePanel query={scopedQ("database")} T={T} />}
       {libTab === "calendar" && <CalendarPage focusDate={calFocus} query={scopedQ("calendar")} sessionLog={sessionLog} onNavigate={(tab) => { setLibTab(tab); window.scrollTo({ top: 0, behavior: "smooth" }); }} T={T} />}
       {libTab === "analytics" && <SessionHistoryPanel history={sessionLog} qbankCount={library.length} qbankQuestions={libraryQuestionCount(library)} onDelete={onDeleteSession} onClear={onClearSessions} onReview={onReviewSession} query={scopedQ("history")} T={T} />}
-      {libTab === "console" && <ConsolePanel library={library} sessionLog={sessionLog} session={session} remoteSession={remoteSession} onMigrate={onMigrate} onAbortRemote={onAbortRemote} onResume={onResume} onOpenLobby={onOpenLobby} onReview={onReviewSession} onNavigate={(tab) => { setLibTab(tab); window.scrollTo({ top: 0, behavior: "smooth" }); }} T={T} />}
+      {libTab === "console" && <ConsolePanel library={library} sessionLog={sessionLog} session={session} remoteSession={remoteSession} remoteBroken={remoteBroken} onMigrate={onMigrate} onAbortRemote={onAbortRemote} onDiscardRemote={onDiscardRemote} onResume={onResume} onOpenLobby={onOpenLobby} onReview={onReviewSession} onNavigate={(tab) => { setLibTab(tab); window.scrollTo({ top: 0, behavior: "smooth" }); }} T={T} />}
       {libTab === "studyhub" && <StudyHub active={shActive} setActive={setShActive} library={library} sessionLog={sessionLog} onLaunch={onLaunchLibrary} onNavigate={(tab, key) => { if (key) setCalFocus({ key, n: Date.now() }); setLibTab(tab); if (tab !== "profile") window.scrollTo({ top: 0, behavior: "smooth" }); }} T={T} />}
       {libTab === "library" && libType === "qbank" && library.length > 0 && <SmartReviewDeck library={library} onStart={onSmartReview} T={T} />}
       {libTab === "library" && libType === "qbank" && <TutorLibraryStrip library={library} sessionLog={sessionLog} onLaunch={onLaunchLibrary} onSmartReview={onSmartReview} onNavigate={setLibTab} T={T} />}
@@ -14879,6 +14910,7 @@ function OworldApp() {
   const [activePrompt, setActivePrompt] = useState(null); // { action: "offer" | "conflict", remote, qbanks }
   const [remoteOffer, setRemoteOffer] = useState(null); // { remote, block }: a test live on another device, kept for the Console box even after the toast is dismissed
   const declinedActive = useRef("");
+  const [offerBroken, setOfferBroken] = useState(""); // `${sessionId}:${updatedAt}` of an offer whose questions could not be fetched
   const holdRef = useRef(false);                         // a prompt is open: don't mark the remote version as agreed yet
   const liveRef = useRef({}); liveRef.current = { examData, blockStates, library, view };
   function setRec(next) {
@@ -14967,6 +14999,7 @@ function OworldApp() {
     if (!blk) {
       if (!silent) {
         const why = sessionSync.blockError && sessionSync.blockError();
+        if (why === "gone") setOfferBroken(`${r.sessionId}:${r.updatedAt}`);
         flashError(tr(why === "auth" ? "activeSignIn" : why === "gone" ? "activeBlockGone" : "activeMissing"));
       }
       return false;
@@ -15018,6 +15051,18 @@ function OworldApp() {
     const rec = recRef.current;
     holdRef.current = false;
     if (o.action === "conflict" && rec && !rec.ended) setRec({ ...rec, updatedAt: Date.now() });
+  }
+  // Console "Discard": end an offered test whose questions are gone, on every device (a tombstone, like finishing or removing it).
+  // With a different test open here this is the same as Abort (this device's session then replaces the broken one on Drive).
+  function discardRemoteOffer() {
+    const o = remoteOffer; if (!o) return;
+    if (o.action !== "conflict" && typeof window !== "undefined" && !window.confirm(tr("csRemoteDiscardQ"))) return;
+    const r = o.remote;
+    declinedActive.current = `${r.sessionId}:${r.updatedAt}`;
+    holdRef.current = false; setActivePrompt(null); setRemoteOffer(null); setOfferBroken("");
+    const rec = recRef.current;
+    if (o.action === "conflict" && rec && !rec.ended) { setRec({ ...rec, updatedAt: Date.now() }); return; }
+    setRec({ sessionId: r.sessionId, updatedAt: Math.max(Date.now(), (Number(r.updatedAt) || 0) + 1), baseAt: 0, ended: true, sig: "", outcome: "removed", score: null, finishedAt: Date.now() });
   }
   function declineActivePrompt() {
     const p = activePrompt; setActivePrompt(null);
@@ -15583,6 +15628,8 @@ function OworldApp() {
           remoteSession={remoteOffer ? remoteOffer.remote : null}
           onMigrate={migrateRemoteOffer}
           onAbortRemote={abortRemoteOffer}
+          onDiscardRemote={discardRemoteOffer}
+          remoteBroken={!!(remoteOffer && offerBroken === `${remoteOffer.remote.sessionId}:${remoteOffer.remote.updatedAt}`)}
           onResume={() => resumeSession(ipIdx)}
           onOpenLobby={() => setView("lobby")}
           onLaunchLibrary={(ids) => guardNew(() => launchFromLibrary(ids))}
