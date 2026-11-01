@@ -39,21 +39,31 @@ const LIGHT = {
   purple: "#7B3FB8",
   purpleLight: "#EBDDF6",
   flagRed: "#C0392B",
+  link: "#2D6CB4",
+  linkStrong: "#1F5290",
+  sel: "#2D6CB4",
+  isDark: false,
 };
 
 const DARK = {
+  // Charcoal-on-black card system. Sky blue is reserved for primary buttons,
+  // active tabs and progress; everything else is neutral zinc.
   navy: "#0A0A0A",
   navyDeep: "#000000",
   paper: "#000000",
-  card: "#0A0A0A",
-  border: "#3FC6E6",
+  card: "#121212",
+  border: "#27272A",
   ink: "#FFFFFF",
-  muted: "#8FE0F2",
-  mutedBg: "#12242A",
-  blue: "#3FC6E6",
-  blueDeep: "#1EA9CB",
-  blueLight: "#123A44",
-  onBlue: "#001217",
+  muted: "#A1A1AA",
+  mutedBg: "#1C1C1F",
+  blue: "#38BDF8",
+  blueDeep: "#7DD3FC",
+  blueLight: "#1F1F23",
+  onBlue: "#04141C",
+  link: "#D4D4D8",
+  linkStrong: "#E4E4E7",
+  sel: "#71717A",
+  isDark: true,
   green: "#5FD38A",
   greenLight: "#123A2A",
   greenStrong: "#1D5B3E",
@@ -735,7 +745,7 @@ function TextSizeControl({ T, bar = false }) {
         <span style={{ fontFamily: FONT_MONO, fontSize: 12.5, color: T.ink, minWidth: 44, textAlign: "center" }}>{pct}%</span>
         {mk("A+", 1, atMax, t("textLarger"), 15)}
         {textScale !== 1 && (
-          <button onClick={() => setTextScale(1)} style={{ flexBasis: "100%", fontFamily: FONT_UI, fontSize: 12, fontWeight: 600, background: "transparent", border: "none", color: T.blue, cursor: "pointer", padding: 4 }}>
+          <button onClick={() => setTextScale(1)} style={{ flexBasis: "100%", fontFamily: FONT_UI, fontSize: 12, fontWeight: 600, background: "transparent", border: "none", color: T.link, cursor: "pointer", padding: 4 }}>
             {t("textReset")}
           </button>
         )}
@@ -3522,8 +3532,8 @@ function NotificationBell({ T }) {
     green: { fg: T.green, bg: T.greenLight, Icon: CheckCircle2 },
     amber: { fg: T.amber, bg: T.amberLight, Icon: AlertTriangle },
     red: { fg: T.red, bg: T.redLight, Icon: XCircle },
-  }[tn] || { fg: T.blue, bg: T.blueLight, Icon: Bell });
-  const textLink = { background: "none", border: "none", padding: 0, cursor: "pointer", fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(12.5), color: T.blue };
+  }[tn] || { fg: T.link, bg: T.blueLight, Icon: Bell });
+  const textLink = { background: "none", border: "none", padding: 0, cursor: "pointer", fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(12.5), color: T.link };
 
   return (
     <div ref={wrapRef} style={{ position: "relative", flexShrink: 0 }}>
@@ -3532,7 +3542,7 @@ function NotificationBell({ T }) {
         aria-label={unread ? `${t("notifBtn")} (${t("notifUnread", { n: unread })})` : t("notifBtn")} title={t("notifBtn")}
         style={{
           position: "relative", display: "inline-flex", alignItems: "center", justifyContent: "center", width: 40, height: 40, padding: 0, borderRadius: "50%", cursor: "pointer",
-          background: open ? T.blueLight : "transparent", border: `1px solid ${open ? T.blue : T.border}`, color: T.ink,
+          background: open ? T.blueLight : "transparent", border: `1px solid ${open ? T.sel : T.border}`, color: T.ink,
         }}
       >
         <Bell size={17} />
@@ -3546,7 +3556,7 @@ function NotificationBell({ T }) {
       </button>
       {open && (
         <div role="dialog" aria-label={t("notifTitle")} style={{
-          position: "absolute", top: "calc(100% + 8px)", ...place, background: T.card, border: `1px solid ${T.border}`, borderRadius: 10,
+          position: "absolute", top: "calc(100% + 8px)", ...place, background: T.card, border: `1px solid ${T.border}`, borderRadius: 12,
           width: "min(340px, calc(100vw - 16px))", maxHeight: "min(480px, calc(100vh - 80px))", display: "flex", flexDirection: "column", zIndex: 70, boxShadow: "0 8px 24px rgba(0,0,0,0.3)",
         }}>
           <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 10, padding: "12px 14px", borderBottom: `1px solid ${T.border}` }}>
@@ -4477,7 +4487,7 @@ function AssessmentRow({ a, right, onSave, onRemove, T, t, children }) {
   const [date, setDate] = useState(a.date); const [time, setTime] = useState(a.time || "");
   useEffect(() => { setDate(a.date); setTime(a.time || ""); }, [a.date, a.time]);
   const inp = { fontFamily: FONT_UI, fontSize: fs(13), color: T.ink, background: T.paper, border: `1px solid ${T.border}`, borderRadius: 6, padding: "6px 8px", outline: "none", minWidth: 0 };
-  const btn = (primary) => ({ fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(12.5), cursor: "pointer", borderRadius: 6, padding: "6px 10px", background: primary ? T.blue : "transparent", color: primary ? T.onBlue : T.blue, border: `1px solid ${primary ? T.blue : T.border}` });
+  const btn = (primary) => ({ fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(12.5), cursor: "pointer", borderRadius: 6, padding: "6px 10px", background: primary ? T.blue : "transparent", color: primary ? T.onBlue : T.link, border: `1px solid ${primary ? T.sel : T.border}` });
   const valid = !!parseISODate(date);
   return (
     <div style={{ padding: "9px 0", borderBottom: `1px solid ${T.border}` }}>
@@ -4516,15 +4526,15 @@ function TutorCard({ sessionLog, onNavigate, T, compact = false, fill = false, h
   useEffect(() => { const id = setInterval(() => setTick((n) => n + 1), 60000); return () => clearInterval(id); }, []); // keeps "next class in 25 min" honest
   const dayKey = new Date().toDateString();
   const brief = useMemo(() => (sp.profile ? tutorBrief(sp.profile, sessionLog, new Date()) : null), [sp.profile, sessionLog, dayKey, tick]); // eslint-disable-line
-  const card = { background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, padding: compact ? "14px 18px" : phone ? 18 : 24 };
+  const card = { background: T.card, border: `1px solid ${T.border}`, borderRadius: 12, padding: compact ? "14px 18px" : phone ? 18 : 24 };
   const label = { fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(11.5), color: T.muted, textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: compact ? 4 : 6 };
-  const linkBtn = { marginLeft: "auto", fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(12.5), color: T.blue, background: "transparent", border: "none", cursor: "pointer", padding: 4 };
+  const linkBtn = { marginLeft: "auto", fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(12.5), color: T.link, background: "transparent", border: "none", cursor: "pointer", padding: 4 };
 
   if (!sp.profile || !brief) {
     return (
       <div style={{ ...card, display: "flex", alignItems: "center", justifyContent: "space-between", gap: 16, flexWrap: "wrap" }}>
         <div style={{ flex: "1 1 260px", minWidth: 0 }}>
-          <div style={{ display: "flex", alignItems: "center", gap: 8, fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(16), color: T.ink }}><GraduationCap size={18} color={T.blue} />{t("spCardInviteTitle")}</div>
+          <div style={{ display: "flex", alignItems: "center", gap: 8, fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(16), color: T.ink }}><GraduationCap size={18} color={T.link} />{t("spCardInviteTitle")}</div>
           <div style={{ fontFamily: FONT_UI, fontSize: fs(13.5), color: T.muted, marginTop: 4, lineHeight: 1.5 }}>{t("spCardInviteBody")}</div>
         </div>
         <PrimaryButton T={T} icon={Sparkles} onClick={() => onNavigate("profile")}>{t("spCardInviteBtn")}</PrimaryButton>
@@ -4554,7 +4564,7 @@ function TutorCard({ sessionLog, onNavigate, T, compact = false, fill = false, h
   return (
     <div style={{ ...card, display: "grid", gridTemplateColumns: "minmax(0, 1fr)", gap: compact ? 12 : 18, ...(fill ? { height: "100%", boxSizing: "border-box", alignContent: "space-between" } : {}) }}>
       <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap" }}>
-        <GraduationCap size={18} color={T.blue} />
+        <GraduationCap size={18} color={T.link} />
         <span style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(14), color: T.ink }}>{t("spCardTitle")}</span>
         <Pill T={T} tone={brief.phase === "in" ? "blue" : "muted"}>{spWeekLabel(brief, t)}</Pill>
         {!hideLinks && <button onClick={() => onNavigate("studyhub")} style={linkBtn}>{t("tbOpenTutor")}</button>}
@@ -4727,7 +4737,7 @@ function SmartReviewDeck({ library, onStart, T }) {
   const badgeText = st.due > 0 ? t("srdBadgeDue", { n: st.due }) : st.scheduled > 0 ? t("srdCaughtUp") : t("srdNone");
   const n = Math.min(st.due, SMART_REVIEW_MAX);
   return (
-    <div title={t("srdHint")} style={{ display: "flex", alignItems: "center", gap: 12, flexWrap: "wrap", background: T.card, border: `1px solid ${T.border}`, borderLeft: `4px solid ${tone}`, borderRadius: 10, padding: "12px 14px", marginBottom: 14 }}>
+    <div title={t("srdHint")} style={{ display: "flex", alignItems: "center", gap: 12, flexWrap: "wrap", background: T.card, border: `1px solid ${T.border}`, borderLeft: `4px solid ${tone}`, borderRadius: 12, padding: "12px 14px", marginBottom: 14 }}>
       <span style={{ position: "relative", display: "inline-flex", flexShrink: 0 }}>
         <RefreshCw size={22} color={tone} />
         {st.due > 0 && (
@@ -4874,7 +4884,7 @@ function TutorLibraryStrip({ library, sessionLog, onLaunch, onSmartReview, T }) 
     : <GhostButton T={T} icon={RefreshCw} onClick={onSmartReview}>{t("tlSmart", { n: Math.min(smart.due, SMART_REVIEW_MAX) })}</GhostButton>);
 
   return (
-    <div style={{ background: T.card, border: `1px solid ${T.border}`, borderLeft: `4px solid ${tone}`, borderRadius: 10, padding: "14px 18px", marginBottom: 20 }}>
+    <div style={{ background: T.card, border: `1px solid ${T.border}`, borderLeft: `4px solid ${tone}`, borderRadius: 12, padding: "14px 18px", marginBottom: 20 }}>
       <button onClick={toggleOpen} aria-expanded={open} title={t(open ? "deckCollapse" : "deckExpand", { d: fill(lead.title) })}
         style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap", width: "100%", background: "transparent", border: "none", padding: 0, cursor: "pointer", textAlign: "left", font: "inherit" }}>
         {open ? <ChevronDown size={16} color={T.muted} style={{ flexShrink: 0 }} /> : <ChevronRight size={16} color={T.muted} style={{ flexShrink: 0 }} />}
@@ -5178,11 +5188,11 @@ function GapTable({ st, kind, setKind, T, t, onStudy, open, setOpen }) {
   const cols = "minmax(130px, 2.2fr) repeat(4, minmax(58px, 1fr))"; const cell = { fontFamily: FONT_MONO, fontSize: fs(12), color: T.ink, textAlign: "right" };
   const headC = { ...cell, fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(11), color: T.muted, textTransform: "uppercase", letterSpacing: "0.04em" };
   return (
-    <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, padding: 20, minWidth: 0 }}>
+    <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 12, padding: 20, minWidth: 0 }}>
       <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: open ? 6 : 0, flexWrap: "wrap", fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(15), color: T.ink }}>
-        <button onClick={() => setOpen(!open)} aria-expanded={open} style={{ flex: "1 1 auto", display: "flex", alignItems: "center", gap: 8, background: "transparent", border: "none", padding: 0, cursor: "pointer", textAlign: "left", fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(15), color: T.ink }}><TrendingUp size={17} color={T.blue} />{t("tbGapTitle")}<span style={{ marginLeft: "auto", display: "flex" }}>{open ? <ChevronUp size={16} color={T.muted} /> : <ChevronDown size={16} color={T.muted} />}</span></button>
+        <button onClick={() => setOpen(!open)} aria-expanded={open} style={{ flex: "1 1 auto", display: "flex", alignItems: "center", gap: 8, background: "transparent", border: "none", padding: 0, cursor: "pointer", textAlign: "left", fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(15), color: T.ink }}><TrendingUp size={17} color={T.link} />{t("tbGapTitle")}<span style={{ marginLeft: "auto", display: "flex" }}>{open ? <ChevronUp size={16} color={T.muted} /> : <ChevronDown size={16} color={T.muted} />}</span></button>
         {open && <span style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
-          {kinds.map(([id, lab]) => <button key={id} onClick={() => setKind(id)} aria-pressed={k === id} style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(12), color: k === id ? T.onBlue : T.ink, background: k === id ? T.blue : "transparent", border: `1px solid ${k === id ? T.blue : T.border}`, borderRadius: 999, padding: "4px 12px", cursor: "pointer" }}>{t(lab)}</button>)}
+          {kinds.map(([id, lab]) => <button key={id} onClick={() => setKind(id)} aria-pressed={k === id} style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(12), color: k === id ? T.onBlue : T.ink, background: k === id ? T.blue : "transparent", border: `1px solid ${k === id ? T.sel : T.border}`, borderRadius: 999, padding: "4px 12px", cursor: "pointer" }}>{t(lab)}</button>)}
         </span>}
       </div>
       {open && (<>
@@ -5256,7 +5266,7 @@ function StudyHub({ library, sessionLog, onLaunch, onNavigate, active, setActive
   if (page === "sh-profile") {
     return (
       <div id="sh-profile" style={{ display: "grid", gap: 16 }}>
-        <div style={{ display: "flex", alignItems: "center", gap: 8, fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(20), color: T.ink }}><UserIcon size={20} color={T.blue} />{t("shNavProfile")}</div>
+        <div style={{ display: "flex", alignItems: "center", gap: 8, fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(20), color: T.ink }}><UserIcon size={20} color={T.link} />{t("shNavProfile")}</div>
         <StudentProfilePanel embedded T={T} sessionLog={sessionLog} onNavigate={onNavigate} />
       </div>
     );
@@ -5277,8 +5287,8 @@ function TutorDashboard({ library, sessionLog, onLaunch, onNavigate, T, embedded
   const prioCourse = sp.profile ? (sp.profile.courses || []).find((c) => c.priority) : null;
   const prioFocus = useMemo(() => { const w = prioCourse && brief ? (prioCourse.weeks || []).find((x) => x.week === brief.week) : null; return w ? [...(w.qbankFocus || []), ...(w.topics || [])] : []; }, [prioCourse, brief]);
   const st = useMemo(() => (bp ? bpStats(bp, sessionLog, brief ? brief.studyFocus : [], prioFocus) : null), [bp, sessionLog, brief, prioFocus]);
-  const card = { background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, padding: 20, minWidth: 0 };
-  const head = (Ic, label, extra) => <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 12, fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(15), color: T.ink }}><Ic size={17} color={T.blue} />{label}{extra}</div>;
+  const card = { background: T.card, border: `1px solid ${T.border}`, borderRadius: 12, padding: 20, minWidth: 0 };
+  const head = (Ic, label, extra) => <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 12, fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(15), color: T.ink }}><Ic size={17} color={T.link} />{label}{extra}</div>;
   const hint = { fontFamily: FONT_UI, fontSize: fs(12.5), color: T.muted, lineHeight: 1.5 };
   const grid = (min) => ({ display: "grid", gridTemplateColumns: `repeat(auto-fit, minmax(min(100%, ${min}px), 1fr))`, gap: 16, alignItems: "start" });
   const inPrio = !page || page === "priorities"; const inBp = !page || page === "blueprint";
@@ -5306,7 +5316,7 @@ function TutorDashboard({ library, sessionLog, onLaunch, onNavigate, T, embedded
   return (
     <div style={{ display: "grid", gap: 16 }}>
       {!embedded && <div style={{ display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap" }}>
-        <GraduationCap size={22} color={T.blue} />
+        <GraduationCap size={22} color={T.link} />
         <h2 style={{ margin: 0, fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(22), color: T.ink }}>{t("tbTitle")}</h2>
         {brief && <Pill T={T} tone={brief.phase === "in" ? "blue" : "muted"}>{spWeekLabel(brief, t)}</Pill>}
         {bp && <Pill T={T} tone="muted">{bp.exam}</Pill>}
@@ -5317,7 +5327,7 @@ function TutorDashboard({ library, sessionLog, onLaunch, onNavigate, T, embedded
       </div>}
 
       {bp && fr && (fr.due || fr.soon) && (
-        <div role="status" style={{ ...card, padding: "14px 18px", borderColor: fr.due ? T.amber : T.blue, display: "flex", alignItems: "center", gap: 12, flexWrap: "wrap" }}>
+        <div role="status" style={{ ...card, padding: "14px 18px", borderColor: fr.due ? T.amber : T.sel, display: "flex", alignItems: "center", gap: 12, flexWrap: "wrap" }}>
           <AlertTriangle size={18} color={fr.due ? T.amber : T.blue} />
           <span style={{ flex: "1 1 240px", minWidth: 0, fontFamily: FONT_UI, fontSize: fs(13.5), color: T.ink, lineHeight: 1.45 }}>{fr.newTerm ? t("tbDueTerm") : fr.due ? t("tbDue", { n: fr.ageDays }) : t("tbSoon", { n: fr.ageDays })}</span>
           <GhostButton T={T} icon={RefreshCw} onClick={openPanel}>{t("tbUpdate")}</GhostButton>
@@ -5356,7 +5366,7 @@ function TutorDashboard({ library, sessionLog, onLaunch, onNavigate, T, embedded
         <div style={grid(340)}>
           {[["systems", "tbSystems"], ["domains", "tbDomains"], ["comps", "tbComps"]].filter(([k]) => st[k].length).map(([k, label]) => (
             <div key={k} style={card}>
-              <button onClick={() => setMapsOpen({ ...mapsOpen, [k]: !mapsOpen[k] })} aria-expanded={!!mapsOpen[k]} style={{ display: "flex", alignItems: "center", gap: 8, width: "100%", background: "transparent", border: "none", padding: 0, marginBottom: mapsOpen[k] ? 12 : 0, cursor: "pointer", textAlign: "left", fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(15), color: T.ink }}><BarChart3 size={17} color={T.blue} />{t(label)}<Pill T={T} tone="muted">{st[k].length}</Pill><span style={{ marginLeft: "auto", display: "flex" }}>{mapsOpen[k] ? <ChevronUp size={16} color={T.muted} /> : <ChevronDown size={16} color={T.muted} />}</span></button>
+              <button onClick={() => setMapsOpen({ ...mapsOpen, [k]: !mapsOpen[k] })} aria-expanded={!!mapsOpen[k]} style={{ display: "flex", alignItems: "center", gap: 8, width: "100%", background: "transparent", border: "none", padding: 0, marginBottom: mapsOpen[k] ? 12 : 0, cursor: "pointer", textAlign: "left", fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(15), color: T.ink }}><BarChart3 size={17} color={T.link} />{t(label)}<Pill T={T} tone="muted">{st[k].length}</Pill><span style={{ marginLeft: "auto", display: "flex" }}>{mapsOpen[k] ? <ChevronUp size={16} color={T.muted} /> : <ChevronDown size={16} color={T.muted} />}</span></button>
               {mapsOpen[k] && <BpRows rows={st[k]} T={T} t={t} picked={picked} onPick={pick} onStudy={study} />}
             </div>
           ))}
@@ -5368,7 +5378,7 @@ function TutorDashboard({ library, sessionLog, onLaunch, onNavigate, T, embedded
       {inBp && (<>
       {bp && conf && (
         <div style={card}>
-          <button onClick={() => setConfOpen(!confOpen)} aria-expanded={confOpen} style={{ display: "flex", alignItems: "center", gap: 8, width: "100%", background: "transparent", border: "none", padding: 0, marginBottom: confOpen ? 12 : 0, cursor: "pointer", textAlign: "left", fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(15), color: T.ink }}><ShieldCheck size={17} color={T.blue} />{t("tbConf")}<Pill T={T} tone={confTone}>{`${t(`tbConfLvl.${conf.level}`)} · ${conf.score}/100`}</Pill><span style={{ marginLeft: "auto", display: "flex" }}>{confOpen ? <ChevronUp size={16} color={T.muted} /> : <ChevronDown size={16} color={T.muted} />}</span></button>
+          <button onClick={() => setConfOpen(!confOpen)} aria-expanded={confOpen} style={{ display: "flex", alignItems: "center", gap: 8, width: "100%", background: "transparent", border: "none", padding: 0, marginBottom: confOpen ? 12 : 0, cursor: "pointer", textAlign: "left", fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(15), color: T.ink }}><ShieldCheck size={17} color={T.link} />{t("tbConf")}<Pill T={T} tone={confTone}>{`${t(`tbConfLvl.${conf.level}`)} · ${conf.score}/100`}</Pill><span style={{ marginLeft: "auto", display: "flex" }}>{confOpen ? <ChevronUp size={16} color={T.muted} /> : <ChevronDown size={16} color={T.muted} />}</span></button>
           {confOpen && (<>
           <div style={{ display: "grid", gap: 6 }}>
             {conf.good.map((g) => <div key={g.k} style={{ display: "flex", gap: 8, alignItems: "flex-start", fontFamily: FONT_UI, fontSize: fs(13), color: T.ink, lineHeight: 1.45 }}><Check size={14} color={T.green} style={{ flexShrink: 0, marginTop: 2 }} /><span>{t(`tbCg.${g.k}`, cv(g.v))}</span></div>)}
@@ -5383,7 +5393,7 @@ function TutorDashboard({ library, sessionLog, onLaunch, onNavigate, T, embedded
 
       <div ref={panelRef} id="sh-blueprint" style={{ ...card, scrollMarginTop: "calc(var(--oworld-sticky-h, 0px) + 12px)" }}>
         <button onClick={() => { if (page !== "blueprint") setOpen(!open); }} aria-expanded={panelOpen} style={{ display: "flex", alignItems: "center", gap: 8, width: "100%", background: "transparent", border: "none", padding: 0, cursor: "pointer", textAlign: "left" }}>
-          <Target size={17} color={T.blue} /><span style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(15), color: T.ink }}>{t("tbBpTitle")}</span>
+          <Target size={17} color={T.link} /><span style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(15), color: T.ink }}>{t("tbBpTitle")}</span>
           {bp && <Pill T={T} tone="muted">{bp.exam}{bp.version ? ` · ${bp.version}` : ""}</Pill>}
           {conf && <Pill T={T} tone={confTone}>{t(`tbConfLvl.${conf.level}`)}</Pill>}
           <span style={{ marginLeft: "auto", display: "flex" }}>{page === "blueprint" ? null : open ? <ChevronUp size={16} color={T.muted} /> : <ChevronDown size={16} color={T.muted} />}</span>
@@ -5393,13 +5403,13 @@ function TutorDashboard({ library, sessionLog, onLaunch, onNavigate, T, embedded
             <div style={hint}>{t("tbBpBody")} {t("tbCadence")}</div>
             <div style={{ display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap" }}>
               {bpStore.sync.available ? <Pill T={T} tone="green">{t("spSyncDrive")}</Pill> : <span style={hint}>{t("spSyncLocal")}</span>}
-              {bpStore.sync.available && <button onClick={bpStore.sync.syncNow} disabled={bpStore.sync.status === "busy"} style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(12.5), color: T.blue, background: "transparent", border: "none", cursor: "pointer", padding: 4 }}>{t("syncNow")}</button>}
+              {bpStore.sync.available && <button onClick={bpStore.sync.syncNow} disabled={bpStore.sync.status === "busy"} style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(12.5), color: T.link, background: "transparent", border: "none", cursor: "pointer", padding: 4 }}>{t("syncNow")}</button>}
             </div>
             {[["p", t("tbBpPrompt"), BP_PROMPT, showP, setShowP], ["s", t("tbBpSchema"), JSON.stringify(BP_TEMPLATE, null, 2), showS, setShowS]].map(([key, label, body, shown, setShown]) => (
               <div key={key}>
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 8, gap: 8 }}>
                   <button onClick={() => setShown(!shown)} aria-expanded={shown} style={{ display: "flex", alignItems: "center", gap: 6, background: "transparent", border: "none", padding: 0, cursor: "pointer", fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(12.5), color: T.ink, textTransform: "uppercase", letterSpacing: "0.05em", textAlign: "left" }}>{label}{shown ? <ChevronUp size={15} color={T.muted} /> : <ChevronDown size={15} color={T.muted} />}</button>
-                  <button onClick={() => copy(key, body)} style={{ fontFamily: FONT_UI, fontSize: fs(12.5), fontWeight: 600, color: copied === key ? T.green : T.blue, background: "transparent", border: "none", cursor: "pointer", display: "flex", alignItems: "center", gap: 5 }}>
+                  <button onClick={() => copy(key, body)} style={{ fontFamily: FONT_UI, fontSize: fs(12.5), fontWeight: 600, color: copied === key ? T.green : T.link, background: "transparent", border: "none", cursor: "pointer", display: "flex", alignItems: "center", gap: 5 }}>
                     {copied === key ? <Check size={14} /> : <Copy size={14} />} {copied === key ? t("copied") : t("copy")}
                   </button>
                 </div>
@@ -5576,7 +5586,7 @@ function PlanManager({ profile, sp, brief, T, t, lang, phone, onNavigate, inline
           <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap", marginTop: 3 }}>
             {d
               ? <button onClick={() => onNavigate("calendar", k.due)} title={t("plOpenCal")} aria-label={`${t("plOpenCal")}: ${fmtDue(d)}`} style={{ display: "inline-flex", alignItems: "center", gap: 4, background: "transparent", border: "none", padding: 0, cursor: "pointer", fontFamily: FONT_MONO, fontSize: fs(11.5), color: k.done ? T.muted : dueColor, fontWeight: 700 }}><CalendarDays size={12} />{fmtDue(d)}{k.time ? ` · ${fmtClock(k.time, locale)}` : ""}{late > 0 ? ` · ${t("plOverdueBy", { n: late })}` : ""}</button>
-              : !k.done && !cal && <button onClick={() => startEdit(k)} style={{ background: "transparent", border: "none", padding: 0, cursor: "pointer", fontFamily: FONT_UI, fontSize: fs(11.5), fontWeight: 600, color: T.blue }}>{t("plSetDate")}</button>}
+              : !k.done && !cal && <button onClick={() => startEdit(k)} style={{ background: "transparent", border: "none", padding: 0, cursor: "pointer", fontFamily: FONT_UI, fontSize: fs(11.5), fontWeight: 600, color: T.link }}>{t("plSetDate")}</button>}
             {k.kind && k.kind !== "other" && !cal && <Pill T={T} tone="muted">{t(`plKind.${k.kind}`)}</Pill>}
             {cal && <Pill T={T} tone="blue">{t("plFromCal")}</Pill>}
             {k.priority === "low" && !k.done && <Pill T={T} tone="muted">{t("plPri.low")}</Pill>}
@@ -5645,9 +5655,9 @@ function PlanManager({ profile, sp, brief, T, t, lang, phone, onNavigate, inline
       </div>
       <div style={{ display: "flex", alignItems: "center", gap: 6, flexWrap: "wrap", marginTop: 8 }}>
         {[[t("spToday"), todayKey], [t("spTomorrow"), toISODate(new Date(today.getFullYear(), today.getMonth(), today.getDate() + 1))]].map(([label, key]) => (
-          <button key={key} onClick={() => setDraft({ ...draft, due: key })} aria-pressed={draft.due === key} style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(12), cursor: "pointer", padding: "3px 10px", borderRadius: 999, border: `1px solid ${draft.due === key ? T.blue : T.border}`, background: draft.due === key ? T.blueLight : "transparent", color: draft.due === key ? T.blueDeep : T.muted }}>{label}</button>
+          <button key={key} onClick={() => setDraft({ ...draft, due: key })} aria-pressed={draft.due === key} style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(12), cursor: "pointer", padding: "3px 10px", borderRadius: 999, border: `1px solid ${draft.due === key ? T.sel : T.border}`, background: draft.due === key ? T.blueLight : "transparent", color: draft.due === key ? T.linkStrong : T.muted }}>{label}</button>
         ))}
-        <button onClick={() => setMoreOpts((o) => !o)} aria-expanded={moreOpts} style={{ display: "inline-flex", alignItems: "center", gap: 4, fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(12.5), color: T.blue, background: "transparent", border: "none", cursor: "pointer", padding: 4 }}>{t("plOptions")}{moreOpts ? <ChevronUp size={14} /> : <ChevronDown size={14} />}</button>
+        <button onClick={() => setMoreOpts((o) => !o)} aria-expanded={moreOpts} style={{ display: "inline-flex", alignItems: "center", gap: 4, fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(12.5), color: T.link, background: "transparent", border: "none", cursor: "pointer", padding: 4 }}>{t("plOptions")}{moreOpts ? <ChevronUp size={14} /> : <ChevronDown size={14} />}</button>
       </div>
       {moreOpts && (
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(120px, 1fr))", gap: 10, marginTop: 8 }}>
@@ -5723,7 +5733,7 @@ function StudentProfilePanel({ T, sessionLog, onNavigate, embedded = false }) {
     career: careerForPrompt(careerCtx.career),
   }), [lang, withStats, sessionLog, effMode, profile, careerCtx.career]);
 
-  const card = { background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, padding: phone ? 18 : 24 };
+  const card = { background: T.card, border: `1px solid ${T.border}`, borderRadius: 12, padding: phone ? 18 : 24 };
   const cardHead = { display: "flex", alignItems: "center", gap: 8, marginBottom: 14, flexWrap: "wrap" };
   const headTxt = { fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(14), color: T.ink };
   const label = { fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(11.5), color: T.muted, textTransform: "uppercase", letterSpacing: "0.06em", margin: "0 0 6px" };
@@ -5750,7 +5760,7 @@ function StudentProfilePanel({ T, sessionLog, onNavigate, embedded = false }) {
   const syncTone = !sp.sync.available ? "muted" : sp.sync.status === "error" ? "red" : sp.sync.status === "busy" ? "blue" : "green";
   const syncText = !sp.sync.available ? t("spSyncLocal") : sp.sync.status === "busy" ? t("syncStBusy") : sp.sync.status === "error" ? t("syncStError")
     : sp.sync.lastSync ? t("syncStDone", { time: new Date(sp.sync.lastSync).toLocaleTimeString(locale, { hour: "numeric", minute: "2-digit" }) }) : t("spSyncDrive");
-  const ghostSm = { fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(12.5), color: T.blue, background: "transparent", border: "none", cursor: "pointer", padding: 4 };
+  const ghostSm = { fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(12.5), color: T.link, background: "transparent", border: "none", cursor: "pointer", padding: 4 };
   // Card header that doubles as the expand / collapse button.
   const collHead = (Icon, title, open, toggle, extra) => (
     <button type="button" onClick={toggle} aria-expanded={open} style={{ display: "flex", alignItems: "center", gap: 8, width: "100%", background: "transparent", border: "none", padding: 0, margin: open ? "0 0 14px" : 0, cursor: "pointer", textAlign: "left", flexWrap: "wrap" }}>
@@ -5807,8 +5817,8 @@ function StudentProfilePanel({ T, sessionLog, onNavigate, embedded = false }) {
       <div>
         {!embedded && <div style={{ display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap" }}>
           {embedded
-            ? <><UserIcon size={22} color={T.blue} /><h2 style={{ margin: "0 0 4px", fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(22), color: T.ink }}>{t("spTitle")}</h2></>
-            : <h1 style={{ fontFamily: FONT_DISPLAY, fontSize: fs(phone ? 26 : 32), fontWeight: 600, color: T.ink, margin: "0 0 4px" }}>{t("spTitle")}</h1>}
+            ? <><UserIcon size={22} color={T.link} /><h2 style={{ margin: "0 0 4px", fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(22), color: T.ink }}>{t("spTitle")}</h2></>
+            : <h1 style={{ fontFamily: FONT_UI, fontSize: fs(phone ? 26 : 32), fontWeight: 600, color: T.ink, margin: "0 0 4px" }}>{t("spTitle")}</h1>}
           {onNavigate && !embedded && <span style={{ marginLeft: "auto", display: "flex", gap: 8, flexWrap: "wrap" }}><GhostButton T={T} icon={Target} onClick={() => onNavigate("studyhub")}>{t("tabStudyHub")}</GhostButton></span>}
         </div>}
         <p style={{ ...body, maxWidth: 680 }}>{t("spHint")}</p>
@@ -5904,7 +5914,7 @@ function StudentProfilePanel({ T, sessionLog, onNavigate, embedded = false }) {
                             {shown.map((w) => {
                               const cur = brief.phase === "in" && w.week === brief.week;
                               const topics = mapOpen ? (w.topics[0] ? ` · ${w.topics[0].slice(0, 28)}` : "") : (w.topics.length ? ` · ${w.topics.slice(0, 3).join(", ").slice(0, 90)}` : "");
-                              return <span key={w.week} title={w.topics.join(", ")} style={{ fontFamily: FONT_MONO, fontSize: fs(11.5), padding: "4px 8px", borderRadius: 6, border: `1px solid ${cur ? T.blue : T.border}`, background: cur ? T.blueLight : "transparent", color: cur ? T.blue : T.muted, fontWeight: cur ? 700 : 400 }}>{t("spWeekN", { n: w.week })}{topics}</span>;
+                              return <span key={w.week} title={w.topics.join(", ")} style={{ fontFamily: FONT_MONO, fontSize: fs(11.5), padding: "4px 8px", borderRadius: 6, border: `1px solid ${cur ? T.sel : T.border}`, background: cur ? T.blueLight : "transparent", color: cur ? T.blue : T.muted, fontWeight: cur ? 700 : 400 }}>{t("spWeekN", { n: w.week })}{topics}</span>;
                             })}
                             {shown.length === 0 && <span style={{ ...body, fontSize: fs(12.5) }}>{t("spNoFocus")}</span>}
                           </div>
@@ -5961,7 +5971,7 @@ function StudentProfilePanel({ T, sessionLog, onNavigate, embedded = false }) {
           {canUpdate && (
             <div role="radiogroup" style={{ display: "flex", gap: 6 }}>
               {[["new", t("spModeNew")], ["update", t("spModeUpdate")]].map(([id, lbl]) => (
-                <button key={id} role="radio" aria-checked={effMode === id} onClick={() => setMode(id)} style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(12.5), padding: "6px 12px", borderRadius: 999, cursor: "pointer", border: `1px solid ${effMode === id ? T.blue : T.border}`, background: effMode === id ? T.blueLight : "transparent", color: effMode === id ? T.blue : T.ink }}>{lbl}</button>
+                <button key={id} role="radio" aria-checked={effMode === id} onClick={() => setMode(id)} style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(12.5), padding: "6px 12px", borderRadius: 999, cursor: "pointer", border: `1px solid ${effMode === id ? T.sel : T.border}`, background: effMode === id ? T.blueLight : "transparent", color: effMode === id ? T.blue : T.ink }}>{lbl}</button>
               ))}
             </div>
           )}
@@ -5979,7 +5989,7 @@ function StudentProfilePanel({ T, sessionLog, onNavigate, embedded = false }) {
           <button
             onClick={() => copy("prompt", prompt)}
             style={{
-              fontFamily: FONT_UI, fontSize: fs(12.5), fontWeight: 600, color: copied === "prompt" ? T.green : T.blue,
+              fontFamily: FONT_UI, fontSize: fs(12.5), fontWeight: 600, color: copied === "prompt" ? T.green : T.link,
               background: "transparent", border: "none", cursor: "pointer", display: "flex", alignItems: "center", gap: 5,
             }}
           >
@@ -6012,7 +6022,7 @@ function StudentProfilePanel({ T, sessionLog, onNavigate, embedded = false }) {
           {(text.trim() || !pasteOpen) && (
             <div style={{ display: "flex", alignItems: "center", gap: 12, marginTop: pasteOpen ? 6 : 0, fontFamily: FONT_UI, fontSize: fs(12), color: T.muted }}>
               <span>{text.trim() ? t("pasteChars", { n: text.length.toLocaleString() }) : t("pasteEmpty")}</span>
-              {text.trim() && <button type="button" onClick={() => { setText(""); setError(""); setLoaded(false); }} style={{ fontFamily: FONT_UI, fontSize: fs(12), fontWeight: 600, color: T.blue, background: "transparent", border: "none", padding: 0, cursor: "pointer" }}>{t("pasteClear")}</button>}
+              {text.trim() && <button type="button" onClick={() => { setText(""); setError(""); setLoaded(false); }} style={{ fontFamily: FONT_UI, fontSize: fs(12), fontWeight: 600, color: T.link, background: "transparent", border: "none", padding: 0, cursor: "pointer" }}>{t("pasteClear")}</button>}
             </div>
           )}
           {error && <p role="alert" style={{ ...body, color: T.red, marginTop: 8 }}>{error}</p>}
@@ -6340,7 +6350,7 @@ function DatabaseCard({ item, T, onUpdate, onRemove, selected = false, onToggle 
   const src = item.source || {};
   const srcLine = [src.block, src.num ? `#${src.num}` : "", src.subject].filter(Boolean).join(" · ");
   const when = new Date(item.ts).toLocaleDateString(lang === "es" ? "es" : "en-US", { month: "short", day: "numeric", year: "numeric" });
-  const small = { fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(12.5), background: "none", border: "none", padding: 0, cursor: "pointer", color: T.blue };
+  const small = { fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(12.5), background: "none", border: "none", padding: 0, cursor: "pointer", color: T.link };
 
   function startEdit() { setDraft(isNote ? item.text || "" : item.comment || ""); setEditing(true); }
   function saveEdit() { onUpdate(item.id, isNote ? { text: draft } : { comment: draft }); setEditing(false); }
@@ -6353,7 +6363,7 @@ function DatabaseCard({ item, T, onUpdate, onRemove, selected = false, onToggle 
   }
 
   return (
-    <div style={{ background: T.card, border: `1px solid ${selected ? T.blue : T.border}`, borderRadius: 10, padding: "14px 16px", display: "grid", gap: 10 }}>
+    <div style={{ background: T.card, border: `1px solid ${selected ? T.sel : T.border}`, borderRadius: 12, padding: "14px 16px", display: "grid", gap: 10 }}>
       <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap" }}>
         {onToggle && <input type="checkbox" checked={selected} onChange={() => onToggle(item.id)} aria-label={t(kind.label)} style={{ width: 16, height: 16, margin: 0, cursor: "pointer", accentColor: T.blue }} />}
         <Pill T={T} tone={kind.tone}>{t(kind.label)}</Pill>
@@ -6492,14 +6502,14 @@ function DatabasePanel({ T, query = "" }) { // query: from the universal search 
   return (
     <div style={{ display: "grid", gap: 14 }}>
       <div style={{ display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap" }}>
-        <Database size={18} color={T.blue} />
+        <Database size={18} color={T.link} />
         <span style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(17), color: T.ink }}>{t("dbTitle")}</span>
         <span style={{ marginLeft: "auto", display: "inline-flex", alignItems: "center", gap: 8, flexWrap: "wrap" }}>
           <GhostButton T={T} icon={managingOn ? ChevronUp : SlidersHorizontal} onClick={toggleManage} title={t("dbManage")}
-            style={{ padding: "6px 10px", ...(managingOn ? { color: T.blue, border: `1px solid ${T.blue}`, background: T.blueLight } : {}) }}>{t("dbManage")}</GhostButton>
+            style={{ padding: "6px 10px", ...(managingOn ? { color: T.link, border: `1px solid ${T.sel}`, background: T.blueLight } : {}) }}>{t("dbManage")}</GhostButton>
           {signedIn && (
             <>
-              <Cloud size={15} color={T.blue} />
+              <Cloud size={15} color={T.link} />
               <Pill T={T} tone={syncTone}>{syncText}</Pill>
               <GhostButton T={T} icon={RefreshCw} onClick={sync.syncNow} disabled={sync.status === "busy"} style={{ padding: "6px 10px" }}>{t("syncNow")}</GhostButton>
             </>
@@ -6553,7 +6563,7 @@ function DatabasePanel({ T, query = "" }) { // query: from the universal search 
               return (
                 <button key={id} role="tab" aria-selected={on} onClick={() => setFilter(id)} style={{
                   fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(13), padding: "7px 14px", borderRadius: 999, cursor: "pointer",
-                  border: `1px solid ${on ? T.blue : T.border}`, background: on ? T.blueLight : "transparent", color: on ? T.blue : T.ink,
+                  border: `1px solid ${on ? T.sel : T.border}`, background: on ? T.blueLight : "transparent", color: on ? T.blue : T.ink,
                 }}>{t(label)}</button>
               );
             })}
@@ -6562,7 +6572,7 @@ function DatabasePanel({ T, query = "" }) { // query: from the universal search 
       )}
 
       {items.length === 0 ? (
-        <div style={{ background: T.card, border: `1px dashed ${T.border}`, borderRadius: 10, padding: "36px 20px", textAlign: "center" }}>
+        <div style={{ background: T.card, border: `1px dashed ${T.border}`, borderRadius: 12, padding: "36px 20px", textAlign: "center" }}>
           <Database size={28} color={T.muted} />
           <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(15), color: T.ink, marginTop: 10 }}>{t("dbEmpty")}</div>
           <div style={{ fontFamily: FONT_UI, fontSize: fs(13), color: T.muted, marginTop: 6, lineHeight: 1.5, maxWidth: 460, marginInline: "auto" }}>{t("dbEmptyHint")}</div>
@@ -6609,7 +6619,7 @@ function TrashPanel({ trash, onRestore, onPurge, T, onClose }) {
   const confirmIds = confirm === "empty" ? live.map((e) => e.tid) : confirm && confirm.ids ? confirm.ids.filter((id) => liveIds.has(id)) : [];
 
   return (
-    <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, padding: 24, marginBottom: onClose ? 0 : 20 }}>
+    <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 12, padding: 24, marginBottom: onClose ? 0 : 20 }}>
       <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 6, flexWrap: "wrap" }}>
         <Trash2 size={17} color={T.ink} />
         <span style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(14), color: T.ink }}>{t("trashTitle")}</span>
@@ -6654,7 +6664,7 @@ function TrashPanel({ trash, onRestore, onPurge, T, onClose }) {
             return (
               <button key={id} role="tab" aria-selected={on} onClick={() => setFilter(id)} style={{
                 fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(13), padding: "7px 14px", borderRadius: 999, cursor: "pointer",
-                border: `1px solid ${on ? T.blue : T.border}`, background: on ? T.blueLight : "transparent", color: on ? T.blue : T.ink,
+                border: `1px solid ${on ? T.sel : T.border}`, background: on ? T.blueLight : "transparent", color: on ? T.blue : T.ink,
               }}>{t(label)} ({counts[id]})</button>
             );
           })}
@@ -6662,7 +6672,7 @@ function TrashPanel({ trash, onRestore, onPurge, T, onClose }) {
       )}
 
       {live.length === 0 ? (
-        <div style={{ border: `1px dashed ${T.border}`, borderRadius: 10, padding: "36px 20px", textAlign: "center" }}>
+        <div style={{ border: `1px dashed ${T.border}`, borderRadius: 12, padding: "36px 20px", textAlign: "center" }}>
           <Trash2 size={28} color={T.muted} />
           <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(15), color: T.ink, marginTop: 10 }}>{t("trashEmpty")}</div>
           <div style={{ fontFamily: FONT_UI, fontSize: fs(13), color: T.muted, marginTop: 6, lineHeight: 1.5, maxWidth: 460, marginInline: "auto" }}>{t("trashEmptyHint")}</div>
@@ -6693,7 +6703,7 @@ function TrashPanel({ trash, onRestore, onPurge, T, onClose }) {
             return (
               <div key={e.tid} onClick={() => toggle(e.tid)} style={{
                 display: "flex", alignItems: "center", gap: 12, flexWrap: "wrap", padding: "12px 14px", borderRadius: 8, cursor: "pointer",
-                border: `1px solid ${picked ? T.blue : T.border}`, background: picked ? T.blueLight : "transparent",
+                border: `1px solid ${picked ? T.sel : T.border}`, background: picked ? T.blueLight : "transparent",
               }}>
                 <input type="checkbox" checked={picked} onChange={() => toggle(e.tid)} onClick={(ev) => ev.stopPropagation()} aria-label={title} style={{ cursor: "pointer", width: 18, height: 18 }} />
                 <div style={{ flex: 1, minWidth: 180 }}>
@@ -6754,9 +6764,8 @@ function ResetDataControl({ T }) {
 // OFFSETS into the raw question text (start/end), and the marked-up view is
 // *derived* fresh on every render from {raw text + offsets}. That keeps
 // highlighting correct and persistent under React's render model instead of
-// fighting it. Colors are fixed (not theme-tokenized) since a yellow
-// highlighter reads correctly in both light and dark mode, matching the
-// real NBME/UWorld convention.
+// fighting it. Colors are theme-aware (see hlTheme): pastel fills in light mode,
+// deep dark-toned fills with white text in dark mode.
 // ---------------------------------------------------------------------------
 const HINT_YELLOW = "#EAB308"; // hollow marker for "hint used" (reads on light and dark)
 const HINT_YELLOW_STRONG = "rgba(234,179,8,0.38)"; // correct option when a hint was used (reads on light and dark)
@@ -6769,7 +6778,21 @@ const HL_COLORS = {
   blue:   { bg: "#BFDBFE", hover: "#93C5FD", label: "hlBlue" },
   pink:   { bg: "#FBCFE8", hover: "#F9A8D4", label: "hlPink" },
 };
+// Dark mode: deep, dark-toned fills with white text, so highlights sit quietly on the charcoal cards instead of
+// flashing pastel blocks. `swatch` is the solid dot shown in the color picker.
+const HL_COLORS_DARK = {
+  yellow: { bg: "#4D4108", hover: "#6B5A0B", swatch: "#8A7410" },
+  green:  { bg: "#134E2A", hover: "#1B6B3B", swatch: "#238B4C" },
+  blue:   { bg: "#0C4A6E", hover: "#0B6397", swatch: "#0E7BB5" },
+  pink:   { bg: "#6B1F45", hover: "#8E2A5D", swatch: "#B03877" },
+};
 const HL_COLOR_KEYS = Object.keys(HL_COLORS);
+// Resolves a highlight color for the active theme: { bg, hover, swatch, text }.
+function hlTheme(T, key) {
+  const k = HL_COLORS[key] ? key : DEFAULT_HL;
+  if (T && T.isDark) return { ...HL_COLORS_DARK[k], text: T.ink };
+  return { bg: HL_COLORS[k].bg, hover: HL_COLORS[k].hover, swatch: HL_COLORS[k].bg, text: HIGHLIGHT_TEXT };
+}
 const DEFAULT_HL = "yellow"; // highlights saved before colors existed have no `color` and render as yellow
 
 // Walks a container's text nodes to convert a DOM (node, offset) pair from a
@@ -6921,8 +6944,8 @@ function HighlightSwatches({ value, onPick, T, t, size = 18, ring }) {
           aria-label={t(HL_COLORS[k].label)}
           aria-pressed={k === value}
           style={{
-            width: size, height: size, borderRadius: "50%", padding: 0, cursor: "pointer", background: HL_COLORS[k].bg,
-            border: k === value ? `2px solid ${ring || T.ink}` : "1px solid rgba(0,0,0,0.35)",
+            width: size, height: size, borderRadius: "50%", padding: 0, cursor: "pointer", background: hlTheme(T, k).swatch,
+            border: k === value ? `2px solid ${ring || T.ink}` : T && T.isDark ? "1px solid rgba(255,255,255,0.25)" : "1px solid rgba(0,0,0,0.35)",
             boxSizing: "border-box", flexShrink: 0,
           }}
         />
@@ -6956,7 +6979,7 @@ function getClues(text, phrases) {
 
 // Renders text with user highlights (colored, click to remove) and, optionally, key-clue
 // ranges (clueStyle). Text content is never altered, only wrapped, so highlight offsets stay valid.
-function renderHighlightedText(text, ranges, onRemoveHighlight, clues, clueStyle) {
+function renderHighlightedText(text, ranges, onRemoveHighlight, clues, clueStyle, T = LIGHT) {
   const hasUser = ranges && ranges.length > 0;
   const hasClues = clues && clues.length > 0;
   if (!hasUser && !hasClues) return text;
@@ -6979,7 +7002,7 @@ function renderHighlightedText(text, ranges, onRemoveHighlight, clues, clueStyle
     const u = user.find((r) => r.start <= s0 && r.end >= e0);
     const isClue = clue.some((r) => r.start <= s0 && r.end >= e0);
     if (u) {
-      const hc = HL_COLORS[u.color] || HL_COLORS[DEFAULT_HL];
+      const hc = hlTheme(T, u.color);
       nodes.push(
         <mark
           key={`${u.id}-${s0}`}
@@ -6987,7 +7010,7 @@ function renderHighlightedText(text, ranges, onRemoveHighlight, clues, clueStyle
           title="Click to remove highlight"
           onClick={(e) => { e.stopPropagation(); onRemoveHighlight(u.id); }}
           style={{
-            background: hc.bg, color: HIGHLIGHT_TEXT, borderRadius: 2, padding: "0 1px",
+            background: hc.bg, color: hc.text, borderRadius: 2, padding: "0 1px",
             cursor: "pointer", transition: "background 0.15s ease",
             ...(isClue && clueStyle ? { borderBottom: clueStyle.borderBottom } : {}),
           }}
@@ -7114,7 +7137,7 @@ function AnkiQueueButton({ T }) {
         aria-label={label} title={label}
         style={{
           position: "relative", display: "inline-flex", alignItems: "center", justifyContent: "center", width: 40, height: 40, padding: 0, borderRadius: "50%", cursor: "pointer",
-          background: open ? T.blueLight : "transparent", border: `1px solid ${open ? T.blue : T.border}`, color: T.ink,
+          background: open ? T.blueLight : "transparent", border: `1px solid ${open ? T.sel : T.border}`, color: T.ink,
         }}
       >
         <Layers size={17} />
@@ -7208,7 +7231,7 @@ function AnkiPreviewCard({ card, T, onClose }) {
           })}
         </div>
         {(qq.explanation || qq.keyLearningPoint) && (
-          <div style={{ background: T.paper, borderLeft: `3px solid ${T.blue}`, borderRadius: 8, padding: "10px 12px", fontFamily: FONT_UI, fontSize: fs(13), color: T.ink, lineHeight: 1.55 }}>
+          <div style={{ background: T.paper, borderLeft: `3px solid ${T.sel}`, borderRadius: 8, padding: "10px 12px", fontFamily: FONT_UI, fontSize: fs(13), color: T.ink, lineHeight: 1.55 }}>
             {qq.keyLearningPoint && <div style={{ fontWeight: 700, marginBottom: qq.explanation ? 4 : 0 }}>{qq.keyLearningPoint}</div>}
             {qq.explanation && <div style={{ color: T.muted }}>{qq.explanation}</div>}
           </div>
@@ -7268,7 +7291,7 @@ function AnkiManagerPanel({ T }) {
       }}>
         {phone && <div aria-hidden="true" style={{ width: 38, height: 4, borderRadius: 2, background: T.border, margin: "8px auto 0", flexShrink: 0 }} />}
         <div style={{ display: "flex", alignItems: "center", gap: 10, padding: sectionPad, borderBottom: `1px solid ${T.border}`, flexShrink: 0 }}>
-          <Layers size={18} color={T.blue} />
+          <Layers size={18} color={T.link} />
           <span style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(15), color: T.ink }}>{t("ankiPanelTitle")}</span>
           <Pill T={T} tone="blue">{cards.length}</Pill>
           <button type="button" onClick={closeAnkiPanel} aria-label={t("ankiClose")} title={t("ankiClose")} style={{ marginLeft: "auto", background: "none", border: "none", padding: 2, cursor: "pointer", color: T.muted, display: "flex" }}><X size={18} /></button>
@@ -7287,7 +7310,7 @@ function AnkiManagerPanel({ T }) {
               type="button" role="switch" aria-checked={includeTags} onClick={() => setIncludeTags((v) => !v)}
               style={{ display: "inline-flex", alignItems: "center", gap: 8, background: "none", border: "none", padding: 0, cursor: "pointer", fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(13), color: T.ink }}
             >
-              <span style={{ position: "relative", width: 34, height: 20, borderRadius: 999, background: includeTags ? T.blue : T.mutedBg, border: `1px solid ${includeTags ? T.blue : T.border}`, flexShrink: 0, boxSizing: "border-box" }}>
+              <span style={{ position: "relative", width: 34, height: 20, borderRadius: 999, background: includeTags ? T.blue : T.mutedBg, border: `1px solid ${includeTags ? T.sel : T.border}`, flexShrink: 0, boxSizing: "border-box" }}>
                 <span style={{ position: "absolute", top: 1, left: includeTags ? 15 : 1, width: 16, height: 16, borderRadius: "50%", background: includeTags ? T.onBlue : T.muted, transition: "left 0.12s" }} />
               </span>
               {t("ankiIncludeTags")}
@@ -7375,8 +7398,8 @@ function AnkiButton({ q, block, qIdx, T, style, variant = "pill" }) { // variant
       style={variant === "tab" ? tabBarStyle(T, queued, style) : {
         display: "inline-flex", alignItems: "center", gap: 6, padding: "6px 12px", borderRadius: 999,
         fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(13), cursor: "pointer",
-        background: queued ? T.blueLight : "transparent", color: queued ? T.blueDeep : T.blue,
-        border: `1px solid ${queued ? T.blue : T.border}`, ...style,
+        background: queued ? T.blueLight : "transparent", color: queued ? T.linkStrong : T.link,
+        border: `1px solid ${queued ? T.sel : T.border}`, ...style,
       }}
     >
       <Download size={14} />
@@ -7388,7 +7411,7 @@ function AnkiButton({ q, block, qIdx, T, style, variant = "pill" }) { // variant
 function Pill({ children, tone = "muted", T = LIGHT }) {
   const tones = {
     muted: { bg: T.mutedBg, fg: T.muted },
-    blue: { bg: T.blueLight, fg: T.blueDeep },
+    blue: { bg: T.blueLight, fg: T.linkStrong },
     green: { bg: T.greenLight, fg: T.green },
     red: { bg: T.redLight, fg: T.red },
     amber: { bg: T.amberLight, fg: T.amber },
@@ -7539,7 +7562,7 @@ function CareerStudyForm({ T }) {
   const chip = (on) => ({
     display: "flex", alignItems: "center", gap: 8, width: "100%", boxSizing: "border-box", textAlign: "left", cursor: "pointer", minHeight: 40,
     padding: "8px 12px", borderRadius: 6, fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(13.5),
-    border: `1px solid ${on ? T.blue : T.border}`, background: on ? T.blueLight : T.card, color: on ? T.blue : T.ink,
+    border: `1px solid ${on ? T.sel : T.border}`, background: on ? T.blueLight : T.card, color: on ? T.blue : T.ink,
   });
   const tick = (on) => (
     <span aria-hidden="true" style={{ width: 16, height: 16, borderRadius: 4, flexShrink: 0, display: "inline-flex", alignItems: "center", justifyContent: "center", border: `1.5px solid ${on ? T.blue : T.muted}`, background: on ? T.blue : "transparent" }}>
@@ -7680,7 +7703,7 @@ function CareerStudyForm({ T }) {
               <div role="alert" style={{ background: T.redLight, border: `1px solid ${T.red}`, borderRadius: 6, padding: 12, display: "grid", gap: 10 }}>
                 <p style={{ fontFamily: FONT_UI, fontSize: fs(12.5), color: T.ink, lineHeight: 1.5, margin: 0 }}>{t("dzDownloadFirst")}{linked ? ` ${t("dzDriveNote")}` : ""}</p>
                 <button type="button" onClick={() => setDl(downloadAccountFiles(t("dzFileName", { d: new Date().toISOString().slice(0, 10) }), acct ? { name: acct.name, email: acct.email, linkedVia: "Google", created: created || null } : null) ? "done" : "error")}
-                  style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", gap: 6, fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(13), padding: "9px 12px", borderRadius: 6, cursor: "pointer", background: T.blue, color: T.onBlue, border: `1px solid ${T.blue}` }}>
+                  style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", gap: 6, fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(13), padding: "9px 12px", borderRadius: 6, cursor: "pointer", background: T.blue, color: T.onBlue, border: `1px solid ${T.sel}` }}>
                   <Download size={14} />{t("dzDownload")}
                 </button>
                 {dl !== "idle" && <span role="status" style={{ fontFamily: FONT_UI, fontSize: fs(12), color: dl === "done" ? T.ink : T.red }}>{dl === "done" ? t("dzDownloaded") : t("dzDownloadFailed")}</span>}
@@ -7864,7 +7887,7 @@ function SettingsMenu({ darkMode, setDarkMode, T, iconOnly = false }) {
         title={(profile && profile.email) || t("settings")}
         style={{
           position: "relative", display: "flex", alignItems: "center", gap: 8, background: open ? T.blueLight : "transparent", whiteSpace: "nowrap", cursor: "pointer",
-          border: `1px solid ${open ? T.blue : T.border}`, borderRadius: 999, padding: 3,
+          border: `1px solid ${open ? T.sel : T.border}`, borderRadius: 999, padding: 3,
           fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(13), color: T.ink,
         }}
       >
@@ -7874,11 +7897,11 @@ function SettingsMenu({ darkMode, setDarkMode, T, iconOnly = false }) {
       </button>
       {open && (
         <div role="menu" style={{
-          position: "absolute", top: 46, ...place, background: T.card, border: `1px solid ${T.border}`, borderRadius: 10,
+          position: "absolute", top: 46, ...place, background: T.card, border: `1px solid ${T.border}`, borderRadius: 12,
           width: "min(320px, calc(100vw - 16px))", maxHeight: "calc(100vh - 64px)", overflowY: "auto", boxSizing: "border-box", zIndex: 70, boxShadow: "0 8px 24px rgba(0,0,0,0.3)",
         }}>
           {/* Account + sync */}
-          <div style={{ padding: 16, background: T.blueLight, borderRadius: "10px 10px 0 0", display: "grid", gap: 10 }}>
+          <div style={{ padding: 16, background: T.blueLight, borderRadius: "12px 12px 0 0", display: "grid", gap: 10 }}>
             <div style={{ display: "flex", alignItems: "center", gap: 12, minWidth: 0 }}>
               {signedIn ? <Avatar profile={profile} size={46} T={T} />
                 : <span style={{ width: 46, height: 46, borderRadius: "50%", background: T.card, display: "inline-flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}><UserIcon size={22} color={T.muted} /></span>}
@@ -7895,13 +7918,13 @@ function SettingsMenu({ darkMode, setDarkMode, T, iconOnly = false }) {
                   <Target size={12} color={T.muted} />{t("cpObjective")}
                 </div>
                 <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
-                  {objectiveItems.map((x) => <span key={x.k} style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(12), color: T.blueDeep, background: T.card, border: `1px solid ${T.border}`, borderRadius: 999, padding: "2px 9px" }}>{x.label}</span>)}
+                  {objectiveItems.map((x) => <span key={x.k} style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(12), color: T.linkStrong, background: T.card, border: `1px solid ${T.border}`, borderRadius: 999, padding: "2px 9px" }}>{x.label}</span>)}
                 </div>
               </div>
             )}
             <button onClick={() => { setOpen(false); setPopup("account"); }} style={{
               width: "100%", background: T.card, border: `1px solid ${T.border}`, borderRadius: 6, cursor: "pointer", whiteSpace: "nowrap",
-              padding: "8px 12px", fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(13), color: T.blue,
+              padding: "8px 12px", fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(13), color: T.link,
             }}>{t("viewAccount")}</button>
             {drive && drive.configured && !signedIn && (
               <>
@@ -7913,11 +7936,11 @@ function SettingsMenu({ darkMode, setDarkMode, T, iconOnly = false }) {
             {signedIn && (
               <>
                 <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap" }}>
-                  <Cloud size={15} color={T.blue} />
+                  <Cloud size={15} color={T.link} />
                   <span style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(12.5), color: T.ink }}>{t("syncTitle")}</span>
                   <Pill T={T} tone={tone}>{stText}</Pill>
                   {drive.status !== "reauth" && (
-                    <button onClick={drive.syncNow} disabled={drive.status === "busy"} style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(12.5), color: T.blue, background: "transparent", border: "none", cursor: drive.status === "busy" ? "default" : "pointer", opacity: drive.status === "busy" ? 0.5 : 1, padding: 4 }}>{t("syncShort")}</button>
+                    <button onClick={drive.syncNow} disabled={drive.status === "busy"} style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(12.5), color: T.link, background: "transparent", border: "none", cursor: drive.status === "busy" ? "default" : "pointer", opacity: drive.status === "busy" ? 0.5 : 1, padding: 4 }}>{t("syncShort")}</button>
                   )}
                 </div>
                 {drive.status === "reauth" && <p style={{ fontFamily: FONT_UI, fontSize: fs(12), color: T.amber, lineHeight: 1.45, margin: 0 }}>{t("syncReauthHint")}</p>}
@@ -8001,10 +8024,10 @@ function SettingsMenu({ darkMode, setDarkMode, T, iconOnly = false }) {
       {popup && (
         <div role="dialog" aria-modal="true" aria-label={popup === "trash" ? t("trashTitle") : popup === "account" ? t("accountBtn") : t("settings")} onClick={() => setPopup(null)}
           style={{ position: "fixed", inset: 0, zIndex: 120, background: "rgba(0,0,0,0.55)", display: "flex", alignItems: "center", justifyContent: "center", padding: vp.w < 640 ? 10 : 20, textAlign: "left" }}>
-          <div onClick={(e) => e.stopPropagation()} style={{ width: "100%", maxWidth: popup === "trash" ? 780 : popup === "account" ? 600 : 420, maxHeight: "92vh", overflowY: "auto", borderRadius: 10, boxShadow: "0 12px 40px rgba(0,0,0,0.45)" }}>
+          <div onClick={(e) => e.stopPropagation()} style={{ width: "100%", maxWidth: popup === "trash" ? 780 : popup === "account" ? 600 : 420, maxHeight: "92vh", overflowY: "auto", borderRadius: 12, boxShadow: "0 12px 40px rgba(0,0,0,0.45)" }}>
             {popup === "trash" && <TrashPanel trash={trashCtx.trash} onRestore={trashCtx.restore} onPurge={trashCtx.purge} T={T} onClose={() => setPopup(null)} />}
             {popup === "account" && (
-              <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, padding: 24 }}>
+              <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 12, padding: 24 }}>
                 <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 16 }}>
                   <UserIcon size={17} color={T.ink} />
                   <span style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(14), color: T.ink }}>{t("accountBtn")}</span>
@@ -8038,7 +8061,7 @@ function SettingsMenu({ darkMode, setDarkMode, T, iconOnly = false }) {
               </div>
             )}
             {popup === "settings" && (
-              <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, padding: 24 }}>
+              <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 12, padding: 24 }}>
                 <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 6 }}>
                   <SettingsIcon size={17} color={T.ink} />
                   <span style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(14), color: T.ink }}>{t("settings")}</span>
@@ -8207,14 +8230,14 @@ function LibraryTopRow({ session, resumeId, library, onResume, onOpenLobby, T })
   const title = inLib ? inLib.title : session ? (session.block ? blockLabel(session.block, t) : (session.examTitle || t("practiceExam"))) : "";
   const pos = session && session.block && session.bs ? t("sessionPos", { n: (Number(session.bs.currentQuestionIndex) || 0) + 1, total: session.block.questions.length }) : "";
   if (!active) return null;
-  const box = { borderRadius: 10, padding: "10px 14px", display: "flex", alignItems: "center", gap: 12, minWidth: 0 };
+  const box = { borderRadius: 12, padding: "10px 14px", display: "flex", alignItems: "center", gap: 12, minWidth: 0 };
   const tiny = { fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(10.5), textTransform: "uppercase", letterSpacing: "0.06em" };
   return (
     <div style={{ display: "grid", gridTemplateColumns: "minmax(0, 1fr)", gap: 14, marginBottom: 20 }}>
       {active && (
-        <div style={{ ...box, background: T.card, border: `1px solid ${canResume ? T.blue : T.border}` }}>
+        <div style={{ ...box, background: T.card, border: `1px solid ${canResume ? T.sel : T.border}` }}>
           <div style={{ flex: 1, minWidth: 0 }}>
-            <div style={{ ...tiny, color: T.blue }}>{canResume ? t("sessionInProgress") : t("examLoadedLabel")}</div>
+            <div style={{ ...tiny, color: T.link }}>{canResume ? t("sessionInProgress") : t("examLoadedLabel")}</div>
             <div style={{ display: "flex", alignItems: "baseline", gap: 8, minWidth: 0 }}>
               <span style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(14), color: T.ink, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{title}</span>
               {pos && <span style={{ fontFamily: FONT_MONO, fontSize: fs(11.5), color: T.muted, whiteSpace: "nowrap" }}>{pos}</span>}
@@ -8616,7 +8639,7 @@ function QbankLibraryPanel({ library, onLaunch, onMix, onDelete, onRename, onSet
     </div>
   );
   const deckIconBtn = { background: "transparent", border: `1px solid ${T.border}`, borderRadius: 6, cursor: "pointer", color: T.muted, padding: 7, display: "flex" };
-  const deckNameField = { flex: 1, minWidth: 0, fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(14), color: T.ink, background: T.paper, border: `1px solid ${T.blue}`, borderRadius: 6, padding: "6px 9px", outline: "none" };
+  const deckNameField = { flex: 1, minWidth: 0, fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(14), color: T.ink, background: T.paper, border: `1px solid ${T.sel}`, borderRadius: 6, padding: "6px 9px", outline: "none" };
   const commitDeckEdit = (d) => { editDeck(d, deckEditName, deckEditColor); setDeckEditId(null); };
   const submitNewDeck = () => {
     const def = createDeck(newDeckName, newDeckColor);
@@ -8639,7 +8662,7 @@ function QbankLibraryPanel({ library, onLaunch, onMix, onDelete, onRename, onSet
     const picking = deckPickId === d.id;
     const pickable = sortedLib.filter((x) => !(x.deck && x.deck.id === d.id));
     return (
-      <div key={d.id} style={{ border: `1px solid ${T.border}`, borderLeft: `4px solid ${d.color}`, borderRadius: 10, background: T.card, marginBottom: 10, overflow: "hidden" }}>
+      <div key={d.id} style={{ border: `1px solid ${T.border}`, borderLeft: `4px solid ${d.color}`, borderRadius: 12, background: T.card, marginBottom: 10, overflow: "hidden" }}>
         <div style={{ display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap", padding: "10px 12px", background: open ? T.paper : "transparent" }}>
           <input type="checkbox" disabled={!d.items.length} checked={d.items.length > 0 && selN === d.items.length}
             ref={(el) => { if (el) el.indeterminate = selN > 0 && selN < d.items.length; }}
@@ -8649,7 +8672,7 @@ function QbankLibraryPanel({ library, onLaunch, onMix, onDelete, onRename, onSet
               <input autoFocus value={deckEditName} maxLength={60} aria-label={t("deckRename")} onChange={(ev) => setDeckEditName(ev.target.value)} onFocus={(ev) => ev.target.select()}
                 onKeyDown={(ev) => { if (ev.key === "Enter") commitDeckEdit(d); else if (ev.key === "Escape") setDeckEditId(null); }} style={deckNameField} />
               <button onClick={() => commitDeckEdit(d)} disabled={!deckEditName.trim()} title={t("libRenameSave")} aria-label={t("libRenameSave")}
-                style={{ ...deckIconBtn, color: T.blue, borderColor: T.blue, opacity: deckEditName.trim() ? 1 : 0.4, cursor: deckEditName.trim() ? "pointer" : "not-allowed" }}><Check size={15} /></button>
+                style={{ ...deckIconBtn, color: T.link, borderColor: T.sel, opacity: deckEditName.trim() ? 1 : 0.4, cursor: deckEditName.trim() ? "pointer" : "not-allowed" }}><Check size={15} /></button>
               <button onClick={() => setDeckEditId(null)} title={t("cancel")} aria-label={t("cancel")} style={deckIconBtn}><X size={15} /></button>
             </span>
           ) : (
@@ -8761,7 +8784,7 @@ function QbankLibraryPanel({ library, onLaunch, onMix, onDelete, onRename, onSet
     const Icon = kind === "course" ? GraduationCap : FolderIcon;
     const commit = () => { const eo = parseInt(nodeEditNum, 10); editNode(n, nodeEditName, kind === "course" ? nodeEditColor : n.color, kind === "test" ? (Number.isFinite(eo) && eo >= 1 && eo <= 99 ? eo : null) : undefined); setNodeEditId(null); };
     return (
-      <div key={n.id} style={{ border: `1px solid ${T.border}`, borderLeft: `4px solid ${color}`, borderRadius: 10, background: T.card, marginBottom: 10, overflow: "hidden" }}>
+      <div key={n.id} style={{ border: `1px solid ${T.border}`, borderLeft: `4px solid ${color}`, borderRadius: 12, background: T.card, marginBottom: 10, overflow: "hidden" }}>
         <div style={{ display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap", padding: "10px 12px", background: open ? T.paper : "transparent" }}>
           <input type="checkbox" disabled={!st.items.length} checked={st.items.length > 0 && selN === st.items.length}
             ref={(el) => { if (el) el.indeterminate = selN > 0 && selN < st.items.length; }}
@@ -8776,7 +8799,7 @@ function QbankLibraryPanel({ library, onLaunch, onMix, onDelete, onRename, onSet
               )}
               <input autoFocus value={nodeEditName} maxLength={60} aria-label={t("crsRename")} onChange={(ev) => setNodeEditName(ev.target.value)} onFocus={(ev) => ev.target.select()}
                 onKeyDown={(ev) => { if (ev.key === "Enter") commit(); else if (ev.key === "Escape") setNodeEditId(null); }} style={deckNameField} />
-              <button onClick={commit} disabled={!nodeEditName.trim()} title={t("libRenameSave")} aria-label={t("libRenameSave")} style={{ ...deckIconBtn, color: T.blue, borderColor: T.blue, opacity: nodeEditName.trim() ? 1 : 0.4, cursor: nodeEditName.trim() ? "pointer" : "not-allowed" }}><Check size={15} /></button>
+              <button onClick={commit} disabled={!nodeEditName.trim()} title={t("libRenameSave")} aria-label={t("libRenameSave")} style={{ ...deckIconBtn, color: T.link, borderColor: T.sel, opacity: nodeEditName.trim() ? 1 : 0.4, cursor: nodeEditName.trim() ? "pointer" : "not-allowed" }}><Check size={15} /></button>
               <button onClick={() => setNodeEditId(null)} title={t("cancel")} aria-label={t("cancel")} style={deckIconBtn}><X size={15} /></button>
             </span>
           ) : (
@@ -8885,7 +8908,7 @@ function QbankLibraryPanel({ library, onLaunch, onMix, onDelete, onRename, onSet
         <div key={e.id} onClick={() => { if (renameId !== e.id) toggle(e.id); }} style={{
           display: "flex", gap: 12, padding: "12px 14px", borderRadius: 8, cursor: "pointer",
           ...(asGrid ? { flexDirection: "column", alignItems: "stretch", gap: 10, minWidth: 0 } : { alignItems: "center", flexWrap: "wrap" }),
-          border: `1px solid ${pos >= 0 ? T.blue : T.border}`, background: pos >= 0 ? T.blueLight : "transparent",
+          border: `1px solid ${pos >= 0 ? T.sel : T.border}`, background: pos >= 0 ? T.blueLight : "transparent",
         }}>
           <input type="checkbox" checked={pos >= 0} onChange={() => toggle(e.id)} onClick={(ev) => ev.stopPropagation()} aria-label={e.title} style={{ cursor: "pointer", width: 18, height: 18, ...(asGrid ? { alignSelf: "flex-start" } : {}) }} />
           <div style={{ flex: 1, minWidth: asGrid ? 0 : 180 }}>
@@ -8900,10 +8923,10 @@ function QbankLibraryPanel({ library, onLaunch, onMix, onDelete, onRename, onSet
                     onChange={(ev) => setRenameVal(ev.target.value)}
                     onFocus={(ev) => ev.target.select()}
                     onKeyDown={(ev) => { if (ev.key === "Enter") commitRename(); else if (ev.key === "Escape") skipRename(); }}
-                    style={{ flex: 1, minWidth: 0, fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(14.5), color: T.ink, background: T.paper, border: `1px solid ${T.blue}`, borderRadius: 6, padding: "5px 8px", outline: "none" }}
+                    style={{ flex: 1, minWidth: 0, fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(14.5), color: T.ink, background: T.paper, border: `1px solid ${T.sel}`, borderRadius: 6, padding: "5px 8px", outline: "none" }}
                   />
                   <button onClick={commitRename} disabled={!renameVal.trim()} title={t("libRenameSave")} aria-label={t("libRenameSave")}
-                    style={{ background: "transparent", border: `1px solid ${T.blue}`, borderRadius: 6, cursor: renameVal.trim() ? "pointer" : "not-allowed", color: T.blue, padding: 5, display: "flex", opacity: renameVal.trim() ? 1 : 0.4 }}>
+                    style={{ background: "transparent", border: `1px solid ${T.sel}`, borderRadius: 6, cursor: renameVal.trim() ? "pointer" : "not-allowed", color: T.link, padding: 5, display: "flex", opacity: renameVal.trim() ? 1 : 0.4 }}>
                     <Check size={15} />
                   </button>
                   <button onClick={skipRename} title={t("cancel")} aria-label={t("cancel")}
@@ -8915,7 +8938,7 @@ function QbankLibraryPanel({ library, onLaunch, onMix, onDelete, onRename, onSet
               ) : (
                 <span style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(14.5), color: T.ink }}>{e.title}</span>
               )}
-              {tutorIds.has(e.id) && <span title={t("spLibStrip", { w: tutorBrief_.week })} aria-label={t("spLibStrip", { w: tutorBrief_.week })} style={{ display: "inline-flex", opacity: 0.7 }}><GraduationCap size={15} color={T.blue} /></span>}
+              {tutorIds.has(e.id) && <span title={t("spLibStrip", { w: tutorBrief_.week })} aria-label={t("spLibStrip", { w: tutorBrief_.week })} style={{ display: "inline-flex", opacity: 0.7 }}><GraduationCap size={15} color={T.link} /></span>}
               {pos >= 0 && <Pill T={T} tone="blue">#{pos + 1}</Pill>}
               {resumeId === e.id && <Pill T={T} tone="amber">{t("inProgressTag")}</Pill>}
               {ls
@@ -8964,7 +8987,7 @@ function QbankLibraryPanel({ library, onLaunch, onMix, onDelete, onRename, onSet
   };
 
   return (
-    <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, padding: 24, marginBottom: 20 }}>
+    <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 12, padding: 24, marginBottom: 20 }}>
       <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 14, flexWrap: "wrap" }}>
         <BookOpen size={17} color={T.ink} />
         <span style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(14), color: T.ink }}>{t("libTitle")}</span>
@@ -9009,7 +9032,7 @@ function QbankLibraryPanel({ library, onLaunch, onMix, onDelete, onRename, onSet
               return (
                 <button key={id} aria-pressed={on} onClick={() => setStatusF(on && id !== "all" ? "all" : id)} style={{
                   fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(12.5), padding: "5px 11px", borderRadius: 999, cursor: "pointer",
-                  border: `1px solid ${on ? T.blue : T.border}`, background: on ? T.blueLight : "transparent", color: on ? T.blue : T.ink,
+                  border: `1px solid ${on ? T.sel : T.border}`, background: on ? T.blueLight : "transparent", color: on ? T.blue : T.ink,
                 }}>{t(key)} <span style={{ fontFamily: FONT_MONO, fontWeight: 500, opacity: 0.75 }}>{n}</span></button>
               );
             })}
@@ -9017,7 +9040,7 @@ function QbankLibraryPanel({ library, onLaunch, onMix, onDelete, onRename, onSet
           {filterActive ? (
             <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 10, flexWrap: "wrap" }}>
               <span style={{ fontFamily: FONT_UI, fontSize: fs(12.5), color: T.muted }}>{t("libShowing", { n: filteredLib.length, total: library.length })}</span>
-              <button onClick={clearFilters} style={{ background: "transparent", border: "none", cursor: "pointer", color: T.blue, fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(12.5), padding: 0 }}>{t("libClearFilters")}</button>
+              <button onClick={clearFilters} style={{ background: "transparent", border: "none", cursor: "pointer", color: T.link, fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(12.5), padding: 0 }}>{t("libClearFilters")}</button>
             </div>
           ) : (
             <span style={{ fontFamily: FONT_UI, fontSize: fs(12.5), color: T.muted }}>{summaryLine}</span>
@@ -9245,10 +9268,10 @@ function QbankLibraryPanel({ library, onLaunch, onMix, onDelete, onRename, onSet
             );
           })}
           {mixInfo && (
-            <div style={{ marginTop: 14, padding: "14px 16px", borderRadius: 8, border: `1px dashed ${T.blue}`, display: "flex", flexWrap: "wrap", alignItems: "center", gap: 14 }}>
+            <div style={{ marginTop: 14, padding: "14px 16px", borderRadius: 8, border: `1px dashed ${T.sel}`, display: "flex", flexWrap: "wrap", alignItems: "center", gap: 14 }}>
               <div style={{ flex: 1, minWidth: 220 }}>
                 <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap", marginBottom: 4 }}>
-                  <Shuffle size={15} color={T.blue} />
+                  <Shuffle size={15} color={T.link} />
                   <span style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(13.5), color: T.ink }}>{liveQueue.length >= 2 ? t("libMixTitle") : t("libCountTitle")}</span>
                   <Pill T={T} tone="blue">{t("libMixPool", { q: mixInfo.pool.length, s: mixInfo.subjects })}</Pill>
                   {mixInfo.dupes > 0 && <Pill T={T} tone="muted">{t("libMixDupes", { d: mixInfo.dupes })}</Pill>}
@@ -9265,7 +9288,7 @@ function QbankLibraryPanel({ library, onLaunch, onMix, onDelete, onRename, onSet
                     return (
                       <button key={id} aria-pressed={on} disabled={!ok} onClick={() => { setMixDiff(id); setMixSize("all"); setCustomMix(""); }}
                         style={{ fontFamily: FONT_UI, fontSize: fs(12.5), fontWeight: 600, padding: "5px 10px", borderRadius: 6, cursor: ok ? "pointer" : "not-allowed", opacity: ok ? 1 : 0.4,
-                          background: on ? T.blue : "transparent", color: on ? T.onBlue : T.ink, border: `1px solid ${on ? T.blue : T.border}` }}>
+                          background: on ? T.blue : "transparent", color: on ? T.onBlue : T.ink, border: `1px solid ${on ? T.sel : T.border}` }}>
                         {id === "all" ? t("mixDiffAll") : id === "balanced" ? t("mixBalanced") : t("dl." + id)}{count !== null ? ` (${count})` : ""}
                       </button>
                     );
@@ -9282,13 +9305,13 @@ function QbankLibraryPanel({ library, onLaunch, onMix, onDelete, onRename, onSet
                   {mixSizes.map((n) => (
                     <button key={n} aria-pressed={effSize === n} onClick={() => { setMixSize(n); setCustomMix(""); }}
                       style={{ fontFamily: FONT_MONO, fontSize: fs(12.5), fontWeight: 600, padding: "5px 10px", borderRadius: 6, cursor: "pointer",
-                        background: effSize === n ? T.blue : "transparent", color: effSize === n ? T.onBlue : T.ink, border: `1px solid ${effSize === n ? T.blue : T.border}` }}>
+                        background: effSize === n ? T.blue : "transparent", color: effSize === n ? T.onBlue : T.ink, border: `1px solid ${effSize === n ? T.sel : T.border}` }}>
                       {n}
                     </button>
                   ))}
                   <button aria-pressed={effSize === null} onClick={() => { setMixSize("all"); setCustomMix(""); }}
                     style={{ fontFamily: FONT_MONO, fontSize: fs(12.5), fontWeight: 600, padding: "5px 10px", borderRadius: 6, cursor: "pointer",
-                      background: effSize === null ? T.blue : "transparent", color: effSize === null ? T.onBlue : T.ink, border: `1px solid ${effSize === null ? T.blue : T.border}` }}>
+                      background: effSize === null ? T.blue : "transparent", color: effSize === null ? T.onBlue : T.ink, border: `1px solid ${effSize === null ? T.sel : T.border}` }}>
                     {t("libMixMax", { n: poolSize })}
                   </button>
                 </div>
@@ -9552,7 +9575,7 @@ function AnalyticsOverview({ history, qbankCount = 0, qbankQuestions = 0, T }) {
   const noAnswers = totals.answered <= 0;
   if (noAnswers && !qbankQuestions) return null; // nothing answered and no Qbank added yet
 
-  const card = { background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, padding: 16, minWidth: 0 };
+  const card = { background: T.card, border: `1px solid ${T.border}`, borderRadius: 12, padding: 16, minWidth: 0 };
   const head = { fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(13.5), color: T.ink };
   const hint = { fontFamily: FONT_UI, fontSize: fs(11.5), color: T.muted, marginTop: 6 };
   const grid2 = { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 340px), 1fr))", gap: 14, alignItems: "stretch" };
@@ -9666,7 +9689,7 @@ function AnalyticsOverview({ history, qbankCount = 0, qbankQuestions = 0, T }) {
               {data.fmtGap.rows.map((r) => (
                 <div key={r.subject} style={{ display: "flex", alignItems: "baseline", gap: 10 }}>
                   <span style={{ flex: 1, minWidth: 0, fontFamily: FONT_UI, fontSize: fs(12.5), color: T.ink, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{r.subject}</span>
-                  <span style={{ fontFamily: FONT_MONO, fontSize: fs(11.5), color: T.blue }} title={t("anFmtKnow")}>{r.bPct}%</span>
+                  <span style={{ fontFamily: FONT_MONO, fontSize: fs(11.5), color: T.link }} title={t("anFmtKnow")}>{r.bPct}%</span>
                   <span style={{ fontFamily: FONT_MONO, fontSize: fs(11.5), color: T.purple }} title={t("anFmtApply")}>{r.vPct}%</span>
                   <span style={{ fontFamily: FONT_MONO, fontSize: fs(11.5), fontWeight: 700, minWidth: 40, textAlign: "right", color: r.gap >= 15 ? T.red : r.gap >= 5 ? T.amber : T.green }}>{r.gap > 0 ? "+" : ""}{r.gap}</span>
                 </div>
@@ -9757,7 +9780,7 @@ function ClassEditor({ courses, onChange, mondayFirst, locale, defaultDay, T, t 
               <span role="group" style={{ display: "inline-flex", gap: 3 }}>
                 {order.map((d) => { const on = m.days.includes(d); return (
                   <button key={d} onClick={() => setMeet(c.id, m.id, { days: on ? m.days.filter((x) => x !== d) : [...m.days, d].sort() })} aria-pressed={on}
-                    style={{ fontFamily: FONT_UI, fontSize: fs(11), fontWeight: 600, padding: "5px 6px", borderRadius: 5, cursor: "pointer", border: `1px solid ${on ? T.blue : T.border}`, background: on ? T.blue : "transparent", color: on ? T.onBlue : T.muted }}>{dayLbl(d)}</button>
+                    style={{ fontFamily: FONT_UI, fontSize: fs(11), fontWeight: 600, padding: "5px 6px", borderRadius: 5, cursor: "pointer", border: `1px solid ${on ? T.sel : T.border}`, background: on ? T.blue : "transparent", color: on ? T.onBlue : T.muted }}>{dayLbl(d)}</button>
                 ); })}
               </span>
               <input type="time" value={m.start || ""} aria-label="start" onChange={(e) => setMeet(c.id, m.id, { start: e.target.value || null })} style={{ ...inp, width: 104 }} />
@@ -9872,19 +9895,19 @@ function ConsoleCalendar({ sessionLog, onNavigate, T, fill = false }) {
   const legend = [[T.red, "csCalLegExam"], [T.purple, "csClasses"], [T.amber, "csCalLegTask"], [T.red, "plF.overdue"], [T.blue, "csCalLegEvent"], [T.green, "csCalLegStudy"]];
 
   return (
-    <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, padding: phone ? 18 : 24, ...(fill ? { height: "100%", boxSizing: "border-box", display: "flex", flexDirection: "column" } : {}) }}>
+    <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 12, padding: phone ? 18 : 24, ...(fill ? { height: "100%", boxSizing: "border-box", display: "flex", flexDirection: "column" } : {}) }}>
       <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 12, flexWrap: "wrap" }}>
         <CalendarDays size={17} color={T.ink} />
         <span style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(14), color: T.ink }}>{t("csCalendar")}</span>
         <div style={{ marginLeft: "auto", display: "flex", gap: 6, alignItems: "center" }}>
-          <button onClick={() => onNavigate("calendar")} style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(12.5), color: T.blue, background: "transparent", border: "none", cursor: "pointer", padding: 4 }}>{t("calOpenFull")}</button>
-          <button onClick={goToday} style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(12.5), color: T.blue, background: "transparent", border: "none", cursor: "pointer", padding: 4 }}>{t("csCalToday")}</button>
+          <button onClick={() => onNavigate("calendar")} style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(12.5), color: T.link, background: "transparent", border: "none", cursor: "pointer", padding: 4 }}>{t("calOpenFull")}</button>
+          <button onClick={goToday} style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(12.5), color: T.link, background: "transparent", border: "none", cursor: "pointer", padding: 4 }}>{t("csCalToday")}</button>
           <button onClick={() => shift(-1)} aria-label={t("csCalPrev")} style={iconBtn}><ChevronLeft size={16} /></button>
           <button onClick={() => shift(1)} aria-label={t("csCalNext")} style={iconBtn}><ChevronRight size={16} /></button>
         </div>
       </div>
       <div style={{ display: "flex", alignItems: "baseline", gap: 10, flexWrap: "wrap", marginBottom: 10 }}>
-        <span style={{ fontFamily: FONT_DISPLAY, fontWeight: 600, fontSize: fs(20), color: T.ink }}>{cap(view.toLocaleDateString(locale, { month: "long", year: "numeric" }))}</span>
+        <span style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(20), color: T.ink }}>{cap(view.toLocaleDateString(locale, { month: "long", year: "numeric" }))}</span>
         {profile && brief && <span style={{ fontFamily: FONT_UI, fontSize: fs(12.5), color: T.muted }}>{[profile.term.name, spWeekLabel(brief, t)].filter(Boolean).join(" · ")}</span>}
       </div>
 
@@ -9949,7 +9972,7 @@ function ConsoleCalendar({ sessionLog, onNavigate, T, fill = false }) {
               <span style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(11.5), color: T.muted, textTransform: "uppercase", letterSpacing: "0.06em" }}>{t("csCalPlan")}</span>
               <Pill T={T} tone="muted">{t("csCalPlanCount", { d: planDone, n: planTasks.length })}</Pill>
               {planTasks.length > planList.length && (
-                <button onClick={() => onNavigate("calendar")} style={{ marginLeft: "auto", fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(12.5), color: T.blue, background: "transparent", border: "none", cursor: "pointer", padding: 4 }}>{t("csPlanShowAll", { n: planTasks.length })}</button>
+                <button onClick={() => onNavigate("calendar")} style={{ marginLeft: "auto", fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(12.5), color: T.link, background: "transparent", border: "none", cursor: "pointer", padding: 4 }}>{t("csPlanShowAll", { n: planTasks.length })}</button>
               )}
             </div>
             {planList.map((k) => <TaskRow key={k.id} accent={taskAccent(k)} task={k} onToggle={() => sp.toggleTask(k.id)} onRemove={isMine(k) ? () => sp.removeTask(k.id) : undefined} T={T} t={t} lang={lang} />)}
@@ -10278,7 +10301,7 @@ function CalendarPage({ sessionLog, onNavigate, T, focusDate, query = "" }) {
   const fmtRange = (e) => (e.endDate ? `${fmtShort(parseISODate(e.startDate))} → ${fmtShort(parseISODate(e.endDate))}` : fmtShort(parseISODate(e.startDate)));
 
   // ---- shared styles ----
-  const card = { background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, padding: phone ? 14 : 22, minWidth: 0 };
+  const card = { background: T.card, border: `1px solid ${T.border}`, borderRadius: 12, padding: phone ? 14 : 22, minWidth: 0 };
   const iconBtn = { width: 32, height: 32, borderRadius: 8, border: `1px solid ${T.border}`, background: "transparent", color: T.ink, cursor: "pointer", display: "inline-flex", alignItems: "center", justifyContent: "center", padding: 0 };
   const rowHead = { fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(13.5), color: T.ink, overflowWrap: "anywhere" };
   const rowSub = { fontFamily: FONT_MONO, fontSize: fs(11.5), color: T.muted };
@@ -10320,7 +10343,7 @@ function CalendarPage({ sessionLog, onNavigate, T, focusDate, query = "" }) {
           <div key={key} role="button" tabIndex={0} onClick={() => selectDay(d)} onKeyDown={keyActivate(() => selectDay(d))} onDragOver={(e) => { if (dragRef.current) e.preventDefault(); }} onDrop={(e) => { e.preventDefault(); dropOn(key); }} onDoubleClick={() => { if (profile) { selectDay(d); openNew("task", key); } }} aria-label={longDay(d)} aria-pressed={isSel} aria-current={isToday ? "date" : undefined} style={{
             minHeight: phone ? 54 : 122, minWidth: 0, boxSizing: "border-box", padding: phone ? "5px 2px" : "6px 6px 7px", borderRadius: 8, cursor: "pointer", fontFamily: FONT_UI,
             display: "flex", flexDirection: "column", alignItems: phone ? "center" : "stretch", justifyContent: "flex-start", gap: 4, textAlign: "left",
-            background: isOff(infoOf(key)) ? T.blueLight : "transparent", border: `1px solid ${isSel ? T.blue : T.border}`, boxShadow: isSel ? `0 0 0 1px ${T.blue}` : "none",
+            background: isOff(infoOf(key)) ? T.blueLight : "transparent", border: `1px solid ${isSel ? T.sel : T.border}`, boxShadow: isSel ? `0 0 0 1px ${T.sel}` : "none",
             opacity: inMonth ? 1 : 0.42,
           }}>
             <span style={{ display: "flex", alignItems: "center", gap: 6, justifyContent: phone ? "center" : "flex-start" }}>
@@ -10347,7 +10370,7 @@ function CalendarPage({ sessionLog, onNavigate, T, focusDate, query = "" }) {
         return (
           <div key={key} role="button" tabIndex={0} aria-pressed={isSel} aria-label={longDay(d)} onClick={() => selectDay(d)} onKeyDown={keyActivate(() => selectDay(d))} onDragOver={(e) => { if (dragRef.current) e.preventDefault(); }} onDrop={(e) => { e.preventDefault(); dropOn(key); }} onDoubleClick={() => { if (profile) { selectDay(d); openNew("task", key); } }} style={{
             minHeight: vw >= 900 ? 220 : 0, minWidth: 0, boxSizing: "border-box", padding: 8, borderRadius: 8, cursor: "pointer", display: "flex", flexDirection: "column", gap: 6,
-            background: isOff(infoOf(key)) ? T.blueLight : "transparent", border: `1px solid ${isSel ? T.blue : T.border}`, boxShadow: isSel ? `0 0 0 1px ${T.blue}` : "none",
+            background: isOff(infoOf(key)) ? T.blueLight : "transparent", border: `1px solid ${isSel ? T.sel : T.border}`, boxShadow: isSel ? `0 0 0 1px ${T.sel}` : "none",
           }}>
             <div style={{ display: "flex", alignItems: "center", gap: 6, flexWrap: "wrap" }}>
               {dayNum(d, isToday, isSel)}
@@ -10389,7 +10412,7 @@ function CalendarPage({ sessionLog, onNavigate, T, focusDate, query = "" }) {
   return (
     <div style={{ display: "grid", gap: 18 }}>
       <div style={wide ? undefined : { display: "none" }}>
-        <h1 style={{ fontFamily: FONT_DISPLAY, fontSize: fs(phone ? 26 : 32), fontWeight: 600, color: T.ink, margin: "0 0 4px" }}>{t("calTitle")}</h1>
+        <h1 style={{ fontFamily: FONT_UI, fontSize: fs(phone ? 26 : 32), fontWeight: 600, color: T.ink, margin: "0 0 4px" }}>{t("calTitle")}</h1>
         <p style={{ fontFamily: FONT_UI, fontSize: fs(13.5), color: T.muted, lineHeight: 1.55, margin: 0, maxWidth: 680 }}>{t("calHint")}</p>
       </div>
 
@@ -10397,9 +10420,9 @@ function CalendarPage({ sessionLog, onNavigate, T, focusDate, query = "" }) {
         <div style={{ ...card, ...(wide ? {} : { order: 1 }) }}>
           <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap", marginBottom: 12 }}>
             <CalendarDays size={18} color={T.ink} />
-            <span style={{ fontFamily: FONT_DISPLAY, fontWeight: 600, fontSize: fs(phone ? 18 : 22), color: T.ink }}>{rangeLabel}</span>
+            <span style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(phone ? 18 : 22), color: T.ink }}>{rangeLabel}</span>
             <div style={{ marginLeft: "auto", display: "flex", gap: 6, alignItems: "center", flexWrap: "wrap" }}>
-              <button onClick={goToday} style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(12.5), color: T.blue, background: "transparent", border: "none", cursor: "pointer", padding: 4 }}>{t("csCalToday")}</button>
+              <button onClick={goToday} style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(12.5), color: T.link, background: "transparent", border: "none", cursor: "pointer", padding: 4 }}>{t("csCalToday")}</button>
               <button onClick={() => shift(-1)} aria-label={t("calPrev")} style={iconBtn}><ChevronLeft size={16} /></button>
               <button onClick={() => shift(1)} aria-label={t("calNext")} style={iconBtn}><ChevronRight size={16} /></button>
               <div role="group" aria-label={t("calTitle")} style={{ display: "flex", border: `1px solid ${T.border}`, borderRadius: 8, overflow: "hidden" }}>
@@ -10558,10 +10581,10 @@ function ConsolePanel({ library, sessionLog, session, remoteSession, onMigrate, 
   const hr = new Date().getHours();
   const greet = t(hr < 12 ? "csGoodMorning" : hr < 18 ? "csGoodAfternoon" : "csGoodEvening");
   const locale = lang === "es" ? "es" : "en-US";
-  const card = { background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, padding: phone ? 18 : 24 };
+  const card = { background: T.card, border: `1px solid ${T.border}`, borderRadius: 12, padding: phone ? 18 : 24 };
   const cardHead = { display: "flex", alignItems: "center", gap: 8, marginBottom: 14, flexWrap: "wrap" };
   const headTxt = { fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(14), color: T.ink };
-  const linkBtn = { marginLeft: "auto", fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(12.5), color: T.blue, background: "transparent", border: "none", cursor: "pointer", padding: 4 };
+  const linkBtn = { marginLeft: "auto", fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(12.5), color: T.link, background: "transparent", border: "none", cursor: "pointer", padding: 4 };
 
   const data = useMemo(() => {
     const ordered = [...sessionLog].sort((a, b) => b.finishedAt - a.finishedAt);
@@ -10638,7 +10661,7 @@ function ConsolePanel({ library, sessionLog, session, remoteSession, onMigrate, 
     <div style={{ display: "grid", gridTemplateColumns: "minmax(0, 1fr)", gap: 20 }}>
       {/* Greeting */}
       <div>
-        <h1 style={{ fontFamily: FONT_DISPLAY, fontSize: fs(phone ? 28 : 34), fontWeight: 600, color: T.ink, margin: "0 0 4px" }}>{firstName ? `${greet}, ${firstName}` : greet}</h1>
+        <h1 style={{ fontFamily: FONT_UI, fontSize: fs(phone ? 28 : 34), fontWeight: 600, color: T.ink, margin: "0 0 4px" }}>{firstName ? `${greet}, ${firstName}` : greet}</h1>
         <p style={{ fontFamily: FONT_UI, fontSize: fs(14), color: T.muted, margin: 0 }}>
           {new Date().toLocaleDateString(locale, { weekday: "long", month: "long", day: "numeric" })} · {data.streak > 0 ? t("csStreakLine", { n: data.streak }) : t("csReadyLine")}
         </p>
@@ -10647,11 +10670,11 @@ function ConsolePanel({ library, sessionLog, session, remoteSession, onMigrate, 
       {/* Top of the Console: session + tutor (compact on large displays) with the semester calendar to their right */}
       <div style={{ display: "grid", gridTemplateColumns: wide ? "repeat(2, minmax(0, 1fr))" : "minmax(0, 1fr)", gap: 20, alignItems: "stretch" }}>
         <div style={{ display: "flex", flexDirection: "column", gap: wide ? 14 : 20, minWidth: 0 }}>
-      <div style={{ ...card, borderColor: session || remoteSession ? T.blue : T.border, display: "flex", alignItems: "center", justifyContent: "space-between", gap: wide ? 12 : 16, flexWrap: "wrap", ...(wide ? { padding: "14px 18px" } : {}) }}>
+      <div style={{ ...card, borderColor: session || remoteSession ? T.sel : T.border, display: "flex", alignItems: "center", justifyContent: "space-between", gap: wide ? 12 : 16, flexWrap: "wrap", ...(wide ? { padding: "14px 18px" } : {}) }}>
         {session ? (
           <>
             <div style={{ flex: "1 1 260px", minWidth: 0 }}>
-              <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(11.5), color: T.blue, textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 3 }}>
+              <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(11.5), color: T.link, textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 3 }}>
                 {inProg ? t("sessionInProgress") : t("examLoadedLabel")}
               </div>
               <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(17), color: T.ink, overflowWrap: "anywhere" }}>
@@ -10684,9 +10707,9 @@ function ConsolePanel({ library, sessionLog, session, remoteSession, onMigrate, 
                 <>
                   <div style={{ flex: "1 1 260px", minWidth: 0 }}>
                     <div style={{ display: "flex", alignItems: "center", gap: 8, flexWrap: "wrap", marginBottom: 3 }}>
-                      <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(11.5), color: T.blue, textTransform: "uppercase", letterSpacing: "0.06em" }}>{t("sessionInProgress")}</div>
+                      <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(11.5), color: T.link, textTransform: "uppercase", letterSpacing: "0.06em" }}>{t("sessionInProgress")}</div>
                       <button type="button" onClick={doMigrate} disabled={migrating} title={t("activeContinue")} aria-label={t("csMigrate")}
-                        style={{ background: T.blueLight, color: T.blueDeep, border: "none", fontFamily: FONT_UI, fontSize: fs(11), fontWeight: 700, letterSpacing: "0.04em", textTransform: "uppercase", padding: "3px 9px", borderRadius: 999, display: "inline-flex", alignItems: "center", gap: 5, cursor: migrating ? "default" : "pointer", opacity: migrating ? 0.7 : 1 }}>
+                        style={{ background: T.blueLight, color: T.linkStrong, border: "none", fontFamily: FONT_UI, fontSize: fs(11), fontWeight: 700, letterSpacing: "0.04em", textTransform: "uppercase", padding: "3px 9px", borderRadius: 999, display: "inline-flex", alignItems: "center", gap: 5, cursor: migrating ? "default" : "pointer", opacity: migrating ? 0.7 : 1 }}>
                         <Cloud size={12} />{migrating ? t("csRemoteMigrating") : t("csMigrate")}
                       </button>
                     </div>
@@ -10783,7 +10806,7 @@ function SessionHistoryPanel({ history, qbankCount = 0, qbankQuestions = 0, onDe
   const kindTone = { bank: "blue", custom: "amber", retest: "muted" };
   const kindKey = { bank: "histKindBank", custom: "histKindCustom", retest: "histKindRetest" };
   return (
-    <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, padding: 24, marginBottom: 20 }}>
+    <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 12, padding: 24, marginBottom: 20 }}>
       <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 14, flexWrap: "wrap" }}>
         <BarChart3 size={17} color={T.ink} />
         <span style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(14), color: T.ink }}>{t("histTitle")}</span>
@@ -10853,7 +10876,7 @@ function SessionHistoryPanel({ history, qbankCount = 0, qbankQuestions = 0, onDe
               <div key={h.id} onClick={() => toggleSel(h.id)} style={{
                 display: "flex", gap: 12, padding: "12px 14px", borderRadius: 8, cursor: "pointer",
                 ...(asGrid ? { flexDirection: "column", alignItems: "stretch", gap: 10, minWidth: 0 } : { alignItems: "center", flexWrap: "wrap" }),
-                border: `1px solid ${picked ? T.blue : T.border}`, background: picked ? T.blueLight : "transparent",
+                border: `1px solid ${picked ? T.sel : T.border}`, background: picked ? T.blueLight : "transparent",
               }}>
                 <input type="checkbox" checked={picked} onChange={() => toggleSel(h.id)} onClick={(ev) => ev.stopPropagation()} aria-label={label} style={{ cursor: "pointer", width: 18, height: 18, ...(asGrid ? { alignSelf: "flex-start" } : {}) }} />
                 <div style={{ flex: 1, minWidth: asGrid ? 0 : 180 }}>
@@ -11025,7 +11048,7 @@ function GlobalSearch({ library, sessionLog, onGo, onClose, q, scope = "all", T 
         {(res.cal.length > 0 || showJump) && <div style={grp}>{t("searchGrpCal")}</div>}
         {showJump && (
           <button onClick={() => go("calendar", toISODate(jumpDate))} style={row}>
-            <div style={{ fontWeight: 700, fontSize: fs(13.5), color: T.blue }}>{t("searchGoDate", { d: longDate(jumpDate) })}</div>
+            <div style={{ fontWeight: 700, fontSize: fs(13.5), color: T.link }}>{t("searchGoDate", { d: longDate(jumpDate) })}</div>
           </button>
         )}
         {res.cal.map((r) => (
@@ -11081,7 +11104,7 @@ function UniversalSearchBar({ q, setQ, scope, setScope, pageScope, library, sess
   const chipOn = (id) => (id === "auto" ? effScope === pageScope : id === "all" ? effScope === "all" : scope === id);
   return (
     <div ref={boxRef} style={{ position: "relative", width: wide ? "clamp(300px, 34vw, 460px)" : "100%" }}>
-      <div style={{ display: "flex", alignItems: "center", gap: 10, height: 40, padding: "0 8px 0 16px", borderRadius: 999, background: T.card, border: `1px solid ${open ? T.blue : T.border}`, boxSizing: "border-box" }}>
+      <div style={{ display: "flex", alignItems: "center", gap: 10, height: 40, padding: "0 8px 0 16px", borderRadius: 999, background: T.card, border: `1px solid ${open ? T.sel : T.border}`, boxSizing: "border-box" }}>
         <Search size={17} color={T.muted} style={{ flexShrink: 0 }} />
         <input ref={inputRef} value={q} onChange={(e) => { setQ(e.target.value); setOpen(true); }} onFocus={() => setOpen(true)} maxLength={80}
           placeholder={t(ph)} aria-label={t("searchTitle")} role="searchbox" autoComplete="off" spellCheck={false}
@@ -11098,7 +11121,7 @@ function UniversalSearchBar({ q, setQ, scope, setScope, pageScope, library, sess
             {chips.map(([id, key]) => { const on = chipOn(id); return (
               <button key={id} aria-pressed={on} onClick={() => { setScope(id); if (inputRef.current) inputRef.current.focus(); }} style={{
                 fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(12.5), padding: "5px 11px", borderRadius: 999, cursor: "pointer",
-                border: `1px solid ${on ? T.blue : T.border}`, background: on ? T.blueLight : "transparent", color: on ? T.blue : T.ink,
+                border: `1px solid ${on ? T.sel : T.border}`, background: on ? T.blueLight : "transparent", color: on ? T.blue : T.ink,
               }}>{t(key)}</button>
             ); })}
           </div>
@@ -11318,7 +11341,7 @@ function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], dri
       {/* Import Qbank page: its own page, no longer an accordion under the library. */}
       <div ref={importRef} style={{ marginBottom: 20 }}>
         {libTab === "library" && libType === "all" && (
-          <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, overflow: "hidden" }}>
+          <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 12, overflow: "hidden" }}>
             <div style={{ display: "flex", alignItems: "center", gap: 8, padding: "16px 24px", fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(15), color: T.ink }}>
               <Plus size={17} color={T.ink} /> <h2 style={{ margin: 0, fontSize: "inherit", fontWeight: "inherit", fontFamily: "inherit" }}>{t("uniTitle")}</h2>
             </div>
@@ -11327,7 +11350,7 @@ function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], dri
         <div style={{ marginBottom: 16 }}>
           <p style={{ fontFamily: FONT_UI, fontSize: fs(13), color: T.muted, lineHeight: 1.55, margin: "0 0 12px" }}>{t("uniHint")}</p>
         </div>
-        <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, overflow: "hidden" }}>
+        <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 12, overflow: "hidden" }}>
           <button
             onClick={() => setShowSchema((v) => !v)}
             aria-expanded={showSchema}
@@ -11348,7 +11371,7 @@ function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], dri
             {tutorTopics.length > 0 && (
               <div style={{ marginBottom: 18 }}>
                 <div style={{ display: "flex", alignItems: "center", gap: 8, fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(12), color: T.ink, textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: 8 }}>
-                  <GraduationCap size={15} color={T.blue} />{t("recipeTutor")}
+                  <GraduationCap size={15} color={T.link} />{t("recipeTutor")}
                 </div>
                 <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
                   {tutorTopics.map(({ topic, pct }) => {
@@ -11356,7 +11379,7 @@ function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], dri
                     const tone = pct == null ? T.muted : pct >= 75 ? T.green : pct >= 60 ? T.amber : T.red;
                     return (
                       <button key={topic} onClick={() => toggleTutorTopic(topic)} aria-pressed={on}
-                        style={{ fontFamily: FONT_UI, fontSize: fs(12.5), fontWeight: 600, color: on ? T.blueDeep : T.ink, background: on ? T.blueLight : "transparent", border: `1.5px solid ${on ? T.blue : tone}`, borderRadius: 999, padding: "5px 12px", cursor: "pointer", display: "inline-flex", alignItems: "center", gap: 6 }}>
+                        style={{ fontFamily: FONT_UI, fontSize: fs(12.5), fontWeight: 600, color: on ? T.linkStrong : T.ink, background: on ? T.blueLight : "transparent", border: `1.5px solid ${on ? T.sel : tone}`, borderRadius: 999, padding: "5px 12px", cursor: "pointer", display: "inline-flex", alignItems: "center", gap: 6 }}>
                         <span aria-hidden="true" style={{ width: 8, height: 8, borderRadius: "50%", background: tone, flexShrink: 0 }} />
                         <span style={{ overflowWrap: "anywhere", textAlign: "left" }}>{topic}</span>
                         {pct != null && <span style={{ fontFamily: FONT_MONO, color: T.muted }}>{pct}%</span>}
@@ -11382,9 +11405,9 @@ function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], dri
                       aria-pressed={recipeStyle === id}
                       style={{
                         fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(13), padding: "7px 14px", borderRadius: 6,
-                        border: `1.5px solid ${recipeStyle === id ? T.blue : T.border}`,
+                        border: `1.5px solid ${recipeStyle === id ? T.sel : T.border}`,
                         background: recipeStyle === id ? T.blueLight : "transparent",
-                        color: recipeStyle === id ? T.blueDeep : T.ink, cursor: "pointer",
+                        color: recipeStyle === id ? T.linkStrong : T.ink, cursor: "pointer",
                       }}
                     >
                       {t("recipeStyle." + id)}
@@ -11408,9 +11431,9 @@ function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], dri
                           aria-pressed={recipeBasicFormat === id}
                           style={{
                             fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(13), padding: "7px 14px", borderRadius: 6,
-                            border: `1.5px solid ${recipeBasicFormat === id ? T.blue : T.border}`,
+                            border: `1.5px solid ${recipeBasicFormat === id ? T.sel : T.border}`,
                             background: recipeBasicFormat === id ? T.blueLight : "transparent",
-                            color: recipeBasicFormat === id ? T.blueDeep : T.ink, cursor: "pointer",
+                            color: recipeBasicFormat === id ? T.linkStrong : T.ink, cursor: "pointer",
                           }}
                         >
                           {t("recipeBasicFormat." + id)}
@@ -11432,7 +11455,7 @@ function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], dri
                 </div>
                 <div style={{ width: "100%" }}>
                   <div style={{ display: "flex", alignItems: "baseline", gap: 6, marginBottom: 6 }}>
-                    <span style={{ fontFamily: FONT_MONO, fontWeight: 700, fontSize: fs(20), color: T.blueDeep, minWidth: 28 }}>{recipeSize}</span>
+                    <span style={{ fontFamily: FONT_MONO, fontWeight: 700, fontSize: fs(20), color: T.linkStrong, minWidth: 28 }}>{recipeSize}</span>
                     <span style={{ fontFamily: FONT_UI, fontSize: fs(12), color: T.muted }}>{t("qCount", { n: "" }).trim() || "questions"}</span>
                   </div>
                   <input
@@ -11464,7 +11487,7 @@ function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], dri
                           }}
                         >
                           <span aria-hidden="true" style={{ width: 2, height: 8, borderRadius: 1, background: active ? T.blue : T.muted, opacity: active ? 1 : 0.6 }} />
-                          <span style={{ fontFamily: FONT_UI, fontWeight: active ? 700 : 600, fontSize: fs(12), color: active ? T.blueDeep : T.muted }}>{n}</span>
+                          <span style={{ fontFamily: FONT_UI, fontWeight: active ? 700 : 600, fontSize: fs(12), color: active ? T.linkStrong : T.muted }}>{n}</span>
                         </button>
                       );
                     })}
@@ -11484,7 +11507,7 @@ function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], dri
                     const fieldLbl = { flex: "0 0 auto", minWidth: 118, fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(12.5), color: T.muted };
                     return (
                       <div key={m.id}>
-                        <label style={{ display: "inline-flex", alignItems: "center", gap: 8, cursor: "pointer", fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(13.5), color: on ? T.blueDeep : T.ink }}>
+                        <label style={{ display: "inline-flex", alignItems: "center", gap: 8, cursor: "pointer", fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(13.5), color: on ? T.linkStrong : T.ink }}>
                           <input
                             type="radio"
                             name="recipe-focus"
@@ -11543,9 +11566,9 @@ function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], dri
                       aria-pressed={recipeDifficulty === id}
                       style={{
                         fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(13), padding: "7px 14px", borderRadius: 6,
-                        border: `1.5px solid ${recipeDifficulty === id ? T.blue : T.border}`,
+                        border: `1.5px solid ${recipeDifficulty === id ? T.sel : T.border}`,
                         background: recipeDifficulty === id ? T.blueLight : "transparent",
-                        color: recipeDifficulty === id ? T.blueDeep : T.ink, cursor: "pointer",
+                        color: recipeDifficulty === id ? T.linkStrong : T.ink, cursor: "pointer",
                       }}
                     >
                       {t("diffMode." + id)}
@@ -11571,7 +11594,7 @@ function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], dri
               <button
                 onClick={copyPrompt}
                 style={{
-                  fontFamily: FONT_UI, fontSize: fs(12.5), fontWeight: 600, color: copied ? T.green : T.blue,
+                  fontFamily: FONT_UI, fontSize: fs(12.5), fontWeight: 600, color: copied ? T.green : T.link,
                   background: "transparent", border: "none", cursor: "pointer", display: "flex", alignItems: "center", gap: 5,
                 }}
               >
@@ -11592,7 +11615,7 @@ function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], dri
         </div>
 
         <div style={{ display: "flex", flexWrap: "wrap", gap: 12, alignItems: "flex-start", marginTop: 12 }}>
-        <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, overflow: "hidden", flex: "1 1 300px", minWidth: 0 }}>
+        <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 12, overflow: "hidden", flex: "1 1 300px", minWidth: 0 }}>
           <button
             onClick={() => setNbOpen((v) => !v)}
             aria-expanded={nbOpen}
@@ -11601,7 +11624,7 @@ function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], dri
               background: "transparent", border: "none", cursor: "pointer", fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(14), color: T.ink, textAlign: "left",
             }}
           >
-            <span style={{ display: "inline-flex", alignItems: "center", gap: 8 }}><BookOpen size={17} color={T.blue} /> {t("nbTitle")}</span>
+            <span style={{ display: "inline-flex", alignItems: "center", gap: 8 }}><BookOpen size={17} color={T.link} /> {t("nbTitle")}</span>
             {nbOpen ? <ChevronUp size={17} color={T.muted} /> : <ChevronDown size={17} color={T.muted} />}
           </button>
           {nbOpen && (
@@ -11615,8 +11638,8 @@ function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], dri
                 return (
                   <div style={{ display: "grid", gap: 14 }}>
                     <a href={NOTEBOOKS.all.url} target="_blank" rel="noopener noreferrer" title={`${NOTEBOOKS.all.name} - ${t("aiLaunchOpens")}`}
-                      style={{ ...linkStyle, borderColor: T.blue, background: T.blueLight, color: T.blue }}>
-                      {t("nbAll")} <ExternalLink size={14} color={T.blue} />
+                      style={{ ...linkStyle, borderColor: T.blue, background: T.blueLight, color: T.link }}>
+                      {t("nbAll")} <ExternalLink size={14} color={T.link} />
                     </a>
                     {NOTEBOOKS.groups.map((g) => (
                       <div key={g.key}>
@@ -11624,7 +11647,7 @@ function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], dri
                         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(130px, 1fr))", gap: 8 }}>
                           {g.items.map((nbk) => (
                             <a key={nbk.name} href={nbk.url} target="_blank" rel="noopener noreferrer" title={`${t(g.key)} ${nbk.name} - ${t("aiLaunchOpens")}`} style={linkStyle}>
-                              {nbk.name} <ExternalLink size={14} color={T.blue} style={{ flexShrink: 0 }} />
+                              {nbk.name} <ExternalLink size={14} color={T.link} style={{ flexShrink: 0 }} />
                             </a>
                           ))}
                         </div>
@@ -11638,7 +11661,7 @@ function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], dri
         </div>
         </div>
 
-        <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, padding: 24, marginTop: 12 }}>
+        <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 12, padding: 24, marginTop: 12 }}>
           <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 14 }}>
             <button
               type="button"
@@ -11655,7 +11678,7 @@ function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], dri
             <button
               onClick={() => fileRef.current?.click()}
               style={{
-                fontFamily: FONT_UI, fontSize: fs(13), fontWeight: 600, color: T.blue, background: "transparent",
+                fontFamily: FONT_UI, fontSize: fs(13), fontWeight: 600, color: T.link, background: "transparent",
                 border: "none", cursor: "pointer", display: "flex", alignItems: "center", gap: 6,
               }}
             >
@@ -11685,7 +11708,7 @@ function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], dri
                 <button
                   type="button"
                   onClick={() => { setText(""); setError(""); setReview(null); setSaveMsg(null); }}
-                  style={{ fontFamily: FONT_UI, fontSize: fs(12), fontWeight: 600, color: T.blue, background: "transparent", border: "none", padding: 0, cursor: "pointer" }}
+                  style={{ fontFamily: FONT_UI, fontSize: fs(12), fontWeight: 600, color: T.link, background: "transparent", border: "none", padding: 0, cursor: "pointer" }}
                 >
                   {t("pasteClear")}
                 </button>
@@ -11781,7 +11804,7 @@ function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], dri
           {t("createdBy")} <strong style={{ color: T.ink }}>Oscar Perez</strong> — {t("role")}
           <span aria-hidden="true" style={{ margin: "0 8px" }}>•</span>
           <a href={DISCORD_URL} target="_blank" rel="noopener noreferrer"
-            style={{ color: T.blue, textDecoration: "none", whiteSpace: "nowrap" }}>
+            style={{ color: T.link, textDecoration: "none", whiteSpace: "nowrap" }}>
             {t("joinDiscord")}
           </a>
         </p>
@@ -11792,7 +11815,7 @@ function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], dri
             rel="noopener noreferrer"
             style={{
               display: "inline-flex", alignItems: "center", gap: 5,
-              fontFamily: FONT_UI, fontSize: fs(11.5), color: T.blue,
+              fontFamily: FONT_UI, fontSize: fs(11.5), color: T.link,
               textDecoration: "none", background: "none", border: "none", padding: 0, cursor: "pointer",
             }}
           >
@@ -11816,7 +11839,7 @@ function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], dri
           position: "fixed", inset: 0, background: "rgba(10,15,20,0.6)", display: "flex", alignItems: "center",
           justifyContent: "center", zIndex: 95, padding: 20,
         }}>
-          <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, padding: 26, maxWidth: 440 }}>
+          <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 12, padding: 26, maxWidth: 440 }}>
             <h3 style={{ fontFamily: FONT_UI, fontSize: fs(16), fontWeight: 700, color: T.ink, margin: "0 0 10px" }}>
               {t("tmTitle")}
             </h3>
@@ -11875,7 +11898,7 @@ function ImportReview({ examData, library, onAdd, onCancel, T, darkMode, setDark
             <Activity size={20} color={T.blue} strokeWidth={2.5} />
             <span style={{ fontFamily: FONT_LOGO, fontSize: fs(12), letterSpacing: "0.04em", color: T.blue, fontWeight: 700 }}>OWORLD</span>
           </button>
-          <h1 style={{ fontFamily: FONT_DISPLAY, fontSize: fs(30), fontWeight: 600, color: T.ink, margin: "0 0 6px" }}>{t("irTitle")}</h1>
+          <h1 style={{ fontFamily: FONT_UI, fontSize: fs(30), fontWeight: 600, color: T.ink, margin: "0 0 6px" }}>{t("irTitle")}</h1>
           <p style={{ fontFamily: FONT_UI, fontSize: fs(14), color: T.muted, lineHeight: 1.55, margin: 0 }}>{t("irSub", { n: examData.blocks.length })}</p>
         </div>
         <div style={{ display: "flex", gap: 10, flexWrap: "wrap" }}>
@@ -11913,8 +11936,8 @@ function ImportReview({ examData, library, onAdd, onCancel, T, darkMode, setDark
               key={i}
               onClick={saved ? undefined : () => toggle(i)}
               style={{
-                display: "flex", alignItems: "center", gap: 14, padding: "16px 20px", borderRadius: 10, cursor: saved ? "default" : "pointer",
-                background: on ? T.blueLight : T.card, border: `1px solid ${on ? T.blue : T.border}`, opacity: saved ? 0.7 : 1,
+                display: "flex", alignItems: "center", gap: 14, padding: "16px 20px", borderRadius: 12, cursor: saved ? "default" : "pointer",
+                background: on ? T.blueLight : T.card, border: `1px solid ${on ? T.sel : T.border}`, opacity: saved ? 0.7 : 1,
               }}
             >
               <input
@@ -11972,10 +11995,10 @@ function TutorSourcesWindow({ sources, T, onClose }) {
   return (
     <div role="dialog" aria-modal="true" aria-label={t("tutorSrcTitle")} onClick={onClose}
       style={{ position: "fixed", inset: 0, zIndex: 320, background: "rgba(0,0,0,0.55)", display: "flex", alignItems: "center", justifyContent: "center", padding: 16, textAlign: "left" }}>
-      <div onClick={(e) => e.stopPropagation()} style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, width: "100%", maxWidth: 560, maxHeight: "86vh", display: "flex", flexDirection: "column", boxShadow: "0 12px 40px rgba(0,0,0,0.45)" }}>
+      <div onClick={(e) => e.stopPropagation()} style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 12, width: "100%", maxWidth: 560, maxHeight: "86vh", display: "flex", flexDirection: "column", boxShadow: "0 12px 40px rgba(0,0,0,0.45)" }}>
         <div style={{ padding: "18px 20px 12px" }}>
           <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-            <BookOpen size={18} color={T.blue} />
+            <BookOpen size={18} color={T.link} />
             <h3 style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(16), color: T.ink, margin: 0, flex: 1 }}>{t("tutorSrcTitle")}</h3>
             <span style={{ fontFamily: FONT_MONO, fontSize: fs(11.5), color: T.muted }}>{t("tutorSrcCount", { n: sources.length })}</span>
             <button onClick={onClose} aria-label={t("cancel")} title={t("cancel")} style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", width: 32, height: 32, borderRadius: 6, background: "transparent", border: `1px solid ${T.border}`, color: T.ink, cursor: "pointer" }}><X size={15} /></button>
@@ -12072,7 +12095,7 @@ function Lobby({ examData, blockStates, library = [], onStart, onReview, onHome,
             OWORLD
           </span>
         </button>
-        <h1 style={{ fontFamily: FONT_DISPLAY, fontSize: fs(30), fontWeight: 600, color: T.ink, margin: "14px 0 18px", overflowWrap: "anywhere" }}>
+        <h1 style={{ fontFamily: FONT_UI, fontSize: fs(30), fontWeight: 600, color: T.ink, margin: "14px 0 18px", overflowWrap: "anywhere" }}>
           {examData.examTitle || t("practiceExam")}
         </h1>
         <div style={{ display: "flex", justifyContent: "center", alignItems: "flex-start", gap: 10, flexWrap: "wrap", maxWidth: "100%" }}>
@@ -12093,7 +12116,7 @@ function Lobby({ examData, blockStates, library = [], onStart, onReview, onHome,
       {confirmRemove && (
         <div role="dialog" aria-modal="true" onClick={() => setConfirmRemove(false)}
           style={{ position: "fixed", inset: 0, zIndex: 300, background: "rgba(0,0,0,0.55)", display: "flex", alignItems: "center", justifyContent: "center", padding: 20 }}>
-          <div onClick={(e) => e.stopPropagation()} style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, padding: 24, maxWidth: 440, width: "100%" }}>
+          <div onClick={(e) => e.stopPropagation()} style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 12, padding: 24, maxWidth: 440, width: "100%" }}>
             <h3 style={{ fontFamily: FONT_UI, fontSize: fs(17), fontWeight: 700, color: T.ink, margin: "0 0 10px" }}>{t("removeTitle")}</h3>
             <p style={{ fontFamily: FONT_UI, fontSize: fs(14), color: T.muted, lineHeight: 1.55, margin: "0 0 20px" }}>{hasUnsaved ? t("removeBodyUnsaved") : t("removeBody")}</p>
             <div style={{ display: "flex", justifyContent: "flex-end", gap: 10 }}>
@@ -12108,7 +12131,7 @@ function Lobby({ examData, blockStates, library = [], onStart, onReview, onHome,
       {confirmRemoveSel && (
         <div role="dialog" aria-modal="true" onClick={() => setConfirmRemoveSel(false)}
           style={{ position: "fixed", inset: 0, zIndex: 300, background: "rgba(0,0,0,0.55)", display: "flex", alignItems: "center", justifyContent: "center", padding: 20 }}>
-          <div onClick={(e) => e.stopPropagation()} style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, padding: 24, maxWidth: 440, width: "100%" }}>
+          <div onClick={(e) => e.stopPropagation()} style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 12, padding: 24, maxWidth: 440, width: "100%" }}>
             <h3 style={{ fontFamily: FONT_UI, fontSize: fs(17), fontWeight: 700, color: T.ink, margin: "0 0 10px" }}>{t("removeSelTitle")}</h3>
             <p style={{ fontFamily: FONT_UI, fontSize: fs(14), color: T.muted, lineHeight: 1.55, margin: "0 0 20px" }}>
               {selRemovable.filter(canSave).length > 0
@@ -12163,7 +12186,7 @@ function Lobby({ examData, blockStates, library = [], onStart, onReview, onHome,
           const toggleSel = () => setSel((cur) => (cur.includes(idx) ? cur.filter((x) => x !== idx) : [...cur, idx]));
           return (
             <div key={idx} onClick={triage ? toggleSel : undefined} style={{
-              background: picked ? T.blueLight : T.card, border: `1px solid ${picked ? T.blue : T.border}`, borderRadius: 10,
+              background: picked ? T.blueLight : T.card, border: `1px solid ${picked ? T.sel : T.border}`, borderRadius: 12,
               padding: "20px 22px", display: "flex", justifyContent: "space-between",
               alignItems: "center", flexWrap: "wrap", gap: 14, cursor: triage ? "pointer" : undefined,
             }}>
@@ -12312,12 +12335,12 @@ function CalculatorPanel({ T, onClose }) {
     fontFamily: FONT_MONO, fontWeight: 600, fontSize: fs(touch ? 18 : 15), padding: touch ? "15px 0" : "10px 0", borderRadius: touch ? 8 : 6,
     border: `1px solid ${T.border}`, background: "transparent", color: T.ink, cursor: "pointer",
   };
-  const opStyle = { ...btnStyle, background: T.blueLight, color: T.blue };
+  const opStyle = { ...btnStyle, background: T.blueLight, color: T.link };
 
   return (
     <div style={{
       position: "fixed", right: 8, bottom: 90, width: `min(${Math.round(260 * Math.max(1, TEXT_SCALE))}px, calc(100vw - 16px))`, background: T.card, border: `1px solid ${T.border}`,
-      borderRadius: 10, padding: 14, zIndex: 60, boxShadow: "0 8px 28px rgba(0,0,0,0.35)",
+      borderRadius: 12, padding: 14, zIndex: 60, boxShadow: "0 8px 28px rgba(0,0,0,0.35)",
     }}>
       <div style={{ display: "flex", justifyContent: "flex-end", marginBottom: 8 }}>
         <button onClick={onClose} aria-label="Close" style={{ background: "transparent", border: "none", cursor: "pointer", color: T.muted, ...(touch ? { minWidth: 44, minHeight: 44, margin: "-10px -10px 0 0" } : {}) }}>
@@ -13082,10 +13105,10 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onAbortBl
               onClick={toggleSaveQuestion} aria-pressed={questionSaved} title={questionSaved ? t("dbSavedQ") : t("dbSaveQ")}
               style={{
                 display: "inline-flex", alignItems: "center", gap: 6, background: "transparent", border: "none", padding: 0, cursor: "pointer",
-                fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(14), color: questionSaved ? T.blue : T.ink,
+                fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(14), color: questionSaved ? T.link : T.ink,
               }}
             >
-              <Bookmark size={16} color={T.blue} fill={questionSaved ? T.blue : "none"} />
+              <Bookmark size={16} color={T.link} fill={questionSaved ? T.blue : "none"} />
               {questionSaved ? t("dbSavedQ") : t("dbSaveQ")}
             </button>}
 
@@ -13095,7 +13118,7 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onAbortBl
                 style={{
                   display: "flex", alignItems: "center", gap: 6, background: "transparent",
                   border: `1px solid ${T.border}`, borderRadius: 6, padding: "6px 12px", cursor: "pointer",
-                  fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(13), color: T.blue,
+                  fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(13), color: T.link,
                 }}
               >
                 <Lightbulb size={15} />
@@ -13111,10 +13134,10 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onAbortBl
           {hintAvailable && showHint && (
             <div style={{
               display: "flex", gap: 8, alignItems: "flex-start", background: T.blueLight, color: T.ink,
-              border: `1px solid ${T.blue}`, borderRadius: 6, padding: "10px 14px", marginBottom: 18,
+              border: `1px solid ${T.sel}`, borderRadius: 6, padding: "10px 14px", marginBottom: 18,
               fontFamily: FONT_UI, fontSize: fs(13.5), lineHeight: 1.5,
             }}>
-              <Lightbulb size={16} color={T.blue} style={{ flexShrink: 0, marginTop: 1 }} />
+              <Lightbulb size={16} color={T.link} style={{ flexShrink: 0, marginTop: 1 }} />
               <span>{q.hint || t("noHint")}</span>
             </div>
           )}
@@ -13131,7 +13154,7 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onAbortBl
             onKeyUp={(e) => handleSelectionInContainer(q.id, "vignette", e.currentTarget)}
             style={{ fontFamily: FONT_DISPLAY, fontSize: fs(17), lineHeight: 1.75, color: T.ink, margin: "0", cursor: "text" }}
           >
-            {renderHighlightedText(q.vignette, highlightsMap[q.id]?.vignette, (hlId) => removeHighlight(q.id, "vignette", hlId), tutorMode && !teamMode && qState.keyInfoOn ? clueInfo.ranges : null, clueStyleFor(T))}
+            {renderHighlightedText(q.vignette, highlightsMap[q.id]?.vignette, (hlId) => removeHighlight(q.id, "vignette", hlId), tutorMode && !teamMode && qState.keyInfoOn ? clueInfo.ranges : null, clueStyleFor(T), T)}
           </p>
           <p
             data-hl-field="stem"
@@ -13139,7 +13162,7 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onAbortBl
             onKeyUp={(e) => handleSelectionInContainer(q.id, "stem", e.currentTarget)}
             style={{ fontFamily: FONT_DISPLAY, fontSize: fs(17), lineHeight: 1.6, color: T.ink, margin: tutorMode ? "0 0 6px" : "0 0 18px", cursor: "text" }}
           >
-            {renderHighlightedText(q.stem, highlightsMap[q.id]?.stem, (hlId) => removeHighlight(q.id, "stem", hlId))}
+            {renderHighlightedText(q.stem, highlightsMap[q.id]?.stem, (hlId) => removeHighlight(q.id, "stem", hlId), null, null, T)}
           </p>
           {tutorMode && (
             <div style={{ margin: "0 0 18px" }}>
@@ -13186,7 +13209,7 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onAbortBl
                     style={tabBarStyle(T, moreOpen, { justifyContent: "center", padding: "12px 12px", marginBottom: 0 })}
                   ><MoreHorizontal size={16} /></button>
                   {moreOpen && (
-                    <div role="menu" style={{ position: "absolute", ...morePlace, top: "calc(100% + 6px)", zIndex: 30, minWidth: 220, maxWidth: "calc(100vw - 16px)", boxSizing: "border-box", background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, boxShadow: "0 8px 24px rgba(0,0,0,0.16)", padding: 6 }}>
+                    <div role="menu" style={{ position: "absolute", ...morePlace, top: "calc(100% + 6px)", zIndex: 30, minWidth: 220, maxWidth: "calc(100vw - 16px)", boxSizing: "border-box", background: T.card, border: `1px solid ${T.border}`, borderRadius: 12, boxShadow: "0 8px 24px rgba(0,0,0,0.16)", padding: 6 }}>
                       {narrow && (() => {
                         const queued = ankiQ.has(q);
                         return (
@@ -13197,7 +13220,7 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onAbortBl
                             onClick={() => { if (queued) ankiQ.remove(q); else ankiQ.add(q, block, qIdx); setMoreOpen(false); setOmitAsk(false); }}
                             onMouseEnter={(e) => { e.currentTarget.style.background = T.paper; }}
                             onMouseLeave={(e) => { e.currentTarget.style.background = "transparent"; }}
-                            style={{ ...examMenuItemStyle(T, false), ...(queued ? { color: T.blue } : {}) }}
+                            style={{ ...examMenuItemStyle(T, false), ...(queued ? { color: T.link } : {}) }}
                           ><Download size={15} /> {queued ? t("ankiInQueue") : t("ankiGet")}</button>
                         );
                       })()}
@@ -13225,8 +13248,8 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onAbortBl
                 </div>
               </div>
               {!teamMode && qState.tipOpen && q.attendingTip && (
-                <div style={{ background: T.paper, borderLeft: `3px solid ${T.blue}`, borderRadius: 8, padding: "12px 14px", marginTop: 10, maxWidth: 720 }}>
-                  <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(12), color: T.blue, marginBottom: 4, textTransform: "uppercase", letterSpacing: "0.05em", display: "flex", alignItems: "center", gap: 6 }}>
+                <div style={{ background: T.paper, borderLeft: `3px solid ${T.sel}`, borderRadius: 8, padding: "12px 14px", marginTop: 10, maxWidth: 720 }}>
+                  <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(12), color: T.link, marginBottom: 4, textTransform: "uppercase", letterSpacing: "0.05em", display: "flex", alignItems: "center", gap: 6 }}>
                     <Stethoscope size={14} /> {t("attendingTip")}
                   </div>
                   <p style={{ fontFamily: FONT_UI, fontSize: fs(13.5), color: T.ink, lineHeight: 1.6, margin: 0 }}>{q.attendingTip}</p>
@@ -13286,7 +13309,7 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onAbortBl
                         textDecoration: isStruck ? "line-through" : "none", opacity: isStruck ? 0.5 : 1,
                       }}
                     >
-                      {opt.key}. {renderHighlightedText(opt.text, highlightsMap[q.id]?.[`option-${opt.key}`], (hlId) => removeHighlight(q.id, `option-${opt.key}`, hlId))}
+                      {opt.key}. {renderHighlightedText(opt.text, highlightsMap[q.id]?.[`option-${opt.key}`], (hlId) => removeHighlight(q.id, `option-${opt.key}`, hlId), null, null, T)}
                     </span>
                     {showCorrect && <CheckCircle2 size={18} color={hinted ? T.amber : T.green} style={{ flexShrink: 0 }} />}
                     {showWrong && <XCircle size={18} color={T.red} style={{ flexShrink: 0 }} />}
@@ -13385,7 +13408,7 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onAbortBl
                     onClick={() => setLabTab(tab)}
                     style={{
                       fontFamily: FONT_UI, fontSize: fs(12), fontWeight: 600, padding: "6px 10px", borderRadius: 999,
-                      border: `1px solid ${labTab === tab ? T.blue : T.border}`,
+                      border: `1px solid ${labTab === tab ? T.sel : T.border}`,
                       background: labTab === tab ? T.blueLight : "transparent",
                       color: labTab === tab ? T.blue : T.muted, cursor: "pointer",
                     }}
@@ -13415,7 +13438,7 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onAbortBl
                   {filteredLabRows.map((row, i) =>
                     row.h ? (
                       <tr key={`h-${i}`}>
-                        <td colSpan={2} style={{ padding: "12px 4px 4px", fontWeight: 700, color: T.blue, fontSize: fs(12.5) }}>
+                        <td colSpan={2} style={{ padding: "12px 4px 4px", fontWeight: 700, color: T.link, fontSize: fs(12.5) }}>
                           {lh(row.h)}
                         </td>
                       </tr>
@@ -13465,7 +13488,7 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onAbortBl
       {notesOpen && (
         <div style={{
           position: "fixed", right: !compact && labOpen ? labW + 20 : narrow ? 8 : 24, bottom: 90, width: `min(${Math.round(320 * Math.max(1, TEXT_SCALE))}px, calc(100vw - 16px))`, background: T.card,
-          border: `1px solid ${T.border}`, borderRadius: 10, padding: 14, zIndex: 55, boxShadow: "0 8px 28px rgba(0,0,0,0.3)",
+          border: `1px solid ${T.border}`, borderRadius: 12, padding: 14, zIndex: 55, boxShadow: "0 8px 28px rgba(0,0,0,0.3)",
         }}>
           <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 8 }}>
             <span style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(13), color: T.ink }}>{t("notesItem", { n: qIdx + 1 })}</span>
@@ -13552,12 +13575,12 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onAbortBl
         const below = defineAnchor.bottom + 10 + 300 <= vp.h; // room under the selection; otherwise it opens above the toolbar
         const pos = below ? { top: defineAnchor.bottom + 10 } : { bottom: Math.max(8, vp.h - (defineAnchor.top - 56)) };
         const st = defineRes.status;
-        const linkStyle = { display: "inline-flex", alignItems: "center", gap: 5, fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(13), color: T.blue, textDecoration: "none" };
+        const linkStyle = { display: "inline-flex", alignItems: "center", gap: 5, fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(13), color: T.link, textDecoration: "none" };
         const link = (href, label) => <a href={href} target="_blank" rel="noopener noreferrer" style={linkStyle}>{label} <ExternalLink size={12} /></a>;
         return (
           <div ref={definePopRef} role="dialog" aria-label={t("defineBtn")} style={{
             position: "fixed", left, ...pos, width: w, zIndex: 81, boxSizing: "border-box", background: T.card, color: T.ink, border: `1px solid ${T.border}`,
-            borderRadius: 10, boxShadow: "0 8px 28px rgba(0,0,0,0.28)", padding: "14px 16px", fontFamily: FONT_UI, textAlign: "left",
+            borderRadius: 12, boxShadow: "0 8px 28px rgba(0,0,0,0.28)", padding: "14px 16px", fontFamily: FONT_UI, textAlign: "left",
           }}>
             <div style={{ display: "flex", alignItems: "flex-start", gap: 8, marginBottom: 6 }}>
               <div style={{ flex: 1, minWidth: 0 }}>
@@ -13606,7 +13629,7 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onAbortBl
           position: "fixed", inset: 0, background: "rgba(10,15,20,0.6)", display: "flex", alignItems: "center",
           justifyContent: "center", zIndex: 95, padding: 20,
         }}>
-          <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, padding: 28, maxWidth: 420 }}>
+          <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 12, padding: 28, maxWidth: 420 }}>
             <h3 style={{ fontFamily: FONT_UI, fontSize: fs(17), fontWeight: 700, color: T.ink, margin: "0 0 10px" }}>{t("timerOffTitle")}</h3>
             <p style={{ fontFamily: FONT_UI, fontSize: fs(14), color: T.muted, lineHeight: 1.55, margin: "0 0 20px" }}>{t("timerOffBody")}</p>
             <div style={{ display: "flex", gap: 10, justifyContent: "flex-end" }}>
@@ -13623,7 +13646,7 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onAbortBl
           position: "fixed", inset: 0, background: "rgba(10,15,20,0.6)", display: "flex", alignItems: "center",
           justifyContent: "center", zIndex: 95, padding: 20,
         }}>
-          <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, padding: 28, maxWidth: 400 }}>
+          <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 12, padding: 28, maxWidth: 400 }}>
             <h3 style={{ fontFamily: FONT_UI, fontSize: fs(17), fontWeight: 700, color: T.ink, margin: "0 0 10px" }}>
               {t("endQ")}
             </h3>
@@ -13645,7 +13668,7 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onAbortBl
           position: "fixed", inset: 0, background: "rgba(10,15,20,0.6)", display: "flex", alignItems: "center",
           justifyContent: "center", zIndex: 96, padding: 20,
         }}>
-          <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, padding: 28, maxWidth: 400 }}>
+          <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 12, padding: 28, maxWidth: 400 }}>
             <h3 style={{ fontFamily: FONT_UI, fontSize: fs(17), fontWeight: 700, color: T.ink, margin: "0 0 10px" }}>{t("abortQ")}</h3>
             <p style={{ fontFamily: FONT_UI, fontSize: fs(14), color: T.muted, lineHeight: 1.55, margin: "0 0 20px" }}>{t("abortConfirmBody")}</p>
             <div style={{ display: "flex", gap: 10, justifyContent: "flex-end", flexWrap: "wrap" }}>
@@ -13662,7 +13685,7 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onAbortBl
           position: "fixed", inset: 0, background: "rgba(10,15,20,0.6)", display: "flex", alignItems: "center",
           justifyContent: "center", zIndex: 96, padding: 20,
         }}>
-          <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, padding: 28, maxWidth: 420 }}>
+          <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 12, padding: 28, maxWidth: 420 }}>
             <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 10 }}>
               <AlertTriangle size={20} color={T.red} />
               <h3 style={{ fontFamily: FONT_UI, fontSize: fs(17), fontWeight: 700, color: T.ink, margin: 0 }}>{t("omitTitle")}</h3>
@@ -13685,7 +13708,7 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onAbortBl
           position: "fixed", inset: 0, background: "rgba(10,15,20,0.6)", display: "flex", alignItems: "center",
           justifyContent: "center", zIndex: 95, padding: 20,
         }}>
-          <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, padding: 28, maxWidth: 400 }}>
+          <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 12, padding: 28, maxWidth: 400 }}>
             <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 10 }}>
               <Clock size={20} color={T.red} />
               <h3 style={{ fontFamily: FONT_UI, fontSize: fs(17), fontWeight: 700, color: T.ink, margin: 0 }}>
@@ -13779,7 +13802,7 @@ function SourcesDropdown({ refs, T }) {
                 <div style={{ fontFamily: FONT_UI, fontSize: fs(12.5), color: T.muted, marginTop: 2 }}>{ref.chapterSection}</div>
               )}
               {ref.relevance && (
-                <div style={{ fontFamily: FONT_UI, fontSize: fs(12), color: T.blueDeep, marginTop: 4, fontStyle: "italic" }}>{ref.relevance}</div>
+                <div style={{ fontFamily: FONT_UI, fontSize: fs(12), color: T.linkStrong, marginTop: 4, fontStyle: "italic" }}>{ref.relevance}</div>
               )}
             </div>
           ))}
@@ -13883,8 +13906,8 @@ function ExplanationPanels({ q, T, showTip = true, showClues = true, flat = fals
   return (
     <div style={{ display: "grid", gap: flat ? 14 : 10 }}>
       {showTip && q.attendingTip && (
-        <div style={{ background: T.paper, borderRadius: 8, padding: "12px 14px", borderLeft: `3px solid ${T.blue}` }}>
-          <div style={label(T.blue)}><Stethoscope size={14} /> {t("attendingTip")}</div>
+        <div style={{ background: T.paper, borderRadius: 8, padding: "12px 14px", borderLeft: `3px solid ${T.sel}` }}>
+          <div style={label(T.link)}><Stethoscope size={14} /> {t("attendingTip")}</div>
           <p style={body}>{q.attendingTip}</p>
         </div>
       )}
@@ -13902,7 +13925,7 @@ function ExplanationPanels({ q, T, showTip = true, showClues = true, flat = fals
 
       {q.explanation && (
         <div style={box(T.paper)}>
-          <div style={label(T.blue)}>{t("explanation")}</div>
+          <div style={label(T.link)}>{t("explanation")}</div>
           <p style={body}>{q.explanation}</p>
         </div>
       )}
@@ -13916,7 +13939,7 @@ function ExplanationPanels({ q, T, showTip = true, showClues = true, flat = fals
 
       {q.educationalObjective && (
         <div style={box(T.blueLight)}>
-          <div style={label(T.blueDeep)}>{t("eduObj")}</div>
+          <div style={label(T.linkStrong)}>{t("eduObj")}</div>
           <p style={body}>{q.educationalObjective}</p>
         </div>
       )}
@@ -13933,7 +13956,7 @@ function DifficultyBreakdown({ rows, T }) {
   const { t } = useI18n();
   if (!rows || rows.length < 2) return null;
   return (
-    <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, padding: "18px 22px", marginBottom: 22 }}>
+    <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 12, padding: "18px 22px", marginBottom: 22 }}>
       <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(13), color: T.ink, marginBottom: 12, textTransform: "uppercase", letterSpacing: "0.04em" }}>
         {t("perfDifficulty")}
       </div>
@@ -13999,7 +14022,7 @@ function BlockResults({ block, blockState, blockIdx, history, onBackToLobby, onR
         <SettingsMenu darkMode={darkMode} setDarkMode={setDarkMode} T={T} />
       </div>
 
-      <h1 style={{ fontFamily: FONT_DISPLAY, fontSize: fs(phone ? 22 : 28), fontWeight: 600, color: T.ink, margin: "0 0 4px", overflowWrap: "anywhere" }}>
+      <h1 style={{ fontFamily: FONT_UI, fontSize: fs(phone ? 22 : 28), fontWeight: 600, color: T.ink, margin: "0 0 4px", overflowWrap: "anywhere" }}>
         {t("results", { name: blockLabel(block, t) })}
       </h1>
       <div style={{ display: "flex", flexWrap: "wrap", alignItems: "baseline", columnGap: 12, rowGap: 6, marginBottom: 20 }}>
@@ -14014,7 +14037,7 @@ function BlockResults({ block, blockState, blockIdx, history, onBackToLobby, onR
       </div>
 
       {fe.firstCorrect + fe.firstIncorrect > 0 && (
-        <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, padding: phone ? "14px 16px" : "16px 20px", marginBottom: 20 }}>
+        <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 12, padding: phone ? "14px 16px" : "16px 20px", marginBottom: 20 }}>
           <div style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(14), color: T.ink }}>{t("feTitle")}</div>
           <p style={{ fontFamily: FONT_UI, fontSize: fs(12.5), color: T.muted, margin: "2px 0 10px" }}>{t("feNote")}</p>
           <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
@@ -14031,7 +14054,7 @@ function BlockResults({ block, blockState, blockIdx, history, onBackToLobby, onR
 
 
       {attempts.length > 1 && (
-        <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, padding: "18px 22px", marginBottom: 22 }}>
+        <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 12, padding: "18px 22px", marginBottom: 22 }}>
           <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(13), color: T.ink, marginBottom: 10, textTransform: "uppercase", letterSpacing: "0.04em" }}>
             {t("attemptHistory")}
           </div>
@@ -14055,7 +14078,7 @@ function BlockResults({ block, blockState, blockIdx, history, onBackToLobby, onR
       )}
 
       {subjectRows.length > 1 && (
-        <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, padding: phone ? "16px 10px 8px" : "20px 22px 8px", marginBottom: 22 }}>
+        <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 12, padding: phone ? "16px 10px 8px" : "20px 22px 8px", marginBottom: 22 }}>
           <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(13), color: T.ink, marginBottom: 12, textTransform: "uppercase", letterSpacing: "0.04em" }}>
             {t("perfSubject")}
           </div>
@@ -14122,7 +14145,7 @@ function BlockResults({ block, blockState, blockIdx, history, onBackToLobby, onR
                     <DifficultyMeter value={q.difficultyRating} label={q.difficultyLabel} T={T} />
                   </div>
                   <p style={{ fontFamily: FONT_DISPLAY, fontSize: fs(14.5), color: T.ink, lineHeight: 1.65, marginTop: 8 }}>
-                    {renderHighlightedText(q.vignette, null, () => {}, getClues(q.vignette, q.keyInfoPhrases).ranges, clueStyleFor(T))}
+                    {renderHighlightedText(q.vignette, null, () => {}, getClues(q.vignette, q.keyInfoPhrases).ranges, clueStyleFor(T), T)}
                   </p>
                   <div style={{ display: "grid", gap: 6, marginBottom: 12 }}>
                     {q.options.map((opt) => {
@@ -14204,7 +14227,7 @@ function BlockResults({ block, blockState, blockIdx, history, onBackToLobby, onR
       {/* Retest configuration modal */}
       {onRetest && retestCfg && (
         <div style={{ position: "fixed", inset: 0, background: "rgba(10,15,20,0.6)", display: "flex", alignItems: "center", justifyContent: "center", zIndex: 95, padding: 20 }}>
-          <div role="dialog" aria-modal="true" style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, padding: phone ? 18 : 26, width: "100%", maxWidth: 520, maxHeight: "90vh", overflowY: "auto" }}>
+          <div role="dialog" aria-modal="true" style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 12, padding: phone ? 18 : 26, width: "100%", maxWidth: 520, maxHeight: "90vh", overflowY: "auto" }}>
             <h3 style={{ fontFamily: FONT_UI, fontSize: fs(17), fontWeight: 700, color: T.ink, margin: "0 0 16px" }}>{t("retestTitle")}</h3>
             {[
               ["poolLabel", "pool", [["incorrect", "poolIncorrect"], ["flagged", "poolFlagged"], ["again", "poolAgain"], ["hard", "poolHard"], ["againhard", "poolAgainHard"], ["all", "poolAll"]]],
@@ -14324,7 +14347,7 @@ function FinalSummary({ examData, blockStates, onBackToLobby, T, darkMode, setDa
         <p style={{ fontFamily: FONT_UI, fontSize: fs(12.5), color: T.muted, margin: "-14px 0 22px" }}>{t("retestsExcluded", { n: retestCount })}</p>
       )}
 
-      <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, padding: "20px 22px 8px", marginBottom: 22 }}>
+      <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 12, padding: "20px 22px 8px", marginBottom: 22 }}>
         <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(13), color: T.ink, marginBottom: 12, textTransform: "uppercase", letterSpacing: "0.04em" }}>
           {t("perfAll")}
         </div>
@@ -14349,9 +14372,9 @@ function FinalSummary({ examData, blockStates, onBackToLobby, T, darkMode, setDa
       <DifficultyBreakdown rows={difficultyRows} T={T} />
 
       {weakest.length > 0 && (
-        <div style={{ background: T.blueLight, borderRadius: 10, padding: "16px 20px", marginBottom: 22 }}>
-          <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(13), color: T.blueDeep, marginBottom: 6 }}>{t("focusAreas")}</div>
-          <p style={{ fontFamily: FONT_UI, fontSize: fs(13.5), color: T.blueDeep, margin: 0, lineHeight: 1.6 }}>
+        <div style={{ background: T.blueLight, borderRadius: 12, padding: "16px 20px", marginBottom: 22 }}>
+          <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(13), color: T.linkStrong, marginBottom: 6 }}>{t("focusAreas")}</div>
+          <p style={{ fontFamily: FONT_UI, fontSize: fs(13.5), color: T.linkStrong, margin: 0, lineHeight: 1.6 }}>
             {t("lowest", { list: weakest.map((w) => `${w.subject} (${w.pct}%)`).join(", ") })}
           </p>
         </div>
@@ -14431,7 +14454,7 @@ function OnboardingTour({ onClose, T = LIGHT }) {
 
         <div style={{ display: "flex", justifyContent: "center", gap: 6, marginBottom: 20 }} aria-hidden="true">
           {steps.map((_, i) => (
-            <span key={i} style={{ width: i === step ? 18 : 6, height: 6, borderRadius: 3, background: i === step ? T.blue : T.border }} />
+            <span key={i} style={{ width: i === step ? 18 : 6, height: 6, borderRadius: 3, background: i === step ? T.sel : T.border }} />
           ))}
         </div>
 
@@ -15440,10 +15463,10 @@ function OworldApp() {
           // A bottom-center notification, not a modal: the screen stays usable underneath. Continue acts on it; the X / Not now dismisses it.
           <div role="status" aria-live="polite" style={{
             position: "fixed", left: "50%", transform: "translateX(-50%)", bottom: "calc(90px + env(safe-area-inset-bottom, 0px))", zIndex: 310, width: "min(400px, calc(100vw - 28px))", boxSizing: "border-box",
-            background: T.card, border: `1px solid ${T.blue}`, borderRadius: 12, padding: "14px 14px 12px", boxShadow: "0 10px 30px rgba(0,0,0,0.35)",
+            background: T.card, border: `1px solid ${T.sel}`, borderRadius: 12, padding: "14px 14px 12px", boxShadow: "0 10px 30px rgba(0,0,0,0.35)",
           }}>
             <div style={{ display: "flex", alignItems: "flex-start", gap: 10 }}>
-              <Cloud size={18} color={T.blue} style={{ flexShrink: 0, marginTop: 2 }} />
+              <Cloud size={18} color={T.link} style={{ flexShrink: 0, marginTop: 2 }} />
               <div style={{ flex: 1, minWidth: 0 }}>
                 <div style={{ fontFamily: FONT_UI, fontSize: fs(14), fontWeight: 700, color: T.ink, lineHeight: 1.35 }}>{tr(activePrompt.action === "conflict" ? "activeTitleConflict" : "activeTitle")}</div>
                 <p style={{ fontFamily: FONT_UI, fontSize: fs(12.5), color: T.muted, lineHeight: 1.5, margin: "4px 0 0", overflowWrap: "anywhere" }}>{body}{mixLine}</p>
@@ -15461,7 +15484,7 @@ function OworldApp() {
 
       {discardPrompt && (
         <div role="dialog" aria-modal="true" style={{ position: "fixed", inset: 0, zIndex: 300, background: "rgba(0,0,0,0.55)", display: "flex", alignItems: "center", justifyContent: "center", padding: 20 }}>
-          <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 10, padding: 24, maxWidth: 420, width: "100%" }}>
+          <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 12, padding: 24, maxWidth: 420, width: "100%" }}>
             <h3 style={{ fontFamily: FONT_UI, fontSize: fs(17), fontWeight: 700, color: T.ink, margin: "0 0 10px" }}>{tr("discardTitle")}</h3>
             <p style={{ fontFamily: FONT_UI, fontSize: fs(14), color: T.muted, lineHeight: 1.55, margin: "0 0 20px" }}>{tr("discardBody")}</p>
             <div style={{ display: "flex", justifyContent: "flex-end", gap: 10 }}>
