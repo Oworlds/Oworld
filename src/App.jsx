@@ -13062,6 +13062,7 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onAbortBl
                         {vignettePreview(qq)}
                       </span>
                     )}
+                    {tutorMode && <DifficultyPips value={qq.difficultyRating} label={qq.difficultyLabel} T={T} color={isCurrent ? T.onBlue : T.amber} />}
                   </div>
                 );
               })}
