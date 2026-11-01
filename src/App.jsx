@@ -11303,7 +11303,7 @@ function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], dri
         <button onClick={goHomePage} aria-label={t("homeBtn")} title={t("homeBtn")} style={{
           display: "flex", alignItems: "center", gap: 10, background: "transparent", border: "none", padding: "4px 2px", cursor: "pointer", flexShrink: 0, ...(wideBar ? { justifySelf: "start" } : {}),
         }}>
-          <span style={{ fontFamily: FONT_LOGO, fontSize: fs(phone ? 18 : 20), lineHeight: 1.2, letterSpacing: 0, color: T.blue, fontWeight: 700 }}>OWORLD</span>
+          <span style={{ fontFamily: FONT_LOGO, fontSize: fs(phone ? 20 : 22), lineHeight: 1.2, letterSpacing: 0, color: T.ink, fontWeight: 800 }}>OWORLD</span>
         </button>
         {wideBar && <UniversalSearchBar q={uq} setQ={setUq} scope={uScope} setScope={setUScope} pageScope={pageScope} library={library} sessionLog={sessionLog} onGo={onSearchGo} T={T} wide />}
         <div style={{ display: "flex", alignItems: "center", gap: phone ? 8 : 10, ...(wideBar ? { justifySelf: "end" } : {}) }}>
@@ -11896,7 +11896,7 @@ function ImportReview({ examData, library, onAdd, onCancel, T, darkMode, setDark
         <div style={{ flex: "1 1 320px", minWidth: 0 }}>
           <button onClick={onCancel} aria-label={t("homeBtn")} title={t("homeBtn")} style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 6, background: "transparent", border: "none", padding: 0, cursor: "pointer" }}>
             <Activity size={20} color={T.blue} strokeWidth={2.5} />
-            <span style={{ fontFamily: FONT_LOGO, fontSize: fs(12), letterSpacing: "0.04em", color: T.blue, fontWeight: 700 }}>OWORLD</span>
+            <span style={{ fontFamily: FONT_LOGO, fontSize: fs(12), letterSpacing: "0.04em", color: T.ink, fontWeight: 700 }}>OWORLD</span>
           </button>
           <h1 style={{ fontFamily: FONT_UI, fontSize: fs(30), fontWeight: 600, color: T.ink, margin: "0 0 6px" }}>{t("irTitle")}</h1>
           <p style={{ fontFamily: FONT_UI, fontSize: fs(14), color: T.muted, lineHeight: 1.55, margin: 0 }}>{t("irSub", { n: examData.blocks.length })}</p>
@@ -12091,7 +12091,7 @@ function Lobby({ examData, blockStates, library = [], onStart, onReview, onHome,
       <div style={{ textAlign: "center", marginBottom: 28 }}>
         <button onClick={onHome} aria-label={t("homeBtn")} title={t("homeBtn")} style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 12, margin: "0 auto", background: "transparent", border: "none", padding: 0, cursor: "pointer" }}>
           <Activity size={narrow ? 28 : 34} color={T.blue} strokeWidth={2.5} />
-          <span style={{ fontFamily: FONT_LOGO, fontSize: fs(narrow ? 34 : 44), letterSpacing: "0.01em", color: T.blue, fontWeight: 700 }}>
+          <span style={{ fontFamily: FONT_LOGO, fontSize: fs(narrow ? 34 : 44), letterSpacing: "0.01em", color: T.ink, fontWeight: 700 }}>
             OWORLD
           </span>
         </button>
