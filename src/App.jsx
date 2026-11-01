@@ -14514,7 +14514,7 @@ function OnboardingTour({ onClose, T = LIGHT }) {
           <X size={18} />
         </button>
 
-        <h2 id="oworld-onboarding-title" style={{ fontFamily: FONT_DISPLAY, fontSize: fs(26), fontWeight: 600, color: T.ink, margin: "0 28px 12px 0", lineHeight: 1.25 }}>
+        <h2 id="oworld-onboarding-title" style={{ fontFamily: FONT_UI, fontSize: fs(26), fontWeight: 700, letterSpacing: "-0.02em", color: T.ink, margin: "0 28px 12px 0", lineHeight: 1.25 }}>
           {cur.title}
         </h2>
         <p style={{ fontFamily: FONT_UI, fontSize: fs(15), color: T.ink, lineHeight: 1.6, margin: "0 0 22px" }}>
