@@ -12479,6 +12479,8 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onAbortBl
   // The question list can fold into a slim rail to give the question more room; the choice is remembered.
   const [navCollapsedPref, setNavCollapsed] = useState(() => lsGet("navCollapsed") === true);
   const toggleNav = () => setNavCollapsed((v) => { lsSet("navCollapsed", JSON.stringify(!v)); return !v; });
+  const [navSheet, setNavSheet] = useState(false); // phones: the question list opens full-width when the "n / n" counter is tapped
+  const navCurRef = useRef(null); // the current question's row inside that panel, scrolled into view when it opens
   const [labOpen, setLabOpen] = useState(false);
   const [notesOpen, setNotesOpen] = useState(false);
   const [calcOpen, setCalcOpen] = useState(false);
@@ -12516,6 +12518,8 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onAbortBl
   const compact = vp.w < 980;           // tablets / small windows: lab panel overlays, navigator slims down
   const narrow = vp.w < 640;            // phones: icon-only toolbar, tighter padding
   const short = vp.h < 480;             // landscape phones
+  useEffect(() => { if (!narrow) setNavSheet(false); }, [narrow]); // the panel is phone-only: close it if the window widens
+  useEffect(() => { if (navSheet && navCurRef.current) navCurRef.current.scrollIntoView({ block: "center" }); }, [navSheet]);
   const labW = Math.round(400 * Math.min(Math.max(1, TEXT_SCALE), 1.4));
   const lh = (h) => (lang === "es" ? LAB_HDR_ES[h] || h : h);
   const lv = (v) => labVal(v, lang);
@@ -12791,12 +12795,28 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onAbortBl
   // Previous / counter / Next. On phones it is pushed to the far right, away from Home, to avoid accidental Home taps.
   const prevNextEl = (
         <div style={{ display: "flex", alignItems: "center", gap: narrow ? 2 : 18, ...(narrow ? { order: 2, marginLeft: "auto" } : {}) }}>
-          <button onClick={goPrev} disabled={qIdx === 0} style={toolBtnStyle(false)} title={t("prev")} aria-label={t("prev")}>
+          <button onClick={() => { setNavSheet(false); goPrev(); }} disabled={qIdx === 0} style={toolBtnStyle(false)} title={t("prev")} aria-label={t("prev")}>
             <ChevronLeft size={26} style={{ opacity: qIdx === 0 ? 0.35 : 1 }} />
             {!narrow && t("prev")}
           </button>
-          <span style={{ fontFamily: FONT_UI, fontSize: fs(13) }}>{qIdx + 1} / {questions.length}</span>
-          <button onClick={goNext} style={toolBtnStyle(false)} title={t("next")} aria-label={t("next")}>
+          {narrow ? (
+            <button
+              onClick={() => setNavSheet((v) => !v)}
+              title={navSheet ? t("navCollapse") : t("navExpand")}
+              aria-label={navSheet ? t("navCollapse") : t("navExpand")}
+              aria-expanded={navSheet}
+              style={{
+                display: "inline-flex", alignItems: "center", gap: 4, minHeight: 48, padding: "4px 8px", borderRadius: 8, border: "none", cursor: "pointer",
+                background: navSheet ? "rgba(255,255,255,0.12)" : "transparent", color: navSheet ? T.blue : "#fff", fontFamily: FONT_UI, fontSize: fs(13), fontWeight: 600,
+              }}
+            >
+              {qIdx + 1} / {questions.length}
+              {navSheet ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
+            </button>
+          ) : (
+            <span style={{ fontFamily: FONT_UI, fontSize: fs(13) }}>{qIdx + 1} / {questions.length}</span>
+          )}
+          <button onClick={() => { setNavSheet(false); goNext(); }} style={toolBtnStyle(false)} title={t("next")} aria-label={t("next")}>
             <ChevronRight size={26} />
             {!narrow && t("next")}
           </button>
@@ -12994,6 +13014,59 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onAbortBl
             })}
           </div>
         </div>
+        )}
+
+        {/* Phones: tapping the "n / n" counter opens the question list full-width over the question; tap it again, or pick a question, to close. */}
+        {narrow && navSheet && (
+          <div role="region" aria-label={t("qStatus")} style={{ position: "absolute", inset: 0, zIndex: 5, background: T.card, display: "flex", flexDirection: "column", minHeight: 0 }}>
+            <div style={{ padding: "14px 16px 12px", borderBottom: `1px solid ${T.border}`, flexShrink: 0 }}>
+              <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(14), color: T.ink, marginBottom: 8, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
+                {blockLabel(block, t)}
+              </div>
+              <div style={{ fontFamily: FONT_MONO, fontSize: fs(12), color: darkMode ? T.ink : T.muted, marginBottom: 6 }}>{navAnswered}/{questions.length}</div>
+              <div style={{ height: 3, borderRadius: 2, background: T.border, overflow: "hidden" }}>
+                <div style={{ width: `${questions.length ? (navAnswered / questions.length) * 100 : 0}%`, height: "100%", background: T.blue }} />
+              </div>
+            </div>
+            <div style={{ flex: 1, overflowY: "auto", overscrollBehavior: "contain", WebkitOverflowScrolling: "touch" }}>
+              {questions.map((qq, i) => {
+                const st = blockState.answers[qq.id];
+                const isCurrent = i === qIdx;
+                const navChecked = tutorMode && !!st?.checked && !!st?.selected;
+                const navCorrect = navChecked && st.selected === qq.correctAnswer;
+                return (
+                  <div
+                    key={qq.id}
+                    ref={isCurrent ? navCurRef : null}
+                    onClick={() => { setQIdx(i); setNavSheet(false); }}
+                    style={{
+                      display: "flex", alignItems: "center", gap: 10, minHeight: 48, padding: "8px 16px", boxSizing: "border-box", cursor: "pointer",
+                      background: isCurrent ? T.blue : "transparent", color: isCurrent ? T.onBlue : T.ink, fontFamily: FONT_UI, fontSize: fs(14),
+                      borderBottom: `1px solid ${T.border}`,
+                    }}
+                  >
+                    <span style={{
+                      width: 14, textAlign: "center", fontSize: fs(navChecked ? 12 : 9), fontWeight: navChecked ? 700 : 400, opacity: st?.selected ? 1 : 0.35,
+                      color: navChecked && !isCurrent ? (navCorrect ? T.green : T.red) : "inherit",
+                    }}>{navChecked ? (navCorrect ? "✓" : "✕") : "●"}</span>
+                    <span style={{ minWidth: 24, fontWeight: 700 }}>{i + 1}</span>
+                    {st?.flagged && <Flag size={12} color={isCurrent ? T.onBlue : T.flagRed} fill={isCurrent ? T.onBlue : T.flagRed} />}
+                    {tutorMode && st?.wasIncorrect && (
+                      <span title={t("wasIncorrectBadge")} aria-label={t("wasIncorrectBadge")} style={{ width: 9, height: 9, borderRadius: 999, background: T.red, flexShrink: 0 }} />
+                    )}
+                    {tutorMode && st?.hintUsed && (
+                      <span title={t("hintUsedBadge")} aria-label={t("hintUsedBadge")} style={{ width: 9, height: 9, borderRadius: 999, boxSizing: "border-box", border: `2px solid ${HINT_YELLOW}`, background: "transparent", flexShrink: 0 }} />
+                    )}
+                    {tutorMode && (
+                      <span style={{ flex: 1, minWidth: 0, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", fontSize: fs(13), color: isCurrent ? T.onBlue : darkMode ? T.ink : T.muted }}>
+                        {vignettePreview(qq)}
+                      </span>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          </div>
         )}
 
         {/* Question body */}
