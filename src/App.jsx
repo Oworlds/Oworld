@@ -11261,7 +11261,10 @@ function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], dri
   const phone = vp.w < 640; // phones: the header buttons drop their labels so they all fit inline in one row
   useEffect(() => { // anything that used to open the Import tab now lands on the Library with the Import card expanded
     if (libTab !== "import") return;
+    let fromWelcome = false;
+    try { fromWelcome = sessionStorage.getItem("oworld_welcome_import") === "1"; sessionStorage.removeItem("oworld_welcome_import"); } catch (e) {}
     setLibTab("library"); setLibType("all");
+    if (fromWelcome) setPasteOpen(false); // welcome lands on the Recipe & Import Hub card, not the open paste box
     setTimeout(() => { if (importRef.current) importRef.current.scrollIntoView({ behavior: "smooth", block: "start" }); }, 80);
   }, [libTab]); // eslint-disable-line
   useEffect(() => { if (libTab !== "calendar") setCalFocus(null); }, [libTab]);
@@ -11408,7 +11411,7 @@ function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], dri
       {libTab === "library" && <LibraryTopRow session={session} resumeId={resumeId} library={library} onResume={onResume} onOpenLobby={onOpenLobby} T={T} />}
 
       {/* Import Qbank page: its own page, no longer an accordion under the library. */}
-      <div ref={importRef} style={{ marginBottom: 20 }}>
+      <div ref={importRef} style={{ marginBottom: 20, scrollMarginTop: "calc(var(--oworld-sticky-h, 80px) + 12px)" }}>
         {libTab === "library" && libType === "all" && (
           <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 12, overflow: "hidden" }}>
             <div style={{ display: "flex", alignItems: "center", gap: 8, padding: "16px 24px", fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(15), color: T.ink }}>
@@ -14466,6 +14469,38 @@ function FinalSummary({ examData, blockStates, onBackToLobby, T, darkMode, setDa
 // ---------------------------------------------------------------------------
 // Onboarding tour: a 4-step welcome overlay. Closing it (X, Escape or Get Started) calls onClose();
 // if "Don't show this again" is ticked, that choice is remembered in localStorage.
+// First-run welcome: shown over the Dashboard when the library is empty and the user hasn't dismissed it before.
+function WelcomeModal({ onImport, onDemo, onSkip, T }) {
+  useEffect(() => {
+    const onKey = (e) => { if (e.key === "Escape") onSkip(); };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [onSkip]);
+  return (
+    <div style={{ position: "fixed", inset: 0, zIndex: 9998, display: "flex", alignItems: "center", justifyContent: "center", padding: 16, background: "rgba(0,0,0,0.72)", backdropFilter: "blur(10px)", WebkitBackdropFilter: "blur(10px)" }}>
+      <div style={{ width: "100%", maxWidth: 440, boxSizing: "border-box", padding: "36px 32px 26px", textAlign: "center", background: T.card, border: `1px solid ${T.border}`, borderRadius: 16, color: T.ink, boxShadow: "0 24px 80px rgba(0,0,0,0.6)" }}>
+        <h2 style={{ fontFamily: FONT_UI, fontSize: fs(28), fontWeight: 700, letterSpacing: "-0.02em", lineHeight: 1.2, margin: "0 0 12px" }}>
+          Welcome to Oworld.<br /><span style={{ color: T.blue }}>Master the USMLE.</span>
+        </h2>
+        <p style={{ fontFamily: FONT_UI, fontSize: fs(15), color: T.muted, lineHeight: 1.55, margin: "0 0 26px" }}>
+          Zero backend. 100% private. How would you like to begin?
+        </p>
+        <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+          <PrimaryButton T={T} icon={Upload} onClick={onImport} style={{ width: "100%", padding: "13px 18px", fontSize: fs(15) }}>
+            Import a Qbank
+          </PrimaryButton>
+          <GhostButton T={T} icon={Play} onClick={onDemo} style={{ width: "100%", padding: "13px 18px", fontSize: fs(15) }}>
+            Try a Demo Block
+          </GhostButton>
+        </div>
+        <button onClick={onSkip} style={{ marginTop: 20, background: "none", border: "none", padding: 4, fontFamily: FONT_UI, fontSize: fs(13), color: T.muted, textDecoration: "underline", cursor: "pointer" }}>
+          Skip for now
+        </button>
+      </div>
+    </div>
+  );
+}
+
 function OnboardingTour({ onClose, T = LIGHT }) {
   const { t } = useI18n();
   const [step, setStep] = useState(0);
@@ -14563,8 +14598,15 @@ function OworldApp() {
   const [history, setHistory] = useState(boot.session ? boot.session.history : []); // immutable snapshot of every finished attempt (baseline + retests)
   const [darkMode, setDarkMode] = useState(boot.prefs.darkMode);
   const [lang, setLang] = useState(boot.prefs.lang); // English is the default
+  const [showWelcome, setShowWelcome] = useState(() => {
+    try {
+      return boot.library.length === 0 && !boot.session && localStorage.getItem("oworld_onboarded") !== "true";
+    } catch (e) { return false; }
+  });
   const [showOnboarding, setShowOnboarding] = useState(() => {
-    try { return localStorage.getItem("oworldOnboardingComplete") !== "true"; } catch (e) { return true; }
+    try { 
+      return !showWelcome && localStorage.getItem("oworldOnboardingComplete") !== "true"; 
+    } catch (e) { return true; }
   });
   const [textScale, setTextScale] = useState(boot.prefs.textScale);
   const [srcAuto, setSrcAuto] = useState(boot.prefs.srcAuto !== false); // show the Tutor suggested sources card at the start of a session
@@ -15272,6 +15314,24 @@ function OworldApp() {
   // Home: go back to the dashboard WITHOUT resetting anything. Answers, question index and timing live in blockStates and are
   // written to localStorage by the auto-save effect above on every change, so the session is already saved when we leave.
   // A timed block can't leave the exam screen at all (no mid-block navigation); the button isn't rendered there either.
+  const finishWelcome = () => {
+    try { localStorage.setItem("oworld_onboarded", "true"); } catch (e) {}
+    setShowWelcome(false);
+  };
+  const handleWelcomeImport = () => {
+    finishWelcome();
+    try { sessionStorage.setItem("oworld_welcome_import", "1"); } catch (e) {}
+    setLibTab("import"); 
+  };
+  const handleWelcomeDemo = () => {
+    finishWelcome();
+    const demoBlocks = DEMO_EXAM.blocks.map(debiasBlock);
+    setExamData({ ...DEMO_EXAM, blocks: demoBlocks });
+    setBlockStates(demoBlocks.map(makeInitialBlockState));
+    setHistory([]);
+    setActiveBlockIdx(0);
+    setView("exam");
+  };
   function goHome() {
     const bs = view === "exam" ? blockStates[activeBlockIdx] : null;
     if (bs && bs.status === "in-progress") {
@@ -15724,6 +15784,7 @@ function OworldApp() {
     </TrashContext.Provider>
     </DataContext.Provider>
     </TextScaleContext.Provider>
+    {showWelcome && <WelcomeModal T={T} onImport={handleWelcomeImport} onDemo={handleWelcomeDemo} onSkip={finishWelcome} />}
     {showOnboarding && <OnboardingTour onClose={() => setShowOnboarding(false)} T={T} />}
     </LangContext.Provider>
   );
