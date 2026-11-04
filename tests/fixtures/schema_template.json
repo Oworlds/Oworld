@@ -1,0 +1,82 @@
+{
+  "schemaVersion": "1.1.0",
+  "examTitle": "string",
+  "validation": {
+    "validatorVersion": "string",
+    "status": "pass|warn|fail",
+    "questionCount": 0,
+    "issueCounts": { "error": 0, "warn": 0, "repaired": 0 }
+  },
+  "blocks": [{
+    "blockName": "string",
+    "timeLimitMinutes": 0,
+    "validation": {
+      "answerDistribution": {
+        "scope": "block|exam",
+        "primary": { "A": 0, "B": 0, "C": 0, "D": 0, "E": 0 },
+        "allVersions": { "A": 0, "B": 0, "C": 0, "D": 0, "E": 0 },
+        "maxRunLength": 0,
+        "maxDeviationFromUniform": 0.0,
+        "rebalanced": false,
+        "pass": true
+      },
+      "difficultyMix": { "Easy": 0, "Medium": 0, "Hard": 0, "pass": true },
+      "consecutiveSubjectRepeats": 0
+    },
+    "questions": [{
+      "id": "string",
+      "subject": "string",
+      "difficultyRating": 0,
+      "difficultyLabel": "Easy|Medium|Hard",
+      "questionFormat": "Vignette|Basic",
+      "vignette": "string",
+      "keyInfoPhrases": ["string"],
+      "stem": "string",
+      "options": [{ "key": "A", "text": "string" }],
+      "correctAnswer": "A",
+      "attendingTip": "string",
+      "explanation": "string",
+      "keyLearningPoint": "string",
+      "distractorAnalysis": { "B": "string" },
+      "hint": "string",
+      "educationalObjective": "string",
+      "sourceReferences": [{ "sourceTitle": "string", "chapterSection": "string", "pageNumber": "string (optional)", "relevance": "string" }],
+      "keyInfoProvenance": [{ "sourceIndex": 0, "basis": "textbook|inferred|unattributed" }],
+      "validation": {
+        "status": "pass|warn|fail",
+        "versions": [{
+          "version": "primary|variant1|variant2",
+          "correctAnswer": "A",
+          "substringChecks": [{ "phrase": "string", "exactMatch": true, "offset": 0, "repairedFrom": null }],
+          "phraseCountInRange": true,
+          "optionCount": 5,
+          "optionCountMatchesPrimary": true,
+          "correctAnswerInOptions": true,
+          "distractorKeysMatch": true,
+          "provenanceAligned": true,
+          "letterRefsInProse": false
+        }],
+        "answerLetter": {
+          "letters": ["B", "D", "A"],
+          "allDistinct": true,
+          "runLengthEndingHere": 1,
+          "rebalanced": false,
+          "originalLetters": null
+        },
+        "issues": [{ "code": "string", "severity": "error|warn|info", "path": "string", "source": "validator|llm-verifier" }]
+      },
+      "variants": [{
+        "vignette": "string",
+        "keyInfoPhrases": ["string"],
+        "stem": "string",
+        "options": [{ "key": "A", "text": "string" }],
+        "correctAnswer": "A",
+        "attendingTip": "string",
+        "explanation": "string",
+        "keyLearningPoint": "string",
+        "distractorAnalysis": { "B": "string" },
+        "hint": "string"
+      }]
+    }]
+  }]
+}
