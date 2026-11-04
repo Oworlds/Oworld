@@ -24,6 +24,7 @@ FORBIDDEN_VARIANT_FIELDS = (
     "educationalObjective",
     "sourceReferences",
     "validation",
+    "keyInfoProvenance",
 )
 SCRIPT_DIR = Path(__file__).resolve().parent
 REPO_ROOT = SCRIPT_DIR.parent
