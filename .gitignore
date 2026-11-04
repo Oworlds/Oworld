@@ -24,3 +24,7 @@ dist-ssr
 *.sw?
 .DS_Store
 src/utils/.DS_Store # in case the root rule is later changed
+
+# Generated Python and validator output
+__pycache__/
+*.validation.json
