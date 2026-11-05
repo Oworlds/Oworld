@@ -13299,7 +13299,7 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onAbortBl
     return out;
   })();
 
-  const showPreview = tutorMode && !compact && !navCollapsed;
+  const showPreview = tutorMode && !navCollapsed; // the expanded question list (progress header + vignette previews) is the same on every non-phone screen size
   const navAnswered = Object.values(blockState.answers).filter((a) => a.selected).length;
 
   const toolBtnStyle = (active) => ({
@@ -13461,7 +13461,7 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onAbortBl
         {/* Phones: the question list is hidden entirely so the question gets the full width. */}
         {!narrow && (
         <div style={{
-          width: Math.round((navCollapsed ? (compact ? 56 : 72) : compact ? 76 : tutorMode ? 280 : 130) * Math.min(TEXT_SCALE, 1.3)), transition: "width 0.18s ease", flexShrink: 0, background: T.card, borderRight: `1px solid ${T.border}`, padding: "16px 0",
+          width: Math.round((navCollapsed ? (compact ? 56 : 72) : tutorMode ? 280 : 130) * Math.min(TEXT_SCALE, 1.3)), transition: "width 0.18s ease", flexShrink: 0, background: T.card, borderRight: `1px solid ${T.border}`, padding: "16px 0",
           display: "flex", flexDirection: "column", overflow: "hidden",
         }}>
           {tutorMode && <div style={{ display: "flex", justifyContent: navCollapsed ? "center" : "flex-end", padding: navCollapsed ? "0 0 8px" : "0 10px 6px" }}>
@@ -13475,7 +13475,7 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onAbortBl
               {navCollapsed ? <ChevronRight size={16} /> : <ChevronLeft size={16} />}
             </button>
           </div>}
-          {navCollapsed ? null : tutorMode && !compact ? (
+          {navCollapsed ? null : tutorMode ? (
             <div style={{ padding: "0 16px 12px", borderBottom: `1px solid ${T.border}`, marginBottom: 6 }}>
               <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(13), color: T.ink, marginBottom: 8, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
                 {blockLabel(block, t)}
@@ -13491,7 +13491,7 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onAbortBl
             <div style={{
               fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(13), color: T.ink, textAlign: "center", marginBottom: 10,
             }}>
-              {compact ? "" : t("qStatus")}
+              {t("qStatus")}
             </div>
           )}
           <div style={{ flex: 1, overflowY: "auto" }}>
