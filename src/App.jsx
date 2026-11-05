@@ -8,6 +8,7 @@ import {
 import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell
 } from "recharts";
+import { SpeedInsights } from '@vercel/speed-insights/react';
 
 // ---------------------------------------------------------------------------
 // Design tokens — light chrome matches the NBME/USMLE interface; DARK is the
@@ -15773,6 +15774,7 @@ function OworldApp() {
         <FinalSummary examData={examData} blockStates={blockStates} onBackToLobby={() => setView("lobby")} T={T} darkMode={darkMode} setDarkMode={setDarkMode} />
         </FullPage>
       )}
+      <SpeedInsights />
     </div>
     </CareerContext.Provider>
     </SrcAutoContext.Provider>
