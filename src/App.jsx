@@ -266,7 +266,7 @@ const STR = {
   en: {
     tabDatabase: "Database", dbTitle: "Personal Database", dbHint: "Questions, excerpts and notes you've saved while studying.", dbAdd: "Add to database", dbSavedToast: "Saved to Database", dbAll: "All", dbQuestions: "Questions", dbExcerpts: "Excerpts", dbNotes: "Notes", dbSearch: "Search your database", dbEmpty: "Your database is empty.", dbEmptyHint: "While taking a block, select text and tap Add to database, save a question with the bookmark, or save a note from the Notes panel.", dbNoMatch: "Nothing matches.", dbSaveQ: "Save question", dbSavedQ: "Saved to Database", dbSaveNote: "Save to Database", dbUpdateNote: "Update in Database", dbShowAns: "Show answer", dbHideAns: "Hide answer", dbEdit: "Edit", dbSave: "Save", dbCancel: "Cancel", dbCopy: "Copy", dbCopied: "Copied", dbDelete: "Delete", dbConfirmDel: "Delete?", dbClearAll: "Clear all", dbClearConfirm: "Move everything in your database to Trash? You can restore it for 30 days.", dbKindQ: "Question", dbKindE: "Excerpt", dbKindN: "Note", dbCommentPh: "Add your own comment…", dbAddComment: "Add comment", dbNoteTitle: "Your note", dbCorrectTag: "Correct",
     dbSyncSignIn: "Sign in with Google from the account menu to sync it across your devices.", dbImport: "Import", dbImported: "Imported {a} item(s); {s} already in your database.", dbImportBad: "That file isn't a Personal Database export.",
-    dbShared: "Shared {n} item(s) as one file.", dbDownloaded: "Downloaded {n} item(s) as one file.", dbExportFailed: "Export failed. Please try again.", dbShareText: "My OWORLD Personal Database ({n} items). In OWORLD, open Database and tap Import to add them.", dbDelSelQ: "Move {n} selected item(s) to Trash? You can restore them for 30 days.", dbManage: "Manage", dbExport: "Export",
+    dbShared: "Shared {n} item(s) as one file.", dbDownloaded: "Downloaded {n} item(s) as one file.", dbExportFailed: "Export failed. Please try again.", dbShareText: "My OWORLD Personal Database ({n} items). In OWORLD, open Database and tap Import to add them.", dbDelSelQ: "Move {n} selected item(s) to Trash? You can restore them for 30 days.", dbManage: "Manage", dbExport: "Export", dbExportMd: "Obsidian (.md)", dbExportMdTitle: "Export as Markdown notes for Obsidian", dbMdDownloaded: "Downloaded {n} item(s) as Markdown for Obsidian.",
     tabTrash: "Trash", trashTitle: "Trash", trashCount: "{n} item(s)", trashHint: "Deleted Qbanks, omitted questions, Analytics sessions and Database items stay here for {d} days. Restore them, or delete them forever.", trashEmpty: "Trash is empty.", trashEmptyHint: "Anything you delete from the Library, Analytics or Database lands here first, so you can get it back.", trashNoneHere: "Nothing of this kind in Trash.",
     trashAll: "All", trashQbanks: "Qbanks", trashSessions: "Analytics", trashDb: "Database", trashKindQbank: "Qbank", trashKindSession: "Session",
     trashRestore: "Restore", trashRestoreSel: "Restore Selected", trashDeleteForever: "Delete forever", trashEmptyBtn: "Empty Trash",
@@ -312,7 +312,7 @@ const STR = {
     title: "Turn questions from any AI model into a realistic practice exam",
     intro: "Paste or upload custom question banks created with your favorite AI tools like ChatGPT, Claude, Gemini, or NotebookLM. Experience an exam-like environment complete with lab reference panels, answer strikethroughs, a built-in calculator, and detailed score analytics.",
     pasteJson: "Paste or upload question bank", upload: "Upload file",
-    pastePh: "Paste your generated question bank here…",
+    pastePh: "Paste your Qbank JSON here… or drag & drop a .json file.",
     anTrendTitle: "Score trend", anTrendHint: "Last {n} sessions · dashed line = 70%", anTrendNeed: "Finish 2 sessions to see your trend.", anSubjTitle: "Performance by subject", anActTitle: "Daily activity", anActHint: "Questions answered, last 14 days", anStatSessions: "Sessions", anStatAnswered: "Questions answered", anStatAccuracy: "Accuracy", anStatAvgTime: "Time / question", anStatCorrectPct: "Answered correctly", anStatTotalTime: "Total time", anStatBanks: "{n} Qbanks added", anStatBank1: "1 Qbank added", anStatBest: "Best session {n}%",
     csCalPlan: "Plan checklist", csCalPlanCount: "{d}/{n} done",
     csPlanAddPh: "Add to your plan…", csPlanAdd: "Add", csPlanShowAll: "Show all ({n})", csClassNoneHere: "No class times yet. Add them on the Calendar page.", spPlanDueOpt: "Due date (optional)", csPlanAddFor: "Added for {d}", csPlanRemove: "Remove from plan",
@@ -336,7 +336,10 @@ const STR = {
     removeSelTitle: "Remove selected blocks?", removeSelGo: "Remove",
     removeSelBody: "{n} block(s) will be removed from this session. Copies saved in your Oworld Library aren't affected.",
     removeSelBodyUnsaved: "{n} block(s) will be removed from this session. {u} of them aren't saved to your library and will be gone for good — save them first if you want to keep them.",
-    pasteChars: "{n} characters pasted", pasteClear: "Clear", pasteEmpty: "Nothing pasted yet — expand to paste, or use Upload.",
+    pasteChars: "{n} characters pasted", pasteClear: "Clear", pasteEmpty: "Nothing pasted yet — expand to paste, or use Upload.", pasteEmptyImport: "Paste JSON to enable Save, or click Upload file on the right.",
+    emLibTitle: "Your Library is empty.", emLibBody: "Oworld doesn't come with pre-loaded questions. Generate your own Qbank using AI in seconds.", emLibGenerate: "Generate Qbank", tryDemoBtn: "Try the OW Qbank (Demo)",
+    emAnTitle: "No data yet.", emAnBody: "Take your first block to unlock your USMLE readiness analytics.",
+    emCalTitle: "Map out your semester.", emCalBody: "Upload your syllabus and exam schedule to track readiness and get daily study recommendations.", emCalSetup: "Set up Study Profile",
     load: "Load exam", importQbank: "Import New Qbank", importInLibrary: "Already in your library — start it from there.", lobbySaveN: "Save to Library ({n})", lobbyRemoveN: "Remove ({n})", triageHint: "Tick this Qbank to save it to your library or remove it.", lobbyTriageNote: "These Qbanks were just imported. Tick the ones you want, then use Save to Library to keep them or Remove to dismiss them.", aiLaunchTitle: "AI Quick Launch", aiLaunchHint: "Open your AI tool, paste the prompt below along with your topic or notes, then bring the reply back here.", aiLaunchOpens: "Opens in a new tab", nbTitle: "Subjects & Systems", nbHint: "Your study notebooks, by block. Each one opens in NotebookLM in a new tab.", nbAll: "USMLE (all-in-one notebook)", nbBlock1: "Block 1", nbBlock2: "Block 2", nbCore: "Core sciences", nbClinical: "Clinical", 
     wasIncorrectBadge: "Missed before retry", missedBeforeN: "{n} missed before retry", explHide: "Hide explanation", explShow: "Show explanation",
     activeTitle: "Continue your test from another device?", activeTitleConflict: "A different version of this test is on another device",
@@ -467,7 +470,7 @@ const STR = {
   es: {
     tabDatabase: "Base de datos", dbTitle: "Base de datos personal", dbHint: "Preguntas, extractos y notas que guardaste mientras estudiabas.", dbAdd: "Añadir a la base de datos", dbSavedToast: "Guardado en la base de datos", dbAll: "Todo", dbQuestions: "Preguntas", dbExcerpts: "Extractos", dbNotes: "Notas", dbSearch: "Buscar en tu base de datos", dbEmpty: "Tu base de datos está vacía.", dbEmptyHint: "Mientras haces un bloque, selecciona texto y toca Añadir a la base de datos, guarda una pregunta con el marcador o guarda una nota desde el panel de Notas.", dbNoMatch: "No hay coincidencias.", dbSaveQ: "Guardar pregunta", dbSavedQ: "Guardada en la base de datos", dbSaveNote: "Guardar en la base de datos", dbUpdateNote: "Actualizar en la base de datos", dbShowAns: "Mostrar respuesta", dbHideAns: "Ocultar respuesta", dbEdit: "Editar", dbSave: "Guardar", dbCancel: "Cancelar", dbCopy: "Copiar", dbCopied: "Copiado", dbDelete: "Eliminar", dbConfirmDel: "¿Eliminar?", dbClearAll: "Borrar todo", dbClearConfirm: "¿Mover todo el contenido de tu base de datos a la papelera? Podrás restaurarlo durante 30 días.", dbKindQ: "Pregunta", dbKindE: "Extracto", dbKindN: "Nota", dbCommentPh: "Añade tu propio comentario…", dbAddComment: "Añadir comentario", dbNoteTitle: "Tu nota", dbCorrectTag: "Correcta",
     dbSyncSignIn: "Inicia sesión con Google desde el menú de la cuenta para sincronizarla entre tus dispositivos.", dbImport: "Importar", dbImported: "Se importaron {a} elemento(s); {s} ya estaban en tu base de datos.", dbImportBad: "Ese archivo no es una exportación de la base de datos personal.",
-    dbShared: "Compartiste {n} elemento(s) en un solo archivo.", dbDownloaded: "Descargaste {n} elemento(s) en un solo archivo.", dbExportFailed: "Error al exportar. Inténtalo de nuevo.", dbShareText: "Mi base de datos personal de OWORLD ({n} elementos). En OWORLD, abre Base de datos y toca Importar para añadirlos.", dbDelSelQ: "¿Mover {n} elemento(s) seleccionado(s) a la papelera? Podrás restaurarlos durante 30 días.", dbManage: "Administrar", dbExport: "Exportar",
+    dbShared: "Compartiste {n} elemento(s) en un solo archivo.", dbDownloaded: "Descargaste {n} elemento(s) en un solo archivo.", dbExportFailed: "Error al exportar. Inténtalo de nuevo.", dbShareText: "Mi base de datos personal de OWORLD ({n} elementos). En OWORLD, abre Base de datos y toca Importar para añadirlos.", dbDelSelQ: "¿Mover {n} elemento(s) seleccionado(s) a la papelera? Podrás restaurarlos durante 30 días.", dbManage: "Administrar", dbExport: "Exportar", dbExportMd: "Obsidian (.md)", dbExportMdTitle: "Exportar como notas Markdown para Obsidian", dbMdDownloaded: "Descargaste {n} elemento(s) en Markdown para Obsidian.",
     tabTrash: "Papelera", trashTitle: "Papelera", trashCount: "{n} elemento(s)", trashHint: "Los Qbanks, preguntas omitidas, sesiones de Analíticas y elementos de la base de datos eliminados permanecen aquí {d} días. Restáuralos o elimínalos para siempre.", trashEmpty: "La papelera está vacía.", trashEmptyHint: "Todo lo que elimines de la biblioteca, las Analíticas o la base de datos llega primero aquí, para que puedas recuperarlo.", trashNoneHere: "No hay nada de este tipo en la papelera.",
     trashAll: "Todo", trashQbanks: "Qbanks", trashSessions: "Analíticas", trashDb: "Base de datos", trashKindQbank: "Qbank", trashKindSession: "Sesión",
     trashRestore: "Restaurar", trashRestoreSel: "Restaurar selección", trashDeleteForever: "Eliminar para siempre", trashEmptyBtn: "Vaciar papelera",
@@ -513,7 +516,7 @@ const STR = {
     title: "Convierte preguntas de cualquier modelo de IA en un examen de práctica realista",
     intro: "Pega o sube bancos de preguntas personalizados creados con tus herramientas de IA favoritas, como ChatGPT, Claude, Gemini o NotebookLM. Vive un entorno similar al examen real, con paneles de referencia de laboratorio, tachado de respuestas, calculadora integrada y analíticas detalladas de tu puntaje.",
     pasteJson: "Pega o sube un banco de preguntas", upload: "Subir archivo",
-    pastePh: "Pega aquí tu banco de preguntas generado…",
+    pastePh: "Pega aquí el JSON de tu Qbank… o arrastra y suelta un archivo .json.",
     anTrendTitle: "Tendencia de puntaje", anTrendHint: "Últimas {n} sesiones · línea punteada = 70%", anTrendNeed: "Termina 2 sesiones para ver tu tendencia.", anSubjTitle: "Rendimiento por materia", anActTitle: "Actividad diaria", anActHint: "Preguntas respondidas, últimos 14 días", anStatSessions: "Sesiones", anStatAnswered: "Preguntas respondidas", anStatAccuracy: "Precisión", anStatAvgTime: "Tiempo / pregunta", anStatCorrectPct: "Respondidas correctamente", anStatTotalTime: "Tiempo total", anStatBanks: "{n} Qbanks añadidos", anStatBank1: "1 Qbank añadido", anStatBest: "Mejor sesión {n}%",
     csCalPlan: "Lista del plan", csCalPlanCount: "{d}/{n} hechas",
     csPlanAddPh: "Agregar a tu plan…", csPlanAdd: "Agregar", csPlanShowAll: "Ver todo ({n})", csClassNoneHere: "Aún no hay horarios de clase. Agrégalos en la página Calendario.", spPlanDueOpt: "Fecha límite (opcional)", csPlanAddFor: "Se agrega para {d}", csPlanRemove: "Quitar del plan",
@@ -537,7 +540,10 @@ const STR = {
     removeSelTitle: "¿Quitar los bloques seleccionados?", removeSelGo: "Quitar",
     removeSelBody: "{n} bloque(s) se quitarán de esta sesión. Las copias guardadas en tu Biblioteca Oworld no se ven afectadas.",
     removeSelBodyUnsaved: "{n} bloque(s) se quitarán de esta sesión. {u} de ellos no están guardados en tu biblioteca y se perderán definitivamente; guárdalos primero si quieres conservarlos.",
-    pasteChars: "{n} caracteres pegados", pasteClear: "Borrar", pasteEmpty: "Aún no has pegado nada — expande para pegar o usa Subir archivo.",
+    pasteChars: "{n} caracteres pegados", pasteClear: "Borrar", pasteEmpty: "Aún no has pegado nada — expande para pegar o usa Subir archivo.", pasteEmptyImport: "Pega el JSON para activar Guardar, o haz clic en Subir archivo a la derecha.",
+    emLibTitle: "Tu biblioteca está vacía.", emLibBody: "Oworld no incluye preguntas precargadas. Genera tu propio Qbank con IA en segundos.", emLibGenerate: "Generar Qbank", tryDemoBtn: "Probar el Qbank OW (Demo)",
+    emAnTitle: "Aún no hay datos.", emAnBody: "Haz tu primer bloque para desbloquear tus analíticas de preparación para el USMLE.", 
+    emCalTitle: "Planifica tu semestre.", emCalBody: "Sube tu programa y el calendario de exámenes para seguir tu preparación y recibir recomendaciones de estudio diarias.", emCalSetup: "Configurar perfil de estudio",
     load: "Cargar examen", importQbank: "Importar nuevo Qbank", importInLibrary: "Ya está en tu biblioteca — inícialo desde ahí.", lobbySaveN: "Guardar en la biblioteca ({n})", lobbyRemoveN: "Quitar ({n})", triageHint: "Márcalo para guardarlo en tu biblioteca o quitarlo.", lobbyTriageNote: "Estos Qbanks acaban de importarse. Marca los que quieras y usa Guardar en la biblioteca para conservarlos o Quitar para descartarlos.", aiLaunchTitle: "Acceso rápido a IA", aiLaunchHint: "Abre tu herramienta de IA, pega el prompt de abajo junto con tu tema o apuntes y trae la respuesta aquí.", aiLaunchOpens: "Se abre en una pestaña nueva", nbTitle: "Materias y sistemas", nbHint: "Tus cuadernos de estudio, por bloque. Cada uno se abre en NotebookLM en una pestaña nueva.", nbAll: "USMLE (cuaderno general)", nbBlock1: "Bloque 1", nbBlock2: "Bloque 2", nbCore: "Ciencias básicas", nbClinical: "Clínica", 
     wasIncorrectBadge: "Fallada antes de reintentar", missedBeforeN: "{n} falladas antes de reintentar", explHide: "Ocultar explicación", explShow: "Mostrar explicación",
     activeTitle: "¿Continuar tu examen desde otro dispositivo?", activeTitleConflict: "Hay otra versión de este examen en otro dispositivo",
@@ -851,12 +857,13 @@ const SCHEMA_TEXT = `{
   ]
 }`;
 
+// Bilingual demo: every question (and option) carries an `es` object with the Spanish strings; correctAnswer keys are shared by both languages.
 const DEMO_EXAM = {
   "examTitle": "Demo Practice Exam",
   "blocks": [
     {
-      "blockName": "Block 1 (Demo)",
-      "timeLimitMinutes": 3,
+      "blockName": "OW Qbank (Demo)",
+      "timeLimitMinutes": 5,
       "questions": [
         {
           "id": "d1",
@@ -874,23 +881,38 @@ const DEMO_EXAM = {
           "options": [
             {
               "key": "A",
-              "text": "Acute pericarditis"
+              "text": "Acute pericarditis",
+              "es": {
+                "text": "Pericarditis aguda"
+              }
             },
             {
               "key": "B",
-              "text": "Inferior wall myocardial infarction"
+              "text": "Inferior wall myocardial infarction",
+              "es": {
+                "text": "Infarto de miocardio de la pared inferior"
+              }
             },
             {
               "key": "C",
-              "text": "Aortic dissection"
+              "text": "Aortic dissection",
+              "es": {
+                "text": "Disección aórtica"
+              }
             },
             {
               "key": "D",
-              "text": "Pulmonary embolism"
+              "text": "Pulmonary embolism",
+              "es": {
+                "text": "Embolia pulmonar"
+              }
             },
             {
               "key": "E",
-              "text": "Costochondritis"
+              "text": "Costochondritis",
+              "es": {
+                "text": "Costocondritis"
+              }
             }
           ],
           "correctAnswer": "B",
@@ -918,7 +940,28 @@ const DEMO_EXAM = {
               "pageNumber": "145-148",
               "relevance": "Pathophysiology of coronary occlusion and infarct evolution"
             }
-          ]
+          ],
+          "es": {
+            "vignette": "Un hombre de 58 años acude al médico por una presión torácica retroesternal que comenzó hace 2 horas mientras palaba nieve. Tiene antecedentes de hipertensión y diabetes mellitus tipo 2. Su pulso es de 98/min y su presión arterial es de 148/92 mm Hg. Un ECG muestra elevación del segmento ST en las derivaciones II, III y aVF.",
+            "keyInfoPhrases": [
+              "presión torácica retroesternal",
+              "mientras palaba nieve",
+              "hipertensión y diabetes mellitus tipo 2",
+              "elevación del segmento ST en las derivaciones II, III y aVF"
+            ],
+            "stem": "¿Cuál de los siguientes es el diagnóstico más probable?",
+            "attendingTip": "Empiece por el ECG: la elevación del ST en un grupo contiguo de derivaciones indica isquemia transmural, así que pregúntese qué pared observan esas derivaciones. Luego relacione el territorio con su arteria; II, III y aVF miran la pared inferior, que habitualmente irriga la arteria coronaria derecha (ACD).",
+            "explanation": "La elevación del ST en las derivaciones inferiores (II, III, aVF), con dolor torácico típico de esfuerzo y factores de riesgo cardiovascular, es clásica del infarto de miocardio de la pared inferior, habitualmente por oclusión de la ACD.",
+            "keyLearningPoint": "La elevación del ST en II, III y aVF localiza el infarto en la pared inferior, con mayor frecuencia por oclusión de la ACD; descarte compromiso del ventrículo derecho antes de administrar nitratos.",
+            "distractorAnalysis": {
+              "A": "La pericarditis aguda causa elevación difusa del ST con depresión del PR, no localizada en las derivaciones inferiores.",
+              "C": "La disección aórtica se presenta clásicamente con dolor desgarrante que irradia a la espalda, no con elevación focal del ST.",
+              "D": "La embolia pulmonar causa taquicardia sinusal y posible sobrecarga cardíaca derecha (S1Q3T3), no elevación inferior del ST.",
+              "E": "La costocondritis es reproducible a la palpación y no causa cambios en el ECG."
+            },
+            "hint": "Piense qué derivaciones localizan la pared inferior y qué vaso suele irrigarla.",
+            "educationalObjective": "Reconocer el infarto de miocardio de la pared inferior por la elevación del ST en las derivaciones II, III y aVF, típicamente por oclusión de la ACD."
+          }
         },
         {
           "id": "d2",
@@ -935,23 +978,38 @@ const DEMO_EXAM = {
           "options": [
             {
               "key": "A",
-              "text": "Autoantibodies against thyroid-stimulating hormone receptor"
+              "text": "Autoantibodies against thyroid-stimulating hormone receptor",
+              "es": {
+                "text": "Autoanticuerpos contra el receptor de la hormona estimulante de la tiroides (TSH)"
+              }
             },
             {
               "key": "B",
-              "text": "Autonomous thyroid nodule"
+              "text": "Autonomous thyroid nodule",
+              "es": {
+                "text": "Nódulo tiroideo autónomo"
+              }
             },
             {
               "key": "C",
-              "text": "Viral-induced thyroid inflammation"
+              "text": "Viral-induced thyroid inflammation",
+              "es": {
+                "text": "Inflamación tiroidea de origen viral"
+              }
             },
             {
               "key": "D",
-              "text": "Excess iodine ingestion"
+              "text": "Excess iodine ingestion",
+              "es": {
+                "text": "Ingesta excesiva de yodo"
+              }
             },
             {
               "key": "E",
-              "text": "Pituitary adenoma secreting TSH"
+              "text": "Pituitary adenoma secreting TSH",
+              "es": {
+                "text": "Adenoma hipofisario secretor de TSH"
+              }
             }
           ],
           "correctAnswer": "A",
@@ -973,7 +1031,27 @@ const DEMO_EXAM = {
               "pageNumber": "338",
               "relevance": "Graves disease mechanism and exam findings"
             }
-          ]
+          ],
+          "es": {
+            "vignette": "Una mujer de 34 años acude al médico por pérdida de peso, intolerancia al calor y palpitaciones de 3 meses de evolución. La exploración muestra un temblor fino, piel caliente y húmeda, y una glándula tiroides aumentada de tamaño de forma difusa e indolora. Hay exoftalmos.",
+            "keyInfoPhrases": [
+              "pérdida de peso, intolerancia al calor y palpitaciones",
+              "aumentada de tamaño de forma difusa e indolora",
+              "Hay exoftalmos"
+            ],
+            "stem": "¿Cuál de los siguientes es el mecanismo subyacente más probable?",
+            "attendingTip": "Los síntomas de hipertiroidismo junto con un bocio difuso e indoloro reducen las opciones a enfermedad de Graves frente a tiroiditis. El exoftalmos es el factor decisivo: ocurre en la enfermedad de Graves, donde los autoanticuerpos también actúan sobre los fibroblastos orbitarios.",
+            "explanation": "El bocio difuso, el exoftalmos y los síntomas de hipertiroidismo en una mujer joven son clásicos de la enfermedad de Graves, causada por autoanticuerpos estimulantes contra el receptor de la TSH.",
+            "keyLearningPoint": "La enfermedad de Graves está causada por IgG estimulantes del receptor de TSH y es el estado de hipertiroidismo que produce de forma exclusiva exoftalmos y mixedema pretibial.",
+            "distractorAnalysis": {
+              "B": "Un nódulo autónomo causa hipertiroidismo por un adenoma tóxico focal, con una glándula nodular y no difusamente aumentada, y sin exoftalmos.",
+              "C": "La tiroiditis viral (subaguda) produce una tiroides dolorosa y sensible con VSG elevada, no exoftalmos.",
+              "D": "El exceso de yodo puede desencadenar hipertiroidismo en un paciente con bocio nodular subyacente (Jod-Basedow), pero no causa exoftalmos.",
+              "E": "Un adenoma hipofisario secretor de TSH es raro y se presenta con TSH inapropiadamente normal o elevada, sin exoftalmos."
+            },
+            "hint": "El exoftalmos reduce las opciones a una causa autoinmune específica de hipertiroidismo.",
+            "educationalObjective": "Reconocer la enfermedad de Graves como hipertiroidismo mediado por autoanticuerpos contra el receptor de TSH, con exoftalmos."
+          }
         },
         {
           "id": "d3",
@@ -991,23 +1069,38 @@ const DEMO_EXAM = {
           "options": [
             {
               "key": "A",
-              "text": "Minimal change disease"
+              "text": "Minimal change disease",
+              "es": {
+                "text": "Enfermedad de cambios mínimos"
+              }
             },
             {
               "key": "B",
-              "text": "IgA nephropathy"
+              "text": "IgA nephropathy",
+              "es": {
+                "text": "Nefropatía por IgA"
+              }
             },
             {
               "key": "C",
-              "text": "Post-streptococcal glomerulonephritis"
+              "text": "Post-streptococcal glomerulonephritis",
+              "es": {
+                "text": "Glomerulonefritis postestreptocócica"
+              }
             },
             {
               "key": "D",
-              "text": "Membranous nephropathy"
+              "text": "Membranous nephropathy",
+              "es": {
+                "text": "Nefropatía membranosa"
+              }
             },
             {
               "key": "E",
-              "text": "Alport syndrome"
+              "text": "Alport syndrome",
+              "es": {
+                "text": "Síndrome de Alport"
+              }
             }
           ],
           "correctAnswer": "C",
@@ -1035,12 +1128,203 @@ const DEMO_EXAM = {
               "pageNumber": "310-312",
               "relevance": "Immune complex mechanism of glomerular injury"
             }
-          ]
+          ],
+          "es": {
+            "vignette": "Un niño de 6 años es llevado a consulta con edema periorbitario y orina de color cola 10 días después de una faringitis. La presión arterial es de 128/84 mm Hg. El examen de orina muestra cilindros de glóbulos rojos y proteinuria leve. El C3 sérico está disminuido.",
+            "keyInfoPhrases": [
+              "edema periorbitario y orina de color cola",
+              "10 días después de una faringitis",
+              "cilindros de glóbulos rojos",
+              "El C3 sérico está disminuido"
+            ],
+            "stem": "¿Cuál de los siguientes es el diagnóstico más probable?",
+            "attendingTip": "La orina de color cola, la hipertensión y los cilindros de glóbulos rojos configuran un cuadro nefrítico. La latencia tras la faringitis y el C3 bajo apuntan entonces a una causa postinfecciosa por inmunocomplejos.",
+            "explanation": "Los cilindros de glóbulos rojos, el C3 bajo y el inicio 1-3 semanas después de una faringitis en un niño son característicos de la glomerulonefritis postestreptocócica.",
+            "keyLearningPoint": "La glomerulonefritis postestreptocócica aparece 1-3 semanas después de una faringitis o infección cutánea, con C3 bajo y jorobas subepiteliales, y suele ser autolimitada en niños.",
+            "distractorAnalysis": {
+              "A": "La enfermedad de cambios mínimos causa proteinuria en rango nefrótico con complemento normal y sin cilindros de glóbulos rojos.",
+              "B": "La nefropatía por IgA suele presentarse 1-2 días después de una infección respiratoria alta y tiene C3 normal.",
+              "D": "La nefropatía membranosa es un síndrome nefrótico del adulto con proteinuria intensa, no un cuadro nefrítico.",
+              "E": "El síndrome de Alport causa hematuria con sordera y hallazgos oculares, antecedentes familiares y complemento normal."
+            },
+            "hint": "El nivel bajo de complemento apunta a un diagnóstico postinfeccioso específico.",
+            "educationalObjective": "Distinguir la glomerulonefritis postestreptocócica por su período de latencia, el C3 bajo y los cilindros de glóbulos rojos."
+          }
+        },
+        {
+          "id": "d4",
+          "subject": "Pharmacology",
+          "difficultyRating": 2,
+          "difficultyLabel": "Easy",
+          "vignette": "A 52-year-old man with hypertension is started on lisinopril. Two weeks later he returns because of a persistent, dry, nonproductive cough that is worse at night. He has no fever, dyspnea, or wheezing. Lung examination and chest x-ray are normal. Serum potassium is 4.6 mEq/L.",
+          "keyInfoPhrases": [
+            "started on lisinopril",
+            "persistent, dry, nonproductive cough",
+            "Lung examination and chest x-ray are normal"
+          ],
+          "stem": "Which of the following is the most likely cause of this patient's symptoms?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Increased angiotensin II levels",
+              "es": {
+                "text": "Aumento de los niveles de angiotensina II"
+              }
+            },
+            {
+              "key": "B",
+              "text": "Blockade of aldosterone receptors",
+              "es": {
+                "text": "Bloqueo de los receptores de aldosterona"
+              }
+            },
+            {
+              "key": "C",
+              "text": "Histamine release from mast cells",
+              "es": {
+                "text": "Liberación de histamina por mastocitos"
+              }
+            },
+            {
+              "key": "D",
+              "text": "Accumulation of bradykinin",
+              "es": {
+                "text": "Acumulación de bradicinina"
+              }
+            },
+            {
+              "key": "E",
+              "text": "Inhibition of β2-adrenergic receptors",
+              "es": {
+                "text": "Inhibición de los receptores β2-adrenérgicos"
+              }
+            }
+          ],
+          "correctAnswer": "D",
+          "attendingTip": "A new drug followed by a new symptom suggests an adverse effect. Ask what the drug's enzyme normally breaks down besides its main target: ACE also degrades bradykinin, which sensitizes airway sensory nerves.",
+          "explanation": "ACE inhibitors prevent the breakdown of bradykinin (and substance P), which accumulates in the airways and causes a dry cough in a substantial minority of patients. The cough is a class effect and resolves after the drug is stopped.",
+          "keyLearningPoint": "ACE inhibitors cause dry cough and angioedema through bradykinin accumulation; switching to an angiotensin II receptor blocker, which does not affect bradykinin, resolves the cough.",
+          "distractorAnalysis": {
+            "A": "ACE inhibitors decrease, not increase, angiotensin II levels.",
+            "B": "Aldosterone receptor blockade (spironolactone, eplerenone) causes hyperkalemia and gynecomastia, not cough, and this patient is not taking those drugs.",
+            "C": "Histamine-mediated reactions produce urticaria, wheezing, or flushing rather than an isolated dry cough.",
+            "E": "β2 blockade (nonselective β-blockers) can provoke bronchospasm with wheezing in patients with reactive airway disease, which is absent here."
+          },
+          "hint": "Think about what else ACE normally breaks down besides angiotensin I.",
+          "educationalObjective": "Identify bradykinin accumulation as the mechanism of ACE inhibitor-induced cough.",
+          "es": {
+            "vignette": "A un hombre de 52 años con hipertensión se le inicia lisinopril. Dos semanas después regresa por una tos seca, no productiva y persistente que empeora por la noche. No tiene fiebre, disnea ni sibilancias. La exploración pulmonar y la radiografía de tórax son normales. El potasio sérico es de 4.6 mEq/L.",
+            "keyInfoPhrases": [
+              "se le inicia lisinopril",
+              "tos seca, no productiva y persistente",
+              "La exploración pulmonar y la radiografía de tórax son normales"
+            ],
+            "stem": "¿Cuál de las siguientes es la causa más probable de los síntomas de este paciente?",
+            "attendingTip": "Un fármaco nuevo seguido de un síntoma nuevo sugiere un efecto adverso. Pregunte qué más degrada la enzima del fármaco además de su blanco principal: la ECA también degrada la bradicinina, que sensibiliza las terminaciones nerviosas sensitivas de las vías respiratorias.",
+            "explanation": "Los inhibidores de la ECA impiden la degradación de la bradicinina (y de la sustancia P), que se acumula en las vías respiratorias y causa tos seca en una proporción importante de pacientes. La tos es un efecto de clase y se resuelve al suspender el fármaco.",
+            "keyLearningPoint": "Los inhibidores de la ECA causan tos seca y angioedema por acumulación de bradicinina; cambiar a un antagonista del receptor de angiotensina II, que no afecta la bradicinina, resuelve la tos.",
+            "distractorAnalysis": {
+              "A": "Los inhibidores de la ECA disminuyen, no aumentan, los niveles de angiotensina II.",
+              "B": "El bloqueo de los receptores de aldosterona (espironolactona, eplerenona) causa hiperpotasemia y ginecomastia, no tos, y este paciente no toma esos fármacos.",
+              "C": "Las reacciones mediadas por histamina producen urticaria, sibilancias o rubor, más que una tos seca aislada.",
+              "E": "El bloqueo β2 (β-bloqueadores no selectivos) puede provocar broncoespasmo con sibilancias en pacientes con enfermedad reactiva de las vías respiratorias, algo ausente aquí."
+            },
+            "hint": "Piense qué más degrada la ECA además de la angiotensina I.",
+            "educationalObjective": "Identificar la acumulación de bradicinina como el mecanismo de la tos inducida por inhibidores de la ECA."
+          }
+        },
+        {
+          "id": "d5",
+          "subject": "Microbiology",
+          "difficultyRating": 3,
+          "difficultyLabel": "Medium",
+          "vignette": "A 19-year-old college freshman living in a dormitory is brought to the emergency department with a 1-day history of fever, severe headache, and neck stiffness. His temperature is 39.8°C (103.6°F), pulse is 118/min, and blood pressure is 96/58 mm Hg. Examination shows nuchal rigidity and a nonblanching petechial rash on the trunk and legs. Gram stain of cerebrospinal fluid shows gram-negative diplococci within neutrophils.",
+          "keyInfoPhrases": [
+            "living in a dormitory",
+            "fever, severe headache, and neck stiffness",
+            "nonblanching petechial rash",
+            "gram-negative diplococci within neutrophils"
+          ],
+          "stem": "Which of the following is the most likely causal organism?",
+          "options": [
+            {
+              "key": "A",
+              "text": "Streptococcus pneumoniae",
+              "es": {
+                "text": "Streptococcus pneumoniae"
+              }
+            },
+            {
+              "key": "B",
+              "text": "Haemophilus influenzae type b",
+              "es": {
+                "text": "Haemophilus influenzae tipo b"
+              }
+            },
+            {
+              "key": "C",
+              "text": "Listeria monocytogenes",
+              "es": {
+                "text": "Listeria monocytogenes"
+              }
+            },
+            {
+              "key": "D",
+              "text": "Streptococcus agalactiae",
+              "es": {
+                "text": "Streptococcus agalactiae"
+              }
+            },
+            {
+              "key": "E",
+              "text": "Neisseria meningitidis",
+              "es": {
+                "text": "Neisseria meningitidis"
+              }
+            }
+          ],
+          "correctAnswer": "E",
+          "attendingTip": "Combine the setting (crowded dormitory, young adult) with the rash and the Gram stain. The Gram stain is the fastest way to separate the candidates: only a few organisms appear as gram-negative diplococci.",
+          "explanation": "Fever, meningeal signs, and a petechial rash in a dormitory resident, with gram-negative diplococci in CSF neutrophils, indicate meningococcal meningitis caused by Neisseria meningitidis.",
+          "keyLearningPoint": "N. meningitidis is an oxidase-positive, maltose-fermenting gram-negative diplococcus that causes meningitis and meningococcemia (petechiae, shock); close contacts receive prophylaxis with rifampin, ciprofloxacin, or ceftriaxone.",
+          "distractorAnalysis": {
+            "A": "S. pneumoniae is a gram-positive, lancet-shaped diplococcus and a common cause of meningitis in adults, but it does not typically cause a petechial rash.",
+            "B": "H. influenzae type b appears as small gram-negative coccobacilli and is now uncommon because of conjugate vaccination.",
+            "C": "Listeria is a gram-positive rod that causes meningitis in neonates, older adults, pregnant women, and immunocompromised patients.",
+            "D": "S. agalactiae (group B Streptococcus) is a gram-positive coccus that causes neonatal meningitis, not disease in a healthy young adult."
+          },
+          "hint": "Only one common meningitis pathogen is a gram-negative diplococcus.",
+          "educationalObjective": "Identify Neisseria meningitidis as the cause of meningitis with petechial rash and gram-negative diplococci on CSF Gram stain.",
+          "es": {
+            "vignette": "Un estudiante universitario de primer año de 19 años que vive en una residencia estudiantil es llevado a urgencias con fiebre, cefalea intensa y rigidez de nuca de 1 día de evolución. Su temperatura es de 39.8 °C (103.6 °F), el pulso es de 118/min y la presión arterial es de 96/58 mm Hg. La exploración muestra rigidez nucal y un exantema petequial que no desaparece a la presión en el tronco y las piernas. La tinción de Gram del líquido cefalorraquídeo muestra diplococos gramnegativos dentro de neutrófilos.",
+            "keyInfoPhrases": [
+              "vive en una residencia estudiantil",
+              "fiebre, cefalea intensa y rigidez de nuca",
+              "exantema petequial que no desaparece a la presión",
+              "diplococos gramnegativos dentro de neutrófilos"
+            ],
+            "stem": "¿Cuál de los siguientes es el microorganismo causal más probable?",
+            "attendingTip": "Combine el contexto (residencia estudiantil con hacinamiento, adulto joven) con el exantema y la tinción de Gram. La tinción de Gram es la forma más rápida de separar los candidatos: solo unos pocos microorganismos aparecen como diplococos gramnegativos.",
+            "explanation": "La fiebre, los signos meníngeos y el exantema petequial en un residente de una vivienda colectiva, con diplococos gramnegativos en los neutrófilos del LCR, indican meningitis meningocócica causada por Neisseria meningitidis.",
+            "keyLearningPoint": "N. meningitidis es un diplococo gramnegativo oxidasa positivo que fermenta la maltosa y causa meningitis y meningococemia (petequias, shock); los contactos cercanos reciben profilaxis con rifampicina, ciprofloxacino o ceftriaxona.",
+            "distractorAnalysis": {
+              "A": "S. pneumoniae es un diplococo grampositivo en forma de lanceta y una causa frecuente de meningitis en adultos, pero no suele causar exantema petequial.",
+              "B": "H. influenzae tipo b se observa como cocobacilos gramnegativos pequeños y hoy es poco frecuente gracias a la vacuna conjugada.",
+              "C": "Listeria es un bacilo grampositivo que causa meningitis en neonatos, adultos mayores, embarazadas y pacientes inmunodeprimidos.",
+              "D": "S. agalactiae (estreptococo del grupo B) es un coco grampositivo que causa meningitis neonatal, no enfermedad en un adulto joven sano."
+            },
+            "hint": "Solo un patógeno frecuente de meningitis es un diplococo gramnegativo.",
+            "educationalObjective": "Identificar Neisseria meningitidis como causa de meningitis con exantema petequial y diplococos gramnegativos en la tinción de Gram del LCR."
+          }
         }
       ]
     }
   ]
 };
+
+// Bilingual Qbanks: a question may carry an `es` object (and each option an `es.text`). When the UI language is Spanish
+// and the translated string exists it is shown; otherwise the English original is. Works for any Qbank, not just the demo.
+const qTr = (q, field, isEs) => (isEs && q?.es?.[field] ? q.es[field] : q?.[field]);
 
 const FOCUS_MODES = [
   { id: "standard", label: "Standard USMLE mix" },
@@ -1795,7 +2079,8 @@ function normalizeOptions(raw) {
         let text = toText(pickAlias(o, ["text", "content", "value", "optiontext", "choicetext", "description", "answer", "body", "statement"]));
         label = label == null ? undefined : String(label);
         if (text === undefined && label !== undefined && !isLabelLike(label)) { text = label.trim(); label = undefined; } // {"option": "Aspirin"}
-        return { label, text };
+        const esText = o.es && typeof o.es === "object" ? toText(o.es.text) : undefined; // bilingual Qbanks: keep the Spanish option text
+        return { label, text, ...(esText ? { es: { text: esText } } : {}) };
       }
       return { label: undefined, text: toText(o), plain: true };
     });
@@ -1823,7 +2108,7 @@ function normalizeOptions(raw) {
     let text = it.text;
     const m = LABEL_RE.exec(text);
     if (m && (m[1] || m[2]).toUpperCase() === keys[i]) { text = m[3].trim(); stripped = true; } // "A) Aspirin" in the text field
-    return { key: keys[i], text };
+    return { key: keys[i], text, ...(it.es ? { es: it.es } : {}) };
   });
   const canonical = Array.isArray(raw) && raw.every((o) => o && typeof o.key === "string" && typeof o.text === "string" && /^[A-Z]$/.test(o.key)) && !stripped
     && raw.every((o, i) => o.key === keys[i]);
@@ -2218,7 +2503,20 @@ function shuffleQuestionOptions(q, rng) {
     distractorAnalysis = remapped;
   }
 
-  return { ...q, options: rekeyed, correctAnswer: newCorrectAnswer, ...(q.distractorAnalysis ? { distractorAnalysis } : {}) };
+  // Spanish distractor notes (q.es.distractorAnalysis) are keyed by letter too, so remap them the same way.
+  let esQ = q.es;
+  if (esQ?.distractorAnalysis) {
+    const remappedEs = {};
+    q.options.forEach((origOpt) => {
+      const reason = esQ.distractorAnalysis[origOpt.key];
+      if (reason == null) return;
+      const movedTo = rekeyed.find((o) => o.text === origOpt.text);
+      if (movedTo) remappedEs[movedTo.key] = reason;
+    });
+    esQ = { ...esQ, distractorAnalysis: remappedEs };
+  }
+
+  return { ...q, options: rekeyed, correctAnswer: newCorrectAnswer, ...(q.distractorAnalysis ? { distractorAnalysis } : {}), ...(esQ ? { es: esQ } : {}) };
 }
 
 // Fisher-Yates shuffle of a plain array (returns a new array).
@@ -6333,6 +6631,90 @@ function parseDatabaseFile(text) {
     ...(cleanSharedQuestion(n.question) ? { question: cleanSharedQuestion(n.question) } : {}),
   })).filter((n) => n.text || n.question);
 }
+// ---- Markdown export for Obsidian: one note per item (YAML properties + body, callouts for explanation / key point / comment).
+// One item downloads as a single .md; several download as a .zip of notes that unpacks straight into a vault folder.
+const mdYaml = (v) => JSON.stringify(String(v == null ? "" : v)); // a JSON string is a valid YAML double-quoted scalar
+const mdTag = (v) => String(v || "").toLowerCase().replace(/[^\p{L}\p{N}_\-\/ ]/gu, "").trim().replace(/\s+/g, "-");
+const mdQuote = (txt, prefix = "> ") => String(txt || "").split(/\r?\n/).map((l) => prefix + l).join("\n");
+const mdCallout = (type, title, body, fold = "") => `> [!${type}]${fold} ${title}\n${mdQuote(body)}`;
+function mdItemTitle(n) {
+  const qq = n.question || {};
+  const raw = (n.kind === "question" ? (qq.stem || qq.vignette || n.text) : n.text) || "Untitled";
+  const one = String(raw).replace(/\s+/g, " ").replace(/[\\\/:*?"<>|#^\[\]]/g, "").trim();
+  return (one.length > 70 ? one.slice(0, 70).replace(/\s+\S*$/, "") + "…" : one) || "Untitled";
+}
+function databaseItemToMarkdown(n, t) {
+  const qq = n.question || {}; const src = n.source || {};
+  const kind = DB_KINDS_LIST.includes(n.kind) ? n.kind : "note";
+  const subject = src.subject || qq.subject || "";
+  const tags = ["oworld", `oworld/${kind}`, ...(mdTag(subject) ? [`oworld/${mdTag(subject)}`] : [])];
+  const fm = ["---", `type: ${kind}`];
+  if (subject) fm.push(`subject: ${mdYaml(subject)}`);
+  if (src.block) fm.push(`source: ${mdYaml(src.block)}`);
+  if (src.num) fm.push(`question: ${mdYaml(src.num)}`);
+  if (n.ts) fm.push(`saved: ${new Date(n.ts).toISOString().slice(0, 10)}`);
+  fm.push(`tags: [${tags.join(", ")}]`, "---", "");
+  const out = [fm.join("\n"), `# ${mdItemTitle(n)}`, ""];
+  if (kind === "question" && n.question) {
+    if (qq.vignette) out.push(qq.vignette, "");
+    if (qq.stem) out.push(`**${qq.stem}**`, "");
+    (qq.options || []).forEach((o) => out.push(`- ${o.key}. ${o.text}`));
+    if ((qq.options || []).length) out.push("");
+    const right = (qq.options || []).find((o) => o.key === qq.correctAnswer);
+    if (qq.correctAnswer) out.push(`**${t("dbCorrectTag")}:** ${qq.correctAnswer}${right ? `. ${right.text}` : ""}`, "");
+    if (qq.explanation) out.push(mdCallout("info", t("dbShowAns"), qq.explanation, "-"), "");
+    if (qq.keyLearningPoint) out.push(mdCallout("tip", "Key learning point", qq.keyLearningPoint), "");
+    if (n.text && n.text !== qq.stem) out.push(n.text, "");
+  } else if (kind === "excerpt") {
+    out.push(mdQuote(n.text), "");
+    if (src.field) out.push(`*${src.field}*`, "");
+  } else if (n.text) {
+    out.push(n.text, "");
+  }
+  if (n.comment) out.push(mdCallout("note", t("dbNoteTitle"), n.comment), "");
+  return out.join("\n").replace(/\n{3,}/g, "\n\n").trimEnd() + "\n";
+}
+// Minimal store-only (uncompressed) ZIP writer, UTF-8 file names.
+const CRC_TABLE = (() => { const tb = []; for (let i = 0; i < 256; i++) { let c = i; for (let k = 0; k < 8; k++) c = c & 1 ? 0xEDB88320 ^ (c >>> 1) : c >>> 1; tb[i] = c >>> 0; } return tb; })();
+function crc32(bytes) { let c = 0xFFFFFFFF; for (let i = 0; i < bytes.length; i++) c = CRC_TABLE[(c ^ bytes[i]) & 0xFF] ^ (c >>> 8); return (c ^ 0xFFFFFFFF) >>> 0; }
+function buildZip(files) { // files: [{ name, text }] -> Blob
+  const enc = new TextEncoder(); const d = new Date();
+  const dosTime = (d.getHours() << 11) | (d.getMinutes() << 5) | (d.getSeconds() >> 1);
+  const dosDate = ((Math.max(d.getFullYear(), 1980) - 1980) << 9) | ((d.getMonth() + 1) << 5) | d.getDate();
+  const parts = []; const central = []; let offset = 0;
+  files.forEach((f) => {
+    const name = enc.encode(f.name); const data = enc.encode(f.text); const crc = crc32(data);
+    const lh = new DataView(new ArrayBuffer(30));
+    lh.setUint32(0, 0x04034b50, true); lh.setUint16(4, 20, true); lh.setUint16(6, 0x0800, true); lh.setUint16(8, 0, true);
+    lh.setUint16(10, dosTime, true); lh.setUint16(12, dosDate, true); lh.setUint32(14, crc, true);
+    lh.setUint32(18, data.length, true); lh.setUint32(22, data.length, true); lh.setUint16(26, name.length, true); lh.setUint16(28, 0, true);
+    parts.push(lh.buffer, name, data);
+    const ch = new DataView(new ArrayBuffer(46));
+    ch.setUint32(0, 0x02014b50, true); ch.setUint16(4, 20, true); ch.setUint16(6, 20, true); ch.setUint16(8, 0x0800, true); ch.setUint16(10, 0, true);
+    ch.setUint16(12, dosTime, true); ch.setUint16(14, dosDate, true); ch.setUint32(16, crc, true);
+    ch.setUint32(20, data.length, true); ch.setUint32(24, data.length, true); ch.setUint16(28, name.length, true);
+    ch.setUint32(42, offset, true);
+    central.push(ch.buffer, name);
+    offset += 30 + name.length + data.length;
+  });
+  const cdSize = central.reduce((s, b) => s + (b.byteLength !== undefined ? b.byteLength : b.length), 0);
+  const end = new DataView(new ArrayBuffer(22));
+  end.setUint32(0, 0x06054b50, true); end.setUint16(8, files.length, true); end.setUint16(10, files.length, true);
+  end.setUint32(12, cdSize, true); end.setUint32(16, offset, true);
+  return new Blob([...parts, ...central, end.buffer], { type: "application/zip" });
+}
+// -> { blob, fileName } for the chosen items
+function buildObsidianExport(list, t) {
+  const used = new Set();
+  const files = list.map((n) => {
+    const base = mdItemTitle(n); let name = `${base}.md`; let i = 2;
+    while (used.has(name.toLowerCase())) name = `${base} ${i++}.md`;
+    used.add(name.toLowerCase());
+    return { name, text: databaseItemToMarkdown(n, t) };
+  });
+  if (files.length === 1) return { blob: new Blob([files[0].text], { type: "text/markdown;charset=utf-8" }), fileName: files[0].name };
+  return { blob: buildZip(files), fileName: `Personal Database (${files.length}) - Obsidian.zip` };
+}
 // Resolves "shared" | "downloaded" | "cancelled" | "error" and never rejects. No await before navigator.share (it needs the tap's user activation).
 async function shareJsonFile({ json, fileName, title, text }) {
   try {
@@ -6516,6 +6898,15 @@ function DatabasePanel({ T, query = "" }) { // query: from the universal search 
     if (r === "cancelled") return;
     say(r === "error" ? "red" : "green", t(r === "shared" ? "dbShared" : r === "downloaded" ? "dbDownloaded" : "dbExportFailed", { n: list.length }));
   }
+  function exportMarkdown() {
+    const list = items.filter((n) => liveSel.includes(n.id));
+    if (!list.length) return;
+    try {
+      const { blob, fileName } = buildObsidianExport(list, t);
+      downloadBlob(blob, fileName);
+      say("green", t("dbMdDownloaded", { n: list.length }));
+    } catch (err) { say("red", t("dbExportFailed")); }
+  }
   async function onFile(e) {
     const file = e.target.files && e.target.files[0];
     e.target.value = "";
@@ -6565,6 +6956,9 @@ function DatabasePanel({ T, query = "" }) { // query: from the universal search 
           </GhostButton>
           <GhostButton T={T} icon={Download} onClick={exportSelected} disabled={liveSel.length === 0} title={t("dbExport")}>
             {t("dbExport")}{liveSel.length > 0 ? ` (${liveSel.length})` : ""}
+          </GhostButton>
+          <GhostButton T={T} icon={Download} onClick={exportMarkdown} disabled={liveSel.length === 0} title={t("dbExportMdTitle")}>
+            {t("dbExportMd")}{liveSel.length > 0 ? ` (${liveSel.length})` : ""}
           </GhostButton>
           <GhostButton T={T} icon={Trash2} onClick={() => setConfirm("delSel")} disabled={liveSel.length === 0} title={t("libDeleteSel")} style={liveSel.length > 0 ? danger : undefined}>
             {t("libDeleteSel")}{liveSel.length > 0 ? ` (${liveSel.length})` : ""}
@@ -8346,7 +8740,7 @@ const libAddUnique = (list, tag) => {
 // ---------------------------------------------------------------------------
 // Qbank library panel — saved blocks; start one, or tick several to run them as a queue
 // ---------------------------------------------------------------------------
-function QbankLibraryPanel({ library, onLaunch, onMix, onDelete, onRename, onSetMeta, deckDefs: nodeDefs = [], onDecksChange = () => {}, resumeId, onResume, sessionLog = [], uq = "", onClearSearch = () => {}, T }) {
+function QbankLibraryPanel({ library, onLaunch, onMix, onDelete, onRename, onSetMeta, deckDefs: nodeDefs = [], onDecksChange = () => {}, resumeId, onResume, sessionLog = [], uq = "", onClearSearch = () => {}, onNavigate = () => {}, onTryDemo, T }) {
   const { t, lang } = useI18n();
   const spCtx = useContext(ProfileContext);
   const tutorBrief_ = useMemo(() => (spCtx.profile ? tutorBrief(spCtx.profile, sessionLog, new Date()) : null), [spCtx.profile, sessionLog, new Date().toDateString()]); // eslint-disable-line
@@ -9267,7 +9661,14 @@ function QbankLibraryPanel({ library, onLaunch, onMix, onDelete, onRename, onSet
       )}
 
       {library.length === 0 ? (
-        <p style={{ fontFamily: FONT_UI, fontSize: fs(13.5), color: T.muted, lineHeight: 1.6, margin: 0 }}>{t("libEmpty")}</p>
+        <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 12, padding: 24, textAlign: "center" }}>
+          <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(16), color: T.ink }}>{t("emLibTitle")}</div>
+          <div style={{ fontFamily: FONT_UI, fontSize: fs(13.5), color: T.muted, marginTop: 4, lineHeight: 1.6 }}>{t("emLibBody")}</div>
+          <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", marginTop: 16, gap: 10 }}>
+            <PrimaryButton T={T} onClick={() => onNavigate("import")}>{t("emLibGenerate")}</PrimaryButton>
+            <GhostButton T={T} onClick={onTryDemo || (() => {})}>{t("tryDemoBtn")}</GhostButton>
+          </div>
+        </div>
       ) : (
         <>
           {filterActive && filteredLib.length === 0 && (
@@ -9566,7 +9967,7 @@ function ActivityBars({ days, T }) {
   );
 }
 
-function AnalyticsOverview({ history, qbankCount = 0, qbankQuestions = 0, T }) {
+function AnalyticsOverview({ history, qbankCount = 0, qbankQuestions = 0, onTryDemo, T }) {
   const { t, lang } = useI18n();
   const totals = useMemo(() => overviewTotals(history), [history]);
   const locale = lang === "es" ? "es" : "en-US";
@@ -9608,7 +10009,15 @@ function AnalyticsOverview({ history, qbankCount = 0, qbankQuestions = 0, T }) {
     return { fmtGap, trend: recent.map((e) => Number(e.pct) || 0), trendLabels: recent.map((e) => fmt(e.finishedAt)), subjects, days, avgSec: ts.avgSec, totalSec: ts.totalSec, best: pcts.length ? Math.max(...pcts) : 0 };
   }, [history, locale]);
   const noAnswers = totals.answered <= 0;
-  if (noAnswers && !qbankQuestions) return null; // nothing answered and no Qbank added yet
+  if (noAnswers && !qbankQuestions) { // nothing answered and no Qbank added yet: guide the student to a first block
+    return (
+      <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 12, padding: 24, textAlign: "center", marginBottom: 20 }}>
+        <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(16), color: T.ink }}>{t("emAnTitle")}</div>
+        <div style={{ fontFamily: FONT_UI, fontSize: fs(13.5), color: T.muted, marginTop: 4, lineHeight: 1.6 }}>{t("emAnBody")}</div>
+        <PrimaryButton T={T} style={{ marginTop: 16 }} onClick={onTryDemo || (() => {})}>{t("tryDemoBtn")}</PrimaryButton>
+      </div>
+    );
+  }
 
   const card = { background: T.card, border: `1px solid ${T.border}`, borderRadius: 12, padding: 16, minWidth: 0 };
   const head = { fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(13.5), color: T.ink };
@@ -9930,7 +10339,7 @@ function ConsoleCalendar({ sessionLog, onNavigate, T, fill = false }) {
   const legend = [[T.red, "csCalLegExam"], [T.purple, "csClasses"], [T.amber, "csCalLegTask"], [T.red, "plF.overdue"], [T.blue, "csCalLegEvent"], [T.green, "csCalLegStudy"]];
 
   return (
-    <div style={{ background: T.card, border: `1px solid ${T.border}`, borderRadius: 12, padding: phone ? 18 : 24, ...(fill ? { height: "100%", boxSizing: "border-box", display: "flex", flexDirection: "column" } : {}) }}>
+    <div style={{ position: "relative", background: T.card, border: `1px solid ${T.border}`, borderRadius: 12, padding: phone ? 18 : 24, ...(!profile ? { minHeight: 360 } : {}), ...(fill ? { height: "100%", boxSizing: "border-box", display: "flex", flexDirection: "column" } : {}) }}>
       <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 12, flexWrap: "wrap" }}>
         <CalendarDays size={17} color={T.ink} />
         <span style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(14), color: T.ink }}>{t("csCalendar")}</span>
@@ -10045,9 +10454,13 @@ function ConsoleCalendar({ sessionLog, onNavigate, T, fill = false }) {
       </div>
 
       {!profile && (
-        <div style={{ display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap", marginTop: 12, padding: "10px 12px", borderRadius: 8, background: T.mutedBg }}>
-          <span style={{ flex: "1 1 200px", fontFamily: FONT_UI, fontSize: fs(12.5), color: T.muted, lineHeight: 1.5 }}>{t("csCalNoProfile")}</span>
-          <GhostButton T={T} icon={Sparkles} onClick={() => onNavigate("profile")}>{t("csCalSetup")}</GhostButton>
+        <div style={{ position: "absolute", inset: 0, borderRadius: 12, display: "flex", alignItems: "center", justifyContent: "center", padding: 16, boxSizing: "border-box" }}>
+          <div aria-hidden="true" style={{ position: "absolute", inset: 0, borderRadius: 12, background: T.card, opacity: 0.85 }} />
+          <div role="region" aria-label={t("emCalTitle")} style={{ position: "relative", maxWidth: 420, background: T.card, border: `1px solid ${T.border}`, borderRadius: 12, padding: 24, textAlign: "center" }}>
+            <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(18), color: T.ink }}>{t("emCalTitle")}</div>
+            <div style={{ fontFamily: FONT_UI, fontSize: fs(14), color: T.muted, marginTop: 6, lineHeight: 1.6 }}>{t("emCalBody")}</div>
+            <div style={{ marginTop: 16 }}><PrimaryButton T={T} onClick={() => onNavigate("profile")}>{t("emCalSetup")}</PrimaryButton></div>
+          </div>
         </div>
       )}
     </div>
@@ -10838,7 +11251,7 @@ function ConsolePanel({ library, sessionLog, session, remoteSession, remoteBroke
   );
 }
 
-function SessionHistoryPanel({ history, qbankCount = 0, qbankQuestions = 0, onDelete, onClear, onReview, query = "", T }) {
+function SessionHistoryPanel({ history, qbankCount = 0, qbankQuestions = 0, onDelete, onClear, onReview, onTryDemo, query = "", T }) {
   const { t, lang } = useI18n();
   const vpw = useViewport().w;
   const phone = vpw < 640;
@@ -10881,7 +11294,7 @@ function SessionHistoryPanel({ history, qbankCount = 0, qbankQuestions = 0, onDe
         <span style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(14), color: T.ink }}>{t("histTitle")}</span>
       </div>
 
-      <AnalyticsOverview history={history} qbankCount={qbankCount} qbankQuestions={qbankQuestions} T={T} />
+      <AnalyticsOverview history={history} qbankCount={qbankCount} qbankQuestions={qbankQuestions} onTryDemo={onTryDemo} T={T} />
 
       <button type="button" onClick={() => setPastOpen((v) => !v)} aria-expanded={pastOpen} style={{ width: "100%", display: "flex", alignItems: "center", gap: 8, background: "transparent", border: "none", borderTop: `1px solid ${T.border}`, padding: pastOpen ? "16px 0 12px" : "16px 0 2px", marginTop: 16, cursor: "pointer", fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(15), color: T.ink, textAlign: "left" }}>
         {pastOpen ? <ChevronUp size={17} color={T.muted} /> : <ChevronDown size={17} color={T.muted} />}
@@ -11211,7 +11624,7 @@ const HELP_URL = "https://help.oworld.pro"; // external docs site (account menu 
 const SKY_400 = "#38bdf8"; // electric blue used for the Help link hover state
 
 // ---------------------------------------------------------------------------
-function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], drive, onDeleteSession, onClearSessions, onReviewSession, libTab, setLibTab, session, remoteSession, remoteBroken, onMigrate, onAbortRemote, onDiscardRemote, onResume, onOpenLobby, onLaunchLibrary, onMixLibrary, onSmartReview = () => {}, onDeleteLibraryEntry, onRenameLibraryEntry, onSetLibraryMeta, deckDefs, onDecksChange, T, darkMode, setDarkMode }) {
+function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], drive, onDeleteSession, onClearSessions, onReviewSession, libTab, setLibTab, session, remoteSession, remoteBroken, onMigrate, onAbortRemote, onDiscardRemote, onResume, onOpenLobby, onLaunchLibrary, onMixLibrary, onSmartReview = () => {}, onDeleteLibraryEntry, onRenameLibraryEntry, onSetLibraryMeta, deckDefs, onDecksChange, onTryDemo, T, darkMode, setDarkMode }) {
   const { t, lang } = useI18n();
   const [text, setText] = useState("");
   const [error, setError] = useState("");
@@ -11332,8 +11745,8 @@ function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], dri
   function handleSubmit() { attempt("load"); }
   function handleSaveToLibrary() { attempt("save"); }
 
-  function handleFile(e) {
-    const file = e.target.files?.[0];
+  function handleFile(e) { processFile(e.target.files?.[0]); }
+  function processFile(file) { // shared by the Upload button and drag & drop onto the textarea
     if (!file) return;
     const reader = new FileReader();
     reader.onload = (ev) => {
@@ -11494,26 +11907,28 @@ function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], dri
                     <div style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(12), color: T.ink, textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: 8 }}>
                       {t("recipeBasicFormat")}
                     </div>
-                    <div role="group" aria-label={t("recipeBasicFormat")} style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
-                      {BASIC_FORMATS.map((id) => (
-                        <button
-                          key={id}
-                          type="button"
-                          onClick={() => setRecipeBasicFormat(id)}
-                          aria-pressed={recipeBasicFormat === id}
-                          style={{
-                            fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(13), padding: "7px 14px", borderRadius: 6,
-                            border: `1.5px solid ${recipeBasicFormat === id ? T.sel : T.border}`,
-                            background: recipeBasicFormat === id ? T.blueLight : "transparent",
-                            color: recipeBasicFormat === id ? T.linkStrong : T.ink, cursor: "pointer",
-                          }}
-                        >
-                          {t("recipeBasicFormat." + id)}
-                        </button>
-                      ))}
-                    </div>
-                    <div style={{ fontFamily: FONT_UI, fontSize: fs(12), color: T.muted, lineHeight: 1.5, marginTop: 6 }}>
-                      {t("recipeBasicFormatHint." + recipeBasicFormat)}
+                    <div role="listbox" aria-label={t("recipeBasicFormat")} style={{ maxHeight: 208, overflowY: "auto", border: `1px solid ${T.border}`, borderRadius: 8, background: T.card, WebkitOverflowScrolling: "touch" }}>
+                      {BASIC_FORMATS.map((id, idx) => {
+                        const on = recipeBasicFormat === id;
+                        return (
+                          <button
+                            key={id}
+                            type="button"
+                            role="option"
+                            aria-selected={on}
+                            onClick={() => setRecipeBasicFormat(id)}
+                            style={{
+                              display: "block", width: "100%", textAlign: "left", boxSizing: "border-box", cursor: "pointer",
+                              padding: "9px 14px", border: "none", borderTop: idx === 0 ? "none" : `1px solid ${T.border}`,
+                              borderLeft: `3px solid ${on ? T.sel : "transparent"}`,
+                              background: on ? T.blueLight : "transparent", fontFamily: FONT_UI,
+                            }}
+                          >
+                            <div style={{ fontWeight: 600, fontSize: fs(13), color: on ? T.linkStrong : T.ink }}>{t("recipeBasicFormat." + id)}</div>
+                            <div style={{ fontSize: fs(12), color: T.muted, lineHeight: 1.4, marginTop: 2 }}>{t("recipeBasicFormatHint." + id)}</div>
+                          </button>
+                        );
+                      })}
                     </div>
                   </div>
                 )}
@@ -11766,6 +12181,8 @@ function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], dri
               spellCheck={false}
               onChange={(e) => { setText(e.target.value); setReview(null); }}
               placeholder={t("pastePh")}
+              onDragOver={(e) => e.preventDefault()}
+              onDrop={(e) => { e.preventDefault(); processFile(e.dataTransfer.files && e.dataTransfer.files[0]); }}
               style={{
                 width: "100%", minHeight: 88, fontFamily: FONT_MONO, fontSize: fs(12.5), color: T.ink,
                 background: T.paper, border: `1px solid ${T.border}`, borderRadius: 8, padding: 12,
@@ -11775,7 +12192,7 @@ function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], dri
           )}
           {(text.trim() || !pasteOpen) && (
             <div style={{ display: "flex", alignItems: "center", gap: 12, marginTop: pasteOpen ? 6 : 0, fontFamily: FONT_UI, fontSize: fs(12), color: T.muted }}>
-              <span>{text.trim() ? t("pasteChars", { n: text.length.toLocaleString() }) : t("pasteEmpty")}</span>
+              <span>{text.trim() ? t("pasteChars", { n: text.length.toLocaleString() }) : t("pasteEmptyImport")}</span>
               {text.trim() && (
                 <button
                   type="button"
@@ -11863,12 +12280,12 @@ function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], dri
       </div>
       {libTab === "database" && <DatabasePanel query={scopedQ("database")} T={T} />}
       {libTab === "calendar" && <CalendarPage focusDate={calFocus} query={scopedQ("calendar")} sessionLog={sessionLog} onNavigate={(tab) => { setLibTab(tab); window.scrollTo({ top: 0, behavior: "smooth" }); }} T={T} />}
-      {libTab === "analytics" && <SessionHistoryPanel history={sessionLog} qbankCount={library.length} qbankQuestions={libraryQuestionCount(library)} onDelete={onDeleteSession} onClear={onClearSessions} onReview={onReviewSession} query={scopedQ("history")} T={T} />}
+      {libTab === "analytics" && <SessionHistoryPanel onTryDemo={onTryDemo} history={sessionLog} qbankCount={library.length} qbankQuestions={libraryQuestionCount(library)} onDelete={onDeleteSession} onClear={onClearSessions} onReview={onReviewSession} query={scopedQ("history")} T={T} />}
       {libTab === "console" && <ConsolePanel library={library} sessionLog={sessionLog} session={session} remoteSession={remoteSession} remoteBroken={remoteBroken} onMigrate={onMigrate} onAbortRemote={onAbortRemote} onDiscardRemote={onDiscardRemote} onResume={onResume} onOpenLobby={onOpenLobby} onReview={onReviewSession} onNavigate={(tab) => { setLibTab(tab); window.scrollTo({ top: 0, behavior: "smooth" }); }} T={T} />}
       {libTab === "studyhub" && <StudyHub active={shActive} setActive={setShActive} library={library} sessionLog={sessionLog} onLaunch={onLaunchLibrary} onNavigate={(tab, key) => { if (key) setCalFocus({ key, n: Date.now() }); setLibTab(tab); if (tab !== "profile") window.scrollTo({ top: 0, behavior: "smooth" }); }} T={T} />}
       {libTab === "library" && libType === "qbank" && library.length > 0 && <SmartReviewDeck library={library} onStart={onSmartReview} T={T} />}
       {libTab === "library" && libType === "qbank" && <TutorLibraryStrip library={library} sessionLog={sessionLog} onLaunch={onLaunchLibrary} onSmartReview={onSmartReview} onNavigate={setLibTab} T={T} />}
-      {libTab === "library" && libType === "qbank" && <QbankLibraryPanel library={library} onLaunch={onLaunchLibrary} onMix={onMixLibrary} onDelete={onDeleteLibraryEntry} onRename={onRenameLibraryEntry} onSetMeta={onSetLibraryMeta} deckDefs={deckDefs} onDecksChange={onDecksChange} resumeId={resumeId} onResume={onResume} sessionLog={sessionLog} uq={scopedQ("library")} onClearSearch={() => setUq("")} T={T} />}
+      {libTab === "library" && libType === "qbank" && <QbankLibraryPanel library={library} onLaunch={onLaunchLibrary} onMix={onMixLibrary} onDelete={onDeleteLibraryEntry} onRename={onRenameLibraryEntry} onSetMeta={onSetLibraryMeta} deckDefs={deckDefs} onDecksChange={onDecksChange} resumeId={resumeId} onResume={onResume} sessionLog={sessionLog} uq={scopedQ("library")} onClearSearch={() => setUq("")} onNavigate={(tab) => { setLibTab(tab); window.scrollTo({ top: 0, behavior: "smooth" }); }} onTryDemo={onTryDemo} T={T} />}
 
 
       <div style={{ marginTop: 48, paddingTop: 20, borderTop: `1px solid ${T.border}`, textAlign: "center" }}>
@@ -12463,8 +12880,8 @@ function CalculatorPanel({ T, onClose }) {
 // Exam taking screen
 // ---------------------------------------------------------------------------
 // One-line, whitespace-collapsed start of a question's vignette (for the Tutor-mode navigator).
-function vignettePreview(q) {
-  return String(q?.vignette || "").replace(/\s+/g, " ").trim().slice(0, 160);
+function vignettePreview(q, isEs = false) {
+  return String(qTr(q, "vignette", isEs) || "").replace(/\s+/g, " ").trim().slice(0, 160);
 }
 
 // Home / lobby / results / summary render in their own full-viewport scroll layer, exactly like the exam screen does, so
@@ -12550,6 +12967,16 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onAbortBl
   const [confirmTimerOff, setConfirmTimerOff] = useState(false);
   const [timeUp, setTimeUp] = useState(false);
   const [settingsOpen, setSettingsOpen] = useState(false);
+  const settingsWrapRef = useRef(null); // wraps the Settings button + card so a click anywhere else closes the card
+  useEffect(() => {
+    if (!settingsOpen) return undefined;
+    const onAway = (e) => {
+      if (settingsWrapRef.current && !settingsWrapRef.current.contains(e.target)) setSettingsOpen(false);
+    };
+    document.addEventListener("mousedown", onAway);
+    document.addEventListener("touchstart", onAway);
+    return () => { document.removeEventListener("mousedown", onAway); document.removeEventListener("touchstart", onAway); };
+  }, [settingsOpen]);
   const [srcOpen, setSrcOpen] = useState(false); // Tutor suggested sources window (Tutor sessions)
   const [moreOpen, setMoreOpen] = useState(false); // the "..." menu beside Key Info / Tutor's Tip: Omit question, Give feedback
   const [omitAsk, setOmitAsk] = useState(false); // Omit asks once more before it removes the question
@@ -12606,6 +13033,7 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onAbortBl
 
   const T = darkMode ? DARK : LIGHT;
   const { t, lang } = useI18n();
+  const isEs = lang === "es"; // Qbanks that carry an `es` object are shown in Spanish when the app language is Spanish
   const tutorMode = !!blockState.tutor;
   const teamMode = !!blockState.team; // Team: Tutor-style instant feedback, but no Key Info / Tutor's Tip and no retries
   const navCollapsed = tutorMode ? navCollapsedPref : false; // Timed mode (like the real exam) has a fixed question list: no collapse control, never collapsed
@@ -12654,7 +13082,7 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onAbortBl
   const hintAvailable = hintsEnabled && !tutorMode && !!blockState.timerOff;
   const noteText = blockState.notes?.[q.id] || "";
   // Tutor aids are on-demand: Key Info highlights the vignette's key phrases, Tutor's Tip opens a drawer.
-  const clueInfo = getClues(q.vignette, q.keyInfoPhrases);
+  const clueInfo = getClues(qTr(q, "vignette", isEs), qTr(q, "keyInfoPhrases", isEs));
 
   useEffect(() => { setShowHint(false); setToggledDistractors([]); clearPending(); }, [qIdx]);
 
@@ -12963,7 +13391,7 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onAbortBl
           <button onClick={() => setCalcOpen((v) => !v)} style={toolStyle(calcOpen)} title={t("calc")} aria-label={t("calc")}>
             <CalcIcon size={toolIcon} /> {toolLabel(t("calc"))}
           </button>
-          <div style={{ position: "relative" }}>
+          <div ref={settingsWrapRef} style={{ position: "relative" }}>
             <button onClick={() => setSettingsOpen((v) => !v)} style={toolStyle(settingsOpen)} title={t("settings")} aria-label={t("settings")}>
               <SettingsIcon size={toolIcon} /> {toolLabel(t("settings"))}
             </button>
@@ -13096,11 +13524,11 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onAbortBl
                     <span title={t("hintUsedBadge")} aria-label={t("hintUsedBadge")} style={{ width: 9, height: 9, borderRadius: 999, boxSizing: "border-box", border: `2px solid ${HINT_YELLOW}`, background: "transparent", flexShrink: 0 }} />
                   )}
                   {showPreview && (
-                    <span title={vignettePreview(qq)} style={{
+                    <span title={vignettePreview(qq, isEs)} style={{
                       flex: 1, minWidth: 0, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap",
                       fontSize: fs(12.5), color: isCurrent ? T.onBlue : darkMode ? T.ink : T.muted, // white in dark mode for contrast
                     }}>
-                      {vignettePreview(qq)}
+                      {vignettePreview(qq, isEs)}
                     </span>
                   )}
                   {showPreview && <DifficultyPips value={qq.difficultyRating} label={qq.difficultyLabel} T={T} color={isCurrent ? T.onBlue : T.amber} />}
@@ -13154,7 +13582,7 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onAbortBl
                     )}
                     {tutorMode && (
                       <span style={{ flex: 1, minWidth: 0, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", fontSize: fs(13), color: isCurrent ? T.onBlue : darkMode ? T.ink : T.muted }}>
-                        {vignettePreview(qq)}
+                        {vignettePreview(qq, isEs)}
                       </span>
                     )}
                     {tutorMode && <DifficultyPips value={qq.difficultyRating} label={qq.difficultyLabel} T={T} color={isCurrent ? T.onBlue : T.amber} />}
@@ -13210,7 +13638,7 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onAbortBl
               fontFamily: FONT_UI, fontSize: fs(13.5), lineHeight: 1.5,
             }}>
               <Lightbulb size={16} color={T.link} style={{ flexShrink: 0, marginTop: 1 }} />
-              <span>{q.hint || t("noHint")}</span>
+              <span>{qTr(q, "hint", isEs) || t("noHint")}</span>
             </div>
           )}
 
@@ -13226,7 +13654,7 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onAbortBl
             onKeyUp={(e) => handleSelectionInContainer(q.id, "vignette", e.currentTarget)}
             style={{ fontFamily: FONT_DISPLAY, fontSize: fs(17), lineHeight: 1.75, color: T.ink, margin: "0", cursor: "text" }}
           >
-            {renderHighlightedText(q.vignette, highlightsMap[q.id]?.vignette, (hlId) => removeHighlight(q.id, "vignette", hlId), tutorMode && !teamMode && qState.keyInfoOn ? clueInfo.ranges : null, clueStyleFor(T), T)}
+            {renderHighlightedText(isEs && q.es?.vignette ? q.es.vignette : q.vignette, highlightsMap[q.id]?.vignette, (hlId) => removeHighlight(q.id, "vignette", hlId), tutorMode && !teamMode && qState.keyInfoOn ? clueInfo.ranges : null, clueStyleFor(T), T)}
           </p>
           <p
             data-hl-field="stem"
@@ -13234,7 +13662,7 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onAbortBl
             onKeyUp={(e) => handleSelectionInContainer(q.id, "stem", e.currentTarget)}
             style={{ fontFamily: FONT_DISPLAY, fontSize: fs(17), lineHeight: 1.6, color: T.ink, margin: tutorMode ? "0 0 6px" : "0 0 18px", cursor: "text" }}
           >
-            {renderHighlightedText(q.stem, highlightsMap[q.id]?.stem, (hlId) => removeHighlight(q.id, "stem", hlId), null, null, T)}
+            {renderHighlightedText(isEs && q.es?.stem ? q.es.stem : q.stem, highlightsMap[q.id]?.stem, (hlId) => removeHighlight(q.id, "stem", hlId), null, null, T)}
           </p>
           {tutorMode && (
             <div style={{ margin: "0 0 18px" }}>
@@ -13324,7 +13752,7 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onAbortBl
                   <div style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(12), color: T.link, marginBottom: 4, textTransform: "uppercase", letterSpacing: "0.05em", display: "flex", alignItems: "center", gap: 6 }}>
                     <Stethoscope size={14} /> {t("attendingTip")}
                   </div>
-                  <p style={{ fontFamily: FONT_UI, fontSize: fs(13.5), color: T.ink, lineHeight: 1.6, margin: 0 }}>{q.attendingTip}</p>
+                  <p style={{ fontFamily: FONT_UI, fontSize: fs(13.5), color: T.ink, lineHeight: 1.6, margin: 0 }}>{isEs && q.es?.attendingTip ? q.es.attendingTip : q.attendingTip}</p>
                 </div>
               )}
             </div>
@@ -13381,7 +13809,7 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onAbortBl
                         textDecoration: isStruck ? "line-through" : "none", opacity: isStruck ? 0.5 : 1,
                       }}
                     >
-                      {opt.key}. {renderHighlightedText(opt.text, highlightsMap[q.id]?.[`option-${opt.key}`], (hlId) => removeHighlight(q.id, `option-${opt.key}`, hlId), null, null, T)}
+                      {opt.key}. {renderHighlightedText(isEs && opt.es?.text ? opt.es.text : opt.text, highlightsMap[q.id]?.[`option-${opt.key}`], (hlId) => removeHighlight(q.id, `option-${opt.key}`, hlId), null, null, T)}
                     </span>
                     {showCorrect && <CheckCircle2 size={18} color={hinted ? T.amber : T.green} style={{ flexShrink: 0 }} />}
                     {showWrong && <XCircle size={18} color={T.red} style={{ flexShrink: 0 }} />}
@@ -13403,7 +13831,7 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onAbortBl
                   {analysisOpen && (
                     <div style={{ padding: showWrong ? "10px 14px 12px 42px" : "2px 14px 12px 42px", background: showWrong ? T.redSoft : "transparent" }}>
                       <div style={{ fontFamily: FONT_UI, fontSize: fs(13), color: showWrong ? T.ink : T.muted, lineHeight: 1.55 }}>
-                        {q.distractorAnalysis[opt.key]}
+                        {isEs && q.es?.distractorAnalysis?.[opt.key] ? q.es.distractorAnalysis[opt.key] : q.distractorAnalysis[opt.key]}
                       </div>
                     </div>
                   )}
@@ -13969,8 +14397,9 @@ function RatingBar({ value, onRate, T, sm2 = null, preview = false }) {
 }
 
 function ExplanationPanels({ q, T, showTip = true, showClues = true, flat = false, rating = null, onRate = null, srs = false }) {
-  const { t } = useI18n();
-  const clues = getClues(q.vignette, q.keyInfoPhrases);
+  const { t, lang } = useI18n();
+  const isEs = lang === "es";
+  const clues = getClues(qTr(q, "vignette", isEs), qTr(q, "keyInfoPhrases", isEs));
   const label = (color) => ({ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(12), color, marginBottom: 4, textTransform: "uppercase", letterSpacing: "0.05em", display: "flex", alignItems: "center", gap: 6 });
   const body = { fontFamily: FONT_UI, fontSize: fs(13.5), color: T.ink, lineHeight: 1.6, margin: 0 };
   // flat: no card backgrounds, so the whole block takes the colour of the container it sits in
@@ -13980,7 +14409,7 @@ function ExplanationPanels({ q, T, showTip = true, showClues = true, flat = fals
       {showTip && q.attendingTip && (
         <div style={{ background: T.paper, borderRadius: 8, padding: "12px 14px", borderLeft: `3px solid ${T.sel}` }}>
           <div style={label(T.link)}><Stethoscope size={14} /> {t("attendingTip")}</div>
-          <p style={body}>{q.attendingTip}</p>
+          <p style={body}>{isEs && q.es?.attendingTip ? q.es.attendingTip : q.attendingTip}</p>
         </div>
       )}
 
@@ -13998,21 +14427,21 @@ function ExplanationPanels({ q, T, showTip = true, showClues = true, flat = fals
       {q.explanation && (
         <div style={box(T.paper)}>
           <div style={label(T.link)}>{t("explanation")}</div>
-          <p style={body}>{q.explanation}</p>
+          <p style={body}>{isEs && q.es?.explanation ? q.es.explanation : q.explanation}</p>
         </div>
       )}
 
       {q.keyLearningPoint && (
         <div style={box(T.amberLight, { border: `1px solid ${T.amber}` })}>
           <div style={label(T.amber)}><Target size={14} /> {t("keyLearningPoint")}</div>
-          <p style={body}>{q.keyLearningPoint}</p>
+          <p style={body}>{isEs && q.es?.keyLearningPoint ? q.es.keyLearningPoint : q.keyLearningPoint}</p>
         </div>
       )}
 
       {q.educationalObjective && (
         <div style={box(T.blueLight)}>
           <div style={label(T.linkStrong)}>{t("eduObj")}</div>
-          <p style={body}>{q.educationalObjective}</p>
+          <p style={body}>{isEs && q.es?.educationalObjective ? q.es.educationalObjective : q.educationalObjective}</p>
         </div>
       )}
 
@@ -14047,6 +14476,7 @@ function DifficultyBreakdown({ rows, T }) {
 
 function BlockResults({ block, blockState, blockIdx, history, onBackToLobby, onRetest, onRate, onHome, T, darkMode, setDarkMode }) {
   const { t, lang } = useI18n();
+  const isEs = lang === "es";
   const [expanded, setExpanded] = useState(null);
   const [retestCfg, setRetestCfg] = useState(null); // { pool, mode } while the modal is open
   const [supportDismissed, setSupportDismissed] = useState(false); // hides the support note for this session of the results view
@@ -14194,7 +14624,7 @@ function BlockResults({ block, blockState, blockIdx, history, onBackToLobby, onR
                 </span>
                 <span style={{ fontFamily: FONT_MONO, fontSize: fs(12.5), color: T.muted, width: phone ? 20 : 24, flexShrink: 0, marginTop: phone ? 1 : 0 }}>{i + 1}</span>
                 <div style={{ flex: 1, minWidth: 0 }}>
-                  <span style={{ display: "block", fontFamily: FONT_UI, fontSize: fs(14), color: T.ink, lineHeight: 1.45, overflowWrap: "anywhere" }}>{q.stem}</span>
+                  <span style={{ display: "block", fontFamily: FONT_UI, fontSize: fs(14), color: T.ink, lineHeight: 1.45, overflowWrap: "anywhere" }}>{isEs && q.es?.stem ? q.es.stem : q.stem}</span>
                   {phone && (
                     <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: 6, marginTop: 6 }}>
                       {feBadge}
@@ -14217,13 +14647,13 @@ function BlockResults({ block, blockState, blockIdx, history, onBackToLobby, onR
                     <DifficultyMeter value={q.difficultyRating} label={q.difficultyLabel} T={T} />
                   </div>
                   <p style={{ fontFamily: FONT_DISPLAY, fontSize: fs(14.5), color: T.ink, lineHeight: 1.65, marginTop: 8 }}>
-                    {renderHighlightedText(q.vignette, null, () => {}, getClues(q.vignette, q.keyInfoPhrases).ranges, clueStyleFor(T), T)}
+                    {renderHighlightedText(qTr(q, "vignette", isEs), null, () => {}, getClues(qTr(q, "vignette", isEs), qTr(q, "keyInfoPhrases", isEs)).ranges, clueStyleFor(T), T)}
                   </p>
                   <div style={{ display: "grid", gap: 6, marginBottom: 12 }}>
                     {q.options.map((opt) => {
                       const isCorrectOpt = opt.key === q.correctAnswer;
                       const isYourPick = opt.key === a?.selected;
-                      const reason = !isCorrectOpt ? q.distractorAnalysis?.[opt.key] : null;
+                      const reason = !isCorrectOpt ? ((isEs && q.es?.distractorAnalysis?.[opt.key]) || q.distractorAnalysis?.[opt.key]) : null;
                       return (
                         <div key={opt.key} style={{
                           padding: "8px 10px", borderRadius: 6,
@@ -14232,7 +14662,7 @@ function BlockResults({ block, blockState, blockIdx, history, onBackToLobby, onR
                         }}>
                           <div style={{ display: "flex", gap: 10, alignItems: phone ? "flex-start" : "center", flexWrap: phone ? "wrap" : "nowrap" }}>
                             <span style={{ fontFamily: FONT_MONO, fontWeight: 700, fontSize: fs(12), width: 18, flexShrink: 0 }}>{opt.key}</span>
-                            <span style={{ flex: phone ? "1 1 160px" : 1, minWidth: 0, overflowWrap: "anywhere" }}>{opt.text}</span>
+                            <span style={{ flex: phone ? "1 1 160px" : 1, minWidth: 0, overflowWrap: "anywhere" }}>{isEs && opt.es?.text ? opt.es.text : opt.text}</span>
                             {isCorrectOpt && <Pill T={T} tone={a?.hintUsed ? "amber" : "green"}>{t("correct")}</Pill>}
                             {isYourPick && !isCorrectOpt && <Pill T={T} tone="red">{t("yours")}</Pill>}
                           </div>
@@ -14471,6 +14901,7 @@ function FinalSummary({ examData, blockStates, onBackToLobby, T, darkMode, setDa
 // if "Don't show this again" is ticked, that choice is remembered in localStorage.
 // First-run welcome: shown over the Dashboard when the library is empty and the user hasn't dismissed it before.
 function WelcomeModal({ onImport, onDemo, onSkip, T }) {
+  const { t } = useI18n();
   useEffect(() => {
     const onKey = (e) => { if (e.key === "Escape") onSkip(); };
     window.addEventListener("keydown", onKey);
@@ -14490,7 +14921,7 @@ function WelcomeModal({ onImport, onDemo, onSkip, T }) {
             Import a Qbank
           </PrimaryButton>
           <GhostButton T={T} icon={Play} onClick={onDemo} style={{ width: "100%", padding: "13px 18px", fontSize: fs(15) }}>
-            Try a Demo Block
+            {t("tryDemoBtn")}
           </GhostButton>
         </div>
         <button onClick={onSkip} style={{ marginTop: 20, background: "none", border: "none", padding: 4, fontFamily: FONT_UI, fontSize: fs(13), color: T.muted, textDecoration: "underline", cursor: "pointer" }}>
@@ -15323,8 +15754,8 @@ function OworldApp() {
     try { sessionStorage.setItem("oworld_welcome_import", "1"); } catch (e) {}
     setLibTab("import"); 
   };
-  const handleWelcomeDemo = () => {
-    finishWelcome();
+  const handleWelcomeDemo = () => { finishWelcome(); startDemo(); };
+  const startDemo = () => {
     const demoBlocks = DEMO_EXAM.blocks.map(debiasBlock);
     setExamData({ ...DEMO_EXAM, blocks: demoBlocks });
     setBlockStates(demoBlocks.map(makeInitialBlockState));
@@ -15675,6 +16106,7 @@ function OworldApp() {
       {view === "import" && !reviewSnap && (
         <FullPage T={T}>
         <ImportScreen
+          onTryDemo={startDemo}
           onImport={(d) => (hasInProgress ? importKeepingSession(d) : handleImport(d))}
           onSaveToLibrary={saveImportToLibrary}
           library={library}
