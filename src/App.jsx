@@ -857,6 +857,152 @@ const SCHEMA_TEXT = `{
   ]
 }`;
 
+// Tutorial Qbank: a short, untimed, Tutor-mode block that walks a new student through the exam interface. It is never logged,
+// never scored into the library, and never notifies (see submitActiveBlock). English only: the i18n layer falls back to `en`.
+const TUTORIAL_BLOCK = {
+  blockName: "1. Learn the interface",
+  isTutorial: true,
+  questions: [
+    {
+      id: "tut-1",
+      subject: "Tutorial",
+      difficultyRating: 1,
+      difficultyLabel: "Easy",
+      vignette: "A 22-year-old college student has a sore throat, fever, and tonsillar exudates but no cough. To rule options out, tap the “ab” button beside any choice to strike it through; tap it again to restore it. Try striking out at least one option before you answer.",
+      keyInfoPhrases: ["tonsillar exudates but no cough"],
+      stem: "Which of the following is the most likely cause of this patient’s symptoms?",
+      options: [
+        { key: "A", text: "Rhinovirus" },
+        { key: "B", text: "Streptococcus pyogenes" },
+        { key: "C", text: "Corynebacterium diphtheriae" },
+        { key: "D", text: "Candida albicans" },
+      ],
+      correctAnswer: "B",
+      attendingTip: "Strike out what doesn’t fit, then choose from what remains. Fever and exudates without a cough lean away from a common cold virus.",
+      explanation: "Streptococcus pyogenes (group A strep) classically causes pharyngitis with fever, tonsillar exudates, and tender anterior cervical nodes, without cough. Rhinovirus usually brings cough and rhinorrhea; diphtheria and thrush are far less likely in a healthy young adult.",
+      keyLearningPoint: "Strike-through marks the options you’ve ruled out, so your final choice comes from a smaller field. Clinically: fever, exudates, and no cough suggest group A strep.",
+      educationalObjective: "Select an answer and use the strike-through (“ab”) button to eliminate options.",
+    },
+    {
+      id: "tut-2",
+      subject: "Tutorial",
+      difficultyRating: 1,
+      difficultyLabel: "Easy",
+      vignette: "You’re in Tutor mode, so OWORLD checks each answer the moment you select it and shows the explanation. Try it: choose a wrong option on purpose and read the feedback. Then tap Show Answer to reveal the correct choice, or Retry question to try again.",
+      stem: "Which bone is the longest in the human body?",
+      options: [
+        { key: "A", text: "Tibia" },
+        { key: "B", text: "Femur" },
+        { key: "C", text: "Humerus" },
+        { key: "D", text: "Fibula" },
+      ],
+      correctAnswer: "B",
+      attendingTip: "In Tutor mode a wrong pick is useful: the feedback tells you why, and Retry question lets you answer again.",
+      explanation: "The femur is the longest and strongest bone in the body. The tibia is the next longest, followed by the fibula and humerus.",
+      keyLearningPoint: "Tutor mode gives instant feedback. Pick, read the explanation, and use Show Answer or Retry question. A first wrong pick is still recorded in your results.",
+      educationalObjective: "Understand how Tutor-mode feedback, Show Answer, and Retry question work.",
+    },
+    {
+      id: "tut-3",
+      subject: "Tutorial",
+      difficultyRating: 1,
+      difficultyLabel: "Easy",
+      vignette: "A 60-year-old man has crushing chest pain radiating to his left arm. Try highlighting: select a phrase here, such as “crushing chest pain,” then pick a color from the small toolbar that appears. Use highlights to mark findings you want to come back to.",
+      keyInfoPhrases: ["crushing chest pain radiating to his left arm"],
+      stem: "Which of the following is the most likely diagnosis?",
+      options: [
+        { key: "A", text: "Acute myocardial infarction" },
+        { key: "B", text: "Gastroesophageal reflux disease" },
+        { key: "C", text: "Costochondritis" },
+      ],
+      correctAnswer: "A",
+      attendingTip: "Highlight the findings that change your differential, such as character, radiation, and risk factors.",
+      explanation: "Crushing chest pain radiating to the left arm in an older man is classic for acute myocardial infarction. Reflux and costochondritis are possible but are diagnoses of exclusion here.",
+      keyLearningPoint: "Select text in the vignette, stem, or an option, then choose a color to highlight it. Highlights are saved with the block.",
+      educationalObjective: "Highlight text in a vignette using the color toolbar.",
+    },
+    {
+      id: "tut-4",
+      subject: "Tutorial",
+      difficultyRating: 1,
+      difficultyLabel: "Easy",
+      vignette: "A 7-year-old boy has periorbital edema and cola-colored urine two weeks after a skin infection. In Tutor mode, the Key Info tab above the answer choices marks the most important clues in the vignette. Turn it on now to see them.",
+      keyInfoPhrases: ["periorbital edema", "cola-colored urine", "two weeks after a skin infection"],
+      stem: "Which of the following is the most likely diagnosis?",
+      options: [
+        { key: "A", text: "Poststreptococcal glomerulonephritis" },
+        { key: "B", text: "Minimal change disease" },
+        { key: "C", text: "Acute cystitis" },
+        { key: "D", text: "Nephrolithiasis" },
+      ],
+      correctAnswer: "A",
+      attendingTip: "Key Info and Tutor’s Tip are hints. Opening either one before you answer counts as using a hint on that question.",
+      explanation: "Periorbital edema and cola-colored urine appearing about two weeks after a skin infection point to poststreptococcal glomerulonephritis, an immune-complex disease. Minimal change disease causes nephrotic syndrome without hematuria.",
+      keyLearningPoint: "Key Info highlights the clues that drive the diagnosis. Using it before answering is recorded as a hint, so try the question first when you’re testing yourself.",
+      educationalObjective: "Toggle Key Info to surface the key findings in a vignette.",
+    },
+    {
+      id: "tut-5",
+      subject: "Tutorial",
+      difficultyRating: 1,
+      difficultyLabel: "Easy",
+      vignette: "A 45-year-old woman with vomiting has a serum sodium of 128 mEq/L. Open Lab Values in the top bar, choose Serum, then Sodium (Na+), and compare her result with the reference range.",
+      keyInfoPhrases: ["serum sodium of 128 mEq/L"],
+      stem: "Compared with the reference range, this patient’s serum sodium is:",
+      options: [
+        { key: "A", text: "Low" },
+        { key: "B", text: "Normal" },
+        { key: "C", text: "High" },
+      ],
+      correctAnswer: "A",
+      attendingTip: "When a value appears in a vignette, check it against the reference range before you interpret the rest of the case.",
+      explanation: "The serum sodium reference range is 136–146 mEq/L, so 128 mEq/L is low (hyponatremia).",
+      keyLearningPoint: "The Lab Values panel lists reference ranges by tab (Serum, Cerebrospinal, Blood, Urine and BMI), in conventional and SI units.",
+      educationalObjective: "Open the Lab Values panel and look up a reference range.",
+    },
+    {
+      id: "tut-6",
+      subject: "Tutorial",
+      difficultyRating: 1,
+      difficultyLabel: "Easy",
+      vignette: "A man has a urine creatinine of 80 mg/dL, a urine flow rate of 1.5 mL/min, and a plasma creatinine of 1.0 mg/dL. Open Calculator in the top bar and compute his creatinine clearance: (urine creatinine × urine flow rate) ÷ plasma creatinine.",
+      keyInfoPhrases: ["urine creatinine of 80 mg/dL", "plasma creatinine of 1.0 mg/dL"],
+      stem: "What is this patient’s creatinine clearance?",
+      options: [
+        { key: "A", text: "53 mL/min" },
+        { key: "B", text: "80 mL/min" },
+        { key: "C", text: "120 mL/min" },
+        { key: "D", text: "180 mL/min" },
+      ],
+      correctAnswer: "C",
+      attendingTip: "Write the formula first, then plug in the numbers. The calculator does the arithmetic so you can focus on the setup.",
+      explanation: "Clearance = (U × V) ÷ P = (80 × 1.5) ÷ 1.0 = 120 mL/min, which is within the normal range for GFR estimation.",
+      keyLearningPoint: "The Calculator panel handles the arithmetic during the exam. Enter 80 × 1.5 ÷ 1.0 and compare the result with the options.",
+      educationalObjective: "Use the Calculator panel to solve a clearance calculation.",
+    },
+    {
+      id: "tut-7",
+      subject: "Tutorial",
+      difficultyRating: 1,
+      difficultyLabel: "Easy",
+      vignette: "A sailor on a long voyage with little fresh produce develops bleeding gums and perifollicular hemorrhages. Open Notes in the top bar, jot one line you’d want to remember, then tap Save to Database to keep it in your Personal Database.",
+      keyInfoPhrases: ["bleeding gums and perifollicular hemorrhages"],
+      stem: "Deficiency of which of the following vitamins is most likely responsible?",
+      options: [
+        { key: "A", text: "Vitamin A" },
+        { key: "B", text: "Vitamin B12" },
+        { key: "C", text: "Vitamin C" },
+        { key: "D", text: "Vitamin D" },
+      ],
+      correctAnswer: "C",
+      attendingTip: "Notes are per question. Saving one to the Database lets you find it again later, outside this block.",
+      explanation: "Scurvy results from vitamin C deficiency, which impairs collagen cross-linking and causes bleeding gums, perifollicular hemorrhages, and poor wound healing.",
+      keyLearningPoint: "Write a note on any question, then tap Save to Database to keep it. Saved notes live in your Personal Database for later review.",
+      educationalObjective: "Write a note and save it to the Personal Database.",
+    },
+  ],
+};
+
 // Bilingual demo: every question (and option) carries an `es` object with the Spanish strings; correctAnswer keys are shared by both languages.
 const DEMO_EXAM = {
   "examTitle": "Demo Practice Exam",
@@ -1321,6 +1467,11 @@ const DEMO_EXAM = {
     }
   ]
 };
+
+// Onboarding: the tutorial block followed by the demo block. The demo is a shallow copy of the first DEMO_EXAM block, flagged so
+// submitActiveBlock leaves the library, session log and review snapshots alone.
+const DEMO_BLOCK = { ...DEMO_EXAM.blocks[0], isDemo: true };
+const ONBOARDING_EXAM = { examTitle: "Welcome to OWORLD", blocks: [TUTORIAL_BLOCK, DEMO_BLOCK] };
 
 // Bilingual Qbanks: a question may carry an `es` object (and each option an `es.text`). When the UI language is Spanish
 // and the translated string exists it is shown; otherwise the English original is. Works for any Qbank, not just the demo.
@@ -2551,6 +2702,7 @@ function makeInitialBlockState(block) {
     score: null,
     currentQuestionIndex: 0, // persisted so a refresh resumes on the same question
     highlights: {}, // qId -> { field -> [{ id, start, end }] } — persisted with the block
+    ...(block.isTutorial ? { tutorial: true } : {}), // the tutorial block: ExamScreen shows "Skip tutorial"
   };
 }
 
@@ -12536,18 +12688,21 @@ function Lobby({ examData, blockStates, library = [], onStart, onReview, onHome,
   const [selMsg, setSelMsg] = useState(null); // { tone, text }
   // "Saved" means the block's library entry still exists (a deleted entry leaves a stale libraryId behind).
   const isSaved = (b) => !!b.libraryId && library.some((e) => e.id === b.libraryId);
-  const canSave = (i) => { const b = examData.blocks[i]; return !b.isRetest && !b.isMixed && !isSaved(b); };
+  const canSave = (i) => { const b = examData.blocks[i]; return !b.isRetest && !b.isMixed && !b.isTutorial && !b.isDemo && !isSaved(b); }; // onboarding blocks are never saved to the library
   const canRemove = (i) => !!blockStates[i] && blockStates[i].status === "pending"; // never discard answers or results
   // Sorting state: an imported block that is neither saved nor started. It can only be saved or dismissed, not practiced,
   // so a Qbank always lives in the library before it is taken. (Mixed / retest blocks and anything already underway keep full controls.)
   const isTriage = (i) => canSave(i) && blockStates[i]?.status === "pending";
   const hasTriage = examData.blocks.some((_, i) => isTriage(i));
+  // Onboarding (tutorial / demo) blocks aren't triaged: they're practiced right here, so they keep the lobby open and show Start.
+  const isOnb = (i) => !!(examData.blocks[i].isTutorial || examData.blocks[i].isDemo);
+  const keepOpen = hasTriage || examData.blocks.some((_, i) => isOnb(i));
   // Nothing left to sort: close the lobby (a block that is mid-exam keeps its session and just returns Home).
   useEffect(() => {
-    if (hasTriage) return;
+    if (keepOpen) return;
     if (blockStates.some((b) => b.status === "in-progress")) onHome(); else onRemove();
-  }, [hasTriage]);
-  const selectableIdx = examData.blocks.map((_, i) => i).filter((i) => canSave(i) || canRemove(i));
+  }, [keepOpen]);
+  const selectableIdx = examData.blocks.map((_, i) => i).filter((i) => !isOnb(i) && (canSave(i) || canRemove(i)));
   const selIdx = sel.filter((i) => selectableIdx.includes(i));
   const selSavable = selIdx.filter(canSave);
   const selRemovable = selIdx.filter(canRemove);
@@ -12674,7 +12829,7 @@ function Lobby({ examData, blockStates, library = [], onStart, onReview, onHome,
           const selectable = selectableIdx.includes(idx);
           const picked = selectable && sel.includes(idx);
           const triage = isTriage(idx);
-          if (!triage) return null; // saved / started Qbanks live in the library, not here
+          if (!triage && !isOnb(idx)) return null; // saved / started Qbanks live in the library, not here (onboarding blocks stay)
           const toggleSel = () => setSel((cur) => (cur.includes(idx) ? cur.filter((x) => x !== idx) : [...cur, idx]));
           return (
             <div key={idx} onClick={triage ? toggleSel : undefined} style={{
@@ -12690,7 +12845,7 @@ function Lobby({ examData, blockStates, library = [], onStart, onReview, onHome,
                   <span style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(16), color: T.ink }}>
                     {blockLabel(block, t)}
                   </span>
-                  {!block.isRetest && !block.isMixed && (isSaved(block)
+                  {!block.isRetest && !block.isMixed && !isOnb(idx) && (isSaved(block)
                     ? <Pill T={T} tone="green">{t("lobbySaved")}</Pill>
                     : <Pill T={T} tone="amber">{t("lobbyNotSaved")}</Pill>)}
                   {bs.status === "pending" && <Pill T={T} tone="muted">{t("notStarted")}</Pill>}
@@ -12712,8 +12867,8 @@ function Lobby({ examData, blockStates, library = [], onStart, onReview, onHome,
               <div style={narrow
                 ? { display: "flex", flexDirection: "column", alignItems: "stretch", gap: 12, width: "100%" }
                 : { display: "flex", alignItems: "center", gap: 16, marginLeft: "auto", flexWrap: "wrap" }}>
-                <ExportShareButton T={T} fullWidth={narrow} wrapStyle={narrow ? { order: 3 } : undefined} getBlock={() => ({ block: examData.blocks[idx], examTitle: examData.examTitle })} />
-                {bs.status !== "done" && (
+                {!block.isTutorial && <ExportShareButton T={T} fullWidth={narrow} wrapStyle={narrow ? { order: 3 } : undefined} getBlock={() => ({ block: examData.blocks[idx], examTitle: examData.examTitle })} />}
+                {bs.status !== "done" && !block.isTutorial && (
                   <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start", gap: 4, width: narrow ? "100%" : 320, maxWidth: "100%" }}>
                     <div role="group" aria-label={t("modeLabel")} style={{ display: narrow ? "flex" : "inline-flex", width: narrow ? "100%" : undefined, border: `1px solid ${T.border}`, borderRadius: 6, overflow: "hidden", opacity: bs.status === "pending" ? 1 : 0.6 }}>
                       {[["timed", t("timed"), Clock], ["tutor", t("tutorShort"), Lightbulb], ["team", t("teamShort"), Users]].map(([m, label, Ic]) => {
@@ -12737,12 +12892,12 @@ function Lobby({ examData, blockStates, library = [], onStart, onReview, onHome,
                 {bs.status === "done" ? (
                   <>
                     <GhostButton T={T} onClick={() => onReview(idx)} icon={ChevronRight} style={narrow ? { width: "100%" } : undefined}>{t("review")}</GhostButton>
-                    {!bs.team && bs.score.correct < bs.score.total && ( // Team has no retries
+                    {!bs.team && !block.isTutorial && !block.isDemo && bs.score.correct < bs.score.total && ( // Team has no retries
                       <GhostButton T={T} onClick={() => onRetestMissed(idx)} icon={RotateCcw} style={narrow ? { width: "100%" } : undefined}>
                         {t("retestMissed", { n: bs.score.total - bs.score.correct })}
                       </GhostButton>
                     )}
-                    {!bs.team && (
+                    {!bs.team && !block.isTutorial && !block.isDemo && (
                       <GhostButton T={T} onClick={() => onRetestAll(idx)} icon={RotateCcw} style={narrow ? { width: "100%" } : undefined}>
                         {t("retestAll", { n: total })}
                       </GhostButton>
@@ -12958,7 +13113,7 @@ const examMenuItemStyle = (T, disabled) => ({
   cursor: disabled ? "not-allowed" : "pointer", opacity: disabled ? 0.45 : 1,
 });
 
-function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onAbortBlock, onOmitQuestion = () => {}, omitInfo = () => ({ saved: false, title: "", last: false }), onRate, onHome, darkMode, setDarkMode, onSyncNow = () => {} }) {
+function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onAbortBlock, onOmitQuestion = () => {}, omitInfo = () => ({ saved: false, title: "", last: false }), onRate, onHome, onSkipTutorial = () => {}, darkMode, setDarkMode, onSyncNow = () => {} }) {
   const driveCtx = useContext(DriveContext);
   // Resume on the question the student was last viewing (clamped in case the stored value is stale).
   const [qIdx, setQIdx] = useState(() => {
@@ -13380,6 +13535,9 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onAbortBl
             </button>
           )}
           {srcOpen && <TutorSourcesWindow sources={tutorSources} T={T} onClose={() => setSrcOpen(false)} />}
+          {blockState.tutorial === true && (
+            <GhostButton T={T} onClick={onSkipTutorial} style={{ color: "#fff", border: "1px solid rgba(255,255,255,0.55)", padding: narrow ? "6px 10px" : "8px 14px" }}>Skip tutorial</GhostButton>
+          )}
         </div>
 
         {prevNextEl}
@@ -14527,6 +14685,13 @@ function BlockResults({ block, blockState, blockIdx, history, onBackToLobby, onR
         <SettingsMenu darkMode={darkMode} setDarkMode={setDarkMode} T={T} />
       </div>
 
+      {block.isTutorial && (
+        <div style={{ display: "flex", flexDirection: "column", alignItems: phone ? "stretch" : "flex-start", gap: 10, marginBottom: 24 }}>
+          <PrimaryButton T={T} onClick={onBackToLobby}>Continue to the demo →</PrimaryButton>
+          <GhostButton T={T} onClick={onHome}>Skip demo, go Home</GhostButton>
+        </div>
+      )}
+
       <h1 style={{ fontFamily: FONT_UI, fontSize: fs(phone ? 22 : 28), fontWeight: 600, color: T.ink, margin: "0 0 4px", overflowWrap: "anywhere" }}>
         {t("results", { name: blockLabel(block, t) })}
       </h1>
@@ -14553,9 +14718,11 @@ function BlockResults({ block, blockState, blockIdx, history, onBackToLobby, onR
         </div>
       )}
 
-      <div style={{ display: "flex", flexWrap: "wrap", gap: 10, marginBottom: 28 }}>
-        <GhostButton T={T} onClick={onHome} icon={HomeIcon}>{t("homeBtn")}</GhostButton>
-      </div>
+      {!block.isTutorial && (
+        <div style={{ display: "flex", flexWrap: "wrap", gap: 10, marginBottom: 28 }}>
+          <GhostButton T={T} onClick={onHome} icon={HomeIcon}>{t("homeBtn")}</GhostButton>
+        </div>
+      )}
 
 
       {attempts.length > 1 && (
@@ -14717,7 +14884,7 @@ function BlockResults({ block, blockState, blockIdx, history, onBackToLobby, onR
       )}
 
       {/* Retest options bar (hidden while reviewing a past exam beside a session in progress) */}
-      {onRetest && !blockState.team && <div style={{
+      {onRetest && !blockState.team && !block.isTutorial && <div style={{
         position: "sticky", bottom: 0, zIndex: 30, margin: `28px -${pad}px -80px`, padding: `14px ${pad}px`,
         background: T.paper, borderTop: `1px solid ${T.border}`, display: "flex", flexWrap: "wrap", gap: 10,
       }}>
@@ -14903,8 +15070,7 @@ function FinalSummary({ examData, blockStates, onBackToLobby, T, darkMode, setDa
 // Onboarding tour: a 4-step welcome overlay. Closing it (X, Escape or Get Started) calls onClose();
 // if "Don't show this again" is ticked, that choice is remembered in localStorage.
 // First-run welcome: shown over the Dashboard when the library is empty and the user hasn't dismissed it before.
-function WelcomeModal({ onImport, onDemo, onSkip, T }) {
-  const { t } = useI18n();
+function WelcomeModal({ onImport, onTutorial, onDemo, onSkip, T }) {
   useEffect(() => {
     const onKey = (e) => { if (e.key === "Escape") onSkip(); };
     window.addEventListener("keydown", onKey);
@@ -14920,11 +15086,14 @@ function WelcomeModal({ onImport, onDemo, onSkip, T }) {
           Zero backend. 100% private. How would you like to begin?
         </p>
         <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-          <PrimaryButton T={T} icon={Upload} onClick={onImport} style={{ width: "100%", padding: "13px 18px", fontSize: fs(15) }}>
-            Import a Qbank
+          <PrimaryButton T={T} icon={Lightbulb} onClick={onTutorial} style={{ width: "100%", padding: "13px 18px", fontSize: fs(15) }}>
+            Start the 2-minute tutorial
           </PrimaryButton>
           <GhostButton T={T} icon={Play} onClick={onDemo} style={{ width: "100%", padding: "13px 18px", fontSize: fs(15) }}>
-            {t("tryDemoBtn")}
+            Skip straight to a demo
+          </GhostButton>
+          <GhostButton T={T} icon={Upload} onClick={onImport} style={{ width: "100%", padding: "13px 18px", fontSize: fs(15) }}>
+            Import a Qbank
           </GhostButton>
         </div>
         <button onClick={onSkip} style={{ marginTop: 20, background: "none", border: "none", padding: 4, fontFamily: FONT_UI, fontSize: fs(13), color: T.muted, textDecoration: "underline", cursor: "pointer" }}>
@@ -15757,6 +15926,14 @@ function OworldApp() {
     try { sessionStorage.setItem("oworld_welcome_import", "1"); } catch (e) {}
     setLibTab("import"); 
   };
+  const handleWelcomeTutorial = () => {
+    setExamData(ONBOARDING_EXAM);
+    setBlockStates(ONBOARDING_EXAM.blocks.map(makeInitialBlockState));
+    setHistory([]);
+    setActiveBlockIdx(0);
+    setView("exam");
+    finishWelcome();
+  };
   const handleWelcomeDemo = () => { finishWelcome(); startDemo(); };
   const startDemo = () => {
     const demoBlocks = DEMO_EXAM.blocks.map(debiasBlock);
@@ -15852,6 +16029,7 @@ function OworldApp() {
     const pct = Math.round((correct / total) * 100);
     const finishedAt = Date.now();
     const elapsedSec = bs.startedAt ? Math.round((finishedAt - bs.startedAt) / 1000) : 0;
+    const notifyBlockDone = () => notifs.notify({ kind: "blockDone", tone: pct >= 60 ? "green" : "amber", vars: { name: blockLabel(block, (k, v) => { let x = STR[lang]?.[k] ?? STR.en[k] ?? k; if (v) for (const q in v) x = x.split(`{${q}}`).join(String(v[q])); return x; }), correct, total, pct } });
     setBlockStates((prev) => {
       const copy = [...prev];
       copy[idx] = { ...copy[idx], status: "done", finishedAt, elapsedSec, score: { correct, total, answered, pct } };
@@ -15864,6 +16042,13 @@ function OworldApp() {
       hintsUsed: block.questions.filter((q) => bs.answers[q.id]?.hintUsed).length,
       ...firstExposureTally(block, bs),
     }]);
+    // Onboarding blocks are practice runs: no library score, no session log, no review snapshot. The tutorial also finishes quietly;
+    // the demo may still notify. Both still land on the results screen.
+    if (block.isTutorial || block.isDemo) {
+      if (!block.isTutorial) notifyBlockDone();
+      setView("results");
+      return;
+    }
     // Independent session log: a self-contained snapshot, written for EVERY finished block (card run, custom/mixed, retest).
     const subj = new Map();
     block.questions.forEach((q) => {
@@ -15916,7 +16101,7 @@ function OworldApp() {
     });
     // Finishing a first-pass block updates its library entry; retests are subsets and never overwrite it.
     if (block.libraryId && !block.isRetest) recordLibraryScore(block.libraryId, { correct, total, pct }, finishedAt);
-    notifs.notify({ kind: "blockDone", tone: pct >= 60 ? "green" : "amber", vars: { name: blockLabel(block, (k, v) => { let x = STR[lang]?.[k] ?? STR.en[k] ?? k; if (v) for (const q in v) x = x.split(`{${q}}`).join(String(v[q])); return x; }), correct, total, pct } });
+    notifyBlockDone();
     setView("results");
   }
 
@@ -16162,6 +16347,7 @@ function OworldApp() {
           omitInfo={omitPlan}
           onRate={(q, k) => rateQuestion(activeBlockIdx, q, k)}
           onHome={goHome}
+          onSkipTutorial={examData.blocks[activeBlockIdx].isTutorial ? () => { submitActiveBlock(); setView("lobby"); } : undefined}
           darkMode={darkMode}
           setDarkMode={setDarkMode}
         />
@@ -16172,7 +16358,7 @@ function OworldApp() {
         <BlockResults
           block={examData.blocks[activeBlockIdx]}
           blockState={blockStates[activeBlockIdx]}
-          onBackToLobby={removeLoadedExam}
+          onBackToLobby={examData.blocks[activeBlockIdx].isTutorial ? () => setView("lobby") : removeLoadedExam}
           blockIdx={activeBlockIdx}
           history={history}
           onRetest={launchRetest}
@@ -16219,7 +16405,7 @@ function OworldApp() {
     </TrashContext.Provider>
     </DataContext.Provider>
     </TextScaleContext.Provider>
-    {showWelcome && <WelcomeModal T={T} onImport={handleWelcomeImport} onDemo={handleWelcomeDemo} onSkip={finishWelcome} />}
+    {showWelcome && <WelcomeModal T={T} onImport={handleWelcomeImport} onTutorial={handleWelcomeTutorial} onDemo={handleWelcomeDemo} onSkip={finishWelcome} />}
     {showOnboarding && <OnboardingTour onClose={() => setShowOnboarding(false)} T={T} />}
     </LangContext.Provider>
   );
