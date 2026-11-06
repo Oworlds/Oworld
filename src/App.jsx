@@ -337,7 +337,7 @@ const STR = {
     removeSelBody: "{n} block(s) will be removed from this session. Copies saved in your Oworld Library aren't affected.",
     removeSelBodyUnsaved: "{n} block(s) will be removed from this session. {u} of them aren't saved to your library and will be gone for good — save them first if you want to keep them.",
     pasteChars: "{n} characters pasted", pasteClear: "Clear", pasteEmpty: "Nothing pasted yet — expand to paste, or use Upload.", pasteEmptyImport: "Paste JSON to enable Save, or click Upload file on the right.",
-    emLibTitle: "Your Library is empty.", emLibBody: "Oworld doesn't come with pre-loaded questions. Generate your own Qbank using AI in seconds.", emLibGenerate: "Generate Qbank", tryDemoBtn: "Try the OW Qbank (Demo)",
+    emLibTitle: "Your Library is empty.", emLibBody: "Oworld doesn't come with pre-loaded questions. Generate your own Qbank using AI in seconds.", emLibGenerate: "Generate Qbank", tryDemoBtn: "Try the OW Qbank (Demo)", demoTag: "Demo",
     emAnTitle: "No data yet.", emAnBody: "Take your first block to unlock your USMLE readiness analytics.",
     emCalTitle: "Map out your semester.", emCalBody: "Upload your syllabus and exam schedule to track readiness and get daily study recommendations.", emCalSetup: "Set up Study Profile",
     load: "Load exam", importQbank: "Import New Qbank", importInLibrary: "Already in your library — start it from there.", lobbySaveN: "Save to Library ({n})", lobbyRemoveN: "Remove ({n})", triageHint: "Tick this Qbank to save it to your library or remove it.", lobbyTriageNote: "These Qbanks were just imported. Tick the ones you want, then use Save to Library to keep them or Remove to dismiss them.", aiLaunchTitle: "AI Quick Launch", aiLaunchHint: "Open your AI tool, paste the prompt below along with your topic or notes, then bring the reply back here.", aiLaunchOpens: "Opens in a new tab", nbTitle: "Subjects & Systems", nbHint: "Your study notebooks, by block. Each one opens in NotebookLM in a new tab.", nbAll: "USMLE (all-in-one notebook)", nbBlock1: "Block 1", nbBlock2: "Block 2", nbCore: "Core sciences", nbClinical: "Clinical", 
@@ -541,7 +541,7 @@ const STR = {
     removeSelBody: "{n} bloque(s) se quitarán de esta sesión. Las copias guardadas en tu Biblioteca Oworld no se ven afectadas.",
     removeSelBodyUnsaved: "{n} bloque(s) se quitarán de esta sesión. {u} de ellos no están guardados en tu biblioteca y se perderán definitivamente; guárdalos primero si quieres conservarlos.",
     pasteChars: "{n} caracteres pegados", pasteClear: "Borrar", pasteEmpty: "Aún no has pegado nada — expande para pegar o usa Subir archivo.", pasteEmptyImport: "Pega el JSON para activar Guardar, o haz clic en Subir archivo a la derecha.",
-    emLibTitle: "Tu biblioteca está vacía.", emLibBody: "Oworld no incluye preguntas precargadas. Genera tu propio Qbank con IA en segundos.", emLibGenerate: "Generar Qbank", tryDemoBtn: "Probar el Qbank OW (Demo)",
+    emLibTitle: "Tu biblioteca está vacía.", emLibBody: "Oworld no incluye preguntas precargadas. Genera tu propio Qbank con IA en segundos.", emLibGenerate: "Generar Qbank", tryDemoBtn: "Probar el Qbank OW (Demo)", demoTag: "Demo",
     emAnTitle: "Aún no hay datos.", emAnBody: "Haz tu primer bloque para desbloquear tus analíticas de preparación para el USMLE.", 
     emCalTitle: "Planifica tu semestre.", emCalBody: "Sube tu programa y el calendario de exámenes para seguir tu preparación y recibir recomendaciones de estudio diarias.", emCalSetup: "Configurar perfil de estudio",
     load: "Cargar examen", importQbank: "Importar nuevo Qbank", importInLibrary: "Ya está en tu biblioteca — inícialo desde ahí.", lobbySaveN: "Guardar en la biblioteca ({n})", lobbyRemoveN: "Quitar ({n})", triageHint: "Márcalo para guardarlo en tu biblioteca o quitarlo.", lobbyTriageNote: "Estos Qbanks acaban de importarse. Marca los que quieras y usa Guardar en la biblioteca para conservarlos o Quitar para descartarlos.", aiLaunchTitle: "Acceso rápido a IA", aiLaunchHint: "Abre tu herramienta de IA, pega el prompt de abajo junto con tu tema o apuntes y trae la respuesta aquí.", aiLaunchOpens: "Se abre en una pestaña nueva", nbTitle: "Materias y sistemas", nbHint: "Tus cuadernos de estudio, por bloque. Cada uno se abre en NotebookLM en una pestaña nueva.", nbAll: "USMLE (cuaderno general)", nbBlock1: "Bloque 1", nbBlock2: "Bloque 2", nbCore: "Ciencias básicas", nbClinical: "Clínica", 
@@ -1468,10 +1468,6 @@ const DEMO_EXAM = {
   ]
 };
 
-// Onboarding: the tutorial block followed by the demo block. The demo is a shallow copy of the first DEMO_EXAM block, flagged so
-// submitActiveBlock leaves the library, session log and review snapshots alone.
-const DEMO_BLOCK = { ...DEMO_EXAM.blocks[0], isDemo: true };
-const ONBOARDING_EXAM = { examTitle: "Welcome to OWORLD", blocks: [TUTORIAL_BLOCK, DEMO_BLOCK] };
 
 // Bilingual Qbanks: a question may carry an `es` object (and each option an `es.text`). When the UI language is Spanish
 // and the translated string exists it is shown; otherwise the English original is. Works for any Qbank, not just the demo.
@@ -9517,7 +9513,10 @@ function QbankLibraryPanel({ library, onLaunch, onMix, onDelete, onRename, onSet
                   {renameTotal > 1 && <Pill T={T} tone="muted">{t("libEditing", { i: renameTotal - renameQueue.length + 1, n: renameTotal })}</Pill>}
                 </span>
               ) : (
-                <span style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(14.5), color: T.ink }}>{e.title}</span>
+                <>
+                  <span style={{ fontFamily: FONT_UI, fontWeight: 700, fontSize: fs(14.5), color: T.ink }}>{e.title}</span>
+                  {e.isDemoQbank && <Pill T={T} tone="purple">{t("demoTag")}</Pill>}
+                </>
               )}
               {tutorIds.has(e.id) && <span title={t("spLibStrip", { w: tutorBrief_.week })} aria-label={t("spLibStrip", { w: tutorBrief_.week })} style={{ display: "inline-flex", opacity: 0.7 }}><GraduationCap size={15} color={T.link} /></span>}
               {pos >= 0 && <Pill T={T} tone="blue">#{pos + 1}</Pill>}
@@ -14317,7 +14316,7 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onAbortBl
             {tutorMode && onAbortBlock && <p style={{ fontFamily: FONT_UI, fontSize: fs(12.5), color: T.muted, lineHeight: 1.5, margin: "-8px 0 18px" }}>{t("abortHint")}</p>}
             <div style={{ display: "flex", gap: 10, justifyContent: "flex-end", flexWrap: "wrap" }}>
               <GhostButton T={T} onClick={() => setConfirmSubmit(false)}>{t("keepWorking")}</GhostButton>
-              {tutorMode && onAbortBlock && <GhostButton T={T} style={{ color: T.red, borderColor: T.red }} onClick={() => { setConfirmSubmit(false); setConfirmAbort(true); }}>{t("abortBtn")}</GhostButton>}
+              {tutorMode && onAbortBlock && <GhostButton T={T} disabled={blockState.status === "done"} style={blockState.status === "done" ? undefined : { color: T.red, borderColor: T.red }} onClick={() => { setConfirmSubmit(false); setConfirmAbort(true); }}>{t("abortBtn")}</GhostButton>}
               <PrimaryButton T={T} onClick={() => { setConfirmSubmit(false); onSubmitBlock(); }}>{t("endBlockBtn")}</PrimaryButton>
             </div>
           </div>
@@ -14687,8 +14686,7 @@ function BlockResults({ block, blockState, blockIdx, history, onBackToLobby, onR
 
       {block.isTutorial && (
         <div style={{ display: "flex", flexDirection: "column", alignItems: phone ? "stretch" : "flex-start", gap: 10, marginBottom: 24 }}>
-          <PrimaryButton T={T} onClick={onBackToLobby}>Continue to the demo →</PrimaryButton>
-          <GhostButton T={T} onClick={onHome}>Skip demo, go Home</GhostButton>
+          <PrimaryButton T={T} onClick={onHome}>Go to Library →</PrimaryButton>
         </div>
       )}
 
@@ -15070,7 +15068,7 @@ function FinalSummary({ examData, blockStates, onBackToLobby, T, darkMode, setDa
 // Onboarding tour: a 4-step welcome overlay. Closing it (X, Escape or Get Started) calls onClose();
 // if "Don't show this again" is ticked, that choice is remembered in localStorage.
 // First-run welcome: shown over the Dashboard when the library is empty and the user hasn't dismissed it before.
-function WelcomeModal({ onImport, onTutorial, onDemo, onSkip, T }) {
+function WelcomeModal({ onImport, onTutorial, onSkip, T }) {
   useEffect(() => {
     const onKey = (e) => { if (e.key === "Escape") onSkip(); };
     window.addEventListener("keydown", onKey);
@@ -15089,9 +15087,6 @@ function WelcomeModal({ onImport, onTutorial, onDemo, onSkip, T }) {
           <PrimaryButton T={T} icon={Lightbulb} onClick={onTutorial} style={{ width: "100%", padding: "13px 18px", fontSize: fs(15) }}>
             Start the 2-minute tutorial
           </PrimaryButton>
-          <GhostButton T={T} icon={Play} onClick={onDemo} style={{ width: "100%", padding: "13px 18px", fontSize: fs(15) }}>
-            Skip straight to a demo
-          </GhostButton>
           <GhostButton T={T} icon={Upload} onClick={onImport} style={{ width: "100%", padding: "13px 18px", fontSize: fs(15) }}>
             Import a Qbank
           </GhostButton>
@@ -15221,6 +15216,16 @@ function OworldApp() {
   const [srcWin, setSrcWin] = useState(null); // Tutor suggested sources window: { sources } | null
   const [tombs, setTombs] = useState(loadTombs); // deletions, so a delete on one device isn't undone by another device's copy
   const [decks, setDecks] = useState(loadDecks); // Qbank Library decks (the list; membership is saved on each Qbank). Synced through Drive with the library.
+  // First run only: a brand-new install (empty library, no saved session, nothing ever deleted) gets the demo Qbank pre-loaded.
+  useEffect(() => {
+    if (boot.library.length === 0 && !boot.session
+      && Object.keys(tombs.qbanks).length === 0 && Object.keys(tombs.sessions).length === 0 && Object.keys(tombs.decks || {}).length === 0) {
+      const demoEntry = makeLibraryEntry({ blockName: "My 1st Qbank", questions: DEMO_EXAM.blocks[0].questions, timeLimitMinutes: DEMO_EXAM.blocks[0].timeLimitMinutes });
+      demoEntry.isDemoQbank = true;
+      setLibrary([demoEntry]);
+      lsSet(LS_LIBRARY, JSON.stringify([demoEntry]));
+    }
+  }, []);
   const [sessionLog, setSessionLog] = useState(boot.sessionLog); // independent log of every finished session, newest first
   const [trash, setTrash] = useState(loadTrash); // recently deleted Qbanks, Analytics sessions and Database items (restorable for TRASH_TTL)
   const [restoredNotice, setRestoredNotice] = useState(!!boot.session);
@@ -15927,14 +15932,14 @@ function OworldApp() {
     setLibTab("import"); 
   };
   const handleWelcomeTutorial = () => {
-    setExamData(ONBOARDING_EXAM);
-    setBlockStates(ONBOARDING_EXAM.blocks.map(makeInitialBlockState));
+    const tutorialExam = { blocks: [TUTORIAL_BLOCK] };
+    setExamData(tutorialExam);
+    setBlockStates(tutorialExam.blocks.map(makeInitialBlockState));
     setHistory([]);
     setActiveBlockIdx(0);
     setView("exam");
     finishWelcome();
   };
-  const handleWelcomeDemo = () => { finishWelcome(); startDemo(); };
   const startDemo = () => {
     const demoBlocks = DEMO_EXAM.blocks.map(debiasBlock);
     setExamData({ ...DEMO_EXAM, blocks: demoBlocks });
@@ -16114,6 +16119,7 @@ function OworldApp() {
     const idx = activeBlockIdx;
     const block = examData && examData.blocks[idx];
     if (!block || !blockStates[idx]) return;
+    if (blockStates[idx].status === "done") return; // a completed block can no longer be aborted
     setSrcWin(null);
     if (examData.blocks.length === 1) { removeLoadedExam(); }
     else if (block.isRetest) {
@@ -16405,7 +16411,7 @@ function OworldApp() {
     </TrashContext.Provider>
     </DataContext.Provider>
     </TextScaleContext.Provider>
-    {showWelcome && <WelcomeModal T={T} onImport={handleWelcomeImport} onTutorial={handleWelcomeTutorial} onDemo={handleWelcomeDemo} onSkip={finishWelcome} />}
+    {showWelcome && <WelcomeModal T={T} onImport={handleWelcomeImport} onTutorial={handleWelcomeTutorial} onSkip={finishWelcome} />}
     {showOnboarding && <OnboardingTour onClose={() => setShowOnboarding(false)} T={T} />}
     </LangContext.Provider>
   );
