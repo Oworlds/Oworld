@@ -291,7 +291,7 @@ const STR = {
     resumed: "Session restored — you're back where you left off.", storageFull: "Couldn't write to browser storage (it may be full or disabled). Your progress is not being backed up right now.",
     leaveConfirm: "You have a block in progress. Leaving now discards it. Continue?",
     settings: "Settings", dark: "Dark mode", lang: "Language",
-    "tabProfile": "Study Profile", "menuProfile": "Profile", "tutorSrcTitle": "Tutor suggested sources", "tutorSrcHint": "This block draws on the references below. Have them open so you can study along as you answer.", "tutorSrcQ": "{n} question(s)", "tutorSrcCount": "{n} source(s)", "tutorSrcStart": "Continue", "tutorSrcBtn": "Sources", "srcAutoLabel": "Show tutor suggested sources at the start of every session", "srcAutoShort": "Show this at the start of every session", "syncShort": "Sync", "acctSave": "Save", "acctSaved": "Saved", "spTitle": "Study Profile", "spHint": "One standard file that tells Oworld where you are in your studies: your term and semester calendar, syllabus weeks, class schedule, exams and plan. Your tutor uses it on the Console, in the Library and in notifications.", "spSyncLocal": "Saved on this device. Sign in with Google (profile menu) to sync it through your Drive.", "spSyncDrive": "Syncs with your Google Drive", "spBuildTitle": "Build your profile with AI", "spBuildBody": "Copy the prompt, give it to your AI tool together with your syllabi, semester calendar, class timetable and exam schedule (PDF, screenshot or pasted text; send what you have), then paste the JSON it returns below.", "spUpdateTitle": "Update your profile", "spUpdateBody": "Give your AI tool the prompt again (with a new syllabus, schedule or semester calendar if you have one) to refresh your week, plan and strengths. Ids and ticked tasks are kept.", "spModeNew": "Start fresh", "spModeUpdate": "Update current profile", "spIncludeStats": "Include my study stats", "spIncludeStatsHint": "Adds a compact summary of your Analytics so the AI can write your strengths, gaps and pace from real results.", "spCopyPrompt": "Copy prompt", "spViewPrompt": "Preview prompt", "spHidePrompt": "Hide prompt", "spPasteLabel": "Paste the AI's JSON", "spPasteOpen": "Show box", "spPastePh": "Paste the profile JSON here…", "spLoad": "Load profile", "spUpload": "Upload .json", "spReplaceNote": "Loading replaces your current profile. Tasks you already ticked stay ticked.", "spLoaded": "Profile loaded. Your tutor is now on the Console.", "spErrParse": "That doesn't look like JSON. Paste only the AI's reply (or upload the file).", "spErrShape": "This JSON isn't a Study Profile. It needs at least a term, courses, assessments or a plan.", "spWarnTruncated": "The reply looked cut off, so only the complete part was loaded. Ask the AI to continue and update your profile.", "spWarnDates": "{n} assessment(s) had no usable date and were left out: {titles}.", "spWarnDropped": "{n} incomplete item(s) were left out.", "spWarnNoStart": "No term start date was found, so the current week can't be tracked automatically.", "spTermWeek": "Week {w} of {n}", "spTermWeekNoTotal": "Week {w}", "spTermBefore": "Starts in {n} days", "spTermBefore1": "Starts tomorrow", "spTermAfter": "Term ended", "spTermUnknown": "Week unknown", "spThisWeek": "This week", "spNoFocus": "No topics mapped for this week.", "spNext": "Next assessment", "spNoNext": "No upcoming assessments.", "spToday": "Today", "spTomorrow": "Tomorrow", "spInDays": "in {n} days", "spTodayNone": "Nothing due today.", "spWeekly": "{a} of {n} questions this week", "spAssessments": "Upcoming assessments", "spTasks": "Plan", "spNoTasks": "No tasks yet.", "spCourses": "Syllabus map", "spWeekN": "Wk {n}", "spSource": "Source", "spConf": "Confidence: {c}", "spConf.high": "high", "spConf.medium": "medium", "spConf.low": "low", "spAssump": "Assumptions the AI made", "spRisk": "Risk", "spRisk.low": "low", "spRisk.medium": "medium", "spRisk.high": "high", "spStrengths": "Strengths", "spGaps": "Gaps", "spExport": "Export JSON", "spDelete": "Delete profile", "spDeleteQ": "Delete your Study Profile? It is removed from this device and from Drive sync. Your Qbanks and Analytics are not touched.", "spDeleteGo": "Delete", "spSchemaView": "View JSON schema", "spSchemaHide": "Hide JSON schema", "spSchemaTitle": "Study Profile JSON schema", "spCardTitle": "Your tutor", "spCardOpen": "Open profile", "spCardInviteTitle": "Set up your Study Profile", "spCardInviteBody": "Give Oworld your syllabi, calendar, class timetable and exam schedule once and your tutor will keep track of your week, your classes, your exams and what to study next.", "spCardInviteBtn": "Set up profile", "spStartBlock": "Start a {s} block", "spLibStrip": "Tutor suggests for week {w}", "spLibStart": "{title} ({n} Q)", "sgBefore": "Your term starts {when}. Get your Qbanks ready.", "sgExam": "{title} is {when}.", "sgExamCover": "{title} is {when} and covers {coverage}.", "sgTasks": "{n} task(s) due today or overdue.", "sgPaceBehind": "You're behind this week's pace: {a} of {t} questions. A short block today closes the gap.", "sgPaceDone": "Weekly target reached ({a}/{t}). Nice work.", "sgPaceOn": "On pace: {a} of {t} questions this week.", "sgWeak": "{subject} is at {pct}% and it's on this week's list.", "sgNoFocus": "No topics are mapped for this week. Update your profile with the syllabus.", "sgStale": "Your profile is {n} days old. Update it so your tutor stays accurate.", "nf.examSoon.t": "Exam coming up", "nf.examSoon.b": "{title} is in {days} days.", "nf.examTomorrow.t": "Exam tomorrow", "nf.examTomorrow.b": "{title} is tomorrow. Do a light review and rest.", "nf.examToday.t": "Exam today", "nf.examToday.b": "{title} is today. Good luck!", "nf.weekStart.t": "Week {week} of {total}", "nf.weekStart.b": "This week: {topics}", "nf.termStart.t": "Term starts soon", "nf.termStart.b": "Your term starts in {days} day(s). Get your Qbanks ready.", "nf.paceBehind.t": "Behind this week's pace", "nf.paceBehind.b": "{a} of {t} questions so far. A short block today helps.", "nf.tasksDue.t": "Tasks due", "nf.tasksDue.b": "{n} task(s) due today or overdue. Open the Console.", "nf.profileStale.t": "Update your profile", "nf.profileStale.b": "Your Study Profile is {n} days old.", "nf.profileLoaded.t": "Study Profile ready", "nf.profileLoaded.b": "Your tutor now follows {term}.",
+    "tabProfile": "Study Profile", "menuProfile": "Profile", "tutorSrcTitle": "Tutor suggested sources", "tutorSrcHint": "This block draws on the references below. Have them open so you can study along as you answer.", "tutorSrcQ": "{n} question(s)", "tutorSrcCount": "{n} source(s)", "tutorSrcStart": "Continue", "tutorSrcBtn": "Sources", "welcomeStartLabel": "Show the welcome screen every time Oworld starts", "srcAutoLabel": "Show tutor suggested sources at the start of every session", "srcAutoShort": "Show this at the start of every session", "syncShort": "Sync", "acctSave": "Save", "acctSaved": "Saved", "spTitle": "Study Profile", "spHint": "One standard file that tells Oworld where you are in your studies: your term and semester calendar, syllabus weeks, class schedule, exams and plan. Your tutor uses it on the Console, in the Library and in notifications.", "spSyncLocal": "Saved on this device. Sign in with Google (profile menu) to sync it through your Drive.", "spSyncDrive": "Syncs with your Google Drive", "spBuildTitle": "Build your profile with AI", "spBuildBody": "Copy the prompt, give it to your AI tool together with your syllabi, semester calendar, class timetable and exam schedule (PDF, screenshot or pasted text; send what you have), then paste the JSON it returns below.", "spUpdateTitle": "Update your profile", "spUpdateBody": "Give your AI tool the prompt again (with a new syllabus, schedule or semester calendar if you have one) to refresh your week, plan and strengths. Ids and ticked tasks are kept.", "spModeNew": "Start fresh", "spModeUpdate": "Update current profile", "spIncludeStats": "Include my study stats", "spIncludeStatsHint": "Adds a compact summary of your Analytics so the AI can write your strengths, gaps and pace from real results.", "spCopyPrompt": "Copy prompt", "spViewPrompt": "Preview prompt", "spHidePrompt": "Hide prompt", "spPasteLabel": "Paste the AI's JSON", "spPasteOpen": "Show box", "spPastePh": "Paste the profile JSON here…", "spLoad": "Load profile", "spUpload": "Upload .json", "spReplaceNote": "Loading replaces your current profile. Tasks you already ticked stay ticked.", "spLoaded": "Profile loaded. Your tutor is now on the Console.", "spErrParse": "That doesn't look like JSON. Paste only the AI's reply (or upload the file).", "spErrShape": "This JSON isn't a Study Profile. It needs at least a term, courses, assessments or a plan.", "spWarnTruncated": "The reply looked cut off, so only the complete part was loaded. Ask the AI to continue and update your profile.", "spWarnDates": "{n} assessment(s) had no usable date and were left out: {titles}.", "spWarnDropped": "{n} incomplete item(s) were left out.", "spWarnNoStart": "No term start date was found, so the current week can't be tracked automatically.", "spTermWeek": "Week {w} of {n}", "spTermWeekNoTotal": "Week {w}", "spTermBefore": "Starts in {n} days", "spTermBefore1": "Starts tomorrow", "spTermAfter": "Term ended", "spTermUnknown": "Week unknown", "spThisWeek": "This week", "spNoFocus": "No topics mapped for this week.", "spNext": "Next assessment", "spNoNext": "No upcoming assessments.", "spToday": "Today", "spTomorrow": "Tomorrow", "spInDays": "in {n} days", "spTodayNone": "Nothing due today.", "spWeekly": "{a} of {n} questions this week", "spAssessments": "Upcoming assessments", "spTasks": "Plan", "spNoTasks": "No tasks yet.", "spCourses": "Syllabus map", "spWeekN": "Wk {n}", "spSource": "Source", "spConf": "Confidence: {c}", "spConf.high": "high", "spConf.medium": "medium", "spConf.low": "low", "spAssump": "Assumptions the AI made", "spRisk": "Risk", "spRisk.low": "low", "spRisk.medium": "medium", "spRisk.high": "high", "spStrengths": "Strengths", "spGaps": "Gaps", "spExport": "Export JSON", "spDelete": "Delete profile", "spDeleteQ": "Delete your Study Profile? It is removed from this device and from Drive sync. Your Qbanks and Analytics are not touched.", "spDeleteGo": "Delete", "spSchemaView": "View JSON schema", "spSchemaHide": "Hide JSON schema", "spSchemaTitle": "Study Profile JSON schema", "spCardTitle": "Your tutor", "spCardOpen": "Open profile", "spCardInviteTitle": "Set up your Study Profile", "spCardInviteBody": "Give Oworld your syllabi, calendar, class timetable and exam schedule once and your tutor will keep track of your week, your classes, your exams and what to study next.", "spCardInviteBtn": "Set up profile", "spStartBlock": "Start a {s} block", "spLibStrip": "Tutor suggests for week {w}", "spLibStart": "{title} ({n} Q)", "sgBefore": "Your term starts {when}. Get your Qbanks ready.", "sgExam": "{title} is {when}.", "sgExamCover": "{title} is {when} and covers {coverage}.", "sgTasks": "{n} task(s) due today or overdue.", "sgPaceBehind": "You're behind this week's pace: {a} of {t} questions. A short block today closes the gap.", "sgPaceDone": "Weekly target reached ({a}/{t}). Nice work.", "sgPaceOn": "On pace: {a} of {t} questions this week.", "sgWeak": "{subject} is at {pct}% and it's on this week's list.", "sgNoFocus": "No topics are mapped for this week. Update your profile with the syllabus.", "sgStale": "Your profile is {n} days old. Update it so your tutor stays accurate.", "nf.examSoon.t": "Exam coming up", "nf.examSoon.b": "{title} is in {days} days.", "nf.examTomorrow.t": "Exam tomorrow", "nf.examTomorrow.b": "{title} is tomorrow. Do a light review and rest.", "nf.examToday.t": "Exam today", "nf.examToday.b": "{title} is today. Good luck!", "nf.weekStart.t": "Week {week} of {total}", "nf.weekStart.b": "This week: {topics}", "nf.termStart.t": "Term starts soon", "nf.termStart.b": "Your term starts in {days} day(s). Get your Qbanks ready.", "nf.paceBehind.t": "Behind this week's pace", "nf.paceBehind.b": "{a} of {t} questions so far. A short block today helps.", "nf.tasksDue.t": "Tasks due", "nf.tasksDue.b": "{n} task(s) due today or overdue. Open the Console.", "nf.profileStale.t": "Update your profile", "nf.profileStale.b": "Your Study Profile is {n} days old.", "nf.profileLoaded.t": "Study Profile ready", "nf.profileLoaded.b": "Your tutor now follows {term}.",
     "spPromptTitle": "Study Profile — AI prompt",
     "sgEve": "{title} is tomorrow. Keep it light: review your weakest topic, then rest.", "sgDeadline": "Deadline: {title} is {when}.", "sgBreakNow": "{title}: no classes today. Classes resume {when}. A good time to close gaps.", "sgBreakSoon": "{title} starts {when}. Fit a heavier study block in before it.", "sgStreak": "No practice yet today. A short block keeps your {n}-day streak alive.", "sgUntested": "{n} of {total} topics for {title} have no practice data yet.",
     "nf.breakSoon.t": "Break starts tomorrow", "nf.breakSoon.b": "{title} starts tomorrow. Plan your study before it.", "nf.deadlineSoon.t": "Deadline coming up", "nf.deadlineSoon.b": "{title} is due in {days} day(s).", "nf.deadlineToday.t": "Deadline today", "nf.deadlineToday.b": "{title} is due today.",
@@ -340,7 +340,7 @@ const STR = {
     emLibTitle: "Your Library is empty.", emLibBody: "Oworld doesn't come with pre-loaded questions. Generate your own Qbank using AI in seconds.", emLibGenerate: "Generate Qbank", tryDemoBtn: "Try the OW Qbank (Demo)", demoTag: "Demo",
     emAnTitle: "No data yet.", emAnBody: "Take your first block to unlock your USMLE readiness analytics.",
     emCalTitle: "Map out your semester.", emCalBody: "Upload your syllabus and exam schedule to track readiness and get daily study recommendations.", emCalSetup: "Set up Study Profile",
-    load: "Load exam", importQbank: "Import New Qbank", importInLibrary: "Already in your library — start it from there.", lobbySaveN: "Save to Library ({n})", lobbyRemoveN: "Remove ({n})", triageHint: "Tick this Qbank to save it to your library or remove it.", lobbyTriageNote: "These Qbanks were just imported. Tick the ones you want, then use Save to Library to keep them or Remove to dismiss them.", aiLaunchTitle: "AI Quick Launch", aiLaunchHint: "Open your AI tool, paste the prompt below along with your topic or notes, then bring the reply back here.", aiLaunchOpens: "Opens in a new tab", nbTitle: "Subjects & Systems", nbHint: "Your study notebooks, by block. Each one opens in NotebookLM in a new tab.", nbAll: "USMLE (all-in-one notebook)", nbBlock1: "Block 1", nbBlock2: "Block 2", nbCore: "Core sciences", nbClinical: "Clinical", 
+    load: "Load exam", importQbank: "Import New Qbank", importInLibrary: "Already in your library — start it from there.", lobbySaveN: "Save to Library ({n})", lobbyRemoveN: "Remove ({n})", triageHint: "Tick this Qbank to save it to your library or remove it.", lobbyTriageNote: "These Qbanks were just imported. Tick the ones you want, then use Save to Library to keep them or Remove to dismiss them.", aiLaunchTitle: "AI Quick Launch", aiLaunchHint: "Open your AI tool, paste the recipe from Step 1 along with your topic or notes, then bring the reply back to Step 3.", aiLaunchOpens: "Opens in a new tab", nbTitle: "Subjects & Systems", nbHint: "Paste your recipe into a notebook below, or into your favorite AI tool. Notebooks are organized by block, and each opens in NotebookLM in a new tab.", nbAll: "USMLE (all-in-one notebook)", nbBlock1: "Block 1", nbBlock2: "Block 2", nbCore: "Core sciences", nbClinical: "Clinical", 
     wasIncorrectBadge: "Missed before retry", missedBeforeN: "{n} missed before retry", explHide: "Hide explanation", explShow: "Show explanation",
     activeTitle: "Continue your test from another device?", activeTitleConflict: "A different version of this test is on another device",
     activeBody: "“{name}”: question {n} of {total}, {answered} answered. Last updated {time}.",
@@ -370,7 +370,7 @@ const STR = {
     uniTitle: "Recipe & Import Hub", uniHint: "One importer for everything: pick a recipe, copy the prompt into your AI tool, then paste what it returns.", 
     
     libTypeAll: "Import", libTypeQbank: "Qbank", moreActions: "More actions", omitQuestion: "Omit question", omitTitle: "Remove this question from your Qbank?", omitConfirmSaved: "This permanently deletes the question from \"{title}\". It will not appear when you practise, and it will not be included if you share or export that Qbank. This cannot be undone.", omitConfirmLocal: "This question is not saved in your library. It is removed from this block and from anything you share from it. This cannot be undone.", omitGo: "Omit permanently", omitLastHint: "Every block and Qbank needs at least one question, so this one cannot be omitted.", trashQuestions: "Questions", trashKindQuestion: "Question", trashQuestionNoBank: "{s} omitted question(s) could not be restored because their Qbank is no longer in your library.", syncQHint: "Syncs your progress and omitted questions to your other devices and your Qbank.", giveFeedback: "Give feedback", reportIssue: "Report an Issue", defineBtn: "Define", defLoading: "Looking up…", defDisambig: "This term has several meanings on Wikipedia.", defNoArticle: "No Wikipedia article matches this term.", defUnavailable: "Could not load a definition right now.", defReadFull: "Read full article", defSeeAll: "See all meanings", defOpenWiki: "Open on Wikipedia", defSkipped: "Select a more specific medical term to look it up.", defCaveat: "Definitions are for background only; rely on your source text for management.",
-    recipeTitle: "Copy & Paste this prompt to generate a Qbank", copied: "Copied", copy: "Copy", schema: "JSON schema",     createdBy: "OWORLD is created by", role: "Medical student | Founder of Verde+", supportOworld: "Support Oworld",
+    recipeTitle: "Copy & Paste this prompt to generate a Qbank", stepWord: "Step", step1Title: "Copy a Question Recipe", step2Title: "Sources to Generate Questions", step3Title: "Paste the AI Qbank Output Here", copied: "Copied", copy: "Copy", schema: "JSON schema",     createdBy: "OWORLD is created by", role: "Medical student | Founder of Verde+", supportOworld: "Support Oworld",
     joinDiscord: "Join our Discord", libGetCommunity: "Get Community Qbanks", 
     supportCardText: "Oworld is free and stays free. If it helps you, consider supporting the project.", supportCardBtn: "Support",
     supportResultsTitle: "You just finished a free block.", supportResultsBody: "Oworld will never lock its questions behind a paywall. If you found this valuable, consider supporting the project.", supportResultsBtn: "Support Oworld",
@@ -495,7 +495,7 @@ const STR = {
     resumed: "Sesión restaurada: continúas donde la dejaste.", storageFull: "No se pudo escribir en el almacenamiento del navegador (puede estar lleno o desactivado). Tu progreso no se está respaldando.",
     leaveConfirm: "Tienes un bloque en curso. Si sales ahora se descartará. ¿Continuar?",
     settings: "Ajustes", dark: "Modo oscuro", lang: "Idioma",
-    "tabProfile": "Perfil de estudio", "menuProfile": "Perfil", "tutorSrcTitle": "Fuentes sugeridas por el tutor", "tutorSrcHint": "Este bloque se apoya en las referencias de abajo. Tenlas abiertas para estudiar mientras respondes.", "tutorSrcQ": "{n} pregunta(s)", "tutorSrcCount": "{n} fuente(s)", "tutorSrcStart": "Continuar", "tutorSrcBtn": "Fuentes", "srcAutoLabel": "Mostrar las fuentes sugeridas por el tutor al inicio de cada sesión", "srcAutoShort": "Mostrar esto al inicio de cada sesión", "syncShort": "Sincronizar", "acctSave": "Guardar", "acctSaved": "Guardado", "spTitle": "Perfil de estudio", "spHint": "Un archivo estándar que le dice a Oworld en qué punto de tus estudios estás: tu periodo y el calendario del semestre, las semanas del programa, el horario de clases, los exámenes y tu plan. Tu tutor lo usa en la Consola, en la Biblioteca y en las notificaciones.", "spSyncLocal": "Guardado en este dispositivo. Inicia sesión con Google (menú de perfil) para sincronizarlo con tu Drive.", "spSyncDrive": "Se sincroniza con tu Google Drive", "spBuildTitle": "Crea tu perfil con IA", "spBuildBody": "Copia el prompt, dáselo a tu herramienta de IA junto con tus programas, el calendario del semestre, tu horario de clases y el calendario de exámenes (PDF, captura o texto pegado; envía lo que tengas) y pega abajo el JSON que te devuelva.", "spUpdateTitle": "Actualiza tu perfil", "spUpdateBody": "Vuelve a darle el prompt a tu herramienta de IA (con un programa, horario o calendario del semestre nuevo si lo tienes) para refrescar tu semana, tu plan y tus fortalezas. Se conservan los ids y las tareas marcadas.", "spModeNew": "Empezar de cero", "spModeUpdate": "Actualizar perfil actual", "spIncludeStats": "Incluir mis estadísticas de estudio", "spIncludeStatsHint": "Añade un resumen compacto de tus Analíticas para que la IA escriba tus fortalezas, puntos débiles y ritmo con resultados reales.", "spCopyPrompt": "Copiar prompt", "spViewPrompt": "Ver prompt", "spHidePrompt": "Ocultar prompt", "spPasteLabel": "Pega el JSON de la IA", "spPasteOpen": "Mostrar cuadro", "spPastePh": "Pega aquí el JSON del perfil…", "spLoad": "Cargar perfil", "spUpload": "Subir .json", "spReplaceNote": "Cargar reemplaza tu perfil actual. Las tareas que ya marcaste siguen marcadas.", "spLoaded": "Perfil cargado. Tu tutor ya está en la Consola.", "spErrParse": "Eso no parece JSON. Pega solo la respuesta de la IA (o sube el archivo).", "spErrShape": "Este JSON no es un Perfil de estudio. Necesita al menos un periodo, cursos, evaluaciones o un plan.", "spWarnTruncated": "La respuesta parecía cortada, así que solo se cargó la parte completa. Pide a la IA que continúe y actualiza tu perfil.", "spWarnDates": "{n} evaluación(es) no tenían una fecha válida y se omitieron: {titles}.", "spWarnDropped": "Se omitieron {n} elemento(s) incompleto(s).", "spWarnNoStart": "No se encontró la fecha de inicio del periodo, así que la semana actual no se puede seguir automáticamente.", "spTermWeek": "Semana {w} de {n}", "spTermWeekNoTotal": "Semana {w}", "spTermBefore": "Empieza en {n} días", "spTermBefore1": "Empieza mañana", "spTermAfter": "Periodo terminado", "spTermUnknown": "Semana desconocida", "spThisWeek": "Esta semana", "spNoFocus": "No hay temas asignados a esta semana.", "spNext": "Próxima evaluación", "spNoNext": "No hay evaluaciones próximas.", "spToday": "Hoy", "spTomorrow": "Mañana", "spInDays": "en {n} días", "spTodayNone": "Nada para hoy.", "spWeekly": "{a} de {n} preguntas esta semana", "spAssessments": "Próximas evaluaciones", "spTasks": "Plan", "spNoTasks": "Aún no hay tareas.", "spCourses": "Mapa del programa", "spWeekN": "Sem {n}", "spSource": "Fuente", "spConf": "Confianza: {c}", "spConf.high": "alta", "spConf.medium": "media", "spConf.low": "baja", "spAssump": "Suposiciones de la IA", "spRisk": "Riesgo", "spRisk.low": "bajo", "spRisk.medium": "medio", "spRisk.high": "alto", "spStrengths": "Fortalezas", "spGaps": "Puntos débiles", "spExport": "Exportar JSON", "spDelete": "Eliminar perfil", "spDeleteQ": "¿Eliminar tu Perfil de estudio? Se borra de este dispositivo y de la sincronización con Drive. Tus Qbanks y Analíticas no se tocan.", "spDeleteGo": "Eliminar", "spSchemaView": "Ver esquema JSON", "spSchemaHide": "Ocultar esquema JSON", "spSchemaTitle": "Esquema JSON del Perfil de estudio", "spCardTitle": "Tu tutor", "spCardOpen": "Abrir perfil", "spCardInviteTitle": "Configura tu Perfil de estudio", "spCardInviteBody": "Dale a Oworld tus programas, el calendario, tu horario de clases y el calendario de exámenes una sola vez y tu tutor llevará el control de tu semana, tus clases, tus exámenes y qué estudiar después.", "spCardInviteBtn": "Configurar perfil", "spStartBlock": "Iniciar un bloque de {s}", "spLibStrip": "El tutor sugiere para la semana {w}", "spLibStart": "{title} ({n} P)", "sgBefore": "Tu periodo empieza {when}. Prepara tus Qbanks.", "sgExam": "{title} es {when}.", "sgExamCover": "{title} es {when} e incluye {coverage}.", "sgTasks": "{n} tarea(s) para hoy o atrasada(s).", "sgPaceBehind": "Vas por debajo del ritmo de esta semana: {a} de {t} preguntas. Un bloque corto hoy cierra la brecha.", "sgPaceDone": "Meta semanal alcanzada ({a}/{t}). Buen trabajo.", "sgPaceOn": "Buen ritmo: {a} de {t} preguntas esta semana.", "sgWeak": "{subject} está en {pct}% y está en la lista de esta semana.", "sgNoFocus": "No hay temas asignados a esta semana. Actualiza tu perfil con el programa.", "sgStale": "Tu perfil tiene {n} días. Actualízalo para que tu tutor siga siendo preciso.", "nf.examSoon.t": "Se acerca un examen", "nf.examSoon.b": "{title} es en {days} días.", "nf.examTomorrow.t": "Examen mañana", "nf.examTomorrow.b": "{title} es mañana. Haz un repaso ligero y descansa.", "nf.examToday.t": "Examen hoy", "nf.examToday.b": "{title} es hoy. ¡Mucha suerte!", "nf.weekStart.t": "Semana {week} de {total}", "nf.weekStart.b": "Esta semana: {topics}", "nf.termStart.t": "El periodo empieza pronto", "nf.termStart.b": "Tu periodo empieza en {days} día(s). Prepara tus Qbanks.", "nf.paceBehind.t": "Por debajo del ritmo semanal", "nf.paceBehind.b": "{a} de {t} preguntas hasta ahora. Un bloque corto hoy ayuda.", "nf.tasksDue.t": "Tareas pendientes", "nf.tasksDue.b": "{n} tarea(s) para hoy o atrasada(s). Abre la Consola.", "nf.profileStale.t": "Actualiza tu perfil", "nf.profileStale.b": "Tu Perfil de estudio tiene {n} días.", "nf.profileLoaded.t": "Perfil de estudio listo", "nf.profileLoaded.b": "Tu tutor ahora sigue {term}.",
+    "tabProfile": "Perfil de estudio", "menuProfile": "Perfil", "tutorSrcTitle": "Fuentes sugeridas por el tutor", "tutorSrcHint": "Este bloque se apoya en las referencias de abajo. Tenlas abiertas para estudiar mientras respondes.", "tutorSrcQ": "{n} pregunta(s)", "tutorSrcCount": "{n} fuente(s)", "tutorSrcStart": "Continuar", "tutorSrcBtn": "Fuentes", "welcomeStartLabel": "Mostrar la pantalla de bienvenida cada vez que se inicia Oworld", "srcAutoLabel": "Mostrar las fuentes sugeridas por el tutor al inicio de cada sesión", "srcAutoShort": "Mostrar esto al inicio de cada sesión", "syncShort": "Sincronizar", "acctSave": "Guardar", "acctSaved": "Guardado", "spTitle": "Perfil de estudio", "spHint": "Un archivo estándar que le dice a Oworld en qué punto de tus estudios estás: tu periodo y el calendario del semestre, las semanas del programa, el horario de clases, los exámenes y tu plan. Tu tutor lo usa en la Consola, en la Biblioteca y en las notificaciones.", "spSyncLocal": "Guardado en este dispositivo. Inicia sesión con Google (menú de perfil) para sincronizarlo con tu Drive.", "spSyncDrive": "Se sincroniza con tu Google Drive", "spBuildTitle": "Crea tu perfil con IA", "spBuildBody": "Copia el prompt, dáselo a tu herramienta de IA junto con tus programas, el calendario del semestre, tu horario de clases y el calendario de exámenes (PDF, captura o texto pegado; envía lo que tengas) y pega abajo el JSON que te devuelva.", "spUpdateTitle": "Actualiza tu perfil", "spUpdateBody": "Vuelve a darle el prompt a tu herramienta de IA (con un programa, horario o calendario del semestre nuevo si lo tienes) para refrescar tu semana, tu plan y tus fortalezas. Se conservan los ids y las tareas marcadas.", "spModeNew": "Empezar de cero", "spModeUpdate": "Actualizar perfil actual", "spIncludeStats": "Incluir mis estadísticas de estudio", "spIncludeStatsHint": "Añade un resumen compacto de tus Analíticas para que la IA escriba tus fortalezas, puntos débiles y ritmo con resultados reales.", "spCopyPrompt": "Copiar prompt", "spViewPrompt": "Ver prompt", "spHidePrompt": "Ocultar prompt", "spPasteLabel": "Pega el JSON de la IA", "spPasteOpen": "Mostrar cuadro", "spPastePh": "Pega aquí el JSON del perfil…", "spLoad": "Cargar perfil", "spUpload": "Subir .json", "spReplaceNote": "Cargar reemplaza tu perfil actual. Las tareas que ya marcaste siguen marcadas.", "spLoaded": "Perfil cargado. Tu tutor ya está en la Consola.", "spErrParse": "Eso no parece JSON. Pega solo la respuesta de la IA (o sube el archivo).", "spErrShape": "Este JSON no es un Perfil de estudio. Necesita al menos un periodo, cursos, evaluaciones o un plan.", "spWarnTruncated": "La respuesta parecía cortada, así que solo se cargó la parte completa. Pide a la IA que continúe y actualiza tu perfil.", "spWarnDates": "{n} evaluación(es) no tenían una fecha válida y se omitieron: {titles}.", "spWarnDropped": "Se omitieron {n} elemento(s) incompleto(s).", "spWarnNoStart": "No se encontró la fecha de inicio del periodo, así que la semana actual no se puede seguir automáticamente.", "spTermWeek": "Semana {w} de {n}", "spTermWeekNoTotal": "Semana {w}", "spTermBefore": "Empieza en {n} días", "spTermBefore1": "Empieza mañana", "spTermAfter": "Periodo terminado", "spTermUnknown": "Semana desconocida", "spThisWeek": "Esta semana", "spNoFocus": "No hay temas asignados a esta semana.", "spNext": "Próxima evaluación", "spNoNext": "No hay evaluaciones próximas.", "spToday": "Hoy", "spTomorrow": "Mañana", "spInDays": "en {n} días", "spTodayNone": "Nada para hoy.", "spWeekly": "{a} de {n} preguntas esta semana", "spAssessments": "Próximas evaluaciones", "spTasks": "Plan", "spNoTasks": "Aún no hay tareas.", "spCourses": "Mapa del programa", "spWeekN": "Sem {n}", "spSource": "Fuente", "spConf": "Confianza: {c}", "spConf.high": "alta", "spConf.medium": "media", "spConf.low": "baja", "spAssump": "Suposiciones de la IA", "spRisk": "Riesgo", "spRisk.low": "bajo", "spRisk.medium": "medio", "spRisk.high": "alto", "spStrengths": "Fortalezas", "spGaps": "Puntos débiles", "spExport": "Exportar JSON", "spDelete": "Eliminar perfil", "spDeleteQ": "¿Eliminar tu Perfil de estudio? Se borra de este dispositivo y de la sincronización con Drive. Tus Qbanks y Analíticas no se tocan.", "spDeleteGo": "Eliminar", "spSchemaView": "Ver esquema JSON", "spSchemaHide": "Ocultar esquema JSON", "spSchemaTitle": "Esquema JSON del Perfil de estudio", "spCardTitle": "Tu tutor", "spCardOpen": "Abrir perfil", "spCardInviteTitle": "Configura tu Perfil de estudio", "spCardInviteBody": "Dale a Oworld tus programas, el calendario, tu horario de clases y el calendario de exámenes una sola vez y tu tutor llevará el control de tu semana, tus clases, tus exámenes y qué estudiar después.", "spCardInviteBtn": "Configurar perfil", "spStartBlock": "Iniciar un bloque de {s}", "spLibStrip": "El tutor sugiere para la semana {w}", "spLibStart": "{title} ({n} P)", "sgBefore": "Tu periodo empieza {when}. Prepara tus Qbanks.", "sgExam": "{title} es {when}.", "sgExamCover": "{title} es {when} e incluye {coverage}.", "sgTasks": "{n} tarea(s) para hoy o atrasada(s).", "sgPaceBehind": "Vas por debajo del ritmo de esta semana: {a} de {t} preguntas. Un bloque corto hoy cierra la brecha.", "sgPaceDone": "Meta semanal alcanzada ({a}/{t}). Buen trabajo.", "sgPaceOn": "Buen ritmo: {a} de {t} preguntas esta semana.", "sgWeak": "{subject} está en {pct}% y está en la lista de esta semana.", "sgNoFocus": "No hay temas asignados a esta semana. Actualiza tu perfil con el programa.", "sgStale": "Tu perfil tiene {n} días. Actualízalo para que tu tutor siga siendo preciso.", "nf.examSoon.t": "Se acerca un examen", "nf.examSoon.b": "{title} es en {days} días.", "nf.examTomorrow.t": "Examen mañana", "nf.examTomorrow.b": "{title} es mañana. Haz un repaso ligero y descansa.", "nf.examToday.t": "Examen hoy", "nf.examToday.b": "{title} es hoy. ¡Mucha suerte!", "nf.weekStart.t": "Semana {week} de {total}", "nf.weekStart.b": "Esta semana: {topics}", "nf.termStart.t": "El periodo empieza pronto", "nf.termStart.b": "Tu periodo empieza en {days} día(s). Prepara tus Qbanks.", "nf.paceBehind.t": "Por debajo del ritmo semanal", "nf.paceBehind.b": "{a} de {t} preguntas hasta ahora. Un bloque corto hoy ayuda.", "nf.tasksDue.t": "Tareas pendientes", "nf.tasksDue.b": "{n} tarea(s) para hoy o atrasada(s). Abre la Consola.", "nf.profileStale.t": "Actualiza tu perfil", "nf.profileStale.b": "Tu Perfil de estudio tiene {n} días.", "nf.profileLoaded.t": "Perfil de estudio listo", "nf.profileLoaded.b": "Tu tutor ahora sigue {term}.",
     "spPromptTitle": "Perfil de estudio — prompt para IA",
     "sgEve": "{title} es mañana. Hazlo ligero: repasa tu tema más débil y descansa.", "sgDeadline": "Fecha límite: {title} es {when}.", "sgBreakNow": "{title}: hoy no hay clases. Las clases se reanudan {when}. Buen momento para cerrar brechas.", "sgBreakSoon": "{title} empieza {when}. Mete un bloque de estudio más fuerte antes.", "sgStreak": "Aún no practicas hoy. Un bloque corto mantiene tu racha de {n} días.", "sgUntested": "{n} de {total} temas de {title} aún no tienen datos de práctica.",
     "nf.breakSoon.t": "El descanso empieza mañana", "nf.breakSoon.b": "{title} empieza mañana. Planea tu estudio antes.", "nf.deadlineSoon.t": "Se acerca una fecha límite", "nf.deadlineSoon.b": "{title} vence en {days} día(s).", "nf.deadlineToday.t": "Fecha límite hoy", "nf.deadlineToday.b": "{title} vence hoy.",
@@ -544,7 +544,7 @@ const STR = {
     emLibTitle: "Tu biblioteca está vacía.", emLibBody: "Oworld no incluye preguntas precargadas. Genera tu propio Qbank con IA en segundos.", emLibGenerate: "Generar Qbank", tryDemoBtn: "Probar el Qbank OW (Demo)", demoTag: "Demo",
     emAnTitle: "Aún no hay datos.", emAnBody: "Haz tu primer bloque para desbloquear tus analíticas de preparación para el USMLE.", 
     emCalTitle: "Planifica tu semestre.", emCalBody: "Sube tu programa y el calendario de exámenes para seguir tu preparación y recibir recomendaciones de estudio diarias.", emCalSetup: "Configurar perfil de estudio",
-    load: "Cargar examen", importQbank: "Importar nuevo Qbank", importInLibrary: "Ya está en tu biblioteca — inícialo desde ahí.", lobbySaveN: "Guardar en la biblioteca ({n})", lobbyRemoveN: "Quitar ({n})", triageHint: "Márcalo para guardarlo en tu biblioteca o quitarlo.", lobbyTriageNote: "Estos Qbanks acaban de importarse. Marca los que quieras y usa Guardar en la biblioteca para conservarlos o Quitar para descartarlos.", aiLaunchTitle: "Acceso rápido a IA", aiLaunchHint: "Abre tu herramienta de IA, pega el prompt de abajo junto con tu tema o apuntes y trae la respuesta aquí.", aiLaunchOpens: "Se abre en una pestaña nueva", nbTitle: "Materias y sistemas", nbHint: "Tus cuadernos de estudio, por bloque. Cada uno se abre en NotebookLM en una pestaña nueva.", nbAll: "USMLE (cuaderno general)", nbBlock1: "Bloque 1", nbBlock2: "Bloque 2", nbCore: "Ciencias básicas", nbClinical: "Clínica", 
+    load: "Cargar examen", importQbank: "Importar nuevo Qbank", importInLibrary: "Ya está en tu biblioteca — inícialo desde ahí.", lobbySaveN: "Guardar en la biblioteca ({n})", lobbyRemoveN: "Quitar ({n})", triageHint: "Márcalo para guardarlo en tu biblioteca o quitarlo.", lobbyTriageNote: "Estos Qbanks acaban de importarse. Marca los que quieras y usa Guardar en la biblioteca para conservarlos o Quitar para descartarlos.", aiLaunchTitle: "Acceso rápido a IA", aiLaunchHint: "Abre tu herramienta de IA, pega la receta del Paso 1 junto con tu tema o apuntes y trae la respuesta al Paso 3.", aiLaunchOpens: "Se abre en una pestaña nueva", nbTitle: "Materias y sistemas", nbHint: "Pega tu receta en uno de los cuadernos de abajo o en tu herramienta de IA favorita. Los cuadernos están organizados por bloque y cada uno se abre en NotebookLM en una pestaña nueva.", nbAll: "USMLE (cuaderno general)", nbBlock1: "Bloque 1", nbBlock2: "Bloque 2", nbCore: "Ciencias básicas", nbClinical: "Clínica", 
     wasIncorrectBadge: "Fallada antes de reintentar", missedBeforeN: "{n} falladas antes de reintentar", explHide: "Ocultar explicación", explShow: "Mostrar explicación",
     activeTitle: "¿Continuar tu examen desde otro dispositivo?", activeTitleConflict: "Hay otra versión de este examen en otro dispositivo",
     activeBody: "«{name}»: pregunta {n} de {total}, {answered} respondidas. Última actualización {time}.",
@@ -574,7 +574,7 @@ const STR = {
     uniTitle: "Centro de recetas e importación", uniHint: "Un solo importador para todo: elige una receta, copia el prompt en tu herramienta de IA y pega lo que devuelva.", 
     
     libTypeAll: "Importar", libTypeQbank: "Qbank", moreActions: "Más acciones", omitQuestion: "Omitir pregunta", omitTitle: "¿Quitar esta pregunta de tu Qbank?", omitConfirmSaved: "Esto elimina la pregunta de \"{title}\" de forma permanente. No aparecerá al practicar y no se incluirá si compartes o exportas ese Qbank. No se puede deshacer.", omitConfirmLocal: "Esta pregunta no está guardada en tu biblioteca. Se quita de este bloque y de todo lo que compartas desde él. No se puede deshacer.", omitGo: "Omitir definitivamente", omitLastHint: "Cada bloque y cada Qbank necesita al menos una pregunta, así que no se puede omitir esta.", trashQuestions: "Preguntas", trashKindQuestion: "Pregunta", trashQuestionNoBank: "No se pudieron restaurar {s} pregunta(s) omitida(s) porque su Qbank ya no está en tu biblioteca.", syncQHint: "Sincroniza tu progreso y las preguntas omitidas con tus otros dispositivos y tu Qbank.", giveFeedback: "Enviar comentarios", reportIssue: "Informar de un problema", defineBtn: "Definir", defLoading: "Buscando…", defDisambig: "Este término tiene varios significados en Wikipedia.", defNoArticle: "Ningún artículo de Wikipedia coincide con este término.", defUnavailable: "No se pudo cargar una definición ahora mismo.", defReadFull: "Leer el artículo completo", defSeeAll: "Ver todos los significados", defOpenWiki: "Abrir en Wikipedia", defSkipped: "Selecciona un término médico más específico para buscarlo.", defCaveat: "Las definiciones son solo información de contexto; para el manejo, guíate por tu texto de referencia.",
-    recipeTitle: "Copia y pega este prompt para generar un Qbank", copied: "Copiado", copy: "Copiar", schema: "Esquema JSON",     createdBy: "OWORLD fue creado por", role: "Estudiante de medicina | Fundador de Verde+", supportOworld: "Apoyar a Oworld",
+    recipeTitle: "Copia y pega este prompt para generar un Qbank", stepWord: "Paso", step1Title: "Copia una receta de preguntas", step2Title: "Fuentes para generar preguntas", step3Title: "Pega aquí el Qbank generado por la IA", copied: "Copiado", copy: "Copiar", schema: "Esquema JSON",     createdBy: "OWORLD fue creado por", role: "Estudiante de medicina | Fundador de Verde+", supportOworld: "Apoyar a Oworld",
     joinDiscord: "Únete a nuestro Discord", libGetCommunity: "Obtener Qbanks de la comunidad", 
     supportCardText: "Oworld es gratis y seguirá siéndolo. Si te ayuda, considera apoyar el proyecto.", supportCardBtn: "Apoyar",
     supportResultsTitle: "Acabas de terminar un bloque gratis.", supportResultsBody: "Oworld nunca bloqueará sus preguntas tras un muro de pago. Si te resultó valioso, considera apoyar el proyecto.", supportResultsBtn: "Apoyar a Oworld",
@@ -2922,6 +2922,14 @@ const NOTEBOOKS = {
   ],
 };
 
+// AI Quick Launch: general-purpose AI tools, shown at the bottom of the Subjects & Systems card (Step 2). Each opens in a new tab.
+const AI_LAUNCH = [
+  { name: "ChatGPT", url: "https://chatgpt.com/" },
+  { name: "Claude", url: "https://claude.ai/new" },
+  { name: "Gemini", url: "https://gemini.google.com/app" },
+  { name: "Perplexity", url: "https://www.perplexity.ai/" },
+  { name: "Copilot", url: "https://copilot.microsoft.com/" },
+];
 
 const LS_PREFS = "oworldPrefs";
 const LS_HISTORY = "sessionHistory";
@@ -3715,7 +3723,7 @@ function useSessionSync({ drive, stamp, getLocal, onDecision, onSynced, onBlockS
 
 function loadPrefs() {
   const p = lsGet(LS_PREFS) || {};
-  return { darkMode: typeof p.darkMode === "boolean" ? p.darkMode : true, lang: p.lang === "es" ? "es" : "en", textScale: TEXT_STEPS.includes(p.textScale) ? p.textScale : 1, srcAuto: p.srcAuto !== false };
+  return { darkMode: typeof p.darkMode === "boolean" ? p.darkMode : true, lang: p.lang === "es" ? "es" : "en", textScale: TEXT_STEPS.includes(p.textScale) ? p.textScale : 1, srcAuto: p.srcAuto !== false, welcomeOn: p.welcomeOn !== false };
 }
 
 // Returns a validated session, or null if there is none / it is corrupt / from an incompatible version.
@@ -3769,6 +3777,7 @@ function makeLibraryEntry(block) {
 // Lets any Settings menu reach the app-level "wipe local data" action without prop-drilling.
 const DataContext = createContext({ resetAllData: () => {} });
 // The Trash lives in the app state; the Settings menu (profile picture, upper right) reads it from here.
+const WelcomePrefContext = createContext({ on: true, set: () => {} }); // preference: show the Welcome screen every time Oworld starts (Settings)
 const SrcAutoContext = createContext({ on: true, set: () => {} }); // preference: open the Tutor suggested sources card when a Tutor session starts
 const TrashContext = createContext({ trash: [], restore: () => {}, purge: () => {} });
 // Lets the account menu (on every screen) open a Home page such as the Study Profile. locked = a timed block can't be left.
@@ -8008,9 +8017,10 @@ function Pill({ children, tone = "muted", T = LIGHT }) {
   );
 }
 
-function PrimaryButton({ children, onClick, disabled, icon: Icon, style, T = LIGHT }) {
+function PrimaryButton({ children, onClick, disabled, icon: Icon, style, tour, T = LIGHT }) {
   return (
     <button
+      data-tour={tour}
       onClick={onClick}
       disabled={disabled}
       style={{
@@ -8038,9 +8048,10 @@ function QuestionMarkIcon({ size = 15, color = "currentColor", style }) {
   );
 }
 
-function GhostButton({ children, onClick, icon: Icon, style, disabled, title, T = LIGHT }) {
+function GhostButton({ children, onClick, icon: Icon, style, disabled, title, tour, T = LIGHT }) {
   return (
     <button
+      data-tour={tour}
       onClick={onClick}
       disabled={disabled}
       title={title}
@@ -8393,6 +8404,7 @@ function SettingsMenu({ darkMode, setDarkMode, T, iconOnly = false }) {
   const trashCtx = useContext(TrashContext);
   const nav = useContext(NavContext);
   const srcPref = useContext(SrcAutoContext);
+  const welcomePref = useContext(WelcomePrefContext);
   const cp = useContext(CareerContext);
   const vp = useViewport();
   const [open, setOpen] = useState(false);
@@ -8656,6 +8668,10 @@ function SettingsMenu({ darkMode, setDarkMode, T, iconOnly = false }) {
                 <label style={{ display: "flex", alignItems: "center", gap: 10, margin: "14px 0 2px", fontFamily: FONT_UI, fontSize: fs(13), color: T.ink, cursor: "pointer", lineHeight: 1.4 }}>
                   <input type="checkbox" checked={srcPref.on} onChange={(e) => srcPref.set(e.target.checked)} style={{ width: 18, height: 18, cursor: "pointer", flexShrink: 0 }} />
                   {t("srcAutoLabel")}
+                </label>
+                <label style={{ display: "flex", alignItems: "center", gap: 10, margin: "10px 0 2px", fontFamily: FONT_UI, fontSize: fs(13), color: T.ink, cursor: "pointer", lineHeight: 1.4 }}>
+                  <input type="checkbox" checked={welcomePref.on} onChange={(e) => welcomePref.set(e.target.checked)} style={{ width: 18, height: 18, cursor: "pointer", flexShrink: 0 }} />
+                  {t("welcomeStartLabel")}
                 </label>
                 <GhostButton
                   T={T} icon={RotateCcw}
@@ -11554,11 +11570,11 @@ function PageNav({ tab, setTab, T }) {
   const items = [["console", t("tabConsole"), LayoutDashboard], ["library", t("tabLibrary"), BookOpen], ["analytics", t("tabHistory"), BarChart3], ["calendar", t("tabCalendar"), CalendarDays]];
   return (
     <nav style={{ borderBottom: `1px solid ${T.border}`, marginBottom: 0, overflowX: "auto", overflowY: "hidden", touchAction: "pan-x", overscrollBehaviorY: "none" }}>
-      <div role="tablist" style={{ display: "flex", gap: 4, width: "max-content", margin: "0 auto" }}>{/* auto margins center the tabs; when they are wider than the screen the margins collapse and the row scrolls from its start */}
+      <div role="tablist" data-tour="nav" style={{ display: "flex", gap: 4, width: "max-content", margin: "0 auto" }}>{/* auto margins center the tabs; when they are wider than the screen the margins collapse and the row scrolls from its start */}
         {items.map(([id, label, Ic]) => {
           const on = tab === id;
           return (
-            <button key={id} role="tab" aria-selected={on} onClick={() => setTab(id)} style={{
+            <button key={id} role="tab" data-tour={`tab-${id}`} aria-selected={on} onClick={() => setTab(id)} style={{
               display: "flex", alignItems: "center", gap: 7, padding: "12px 16px", background: "transparent", border: "none", cursor: "pointer",
               borderBottom: `3px solid ${on ? T.blue : "transparent"}`, marginBottom: -1, whiteSpace: "nowrap",
               fontFamily: FONT_UI, fontWeight: on ? 700 : 600, fontSize: fs(14), color: on ? T.blue : T.ink,
@@ -11779,7 +11795,7 @@ function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], dri
   const { t, lang } = useI18n();
   const [text, setText] = useState("");
   const [error, setError] = useState("");
-  const [showSchema, setShowSchema] = useState(true); // the Ai Qbank Generator card starts open
+  const [showSchema, setShowSchema] = useState(true); // Step 1 (Copy a Question Recipe) is expanded on every fresh mount; nothing persists its collapsed state
   const [showRecipe, setShowRecipe] = useState(false); // the recipe text itself stays folded until the chevron is tapped; Copy works either way
   const [copied, setCopied] = useState(false);
   const [recipeSize, setRecipeSize] = useState(25);
@@ -11998,7 +12014,7 @@ function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], dri
               background: "transparent", border: "none", cursor: "pointer", fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(14), color: T.ink,
             }}
           >
-            <span style={{ display: "inline-flex", alignItems: "center", gap: 8 }}><ClipboardList size={17} /> {t("recipe")}</span>
+            <span style={{ display: "inline-flex", alignItems: "center", gap: 8 }}><ClipboardList size={17} /> <span><span style={{ color: T.link, fontWeight: 700 }}>{t("stepWord")} 1:</span> {t("step1Title")}</span></span>
             {showSchema ? <ChevronUp size={17} color={T.muted} /> : <ChevronDown size={17} color={T.muted} />}
           </button>
           {showSchema && (
@@ -12265,7 +12281,7 @@ function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], dri
               background: "transparent", border: "none", cursor: "pointer", fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(14), color: T.ink, textAlign: "left",
             }}
           >
-            <span style={{ display: "inline-flex", alignItems: "center", gap: 8 }}><BookOpen size={17} color={T.link} /> {t("nbTitle")}</span>
+            <span style={{ display: "inline-flex", alignItems: "center", gap: 8 }}><BookOpen size={17} color={T.link} /> <span><span style={{ color: T.link, fontWeight: 700 }}>{t("stepWord")} 2:</span> {t("step2Title")}</span></span>
             {nbOpen ? <ChevronUp size={17} color={T.muted} /> : <ChevronDown size={17} color={T.muted} />}
           </button>
           {nbOpen && (
@@ -12294,6 +12310,17 @@ function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], dri
                         </div>
                       </div>
                     ))}
+                    <div style={{ borderTop: `1px solid ${T.border}`, paddingTop: 14 }}>
+                      <div style={{ fontFamily: FONT_UI, fontSize: fs(11.5), fontWeight: 700, letterSpacing: 0.6, textTransform: "uppercase", color: T.muted, marginBottom: 6 }}>{t("aiLaunchTitle")}</div>
+                      <p style={{ fontFamily: FONT_UI, fontSize: fs(12.5), color: T.muted, lineHeight: 1.5, margin: "0 0 10px" }}>{t("aiLaunchHint")}</p>
+                      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(130px, 1fr))", gap: 8 }}>
+                        {AI_LAUNCH.map((ai) => (
+                          <a key={ai.name} href={ai.url} target="_blank" rel="noopener noreferrer" title={`${ai.name} - ${t("aiLaunchOpens")}`} style={linkStyle}>
+                            {ai.name} <ExternalLink size={14} color={T.link} style={{ flexShrink: 0 }} />
+                          </a>
+                        ))}
+                      </div>
+                    </div>
                   </div>
                 );
               })()}
@@ -12312,7 +12339,7 @@ function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], dri
             >
               <FileJson size={17} color={T.ink} />
               <span style={{ fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(14), color: T.ink }}>
-                {t("pasteJson")}
+                <span style={{ color: T.link, fontWeight: 700 }}>{t("stepWord")} 3:</span> {t("step3Title")}
               </span>
               {pasteOpen ? <ChevronUp size={16} color={T.muted} /> : <ChevronDown size={16} color={T.muted} />}
             </button>
@@ -12903,7 +12930,7 @@ function Lobby({ examData, blockStates, library = [], onStart, onReview, onHome,
                     )}
                   </>
                 ) : (
-                  <PrimaryButton T={T} onClick={() => onStart(idx)} icon={Play} style={narrow ? { width: "100%" } : undefined}>
+                  <PrimaryButton T={T} tour="lobby-start" onClick={() => onStart(idx)} icon={Play} style={narrow ? { width: "100%" } : undefined}>
                     {bs.status === "in-progress" ? t("resume") : t("start")}
                   </PrimaryButton>
                 )}
@@ -13496,7 +13523,7 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onAbortBl
           ) : (
             <span style={{ fontFamily: FONT_UI, fontSize: fs(13) }}>{qIdx + 1} / {questions.length}</span>
           )}
-          <button onClick={() => { setNavSheet(false); goNext(); }} style={toolBtnStyle(false)} title={t("next")} aria-label={t("next")}>
+          <button data-tour="exam-next" onClick={() => { setNavSheet(false); goNext(); }} style={toolBtnStyle(false)} title={t("next")} aria-label={t("next")}>
             <ChevronRight size={26} />
             {!narrow && t("next")}
           </button>
@@ -13542,13 +13569,13 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onAbortBl
         {prevNextEl}
 
         <div style={narrow ? { display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(0, 1fr))", gap: 4, width: "100%", order: 4 } : { display: "flex", alignItems: "center", gap: 22 }}>
-          <button onClick={() => setLabOpen((v) => !v)} style={toolStyle(labOpen)} title={t("labValues")} aria-label={t("labValues")}>
+          <button data-tour="tool-labs" onClick={() => setLabOpen((v) => !v)} style={toolStyle(labOpen)} title={t("labValues")} aria-label={t("labValues")}>
             <FlaskConical size={toolIcon} /> {toolLabel(t("labValues"))}
           </button>
-          <button onClick={() => setNotesOpen((v) => !v)} style={toolStyle(notesOpen)} title={t("notes")} aria-label={t("notes")}>
+          <button data-tour="tool-notes" onClick={() => setNotesOpen((v) => !v)} style={toolStyle(notesOpen)} title={t("notes")} aria-label={t("notes")}>
             <PencilLine size={toolIcon} /> {toolLabel(t("notes"))}
           </button>
-          <button onClick={() => setCalcOpen((v) => !v)} style={toolStyle(calcOpen)} title={t("calc")} aria-label={t("calc")}>
+          <button data-tour="tool-calc" onClick={() => setCalcOpen((v) => !v)} style={toolStyle(calcOpen)} title={t("calc")} aria-label={t("calc")}>
             <CalcIcon size={toolIcon} /> {toolLabel(t("calc"))}
           </button>
           <div ref={settingsWrapRef} style={{ position: "relative" }}>
@@ -13810,6 +13837,7 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onAbortBl
           )}
           <p
             data-hl-field="vignette"
+            data-tour="vignette"
             onMouseUp={(e) => handleSelectionInContainer(q.id, "vignette", e.currentTarget)}
             onKeyUp={(e) => handleSelectionInContainer(q.id, "vignette", e.currentTarget)}
             style={{ fontFamily: FONT_DISPLAY, fontSize: fs(17), lineHeight: 1.75, color: T.ink, margin: "0", cursor: "text" }}
@@ -13835,6 +13863,7 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onAbortBl
                   return (
                     <button
                       key={b.id}
+                      data-tour={`aid-${b.id}`}
                       aria-pressed={on}
                       aria-expanded={b.expandable ? on : undefined}
                       disabled={!b.available}
@@ -13918,7 +13947,7 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onAbortBl
             </div>
           )}
 
-          <div style={{ border: `1.5px solid ${T.border}`, borderRadius: 4, maxWidth: 640 }}>
+          <div data-tour="options" style={{ border: `1.5px solid ${T.border}`, borderRadius: 4, maxWidth: 640 }}>
             {q.options.map((opt, i) => {
               const isSelected = qState.selected === opt.key;
               const isStruck = qState.struck.includes(opt.key);
@@ -13977,6 +14006,7 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onAbortBl
                     {canToggle && (expanded ? <ChevronUp size={16} color={T.muted} style={{ flexShrink: 0 }} aria-hidden="true" /> : <ChevronDown size={16} color={T.muted} style={{ flexShrink: 0 }} aria-hidden="true" />)}
                     {!revealed && (
                       <button
+                        data-tour="strike"
                         onClick={(e) => toggleStrike(e, opt.key)}
                         title={t("strike")}
                         style={{
@@ -14139,7 +14169,7 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onAbortBl
         <button onClick={() => setLocked(true)} title={t("lock")} aria-label={t("lock")} style={{ ...toolBtnStyle(false), flexDirection: "row", gap: 6, order: narrow ? 1 : 3 }}>
           <Lock size={narrow ? 24 : 18} /> {!narrow && t("lock")}
         </button>
-        <button onClick={() => setConfirmSubmit(true)} title={t("endBlock")} aria-label={t("endBlock")} style={{ ...toolBtnStyle(false), flexDirection: "row", gap: 6, order: narrow ? 3 : 4 }}>
+        <button data-tour="end-block" onClick={() => setConfirmSubmit(true)} title={t("endBlock")} aria-label={t("endBlock")} style={{ ...toolBtnStyle(false), flexDirection: "row", gap: 6, order: narrow ? 3 : 4 }}>
           <XOctagon size={narrow ? 24 : 18} /> {!narrow && t("endBlock")}
         </button>
       </div>
@@ -14164,7 +14194,7 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onAbortBl
               borderRadius: 6, padding: 8, resize: "vertical", boxSizing: "border-box", background: T.paper, color: T.ink,
             }}
           />
-          <GhostButton T={T} icon={Database} disabled={!noteText.trim()} onClick={saveNoteToDb} style={{ width: "100%", marginTop: 10 }}>
+          <GhostButton T={T} tour="notes-save" icon={Database} disabled={!noteText.trim()} onClick={saveNoteToDb} style={{ width: "100%", marginTop: 10 }}>
             {noteSaved ? t("dbUpdateNote") : t("dbSaveNote")}
           </GhostButton>
           <div style={{ display: "flex", justifyContent: "space-between", marginTop: 10 }}>
@@ -14317,7 +14347,7 @@ function ExamScreen({ block, blockState, setBlockState, onSubmitBlock, onAbortBl
             <div style={{ display: "flex", gap: 10, justifyContent: "flex-end", flexWrap: "wrap" }}>
               <GhostButton T={T} onClick={() => setConfirmSubmit(false)}>{t("keepWorking")}</GhostButton>
               {tutorMode && onAbortBlock && <GhostButton T={T} disabled={blockState.status === "done"} style={blockState.status === "done" ? undefined : { color: T.red, borderColor: T.red }} onClick={() => { setConfirmSubmit(false); setConfirmAbort(true); }}>{t("abortBtn")}</GhostButton>}
-              <PrimaryButton T={T} onClick={() => { setConfirmSubmit(false); onSubmitBlock(); }}>{t("endBlockBtn")}</PrimaryButton>
+              <PrimaryButton T={T} tour="end-confirm" onClick={() => { setConfirmSubmit(false); onSubmitBlock(); }}>{t("endBlockBtn")}</PrimaryButton>
             </div>
           </div>
         </div>
@@ -14686,7 +14716,7 @@ function BlockResults({ block, blockState, blockIdx, history, onBackToLobby, onR
 
       {block.isTutorial && (
         <div style={{ display: "flex", flexDirection: "column", alignItems: phone ? "stretch" : "flex-start", gap: 10, marginBottom: 24 }}>
-          <PrimaryButton T={T} onClick={onHome}>Go to Library →</PrimaryButton>
+          <PrimaryButton T={T} tour="results-library" onClick={onHome}>Go to Library →</PrimaryButton>
         </div>
       )}
 
@@ -15183,6 +15213,154 @@ function OnboardingTour({ onClose, T = LIGHT }) {
 }
 
 // ---------------------------------------------------------------------------
+// Guided tutorial ("hold the user's hand"). A spotlight layer that walks a brand-new student from the landing page, through one
+// practice block, to regular usage. Every real control it points at carries a data-tour="..." hook. A step advances ONLY when the
+// student does the thing (a click on the hooked element, or a state predicate over the app), and it can never trap them:
+//   - if a target can't be found within 1.5 s the step shows a centered card with Continue,
+//   - "Skip this step" appears after 12 s, and "Exit tutorial" is always on the card,
+//   - steps that open popups (highlight toolbar, Lab Values, Calculator, Notes) are "free": they dim and ring but don't block clicks.
+const TUTORIAL_EXAM = { examTitle: "Welcome to OWORLD", blocks: [TUTORIAL_BLOCK] };
+const tutAns = (c, id) => (c.bs && c.bs.answers && c.bs.answers[id]) || {};
+const tutAt = (c, i) => !!c.bs && c.bs.currentQuestionIndex === i;
+const tutPicked = (id) => (c) => !!tutAns(c, id).selected;
+const TOUR_STEPS = [
+  { view: "import", mode: "next", title: "Welcome! Let’s take a quick walk through Oworld", body: "I’ll point at exactly what to tap, and nothing moves on until you do it. You can’t break anything here, and you can leave any time with “Exit tutorial.”", nextLabel: "Let’s go" },
+  { view: "import", target: "nav", mode: "next", title: "These four tabs are your whole app", body: "Dashboard shows your progress, Library holds your Qbanks, History logs every session you finish, and Calendar plans your study days." },
+  { view: "import", target: "tab-library", mode: "click", title: "Open your Library", body: "Tap the glowing Library tab.", done: (c) => c.libTab === "library" },
+  { view: "import", mode: "next", title: "This is where your Qbanks live", body: "A starter Qbank, “My 1st Qbank,” is already here. Later you’ll add your own by importing or generating one. First, let’s practise on a short tutorial block so you know every tool.", nextLabel: "Open the practice block", onNext: "loadTutorial" },
+  { view: "lobby", target: "lobby-start", mode: "click", title: "Every block starts in the lobby", body: "We’ve picked Tutor mode for you, which gives instant feedback after each answer. Press Start." },
+  { view: "exam", target: "strike", mode: "click", title: "Cross out answers you’ve ruled out", body: "Each answer has a small “ab” button on its right. Tap the glowing one to strike through Rhinovirus.", done: (c) => (tutAns(c, "tut-1").struck || []).length > 0 },
+  { view: "exam", target: "options", mode: "do", title: "Now choose your answer", body: "Tap the answer you think is right. In Tutor mode you’ll see feedback straight away.", done: tutPicked("tut-1") },
+  { view: "exam", target: "options", mode: "next", title: "Green is correct, red is a wrong pick", body: "Tap any answer row to open its explanation. Take a moment to read it, then continue." },
+  { view: "exam", target: "exam-next", mode: "click", title: "Go to the next question", body: "Tap Next.", done: (c) => tutAt(c, 1) },
+  { view: "exam", target: "options", mode: "do", title: "Try a wrong answer on purpose", body: "Pick an answer you know is wrong so you can see how feedback looks when you miss.", done: tutPicked("tut-2") },
+  { view: "exam", target: "options", mode: "next", title: "That’s Tutor-mode feedback", body: "A first wrong pick is recorded in your results, and you can use the retry button under the answers to try again." },
+  { view: "exam", target: "exam-next", mode: "click", title: "On to question 3", body: "Tap Next.", done: (c) => tutAt(c, 2) },
+  { view: "exam", target: "vignette", mode: "do", free: true, title: "Highlight what matters", body: "Drag across a phrase in the question text, such as “crushing chest pain,” then pick a color from the little toolbar that appears.", done: (c) => { const h = c.bs && c.bs.highlights && c.bs.highlights["tut-3"]; return !!h && Object.values(h).some((a) => Array.isArray(a) && a.length > 0); } },
+  { view: "exam", target: "exam-next", mode: "click", title: "Answer it, then continue", body: "Choose an answer if you like, then tap Next.", done: (c) => tutAt(c, 3) },
+  { view: "exam", target: "aid-keyInfoOn", mode: "click", title: "Key Info lights up the clues", body: "Tap Key Info to highlight the most important findings in the question.", done: (c) => !!tutAns(c, "tut-4").keyInfoOn },
+  { view: "exam", target: "exam-next", mode: "click", title: "Next question", body: "Choose an answer, then tap Next.", done: (c) => tutAt(c, 4) },
+  { view: "exam", target: "tool-labs", mode: "click", title: "Lab Values are one tap away", body: "Tap Lab Values in the top bar." },
+  { view: "exam", mode: "next", free: true, dock: "bottom", title: "Look up sodium", body: "Pick the Serum tab, find Sodium, and compare it with the patient’s 128. Close the panel with the × when you’re done, then continue." },
+  { view: "exam", target: "options", mode: "do", title: "Answer the question", body: "Choose the answer that matches what you found.", done: tutPicked("tut-5") },
+  { view: "exam", target: "exam-next", mode: "click", title: "Next question", body: "Tap Next.", done: (c) => tutAt(c, 5) },
+  { view: "exam", target: "tool-calc", mode: "click", title: "The calculator is built in", body: "Tap Calculator in the top bar." },
+  { view: "exam", mode: "next", free: true, dock: "bottom", title: "Do the math", body: "Type 80 × 1.5 ÷ 1.0 and press equals. Close the calculator when you’re done, then continue." },
+  { view: "exam", target: "options", mode: "do", title: "Answer the question", body: "Choose the answer that matches your result.", done: tutPicked("tut-6") },
+  { view: "exam", target: "exam-next", mode: "click", title: "Last question", body: "Tap Next.", done: (c) => tutAt(c, 6) },
+  { view: "exam", target: "tool-notes", mode: "click", title: "Notes are yours to keep", body: "Tap Notes in the top bar." },
+  { view: "exam", target: "notes-save", mode: "click", free: true, title: "Write a note, then save it", body: "Type one line you’d want to remember, such as “Scurvy = vitamin C.” Then tap Save to Database to keep it in your Personal Database." },
+  { view: "exam", target: "options", mode: "do", title: "Answer the question", body: "Choose your answer to finish the block.", done: tutPicked("tut-7") },
+  { view: "exam", target: "end-block", mode: "click", title: "Finished? End the block", body: "That was the last question. Tap End Block to see your score." },
+  { view: "exam", target: "end-confirm", mode: "click", title: "Confirm to finish", body: "Press End Block to confirm." },
+  { view: "results", target: "results-library", mode: "click", title: "Here’s your results page", body: "Every block ends with a score breakdown like this. Tutorial results aren’t saved to your history. Tap Go to Library to finish up." },
+  { view: "import", mode: "next", title: "You’re ready to use Oworld", body: "Open Library any time to start “My 1st Qbank,” or to import or generate your own Qbank. The welcome screen appears at startup, so you can come back to this tutorial whenever you like.", nextLabel: "Finish", onNext: "endTour" },
+];
+
+function GuidedTour({ step, setStep, ctx, api, T }) {
+  const steps = TOUR_STEPS;
+  const last = steps.length - 1;
+  const s = steps[Math.min(step, last)];
+  const vp = useViewport();
+  const [rect, setRect] = useState(null);
+  const [missing, setMissing] = useState(false);
+  const [canSkip, setCanSkip] = useState(false);
+  const [cardH, setCardH] = useState(210);
+  const cardRef = useRef(null);
+  const advance = (from) => { if (from >= last) api.endTour(); else setStep((cur) => (cur === from ? cur + 1 : cur)); };
+
+  // Follow the target: it can move (scroll, resize, a panel opening) or not exist yet (a screen still changing).
+  useEffect(() => {
+    setRect(null); setMissing(false); setCanSkip(false);
+    if (!s.target) return undefined;
+    let alive = true, scrolled = false;
+    const t0 = Date.now();
+    const tick = () => {
+      if (!alive) return;
+      const el = document.querySelector(`[data-tour="${s.target}"]`);
+      const r = el ? el.getBoundingClientRect() : null;
+      if (!r || (r.width === 0 && r.height === 0)) { setRect(null); if (Date.now() - t0 > 1500) setMissing(true); return; }
+      setMissing(false);
+      if (!scrolled && (r.top < 70 || r.bottom > window.innerHeight - 20)) { scrolled = true; el.scrollIntoView({ block: "center", behavior: "smooth" }); }
+      setRect((p) => (p && Math.abs(p.top - r.top) < 1 && Math.abs(p.left - r.left) < 1 && Math.abs(p.width - r.width) < 1 && Math.abs(p.height - r.height) < 1 ? p : { top: r.top, left: r.left, width: r.width, height: r.height }));
+    };
+    tick();
+    const id = setInterval(tick, 150);
+    return () => { alive = false; clearInterval(id); };
+  }, [step]); // eslint-disable-line
+
+  useEffect(() => { const id = setTimeout(() => setCanSkip(true), 12000); return () => clearTimeout(id); }, [step]);
+
+  // "click" steps move on after a real click on the hooked element (a disabled button never fires one).
+  useEffect(() => {
+    if (!s.target || s.mode !== "click") return undefined;
+    const h = (e) => { const el = e.target && e.target.closest ? e.target.closest(`[data-tour="${s.target}"]`) : null; if (el) setTimeout(() => advance(step), 0); };
+    document.addEventListener("click", h, true);
+    return () => document.removeEventListener("click", h, true);
+  }, [step]); // eslint-disable-line
+
+  // State-driven steps, plus a catch-up if the app moved to a later screen than this step expects (e.g. a keyboard shortcut).
+  useEffect(() => {
+    if (s.done && s.done(ctx)) { advance(step); return; }
+    if (s.view && ctx.view !== s.view) { const j = steps.findIndex((x, k) => k > step && x.view === ctx.view); if (j > step) setStep(j); }
+  });
+  useEffect(() => { if (cardRef.current) { const h = cardRef.current.offsetHeight; if (h && h !== cardH) setCardH(h); } });
+
+  const vh = window.innerHeight;
+  const cw = Math.min(380, vp.w - 24);
+  const hole = rect && !missing ? rect : null;
+  const P = 6;
+  const hb = hole ? { top: Math.max(0, hole.top - P), left: Math.max(0, hole.left - P), width: hole.width + P * 2, height: hole.height + P * 2 } : null;
+  const blocking = !s.free;
+  const dim = s.free ? "rgba(0,0,0,0.28)" : "rgba(0,0,0,0.62)";
+  const panel = (st, key) => <div key={key} style={{ position: "fixed", zIndex: 10000, background: dim, pointerEvents: blocking ? "auto" : "none", ...st }} />;
+
+  let cardPos;
+  if (!hb) cardPos = s.dock === "bottom" ? { bottom: 16, left: "50%", transform: "translateX(-50%)" } : { top: "50%", left: "50%", transform: "translate(-50%, -50%)" };
+  else {
+    const below = hb.top + hb.height + 14 + cardH + 12 <= vh;
+    const above = hb.top - 14 - cardH >= 12;
+    const left = Math.min(Math.max(hb.left + hb.width / 2 - cw / 2, 12), Math.max(12, vp.w - cw - 12));
+    cardPos = s.dock === "bottom" || (!below && !above) ? { bottom: 16, left: "50%", transform: "translateX(-50%)" } : below ? { top: hb.top + hb.height + 14, left } : { top: hb.top - 14 - cardH, left };
+  }
+  const showNext = s.mode === "next" || missing;
+  const onNextClick = () => { if (s.onNext && api[s.onNext]) { const keepGoing = s.onNext !== "endTour"; api[s.onNext](); if (!keepGoing) return; } advance(step); };
+
+  return (
+    <>
+      <style>{"@keyframes oworldTourPulse{0%,100%{box-shadow:0 0 0 3px #38bdf8,0 0 14px 2px rgba(56,189,248,.55)}50%{box-shadow:0 0 0 3px #7dd3fc,0 0 26px 8px rgba(56,189,248,.85)}}"}</style>
+      {hb ? (
+        <>
+          {panel({ top: 0, left: 0, right: 0, height: hb.top }, "t")}
+          {panel({ top: hb.top + hb.height, left: 0, right: 0, bottom: 0 }, "b")}
+          {panel({ top: hb.top, left: 0, width: hb.left, height: hb.height }, "l")}
+          {panel({ top: hb.top, left: hb.left + hb.width, right: 0, height: hb.height }, "r")}
+          {s.mode === "next" && blocking && <div style={{ position: "fixed", zIndex: 10000, top: hb.top, left: hb.left, width: hb.width, height: hb.height }} />}
+          <div style={{ position: "fixed", zIndex: 10001, pointerEvents: "none", borderRadius: 10, animation: "oworldTourPulse 1.6s ease-in-out infinite", top: hb.top, left: hb.left, width: hb.width, height: hb.height }} />
+        </>
+      ) : panel({ inset: 0 }, "all")}
+      <div ref={cardRef} role="dialog" aria-live="polite" aria-label={s.title} style={{ position: "fixed", zIndex: 10002, width: cw, boxSizing: "border-box", background: T.card, color: T.ink, border: `1.5px solid ${T.sel}`, borderRadius: 12, padding: "14px 16px 12px", boxShadow: "0 14px 40px rgba(0,0,0,0.45)", ...cardPos }}>
+        <div aria-hidden="true" style={{ height: 4, borderRadius: 2, background: T.border, marginBottom: 10, overflow: "hidden" }}>
+          <div style={{ width: `${((step + 1) / steps.length) * 100}%`, height: "100%", background: T.sel, transition: "width 0.3s" }} />
+        </div>
+        <div style={{ fontFamily: FONT_UI, fontSize: fs(11.5), fontWeight: 600, color: T.muted, textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 4 }}>Step {step + 1} of {steps.length}</div>
+        <h3 style={{ fontFamily: FONT_UI, fontSize: fs(17), fontWeight: 700, color: T.ink, margin: "0 0 6px", lineHeight: 1.3 }}>{s.title}</h3>
+        <p style={{ fontFamily: FONT_UI, fontSize: fs(14), color: T.ink, lineHeight: 1.55, margin: "0 0 12px" }}>
+          {missing ? "I can’t find that button on this screen. Press Continue and I’ll take you to the next step." : s.body}
+        </p>
+        {!showNext && <p style={{ fontFamily: FONT_UI, fontSize: fs(12.5), color: T.link, fontWeight: 600, margin: "0 0 10px" }}>{s.mode === "click" ? "Tap the glowing button to continue." : "Do the step above and this moves on by itself."}</p>}
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 10 }}>
+          <button onClick={api.endTour} style={{ background: "none", border: "none", padding: 4, fontFamily: FONT_UI, fontSize: fs(12.5), color: T.muted, textDecoration: "underline", cursor: "pointer" }}>Exit tutorial</button>
+          {showNext
+            ? <PrimaryButton T={T} onClick={onNextClick}>{missing ? "Continue" : s.nextLabel || "Next"}</PrimaryButton>
+            : canSkip && <GhostButton T={T} onClick={() => advance(step)}>Skip this step</GhostButton>}
+        </div>
+      </div>
+    </>
+  );
+}
+
+// ---------------------------------------------------------------------------
 // Root app
 function OworldApp() {
   // Everything persisted is read ONCE, synchronously, before the first render — so a refresh drops the
@@ -15196,11 +15374,10 @@ function OworldApp() {
   const [history, setHistory] = useState(boot.session ? boot.session.history : []); // immutable snapshot of every finished attempt (baseline + retests)
   const [darkMode, setDarkMode] = useState(boot.prefs.darkMode);
   const [lang, setLang] = useState(boot.prefs.lang); // English is the default
-  const [showWelcome, setShowWelcome] = useState(() => {
-    try {
-      return boot.library.length === 0 && !boot.session && localStorage.getItem("oworld_onboarded") !== "true";
-    } catch (e) { return false; }
-  });
+  const [tourStep, setTourStep] = useState(null); // null = no guided tutorial running; otherwise the index into TOUR_STEPS
+  const [welcomeOn, setWelcomeOn] = useState(boot.prefs.welcomeOn !== false); // Settings: show the Welcome screen at every start
+  // The Welcome screen opens on every launch while the setting is on. It stays out of the way of a saved in-progress session.
+  const [showWelcome, setShowWelcome] = useState(() => boot.prefs.welcomeOn !== false && !boot.session);
   const [showOnboarding, setShowOnboarding] = useState(() => {
     try { 
       return !showWelcome && localStorage.getItem("oworldOnboardingComplete") !== "true"; 
@@ -15300,9 +15477,9 @@ function OworldApp() {
     setTrash((cur) => { const keep = cur.filter((e) => e.deletedAt > cut); return keep.length === cur.length ? cur : keep; });
   }, [libTab]);
   useEffect(() => {
-    const isDefault = darkMode === true && lang === "en" && textScale === 1 && srcAuto === true;
-    persist(LS_PREFS, isDefault ? null : JSON.stringify({ darkMode, lang, textScale, srcAuto }));
-  }, [darkMode, lang, textScale, srcAuto]);
+    const isDefault = darkMode === true && lang === "en" && textScale === 1 && srcAuto === true && welcomeOn === true;
+    persist(LS_PREFS, isDefault ? null : JSON.stringify({ darkMode, lang, textScale, srcAuto, welcomeOn }));
+  }, [darkMode, lang, textScale, srcAuto, welcomeOn]);
   useEffect(() => {
     if (!restoredNotice) return;
     const id = setTimeout(() => setRestoredNotice(false), 5000);
@@ -15923,7 +16100,6 @@ function OworldApp() {
   // written to localStorage by the auto-save effect above on every change, so the session is already saved when we leave.
   // A timed block can't leave the exam screen at all (no mid-block navigation); the button isn't rendered there either.
   const finishWelcome = () => {
-    try { localStorage.setItem("oworld_onboarded", "true"); } catch (e) {}
     setShowWelcome(false);
   };
   const handleWelcomeImport = () => {
@@ -15931,14 +16107,20 @@ function OworldApp() {
     try { sessionStorage.setItem("oworld_welcome_import", "1"); } catch (e) {}
     setLibTab("import"); 
   };
-  const handleWelcomeTutorial = () => {
-    const tutorialExam = { blocks: [TUTORIAL_BLOCK] };
-    setExamData(tutorialExam);
-    setBlockStates(tutorialExam.blocks.map(makeInitialBlockState));
+  // The tutorial starts on the landing page (Dashboard) with the guided tour, and loads the practice block only when the tour reaches it.
+  const loadTutorial = () => {
+    setExamData(TUTORIAL_EXAM);
+    setBlockStates(TUTORIAL_EXAM.blocks.map(makeInitialBlockState));
     setHistory([]);
-    setActiveBlockIdx(0);
-    setView("exam");
+    setActiveBlockIdx(null);
+    setView("lobby");
+  };
+  const endTour = () => { setTourStep(null); removeLoadedExam(); setLibTab("library"); }; // leaves the tutorial block behind and lands on the Library
+  const handleWelcomeTutorial = () => {
     finishWelcome();
+    removeLoadedExam();
+    setLibTab("console");
+    setTourStep(0);
   };
   const startDemo = () => {
     const demoBlocks = DEMO_EXAM.blocks.map(debiasBlock);
@@ -16215,6 +16397,7 @@ function OworldApp() {
     <DbContext.Provider value={dbCtx}>
     <ProfileContext.Provider value={profileCtx}>
     <SrcAutoContext.Provider value={{ on: srcAuto, set: setSrcAuto }}>
+    <WelcomePrefContext.Provider value={{ on: welcomeOn, set: setWelcomeOn }}>
     <CareerContext.Provider value={careerCtx}>
     <div style={{ minHeight: "100vh", background: T.paper, fontFamily: FONT_UI, textAlign: "left" }}>
       {srcWin && <TutorSourcesWindow sources={srcWin.sources} T={T} onClose={() => setSrcWin(null)} />}
@@ -16353,7 +16536,7 @@ function OworldApp() {
           omitInfo={omitPlan}
           onRate={(q, k) => rateQuestion(activeBlockIdx, q, k)}
           onHome={goHome}
-          onSkipTutorial={examData.blocks[activeBlockIdx].isTutorial ? () => { submitActiveBlock(); setView("lobby"); } : undefined}
+          onSkipTutorial={examData.blocks[activeBlockIdx].isTutorial ? endTour : undefined}
           darkMode={darkMode}
           setDarkMode={setDarkMode}
         />
@@ -16402,6 +16585,7 @@ function OworldApp() {
       )}
     </div>
     </CareerContext.Provider>
+    </WelcomePrefContext.Provider>
     </SrcAutoContext.Provider>
     </ProfileContext.Provider>
     </DbContext.Provider>
@@ -16411,6 +16595,7 @@ function OworldApp() {
     </TrashContext.Provider>
     </DataContext.Provider>
     </TextScaleContext.Provider>
+    {tourStep !== null && <GuidedTour step={tourStep} setStep={setTourStep} T={T} api={{ loadTutorial, endTour }} ctx={{ view, libTab, bs: examData && examData.blocks[0] && examData.blocks[0].isTutorial ? blockStates[0] : null }} />}
     {showWelcome && <WelcomeModal T={T} onImport={handleWelcomeImport} onTutorial={handleWelcomeTutorial} onSkip={finishWelcome} />}
     {showOnboarding && <OnboardingTour onClose={() => setShowOnboarding(false)} T={T} />}
     </LangContext.Provider>
