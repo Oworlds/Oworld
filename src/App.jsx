@@ -371,7 +371,7 @@ const STR = {
     
     libTypeAll: "Import", libTypeQbank: "Qbank", moreActions: "More actions", omitQuestion: "Omit question", omitTitle: "Remove this question from your Qbank?", omitConfirmSaved: "This permanently deletes the question from \"{title}\". It will not appear when you practise, and it will not be included if you share or export that Qbank. This cannot be undone.", omitConfirmLocal: "This question is not saved in your library. It is removed from this block and from anything you share from it. This cannot be undone.", omitGo: "Omit permanently", omitLastHint: "Every block and Qbank needs at least one question, so this one cannot be omitted.", trashQuestions: "Questions", trashKindQuestion: "Question", trashQuestionNoBank: "{s} omitted question(s) could not be restored because their Qbank is no longer in your library.", syncQHint: "Syncs your progress and omitted questions to your other devices and your Qbank.", giveFeedback: "Give feedback", reportIssue: "Report an Issue", defineBtn: "Define", defLoading: "Looking up…", defDisambig: "This term has several meanings on Wikipedia.", defNoArticle: "No Wikipedia article matches this term.", defUnavailable: "Could not load a definition right now.", defReadFull: "Read full article", defSeeAll: "See all meanings", defOpenWiki: "Open on Wikipedia", defSkipped: "Select a more specific medical term to look it up.", defCaveat: "Definitions are for background only; rely on your source text for management.",
     recipeTitle: "Copy & Paste this prompt to generate a Qbank", stepWord: "Step", step1Title: "Copy a Question Recipe", step2Title: "Sources to Generate Questions", step3Title: "Paste the AI Qbank Output Here", copied: "Copied", copy: "Copy", schema: "JSON schema",     createdBy: "OWORLD is created by", role: "Medical student | Founder of Verde+", supportOworld: "Support Oworld",
-    joinDiscord: "Join our Discord", libGetCommunity: "Get Community Qbanks", 
+    tabAtlas: "Biochem Atlas", joinDiscord: "Join our Discord", libGetCommunity: "Get Community Qbanks", 
     supportCardText: "Oworld is free and stays free. If it helps you, consider supporting the project.", supportCardBtn: "Support",
     supportResultsTitle: "You just finished a free block.", supportResultsBody: "Oworld will never lock its questions behind a paywall. If you found this valuable, consider supporting the project.", supportResultsBtn: "Support Oworld",
     notAffil: "Not affiliated with NBME or USMLE®", tmTitle: "Trademark disclaimer",
@@ -563,7 +563,7 @@ const STR = {
     
     libTypeAll: "Importar", libTypeQbank: "Qbank", moreActions: "Más acciones", omitQuestion: "Omitir pregunta", omitTitle: "¿Quitar esta pregunta de tu Qbank?", omitConfirmSaved: "Esto elimina la pregunta de \"{title}\" de forma permanente. No aparecerá al practicar y no se incluirá si compartes o exportas ese Qbank. No se puede deshacer.", omitConfirmLocal: "Esta pregunta no está guardada en tu biblioteca. Se quita de este bloque y de todo lo que compartas desde él. No se puede deshacer.", omitGo: "Omitir definitivamente", omitLastHint: "Cada bloque y cada Qbank necesita al menos una pregunta, así que no se puede omitir esta.", trashQuestions: "Preguntas", trashKindQuestion: "Pregunta", trashQuestionNoBank: "No se pudieron restaurar {s} pregunta(s) omitida(s) porque su Qbank ya no está en tu biblioteca.", syncQHint: "Sincroniza tu progreso y las preguntas omitidas con tus otros dispositivos y tu Qbank.", giveFeedback: "Enviar comentarios", reportIssue: "Informar de un problema", defineBtn: "Definir", defLoading: "Buscando…", defDisambig: "Este término tiene varios significados en Wikipedia.", defNoArticle: "Ningún artículo de Wikipedia coincide con este término.", defUnavailable: "No se pudo cargar una definición ahora mismo.", defReadFull: "Leer el artículo completo", defSeeAll: "Ver todos los significados", defOpenWiki: "Abrir en Wikipedia", defSkipped: "Selecciona un término médico más específico para buscarlo.", defCaveat: "Las definiciones son solo información de contexto; para el manejo, guíate por tu texto de referencia.",
     recipeTitle: "Copia y pega este prompt para generar un Qbank", stepWord: "Paso", step1Title: "Copia una receta de preguntas", step2Title: "Fuentes para generar preguntas", step3Title: "Pega aquí el Qbank generado por la IA", copied: "Copiado", copy: "Copiar", schema: "Esquema JSON",     createdBy: "OWORLD fue creado por", role: "Estudiante de medicina | Fundador de Verde+", supportOworld: "Apoyar a Oworld",
-    joinDiscord: "Únete a nuestro Discord", libGetCommunity: "Obtener Qbanks de la comunidad", 
+    tabAtlas: "Biochem Atlas", joinDiscord: "Únete a nuestro Discord", libGetCommunity: "Obtener Qbanks de la comunidad", 
     supportCardText: "Oworld es gratis y seguirá siéndolo. Si te ayuda, considera apoyar el proyecto.", supportCardBtn: "Apoyar",
     supportResultsTitle: "Acabas de terminar un bloque gratis.", supportResultsBody: "Oworld nunca bloqueará sus preguntas tras un muro de pago. Si te resultó valioso, considera apoyar el proyecto.", supportResultsBtn: "Apoyar a Oworld",
     notAffil: "Sin afiliación con NBME ni USMLE®", tmTitle: "Aviso de marcas registradas",
@@ -8386,6 +8386,7 @@ function SettingsMenu({ darkMode, setDarkMode, T, iconOnly = false }) {
   const [open, setOpen] = useState(false);
   const [popup, setPopup] = useState(null); // null | "trash" | "account" | "settings"
   const [helpHover, setHelpHover] = useState(false);
+  const [atlasHover, setAtlasHover] = useState(false);
   const wrapRef = useRef(null);
   const trashLive = trashCtx.trash.filter((e) => e.deletedAt + TRASH_TTL > Date.now()).length;
   useEffect(() => {
@@ -8545,6 +8546,19 @@ function SettingsMenu({ darkMode, setDarkMode, T, iconOnly = false }) {
                 <ChevronRight size={15} color={T.muted} />
               </button>
             )}
+            <a href={ATLAS_URL} target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)}
+              onMouseEnter={() => setAtlasHover(true)} onMouseLeave={() => setAtlasHover(false)}
+              onFocus={() => setAtlasHover(true)} onBlur={() => setAtlasHover(false)}
+              style={{
+                width: "100%", boxSizing: "border-box", display: "flex", alignItems: "center", gap: 10, borderRadius: 6, cursor: "pointer",
+                background: atlasHover ? "rgba(56, 189, 248, 0.12)" : "transparent", border: `1px solid ${atlasHover ? SKY_400 : T.border}`,
+                padding: "9px 12px", fontFamily: FONT_UI, fontWeight: 600, fontSize: fs(13), color: T.ink, textAlign: "left", textDecoration: "none",
+                transition: "background 0.15s, border-color 0.15s",
+              }}>
+              <FlaskConical size={15} color={atlasHover ? SKY_400 : T.muted} />
+              <span style={{ flex: 1 }}>{t("tabAtlas")}</span>
+              <ExternalLink size={14} color={atlasHover ? SKY_400 : T.muted} />
+            </a>
             <a href={HELP_URL} target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)}
               onMouseEnter={() => setHelpHover(true)} onMouseLeave={() => setHelpHover(false)}
               onFocus={() => setHelpHover(true)} onBlur={() => setHelpHover(false)}
@@ -11767,6 +11781,7 @@ function UniversalSearchBar({ q, setQ, scope, setScope, pageScope, library, sess
 }
 
 const DISCORD_URL = "https://discord.gg/ecYDZgumB";
+const ATLAS_URL = "https://atlas.oworld.pro"; // Biochem Atlas, external metabolic atlas (account menu, between Database and Help)
 const HELP_URL = "https://help.oworld.pro"; // external docs site (account menu > Help)
 const SKY_400 = "#38bdf8"; // electric blue used for the Help link hover state
 
