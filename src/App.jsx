@@ -11955,8 +11955,8 @@ function ImportScreen({ onImport, onSaveToLibrary, library, sessionLog = [], dri
       <style>{`@import url('${FONT_IMPORT_URL}');`}</style>
 
       <AnkiManagerPanel T={T} />
-      {/* Sticky header: the top bar and the page tabs stay pinned while the page scrolls. */}
-      <div ref={stickyRef} data-oworld-sticky style={{ position: "sticky", top: 0, zIndex: 20, background: T.paper, margin: "-22px -20px 22px", padding: "14px 20px 0" }}>
+      {/* Sticky header: the top bar and the page tabs stay pinned while the page scrolls. It spans the full window width (same as OMINO's header); the page content below stays in its centered column. */}
+      <div ref={stickyRef} data-oworld-sticky style={{ position: "sticky", top: 0, zIndex: 20, background: T.paper, margin: `-22px calc(50% - ${Math.floor((document.documentElement.clientWidth || vp.w) / 2)}px) 22px`, padding: "14px 20px 0" }}>
       {/* Top bar: the OWORLD logo (the Home button) at the left, Search + notifications + the profile menu (which holds Help) at the right. */}
       <div style={wideBar
         ? { display: "grid", gridTemplateColumns: "1fr auto 1fr", alignItems: "center", gap: 12, marginBottom: 12 } // 1fr | search | 1fr keeps the search bar exactly centered
